@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: mmontwil
-ms.openlocfilehash: f07c5a3e28abc3600b13da2320e55860ede2f7c5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6bee2d4e41c383edac81a6b511cf5cfc5d68da9f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978267"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636611"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introdução ao Azure Dev Spaces com Java
 
@@ -71,7 +71,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster Kubernetes com o seguinte comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 São necessários alguns minutos para criar o cluster.
@@ -83,6 +83,9 @@ Insira o seguinte comando da CLI do Azure, usando o grupo de recursos que conté
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
+
+> [!IMPORTANT]
+> O processo de configuração do Azure Dev Spaces remove o namespace `azds` no cluster, se existir.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Obter depuração do Kubernetes para VS Code
 Recursos avançados como depuração do Kubernetes estão disponíveis para desenvolvedores .NET Core e Node.js usando VS Code.

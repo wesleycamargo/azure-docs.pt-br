@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bc168cf696d6280ce4c0e7cb46f90af4a2ad7aa0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802994"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686477"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Node
 
@@ -25,7 +25,9 @@ O [código-fonte para amostras de SDK de Pesquisa de Notícias do Bing em Node](
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 
-Para configurar um aplicativo de console usando o SDK da Pesquisa de Notícias do Bing, execute `npm install azure-cognitiveservices-newssearch` no ambiente de desenvolvimento.
+Para configurar um aplicativo de console usando o SDK de Pesquisa de Notícias do Bing:
+* Execute `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
+* Execute `npm install azure-cognitiveservices-newssearch` em seu ambiente de desenvolvimento.
 
 ## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
 Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisar*. Crie uma instância de `CognitiveServicesCredentials`:

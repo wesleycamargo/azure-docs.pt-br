@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416980"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515243"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (Java)
 
@@ -26,6 +26,7 @@ O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de 
 O início rápido usa dois aplicativos previamente escritos em Java:
 
 * Um aplicativo de dispositivo simulado que responde aos métodos diretos chamados de um aplicativo de back-end. Para receber as chamadas de método direto, esse aplicativo se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT.
+
 * Um aplicativo de back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto em um dispositivo, esse aplicativo se conecta a um ponto de extremidade do lado do serviço em seu hub IoT.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +59,7 @@ Caso ainda não tenha feito isso, faça o download do projeto de exemplo em Java
 
 Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-java.md) anterior, ignore esta etapa.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
@@ -74,7 +75,8 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
 2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
@@ -82,7 +84,10 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string \
+      -hub-name YourIoTHubName \
+      --device-id MyJavaDevice \
+      --output table
     ```
 
     Tome nota da cadeia de conexão do dispositivo, que se parece com:
@@ -131,7 +136,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
     A captura de tela a seguir mostra o resultado à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Executar o dispositivo simulado](media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Executar o dispositivo simulado](./media/quickstart-control-device-java/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>Chamar o método direto
 
@@ -157,11 +162,11 @@ O aplicativo de back-end se conecta a um ponto de extremidade do lado do serviç
 
     A captura de tela a seguir mostra a saída à medida que o aplicativo faz uma chamada de método direto para o dispositivo e recebe uma confirmação:
 
-    ![Executar o aplicativo de back-end](media/quickstart-control-device-java/BackEndApplication.png)
+    ![Executar o aplicativo de back-end](./media/quickstart-control-device-java/BackEndApplication.png)
 
     Após executar o aplicativo de back-end, você verá uma mensagem na janela do console com o dispositivo simulado em execução, e a taxa de mudança de envio das mensagens:
 
-    ![Alteração no cliente simulado](media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Alteração no cliente simulado](./media/quickstart-control-device-java/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

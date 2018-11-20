@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319329"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621013"
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
-O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma conexão de firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
+O serviço de Retransmissão do Azure permite que você exponha com segurança os serviços que são executados na sua rede corporativa para a nuvem pública. Você pode expor os serviços sem abrir uma porta no seu firewall e realizar alterações invasivas a uma infraestrutura de rede corporativa. 
 
 O serviço de retransmissão é compatível com os seguintes cenários entre os serviços locais e aplicativos em execução na nuvem ou em outro ambiente local. 
 
@@ -56,7 +56,7 @@ Para obter detalhes sobre o protocolo de Conexão híbrida, confira o [Guia de p
 > As Conexões Híbridas da Retransmissão do Azure substituem o antigo recurso Conexões Híbridas dos Serviços BizTalk. O recurso Conexões Híbridas nos Serviços BizTalk era baseado na Retransmissão do WCF do Barramento de Serviço do Azure. A funcionalidade Conexões Híbridas na Retransmissão do Azure complementa o recurso de Retransmissão do WCF já existente. Essas duas funcionalidades de serviço (Retransmissão do WCF e Conexões Híbridas) existem lado a lado no serviço de Retransmissão do Azure. Eles compartilham um gateway comum, mas têm implementações diferentes.
 
 ## <a name="wcf-relay"></a>Retransmissão de WCF
-A Retransmissão do WCF funciona com o .NET Framework completo e o WCF. Você cria uma conexão entre o serviço local e o serviço de retransmissão usando um pacote de associações de “retransmissão” do WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. Para saber mais, confira a [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
+A Retransmissão do WCF funciona com o .NET Framework completo e o WCF. Você cria uma conexão entre o serviço local e o serviço de retransmissão usando um pacote de associações de “retransmissão” do WCF. As associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. Para saber mais, confira a [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Conexões Híbridas versus Retransmissão de WCF
 Tanto as Conexões Híbridas quanto a Retransmissão do WCF habilitam a conexão segura com os ativos que existem dentro de uma rede corporativa. Usar uma ou outra depende das suas necessidades específicas, conforme descrito na seguinte tabela:
@@ -68,7 +68,7 @@ Tanto as Conexões Híbridas quanto a Retransmissão do WCF habilitam a conexão
 | **.NET Framework** |x |x |
 | **Script Java/Node.JS** | |x |
 | **Protocolo aberto baseado em padrões** | |x |
-| **Vários modelos de programação de RPC** | |x |
+| **Modelos de programação RPC** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de mensagens de solicitações de retransmissão
 O diagrama a seguir mostra como as solicitações de retransmissão de entrada são manipuladas pelo serviço de Retransmissão do Azure:
@@ -86,9 +86,9 @@ O diagrama a seguir mostra como as solicitações de retransmissão de entrada s
 9. O gateway encaminha qualquer mensagem do cliente que enviou para o cliente que está escutando.  
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução a .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)
+* [Introdução a .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução a Pedidos .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Introdução a Node Websockets](relay-hybrid-connections-node-get-started.md)
+* [Introdução a Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Introdução a Pedidos Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210458"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566560"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -154,7 +154,10 @@ Execute um failover para as máquinas que você deseja migrar.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente.
 3. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará desligar o servidor antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 4. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
-5. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM e interrompe a cobrança do Site Recovery para a VM.
+5. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso faz o seguinte:
+
+    - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
    ![Migração completa](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

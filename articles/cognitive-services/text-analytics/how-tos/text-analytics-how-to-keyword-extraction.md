@@ -1,7 +1,6 @@
 ---
-title: 'Exemplo: como extrair frases-chave na Análise de Texto'
-titleSuffix: Azure Cognitive Services
-description: Saiba como extrair frases-chave usando a API REST de Análise de Texto.
+title: Como usar a extração de frase-chave na API REST de Análise de Texto (Serviços Cognitivos da Microsoft no Azure) | Microsoft Docs
+description: Como extrair as frases chave usando a API REST de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure neste tutorial passo a passo.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605480"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632383"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: como extrair frases-chave na Análise de Texto
 
@@ -24,6 +23,9 @@ A [API de Extração de Frases-chave](https://westus.dev.cognitive.microsoft.com
 Esse recurso é útil se você precisar identificar rapidamente os principais pontos de estratégias em uma coleção de documentos. Por exemplo, para o texto de entrada dado "A comida estava deliciosa e a equipe era maravilhosa", o serviço retorna os principais pontos de discussão: "comida" e "equipe maravilhosa".
 
 Atualmente, a Extração de Frases-chave dá tem suporte em inglês, alemão, espanhol e japonês. Os idiomas estão em versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> A Análise de Texto também fornece uma imagem de contêiner do Docker baseado em Linux para extração de frases-chave, para que você possa [instalar e executar o contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) perto de seus dados.
 
 ## <a name="preparation"></a>Preparação
 
@@ -71,7 +73,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 + Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Defina o ponto de extremidade HTTP para a extração da frase-chave. Deve incluir o recurso `/keyphrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Defina o ponto de extremidade HTTP para extração de frases-chave, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 

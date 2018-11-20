@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250599"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634321"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -53,6 +53,10 @@ Você também pode [reconhecer texto impresso e manuscrito](concept-recognizing-
 ## <a name="moderating-content-in-images"></a>Moderando conteúdo em imagens
 
 Você pode usar a Pesquisa Visual Computacional para [detectar conteúdo adulto e erótico](concept-detecting-adult-content.md) em uma imagem, classificar a probabilidade de que a imagem contenha conteúdo adulto ou erótico e gerar uma pontuação de confiança para ambos. O filtro para detecção de conteúdo para adulto pode ser definido em uma escala deslizante para atender a suas preferências.
+
+## <a name="using-containers"></a>Como usar contêineres
+
+[Use os contêineres de Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) para reconhecer texto impresso e manuscrito localmente, por meio da instalação de um contêiner do Docker padronizado mais próximos aos seus dados.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 

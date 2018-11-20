@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 614e1dc7af174952bb1db0f47e989a91f7334622
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 73eae5f024c6dc707e5fa7c0a55d88672271e313
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363870"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515770"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (Node.js)
 
@@ -26,6 +26,7 @@ O Hub IoT é um serviço do Azure que permite a ingestão de grandes volumes de 
 O início rápido usa dois aplicativos previamente escritos em Node.js:
 
 * Um aplicativo de dispositivo simulado que responde aos métodos diretos chamados de um aplicativo de back-end. Para receber as chamadas de método direto, esse aplicativo se conecta a um ponto de extremidade específico do dispositivo em seu hub IoT.
+
 * Um aplicativo de back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto em um dispositivo, esse aplicativo se conecta a um ponto de extremidade do lado do serviço em seu hub IoT.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -50,7 +51,7 @@ Caso ainda não tenha feito isso, faça o download do projeto de exemplo do Node
 
 Se você tiver concluído o [Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT](quickstart-send-telemetry-node.md) anterior, ignore esta etapa.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar um dispositivo
 
@@ -66,15 +67,19 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
-1. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
+2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão de dispositivo_ referente ao dispositivo que você acabou de registrar:
 
     **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string \
+      --hub-name YourIoTHubName \
+      --device-id MyNodeDevice \
+      --output table
     ```
 
     Tome nota da cadeia de conexão do dispositivo, que se parece com:
@@ -83,12 +88,13 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 
     Você usará esse valor posteriormente no início rápido.
 
-1. Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
+3. Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
 
     **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string \
+      --hub-name YourIoTHubName --output table
     ```
 
     Tome nota da cadeia de conexão de serviço, que se parece com:
@@ -103,11 +109,11 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
 1. Em uma janela de terminal local, navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Abra o arquivo **SimulatedDevice.js** em seu editor de texto preferido.
+2. Abra o arquivo **SimulatedDevice.js** em seu editor de texto preferido.
 
     Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve as alterações no arquivo **SimulatedDevice.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
+3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de dispositivo simulado:
 
     ```cmd/sh
     npm install
@@ -116,7 +122,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
     A captura de tela a seguir mostra o resultado à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Executar o dispositivo simulado](media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![Executar o dispositivo simulado](./media/quickstart-control-device-node/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>Chamar o método direto
 
@@ -124,11 +130,11 @@ O aplicativo de back-end se conecta a um ponto de extremidade do lado do serviç
 
 1. Em outra janela de terminal local, navegue até a pasta raiz do projeto Node.js de exemplo. Em seguida, navegue até a pasta **iot-hub\Quickstarts\back-end-application**.
 
-1. Abra o arquivo **BackEndApplication.js** em seu editor de texto preferido.
+2. Abra o arquivo **BackEndApplication.js** em seu editor de texto preferido.
 
     Substitua o valor da variável `connectionString` pela cadeia de conexão do serviço que você anotou anteriormente. Salve suas alterações no arquivo **BackEndApplication.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de back-end:
+3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar o aplicativo de back-end:
 
     ```cmd/sh
     npm install
@@ -137,16 +143,15 @@ O aplicativo de back-end se conecta a um ponto de extremidade do lado do serviç
 
     A captura de tela a seguir mostra a saída à medida que o aplicativo faz uma chamada de método direto para o dispositivo e recebe uma confirmação:
 
-    ![Executar o aplicativo de back-end](media/quickstart-control-device-node/BackEndApplication.png)
+    ![Executar o aplicativo de back-end](./media/quickstart-control-device-node/BackEndApplication.png)
 
     Após executar o aplicativo de back-end, você verá uma mensagem na janela do console com o dispositivo simulado em execução, e a taxa de mudança de envio das mensagens:
 
-    ![Alteração no cliente simulado](media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![Alteração no cliente simulado](./media/quickstart-control-device-node/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

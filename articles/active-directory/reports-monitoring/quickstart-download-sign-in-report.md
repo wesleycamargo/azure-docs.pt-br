@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362962"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621421"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: baixar um relatório de entrada usando o portal do Azure
 
@@ -32,7 +32,7 @@ Neste início rápido, você aprenderá a baixar os dados de entrada para seu lo
 Você precisa de:
 
 * Um locatário do Azure Active Directory, com uma licença Premium para exibir o relatório de atividade de entrada. 
-* Um usuário, que está na função de Administrador de Segurança, Leitor de Segurança, Leitor de Relatório ou Administrador Global para o locatário. Além disso, qualquer usuário no locatário pode acessar suas próprias entradas.
+* Um usuário, que está na função de **Administrador de Segurança**, **Leitor de Segurança**, **Leitor de Relatório** ou **Administrador Global** para o locatário. Além disso, qualquer usuário no locatário pode acessar suas próprias entradas.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: baixar um relatório de entrada
 

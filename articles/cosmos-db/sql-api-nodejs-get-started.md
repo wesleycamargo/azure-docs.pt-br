@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278592"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636455"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo de console do Node.js com o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
 
@@ -218,7 +218,7 @@ Agora que você tem o código para inicializar o cliente do Azure Cosmos DB, ver
    const containerId = config.container.id;
    ```
 
-   Um [banco de dados](sql-api-resources.md#databases) pode ser criado usando a função [createIfNotExists](/javascript/api/%40azure/cosmos/databases) ou [create](/javascript/api/%40azure/cosmos/databases) da classe **Databases**. Um banco de dados é o contêiner lógico de itens particionados em contêineres. 
+   Um banco de dados pode ser criado usando a função [createIfNotExists](/javascript/api/%40azure/cosmos/databases) ou [create](/javascript/api/%40azure/cosmos/databases) da classe **Databases**. Um banco de dados é o contêiner lógico de itens particionados em contêineres. 
 
 2. Copie e cole os métodos **createDatabase** e **readDatabase** no arquivo app.js abaixo das definições de ```databaseId``` e ```containerId```. A função **createDatabase** criará um novo banco de dados com a ID ```FamilyDatabase```, especificada no objeto ```config``` se ele ainda não existir. A função **readDatabase** lerá a definição do banco de dados para garantir que o banco de dados existe.
 

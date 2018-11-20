@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978311"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685351"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -36,9 +36,6 @@ Máquinas virtuais (VMs) do Azure usam discos para armazenar o sistema operacion
 > * Redimensionamento de discos
 > * Instantâneos de disco
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.30 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Discos padrão do Azure
 
@@ -48,35 +45,15 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 **Disco temporário** - Discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a máquina virtual. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da máquina virtual. Os discos temporários são rotulados */dev/sdb* e têm um ponto de montagem de */mnt*.
 
-### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
-
-| Tipo | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
-|----|----|----|
-| [Propósito geral](sizes-general.md) | Série A, B e D | 1600 |
-| [Computação otimizada](sizes-compute.md) | Série F | 576 |
-| [Memória otimizada](sizes-memory.md) | Série D, E, G e M | 6144 |
-| [Armazenamento otimizado](sizes-storage.md) | Série L | 5630 |
-| [GPU](sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](sizes-hpc.md) | Séries A e H | 2000 |
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 TB. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados dois discos de dados.
+Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 TB. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
 
-### <a name="max-data-disks-per-vm"></a>Máximo de discos de dados por VM
-
-| Tipo | Tamanho da VM | Máximo de discos de dados por VM |
-|----|----|----|
-| [Propósito geral](sizes-general.md) | Série A, B e D | 64 |
-| [Computação otimizada](sizes-compute.md) | Série F | 64 |
-| [Memória otimizada](../virtual-machines-windows-sizes-memory.md) | Série D, E e G | 64 |
-| [Armazenamento otimizado](../virtual-machines-windows-sizes-storage.md) | Série L | 64 |
-| [GPU](sizes-gpu.md) | Série N | 64 |
-| [Alto desempenho](sizes-hpc.md) | Série A e H | 64 |
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
-O Azure fornece dois tipos de disco.
+O Azure fornece dois tipos de discos, standard e Premium.
 
 ### <a name="standard-disk"></a>Disco Standard
 
@@ -88,13 +65,20 @@ Os discos Premium são apoiados por disco de baixa latência e alto desempenho b
 
 ### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 
-|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco (arredondado) | 32 GB | 64 GB | 128 GB | 512 GB | 1.024 GB (1 TB) | 2,048 GB (2 TB) | 4,095 GB (4 TB) |
-| IOPS máxima por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 |
-Taxa de transferência por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
+|Tipo de disco de armazenamento Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Tamanho do disco (arredondado) | 32 GiB | 64 GiB | 128 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
+| IOPS máxima por disco | 120 | 240 | 500 | 2.300 | 5.000 | 7.500 | 7.500 | 12.500 |
+Taxa de transferência por disco | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
 
 Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tamanhos da VM Linux](sizes.md).
+
+
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/powershell](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
 ## <a name="create-and-attach-disks"></a>Criar e anexar discos
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -139,7 +122,6 @@ az vm disk attach \
 
 Depois que um disco é anexado à máquina virtual, o sistema operacional precisa ser configurado para usar o disco. O exemplo a seguir mostra como configurar um disco manualmente. Esse processo também pode ser automatizado utilizando a inicialização por nuvem, que é abordada em um [tutorial posterior](./tutorial-automate-vm-deployment.md).
 
-### <a name="manual-configuration"></a>Configuração manual
 
 Crie uma conexão SSH com a máquina virtual. Substitua o endereço IP de exemplo pelo endereço IP público de sua máquina virtual.
 
@@ -204,42 +186,10 @@ Agora que o disco foi configurado, feche a sessão SSH.
 exit
 ```
 
-## <a name="resize-vm-disk"></a>Redimensionar o disco da máquina virtual
 
-Após a implantação de uma máquina virtual, o disco do sistema operacional ou quaisquer discos de dados anexados podem aumentar de tamanho. Aumentar o tamanho de um disco é útil quando é você precisa de mais espaço de armazenamento ou um nível mais alto de desempenho (tais como P10, P20 e P30). Discos não podem ser reduzidos.
+## <a name="snapshot-a-disk"></a>Instantâneo de um disco
 
-Antes de aumentar o tamanho de um disco, é necessário ter a ID ou o nome do disco. Utilize o comando [az disk list](/cli/azure/disk#az-disk-list) para retornar todos os discos em um grupo de recursos. Anote o nome do disco que você deseja redimensionar.
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-A máquina vitual deve ser desalocada. Utilize o comando [az vm deallocate](/cli/azure/vm#az-vm-deallocate) para parar e desalocar a máquina virtual.
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-Utilize o comando [az disk update](/cli/azure/vm/disk#az-vm-disk-update) para redimensionar o disco. Este exemplo redimensiona um disco chamado *myDataDisk* para 1 terabyte.
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-Concluída a operação de redimensionamento, inicie a máquina virtual.
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-Se o disco do sistema operacional for redimensionado, a partição é expandida automaticamente. Se você redimensionar um disco de dados, as partições atuais precisam ser expandidas no sistema operacional das máquinas virtuais.
-
-## <a name="snapshot-azure-disks"></a>Discos padrão do Azure
-
-Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas leitura, de um ponto no tempo. Instantâneos de máquina virtual do Azure são úteis para salvar rapidamente o estado de uma máquina virtual antes de fazer alterações de configuração. No caso das alterações de configuração se mostrarem indesejadas, o estado da máquina virtual pode ser restaurado usando o instantâneo. Quando uma máquina virtual tem mais de um disco, um instantâneo é tirado de cada disco independentemente dos outros. Para fazer backups consistentes de aplicativos, considere parar a máquina virtual antes de tirar instantâneos de disco. Como alternativa, utilize o [serviço de Backup do Azure](/azure/backup/), que permite realizar backups automáticos, enquanto a máquina virtual está em execução.
+Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas leitura, de um ponto no tempo. Instantâneos de máquina virtual do Azure são úteis para salvar rapidamente o estado de uma máquina virtual antes de fazer alterações de configuração. No caso de um problema ou erro, a VM pode ser restaurada usando um instantâneo. Quando uma máquina virtual tem mais de um disco, um instantâneo é tirado de cada disco independentemente dos outros. Para fazer backups consistentes de aplicativos, considere parar a máquina virtual antes de tirar instantâneos de disco. Como alternativa, utilize o [serviço de Backup do Azure](/azure/backup/), que permite realizar backups automáticos, enquanto a máquina virtual está em execução.
 
 ### <a name="create-snapshot"></a>Como criar um instantâneo
 

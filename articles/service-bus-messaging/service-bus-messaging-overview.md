@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342200"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636577"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
@@ -39,7 +39,7 @@ As mensagens são enviadas e recebidas a partir de *filas*. As filas permitem qu
 
 ![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As mensagens em filas são ordenadas e recebem carimbo de data/hora na chegada. Quando aceita, a mensagem é mantida protegida em armazenamento com redundância. As mensagens são entregues em modo *pull*, que entrega mensagens mediante solicitação.
+As mensagens em filas são ordenadas e recebem carimbo de data/hora na chegada. Quando aceita, a mensagem é mantida protegida em armazenamento com redundância. As mensagens são entregues em modo  *pull*, que entrega mensagens mediante solicitação.
 
 ## <a name="topics"></a>Tópicos
 
@@ -115,9 +115,9 @@ O Barramento de Serviço dá suporte a bibliotecas de clientes para [.NET](https
 
 O Barramento de Serviço integra-se totalmente aos serviços do Azure a seguir:
 
-- [Grade de Eventos](https://azure.microsoft.com/services/event-grid/) 
-- [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
-- [Funções](https://azure.microsoft.com/services/functions/) 
+- [Grade de Eventos](https://azure.microsoft.com/services/event-grid/) 
+- [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) 
+- [Funções](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  

@@ -1,5 +1,5 @@
 ---
-title: Transmitir ao vivo com Serviços de Mídia do Microsoft Azure v3 usando .NET Core | Microsoft Docs
+title: Transmitir ao vivo com Serviços de Mídia do Azure v3 | Microsoft Docs
 description: Este tutorial orienta-o pelas etapas de transmissão ao vivo com o Serviços de Mídia v3 usando o .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392328"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613385"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Transmitir ao vivo com Serviços de Mídia do Microsoft Azure v3 usando .NET Core
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Transmitir ao vivo com Serviços de Mídia v3 usando APIs
 
-Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
+Nos Serviços de Mídia do Azure, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
 
 > [!NOTE]
 > Certifique-se de revisar [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md) antes de continuar. 
@@ -31,7 +31,6 @@ Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/
 Este tutorial mostra como:    
 
 > [!div class="checklist"]
-> * Criar uma conta de Serviços de Mídia
 > * Instalar a API de Serviços de Mídia
 > * Configurar o aplicativo de exemplo
 > * Examinar o código que executa a transmissão ao vivo
@@ -44,9 +43,17 @@ Este tutorial mostra como:
 
 Os itens a seguir são necessários para concluir o tutorial.
 
-* Instalar Visual Studio Code ou Visual Studio
-* Uma câmera ou um dispositivo (como laptop) usado para transmitir um evento.
-* Um codificador ao vivo local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
+- Instale o Visual Studio Code ou o Visual Studio.
+- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
+
+- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
+
+    Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia
+
+- Uma câmera ou um dispositivo (como laptop) usado para transmitir um evento.
+- Um codificador ao vivo local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
@@ -61,10 +68,6 @@ A amostra de transmissão ao vivo está localizada na pasta [Dinâmica](https://
 > [!IMPORTANT]
 > Esta amostra usa o sufixo exclusivo para cada recurso. Se você cancelar a depuração ou encerrar o aplicativo sem executá-lo, finalizará vários LiveEvents em sua conta. <br/>
 > Certifique-se de parar os LiveEvents em execução. Caso contrário, você será **cobrado**!
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ O evento ativo é convertido automaticamente em conteúdo sob demanda quando é 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente. Use a ferramenta **CloudShell**.
+Se você não precisar mais de qualquer um dos recursos em seu grupo de recursos, incluindo as contas dos Serviços de Mídia e de armazenamento que você criou neste tutorial, exclua o grupo de recursos criados anteriormente.
 
-No **CloudShell**, execute o seguinte comando:
+Execute este comando da CLI:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

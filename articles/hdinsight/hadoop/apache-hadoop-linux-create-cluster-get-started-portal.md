@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight usando o portal do Azure '
+title: 'Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando o portal do Azure '
 description: Saiba como criar clusters do HDInsight usando o Portal do Azure e consultar dados com o Hive.
 keywords: introdução ao hadoop, hadoop linux, início rápido do hadoop, introdução ao hive, início rápido do hive
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 07f9f774e3d133a2a39aad16b06ed77938ad74c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6ae9030069f48e1805a657f938595b081271ba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281635"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632944"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight usando o Portal do Azure
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Início Rápido: Introdução ao Apache Hadoop e ao Apache Hive no Azure HDInsight usando o portal do Azure
 
-Neste artigo, você aprenderá a criar clusters [Hadoop](http://hadoop.apache.org/) no HDInsight usando o Portal do Azure e, depois, executar trabalhos do Hive no HDInsight. A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Neste artigo, você deve executar as três tarefas.
+Neste artigo, você aprenderá a criar clusters do [Apache Hadoop](http://hadoop.apache.org/) no HDInsight usando o portal do Azure e, depois, executar trabalhos do Apache Hive no HDInsight. A maioria dos trabalhos de Hadoop consiste em trabalhos em lotes. Criar um cluster, executar alguns trabalhos e excluir o cluster. Neste artigo, você deve executar as três tarefas.
 
 Neste início rápido, você usa o Portal do Azure para criar um cluster Hadoop do HDInsight. Também é possível criar um cluster usando o [modelo do Azure Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 

@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398699"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623189"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>O que é o monitoramento do Azure Active Directory? (versão prévia)
 
@@ -32,7 +32,6 @@ No momento, você pode rotear os logs para:
 - Uma conta de armazenamento do Azure.
 - Um hub de eventos do Azure, para que você possa integrar suas instâncias de Splunk e Sumologic.
 - Um espaço de trabalho do Log Analytics do Azure, no qual você pode analisar os dados, criar o painel e alertas para eventos específicos
-
 
 ## <a name="diagnostic-settings-configuration"></a>Definição das configurações de diagnóstico
 
@@ -53,7 +52,7 @@ Ao rotear os logs para uma conta de armazenamento do Azure, você pode mantê-lo
 
 ## <a name="stream-logs-to-event-hub"></a>Transmitir por streaming logs para um hub de eventos
 
-O roteamento de logs para um hub de eventos do Azure permite que você faça a integração com ferramentas SIEM de terceiros como Sumologic e Splunk. Essa integração permite combinar dados de log de atividades do Azure AD com outros dados gerenciados pelo seu SIEM, resultando em informações mais avançadas sobre seu ambiente. Saiba como [enviar seus logs para um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+O roteamento de logs para um hub de eventos do Azure permite que você faça a integração com ferramentas SIEM de terceiros como Sumologic e Splunk. Essa integração permite combinar dados de log de atividades do Azure AD com outros dados gerenciados pelo seu SIEM para fornecer em informações mais avançadas sobre seu ambiente. Saiba como [enviar seus logs para um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="send-logs-to-log-analytics"></a>Enviar logs ao Log Analytics
 

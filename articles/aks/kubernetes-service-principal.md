@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394583"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578342"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar e usar uma entidade de serviço para seus clusters
 
 Para criar uma entidade de serviço do Azure AD, você deve ter permissões para registrar um aplicativo com o locatário do Azure AD e para atribuir o aplicativo a uma função em sua assinatura. Se você não tiver as permissões necessárias, talvez precise solicitar ao administrador do seu Azure AD ou da assinatura que atribua as permissões necessárias ou crie previamente uma entidade de serviço para uso com o cluster do AKS.
 
-Você também precisa ter instalada e configurada a CLI do Azure versão 2.0.46 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
+A CLI do Azure versão 2.0.46 ou posterior também precisa estar instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e usar uma entidade de serviço automaticamente
 
@@ -75,6 +75,45 @@ Se você implantar um cluster do AKS usando o portal do Azure, na página *Auten
 
 ![Imagem de navegação para o Voto do Azure](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>Delegar acesso a outros recursos do Azure
+
+A entidade de serviço do cluster do AKS pode ser usada para acessar outros recursos. Por exemplo, se você quiser usar a rede avançada para se conectar a redes virtuais existentes, ou se conectar ao Registro de Contêiner do Azure (ACR), você precisará delegar acesso à entidade de serviço.
+
+Para delegar permissões, crie uma atribuição de função usando o comando [az role assignment create][az-role-assignment-create]. Atribua o `appId` a um escopo específico, como um grupo de recursos ou um recurso de rede virtual. Em seguida, uma função define quais permissões a entidade de serviço tem no recurso, conforme mostrado no exemplo a seguir:
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+O `--scope`, pois um recurso precisa ser uma ID de recurso completa, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+As seções a seguir detalham as delegações comuns que talvez você precise fazer.
+
+### <a name="azure-container-registry"></a>Registro de Contêiner do Azure
+
+Se você usar o ACR (Registro de Contêiner do Azure) como seu repositório de imagens, precisará conceder permissões para seu cluster do AKS ler e efetuar pull de imagens. A entidade de serviço do cluster do AKS deve ser receber a função *Leitor* no registro. Para conferir as etapas detalhadas, confira [Conceder ao AKS acesso ao ACR][aks-to-acr].
+
+### <a name="networking"></a>Rede
+
+Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endereços IP públicos, estiverem em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
+
+- Crie uma [função personalizada][rbac-custom-role] e defina as permissões de função a seguir:
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Ou, atribua a função interna [Colaborador de Rede][rbac-network-contributor] na sub-rede dentro da rede virtual
+
+### <a name="storage"></a>Armazenamento
+
+Talvez você precise acessar os recursos de disco existentes em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
+
+- Crie uma [função personalizada][rbac-custom-role] e defina as permissões de função a seguir:
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Ou, atribua a função interna [Colaborador da Conta de Armazenamento][rbac-storage-contributor] no grupo de recursos
+
 ## <a name="additional-considerations"></a>Considerações adicionais
 
 Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as considerações a seguir.
@@ -107,3 +146,8 @@ Para obter mais informações sobre entidades de serviço do Azure Active Direct
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

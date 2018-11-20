@@ -1,7 +1,6 @@
 ---
-title: 'Exemplo: analisar o sentimento com a API REST de Análise de Texto'
-titleSuffix: Azure Cognitive Services
-description: Saiba como detectar sentimento usando a API REST de Análise de Texto.
+title: Como usar a análise de sentimento na API REST de Análise de Texto (Serviços Cognitivos da Microsoft no Azure | Microsoft Docs
+description: Como detectar o sentimento usando a API REST de Análise de Texto nos Serviços Cognitivos da Microsoft no Azure neste tutorial passo a passo.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605888"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632856"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: como detectar sentimento com a Análise de Texto
 
@@ -24,6 +23,9 @@ A [API de análise de sentimento](https://westus.dev.cognitive.microsoft.com/doc
 Esse recurso é útil para detectar o sentimento positivo e negativo em fóruns de discussão, mídia social e revisões de cliente. O conteúdo é fornecido por você, modelos e dados de treinamento são fornecidos pelo serviço.
 
 Atualmente, a análise de sentimento suporta inglês, alemão, espanhol e francês. Os idiomas estão em versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> A Análise de Texto também fornece um Docker baseados em Linux imagem de contêiner para análise de sentimentos, para que você possa [instalar e executar o contêiner de análise de texto](text-analytics-how-to-install-containers.md) perto de seus dados.
 
 ## <a name="concepts"></a>Conceitos
 
@@ -77,7 +79,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 + Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Análise de Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Defina o ponto de extremidade HTTP para a extração da frase-chave. Deve incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Defina o ponto de extremidade HTTP para a análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 

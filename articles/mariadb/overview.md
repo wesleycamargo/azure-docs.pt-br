@@ -7,18 +7,18 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: overview
-ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 696ba68894b4ac5f73c234ea49883fd0aa3db4d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/14/2018
+ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320910"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686003"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
-O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB se baseia no mecanismo de banco de dados da [edição da comunidade do MariaDB](https://mariadb.org/download/). Esse serviço está na fase de visualização pública. 
+O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB se baseia no mecanismo de banco de dados da [edição da comunidade do MariaDB](https://mariadb.org/download/), versão 10.2. Esse serviço está na fase de visualização pública. 
 
 Banco de dados do Azure para MariaDB oferece:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
 
-Na visualização, o serviço Banco de Dados do Azure para MariaDB oferece vários níveis de serviço: Básico, Uso Geral e Memória Otimizada. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
+Na visualização, o serviço Banco de Dados do Azure para MariaDB oferece vários níveis de serviço: Básico, Uso Geral e Memória Otimizada. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 

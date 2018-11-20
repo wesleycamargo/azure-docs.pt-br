@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364033"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623750"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure (versão prévia)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Stream de logs do Azure Active Directory para um hub de eventos do Azure (versão prévia)
 
-Neste tutorial, saiba como definir as configurações de diagnóstico do Azure Monitor para transmitir logs do Azure AD (Active Directory) para um hub de eventos do Azure. Use esse mecanismo para integrar os logs com as ferramentas SIEM (gerenciamento de eventos e informações de segurança) de terceiros, como Splunk e QRadar.
+Neste tutorial, saiba como definir as configurações de diagnóstico do Azure Monitor para transmitir logs do Azure AD (Azure Active Directory) para um hub de eventos do Azure. Use esse mecanismo para integrar os logs com as ferramentas SIEM (gerenciamento de eventos e informações de segurança) de terceiros, como Splunk e QRadar.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -36,7 +36,7 @@ Para usar esse recurso, você precisa de:
 * Um usuário que seja *administrador global* ou *administrador de segurança* do locatário do Azure AD.
 * Um namespace dos Hubs de Eventos e um hub de eventos em sua assinatura do Azure. Saiba como [criar um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="archive-logs-to-an-event-hub"></a>Arquivar logs em um hub de eventos
+## <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
 

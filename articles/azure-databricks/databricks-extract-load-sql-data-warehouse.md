@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419072"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615510"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
-Neste tutorial, você executa uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks. Extraia dados do Azure Data Lake Store no Azure Databricks, execute transformações nos dados no Azure Databricks e carregue os dados transformados no SQL Data Warehouse do Azure. 
+Neste tutorial, você executa uma operação de ETL (extração, transformação e carregamento de dados) usando o Azure Databricks. Extraia dados do Azure Data Lake Store no Azure Databricks, execute transformações nos dados no Azure Databricks e carregue os dados transformados no SQL Data Warehouse do Azure.
 
 As etapas neste tutorial usam o conector do SQL Data Warehouse para Azure Databricks a fim de transferir dados para o Azure Databricks. Esse conector, por sua vez, usa o Armazenamento de Blobs do Azure como armazenamento temporário para os dados que estão sendo transferidos entre um cluster do Azure Databricks e o SQL Data Warehouse do Azure.
 
@@ -27,7 +27,7 @@ A ilustração a seguir mostra o fluxo do aplicativo:
 
 ![Azure Databricks com o Data Lake Store e o SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks com o Data Lake Store e o SQL Data Warehouse")
 
-Este tutorial cobre as seguintes tarefas: 
+Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar um workspace do Azure Databricks
@@ -64,7 +64,7 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
 
     ![Criar um workspace do Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Criar um workspace do Azure Databricks")
 
-    Forneça os seguintes valores: 
+    Forneça os seguintes valores:
      
     |Propriedade  |DESCRIÇÃO  |
     |---------|---------|
@@ -95,14 +95,14 @@ Nesta seção, você deve cria um workspace do Azure Databricks usando o Portal 
     Aceite todos os outros padrões diferentes dos seguintes:
 
     * Insira um nome para o cluster.
-    * Neste artigo, crie um cluster com o tempo de execução **4.0**. 
+    * Neste artigo, crie um cluster com o tempo de execução **4.0**.
     * Verifique se você marcou a caixa de seleção **Terminar depois de \_\_ minutos de inatividade**. Forneça uma duração (em minutos) para encerrar o cluster caso ele não esteja sendo usado.
     
     Selecione **Criar cluster**. Quando o cluster está em execução, você pode anexar blocos de notas a ele e executar trabalhos do Spark.
 
 ## <a name="create-an-azure-data-lake-store-account"></a>Criar uma conta do Repositório Azure Data Lake
 
-Nesta seção, você cria uma conta do Azure Data Lake Store e associa uma entidade de serviço do Azure Active Directory a ela. Posteriormente neste tutorial, você usará essa entidade de serviço no Azure Databricks para acessar o Azure Data Lake Store. 
+Nesta seção, você cria uma conta do Azure Data Lake Store e associa uma entidade de serviço do Azure Active Directory a ela. Posteriormente neste tutorial, você usará essa entidade de serviço no Azure Databricks para acessar o Azure Data Lake Store.
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Armazenamento** > **Data Lake Store**.
 3. Na folha **Novo Data Lake Store**, forneça os valores conforme mostrado na captura de tela a seguir:
@@ -189,7 +189,7 @@ Ao fazer logon por meio de programação, você precisa passar a ID de locatári
 
 1. Copie a **ID de diretório**. Esse valor é a ID do locatário.
 
-   ![ID do locatário](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
+   ![ID do locatário](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
 
 ## <a name="upload-data-to-data-lake-store"></a>Carregar dados no Repositório Data Lake
 
@@ -306,7 +306,7 @@ Você extraiu os dados do Azure Data Lake Store no Azure Databricks.
 
 ## <a name="transform-data-in-azure-databricks"></a>Transformar dados no Azure Databricks
 
-Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma estação de rádio e têm várias colunas. Nesta seção, você transforma os dados para recuperar somente colunas específicas do conjunto de dados. 
+Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma estação de rádio e têm várias colunas. Nesta seção, você transforma os dados para recuperar somente colunas específicas do conjunto de dados.
 
 1. Comece recuperando apenas as colunas *firstName*, *lastName*, *gender*, *location* e *level* do dataframe já criado.
 
@@ -340,7 +340,7 @@ Os dados de exemplo brutos **small_radio_json.json** capturam o público de uma 
         |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
         +---------+----------+------+--------------------+-----+
 
-2.  Você pode transformar ainda mais esses dados para renomear a coluna **level** como **subscription_type**.
+2. Você pode transformar ainda mais esses dados para renomear a coluna **level** como **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
@@ -382,7 +382,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey =  "<ACCESS KEY>"
+        val blobAccessKey = "<ACCESS KEY>"
 
 2. Especifique uma pasta temporária que será usada para mover dados entre o Azure Databricks e o SQL Data Warehouse do Azure.
 
@@ -397,15 +397,15 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
 
         //SQL Data Warehouse related settings
         val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwServer = "<DATABASE SERVER NAME>"
         val dwUser = "<USER NAME>"
         val dwPass = "<PASSWORD>"
-        val dwJdbcPort =  "1433"
+        val dwJdbcPort = "1433"
         val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. Execute o snippet de código a seguir para carregar o dataframe transformado, **renamedColumnsDf**, como uma tabela no SQL Data Warehouse. Esse snippet de código cria uma tabela chamada **SampleTable** no banco de dados SQL. Observe que o SQL DW do Azure requer uma chave mestra.  Você pode criar uma chave mestra executando o comando "CREATE MASTER KEY;" no SQL Server Management Studio.
+5. Execute o snippet de código a seguir para carregar o dataframe transformado, **renamedColumnsDf**, como uma tabela no SQL Data Warehouse. Esse snippet de código cria uma tabela chamada **SampleTable** no banco de dados SQL. Observe que o SQL DW do Azure requer uma chave mestra. Você pode criar uma chave mestra executando o comando "CREATE MASTER KEY;" no SQL Server Management Studio.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -413,7 +413,7 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
         
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall) 
+            .option("url", sqlDwUrlSmall)
             .option("dbtable", "SampleTable")
             .option( "forward_spark_azure_storage_credentials","True")
             .option("tempdir", tempDir)
@@ -434,9 +434,9 @@ Depois de terminar de executar o tutorial, você poderá encerrar o cluster. Par
 
 ![Parar um cluster do Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de __ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se ficar inativo durante o tempo especificado.
+Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **Terminar depois de \_\_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se ficar inativo durante o tempo especificado.
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL - CLI do Azure
-description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado baseado em caminhos de URL, usando a CLI do Azure.
+title: Tutorial - Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL - CLI do Azure
+description: Neste tutorial, vai aprender como criar um gateway de aplicativo com o tráfego redirecionado baseado em caminhos de URL, usando a CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947532"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568141"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando a CLI do Azure
 
@@ -313,14 +313,6 @@ Quando não for mais necessário, remova o grupo de recursos, o gateway de aplic
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Próximas etapas
-
-Neste tutorial, você aprendeu como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Adicionar ouvintes e regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais para pools de back-end
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que você pode fazer com o gateway de aplicativo](application-gateway-introduction.md)

@@ -10,12 +10,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354012"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566441"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
@@ -85,7 +85,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 ```
 
 > [!NOTE]
-> As conexões ao Banco de Dados do Azure para MariaDB se comunicam pela porta 3306. Se estiver tentando se conectar de dentro de uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Nesse caso, você só poderá se conectar ao seu servidor se o departamento de TI abrir a porta 3306.
+> As conexões ao Banco de Dados do Azure para MariaDB se comunicam pela porta 3306. Se está tentando se conectar de uma rede corporativa, é possível que o tráfego de saída pela porta 3306 não seja permitido. Nesse caso, você só poderá se conectar ao seu servidor se o departamento de TI abrir a porta 3306.
 > 
 
 ## <a name="configure-ssl-settings"></a>Configurar definições de SSL
@@ -203,7 +203,7 @@ Para se conectar ao servidor usando a ferramenta de linha de comando do mysql:
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Conectar-se ao servidor usando MySQL Workbench
 
-1.  Abra o MySQL Workbench em seu computador cliente. Se ainda não estiver instalado, [baixe](https://dev.mysql.com/downloads/workbench/) e instale o aplicativo.
+1.  Abra o MySQL Workbench no computador cliente. Se ainda não estiver instalado, [baixe](https://dev.mysql.com/downloads/workbench/) e instale o aplicativo.
 
 2.  Na caixa de diálogo **Configurar Nova Conexão**, insira as seguintes informações na guia **Parâmetros**:
 
@@ -236,9 +236,7 @@ Se quiser excluir apenas o servidor que você criou neste início rápido, execu
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Projetar um banco de dados MariaDB com a CLI do Azure](./tutorial-design-database-cli.md)

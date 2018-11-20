@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278575"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685338"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -97,46 +97,36 @@ Crie outra sub-rede denominada **Jump-SN**, intervalo de endereços **10.0.3.0/2
 
 Agora crie as máquinas virtuais de jump e carga de trabalho e coloque-as nas sub-redes apropriadas.
 
-1. Na página inicial do portal do Azure, clique em **Todos os serviços**.
-2. Em **Computação**, clique em **Máquinas virtuais**.
-3. Clique em **Adicionar** > **Windows Server** > **Windows Server 2016 Datacenter** > **Criar**.
+1. No portal do Azure, clique em **Criar um recurso**.
+2. Clique em **Computação** e, em seguida, selecione **Datacenter do Windows Server 2016** na lista em destaque.
+3. Insira esses valores para a máquina virtual:
 
-**Noções básicas**
+    - *Test-FW-RG* para o grupo de recursos.
+    - *Srv-Jump* - para o nome da máquina virtual.
+    - *azureuser* – para o nome de usuário do administrador.
+    - *Azure123456!* para a senha.
 
-1. Em **Nome**, digite **Srv-Jump**.
-5. Digite um nome de usuário e uma senha.
-6. Em **Assinatura**, selecione sua assinatura.
-7. Em **Grupo de recursos**, clique em **Usar existente** > **Test-FW-RG**.
-8. Em **local**, selecione o mesmo local usado anteriormente.
-9. Clique em **OK**.
+4. Em **Regras de porta de entrada**, para **Portas de entrada públicas**, clique em **Permitir portas selecionadas**.
+5. Em **Selecionar portas de entrada**, selecione **RDP (3389)**.
 
-**Tamanho**
-
-1. Escolha um tamanho apropriado para uma máquina virtual de teste que executa o Windows Server. Por exemplo, **B2ms** (8 GB de RAM, 16 GB de armazenamento).
-2. Clique em **Selecionar**.
-
-**Configurações**
-
-1. Em **Rede**, selecione **Test-FW-VN** como **Rede virtual**.
-2. Em **Sub-rede**, selecione **Jump-SN**.
-3. Em **Selecionar portas de entrada públicas**, selecione **RDP (3389)**. 
-
-    Você pode limitar o acesso ao seu endereço IP público, mas precisa abrir a porta 3389 para poder conectar uma área de trabalho remota para o servidor jump. 
-2. Deixe as outras configurações padrão e clique em **OK**.
-
-**Resumo**
-
-Revise o resumo e clique em **Criar**. Isso levará alguns minutos para ser concluído.
+6. Aceite os outros padrões e clique em **Próximo: Discos**.
+7. Aceite os padrões de disco e clique em **Próximo: Rede**.
+8. Verifique se **Test-FW-VN** está selecionado para a rede virtual e se a sub-rede é **Jump-SN**.
+9. Para **IP Público**, clique em **Criar novo**.
+10. Digite **Srv-Jump-PIP** para o nome do endereço IP público e clique em **OK**.
+11. Aceite os outros padrões e clique em **Próximo: Gerenciamento**.
+12. Clique em **Desligar** para desabilitar o diagnóstico de inicialização. Aceite os outros padrões e clique em **Revisar + criar**.
+13. Revise as configurações na página de resumo e clique em **Criar**.
 
 Repita esse processo para criar outra máquina virtual denominada **Srv-Work**.
 
-Use as informações na tabela a seguir para definir as **Configurações** da máquina virtual Srv-Work. O restante da configuração é o mesmo da máquina virtual Srv-Jump.
+Use as informações na tabela a seguir para definir a máquina virtual Srv-Work. O restante da configuração é o mesmo da máquina virtual Srv-Jump.
 
 |Configuração  |Valor  |
 |---------|---------|
 |Sub-rede|Workload-SN|
-|Endereço IP público|Nenhum|
-|Selecionar portas de entrada públicas|Nenhuma porta de entrada pública|
+|IP público|Nenhum|
+|Porta de entrada públicas|Nenhum|
 
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
@@ -196,15 +186,16 @@ Essa é a regra de aplicativo que permite o acesso de saída para github.com.
 
 1. Abra **Test-FW-RG**e clique no firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Configurações**, clique em **Regras**.
-3. Clique em **Adicionar coleção de regras de aplicativo**.
-4. Em **Nome**, digite **App-Coll01**.
-5. Digite **200** em **Prioridade**.
-6. Em **Ação**, selecione **Permitir**.
-7. Em **Regras**, digite **AllowGH** como **Nome**.
-8. Em **Endereços de Origem**, digite **10.0.2.0/24**.
-9. Em **Protocol:port**, digite **http, https**.
-10. Em **FQDNS de destino**, digite **github.com**
-11. Clique em **Adicionar**.
+3. Clique na guia **Coleção de regras de aplicativo**.
+4. Clique em **Adicionar coleção de regras de aplicativo**.
+5. Em **Nome**, digite **App-Coll01**.
+6. Digite **200** em **Prioridade**.
+7. Em **Ação**, selecione **Permitir**.
+8. Em **Regras**, **FQDNs de Destino**, para **Nome**, digite **AllowGH**.
+9. Em **Endereços de Origem**, digite **10.0.2.0/24**.
+10. Em **Protocol:port**, digite **http, https**.
+11. Em **FQDNS de destino**, digite **github.com**
+12. Clique em **Adicionar**.
 
 O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infraestrutura que têm permissão por padrão. Esses FQDNs são específicos da plataforma e não podem ser usados para outras finalidades. Para saber mais, veja [FQDNs de infraestrutura](infrastructure-fqdns.md).
 
@@ -212,6 +203,7 @@ O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infrae
 
 Essa é a regra de rede que permite o acesso de saída para dois endereços IP na porta 53 (DNS).
 
+1. Clique na guia **Coleção de regras de rede**.
 1. Clique em **Adicionar coleção de regras de rede**.
 2. Em **Nome**, digite **Net-Coll01**.
 3. Digite **200** em **Prioridade**.

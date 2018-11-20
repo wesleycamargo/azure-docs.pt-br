@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702399"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615191"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
@@ -145,6 +145,7 @@ Para permitir que o balanceador de carga monitore o status de seu aplicativo, us
     - *myHealthProbe* – para o nome da investigação de integridade.
     - **HTTP** – para o tipo de protocolo.
     - *80* – para o número da porta.
+    - *Healthprobe.aspx* - para o caminho do URI. Você pode substituir esse valor com qualquer outro URI ou mantenha o valor do caminho padrão de **"\\"** para obter o URI padrão.
     - *15* – para o número de **Intervalo** em segundos entre tentativas de investigação.
     - *2* – para o número de **Limite não íntegro** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.
 4. Clique em **OK**.

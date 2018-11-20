@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: dfdbc0563810447a1a214356b5153afe38d9cf2f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846784"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636791"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copiar um disco gerenciado para a mesma assinatura ou outra assinatura com a CLI
 
-Esse script copia um disco gerenciado para a mesma assinatura ou outra assinatura, mas na mesma região. 
+Esse script copia um disco gerenciado para a mesma assinatura ou outra assinatura, mas na mesma região. Você precisa ser um Administrador de Locatários do AAD Global de ambas as assinaturas para executar esse script.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -39,9 +39,9 @@ Esse script copia um disco gerenciado para a mesma assinatura ou outra assinatur
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os comandos a seguir para criar um novo disco gerenciado na assinatura de destino usando a ID do disco gerenciado de origem. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os comandos a seguir para criar um novo disco gerenciado na assinatura de destino usando a ID do disco gerenciado de origem. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | Obtém todas as propriedades de um disco gerenciado usando o nome e as propriedades do grupo de recursos do disco gerenciado. A propriedade de ID é usada para copiar o disco gerenciado para assinatura diferente.  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Copia um disco gerenciado criando um novo disco gerenciado em uma assinatura diferente usando a Id e o nome do disco gerenciado pai.  |

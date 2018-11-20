@@ -3,24 +3,24 @@ title: Introdução aos aceleradores de solução do Azure IoT | Microsoft Docs
 description: Saiba mais sobre os aceleradores de solução de IoT do Azure. Os aceleradores de solução de IoT são soluções de IoT completas, de ponta a ponta e prontas para implantação.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308105"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345106"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 
-Uma solução de IoT baseada em nuvem normalmente usa o código personalizado e vários serviços de nuvem para gerenciar a conectividade do dispositivo, o processamento de dados e análise e apresentação.
+Uma solução de IoT baseada em nuvem normalmente usa o código personalizado e serviços de nuvem para gerenciar a conectividade do dispositivo, o processamento de dados e análise e apresentação.
 
-Os aceleradores de solução de IoT são uma coleção de soluções de IoT completas, prontas para implantação, que implementam cenários comuns de IoT, como monitoramento remoto, fábrica conectada, manutenção preditiva e simulação de dispositivo. Quando você implanta um acelerador de solução, a implantação inclui todos os serviços baseados em nuvem necessários junto com qualquer código de aplicativo necessário.
+Os aceleradores de solução de IoT são completos e prontos para implantar soluções de IoT que implementam cenários comuns de IoT. Os cenários incluem monitoramento remoto, fábrica conectada, manutenção preditiva e simulação de dispositivo. Quando você implanta um acelerador de solução, a implantação inclui todos os serviços baseados em nuvem necessários junto com qualquer código de aplicativo necessário.
 
 Os aceleradores de solução são pontos de partida para suas próprias soluções de IoT. O código-fonte para todos os aceleradores de solução é um software livre e está disponível no GitHub. Recomenda-se baixar e personalizar os aceleradores de solução para atender às suas necessidades.
 
@@ -34,7 +34,7 @@ Atualmente, há quatro aceleradores de soluções disponíveis para implantaçã
 
 ### <a name="remote-monitoring"></a>Monitoramento remoto
 
-Use este acelerador de solução para coletar a telemetria de vários dispositivos remotos e controlá-los. Os exemplos de dispositivo incluem sistemas de arrefecimento instalados no local dos seus clientes ou válvulas instaladas em estações de bombeamento remotas.
+Use este acelerador de solução para coletar a telemetria de dispositivos remotos e controlá-los. Os exemplos de dispositivo incluem sistemas de arrefecimento instalados no local dos seus clientes ou válvulas instaladas em estações de bombeamento remotas.
 
 É possível usar o painel de monitoramento remoto para exibir a telemetria dos seus dispositivos conectados, provisionar novos dispositivos ou atualizar o firmware em seus dispositivos conectados:
 
@@ -58,7 +58,7 @@ Use este acelerador de solução para prever quando um dispositivo remoto deve f
 
 ### <a name="device-simulation"></a>Simulação de dispositivo
 
-Use este acelerador de solução para executar vários dispositivos simulados que geram telemetria realista. Você pode usar este acelerador de solução para testar o comportamento de outros aceleradores de solução ou testar suas próprias soluções personalizadas de IoT.
+Use este acelerador de solução para executar dispositivos simulados que geram telemetria realista. Você pode usar este acelerador de solução para testar o comportamento de outros aceleradores de solução ou testar suas próprias soluções personalizadas de IoT.
 
 Você pode usar o aplicativo Web de simulação de dispositivo para configurar e executar simulações:
 
@@ -93,7 +93,7 @@ Você pode implantar os aceleradores de solução do site [Aceleradores de solu�
 
 Você pode implantar o acelerador de solução de monitoramento remoto nas seguintes configurações:
 
-* **Standard**: Implantação de infraestrutura expandida para o desenvolvimento de uma implantação de produção. O Serviço de Contêiner do Azure implanta os microsserviços em várias máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
+* **Standard**: Implantação de infraestrutura expandida para o desenvolvimento de uma implantação de produção. O Serviço de Contêiner do Azure implanta os microsserviços em máquinas virtuais do Azure. O Kubernetes orquestra os contêineres do Docker que hospedam os microsserviços individuais.
 * **Básica**: Versão de custo reduzido para obter uma demonstração ou testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
 * **Local:** Implantação da máquina local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
 

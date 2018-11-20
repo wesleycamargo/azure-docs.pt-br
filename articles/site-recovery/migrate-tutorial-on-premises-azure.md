@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210611"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568794"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -110,7 +110,10 @@ Execute um failover para as máquinas que você deseja migrar.
 3. A configuração de chave de criptografia não é relevante para esse cenário.
 4. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará desligar máquinas virtuais antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 5. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
-6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM e interrompe a cobrança do Site Recovery para a VM.
+6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso faz o seguinte:
+
+    - Conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
     ![Migração completa](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 

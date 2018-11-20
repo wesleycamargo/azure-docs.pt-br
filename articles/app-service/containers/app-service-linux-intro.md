@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 9efa6dc8427c58c82702fd5b3449fcd4805bf9e3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 75eb260b107df3877219266794e45eb11d5deb35
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902086"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633233"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -33,13 +33,12 @@ O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim
 
 | Linguagem | Versões com suporte |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
-| Java * | 8.0 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Java * | O Tomcat 8.5, 9.0, Java SE, WildFly 14 (todos executando o JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (versão prévia) | 3.7 |
-| .NET Core | 1.0, 1.1, 2.0 |
+| Python (versão prévia) | 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-| Apache Tomcat | 8.5, 9.0 |
 
 Consulte [Criar um aplicativo Web Java no Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) para obter mais detalhes.
 

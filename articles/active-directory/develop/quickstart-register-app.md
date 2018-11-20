@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912978"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298714"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Início Rápido: Registrar um aplicativo na Microsoft Identity Platform (versão prévia)
 
 Os desenvolvedores corporativos e provedores de SaaS (software como serviço) podem desenvolver serviços de nuvem comerciais ou aplicativos de linha de negócios que podem ser integrados à Microsoft Identity Platform para fornecer conexão segura e autorização para seus serviços.
 
-Este início rápido mostra como adicionar e registrar um aplicativo usando a experiência **Registros do aplicativo (Versão prévia)** do portal do Azure para que o seu aplicativo possa ser integrado à plataforma de identidade da Microsoft.
+Este início rápido mostra como adicionar e registrar um aplicativo usando a experiência **Registros do aplicativo (Versão prévia)** do portal do Azure para que o seu aplicativo possa ser integrado à plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registros de aplicativo, veja [esta postagem de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
 
 ## <a name="prerequisite"></a>Pré-requisito
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar e gerenciar um Standard Load Balancer - portal do Azure | Microsoft Docs'
+title: 'Tutorial: Balancear a carga de tráfego de Internet para VMs - portal do Azure | Microsoft Docs'
 description: Este tutorial mostra como criar e gerenciar um Standard Load Balancer usando o Portal do Azure.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380028"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687293"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Criar e gerenciar um Standard Load Balancer usando o portal do Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure
 
-O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do Standard Load Balancer do Azure que distribuem o tráfego e fornecem alta disponibilidade. Você aprenderá como:
+O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do Standard Load Balancer do Azure que distribuem o tráfego de Internet para VMs e fornecem alta disponibilidade. Você aprenderá como:
 
 
 > [!div class="checklist"]
@@ -92,7 +92,7 @@ Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool 
         2. Na página **Escolher grupo de segurança de rede**, para **Nome**, insira *myNetworkSecurityGroup* como o nome do novo grupo de segurança de rede e, em seguida, selecione **OK**.
 5. Clique em **Desabilitado** para desabilitar o diagnóstico de inicialização.
 6. Clique em **OK**, examine as configurações na página de resumo e, em seguida, clique em **Criar**.
-7. Crie mais duas VMs chamadas *VM2* e *VM3* com *myVnet* como a rede virtual, *myBackendSubnet* e sua sub-rede e *myNetworkSecurityGroup* como seu grupo de segurança de rede usando as etapas de 1 a 6. 
+7. Crie mais duas VMs chamadas *VM2* e *VM3* com *myVnet* como a rede virtual, *myBackendSubnet* e sua sub-rede e **myNetworkSecurityGroup* como seu grupo de segurança de rede usando as etapas de 1 a 6. 
 
 ### <a name="create-network-security-group-rule"></a>Criar regra de grupo de segurança de rede
 
@@ -198,7 +198,7 @@ Talvez seja necessário fazer a manutenção nas VMs que executam seu aplicativo
 2. Em **Configurações**, clique em **Pools de back-end**, em seguida, na lista de pools de back-end, clique em **myBackendPool**.
 3. Na página **myBackendPool** em **Configurações de IP de rede de destino**, para remover a *VM1* do back-end clique no ícone para excluir ao lado de **Máquina virtual: myVM1**
 
-Com *myVM1* não mais no pool de endereços de back-end, você pode executar as tarefas de manutenção em *myVM1*, como instalar as atualizações de software. Sem a presença da *VM1*\*, a carga é agora balanceada entre *myVM2* e *myVM3*. 
+Com *myVM1* não mais no pool de endereços de back-end, você pode executar as tarefas de manutenção em *myVM1*, como instalar as atualizações de software. Sem a presença da *VM1**, a carga é agora balanceada entre *myVM2* e *myVM3*. 
 
 Para adicionar *myVM1* novamente ao pool de back-end, siga o procedimento na seção *Adicionar VMs ao pool de back-end* deste artigo.
 

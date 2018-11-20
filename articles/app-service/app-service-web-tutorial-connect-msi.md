@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376423"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685677"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
@@ -38,7 +38,7 @@ Você aprenderá a:
 > * Conceder privilégios mínimos para a identidade gerenciada no Banco de Dados SQL
 
 > [!NOTE]
-> A autenticação do Azure Active Directory é _diferente_ da [autenticação Integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) local. O AD DS e o Azure Active Directory usam protocolos de autenticação completamente diferentes. Para saber mais, veja [A diferença entre o Windows Server AD DS e o Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+>A autenticação do Azure Active Directory é _diferente_ da [autenticação Integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) local. O AD DS e o Azure Active Directory usam protocolos de autenticação completamente diferentes. Para obter mais informações, consulte a [documentação sobre o Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

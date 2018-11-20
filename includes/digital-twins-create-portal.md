@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 7bac2b291bec2ceda118c877cde997a2fa9f9f37
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e5e015c1e12e68f54ae7fd32082faed1abfebe74
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283965"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51626381"
 ---
 1. Entre no [Portal do Azure](http://portal.azure.com).
 
-1. No painel de navegação à esquerda, clique em **Criar um recurso**. Pesquise *gêmeos digitais*e selecione **Gêmeos Digitais (versão prévia)**. Clique em **Criar** para iniciar o processo de implantação.
+1. No painel esquerdo, selecione **Criar um recurso**. Pesquise **gêmeos digitais**e selecione **Gêmeos Digitais (versão prévia)**. Selecione **Criar** para iniciar o processo de implantação.
 
-    ![Criar Gêmeos Digitais](./media/create-digital-twins-portal/create-digital-twins.png)
+   ![Seleções para criar uma nova instância dos Gêmeos Digitais](./media/create-digital-twins-portal/create-digital-twins.png)
 
 1. No painel **Gêmeos Digitais**, insira as seguintes informações:
    * **Nome do recurso**: criar um nome exclusivo para sua instância de Gêmeos Digitais.
@@ -27,14 +27,14 @@ ms.locfileid: "51283965"
    * **Grupo de recursos**: selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de Gêmeos Digitais.
    * **Local**: selecione o local mais próximo para seus dispositivos.
 
-    ![Criar Gêmeos Digitais](./media/create-digital-twins-portal/create-digital-twins-param.png)
+    ![Painel Gêmeos Digitais com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
-1. Examine as informações dos Gêmeos Digitais e clique em **Criar**. Sua instância de Gêmeos Digitais pode levar alguns minutos para ser criada. Você pode monitorar o progresso no painel **Notificações**.
+1. Examine as informações de Gêmeos Digitais e, em seguida, selecione **Criar**. Sua instância de Gêmeos Digitais pode levar alguns minutos para ser criada. Você pode monitorar o progresso no painel **Notificações**.
 
-1. Abra o painel **Visão geral** da sua instância de Gêmeos Digitais. Observe o link sob **API de gerenciamento**.
+1. Abra o painel **Visão geral** da sua instância de Gêmeos Digitais. Observe o link em **API de Gerenciamento**.
 
-    1. A URL de **API de gerenciamento** é formatada como: **_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_**. Esta URL leva você até a documentação da API REST de Gêmeos Digitais do Azure que se aplica à sua instância. Leia [Como usar o Swagger dos Gêmeos Digitais do Azure](../articles/digital-twins/how-to-use-swagger.md) para aprender a ler e usar essa documentação da API.
+   A URL de **API de Gerenciamento** é formatada como: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_. Esta URL leva você até a documentação da API REST de Gêmeos Digitais do Azure que se aplica à sua instância. Leia [Como usar o Swagger dos Gêmeos Digitais do Azure](../articles/digital-twins/how-to-use-swagger.md) para aprender a ler e usar essa documentação da API.
 
-    1. Modifique a URL da **API de gerenciamento** para este formato: **_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_**. Seu aplicativo usará a URL modificada como a URL base para acessar a instância. Copie esta URL modificada para um arquivo temporário. Você precisará dela na seção seguinte.
+    Modifique a URL da **API de Gerenciamento** para este formato: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Seu aplicativo usará a URL modificada como a URL base para acessar a instância. Copie esta URL modificada para um arquivo temporário. Você precisará disso nas próximas seções.
 
-    ![APIs de gerenciamento](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    ![API de gerenciamento](./media/create-digital-twins-portal/digital-twins-management-api.png)

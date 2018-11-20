@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390938"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614270"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -98,6 +98,9 @@ Saiba mais sobre os logs de fluxo de NSG concluindo o tutorial [Registrar o trá
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Exibir logs de diagnóstico para recursos de rede
 
 Você pode habilitar o log de diagnóstico para recursos de rede do Microsoft Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e os gateways de aplicativos. O recurso *logs de diagnóstico* fornece uma única interface para habilitar e desabilitar logs de diagnóstico de recursos de rede para qualquer recurso de rede existente que gera um log de diagnóstico. Você pode exibir logs de diagnóstico usando ferramentas como o Microsoft Power BI e Análise de Logs do Azure. Para saber mais sobre como analisar logs de diagnóstico de rede do Microsoft Azure, consulte [Soluções de rede do Azure na Análise de Log](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do Observador de Rede
+Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será ativado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para ativar automaticamente o Observador de Rede. Para saber mais, veja [Criação do Observador de Rede](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

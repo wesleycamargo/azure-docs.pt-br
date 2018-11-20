@@ -3,29 +3,31 @@ title: Tutorial de C# do Azure IoT Edge | Microsoft Docs
 description: Este tutorial mostra como criar um módulo do IoT Edge com código em C# e implantá-lo em um dispositivo de borda.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec8cd52d8a91c76033d52f9b49ee84dde98eada2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156758"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633981"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado
 
 Use os módulos do Azure IoT Edge para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial o orienta através da criação e implantação de um módulo IoT Edge que filtra os dados do sensor. Você utilizará o dispositivo IoT Edge simulado que foi criado em Implantar Azure IoT Edge em um dispositivo simulado nos inícios rápidos de [Windows](quickstart.md) ou [Linux](quickstart-linux.md). Neste tutorial, você aprenderá como:    
 
 > [!div class="checklist"]
-> * Use o Visual Studio Code para criar um módulo do IoT Edge baseado no SDK .NET Core 2.0.
+> * Use o Visual Studio Code para criar um módulo do IoT Edge baseado no SDK .NET Core 2.1.
 > * Usar o Visual Studio Code e o Docker para criar uma imagem do Docker e publicá-la no registro.
 > * Implantar o módulo no dispositivo IoT Edge.
 > * Exibir os dados gerados.
 
+>[!NOTE]
+>Você também pode usar [Desenvolver, depurar e implantar módulos do IoT Edge no Visual Studio 2017](how-to-visual-studio-develop-csharp-module.md).
 
 O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gerados pelo seu dispositivo. Ele somente envia mensagens upstream se a temperatura estiver acima de um limite especificado. Esse tipo de análise na borda é útil para reduzir a quantidade de dados que é comunicada e armazenada na nuvem. 
 

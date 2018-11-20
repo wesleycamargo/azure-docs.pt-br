@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037935"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567444"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar um disco do Azure Data Box (visualização)
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 > [!IMPORTANT]
 > - O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
-> - Durante a versão prévia, o Disco do Data Box pode ser enviado para os clientes nos EUA, na Europa Setentrional e na Europa Ocidental, no Canadá e na Austrália. Para saber mais, acesse [Disponibilidade por região](data-box-disk-overview.md#region-availability).
+> - Durante a versão prévia, o Disco do Data Box pode ser enviado para os clientes nos EUA, na Europa Setentrional e na Europa Ocidental e Oriental, no Canadá e na Austrália. Para saber mais, acesse [Disponibilidade por região](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Inscrição
 

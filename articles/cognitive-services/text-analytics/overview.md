@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: fcc10723b2fb750b099f99999de01ab699d5d5e8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887761"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634577"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 
@@ -32,7 +32,11 @@ Análise de texto pode significar coisas diferentes, mas, em Serviços Cognitivo
 |[**Análise de sentimento**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Descubra o que os clientes pensam sobre a sua marca ou tópico analisando texto bruto para encontrar pistas sobre sentimento positivo ou negativo. Essa API retorna uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é a mais positiva.<br /> Os modelos de análise são pré-treinados usando um amplo corpo de texto e tecnologias de idioma natural da Microsoft. Para [idiomas selecionados](text-analytics-supported-languages.md), a API pode analisar e pontuar qualquer texto bruto que você forneça, retornando diretamente os resultados ao aplicativo responsável pela chamada. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**Extração de Frases-chave**](how-tos/text-analytics-how-to-keyword-extraction.md) | Extrai automaticamente frases-chave para identificar rapidamente os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa".  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**Detecção de Idioma**](how-tos/text-analytics-how-to-language-detection.md) | Para até 120 idiomas, detecte em que idioma o texto de entrada é escrito e relate um único código de idioma para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**Reconhecimento de Entidade (versão prévia)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifique e categorize entidades em seu texto como pessoas, locais, organizações, data/hora, quantidades, percentuais, moedas e muito mais. Entidades conhecidas também são reconhecidas e vinculadas a mais informações na Web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) | 
+|[**Reconhecimento de Entidade (versão prévia)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifique e categorize entidades em seu texto como pessoas, locais, organizações, data/hora, quantidades, percentuais, moedas e muito mais. Entidades conhecidas também são reconhecidas e vinculadas a mais informações na Web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+
+## <a name="use-containers"></a>Usar contêineres
+
+[Use os contêineres de Análise de Texto](how-tos/text-analytics-how-to-install-containers.md) para extrair frases-chave, detectar idiomas e analisar o sentimento localmente por meio da instalação de contêineres do Docker padronizados mais próximos aos seus dados.
 
 ## <a name="typical-workflow"></a>Fluxo de trabalho típico
 

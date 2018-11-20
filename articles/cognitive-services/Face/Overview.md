@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914185"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633454"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
 
@@ -63,6 +63,10 @@ A imagem a seguir é um exemplo de um banco de dados chamado “myfriends”. Ca
 Após um banco de dados ter sido criado e treinado, você pode fazer a identificação com relação ao grupo e a um novo rosto detectado. Se a face for identificada como uma pessoa no grupo, ela é retornada.
 
 Para mais informações sobre identificação de pessoas, confira [API de Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+## <a name="use-containers"></a>Usar contêineres
+
+[Use o contêiner de Detecção Facial](face-how-to-install-containers.md) para detectar, reconhecer e identificar rostos, instalando um contêiner do Docker padronizado mais próximos aos seus dados.
 
 ## <a name="sample-apps"></a>Aplicativos de exemplo
 

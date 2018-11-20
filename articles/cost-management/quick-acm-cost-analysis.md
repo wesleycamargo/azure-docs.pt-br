@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471281"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515719"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: explore e analise custos com análise de custos
 
@@ -32,27 +32,14 @@ Neste guia de início rápido, você aprende a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custo está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo.
+A análise de custo está disponível para todos os clientes do [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/). Você precisa ter acesso de leitura a pelo menos um ou mais dos seguintes escopos para exibir os dados de custo. Para saber mais sobre como atribuir acesso aos dados de Gerenciamento de Custos, consulte [Atribuir acesso aos dados](assign-access-acm-data.md).
 
-
-|**Escopo**|**Definido em**|**Acesso necessário para analisar os custos do escopo**|**Configuração de pré-requisito de EA**|**Consolida os dados de cobrança a**|
-|---                |---                  |---                   |---            |---           |
-|Conta de cobrança<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Administrador Corporativo|Nenhum|Todas as assinaturas do contrato empresarial|
-|department|[https://ea.azure.com ](https://ea.azure.com )|Administrador de departamento|Encargos de exibição do administrador de departamento habilitados|Todas as assinaturas que pertencem a uma conta de registro que esteja vinculada ao departamento|
-|Conta de registro<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Proprietário da conta|Encargos de exibição do proprietário da conta habilitados|Todas as assinaturas da conta de registro|
-|Grupo de gerenciamento|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Gerenciamento de Custos (ou Leitor)|Encargos de exibição do proprietário da conta habilitados|Todas as assinaturas abaixo do grupo de gerenciamento|
-|Assinatura|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Gerenciamento de Custos (ou Leitor)|Encargos de exibição do proprietário da conta habilitados|Todos os recursos/grupos de recursos na assinatura|
-|Grupo de recursos|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Gerenciamento de Custos (ou Leitor)|Encargos de exibição do proprietário da conta habilitados|Todos os recursos no grupo de recursos|
-
-<sup>1</sup>A conta de cobrança é frequentemente chamada de Registro ou Contrato Enterprise.
-
-<sup>2</sup>A conta de registro é frequentemente chamada de proprietário da conta.
-
-Para obter mais informações sobre como configurar os **encargos da exibição de DA** e os **encargos da exibição de AO**, confira [Habilitando o acesso a custos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Conta de cobrança
+- department
+- Conta de registro
+- Grupo de gerenciamento
+- Assinatura
+- Grupo de recursos
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

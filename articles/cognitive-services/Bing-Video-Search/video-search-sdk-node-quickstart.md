@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225609"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686680"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>Início Rápido: SDK da Pesquisa de Vídeo do Bing com o Node
 
@@ -25,7 +25,9 @@ O [código-fonte para exemplos de SDK da Pesquisa de Vídeo do Bing](https://git
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 
-Para configurar um aplicativo de console usando o SDK da Pesquisa de Vídeo do Bing, execute `npm install azure-cognitiveservices-videosearch` no ambiente de desenvolvimento.
+Para configurar o aplicativo de console usando o SDK da Pesquisa de Vídeo do Bing:
+* Execute `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
+* Execute `npm install azure-cognitiveservices-videosearch` no seu ambiente de desenvolvimento.
 
 ## <a name="video-search-client"></a>Cliente da Pesquisa de Vídeo
 Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisar*. Crie uma instância de `CognitiveServicesCredentials`:

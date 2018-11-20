@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252132"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567087"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -241,7 +241,10 @@ Execute um failover real para as instâncias de EC2 para migrá-las para as VMs 
 1. Em **Itens Protegidos** > **Itens Replicados**, selecione as instâncias do AWS e, em seguida, selecione **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente e inicie o failover. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 1. Verifique se a VM aparece em **Itens Replicados**.
-2. Clique com o botão direito do mouse em cada VM e selecione **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+2. Clique com o botão direito do mouse em cada VM e selecione **Concluir Migração**. Isso faz o seguinte:
+
+    - Isso conclui o processo de migração, interrompe a replicação da VM do AWS e interrompe a cobrança do Site Recovery para a VM.
+    - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas. 
 
     ![Migração completa](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

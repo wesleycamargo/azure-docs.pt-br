@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 2cbfa3662f6db7dc44d142d5fa13275aed359be7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ca2f855166d9a36f600889059368ebeb313e789c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740392"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636281"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo .Net Core para gerenciar os dados da API de SQL do Azure Cosmos DB
 
@@ -190,7 +190,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Seu [banco de dados](sql-api-resources.md#databases) do Azure Cosmos DB pode ser criado usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos JSON particionado em coleções.
+Seu [banco de dados](databases-containers-items.md#azure-cosmos-databases) do Azure Cosmos DB pode ser criado usando o método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Um banco de dados é o contêiner lógico de armazenamento de documentos JSON particionado em coleções.
 
 Copie e cole o código a seguir no seu método **GetStartedDemo** embaixo da criação do cliente. Isso cria um banco de dados denominado *FamilyDB*.
 
@@ -212,7 +212,7 @@ Parabéns! Você criou um banco de dados do Azure Cosmos DB com êxito.
 > [!WARNING]
 > **CreateDocumentCollectionAsync** cria uma nova coleção com uma taxa de transferência reservada, que tem implicações de preço. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-É possível criar uma [coleção](sql-api-resources.md#collections) usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada.
+É possível criar uma coleção usando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contêiner de documentos JSON e uma lógica de aplicativo JavaScript associada.
 
 Copie e cole o código a seguir no seu método **GetStartedDemo** sob a criação do banco de dados. Esse código cria uma coleção de documentos denominada *FamilyCollection_oa*.
 
@@ -231,7 +231,7 @@ Parabéns! Você criou uma coleção de documentos do Azure Cosmos DB com êxito
 
 ## <a id="CreateDoc"></a>Etapa 6: Criar documentos JSON
 
-Um [documento](sql-api-resources.md#documents) pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você poderá usar a [ferramenta de Migração de Dados](import-data.md) do Azure Cosmos DB.
+Um documento pode ser criado usando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdo JSON (arbitrário) definido pelo usuário. Agora podemos inserir um ou mais documentos. Se já tiver dados que gostaria de armazenar em seu banco de dados, você poderá usar a [ferramenta de Migração de Dados](import-data.md) do Azure Cosmos DB.
 
 Primeiro, você criará uma classe **Family** que representa os objetos armazenados no Azure Cosmos DB. Você também criará as subclasses **Parent**, **Child**, **Pet** e **Address** que são usadas em **Family**. Os documentos devem ter uma propriedade **ID** serializada como **id** em JSON. Crie essas classes adicionando as subclasses internas a seguir após o método **GetStartedDemo**.
 

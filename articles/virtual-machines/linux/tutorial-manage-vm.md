@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981239"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613419"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e gerenciar VMs Linux com a CLI do Azure
 
@@ -262,7 +262,7 @@ Uma VM do Azure pode ter um dentre vários estados de energia. Esse estado repre
 | Desalocada | Indica que a máquina virtual é removido do hipervisor, mas ainda estão disponíveis no plano de controle. Máquinas virtuais no estado Desalocado não incorrem em encargos de computação. |
 | - | Indica que o estado de energia da máquina virtual é desconhecido. |
 
-### <a name="find-power-state"></a>Localizar o estado de energia
+### <a name="find-the-power-state"></a>Localizar o estado de energia
 
 Para recuperar o estado de uma VM específica, use o comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Especifique um nome válido para uma máquina virtual e grupo de recursos. 
 

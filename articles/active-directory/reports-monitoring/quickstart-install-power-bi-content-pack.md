@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816643"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622527"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Início Rápido: instalar o pacote de conteúdo do Power BI para Azure Active Directory
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816643"
 |Atualmente, o pacote de conteúdo do Azure AD Power BI usa as APIs do Graph do Azure AD para recuperar dados do locatário do Azure AD. Como resultado, você poderá ver alguma disparidade entre os dados disponíveis no pacote de conteúdo e os dados recuperados usando as [APIs do Microsoft Graph para relatórios](concept-reporting-api.md). |
 |  |
 
-Com o pacote de conteúdo do Power BI para Azure Active Directory, você pode ter insights profundos do que está acontece em seu Active Directory. Você pode baixar o pacote de conteúdo pré-criado e usá-lo para relatar todas as atividades em seu diretório usando a avançada experiência de visualização que o Power BI oferece. Você também pode criar seu próprio painel e compartilhá-lo facilmente com qualquer pessoa em sua organização. 
+O pacote de conteúdo do Power BI para o Azure Active Directory (Azure AD) fornece a capacidade de visualizar os dados de relatório do seu ambiente. Você pode baixar o pacote de conteúdo pré-criado e usá-lo para relatar todas as atividades em seu diretório usando a avançada experiência de visualização que o Power BI oferece. Você também pode criar seu próprio painel e compartilhá-lo facilmente com qualquer pessoa em sua organização. 
 
 Neste início rápido, você aprende como instalar o pacote de conteúdo.
 
