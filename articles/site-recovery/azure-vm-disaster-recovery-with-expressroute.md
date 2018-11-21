@@ -183,7 +183,7 @@ No nosso exemplo, estamos usando a topologia a seguir:
 - Dois circuitos ExpressRoute diferentes em dois locais de emparelhamentos diferentes.
 - Reter endereços IP privados para as VMs do Azure após o failover.
 - Região de recuperação de destino é o Azure do Sudeste Asiático.
-- Uma conexão de circuito do ExpressRoute secundário é estabelecida por meio de uma borda de parceiro em Cingapura.
+- Uma conexão de circuito do ExpressRoute secundário é estabelecida por meio de uma borda de parceiro em Singapura.
 
 Para uma topologia simples que usa um único circuito da Rota Expressa, com o mesmo endereço IP após o failover, [analise este artigo](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
