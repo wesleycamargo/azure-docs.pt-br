@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5fa86387861ca87f9280a4c900d9dd83db5f1a39
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393636"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344528"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para um banco de dados do SQL Azure para Azure Machine Learning
-Este tópico descreve as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um Banco de Dados SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
+
+Este artigo descreve as opções para movimentação de dados de arquivos simples (formatos CSV ou TSV) ou de dados armazenados em um SQL Server local para um Banco de Dados SQL do Azure. Essas tarefas para movimentar dados para a nuvem fazem parte do Processo de Ciência de Dados de Equipe.
 
 Para um tópico que descreve as opções para mover dados para um SQL Server local para o Machine Learning, consulte [Mover dados para o SQL Server em uma máquina virtual do Azure](move-sql-server-virtual-machine.md).
-
-O **menu** a seguir leva a tópicos que descrevem com ingerir dados em ambientes de destino em que os dados podem ser armazenados e processados durante o TDSP (Processo de Ciência de Dados de Equipe).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 A tabela a seguir resume as opções para mover dados para um Banco de Dados SQL do Azure.
 

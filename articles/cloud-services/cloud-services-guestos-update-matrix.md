@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978733"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346160"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -42,6 +42,9 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="november-8-2018"></a>**8 de novembro de 2018**
+O SO convidado de outubro foi lançado.
 
 ###### <a name="october-12-2018"></a>**12 de outubro de 2018**
 O SO convidado de setembro foi lançado.
@@ -74,8 +77,9 @@ O SO convidado de abril foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-5.24_201810-01 |8 de novembro de 2018 |Pós-5.26 |
 | WA-GUEST-OS-5.23_201809-01 |12 de outubro de 2018 |Pós-5.25 |
-| WA-GUEST-OS-5.22_201808-01 |12 de setembro de 2018 |POST 5,24 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
@@ -88,8 +92,9 @@ O SO convidado de abril foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-4.59_201810-01 |8 de novembro de 2018 |Pós-4.61 |
 | WA-GUEST-OS-4.58_201809-01 |12 de outubro de 2018 |Pós-4.60 |
-| WA-GUEST-OS-4.57_201808-01 |12 de setembro de 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
@@ -102,8 +107,9 @@ O SO convidado de abril foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-3.66_201810-01 |8 de novembro de 2018 |Pós-3.68 |
 | WA-GUEST-OS-3.65_201809-01 |12 de outubro de 2018 |Pós-3.67 |
-| WA-GUEST-OS-3.64_201808-01 |12 de setembro de 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018 |
@@ -116,8 +122,9 @@ O SO convidado de abril foi lançado.
 
 | Cadeia de caracteres de configuração | Data do lançamento | Data da desabilitação |
 | --- | --- | --- |
+| WA-GUEST-OS-2.79_201810-01 |8 de novembro de 2018 |Pós-2.81 |
 | WA-GUEST-OS-2.78_201809-01 |12 de outubro de 2018 |Pós-2.80 |
-| WA-GUEST-OS-2.77_201808-01 |12 de setembro de 2018 |POST 2.79 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |12 de setembro de 2018 |8 de novembro de 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 de agosto de 2018 |12 de outubro de 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 de julho de 2018 |12 de setembro de 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1º de junho de 2018 |3 de agosto de 2018|
@@ -148,13 +155,13 @@ Quando a data de **validade** vence, qualquer Serviço de nuvem que ainda esteja
 As famílias de SO convidado são baseadas em versões lançadas do Microsoft Windows Server. O SO convidado é o sistema operacional subjacente sobre o qual os Serviços de Nuvem do Azure são executados. Cada SO convidado tem uma família, uma versão e um número de lançamento.
 
 * **Guest OS family**  
-  Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
+   Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
   Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
-  Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
+   Um relançamento de uma versão do SO Convidado. Um relançamento ocorre quando a Microsoft encontra, durante os testes, problemas que exigem alterações. A versão mais recente sempre substitui quaisquer lançamentos anteriores, públicos ou não. O portal do Azure só permitirá que os usuários escolham o lançamento mais recente de uma determinada versão. Implantações executadas em uma versão anterior geralmente não sofrem atualização forçada, o que depende da gravidade do bug.
 
 No exemplo abaixo, 2 é a família, 12 é a versão e "rel2" é o lançamento.
 

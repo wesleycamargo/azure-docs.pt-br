@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9100722042bfdcbee48af1fc44e294df046c828e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007205"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624770"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu workspace.
@@ -81,7 +81,7 @@ Para selecionar um workspace criados pela Central de Segurança:
 
 2. Clique em **Salvar**.<br>
     A Central de Segurança criará um novo grupo de recursos e um workspace padrão nessa geolocalização e conectará o agente a esse workspace. A convenção de nomenclatura para o grupo de recursos e o workspace é:<br>
-**Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResouceGroup-[geo]**
+ **Área de trabalho: DefaultWorkspace- [subscription-ID] - [geo] <br>Grupo de recursos: DefaultResourceGroup- [geo]**
 
    Se uma assinatura contém VMs de várias localizações, a Central de Segurança cria vários workspaces. Vários workspaces são criados para manter as regras de privacidade de dados.
 -   A Central de segurança habilitará automaticamente uma solução da Central de Segurança no workspace por tipo de preço definido para a assinatura. 
@@ -133,7 +133,7 @@ Para selecionar um workspace existente do Log Analytics:
 
 5. Selecione o tipo de preço para o workspace desejado que você pretende definir no Microsoft Monitoring Agent. <br>Para usar um workspace existente, defina o tipo de preço do workspace. Isso instalará uma solução da Central de Segurança no workspace, se ainda não existir.
 
-    a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
+     a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
     b.  Selecione o workspace desejado ao qual você pretende conectar o agente.
         ![Selecione o workspace][8] c. Defina o tipo de preço.
@@ -246,7 +246,7 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
 1.  Selecione o Provisionamento automático – Desativado.
 2.  Crie um workspace e defina o tipo de preço para o workspace que você pretende definir no Microsoft Monitoring Agent:
 
-    a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
+     a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
     b.  Selecione o Workspace ao qual você pretende conectar o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
         ![Selecione o workspace][8]
@@ -258,7 +258,7 @@ Há diversas maneiras de instalar o Microsoft Monitoring Agent manualmente. Veri
 
 4.  Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale a extensão de máquina virtual do OMS:
 
-    a.  [Instalar a extensão da máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+     a.  [Instalar a extensão da máquina virtual do OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
     b.  [Instalar a extensão da máquina virtual do OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5.  Para implantar as extensões em VMs existentes, siga as instruções em [Coletar dados sobre Máquinas Virtuais do Microsoft Azure](../log-analytics/log-analytics-quick-collect-azurevm.md).

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471502"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626126"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -77,7 +77,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ADHybridHealthService/addsservices/action | Cria uma nova floresta para o locatário. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | Obtém todos os servidores para o nome do serviço especificado. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/alerts/read | Obtém detalhes de alertas da floresta como alertid, data da geração do alerta, último alerta detectado, descrição do alerta, última atualização, nível do alerta, estado do alerta, links de solução de problemas do alerta etc. |
-> | Ação | Microsoft.ADHybridHealthService/addsservices/configuration/read | Obtém a Configuração de Serviço da floresta. Exemplo: Nome da Floresta, Nível Funcional, Função de FSMO mestre de Nomeação de Domínio, Função de FSMO mestre de esquema etc. |
+> | Ação | Microsoft.ADHybridHealthService/addsservices/configuration/read | Obtém a Configuração de Serviço da floresta. Exemplo - Nome da floresta, nível funcional, função FSMO principal de nomeação de domínio, função FSMO principal do esquema etc. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/delete | Exclui um serviço e seu servidores junto com os dados de integridade. |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Obtém os detalhes de sites e domínios da floresta. Exemplo: status da integridade, alertas ativos, alertas resolvidos, propriedades como Nível Funcional do Domínio, Floresta, Mestre de Infraestrutura, Controlador de Domínio Primário, Mestre RID etc.  |
 > | Ação | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Obtém a configuração de preferência do usuário da floresta.<br>Exemplo: MetricCounterName como ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Configurações para Gráficos da Interface do Usuário etc. |
@@ -104,7 +104,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ADHybridHealthService/reports/badpassword/read | Obtém a lista de tentativas com senhas incorretas de todos os usuários no Serviço de Federação do Active Directory. |
 > | Ação | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Obtém o URI de SAS do Blob que contém o status e o resultado eventual do trabalho de relatório recém-enfileirado para a frequência de Tentativas de Nome de Usuário/Senha incorretas por UserId por IPAddress por dia para um determinado locatário. |
 > | Ação | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Obtém a lista de locatários permitidos do DevOps. Normalmente usado para suporte ao cliente. |
-> | Ação | Microsoft.ADHybridHealthService/reports/isdevops/read | Obtém um valor que indica se o locatário é permitido pelo DevOps ou não. |
+> | Ação | Microsoft.ADHybridHealthService/reports/isdevops/read | Obtém um valor indicando se o locatário é DevOps consentido ou não. |
 > | Ação | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Atualiza o Userid(objectid) para o locatário do DevOps selecionado. |
 > | Ação | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Obtém a implantação selecionada para o locatário determinado. |
 > | Ação | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Dada uma ID de locatário, obtém o local de armazenamento do locatário. |
@@ -240,7 +240,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ApiManagement/service/apis/products/read | Obter todos os produtos que a API faz parte |
 > | Ação | Microsoft.ApiManagement/service/apis/read | Obter lista de todas as APIs registradas ou obter detalhes da API |
 > | Ação | Microsoft.ApiManagement/service/apis/releases/delete | Remover todas as versões da API ou versão Remover API |
-> | Ação | Microsoft.ApiManagement/service/apis/releases/read | Obter versões para uma API ou Obter detalhes da versão da API |
+> | Ação | Microsoft.ApiManagement/service/apis/releases/read | Obter versões de uma API ou obter detalhes do lançamento da API |
 > | Ação | Microsoft.ApiManagement/service/apis/releases/write | Criar nova versão da API ou atualizar a versão da API existente |
 > | Ação | Microsoft.ApiManagement/service/apis/revisions/delete | Remover todas as revisões de uma API |
 > | Ação | Microsoft.ApiManagement/service/apis/revisions/read | Obter revisões pertencentes a uma API |
@@ -395,7 +395,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.Authorization/checkAccess/action | Verificar se o chamador está autorizado a executar uma ação específica |
 > | Ação | Microsoft.Authorization/classicAdministrators/delete | Remover o administrador da assinatura. |
-> | Ação | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Obter o status de operação do administrador da assinatura. |
+> | Ação | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Obtém o administrador do status de operação da assinatura. |
 > | Ação | Microsoft.Authorization/classicAdministrators/read | Ler os administradores para obter a assinatura. |
 > | Ação | Microsoft.Authorization/classicAdministrators/write | Adicionar ou modificar o administrador de uma assinatura. |
 > | Ação | Microsoft.Authorization/denyAssignments/delete | Excluir uma atribuição de negação no escopo especificado. |
@@ -552,7 +552,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Excluir recurso do Active Directory B2C |
 > | Ação | Microsoft.AzureActiveDirectory/b2cDirectories/read | Exibir recurso do Active Directory B2C |
-> | Ação | Microsoft.AzureActiveDirectory/b2cDirectories/write | Criar ou atualizar recursos do Active Directory B2C |
+> | Ação | Microsoft.AzureActiveDirectory/b2cDirectories/write | Criar ou atualizar o recurso Diretório B2C |
 > | Ação | Microsoft.AzureActiveDirectory/operations/read | Ler todas as operações de API disponíveis para o provedor de recursos Microsoft.AzureActiveDirectory |
 > | Ação | Microsoft.AzureActiveDirectory/register/action | Registrar a assinatura do provedor de recursos Microsoft.AzureActiveDirectory |
 
@@ -975,7 +975,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Excluir o grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Ler o status da operação do grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico dos Grupos de Segurança de Rede |
-> | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico dos Grupos de Segurança de Rede, essa operação é complementada pelo provedor de recursos do Microsoft Insights. |
+> | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico dos Grupos de segurança de rede, essa operação é complementada pelo provedor de recursos de insights. | 
 > | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o grupo de segurança de rede |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/read | Obter o grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Excluir a regra de segurança. |
@@ -1029,7 +1029,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Obtém o proxy de emparelhamento de rede virtual remota. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Adiciona ou atualiza o proxy de emparelhamento de rede virtual remota. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | Excluir o grupo de segurança de rede associado à sub-rede. |
-> | Ação | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Ler o status da operação do grupo de segurança associado à sub-rede da rede virtual. |
+> | Ação | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | Ler o status da operação do grupo de segurança de rede associado à sub-rede da rede virtual. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | Obter um grupo de segurança de rede associado à sub-rede. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | Adiciona um grupo de segurança de rede associado à sub-rede. |
 > | Ação | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Valida a migração de uma Rede Virtual |
@@ -1100,7 +1100,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.CognitiveServices/accounts/skus/read | Ler SKUs disponíveis para um recurso existente. |
 > | Ação | Microsoft.CognitiveServices/accounts/usages/read | Obter a utilização de cota de um recurso existente. |
 > | Ação | Microsoft.CognitiveServices/accounts/write | Grava as contas de API. |
-> | Ação | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Ler as SKUs disponíveis para uma assinatura. |
+> | Ação | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Ler os SKUs disponíveis para uma assinatura. |
 > | Ação | Microsoft.CognitiveServices/Operations/read | Listar todas as operações disponíveis |
 > | Ação | Microsoft.CognitiveServices/register/action | Registrar assinatura para Serviços Cognitivos |
 > | Ação | Microsoft.CognitiveServices/skus/read | Ler as SKUs disponíveis para os Serviços Cognitivos. |
@@ -3453,7 +3453,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/networkSecurityGroups/delete | Excluir um grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/join/action | Ingressar em um grupo de segurança de rede |
 > | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico dos Grupos de Segurança de Rede |
-> | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico dos Grupos de Segurança de Rede, essa operação é complementada pelo provedor de recursos do Microsoft Insights. |
+> | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico dos Grupos de segurança de rede, essa operação é complementada pelo provedor de recursos de insights. |
 > | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/read | Obter uma definição de um grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/securityRules/delete | Excluir uma regra de segurança |
@@ -3573,7 +3573,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Obtém um ponto de extremidade aninhado que pertence a um perfil do Gerenciador de Tráfego, incluindo todas as propriedades desse ponto de extremidade aninhado. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Adicionar um novo ponto de extremidade aninhado em um perfil do Gerenciador de Tráfego existente ou atualizar as propriedades de um ponto de extremidade aninhado existente nesse perfil do Gerenciador de Tráfego. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do Gerenciador de Tráfego |
-> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico do Gerenciador de Tráfego, essa operação é complementada pelo provedor de recursos do Microsoft Insights. |
+> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico do Gerenciador de Tráfego, essa operação é complementada pelo provedor de recursos de informações. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o Gerenciador de Tráfego |
 > | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o Gerenciador de Tráfego. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/read | Obter a configuração de perfil do Gerenciador de Tráfego. Isso inclui configurações DNS, configurações de roteamento de tráfego, configurações de monitoramento do ponto de extremidade e lista de pontos de extremidade roteados por esse perfil do Gerenciador de Tráfego. |
@@ -3599,7 +3599,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Obter parâmetros IPsec do Vpnclient para cliente P2S do VirtualNetworkGateway. |
 > | Ação | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Obter a URL de um pacote de perfil de cliente VPN gerado previamente |
 > | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do Gateway de Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico do Gateway de Rede Virtual, essa operação é complementada pelo provedor de recursos do Microsoft Insights. |
+> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico da Rede Virtual do Microsoft Azure, essa operação é complementada pelo provedor de recursos insights. |
 > | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos do Gateway de Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Gateway de Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworkGateways/read | Obter um VirtualNetworkGateway |

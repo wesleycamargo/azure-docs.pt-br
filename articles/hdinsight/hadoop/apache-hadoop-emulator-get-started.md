@@ -1,6 +1,6 @@
 ---
-title: Aprender a usar uma área restrita do Hadoop – emulador – Azure HDInsight
-description: 'Para começar a aprender a usar o ecossistema Hadoop, você pode definir uma área restrita do Hadoop da Hortonworks em uma máquina virtual do Azure. '
+title: Aprenda usando um sandbox Apache Hadoop - emulador - Azure HDInsight
+description: 'Para começar a aprender sobre o uso do ecossistema do Apache Hadoop, você pode configurar um sandbox do Hadoop a partir do Hortonworks em uma máquina virtual do Azure. '
 keywords: emulador do hadoop,área restrita do hadoop
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: add1833671b995e747af6a447c65114d1add76e9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013098"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631550"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução a uma área restrita Hadoop, um emulador em uma máquina virtual
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma sandbox do Apache Hadoop, um emulador em uma máquina virtual
 
-Saiba como instalar uma área restrita do Hadoop da Hortonworks em uma máquina virtual para saber mais sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtual para aprender sobre o ecossistema do Hadoop. A área restrita fornece um ambiente de desenvolvimento local para saber mais sobre o Hadoop, o HDFS (Sistema de Arquivos Distribuído Hadoop) e o envio de trabalhos. Quando estiver familiarizado com o Hadoop, você poderá começar a usar o Hadoop no Azure, criando um cluster do HDInsight. Para saber mais sobre como começar, confira [Introdução ao Hadoop no HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Oracle VirtualBox](https://www.virtualbox.org/). Baixe-o e instale-o [aqui](https://www.virtualbox.org/wiki/Downloads).

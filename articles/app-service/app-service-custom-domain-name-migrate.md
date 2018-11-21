@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049969"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300159"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
@@ -60,6 +60,13 @@ O registro TXT necessário depende do registro DNS que você deseja migrar. Para
 | \* (curinga) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Na página de registros DNS, anote o tipo de registro do nome DNS que você deseja migrar. O Serviço de Aplicativo dá suporte a mapeamentos de CNAME e registros A.
+
+> [!NOTE]
+> Para certos provedores, como CloudFlare, `awverify.*` não é um registro válido. Use `*` apenas em vez disso.
+
+> [!NOTE]
+> Curinga `*` registros não será validado subdomínios com o registro do CNAME existente da lista. Talvez você precise criar explicitamente um registro TXT para cada subdomínio.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Habilitar o domínio para o aplicativo
 

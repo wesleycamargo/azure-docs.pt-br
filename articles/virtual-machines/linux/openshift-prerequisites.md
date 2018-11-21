@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085811"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636604"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implantar OpenShift no Azure
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
-O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para aprimorar a segurança, em vez de apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
+O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. É melhor definir as permissões da entidade de serviço para grupos de recursos específicos, em vez de toda a assinatura.
 
 Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e gere as credenciais necessárias para o OpenShift.
 
 O exemplo a seguir cria um serviço de entidade e atribui permissões de colaborador a um grupo de recursos chamado openshiftrg.
-separadamente e use a saída para alimentar a opção de escopos --.
 
 Primeiro, crie o grupo de recursos denominado openshiftrg:
 

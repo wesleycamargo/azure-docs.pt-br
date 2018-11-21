@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964519"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285685"
 ---
 | Recurso | Limite máximo |Observações|
 | --- | --- |---|
 | Número máximo de novos trabalhos que podem ser enviados a cada 30 segundos por conta de automação (trabalhos não agendados) |100 |Quando esse limite é atingido, as solicitações subsequentes para criar um trabalho falham. O cliente recebe uma resposta de erro.|
 | Número máximo de trabalhos simultâneos em execução na mesma instância de tempo por conta de automação (trabalhos não agendados) |200 |Quando esse limite é atingido, as solicitações subsequentes para criar um trabalho falham. O cliente recebe uma resposta de erro.|
+| Tamanho máximo de armazenamento de metadados de trabalho para um período de 30 dias sem interrupção. | 10GB (aproximadamente 4 milhões trabalhos)|Quando esse limite é atingido, as solicitações subsequentes para criar um trabalho falham. |
 | Número máximo de módulos que podem ser importados por conta de automação a cada 30 segundos |5 ||
 | Tamanho máximo de um módulo |100 MB ||
 | Tempo de execução do trabalho - camada gratuita |500 minutos por assinatura por mês ||

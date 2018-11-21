@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: d4197effff48c23147799cd1fc3778521c42a19e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a7e7f13b68f06bb6c0e9be4730c7346e43e8e5b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256758"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346568"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migração da Contoso: mudança de host de um aplicativo Linux local para VMs do Azure e para o Azure MySQL
 
@@ -399,7 +399,7 @@ A execução de um failover de teste ajuda a verificar se tudo está funcionando
 
 ### <a name="migrate-the-vm"></a>Migração da VM
 
-Para migrar a VM, os administradores da Contoso criam um plano de recuperação que inclui a VM e fazem failover do plano para o Azure.
+Para migrar a VM, os administradores da Contoso criam um plano de recuperação que inclui a VM e fazem o failover do plano para o Azure.
 
 1. Eles criam um plano e adicionam **OSTICKETWEB** a ele.
 

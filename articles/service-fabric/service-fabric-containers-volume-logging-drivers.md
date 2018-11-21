@@ -3,7 +3,7 @@ title: Driver de Volume dos Arquivos do Azure do Service Fabric (Versão prévia
 description: O Service Fabric oferece suporte a Arquivos do Azure para volumes de backup de seu contêiner. No momento, isso está em visualização.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239365"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346398"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Driver de Volume dos Arquivos do Azure do Service Fabric (Versão prévia)
 O plug-in de volume dos Arquivos do Azure é um [Plug-in de volume de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contêineres do Docker. Este plug-in de volume do Docker é empacotado como um aplicativo do Service Fabric que pode ser implantado em clusters do Service Fabric. Seu objetivo é fornecer volumes baseados em Arquivos do Azure para outros aplicativos de contêiner do Service Fabric que são implantados para o cluster.
@@ -166,12 +166,11 @@ No elemento **Volume** no snippet de código acima, o plug-in do volume dos Arqu
 - **Destination** – Esta marcação é o local em que o volume é mapeado no contêiner em execução. Assim, seu destino não pode ser um local já existente em seu contêiner
 
 Conforme exibido nos elementos **DriverOption** no snippet acima, o plug-in do volume de Arquivos do Azure oferece suporte às seguintes opções de driver:
+- **shareName** - Nome do compartilhamento de arquivos dos Arquivos do Azure que fornece o volume para o contêiner.
+- **storageAccountName** - Nome da conta de armazenamento do Azure que contém o compartilhamento de arquivos dos Arquivos do Azure.
+- **storageAccountKey** - Chave de acesso para a conta de armazenamento do Azure que contém o compartilhamento de arquivos dos Arquivos do Azure.
+- **storageAccountFQDN** – nome de domínio associado à conta de armazenamento. Se storageAccountFQDN não for especificado, o nome de domínio será formado usando o padrão suffix(.file.core.windows.net) com storageAccountName.  
 
-Opções de driver com suporte:
-- **shareName** — Nome do compartilhamento de arquivo dos Arquivos do Azure que fornece o volume para o contêiner
-- **storageAccountName** — Nome da conta de armazenamento do Azure que contém o compartilhamento de arquivo dos Arquivos do Azure
-- **storageAccountKey** — Chave de acesso da conta de armazenamento do Azure que contém o compartilhamento de arquivo dos Arquivos do Azure
-- **storageAccountFQDN** – nome de domínio associado à conta de armazenamento. Se storageAccountFQDN não for especificado, o nome de domínio será formado usando o padrão suffix(.file.core.windows.net) com storageAccountName. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Opções de driver com suporte:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Usando seu próprio volume ou o log do driver
 O Service Fabric também permite o uso do [volume](https://docs.docker.com/engine/extend/plugins_volume/) personalizado ou drivers de [registro em log](https://docs.docker.com/engine/admin/logging/overview/). Se o driver de volume/log do Docker não estiver instalado em seu cluster, é possível instalá-lo manualmente usando os protocolos RDP/SSH. Você pode executar a instalação usando esses protocolos por meio de um [script de inicialização de conjunto de escala de máquina virtual](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou um [script SetupEntryPoint](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281750"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616190"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -81,7 +81,7 @@ O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa pro
 * Reiniciar o Gerenciador de Armazenamento
 * Se a janela de autenticação estiver em branco, aguarde pelo menos um minuto antes de fechar a caixa de diálogo de autenticação.
 * Verifique se as suas configurações de proxy e de certificado estejam definidas para o seu computador e o Gerenciador de Armazenamento.
-* Se você estiver no Windows e tiver acesso ao Visual Studio 2017 usando o mesmo computador e logon, tente entrar no Visual Studio 2017. Após um entrar com êxito no Visual Studio 2017, você deve ser capaz de abrir o Gerenciador de Armazenamento e ver sua conta no painel da conta. 
+* Se você estiver no Windows e tiver acesso ao Visual Studio 2017 usando o mesmo computador e logon, tente entrar no Visual Studio 2017. Após um entrar com êxito no Visual Studio 2017, você deve ser capaz de abrir o Gerenciador de Armazenamento e ver sua conta no painel da conta.
 
 Se nenhum desses métodos funcionar [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Primeiro, certifique-se de que as seguintes informações inseridas estejam corr
 
 * A URL do proxy e o número da porta
 * Nome de usuário e senha, caso seja solicitado pelo proxy
+
+Observe que o Gerenciador de Armazenamento não dá suporte ao arquivo .pac para definir configurações de proxy.
 
 ### <a name="common-solutions"></a>Soluções comuns
 

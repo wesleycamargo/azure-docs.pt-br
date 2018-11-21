@@ -4,16 +4,16 @@ description: Aprenda sobre o ciclo de vida pelo qual um blueprint passa e detalh
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094571"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620588"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -47,6 +47,9 @@ Em cada artefato do **grupo de recursos**, a seguinte ordem de sequência é usa
 Ao compor grandes esquemas, pode ser necessário que recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando um blueprint inclui vários modelos do Azure Resource Manager. Blueprints lida com esse padrão permitindo que a ordem de sequenciamento seja definida.
 
 A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. Apenas o blueprint (para grupos de recursos) e objetos de artefato suportam essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
+
+> [!NOTE]
+> Artefatos de **grupo de recursos** dão suporte para a propriedade `dependsOn`, mas não podem ser o destino de um `dependsOn` por qualquer tipo de artefato.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Exemplo - blueprint com grupo de recursos ordenado
 

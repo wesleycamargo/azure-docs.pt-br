@@ -1,6 +1,6 @@
 ---
-title: Executar trabalhos Sqoop usando o PowerShell e o Azure HDInsight
-description: Saiba como usar o Azure PowerShell em uma estação de trabalho para executar importação e exportação do Sqoop entre um cluster do Hadoop e um Banco de Dados SQL do Azure.
+title: Executar trabalhos do Apache Sqoop usando o PowerShell e o Azure HDInsight
+description: Saiba como usar o Azure PowerShell de uma estação de trabalho para executar importação e exportação do Apache Sqoop entre um cluster do Apache Hadoop e um Banco de Dados SQL do Azure.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 34c857ceef385e2089937b64d4f88dd434a347dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 23dae8a6f0651ee6b753c4b29112eb733103b9e1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010653"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631437"
 ---
-# <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>Execute trabalhos Sqoop usando o Azure PowerShell para o Handoop em HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Saiba como executar trabalhos do Apache Sqoop usando o Azure PowerShell para Apache Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o Azure PowerShell para executar trabalhos Sqoop no em Azure HDInsight para importar e exportar entre um cluster HDInsight e um banco de dados SQL do Azure ou um banco de dados de Servidor SQL.
+Saiba como usar o Azure PowerShell para executar trabalhos do Apache Sqoop no Azure HDInsight para importar e exportar entre um cluster HDInsight e um Banco de Dados SQL do Azure ou SQL Server.
 
 > [!NOTE]
 > As etapas deste artigo podem ser usadas com qualquer cluster HDInsight baseado em Linux ou Windows. No entanto, elas só funcionam em um cliente Windows. Use o seletor de guias na parte superior deste artigo para escolher outros métodos. 

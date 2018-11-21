@@ -11,30 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/28/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215507"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578766"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
 
 ## <a name="october-2018-guest-os"></a>A OS de convidado de outubro de 2018
->[!NOTE]
->O sistema operacional convidado de outubro está sendo implantado nas VMs do Cloud Service que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no sistema operacional outubro Guest. Esta lista está sujeita a alterações.
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Segurança do Windows 10 | 5.24 | 9 de outubro de 2018 |
-| Rel 18-10 | [4464330] | Segurança do Windows 10 | 6,0 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462915] | Segurança do Windows | 2.79 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462931] | Segurança do Windows | 3.66 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462941] | Segurança do Windows | 4.59 | 9 de outubro de 2018 |
-| Rel 18-10 | [4462930] | Piscando | 3.66, 4.59, 5.24, 6.0 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462930] | Piscando | 3.66, 4.59, 5.24 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 de outubro de 2018 |
 | N/D | [4339284] | Atualização de fuso horário | 2.79, 3.66, 4.59 | 24 de julho de 2018 |
 | N/D | [4457144] | Lançamento de non-security de setembro | 2.79 | 11 de setembro de 2018 |
@@ -48,7 +45,6 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [4457036] | Setembro Non-Security .NET 4.5.2 rollup | 4.59 | 11 de setembro de 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 83be53edf240220726639b51381b487c5b742cee
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754079"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345769"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,9 @@ Especificamente, este conector de armazenamento de Blob dá suporte a:
 - Copiar blobs usando chave de conta, assinatura de acesso compartilhado de serviço, entidade de serviço ou identidades gerenciadas para autenticações de recursos do Azure.
 - Copiar blobs de blocos, acréscimos ou de páginas e copiar dados somente para blobs de blocos. Não há suporte para o Armazenamento Premium do Azure como um coletor porque ele é feito por blobs de página.
 - Copiar blobs no estado em que se encontram ou analisando ou gerando blobs com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
+
+>[!NOTE]
+>Se você habilitar a opção _"Permitir que serviços Microsoft confiáveis acessem esta conta de armazenamento"_ nas configurações do firewall do Azure Storage, o uso do Azure Integration Runtime para se conectar ao armazenamento Blob falhará com erro proibido, pois o ADF não é tratado como confiável Microsoft serviço. Use o Microsoft Integration Runtime auto-hospedado como se conectar por meio em vez disso.
 
 ## <a name="get-started"></a>Introdução
 
@@ -247,7 +250,7 @@ Para copiar dados de e para o armazenamento de blob, defina a propriedade type d
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como **AzureBlob**. |SIM |
-| folderPath | Caminho para o contêiner e a pasta no armazenamento de blob. O filtro curinga não é suportado. Um exemplo é myblobcontainer/myblobfolder/. |SIM |
+| folderPath | Caminho para o contêiner e a pasta no armazenamento de blob. O filtro curinga não é suportado. Um exemplo é myblobcontainer/myblobfolder/. |Sim para atividade de cópia/pesquisa, não para a atividade GetMetadata |
 | fileName | **Filtro de nome ou curinga** para o blob (s) sob o "folderPath" especificado. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os blobs na pasta. <br/><br/>Para filtro, os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"fileName": "*.csv"`<br/>– Exemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape.<br/><br/>Quando fileName não é especificado para um conjunto de dados de saída e **preserveHierarchy** ão é especificado no coletor de atividade, a atividade de cópia gera automaticamente o nome do arquivo com o seguinte formato: "*Data. [Activity run id GUID]. [GUID se FlattenHierarchy]. [Formato se configurado]. [Compressão se configurado]*". Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não  |
 | formato | Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar ou gerar arquivos com um formato específico, haverá suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
 | compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis de suporte são **Ideal** e **Mais rápido**. |Não  |

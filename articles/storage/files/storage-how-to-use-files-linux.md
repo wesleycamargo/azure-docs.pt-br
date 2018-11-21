@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782035"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614932"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -117,7 +117,7 @@ ms.locfileid: "43782035"
     fi
     ```
 
-4. **Alterar as permissões no arquivo de credenciais para que raiz possa ler ou modificar o arquivo de senha.** Como a chave de conta de armazenamento é essencialmente uma senha de superadministrador para a conta de armazenamento, a definição das permissões no arquivo de modo que somente o root possa acessar é importante para que os usuários com privilégios mais baixos não possam recuperar a chave da conta de armazenamento.   
+4. **Alterar as permissões no arquivo de credenciais para que raiz possa ler ou modificar o arquivo de senha.** Como a chave da conta de armazenamento é essencialmente uma senha de super administrador para a conta de armazenamento, é importante definir as permissões no arquivo de modo que somente o usuário root possa acessar, para que usuários com privilégios mais baixos não possam recuperar a chave da conta de armazenamento.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

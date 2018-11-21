@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429874"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289114"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -64,7 +64,7 @@ No decorrer do documento, os termos a seguir são usados:
 * Componente SAP: um aplicativo SAP individual como ECC, BW, Solution Manager ou EP.  Os componentes SAP podem ser baseados em tecnologias ABAP ou Java tradicionais ou em um aplicativo não baseado em NetWeaver, como o Business Objects.
 * Ambiente SAP: um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como Desenvolvimento, QAS, Treinamento, DR ou Produção.
 * Estrutura da SAP: Este termo refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
-* Sistema SAP: a combinação de camada DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste SAP BW, sistema de produção SAP CRM etc. Em implantações do Azure não há suporte para dividir essas duas camadas entre local e Azure. Isso significa que um sistema SAP é implantado localmente ou no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou de forma local. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
+* Sistema SAP: a combinação de camada DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, sistema de teste SAP BW, sistema de produção SAP CRM etc. Em implantações do Azure não há suporte para dividir essas duas camadas entre local e Azure. Como resultado, um sistema SAP é implementado no local ou é implantado no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou de forma local. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
 * Entre instalações: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure com conectividade site a site, multissite ou de ExpressRoute entre os datacenters locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários entre instalações. O motivo para a conexão é estender domínios locais, Active Directory local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre VMs implantadas de forma local e VMs implantadas no Azure são possíveis. Este é o cenário mais comum para a implantação de ativos SAP no Azure. Para obter mais informações, consulte [Planejamento e design para gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -141,7 +141,7 @@ Como já foi mencionado, se seus requisitos de IOPS excedem o que pode fornecer 
 
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > É recomendável usar espaços de armazenamento do Windows para criar esses conjuntos de distribuição entre vários VHDs do Azure. É recomendável usar pelo menos Windows Server 2012 R2 ou Windows Server 2016.
 > 
@@ -161,7 +161,7 @@ Como já foi mencionado, se seus requisitos de IOPS excedem o que pode fornecer 
 >
 
 ### <a name="managed-or-non-managed-disks"></a>Discos não gerenciados ou gerenciados
-Uma Conta de Armazenamento do Azure não é apenas um constructo administrativo, mas também uma entidade de limitações. As limitações são diferentes entre a Conta de Armazenamento Standard do Azure e as Contas de Armazenamento Premium do Azure. As funcionalidades e limitações exatas são listadas no artigo [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+Uma Conta de Armazenamento do Azure não é apenas um constructo administrativo, mas também uma entidade de limitações. As limitações são diferentes entre a Conta de Armazenamento Padrão do Azure e as Contas de Armazenamento Premium do Azure. As funcionalidades e limitações exatas são listadas no artigo [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 Para o Armazenamento Standard do Azure, é importante lembrar que há um limite no IOPS por conta de armazenamento (linha contendo **Taxa de Solicitação Total** no artigo [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). Além disso, há um limite inicial do número de contas de armazenamento por assinatura do Azure. Portanto, você precisará balancear VHDs para uma estrutura SAP maior entre diferentes contas de armazenamento para evitar atingir os limites dessas contas de armazenamento. Um trabalho tedioso quando você estiver falando de algumas centenas de computadores virtuais com mais de mil VHDs. 
 
@@ -219,7 +219,7 @@ Para implantações da série M, é altamente recomendável usar o Acelerador de
 As VMs do Azure oferecem discos não persistentes depois que uma VM é implantada. No caso de uma reinicialização da VM, todo o conteúdo nessas unidades será apagado. Portanto, é um dado que arquivos de dados e arquivos de log/restauração de bancos de dados sob nenhuma circunstância encontra-se nessas unidades são persistentes. Pode haver exceções para alguns dos bancos de dados, onde essas unidades não persistentes poderiam ser adequadas para espaços de tabela temporários e tempdb. No entanto, evite usar essas unidades VMs da série A, pois essas unidades não persistentes são limitadas na taxa de transferência dessa família VM. Para obter mais detalhes, leia o artigo [Entendendo a unidade temporária em VMs do Windows no Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > A unidade D:\ em uma VM do Azure é uma unidade não persistente que é apoiada por alguns discos locais no nó de computação do Azure. Como ela não é persistente, isso significa que as alterações feitas no conteúdo na unidade D:\ são perdidas quando a VM é reiniciada. Por “alterações”, como arquivos armazenados, diretórios criados, aplicativos instalados etc.
 > 
@@ -276,7 +276,10 @@ Há várias práticas recomendadas, resultando em centenas de implantações de 
 > [!NOTE]
 > Você deve atribuir endereços IP estáticos por meio do Azure para vNICs individuais. Você não deve atribuir endereços IP estáticos dentro do SO convidado para um vNIC. Alguns serviços do Azure, como o serviço de Backup do Azure, dependem do fato de que pelo menos o vNIC primário esteja definido como DHCP, e não para endereços IP estáticos. Veja também o documento [Solucionar problemas de backup da máquina virtual do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Se você precisar atribuir vários endereços IP estáticos a uma VM, precisará atribuir vários vNICs a uma VM.
 >
->
+
+
+> [!IMPORTANT]
+> Fora de funcionalidade, mas mais importante por motivos de desempenho, não há suporte para configurar [Dispositivos virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Hybris ou S / 4HANA baseado no sistema SAP. Outros cenários em que os NVAs não são suportados estão em caminhos de comunicação entre VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD, conforme descrito em [Alta disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou em caminhos de comunicação entre VMs do Azure e SOFS do Windows Server configurados conforme descrito em [Cluster de uma instância do SAP ASCS / SCS em um cluster de failover do Windows usando um compartilhamento de arquivos no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). Os NVAs em caminhos de comunicação podem facilmente duplicar a latência de rede entre dois parceiros de comunicação, podendo restringir o rendimento em caminhos críticos entre a camada de aplicação SAP e a camada DBMS. Em alguns cenários observados com os clientes, os NVAs podem causar falhas nos clusters do Pacemaker Linux nos casos em que as comunicações entre os nós do cluster do Linux Pacemaker precisam se comunicar com o dispositivo SBD por meio de um NVA.   
 
 Usando duas VMs para sua implantação de DBMS dentro de um conjunto de disponibilidade do Azure além de um roteamento separado para a camada de aplicativo SAP e o tráfego de gerenciamento e operações para as duas VMs de DBMS em produção, o diagrama aproximado pareceria com:
 
@@ -304,7 +307,7 @@ Para reduzir ainda mais a latência de rede entre VMs do Azure, é altamente rec
 >  
 
 - - -
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 > 
 > Para Windows, confira o artigo [Criar uma máquina virtual do Windows com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) para entender os conceitos e a maneira de como implantar VMs com Rede Acelerada
 > 
@@ -324,7 +327,7 @@ Para reduzir ainda mais a latência de rede entre VMs do Azure, é altamente rec
 ## <a name="deployment-of-host-monitoring"></a>Implantação do monitoramento de host
 Para o uso produtivo de aplicativos SAP nas máquinas virtuais do Azure, o SAP requer a capacidade de obter dados de monitoramento dos hosts físicos executando as máquinas virtuais do Azure. É necessário um nível de patch do Agente de Host SAP específico que habilite essa funcionalidade no SAPOSCOL e no Agente de Host SAP. O nível de patch exato está documentado na Nota SAP [1409604].
 
-Para obter detalhes sobre a implantação de componentes que fornecem dados de host ao SAPOSCOL e ao Agente de Host SAP, bem como sobre o gerenciamento de ciclo de vida desses componentes, consulte o [Guia de implantação][deployment-guide]
+Para obter detalhes sobre a implantação de componentes que entregam dados do host ao SAPOSCOL e ao SAP Host Agent e o gerenciamento do ciclo de vida desses componentes, consulte o [Deployment Guide][deployment-guide]
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -334,7 +337,7 @@ Para obter documentação sobre o DBMS específico, consulte estes artigos:
 - [Implantação do DBMS de Máquinas Virtuais do Oracle Azure para carga de trabalho do SAP](dbms_guide_oracle.md)
 - [Implantação do DBMS de Máquinas Virtuais do IBM DB2 Azure para carga de trabalho do SAP](dbms_guide_ibm.md)
 - [Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP](dbms_guide_sapase.md)
-- [SAP maxDB, live Cache e implantação do Servidor de Conteúdo no Azure](dbms_guide_maxdb.md)
+- [Implantação do SAP maxDB, Live Cache e Content Server no Azure](dbms_guide_maxdb.md)
 - [SAP HANA no guia de operações do Azure](hana-vm-operations.md)
 - [Alta disponibilidade do SAP HANA para máquinas virtuais do Azure](sap-hana-availability-overview.md)
 - [Guia de backup para SAP HANA nas Máquinas Virtuais do Azure](sap-hana-backup-guide.md)

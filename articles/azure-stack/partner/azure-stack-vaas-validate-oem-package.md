@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646644"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261795"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes de OEM
 
@@ -58,22 +58,17 @@ Ao criar uma **validação de pacote** fluxo de trabalho no portal do VaaS, voc�
 
 #### <a name="option-1-generating-an-account-sas-url"></a>Opção 1: Gerar uma URL de SAS de conta
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. No [portal do Azure](https://portal.azure.com/), vá para sua conta de armazenamento e navegue até o arquivo. zip que contém o pacote
 
-1. Selecione **Blob** partir **opções de serviços permitidos**. Desmarque todas as opções restantes.
+2. Selecione **gerar SAS** no menu de contexto
 
-1. Selecione **recipiente** e **objeto** da **tipos de recursos permitidos**. Desmarque todas as opções restantes.
+3. Selecione **leitura** de **permissões**
 
-1. Selecione **leitura** e **lista** da **permitidas permissões**. Desmarque todas as opções restantes.
+4. Definir **hora de início** para a hora atual, e **hora de término** pelo menos de 48 horas da **hora de início**. Se você for executar outros testes com o mesmo pacote, considere aumentar **hora de término** para a duração do teste. Todos os testes agendados pelo VaaS após **hora de término** falham e uma nova SAS será precisará ser gerado.
 
-1. Definir **hora de início** para a hora atual, e **hora de término** como 1 hora da hora atual.
+5. Selecione **gerar a URL e o token SAS do blob**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    Aqui está como o formato deve ser exibidos: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. Modificar a URL de SAS gerada para incluir o contêiner de pacote `{containername}`e o nome do seu blob de pacote, `{mypackage.zip}`, da seguinte maneira:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    Use esse valor ao iniciar uma nova **validação de pacote** fluxo de trabalho no portal do VaaS.
+Use **URL de SAS de Blob** ao iniciar uma nova **validação de pacote** fluxo de trabalho no portal do VaaS.
 
 #### <a name="option-2-using-public-read-container"></a>Opção 2: Usar o contêiner público de leitura
 

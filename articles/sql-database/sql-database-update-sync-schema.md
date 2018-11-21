@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cfd59c3e64e019feb4efe4546872012a02402ad7
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161414"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684317"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 
@@ -186,7 +186,7 @@ A lógica de replicação descrita neste artigo para de funcionar em algumas sit
 
 1.  Consulte a tabela para listar todos os comandos com uma ID maior que o valor de ID recuperado na etapa anterior de controle de alterações de esquema.
 
-    a.  Ignore os comandos que não podem ser executados no banco de dados do ponto de extremidade. Você precisa lidar com a inconsistência de esquema. Reverta as alterações do esquema original se a inconsistência afetar seu aplicativo.
+     a.  Ignore os comandos que não podem ser executados no banco de dados do ponto de extremidade. Você precisa lidar com a inconsistência de esquema. Reverta as alterações do esquema original se a inconsistência afetar seu aplicativo.
 
     b.  Aplica manualmente os comandos que devem ser aplicados.
 
@@ -217,3 +217,20 @@ Se você quiser limpar os registros na tabela de rastreamento de alteração de 
 -   Não propagar novamente a coluna de identidade usando DBCC CHECKIDENT.
 
 -   Não use TRUNCATE para limpar os dados na tabela de controle de alteração de esquema.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber mais sobre a Sincronização de Dados SQL, veja:
+
+-   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
+-   Configurar sincronização de dados
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - Com o PowerShell
+        -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-database-data-sync-agent.md)
+-   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitore a sincronização de dados SQL com o Log Analytics](sql-database-sync-monitor-oms.md)
+-   Solucionar problemas - [Solucionar problemas com o SQL Data Sync do Azure](sql-database-troubleshoot-data-sync.md)
+-   Atualizar o esquema de sincronização
+    -   Com o PowerShell - [usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/sql-database-sync-update-schema.md)

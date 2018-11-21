@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407207"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567376"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados para a Máquina Virtual de Ciência de Dados
 
-Uma etapa importante na ciência de dados é entender os dados. Ferramentas de visualização e exploração de dados ajudam a acelerar a compreensão dos dados. Aqui estão algumas ferramentas fornecidas na DSVM que facilitam essa etapa importante. 
+Uma etapa importante na ciência de dados é entender os dados. Ferramentas de visualização e exploração de dados ajudam a acelerar a compreensão dos dados. A seguir, são apresentadas algumas ferramentas fornecidas na DSVM que facilitam essa etapa importante. 
 
 ## <a name="apache-drill"></a>Análise do Apache
 |    |           |
@@ -60,7 +60,7 @@ Uma etapa importante na ciência de dados é entender os dados. Ferramentas de v
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Visualização de Dados Interativa e Ferramenta de BI    |
-| Versões do DSVM com suporte      | Windows  |
+| Versões do DSVM com suporte      |  Windows  |
 | Usos típicos      |  Visualização de Dados e criação de Painéis   |
 | Como usar/executar?      | Atalho da Área de Trabalho (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Ferramentas relacionadas ao DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |

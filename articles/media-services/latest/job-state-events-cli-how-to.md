@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 8145b4eb3c39511eb9cd0ed052c36b8338191d4f
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 16f964c6f881777e0217979a329610902b29a87b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389489"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612605"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorar eventos dos Serviços de Mídia com a Grade de Eventos usando a CLI do Azure
 
@@ -24,12 +24,14 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Ter uma assinatura ativa do Azure.
+- Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
+
 - [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).
 
     Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
-
-- Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Este artigo requer a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Você também pode usar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto de extremidade de mensagem
 
@@ -45,23 +47,13 @@ Se você alternar para o site "Visualizador de grade de eventos do Azure", verá
    
 [!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
-
-Faça logon no [Portal do Azure](http://portal.azure.com) e inicie o **CloudShell** para executar comandos da CLI, conforme mostra as etapas a seguir.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-Se você optar por instalar e usar a CLI localmente, este tópico exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
-
 ## <a name="set-the-azure-subscription"></a>Definir a assinatura do Azure
 
 No comando a seguir, forneça a ID de assinatura do Azure que você deseja usar para a conta de Serviços de Mídia. Veja uma lista das assinaturas as quais você tem acesso navegando até [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-```azurecli-interactive
+```azurecli
 az account set --subscription mySubscriptionId
 ```
- 
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## <a name="subscribe-to-media-services-events"></a>Assinar eventos de serviços de mídia
 
@@ -71,7 +63,7 @@ Substitua `<event_subscription_name>` por um nome exclusivo para a assinatura de
 
 1. Obter a ID do recurso
 
-    ```azurecli-interactive
+    ```azurecli
     amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
     ```
 
@@ -83,7 +75,7 @@ Substitua `<event_subscription_name>` por um nome exclusivo para a assinatura de
 
 2. Assinar os eventos
 
-    ```azurecli-interactive
+    ```azurecli
     az eventgrid event-subscription create \
     --resource-id $amsResourceId \
     --name <event_subscription_name> \

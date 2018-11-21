@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977661"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686153"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerenciar orçamentos do Azure
 
-Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover responsabilidade organizacional. Com orçamentos, você pode considerar os serviços do Azure que consome ou assina durante um período específico. Eles ajudam você a informar outras pessoas sobre seus gastos para gerenciar proativamente os custos e monitorar como os gastos evoluem ao longo do tempo. Você pode ver como os gastos progridem com o tempo. Quando os limites de orçamento que você criou são excedidos, apenas notificações são disparadas. Nenhum de seus recursos é afetado e seu consumo não é interrompido. Você pode usar os orçamentos para comparar e controlar como analisar os custos de gastos.
+Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover responsabilidade organizacional. Com orçamentos, você pode considerar os serviços do Azure que consome ou assina durante um período específico. Eles ajudam você a informar outras pessoas sobre seus gastos para gerenciar proativamente os custos e monitorar como os gastos evoluem ao longo do tempo. Quando os limites de orçamento que você criou são excedidos, apenas notificações são disparadas. Nenhum de seus recursos é afetado e seu consumo não é interrompido. Você pode usar os orçamentos para comparar e controlar como analisar os custos de gastos.
 
-Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data do término no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
+Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
 
-Os exemplos neste tutorial o conduzem pela criação e pela edição de um orçamento para uma assinatura EA (Contrato Enterprise) do Azure.
+Os exemplos deste tutorial ajudam você a criar e editar um orçamento para uma assinatura do Azure Enterprise Agreement (EA).
 
 Neste tutorial, você aprenderá como:
 
@@ -77,7 +77,7 @@ No exemplo anterior, você criou um orçamento para uma assinatura. No entanto, 
 
 ## <a name="edit-a-budget"></a>Editar um orçamento
 
-Dependendo do nível de acesso que você tem, é possível editar um orçamento para alterar suas propriedades. No exemplo a seguir, algumas das propriedades são somente leitura, porque o usuário tem apenas permissão de Colaborador para a assinatura. No momento, a **Data do término** está desabilitada e não pode ser modificada depois de definida.
+Dependendo do nível de acesso que você tem, é possível editar um orçamento para alterar suas propriedades. No exemplo a seguir, algumas das propriedades são somente leitura porque o usuário tem apenas permissão de Contribuinte para a assinatura. No momento, a **Data do término** está desabilitada e não pode ser modificada depois de definida.
 
 ![Editar o orçamento – permissão de colaborador](./media/tutorial-acm-create-budgets/edit-budget.png)
 

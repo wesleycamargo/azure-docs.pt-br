@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471434"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622509"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
@@ -160,7 +160,7 @@ A personalização de voz está disponível para inglês dos EUA (en-US), chinê
 
 ## <a name="speech-translation"></a>Tradução de Fala
 
-A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto.
+A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto. Você pode traduzir a entrada de fala em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto desses idiomas está disponível para [síntese de fala](language-support.md#text-languages). 
 
 ### <a name="speech-languages"></a>Idiomas de fala
 

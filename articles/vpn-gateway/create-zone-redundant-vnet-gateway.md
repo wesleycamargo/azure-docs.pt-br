@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949767"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614541"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar um gateway de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
-Você pode implantar gateways de VPN e ExpressRoute em Zonas de Disponibilidade do Azure. Isso traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure de falhas no nível na zona. Para obter informações, veja [Sobre gateways de rede virtual com redundância de zona](about-zone-redundant-vnet-gateways.md) e [Sobre Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md).
+Você pode implantar gateways VPN e ExpressRoute nas zonas de disponibilidade do Azure. Isso traz resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual. A implantação de gateways em Zonas de Disponibilidade do Azure separa de forma física e lógica os gateways em uma região, enquanto protege a conectividade de rede local com o Azure de falhas no nível na zona. Para obter informações, veja [Sobre gateways de rede virtual com redundância de zona](about-zone-redundant-vnet-gateways.md) e [Sobre Zonas de Disponibilidade do Azure](../availability-zones/az-overview.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -142,7 +142,7 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 
 ## <a name="faq"></a>Perguntas frequentes
 
-### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará ao implantar essas novas SKUs?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>O que mudará quando eu implantar essas novas SKUs?
 
 Da sua perspectiva, você poderá implantar seus gateways com redundância de zona. Isso significa que todas as instâncias dos gateways serão implantadas em Zonas de Disponibilidade do Azure e cada Zona de Disponibilidade será um domínio de atualização e falha diferente. Isso torna seus gateways mais confiáveis, disponíveis e resilientes a falhas de zona.
 
@@ -160,4 +160,4 @@ No momento, a migração de gateways de rede virtual existentes para gateways co
 
 ### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Posso implantar gateways de VPN e ExpressRoute na mesma rede virtual?
 
-A coexistência de gateways de VPN e ExpressRoute na mesma rede virtual é compatível. No entanto, reserve um intervalo de endereços IP /27 para a sub-rede de gateway.
+A coexistência de gateways de VPN e do ExpressRoute na mesma rede virtual é compatível. No entanto, reserve um intervalo de endereços IP /27 para a sub-rede de gateway.

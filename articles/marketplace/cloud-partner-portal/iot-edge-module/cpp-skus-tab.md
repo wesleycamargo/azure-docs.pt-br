@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432048"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684810"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Guia SKUs do módulo do IoT Edge
 
@@ -41,7 +41,7 @@ A guia **SKUs** é atualizada e exibe os campos editados para configurar a SKU. 
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID da SKU**       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** não será possível alterar esse nome depois que a oferta for publicada. O nome é publicamente visível nas URLs do produto. |
+| **ID DO SKU**       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** não será possível alterar esse nome depois que a oferta for publicada. O nome é publicamente visível nas URLs do produto. |
 
 ## <a name="sku-details"></a>Detalhes da SKU
 
@@ -90,7 +90,7 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos
 
 ## <a name="sku-content"></a>Conteúdo da SKU
 
-Em Imagens do Módulo do Edge, forneça as informações necessárias para carregar o módulo do IoT Edge.
+Em **Imagens do Módulo do Edge**, forneça as informações necessárias para carregar o módulo do IoT Edge.
 
 Conceda-nos acesso ao seu [ACR (Registro de Contêiner do Azure)](https://azure.microsoft.com/services/container-registry/) (ACR) que contém a imagem do módulo do IoT Edge para que possamos enviá-lo e certificá-lo. Após publicado, o módulo do IoT Edge será copiado e distribuído usando um registro de contêiner público hospedado pelo Azure Marketplace.
 

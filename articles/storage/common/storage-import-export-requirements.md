@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
+ms.lasthandoff: 11/09/2018
 ms.locfileid: "49352230"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
@@ -26,7 +26,7 @@ Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguinte
 
 |Plataforma |Versão |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+| Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Outro software necessário para clientes do Windows
@@ -49,7 +49,7 @@ Para saber mais sobre as contas de armazenamento, confira [Azure storage account
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> O serviço de Importação/Exportação do Azure não oferece suporte às contas de armazenamento em que o recurso [Pontos de Extremidade do Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) foi habilitado. 
+> O serviço de Exportação/Importação do Azure não dá suporte a contas de armazenamento em que o recurso [Pontos de Extremidade de Serviço de Rede Virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) tenha sido habilitado. 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 

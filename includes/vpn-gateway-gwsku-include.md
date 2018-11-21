@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37909985"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285793"
 ---
 Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Selecione as SKUs que atendem às suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, recursos e SLAs.
 
@@ -29,7 +29,7 @@ As novas SKUs do gateway VPN simplificam os conjuntos de recursos oferecidos nos
 
 | **SKU**| **Recursos**|
 | ---    | ---         |
-|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis com P2S; nenhuma autenticação RADIUS para P2S; nenhum IKEv2 para P2S<br>**VPN baseada em políticas:** (IKEv1): 1 túnel; sem P2S|
+|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis para conexões/S2S; nenhuma autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1 túnel de conexão/S2S; sem P2S|
 | **VpnGw1, VpnGw2 e VpnGw3** | **VPN baseada em roteamento**: até 30 túneis ( * ), P2S, BGP, ativo-ativo, política IPsec/IKE personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 

@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146079"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622867"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
-Com os relatórios no Azure Active Directory (Azure AD) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
+Com os relatórios do Azure AD (Azure Active Directory), é possível obter as informações necessárias para determinar o desempenho do ambiente.
 
 A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
 
-- **Atividade** 
-    - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
-    - **Logs de auditoria** – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. Os exemplos de logs de auditoria incluem alterações feitas a recursos dentro do Azure AD, como usuários, aplicativos, grupos, funções, políticas, autenticações, etc.
-- **Segurança** 
-    - **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja Entradas de risco.
-    - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, consulte Usuários sinalizados para risco.
+- **Relatórios de atividades** 
+    - [Entradas](concept-sign-ins.md) – Fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário
+    - [Logs de auditoria](concept-audit-logs.md) – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. 
+    
+- **Relatórios de segurança** 
+    - [Entradas arriscadas](concept-risky-sign-ins.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
+    - [Usuários sinalizados para riscos](concept-user-at-risk.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registradas nos logs de auditoria.
- 
-
 
 ## <a name="access-reviews"></a>Análises de acesso
 
@@ -72,9 +71,6 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de Usuários|Obter aplicativos V1|
 |Gerenciamento de Usuários|Obter aplicativo V2|
 |Gerenciamento de Usuários|Obter aplicativos V2|
-
-
-
 
 ## <a name="account-provisioning"></a>Provisionamento de conta
 
@@ -593,13 +589,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de política|Usuário registrado para redefinição de senha de autoatendimento|
 
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter uma visão geral de:
-
-- Relatórios, confira os [Relatórios do Azure Active Directory](overview-reports.md).
-
-- Relatórios de atividade de auditoria, confira [Relatórios de atividade de auditoria no portal do Azure Active Directory](concept-audit-logs.md). 
-
+- [Visão geral dos relatórios do Azure AD](overview-reports.md).
+- [Relatório de logs de auditoria](concept-audit-logs.md). 
+- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

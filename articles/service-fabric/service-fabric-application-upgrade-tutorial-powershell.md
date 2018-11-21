@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348762"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515311"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização do aplicativo do Service Fabric usando o PowerShell
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Depois que as alterações forem feitas, o manifesto deverá se parecer com o se
 <CodePackageName="Code" Version="2.0">
 ```
 
-Agora, o arquivo *ApplicationManifest.xml* (localizado no projeto **VisualObjects** na solução **VisualObjects**) é atualizado para a versão 2.0 do projeto **VisualObjects.ActorService**. Além disso, a versão do aplicativo é atualizada para 2.0.0.0 de 1.0.0.0. O *ApplicationManifest.xml* deve se parecer com o seguinte trecho:
+Agora, o arquivo *ApplicationManifest.xml* (localizado no projeto **VisualObjects** na solução **VisualObjects**) é atualizado para a versão 2.0 do projeto **VisualObjects.ActorService**. Além disso, a versão do aplicativo é atualizada para 2.0.0.0 de 1.0.0.0. O *ApplicationManifest.xml* deve se parecer com o seguinte snippet:
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -79,13 +79,13 @@ Agora, compile o projeto selecionando apenas o projeto **ActorService**, clicand
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3: decida sobre diretivas de integridade e parâmetros de atualização
 Familiarize-se com os [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e o [processo de atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, os tempos limite e o critério de integridade aplicados. Para este passo a passo, o critério de avaliação de integridade do serviço é definido como o padrão (e valores recomendados), o que significa que todos os serviços e as instâncias devem estar *íntegros* após a atualização.  
 
-Vamos, no entanto, aumentar *HealthCheckStableDuration* para 60 segundos (de modo que os serviços estejam íntegros pelo menos 20 segundos antes que a atualização prossiga para o próximo domínio de atualização).  Vamos definir também *UpgradeDomainTimeout* para 1.200 segundos e *UpgradeTimeout* para 3.000 segundos.
+Vamos, no entanto, aumentar *HealthCheckStableDuration* para 180 segundos (de modo que os serviços estejam íntegros pelo menos 120 segundos antes que a atualização prossiga para o próximo domínio de atualização).  Vamos definir também *UpgradeDomainTimeout* para 1.200 segundos e *UpgradeTimeout* para 3.000 segundos.
 
 Por fim, vamos definir também *UpgradeFailureAction* para reversão. Essa opção exige que o Service Fabric reverta o aplicativo para a versão anterior caso encontre problemas durante a atualização. Portanto, ao iniciar a atualização (na etapa 4), os seguintes parâmetros são especificados:
 
 FailureAction = Rollback
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 

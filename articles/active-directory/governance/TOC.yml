@@ -5,37 +5,58 @@ items:
   items:
   - name: O que é governança de identidade?
     href: identity-governance-overview.md
-  expanded: true
+  - name: O que são revisões de acesso?
+    href: access-reviews-overview.md
+  expanded: false
+- name: Conceitos
+  items:
+  - name: Gerenciar o acesso do convidado com revisões
+    href: manage-guest-access-with-access-reviews.md
+  - name: Gerenciar o acesso do usuário com revisões
+    href: manage-user-access-with-access-reviews.md
+  - name: Gerenciar programas e seus controles
+    href: manage-programs-controls.md
+  - name: Gerenciar usuários excluídos do acesso condicional
+    href: conditional-access-exclusion.md
+  expanded: false
 - name: Guias de instruções
   items:
   - name: Análises de acesso
     items:
-    - name: O que é uma revisão de acesso?
-      href: access-reviews-overview.md
-    - name: Criar uma análise de acesso
-      href: create-access-review.md
-    - name: Concluir uma revisão de acesso
-      href: complete-access-review.md
-    - name: Executar uma revisão de acesso
-      href: perform-access-review.md
-    - name: Examinar seu acesso
-      href: review-your-access.md
-    - name: Acesso de convidado com revisões de acesso
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gerenciar o acesso do usuário com revisões
-      href: manage-user-access-with-access-reviews.md
-    - name: Gerenciar programas e seus controles
-      href: manage-programs-controls.md
-    - name: Recuperar resultados de revisão do acesso
-      href: retrieve-access-review.md
-    - name: Gerenciar usuários excluídos
-      href: conditional-access-exclusion.md
+    - name: Grupos e aplicativos
+      items:
+      - name: Criar uma análise de acesso
+        href: create-access-review.md
+      - name: Iniciar uma revisão de acesso
+        href: perform-access-review.md
+      - name: Revisar seu próprio acesso
+        href: review-your-access.md
+      - name: Concluir uma revisão de acesso
+        href: complete-access-review.md
+      - name: Recuperar resultados de revisão do acesso
+        href: retrieve-access-review.md
+    - name: Funções de diretório
+      items:
+      - name: Revisar minhas funções de diretório
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Iniciar uma revisão de acesso
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Concluir uma revisão de acesso
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Funções de recurso
+      items:
+      - name: Revisar minhas funções de recurso
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Iniciar uma revisão de acesso
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Concluir uma revisão de acesso
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
   - name: Termos de uso
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1c70e219aab05e8f8bd905cdc341ccd0d7b563a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163130"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261139"

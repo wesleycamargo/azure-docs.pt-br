@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085335"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578290"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Monitore seus modelos de aprendizado de máquina do Azure em produção com o Application Insights
 
@@ -24,6 +24,10 @@ Neste artigo, você aprenderá como configurar o Insight do Aplicativo do Azure 
 * Exceções.
 
 [Saiba mais sobre o Application Insights](../../application-insights/app-insights-overview.md). 
+
+>[!NOTE]
+> O código deste artigo foi testado com a versão 0.1.74 do SDK do AML
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -109,8 +113,11 @@ Para desabilitar o Application Insights, use o seguinte código:
 ## <a name="evaluate-data"></a>Avaliar dados
 Os dados do seu serviço são armazenados em sua conta do Application Insights, dentro do mesmo grupo de recursos que o serviço do Azure Machine Learning.
 Para exibi-lo:
-1. Vá para o seu grupo de recursos no [Portal do Azure](https://portal.azure.com) e navegue até o recurso Application Insights. 
-2. A guia **Visão geral** mostra o conjunto básico de métricas para seu serviço.
+1. Acesse o espaço de trabalho do serviço do Machine Learning no [portal do Azure](https://portal.azure.com) e clique no link do Application Insights.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. Selecione a guia de **Visão geral** para ver um conjunto básico de métricas para o serviço.
 
    [![Visão geral](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +137,7 @@ O bloco de anotações [00.Introdução / 13.enable-app-insights-in-production-s
 
 ## <a name="next-steps"></a>Próximas etapas
 Você também pode coletar dados em seus modelos em produção. Leia o artigo [coletar dados para modelos em produção](how-to-enable-data-collection.md). 
+
+
+## <a name="other-references"></a>Outras referências
+* [Azure Monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

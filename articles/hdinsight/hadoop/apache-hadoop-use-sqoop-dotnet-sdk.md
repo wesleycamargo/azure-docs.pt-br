@@ -1,6 +1,6 @@
 ---
-title: Executar trabalhos Sqoop usando o .NET e o HDInsight – Azure
-description: Saiba como usar o SDK .NET do HDInsight para executar a importação e a exportação do Sqoop entre um cluster do Hadoop e um banco de dados SQL do Azure.
+title: Executar trabalhos do Apache Sqoop usando .NET e HDInsight – Azure
+description: Aprenda a usar o SDK do .NET do HDInsight para executar a importação e a exportação do Apache Sqoop entre um cluster do Apache Hadoop e um banco de dados SQL do Azure.
 keywords: trabalho de sqoop
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014866"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633024"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Executar trabalhos do Apache Sqoop usando .NET SDK para Apache Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o SDK .NET do Azure HDInsight para executar trabalhos do Sqoop no HDInsight a fim de importar e exportar entre um cluster HDInsight e um banco de dados SQL do Azure ou do SQL Server.
+Saiba como usar o SDK do .NET do Azure HDInsight para executar trabalhos do Apache Sqoop no HDInsight para importar e exportar entre um cluster HDInsight e um banco de dados SQL do Azure ou SQL Server.
 
 > [!NOTE]
 > As etapas deste artigo podem ser usadas com qualquer cluster HDInsight baseado em Linux ou Windows. No entanto, elas só funcionam em um cliente Windows. Use o seletor de guias na parte superior deste artigo para escolher outros métodos.

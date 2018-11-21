@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669343"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622662"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface do usuário de seus aplicativos no Azure Active Directory B2C
 
@@ -64,9 +64,11 @@ Embora você possa armazenar seus arquivos de várias maneiras, para este tutori
  O código do Azure AD B2C em um navegador usa uma abordagem moderna e padrão para carregar conteúdo personalizado de uma URL que você especifica em uma política. CORS (compartilhamento de recurso de origem cruzada) permite que recursos restritos em uma página da Web sejam solicitados em outros domínios.
 
 1. No menu, selecione **CORS**.
-2. Para **Origens permitidas**, **Cabeçalhos permitidos** e **Cabeçalhos expostos**, insira `your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `fabrikam.b2clogin.com`.
-3. Para **verbos permitidos**, selecione `GET` e `OPTIONS`.
-4. Para **Idade máxima de**, insira 200.
+2. Para **origens permitidas**, insira `your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `fabrikam.b2clogin.com`.
+3. Para **métodos permitidos**, selecione ambos `GET` e `OPTIONS`.
+4. Para **cabeçalhos permitidos**, digite um asterisco (*).
+5. Para **cabeçalhos expostos**, digite um asterisco (*).
+6. Para **Idade máxima de**, insira 200.
 
     ![Habilitar CORS](./media/tutorial-customize-ui/enable-cors.png)
 

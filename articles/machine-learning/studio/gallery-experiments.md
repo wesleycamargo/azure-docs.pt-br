@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: d57e780fbf5187f2481d40bde28b113181c15b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834651"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346432"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Descobrir experimentos na Galeria de IA do Azure
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="experiments-for-machine-learning-studio"></a>Experimentos para o Machine Learning Studio
-A Galeria contém uma ampla variedade de [experimentos](https://gallery.cortanaintelligence.com/experiments) que foram desenvolvidos no [Azure Machine Learning Studio](https://studio.azureml.net). Eles variam de experimentos de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
+[Galeria do AI do Azure](http://gallery.cortanaintelligence.com) tem uma ampla variedade de [experiências](https://gallery.cortanaintelligence.com/experiments) que foram desenvolvidas no [Estúdio do Microsoft Azure Machine Learning Studio](https://studio.azureml.net). Eles variam de experimentos de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 
 > [!NOTE]
 > Um ***experimento*** é uma tela em branco no Machine Learning Studio que você pode usar para construir um modelo de análise de previsão. Crie o modelo conectando dados com vários módulos analíticos. Você pode experimentar ideias diferentes, realizar execuções de teste, eventualmente, implantar seu modelo como um serviço Web no Azure. Para ver um exemplo de criação de um experimento simples, consulte o [Tutorial de aprendizado de máquina: crie seu primeiro experimento no Azure Machine Learning Studio](create-experiment.md). Para ver uma explicação mais abrangente da criação de uma solução de análise preditiva, consulte [Instrução passo a passo: desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).

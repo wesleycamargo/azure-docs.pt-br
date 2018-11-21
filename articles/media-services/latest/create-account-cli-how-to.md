@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 10/15/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 988b56569c2537f9f0c74b1bcc2bf5e2a9400a80
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378798"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613152"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta de Serviços de Mídia do Azure
 
@@ -27,19 +27,18 @@ Este artigo descreve as etapas para criar uma nova conta dos Serviços de Mídia
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
-Entre no [Portal do Azure](http://portal.azure.com) e inicie o **CloudShell** para executar comandos da CLI, conforme mostra as etapas a seguir.
+- Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá a CLI do Azure versão 2.0 ou posterior. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+    Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](https://aka.ms/ams-v3-cli-ref) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.
 
 ## <a name="set-the-azure-subscription"></a>Definir a assinatura do Azure
 
 No comando a seguir, forneça a ID de assinatura do Azure que você deseja usar para a conta de Serviços de Mídia. Veja uma lista das assinaturas as quais você tem acesso navegando até [Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-```azurecli-interactive
+```azurecli
 az account set --subscription mySubscriptionId
 ```
  
@@ -47,5 +46,9 @@ az account set --subscription mySubscriptionId
  
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+[Transmitir um arquivo por streaming](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>Consulte também
+
+[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+

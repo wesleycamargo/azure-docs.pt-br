@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: c7191f60b8780e8ccee9b330aa21d8174f0f0148
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: bbac82b272b7f7beea6e43f000d265ab6f87c796
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106240"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300516"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando o Azure PowerShell
 
@@ -40,11 +40,10 @@ Neste artigo, você aprenderá como criar, listar e excluir uma identidade geren
     - Instale a [versão mais recente do PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
     - Execute `Install-Module -Name PowerShellGet -AllowPrerelease` para obter a versão de pré-lançamento do módulo `PowerShellGet` (talvez você precise fazer `Exit` da sessão atual do PowerShell depois de executar este comando para instalar o módulo `AzureRM.ManagedServiceIdentity`).
     - Execute `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` para instalar a versão de pré-lançamento do módulo `AzureRM.ManagedServiceIdentity` para executar as operações de identidade gerenciada atribuídas ao usuário neste artigo.
-- Para realizar as operações de gerenciamento deste artigo, a conta precisará das seguintes atribuições de função:
-    - [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (listar), atualizar e excluir uma identidade gerenciada atribuída ao usuário.
-    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para ler (listar) as propriedades de uma identidade atribuída ao usuário.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
+
+Para criar uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 Para criar uma identidade gerenciada atribuída ao usuário, use o comando [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/new-azurermuserassignedidentity). O parâmetro `ResourceGroupName` especifica o grupo de recursos no qual a identidade gerenciada atribuída ao usuário é criada e o parâmetro `-Name` especifica o nome. Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
@@ -54,6 +53,8 @@ Para criar uma identidade gerenciada atribuída ao usuário, use o comando [New-
 New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>Listar identidades gerenciadas atribuídas ao usuário
+
+Para listar/ler uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 Para listar identidades gerenciadas atribuídas ao usuário, use o comando [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos em que a identidade gerenciada atribuída ao usuário foi criada. Substitua o `<RESOURCE GROUP>` por seu próprio valor:
 
@@ -65,6 +66,8 @@ Na resposta, as identidades gerenciadas atribuídas ao usuário têm `"Microsoft
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Excluir uma identidade gerenciada atribuída ao usuário
+
+Para excluir uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 Para excluir uma identidade gerenciada atribuída ao usuário, use o comando [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos em que a identidade atribuída ao usuário foi criada e o parâmetro `-Name` especifica o nome. Substitua os valores de parâmetros `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 

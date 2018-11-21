@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219879"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597575"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -45,11 +45,11 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Redes virtuais |1000 |
 | Sub-redes por rede virtual |3000 |
 | Emparelhamentos de rede virtual por Rede Virtual |100 |
-| Servidores DNS por rede virtual |25 |
+| Servidores DNS por rede virtual |20 |
 | Endereços IP privados por rede virtual |65536 |
 | Endereços IP privados por interface de rede |256 |
 | Fluxos TCP ou UDP simultâneos por NIC de uma máquina virtual ou instância de função |500K |
-| NIC (Interfaces de rede) |24.000 |
+| NIC (Interfaces de rede) |65536 |
 | Grupos de segurança de rede (NSG) |5.000 |
 | Regras de NSG por NSG |1000 |
 | Endereços e intervalos IP especificados para a origem ou o destino em um grupo de segurança |4000 |
@@ -64,28 +64,27 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Configurações de TAP do adaptador de rede por TAP de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites do endereço IP público
-
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| Endereços IP públicos - dinâmicos |(Básico) 200 |entrar em contato com o suporte |
+| Endereços IP públicos - dinâmicos |(Básico) 1000 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Básico) 200 |entrar em contato com o suporte |
 | Endereços IP públicos - estáticos |(Standard) 200 |entrar em contato com o suporte |
 
 #### <a name="load-balancer"></a>Limites do Load Balancer
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir o uso de recursos atual em relação aos limites de assinatura](../articles/networking/check-usage-against-limits.md)
 
-| Recurso | Limite padrão | Limite máximo |
+| Recurso | Limite padrão |
 | --- | --- | --- |
-| Balanceadores de Carga | 100 | 1000 |
-| Regras por recurso, Básico | 250 | 250 |
-| Regras por recurso, Standard | 1500 | 1500 |
-| Regras por configuração de IP | 299 |299 |
-| Configurações de IP de front-end, Básico | 10 | 200 |
-| Configurações de IP de front-end, Standard | 10 | 600 |
-| Pool de back-end, Básico | 100, um único conjunto de disponibilidade | 100, um único conjunto de disponibilidade |
-| Pool de back-end, Standard | 1000, única VNet | 1000, única VNet |
-| Recursos de back-end pelo Load Balancer, Standard* | 150 | 150 |
-| Portas de alta disponibilidade, Standard | 1 por front-end interno | 1 por front-end interno |
+| Balanceadores de Carga | 1000 | 
+| Regras por recurso, Básico | 250 |
+| Regras por recurso, Standard | 1500 | 
+| Regras por configuração de IP | 299 |
+| Configurações de IP de front-end, Básico | 200 |
+| Configurações de IP de front-end, Standard | 600 |
+| Pool de back-end, Básico | 100, um único conjunto de disponibilidade |
+| Pool de back-end, Standard | 1000, única VNet |
+| Recursos de back-end pelo Load Balancer, Standard* | 150 |
+| Portas de alta disponibilidade, Standard | 1 por front-end interno |
 
 **Até 150 recursos, qualquer combinação de máquinas virtuais autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais.
 

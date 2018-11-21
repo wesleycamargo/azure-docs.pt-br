@@ -1,0 +1,69 @@
+---
+title: Não é possível conectar área de trabalho remota em máquinas virtuais do Azure porque o NIC está desabilitado | Microsoft Docs
+description: Saiba como solucionar um problema no qual o RDP falha porque o NIC está desabilitado na VM do Azure | Microsoft Docs
+services: virtual-machines-windows
+documentationCenter: ''
+author: genlin
+manager: cshepard
+editor: ''
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 11/12/2018
+ms.author: genli
+ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634805"
+---
+#  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível conectar área de trabalho remota em uma VM porque o adaptador de rede está desabilitado
+
+Este artigo mostra como resolver um problema em que não é possível acessar área de trabalho remota em VMs (Máquinas Virtuais do Windows) do Azure porque o adaptador de rede está desabilitado.
+
+> [!NOTE] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico. 
+
+## <a name="symptoms"></a>Sintomas 
+
+Não é possível fazer uma conexão RDP ou qualquer outro tipo de conexão com qualquer outra porta para uma VM no Azure porque o adaptador de rede na VM está desabilitado.
+
+## <a name="solution"></a>Solução 
+
+Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+
+Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o adaptador de rede](##reset-network-interface) da VM.
+
+### <a name="use-serial-control"></a>Usar o Controle serial
+
+1. Conecte-se ao [Console Serial e abra a instância CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+). Se o Console serial não estiver habilitado na VM, consulte [redefinir adaptador de rede](#reset-network-interface).
+2. Verifique o estado do adaptador de rede:
+
+        netsh interface show interface
+
+    Anote o nome do adaptador de rede desabilitado. 
+
+3. Habilite o adaptador de rede:
+
+        netsh interface set interface name="interface Name" admin=enabled
+
+    Por exemplo, se o adaptador de rede nomear "Ethernet 2", execute o seguinte comando:
+
+        netsh interface set interface name=""Ethernet 2" admin=enabled
+    
+
+4.  Verifique o estado do adaptador de rede novamente para certificar-se de que o adaptador de rede está habilitado.
+
+        netsh interface show interface
+
+    Não é necessário reiniciar a VM nesse momento. A VM retornará acessível.
+        
+5.  Conecte a VM e verifique se o problema foi resolvido.
+
+## <a name="reset-network-interface"></a>Redefinir o adaptador de rede
+
+Para redefinir o adaptador de rede, altere o endereço IP para outro endereço IP que esteja disponível na sub-rede, usando o portal do Azure ou o Azure PowerShell. Para obter mais informações, consulte [redefinir adaptador de rede](reset-network-interface.md). 

@@ -1,6 +1,6 @@
 ---
-title: Usar o Sqoop do Hadoop com Curl no Azure HDInsight
-description: Saiba como enviar remotamente trabalhos do Sqoop para o HDInsight usando o Curl.
+title: Use o Apache Sqoop com o Curl no HDInsight - Azure
+description: Aprenda a enviar tarefas do Apache Sqoop remotamente para o HDInsight usando o Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: fd05ee18ccad7e689f9679df2bbf80dc19e39368
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010432"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633166"
 ---
-# <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Executar trabalhos do Sqoop com Hadoop no HDInsight com Curl
+# <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Execute tarefas do Apache Sqoop com o Hadoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como usar o Curl para executar trabalhos do Sqoop em um cluster Hadoop no HDInsight.
+Aprenda a usar o Curl para executar tarefas do Apache Sqoop em um cluster do Apache Hadoop no HDInsight.
 
 Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar, monitorar e recuperar os resultados de trabalhos do Sqoop. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
 

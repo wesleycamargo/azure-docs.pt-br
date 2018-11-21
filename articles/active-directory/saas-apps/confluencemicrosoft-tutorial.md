@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c669e13ec3345ff75024c54eda8c13ad194705a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2e254faae0289cd00c7e66d430ec3148fccb364a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741123"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o Confluence da Microsoft
 
@@ -65,14 +65,22 @@ A partir de agora, há suporte para as seguintes versões do Confluence:
 
 - Confluence: 5.0 a 5.10
 - Confluence: 6.0.1
+- Confluence: 6.1.1
 - Confluence: 6.2.1
+- Confluence: 6.3.4
+- Confluence: 6.4.0
+- Confluence: 6.5.0
 - Confluence: 6.6.2
+- Confluence: 6.7.0
 - Confluence: 6.8.1
+- Confluence: 6.9.0
+- Confluence: 6.10.0
+- Confluence: 6.11.0
 - Confluence: 6.12.0
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SSO do SAML para o Confluence da Microsoft por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -135,7 +143,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Confluence SAML SSO por domínio da Microsoft e informações de logon único de URLs](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<domain:port>/`
 
@@ -144,7 +152,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in do Confluence, que é explicada adiante no tutorial.
 
-5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão copiar para copiar  **URL de metadados da federação de aplicativo**  e cole-o no bloco de notas.
+5. Na página **Certificado de assinatura SAML**, na seção **Certificado de assinatura SAML**, clique no botão Copiar para copiar  **URL de metadados da federação de aplicativo**  e cole-o no Bloco de notas.
 
     ![O link de download do Certificado](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
 
@@ -169,7 +177,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo, para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, após a resolução dos metadados, o administrador receberá um erro.
 
-    a. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
+     a. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique no botão **Resolver**. Ele lê a URL de metadados do IdP e popula todas as informações dos campos.
 
     b. Copie os valores de **Identificador, URL de Resposta e URL de Logon** e cole-os nas caixas de texto **Identificador, URL de Resposta e URL de Logon**, respectivamente, na seção **Domínio e URLs do SSO do SAML para o Confluence da Microsoft** do portal do Azure.
 
@@ -209,9 +217,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](common/create_aaduser_02.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**  
+    b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -234,7 +242,7 @@ Para permitir que os usuários do Azure AD façam logon no servidor local do Con
 
     ![Adicionar Funcionário](./media/confluencemicrosoft-tutorial/user2.png) 
 
-    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brenda Fernandes.
+     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brenda Fernandes.
 
     b. Na caixa de texto **Nome completo**, digite o nome completo do usuário, como Brenda Fernandes.
 
@@ -275,7 +283,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco do SSO do SAML para o Confluence da Microsoft no Painel de Acesso, deverá ser conectado automaticamente ao aplicativo SSO do SAML para o Confluence da Microsoft.
-Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

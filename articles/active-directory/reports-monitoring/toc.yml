@@ -64,6 +64,8 @@ items:
     items:
     - name: Localizar relatórios de atividades
       href: howto-find-activity-reports.md
+    - name: Solucionar erros de entrada para um usuário
+      href: howto-troubleshoot-sign-in-errors.md
     - name: Remediar usuários sinalizados como em risco
       href: howto-remediate-users-flagged-for-risk.md
     - name: Usar o pacote de conteúdo do Power BI para relatórios do Azure AD
@@ -95,6 +97,10 @@ items:
   items:
   - name: Relatórios
     items:
+    - name: Referência da API de logs de auditoria
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: Referência da API de logs de entrada
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: Atividades de auditoria
       href: reference-audit-activities.md
     - name: Políticas de retenção de dados
@@ -112,9 +118,9 @@ items:
     - name: Esquema do log de entrada
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 6c7dedc0bc592ba47b9fc0a0e017012f2b0be2cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4763477baca827eca93f05356dd92249f4c0e63c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623198"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276594"

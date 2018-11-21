@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8806d2b1848064c48615aed653c69c2df9b1949f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215371"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685456"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Habilitar o Azure Disk Encryption para VMs de IaaS do Linux 
 
@@ -130,7 +130,7 @@ A tabela a seguir lista os parâmetros de modelo do Resource Manager existente p
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | vmName | Nome da VM para executar a operação de criptografia. |
-| keyVaultName | Nome do cofre de chaves no qual a chave do BitLocker deve ser carregada. É possível obtê-lo, usando o cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` ou o comando da CLI do Azure `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON`|
+| keyVaultName | Nome do cofre de chaves no qual a chave do BitLocker deve ser carregada. É possível obtê-lo, usando o cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` ou o comando da CLI do Azure `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o cofre de chaves|
 |  keyEncryptionKeyURL | URL da chave de criptografia de chaves que é usada para criptografar a chave gerada do BitLocker. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_. |
 | volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos são _OS_, _Data_ e _All_. 
@@ -153,7 +153,7 @@ O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento d
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature#az_feature_show). Quando o `State` reportar *Registrado*, registre novamente o provedor *Mirosoft.Compute* com [az provider register](/cli/azure/provider#az_provider_register):
+Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature#az_feature_show). Quando `State` reportar *Registrado*, registre novamente o *provedor Microsoft.Compute* com [registro do provedor de sincronização az](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -191,7 +191,7 @@ O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento d
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` reportar *Registrado*, registre novamente o provedor *Mirosoft.Compute* com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` relatar *Registrado*, registre novamente o provedor *Microsoft.Compute* com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -244,7 +244,7 @@ O parâmetro **EncryptFormatAll** reduz o tempo de criptografia dos discos de da
  Após executar esse comando, todas as unidades que foram montadas anteriormente serão formatadas. Em seguida, a camada de criptografia será iniciada na parte superior da unidade agora vazia. Quando essa opção for selecionada, o disco de recurso efêmero anexado à VM também será criptografado. Se a unidade temporária for reiniciada, ela será reformatada e criptografada novamente para a VM pela solução do Azure Disk Encryption na próxima oportunidade.
 
 >[!WARNING]
-> O EncryptFormatAll não deverá ser usado quando houver dados necessários nos volumes de dados de uma VM. É possível excluir discos da criptografia, desmontando-os. Primeiro será necessário testar o EncryptFormatAll, primeiro em uma VM de teste, e compreender o parâmetro de recurso e a respectiva implicação antes de testá-lo na VM de produção. A opção EncryptFormatAll formata o disco de dados e todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que você quer excluir estão devidamente desmontados. </br></br>
+> O EncryptFormatAll não deverá ser usado quando houver dados necessários nos volumes de dados de uma VM. É possível excluir discos da criptografia, desmontando-os. Primeiro será necessário testar o EncryptFormatAll, primeiro em uma VM de teste, e compreender o parâmetro de recurso e a respectiva implicação antes de testá-lo na VM de produção. A opção EncryptFormatAll formata o disco de dados e todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que deseja excluir estão corretamente desmontados. </br></br>
  >Se você estiver configurando esse parâmetro ao atualizar as configurações de criptografia, isso poderá levar a um reinício antes da criptografia real. Nesse caso, é recomendável também remover o disco que você não quer que seja formatado no arquivo fstab. Da mesma forma, é necessário adicionar a partição que deseja criptografar ao arquivo fstab antes de iniciar a operação de criptografia. 
 
 ### <a name="bkmk_EFACriteria"> </a> Critérios do EncryptFormatAll
@@ -304,7 +304,7 @@ Use o cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.c
     
     4. Execute o cmdlet Set-AzureRmVMDiskEncryptionExtension PowerShell com -EncryptFormatAll para criptografar esses discos.
          ```azurepowershell-interactive
-         Set-AzureRmVMDiskEncryptionExtension -ResouceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
+         Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
          ```
     5. Configure a LVM sobre esses novos discos. Observe que as unidades criptografadas serão desbloqueadas após a VM concluir a inicialização. Portanto, a montagem de LVM também deverá ser subsequentemente atrasada.
 
@@ -330,7 +330,7 @@ Use as instruções no apêndice para preparar imagens previamente criptografada
 ```azurepowershell-interactive
 $VirtualMachine = New-AzureRmVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
-New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Habilitar criptografia em um disco de dados adicionado recentemente

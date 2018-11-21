@@ -1,18 +1,18 @@
 ---
 title: Automatizar o build, teste e aplicação de patch de imagem do Registro de Contêiner do Azure com tarefas de várias etapas
-description: Uma introdução a tarefas de várias etapas, um recurso de tarefas do ACR no Registro de Contêiner do Azure que fornece fluxos de trabalho baseados em tarefas para compilar imagens de contêiner, testá-las e aplicar patches nelas, na nuvem.
+description: Uma introdução às tarefas em várias etapas, um recurso das Tarefas do ACR no Registro de Contêiner do Azure, que fornece fluxos de trabalho baseados em tarefas para criar, testar e corrigir imagens de contêiner na nuvem.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856710"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632685"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de build, teste e aplicação de patch de várias etapas tarefas do ACR
 
@@ -25,9 +25,9 @@ Por exemplo, você pode executar uma tarefa com etapas que automatizam o seguint
 
 1. Compilar uma imagem de aplicativo Web
 1. Executar o contêiner de aplicativo Web
-1. Compilar uma imagem de teste de aplicativo Web
-1. Execute o contêiner de teste de aplicativo Web que executa os testes em relação ao contêiner de aplicativo em execução
-1. Se os testes aprovarem, compile um pacote de arquivos de gráficos do Helm
+1. Compilar uma imagem de teste do aplicativo Web
+1. Executar o contêiner de teste de aplicativo Web que executa testes em relação à execução do contêiner de aplicativo
+1. Quando os testes são aprovados, compilar um pacote de arquivo morto de gráfico do Helm
 1. Executar uma `helm upgrade` usando o novo pacote de arquivos de gráficos do Helm
 
 Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. Para obter informações sobre preços, veja a seção **Build de Contêiner** em [Preços do Registro de Contêiner do Azure][pricing].
@@ -53,7 +53,7 @@ Uma tarefa de várias etapas nas Tarefas do ACR é definida como uma série de e
 * [`push`](container-registry-tasks-reference-yaml.md#push): envie imagens compiladas por push para um registro de contêiner. Registros privados como o Registro de Contêiner do Azure são compatíveis, o mesmo se aplica ao Hub do Docker público.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): execute um contêiner de modo que ele possa operar como uma função dentro do contexto da tarefa em execução. Você pode passar parâmetros para o `[ENTRYPOINT]` do contêiner e especificar propriedades como env, detach e outros parâmetros de `docker run` familiares. O tipo de etapa `cmd` permite testes de unidade e funcionais, com execução simultânea em contêineres.
 
-Tarefas de várias etapas podem ser tão simples quanto compilar uma única imagem e enviá-la por push:
+Os trechos de código a seguir mostram como combinar esses tipos de etapa da tarefa. Tarefas de várias etapas podem ser tão simples quanto a criação de uma única imagem de um Dockerfile e enviar por push para seu registro, com um arquivo YAML semelhante a:
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Ou mais complexas, como esta tarefa que inclui etapas para build, teste, empacotamento do Helm e implantação do Helm:
+Ou, mais complexo, como essa definição fictícia de várias etapa que inclui as etapas para compilação, teste, o pacote do helm e o helm implantar (registro de contêiner e a configuração do repositório do Helm não mostrados):
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Ver [exemplos de tarefas] [ task-examples] para concluir arquivos YAML de tarefa de várias etapas e Dockerfiles para vários cenários.
 
 ## <a name="run-a-sample-task"></a>Executar uma tarefa de exemplo
 
@@ -163,6 +165,7 @@ Você pode encontrar referências e exemplos de tarefas de várias etapas aqui:
 
 * [Referência de tarefa](container-registry-tasks-reference-yaml.md) – tipos de etapa de tarefa, suas propriedades e uso.
 * [Exemplos de tarefas][task-examples] – arquivos `task.yaml` de exemplo para vários cenários, simples e complexos.
+* [Repositório de cmd](https://github.com/AzureCR/cmd) -uma coleção de contêineres, como comandos para tarefas ACR.
 
 <!-- IMAGES -->
 

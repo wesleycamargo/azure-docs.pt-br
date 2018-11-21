@@ -12,30 +12,36 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/17/2018
+ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 3f321775ba112471760e627e6b43ed17ff8c5b6b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 71e7abef725abf95cc20de8d1283d0efea6c3687
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182868"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615850"
 ---
 # <a name="application-upgrade-parameters"></a>Parâmetros de atualização de aplicativo
-Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Parâmetros de atualização de aplicativo controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha.
-
-Parâmetros do aplicativo se aplicam a atualizações usando PowerShell ou Visual Studio. Os parâmetros obrigatórios e opcionais aplicáveis ao PowerShell e/ou ao Visual Studio são descritos nas tabelas Parâmetros Obrigatórios e Parâmetros Opcionais.
+Este artigo descreve os vários parâmetros que se aplicam durante a atualização de um aplicativo do Service Fabric do Azure. Parâmetros de atualização de aplicativo controlam o tempo limite e as verificações de integridade que são aplicadas durante a atualização, e especificam as políticas que devem ser aplicadas quando uma atualização falha. Parâmetros de aplicativo aplicam-se a atualizações usando:
+- PowerShell
+- Visual Studio
+- SFCTL
+- [REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-startapplicationupgrade)
 
 Atualizações de aplicativo são iniciadas por meio de um dos três modos de atualização selecionáveis pelo usuário. Cada modo tem o próprio conjunto de parâmetros do aplicativo:
 - Monitorado
 - Automático Não Monitorado
 - Manual Não Monitorado
 
+Os parâmetros obrigatórios e opcionais aplicáveis são descritos em cada seção da seguinte maneira.
+
+## <a name="visual-studio-and-powershell-parameters"></a>Parâmetros do Visual Studio e PowerShell
+
 Atualizações de aplicativo do Service Fabric usando o PowerShell usam o comando [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade). O modo de atualização é selecionado passando o parâmetro **Monitored**, **UnmonitoredAuto** ou **UnmonitoredManual** para [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
 Parâmetros atualização de aplicativo do Visual Studio Service Fabric são definidos por meio da caixa de diálogo Configurações de Atualização do Visual Studio. O modo de atualização do Visual Studio é selecionado usando a caixa suspensa **Modo de Atualização** para **Monitored**, **UnmonitoredAuto** ou **UnmonitoredManual**. Para obter mais informações, veja [Configurar a atualização de um aplicativo do Service Fabric no Visual Studio](service-fabric-visualstudio-configure-upgrade.md).
 
-## <a name="required-parameters"></a>Parâmetros obrigatórios
+### <a name="required-parameters"></a>Parâmetros obrigatórios
 (PS=PowerShell, VS=Visual Studio)
 
 | Parâmetro | Aplica-se A | DESCRIÇÃO |
@@ -48,7 +54,7 @@ UpgradeMode | VS | Os valores permitidos são **Monitored** (padrão), **Unmonit
 UnmonitoredAuto | PS | Indica que o modo de atualização e não monitorado automático. Depois que o Service Fabric atualiza um domínio de atualização, o Service Fabric atualiza o próximo domínio de atualização, independentemente do estado de integridade do aplicativo. Esse modo não é recomendado para produção e só é útil durante o desenvolvimento de um aplicativo. |
 UnmonitoredManual | PS | Indica que o modo de atualização e não monitorado manual. Depois que o Service Fabric atualiza um domínio de atualização, ele aguarda você atualizar o próximo domínio de atualização usando o cmdlet *Resume-ServiceFabricApplicationUpgrade*. |
 
-## <a name="optional-parameters"></a>Parâmetros opcionais
+### <a name="optional-parameters"></a>Parâmetros opcionais
 
 Os parâmetros de avaliação de integridade são opcionais. Se os critérios de avaliação de integridade não forem especificados ao iniciar uma atualização, o Service Fabric usará as políticas de integridade do aplicativo especificadas no ApplicationManifest.xml da instância do aplicativo.
 
@@ -69,16 +75,46 @@ Use a barra de rolagem horizontal na parte inferior da tabela para exibir o camp
 | HealthCheckWaitDurationSec |PS, VS | O tempo de espera (em segundos) após a conclusão da atualização no domínio de atualização antes que o Service Fabric avalie a integridade do aplicativo. Essa duração também pode ser considerada como o tempo pelo qual um aplicativo deve estar em execução antes que possa ser considerado íntegro. Se a verificação de integridade for aprovada, o processo de atualização passa para o próximo domínio de atualização.  Se a verificação de integridade falhar, o Service Fabric aguardará [UpgradeHealthCheckInterval](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-fabric-settings#clustermanager) antes de tentar novamente a verificação de integridade até que o *HealthCheckRetryTimeoutSec* seja atingido. O valor padrão recomendado é 0 segundos. |
 | MaxPercentUnhealthyDeployedApplications|PS, VS |O valor padrão e recomendado é 0. Especifica o número máximo de aplicativos implantados (confira a [seção Integridade](service-fabric-health-introduction.md)) que podem comprometer a integridade antes que o aplicativo seja considerado não íntegro e sofra falha na atualização. Esse parâmetro define a integridade do aplicativo no nó e ajuda a detectar problemas durante a atualização. Tipicamente, as réplicas do aplicativo têm a carga balanceada para outro nó, o que permite que o aplicativo pareça íntegro, permitindo assim que a atualização continue. Ao especificar uma integridade *MaxPercentUnhealthyDeployedApplications* estrita, o Service Fabric pode detectar um problema com o pacote de aplicativos rapidamente e ajudar a produzir em uma atualização fail fast. |
 | MaxPercentUnhealthyServices |PS, VS |Um parâmetro para *DefaultServiceTypeHealthPolicy* e *ServiceTypeHealthPolicyMap*. O valor padrão e recomendado é 0. Especifica o número máximo de serviços na instância do aplicativo que podem não estar íntegros antes que o aplicativo seja considerado não íntegro e tenha atualização com falha. |
-| MaxPercentUnhealthyPartitionsPerService|PS, VS |O valor padrão e recomendado é 0. Especifica o número máximo de partições em um serviço que podem não estar íntegras antes que o serviço seja considerado não íntegro. |
-| MaxPercentUnhealthyReplicasPerPartition|PS, VS |O valor padrão e recomendado é 0. Especifica o número máximo de réplicas em partição que podem não estar íntegras antes que a partição seja considerada não íntegra. |
+| MaxPercentUnhealthyPartitionsPerService|PS, VS |Um parâmetro para *DefaultServiceTypeHealthPolicy* e *ServiceTypeHealthPolicyMap*. O valor padrão e recomendado é 0. Especifica o número máximo de partições em um serviço que podem não estar íntegras antes que o serviço seja considerado não íntegro. |
+| MaxPercentUnhealthyReplicasPerPartition|PS, VS |Um parâmetro para *DefaultServiceTypeHealthPolicy* e *ServiceTypeHealthPolicyMap*. O valor padrão e recomendado é 0. Especifica o número máximo de réplicas em partição que podem não estar íntegras antes que a partição seja considerada não íntegra. |
 | ServiceTypeHealthPolicyMap | PS, VS | Representa a política de integridade usada para avaliar a integridade dos serviços que pertencem a um tipo de serviço. Pega uma entrada de tabela de hash no seguinte formato: @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"} Por exemplo: @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" } |
 | TimeoutSec | PS, VS | Especifica o período de tempo limite em segundos para a operação. |
 | UpgradeDomainTimeoutSec |PS, VS |Tempo máximo (em segundos) para atualizar um único domínio de atualização. Se esse tempo limite for atingido, a atualização será interrompida e continuará com base na configuração para *FailureAction*. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. |
-| UpgradeReplicaSetCheckTimeoutSec |PS, VS |**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade *UpgradeReplicaSetCheckTimeoutSec*. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização.<br><br>**Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda pela disponibilidade de um quorum até um valor de tempo limite máximo (especificado pela propriedade *UpgradeReplicaSetCheckTimeoutSec*). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 1200 segundos durante a reversão. |
+| UpgradeReplicaSetCheckTimeoutSec |PS, VS |Medido em segundos.<br>**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade *UpgradeReplicaSetCheckTimeoutSec*. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização.<br><br>**Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda pela disponibilidade de um quorum até um valor de tempo limite máximo (especificado pela propriedade *UpgradeReplicaSetCheckTimeoutSec*). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 1200 segundos durante a reversão. |
 | UpgradeTimeoutSec |PS, VS |Um tempo limite (em segundos) que se aplica a toda a atualização. Se esse tempo limite for atingido, a atualização será interrompida e a *FailureAction* será disparada. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. |
 | WhatIf | PS | Os valores permitidos são **True** e **False**. Mostra o que aconteceria se o cmdlet fosse executado. O cmdlet não é executado. |
 
 Os critérios *MaxPercentUnhealthyServices*, *MaxPercentUnhealthyPartitionsPerService* e *MaxPercentUnhealthyReplicasPerPartition* podem ser especificados por tipo de serviço para uma instância do aplicativo. Definir esses parâmetros por serviço permite que um aplicativo contenha tipos de serviços diferentes com políticas de avaliação diferentes. Por exemplo, um tipo de serviço de gateway sem monitoração de estado pode ter um *MaxPercentUnhealthyPartitionsPerService* diferente de um tipo de serviço de mecanismo com estado para uma determinada instância de aplicativo.
+
+## <a name="sfctl-parameters"></a>Parâmetros SFCTL
+
+As atualizações de aplicativos do Service Fabric usando a CLI do Service Fabric usam o comando [sfctl application upgrade](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-upgrade) junto com os seguintes parâmetros obrigatórios e opcionais.
+
+### <a name="required-parameters"></a>Parâmetros obrigatórios
+
+| Parâmetro | DESCRIÇÃO |
+| --- | --- |
+| application-id  |ID do aplicativo que está sendo atualizado. <br> Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+application-version |Versão do tipo de aplicativo visado pela atualização.|
+parâmetros  |Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
+
+### <a name="optional-parameters"></a>Parâmetros opcionais
+| Parâmetro | DESCRIÇÃO |
+| --- | --- |
+default-service-health-policy | Especificação [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) codificada da política de integridade usada por padrão para avaliar a integridade de um tipo de serviço. O mapa está vazio por padrão. |
+failure-action | Valores permitidos são **Rollback**, **Manual** e **Invalid**. A ação de compensação a ser executada quando uma atualização *Monitorada* encontra uma política de monitoramento ou violações da política de integridade. <br>**Reversão** especifica que a atualização será automaticamente revertida para a versão pré-atualização. <br>**Manual** indica que a atualização será mudada para o modo de atualização *UnmonitoredManual*. <br>**Inválido** indica que a ação de falha é inválida.|
+force-restart | Se você atualizar uma configuração ou um pacote de dados sem atualizar o código de serviço, o serviço será reiniciado somente se a propriedade ForceRestart estiver definida como **True**. Quando a atualização é concluída, a Malha do Serviço notifica o serviço de que um novo pacote de configuração ou pacote de dados está disponível. O serviço é responsável pela aplicação das alterações. Se necessário, o serviço pode se reiniciar. |
+health-check-retry-timeout | A quantidade de tempo para tentar novamente a avaliação de integridade quando o aplicativo ou cluster estiver não íntegro antes de *FailureAction* ser executado. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. Padrão: PT0H10M0S. |
+health-check-stable-duration | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. Padrão: PT0H2M0S. |
+health-check-wait-duration | A quantidade de tempo de espera após a conclusão de um domínio de atualização, antes de aplicar as políticas de integridade. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. Padrão: 0.|
+max-unhealthy-apps | O valor padrão e recomendado é 0. Especifica o número máximo de aplicativos implantados (confira a [seção Integridade](service-fabric-health-introduction.md)) que podem comprometer a integridade antes que o aplicativo seja considerado não íntegro e sofra falha na atualização. Esse parâmetro define a integridade do aplicativo no nó e ajuda a detectar problemas durante a atualização. Tipicamente, as réplicas do aplicativo têm a carga balanceada para outro nó, o que permite que o aplicativo pareça íntegro, permitindo assim que a atualização continue. Ao especificar um funcionamento *max-unhealthy-apps* estrito, o Service Fabric pode detectar um problema com o pacote de aplicativos rapidamente e ajudar a produzir uma atualização rápida com falha. Representado como um número entre 0 e 100. |
+modo | Os valores permitidos são **Monitored**, **UpgradeMode**, **UnmonitoredAuto**, **UnmonitoredManual**. O padrão é **UnmonitoredAuto**. Consulte a seção *Parâmetros Necessários* do Visual Studio e PowerShell para obter as descrições desses valores.|
+replica-set-check-timeout |Medido em segundos. <br>**Serviço sem monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que haja instâncias adicionais do serviço disponíveis. Se a contagem de instâncias de destino for mais de um, o Service Fabric esperará que mais de uma instância fique disponível, até um valor de tempo limite máximo. Esse tempo limite é especificado usando a propriedade *replica-set-check-timeout*. Se o tempo limite expirar, o Service Fabric continua com a atualização, independentemente do número de instâncias de serviço. Se a contagem de instâncias de destino for um, a Malha do Serviço não espera e prossegue imediatamente com a atualização.<br><br>**Serviço com monitoração de estado**: em um único domínio de atualização, o Service Fabric tenta garantir que o conjunto de réplicas tenha um quorum. O Service Fabric aguarda a disponibilidade de um quórum, até um valor de tempo limite máximo (especificado pela propriedade *replica-set-check-timeout*). Se o tempo limite expirar, o Service Fabric continuará com a atualização, independentemente de quorum. Essa configuração está definida como nunca (infinito) durante o roll forward e 1200 segundos durante a reversão. |
+service-health-policy | Mapa codificado em JSON com a política de integridade de tipo de serviço por nome de tipo de serviço. O mapa está vazio por padrão. [Parâmetro de formato JSON.](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-applicationhealthpolicy#servicetypehealthpolicymap). O JSON da parte "Valor" contém **MaxPercentUnhealthyServices**, **MaxPercentUnhealthyPartitionsPerService** e **MaxPercentUnhealthyReplicasPerPartition**. Consulte a seção Parâmetros Opcionais do Visual Studio e PowerShell para obter as descrições desses parâmetros.
+Tempo limite | Especifica o período de tempo limite em segundos para a operação. Padrão: 60. |
+upgrade-domain-timeout | A quantidade de tempo que cada domínio de atualização deve concluir antes de *FailureAction* ser executado. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. Padrão: P10675199DT02H48M05.4775807S. |
+upgrade-timeout | A quantidade de tempo que cada domínio de atualização deve concluir antes de *FailureAction* ser executado. Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. O valor padrão nunca é (infinito) e deve ser personalizado adequadamente para o seu aplicativo. Padrão: P10675199DT02H48M05.4775807S.|
+warning-as-error | Os valores permitidos são **True** e **False**. O valor padrão é **False**. Pode ser passado como um sinalizador. Trata os eventos de integridade de aviso do aplicativo como erros ao avaliar a integridade do aplicativo durante a atualização. Por padrão, o Service Fabric não avalia os eventos de integridade de aviso como falhas (erros); portanto, a atualização pode continuar mesmo se houver eventos de aviso. |
 
 ## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.

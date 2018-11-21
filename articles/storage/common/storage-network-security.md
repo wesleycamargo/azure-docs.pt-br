@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470057"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300550"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -201,7 +201,7 @@ Cada conta de armazenamento pode suportar até 100 regras de rede IP que podem s
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
 Para conceder acesso de suas redes locais para sua conta de armazenamento com uma regra de rede IP, você deve identificar os endereços IP voltados para Internet usados por sua rede.  Entre em contato com o administrador de rede para obter ajuda.
 
-Se sua rede estiver conectada à rede do Azure usando [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito será configurado com dois endereços IP públicos no Microsoft Edge que são usados para se conectar aos Serviços Microsoft como o Armazenamento do Azure usando o [Emparelhamento Público do Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir a comunicação do seu circuito para o Armazenamento do Azure, você deve criar regras de rede IP para os endereços IP públicos dos seus circuitos.  Para localizar os endereços IP públicos do seu circuito do ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure.
+Se sua rede estiver conectada à rede do Azure usando [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito será configurado com dois endereços IP públicos no Microsoft Edge que são usados para se conectar aos Serviços Microsoft como o Armazenamento do Azure usando o [Emparelhamento Público do Azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir a comunicação do seu circuito para o Armazenamento do Azure, você deve criar regras de rede IP para os endereços IP públicos dos seus circuitos.  Para localizar os endereços IP públicos do circuito do ExpressRoute, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do portal do Azure.
 
 
 ### <a name="managing-ip-network-rules"></a>Gerenciando regras de rede IP

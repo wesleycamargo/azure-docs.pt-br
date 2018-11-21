@@ -6,18 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ce9df1d45de82c759883dc90d50c28551bf62cdf
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043375"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287297"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapear campos personalizados para o esquema de Grade de Eventos
 
 Se os dados do evento não corresponderem ao esperado [esquema de Grade de Eventos](event-schema.md), você ainda poderá usar a Grade de Eventos para rotear o evento para os assinantes. Este artigo descreve como mapear seu esquema para o esquema de Grade de Eventos.
+
+## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -39,18 +41,18 @@ Embora esse formato não corresponda ao esquema requerido, a Grade de Eventos pe
 
 ## <a name="create-custom-topic-with-mapped-fields"></a>Criar tópico personalizado com campos mapeados
 
-Ao criar um tópico personalizado, especifique como mapear campos de seu evento original para o esquema de grade de eventos. Há três propriedades que você usa para personalizar o mapeamento:
+Ao criar um tópico personalizado, especifique como mapear campos de seu evento original para o esquema de grade de eventos. Existem três valores que você usa para personalizar o mapeamento:
 
-* O parâmetro `--input-schema` especifica o tipo de esquema. As opções disponíveis são *cloudeventv01schema*, *customeventschema*, e *eventgridschema*. O valor padrão é eventgridschema. Ao criar mapeamento personalizado entre seu esquema e o esquema de Grade de Eventos, use customeventschema. Quando os eventos estão no esquema de CloudEvents, use cloudeventv01schema.
+* O valor do **esquema de entrada** especifica o tipo de esquema. As opções disponíveis são o esquema CloudEvents, o esquema de eventos personalizados ou o esquema de Grade de Eventos do Azure. O valor padrão é o esquema de Grade de Eventos do Azure. Ao criar um mapeamento personalizado entre seu esquema e o esquema de grade do evento, use o esquema de evento personalizado. Quando os eventos estão no esquema CloudEvents, use o esquema Cloudevents.
 
-* O parâmetro `--input-mapping-default-values` especifica valores padrão para campos no esquema de Grade de Eventos. É possível definir valores padrão para `subject`, `eventtype` e `dataversion`. Normalmente, você usará esse parâmetro quando o esquema personalizado não incluir um campo que corresponder a um desses três campos. Por exemplo, você pode especificar que a versão dos dados é sempre definida como **1.0**.
+* O **mapeamento de valores padrão** propriedade especifica valores padrão para campos no esquema de Grade de Eventos do Azure. É possível definir valores padrão para `subject`, `eventtype` e `dataversion`. Normalmente, você usará esse parâmetro quando o esquema personalizado não incluir um campo que corresponder a um desses três campos. Por exemplo, você pode especificar que a versão dos dados é sempre definida como **1.0**.
 
-* O parâmetro `--input-mapping-fields` mapeia os campos de seu esquema para o esquema de grade de eventos. Você especifica valores em pares chave/valor separados por espaços. Para o nome da chave, use o nome do campo de grade de eventos. O valor, use o nome do seu campo. Você pode usar nomes de chaves para `id`, `topic`, `eventtime`, `subject`, `eventtype` e `dataversion`.
+* O valor dos **campos de mapeamento** mapeia os campos do seu esquema para o esquema de grade do evento. Você especifica valores em pares chave/valor separados por espaços. Para o nome da chave, use o nome do campo de grade de eventos. O valor, use o nome do seu campo. Você pode usar nomes de chaves para `id`, `topic`, `eventtime`, `subject`, `eventtype` e `dataversion`.
 
-O exemplo a seguir cria um tópico personalizado com alguns campos padrão e mapeados:
+Para criar um tópico personalizado com CLI do Azure, use:
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -63,39 +65,77 @@ az eventgrid topic create \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
+Para o PowerShell, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName myResourceGroup `
+  -Name demotopic `
+  -Location eastus2 `
+  -InputSchema CustomEventSchema `
+  -InputMappingField @{eventType="myEventTypeField"} `
+  -InputMappingDefaultValue @{subject="DefaultSubject"; dataVersion="1.0" }
+```
+
 ## <a name="subscribe-to-event-grid-topic"></a>Inscrever-se para o tópico de grade de eventos
 
-Ao inscrever-se para o tópico personalizado, você pode especificar o esquema que você deseja usar para receber os eventos. Você usa o parâmetro `--event-delivery-schema` e o define como *cloudeventv01schema*, *eventgridschema*, ou *inputeventschema*. O valor padrão é eventgridschema.
+Ao inscrever-se para o tópico personalizado, você pode especificar o esquema que você deseja usar para receber os eventos. Você especifica o esquema CloudEvents, o esquema de eventos personalizado ou o esquema de Grade de Eventos do Azure. O valor padrão é o esquema de Grade de Eventos do Azure.
 
-Os exemplos nesta seção usam um armazenamento de fila para o manipulador de eventos. Para obter mais informações, confira [Encaminhar eventos personalizados para o Armazenamento de Filas do Azure](custom-event-to-queue-storage.md).
-
-O exemplo a seguir assina um tópico da grade de eventos e usa o esquema da grade de eventos:
+O exemplo a seguir assina um tópico da grade de eventos e usa o esquema Grade de Eventos do Azure. Para a CLI do Azure, use:
 
 ```azurecli-interactive
+topicid=$(az eventgrid topic show --name demoTopic -g myResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub1 \
   --event-delivery-schema eventgridschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
 ```
 
 O exemplo a seguir usa o esquema de entrada do evento:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
-  --topic-name demotopic \
-  -g myResourceGroup \
+  --source-resource-id $topicid \
   --name eventsub2 \
   --event-delivery-schema inputeventschema \
-  --endpoint-type storagequeue \
-  --endpoint <storage-queue-url>
+  --endpoint <endpoint_URL>
+```
+
+O exemplo a seguir assina um tópico da grade de eventos e usa o esquema Grade de Eventos do Azure. Para o PowerShell, use:
+
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub1 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema EventGridSchema
+```
+
+O exemplo a seguir usa o esquema de entrada do evento:
+
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName eventsub2 `
+  -EndpointType webhook `
+  -Endpoint <endpoint-url> `
+  -DeliverySchema CustomInputSchema
 ```
 
 ## <a name="publish-event-to-topic"></a>Publicar evento para tópico
 
 Agora você está pronto para enviar um evento ao tópico personalizado e ver o resultado do mapeamento. O script a seguir para publicar um evento de [esquema de exemplo](#original-event-schema):
+
+Para a CLI do Azure, use:
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
@@ -106,23 +146,43 @@ event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
-Agora, examine o armazenamento de fila. As duas assinaturas entregaram eventos em esquemas diferentes.
+Para o PowerShell, use:
+
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+
+$htbody = @{
+    myEventTypeField="Created"
+    resource="Users/example/Messages/1000"
+    resourceData= @{
+        someDataField1="SomeDataFieldValue"
+    }
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Agora, observe o ponto de extremidade do WebHook. As duas assinaturas entregaram eventos em esquemas diferentes.
 
 A primeira assinatura usou o esquema de Grade de Eventos. O formato do evento fornecido é:
 
 ```json
 {
-  "Id": "016b3d68-881f-4ea3-8a9c-ed9246582abe",
-  "EventTime": "2018-05-01T20:00:25.2606434Z",
-  "EventType": "Created",
-  "DataVersion": "1.0",
-  "MetadataVersion": "1",
-  "Topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
-  "Subject": "DefaultSubject",
-  "Data": {
+  "id": "aa5b8e2a-1235-4032-be8f-5223395b9eae",
+  "eventTime": "2018-11-07T23:59:14.7997564Z",
+  "eventType": "Created",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
+  "subject": "DefaultSubject",
+  "data": {
     "myEventTypeField": "Created",
     "resource": "Users/example/Messages/1000",
-    "resourceData": { "someDataField1": "SomeDataFieldValue" } 
+    "resourceData": {
+      "someDataField1": "SomeDataFieldValue"
+    }
   }
 }
 ```
@@ -135,7 +195,9 @@ A segunda assinatura usou o esquema de evento de entrada. O formato do evento fo
 {
   "myEventTypeField": "Created",
   "resource": "Users/example/Messages/1000",
-  "resourceData": { "someDataField1": "SomeDataFieldValue" }
+  "resourceData": {
+    "someDataField1": "SomeDataFieldValue"
+  }
 }
 ```
 

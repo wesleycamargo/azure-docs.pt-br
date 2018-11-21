@@ -1,6 +1,6 @@
 ---
-title: Usar o Pig do Hadoop com o PowerShell no HDInsight
-description: Saiba como enviar trabalhos do Pig para um cluster do Hadoop no HDInsight usando o PowerShell do Azure.
+title: Usar o Apache Pig com PowerShell no HDInsight - Azure
+description: Saiba como enviar tarefas do Apache Pig para um cluster do Apache Hadoop no HDInsight usando o Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e50c551381a065e8651ab7970ef9cf18c6c3a765
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011010"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634525"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Pig com o HDInsight
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Usar o Azure PowerShell para executar trabalhos do Apache Pig com o HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Este documento fornece um exemplo de uso do PowerShell do Azure para enviar trabalhos do Pig para um Hadoop no cluster HDInsight. O Pig permite que você escreva trabalhos do MapReduce usando uma linguagem (Pig Latin) que modela transformações de dados, em vez das funções mapear e reduzir.
+Este documento fornece um exemplo do uso do Azure PowerShell para enviar trabalhos do Apache Pig para um Apache Hadoop no cluster HDInsight. O Pig permite que você escreva trabalhos do MapReduce usando uma linguagem (Pig Latin) que modela transformações de dados, em vez das funções mapear e reduzir.
 
 > [!NOTE]
 > Esse documento não fornece uma descrição detalhada do que fazem as instruções Pig Latin usadas nos exemplos. Para obter informações sobre o Pig Latin usado neste exemplo, consulte [Usar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md).

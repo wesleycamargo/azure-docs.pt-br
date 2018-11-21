@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012455"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636230"
 ---
 # <a name="create-and-manage-role-assignments"></a>Criar e gerenciar atribuições de função
 
@@ -26,6 +26,8 @@ Cada atribuição de função inclui:
 * **ID de definição de função**
 * **Caminho de espaço**
 * **ID do locatário**: na maioria dos casos, um Azure Active Directory ID do locatário
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>Identificadores de definição de função
 
@@ -57,7 +59,7 @@ Com o suporte `ObjectIdTypes`:
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Nome** | **Obrigatório** | **Tipo** | **Descrição** |
@@ -105,25 +107,25 @@ Todos os usuários que fazem parte de um domínio recebem acesso de leitura para
     }
   ```
 
-Obtenha uso obter uma atribuição de função.
+Use GET para obter uma atribuição de função.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Nome** | **In** | **Obrigatório** |    **Tipo** |  **Descrição** |
 | --- | --- | --- | --- | --- |
-| Caminho | Caminho | True | Cadeia de caracteres | O caminho completo para o espaço |
+| YOUR_PATH | Caminho | True | Cadeia de caracteres |    O caminho completo para o espaço |
 
 Use DELETE para excluir uma atribuição de função.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Nome** | **In** | **Obrigatório** | **Tipo** | **Descrição** |
 | --- | --- | --- | --- | --- |
-| ID | Caminho | True | Cadeia de caracteres |   ID de atribuição de função |
+| YOUR_ROLE_ID | Caminho | True | Cadeia de caracteres | ID de atribuição de função |
 
 ## <a name="next-steps"></a>Próximas etapas
 

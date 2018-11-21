@@ -1,6 +1,6 @@
 ---
 title: Logs de atividades do Azure Active Directory no Azure Monitor (versão prévia) | Microsoft Docs
-description: Visão geral dos logs de atividades do Azure Active Directory no Azure Monitor (versão prévia)
+description: Introdução aos logs de atividades do Azure Active Directory no Azure Monitor (versão prévia)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395445"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625429"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Logs de atividades do Azure AD no Azure Monitor (versão prévia)
 
-Agora você pode encaminhar os logs de atividades do Azure AD (Azure Active Directory) para sua própria conta de armazenamento ou Hub de Eventos usando o Azure Monitor. Com a versão prévia pública dos logs do Azure Active Directory no Azure Monitor, você pode:
+Agora é possível rotear logs de atividades do Azure AD (Azure Active Directory) para vários pontos de extremidade para insights de dados e retenção de longo prazo. A visualização pública dos logs do Azure AD no Azure Monitor permite:
 
-* Arquivar trilhas de auditoria de uma conta de armazenamento do Azure, o que permite manter os dados por um longo tempo.
-* Transmita seus logs de auditoria para um hub de eventos do Azure para análise por meio de ferramentas populares de SIEM (Gerenciamento de eventos e informações de segurança), como Splunk e QRadar.
-* Integre as trilhas de auditoria às suas próprias soluções de log personalizadas transmitindo-as para um hub de eventos.
+* Arquive os logs de atividades do Azure AD em uma conta de armazenamento do Azure para reter os dados por um longo período.
+* Transmita os logs de atividade do Azure AD para um hub de eventos do Azure para análise, usando ferramentas populares de SIEM (Gerenciamento de Eventos e Informações de Segurança) como Splunk e QRadar.
+* Integre os logs de atividades do Azure AD com suas próprias soluções de log personalizadas, transmitindo-os para um hub de eventos.
 * Logs de atividade de envio do Azure Active Directory ao Log Analytics para habilitar visualizações avançadas, monitoramento e alertas de dados conectados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Relatórios com suporte
 
-Você pode encaminhar logs de atividades de auditoria e de entradas para sua conta de armazenamento do Azure, um hub de eventos ou uma solução personalizada usando esse recurso. 
+É possível rotear logs de auditoria e logs de entrada do Azure AD para sua conta de armazenamento do Azure, hub de eventos, Log Analytics ou solução personalizada usando esse recurso. 
 
 * **Trilhas de auditoria**: o [relatório de atividade das trilhas de auditoria](concept-audit-logs.md) dá acesso ao histórico de todas as tarefas executadas em seu locatário.
 * **Logs de entrada**: com o [relatório de atividades de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas indicadas pelo relatório das trilhas de auditoria.
@@ -101,25 +101,19 @@ Para examinar os custos relacionados ao gerenciamento de espaço de trabalho do 
 
 Esta seção responde a perguntas frequentes e discute problemas conhecidos com os logs do Azure AD no Azure Monitor.
 
-**P: por onde devo começar?** 
-
-**R**: este artigo aborda o que é necessário para implantar esse recurso. Depois de atender aos pré-requisitos, vá para os tutoriais que podem ajudar a configurar e encaminhar os logs a um hub de eventos.
-
----
-
 **P: Quais logs estão incluídos?**
 
 **R:** tanto os logs de atividades quanto os de auditoria estão disponíveis para encaminhamento por meio desse recurso, mas os eventos de auditoria relativos a B2C não estão incluídos no momento. Para descobrir quais tipos de logs e quais logs baseados em recursos têm suporte no momento, leia o [Esquema de trilha de auditoria](reference-azure-monitor-audit-log-schema.md) e o [Esquema de log de entrada](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**P: quanto tempo demora para os logs correspondentes aparecerem nos Hubs de Eventos após a ação?**
+**P: quanto tempo após uma ação os logs correspondentes serão exibidos no meu hub de eventos?**
 
 **R**: os logs devem aparecer em seu hub de eventos de dois a cinco minutos depois que a ação é executada. Para obter mais informações sobre Hubs de Eventos, confira [O que são os Hubs de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**P: quanto tempo demora para os logs correspondentes aparecerem nas contas de armazenamento após a ação?**
+**P: quanto tempo após uma ação os logs correspondentes serão exibidos na minha conta de armazenamento?**
 
 **R**: para contas de armazenamento do Azure, a latência fica entre 5 e 15 minutos depois que a ação é executada.
 

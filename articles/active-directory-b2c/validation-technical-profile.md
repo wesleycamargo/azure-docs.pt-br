@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543132"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568669"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de validação em uma política personalizada do Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ O exemplo a seguir usa esses perfis técnicos de validação:
 
 1. O primeiro perfil técnico de validação verifica as credenciais do usuário e não continua se ocorrer um erro, como o nome de usuário inválido ou senha incorreta. 
 2. O próximo perfil técnico de validação, não é executado se a declaração userType não existir ou se o valor de userType for `Partner`. O perfil técnico de validação tenta ler o perfil do usuário do banco de dados do cliente interno e continuar se ocorrer um erro, como não disponíveis do serviço de API REST ou qualquer erro interno.
-3. O último perfil técnico de validação, não é executado se a declaração userType não existia ou se o valor de userType for `Customer`. O perfil técnico de validação tenta ler o perfil do usuário do banco de dados interno do parceiro e continuará se ocorrer um erro, como não disponíveis do serviço de API REST ou qualquer erro interno.
+3. O último perfil técnico de validação, não é executado se a declaração userType não existia ou se o valor de userType for `Customer`. O perfil técnico de validação tenta ler o perfil do usuário do banco de dados interno do parceiro e continuará, se ocorrer um erro como serviço de API REST não disponível ou qualquer erro interno.
 
 ```XML
 <ValidationTechnicalProfiles>

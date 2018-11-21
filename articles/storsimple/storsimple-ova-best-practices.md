@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972833"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300907"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas do StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -63,17 +63,17 @@ Os exemplos a seguir ilustram como você pode dimensionar uma matriz virtual com
 #### <a name="example-1"></a>Exemplo 1:
 Em sua matriz virtual, você deseja ser capaz de
 
-* provisionar um volume ou um compartilhamento em camadas de 2 TB.
-* provisionar um volume ou um compartilhamento em camadas de 1 TB.
-* provisionar um volume ou um compartilhamento fixado localmente de 300 GB.
+* provisionar um compartilhamento ou volume em camadas de 2 TB.
+* provisionar um compartilhamento ou volume em camadas de 1 TB.
+* provisionar um compartilhamento ou volume localmente fixado de 300 GB.
 
 Para os volumes ou os compartilhamentos citados, vamos calcular os requisitos de espaço na camada local.
 
 Primeiro, para cada volume/compartilhamento em camadas, a reserva local seria igual a 12% do tamanho do volume/compartilhamento. Para o volume/compartilhamento localmente fixados, a reserva local é 10% do tamanho do volume/compartilhamento localmente fixado (além do tamanho provisionado). Nesse exemplo, você precisa de
 
-* reserva local de 240 GB (para um volume/compartilhamento em camadas de 2 TB)
-* reserva local de 120 GB (para um volume/compartilhamento em camadas de 1 TB)
-* 330 GB para compartilhamento ou volume fixo localmente (adicionando 10% de reserva local ao tamanho de 300 GB provisionado)
+* reserva local de 240 GB (para um compartilhamento/volume em camadas de 2 TB)
+* reserva local de 120 GB (para um compartilhamento/volume em camadas de 1 TB)
+* 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao tamanho de 300 GB provisionado)
 
 O espaço total necessário na camada local até o momento é de: 240 GB + 120 GB + 330 GB = 690 GB.
 
@@ -92,12 +92,12 @@ Incluindo o crescimento inesperado e novas restaurações, você deverá provisi
 Em sua matriz virtual, você deseja ser capaz de
 
 * provisionar um volume em camadas de 2 TB
-* provisionar um volume fixado localmente de 300 GB
+* provisionar um volume localmente fixado de 300 GB
 
 Com base em 12% de reserva do espaço local para volumes/compartilhamentos em camadas e 10% para volumes/compartilhamentos fixados localmente, precisamos de
 
-* uma reserva local de 240 GB (para um volume/compartilhamento em camadas de 2 TB)
-* 330 GB para compartilhamento ou volume fixo localmente (adicionando 10% de reserva local ao espaço provisionado de 300 GB)
+* uma reserva local de 240 GB (para um compartilhamento/volume em camadas de 2 TB)
+* 330 GB para compartilhamento ou volume localmente fixado (adicionando 10% de reserva local ao espaço provisionado de 300 GB)
 
 O espaço total necessário na camada local é de: 240 GB + 330 GB = 570 GB
 
@@ -168,7 +168,7 @@ O StorSimple oferece suporte a dois tipos de volume/compartilhamento baseados no
 É recomendável que você implemente as seguintes práticas recomendadas ao configurar volumes/compartilhamentos do StorSimple:
 
 * Identifique o tipo de volume com base em cargas de trabalho que você pretende implantar antes de criar um volume. Use volumes localmente fixos para cargas de trabalho que exigem garantias locais de dados (mesmo durante uma interrupção de nuvem) e que exigem latências de nuvem baixas. Ao criar um volume em sua matriz virtual, você não pode alterar o tipo de volume de fixado localmente para em camadas ou *vice-versa*. Por exemplo, crie volumes localmente fixos ao implantar cargas de trabalho do SQL ou cargas de trabalho que hospedam máquinas virtuais (VMs); use volumes em camadas para cargas de trabalho de compartilhamento de arquivo.
-* Marque a opção para dados de arquivamento usados com menos frequência ao lidar com arquivos de tamanho grande. Um tamanho maior de bloco de eliminação de duplicação de 512 K é usado quando essa opção é habilitada para acelerar a transferência de dados para a nuvem.
+
 
 #### <a name="volume-format"></a>Formato de volume
 Depois de criar volumes do StorSimple em seu servidor iSCSI, você precisa inicializar, montar e formatar os volumes. Essa operação é executada no host conectado ao seu dispositivo StorSimple. As práticas recomendadas a seguir são recomendadas ao montar e formatar volumes no host do StorSimple.
@@ -211,7 +211,7 @@ A frequência e a retenção associadas aos backups padrão não podem ser alter
 * Agende os backups fora dos horários de pico. A hora de início de backup não deve coincidir com várias E/S do host.
 * Inicie um backup manual sob demanda ao planejar a execução de um failover de dispositivo ou antes da janela de manutenção para proteger os dados em sua matriz virtual.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restaurar
 Você pode restaurar de um conjunto de backup de duas maneiras: restaure para outro volume ou compartilhamento ou realize uma recuperação no nível de item (disponível apenas em uma matriz virtual configurada como um servidor de arquivos). A recuperação no nível do item permite fazer uma recuperação granular de arquivos e pastas de um backup de nuvem de todos os compartilhamentos no dispositivo StorSimple. Para saber mais, vá para [restaurar de um backup](storsimple-virtual-array-clone.md).
 
 Ao realizar uma restauração, lembre-se das seguintes diretrizes:
@@ -249,7 +249,7 @@ Lembre-se das seguintes práticas recomendadas ao desativar sua matriz virtual:
 ### <a name="monitoring"></a>Monitoramento
 Para garantir que seu StorSimple Virtual Array esteja em um estado de integridade contínuo, você precisará monitorar a matriz e garantir que receberá informações do sistema, incluindo alertas. Para monitorar a integridade geral da matriz virtual, implemente as seguintes práticas recomendadas:
 
-* Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se você estiver executando o Hyper-V, poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do SCOM (System Center Operations Manager) para monitorar seus hosts de virtualização.
+* Configure o monitoramento para acompanhar o uso do disco de dados da matriz virtual, bem como o disco do sistema operacional. Se estiver executando o Hyper-V, você poderá usar uma combinação do SCVMM (System Center Virtual Machine Manager) e do System Center Operations Manager para monitorar os hosts de virtualização.
 * Configure notificações por email em sua matriz virtual para enviar alertas em determinados níveis de uso.                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>Aplicativos de pesquisa de índice e de verificação de vírus

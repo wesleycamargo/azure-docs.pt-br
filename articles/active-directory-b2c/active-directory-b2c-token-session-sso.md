@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012438"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636893"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuração de Token, sessão e logon único no Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 - Formatos de declarações importantes nos tokens de segurança emitidos pelo Azure AD B2C.
 - Comportamento de logon único (SSO) em vários aplicativos e políticas no locatário do Azure AD B2C.
 
-Para políticas internas, você pode usar esse recurso em seu diretório do Azure AD B2C da seguinte maneira:
+Você pode usar esse recurso em qualquer tipo de política, mas este exemplo mostra como usar o recurso com uma política de inscrição ou entrada. Para políticas internas, você pode usar esse recurso em seu diretório do Azure AD B2C da seguinte maneira:
 
-1. Clique em **Políticas de inscrição ou de entrada**. *Observação: é possível utilizar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada ou inscrição*\*\*.
+1. Clique em **Políticas de inscrição ou de entrada**.
 2. Clique em uma política para abri-la. Por exemplo, clique em **B2C_1_SiUpIn**.
 3. Clique em **Editar** na parte superior do menu.
 4. Clique em **Configuração de token, de sessão e de logon único**.

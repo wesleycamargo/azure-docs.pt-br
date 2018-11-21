@@ -1,6 +1,6 @@
 ---
 title: Criar um tempo de execução da integração auto-hospedada compartilhado no Azure Data Factory com o PowerShell | Microsoft Docs
-description: Saiba como criar um tempo de execução da integração auto-hospedada compartilhado no Azure Data Factory, que permite que vários data factories acessem o tempo de execução de integração.
+description: Aprenda como criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory, para que vários data factories possam acessar o tempo de execução de integração.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252028"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685507"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Criar um tempo de execução da integração auto-hospedada compartilhado no Azure Data Factory com o PowerShell
 
-Este guia passo a passo mostra como criar um IR (tempo de execução) da integração auto-hospedada compartilhado no Azure Data Factory usando o Azure PowerShell. Em seguida, você pode usar o tempo de execução da integração auto-hospedada compartilhado em outro data factory. Neste tutorial, você executa as seguintes etapas: 
+Este guia passo a passo mostra como criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory usando o Azure PowerShell. Em seguida, você pode usar o tempo de execução da integração auto-hospedada compartilhado em outro data factory. Neste tutorial, você deve executar as seguintes etapas: 
 
 1. Criar um data factory. 
 1. Criar um tempo de execução de integração auto-hospedado.
@@ -33,18 +33,16 @@ Este guia passo a passo mostra como criar um IR (tempo de execução) da integra
 
 - **Assinatura do Azure**. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows](/powershell/azure/install-azurerm-ps). Você usa o PowerShell para executar um script para criar um tempo de execução da integração auto-hospedada que pode ser compartilhado com outros data factories. 
+- **Azure PowerShell**. Siga as instruções em [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Você usa o PowerShell para executar um script para criar um tempo de execução da integração auto-hospedada que pode ser compartilhado com outros data factories. 
 
-> [!NOTE]
-> Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> [!NOTE]  
+> Para obter uma lista de regiões do Azure nas quais o Data Factory está atualmente disponível, selecione as regiões que lhe interessam em [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. Inicie o ISE do Windows PowerShell.
+1. Inicie o ISE (ambiente de script integrado) do Windows PowerShell.
 
-1. Crie variáveis.
-
-    Copie e cole o script a seguir e substitua as variáveis (SubscriptionName, ResourceGroupName, etc.) com os valores reais. 
+1. Crie variáveis. Copie e cole o seguinte script. Substitua as variáveis, como **SubscriptionName** e **ResourceGroupName**, com valores reais: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,9 +63,7 @@ Este guia passo a passo mostra como criar um IR (tempo de execução) da integra
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Entre e selecione uma assinatura.
-
-    Adicione o código a seguir ao script para entrar e selecionar sua assinatura do Azure:
+1. Entre e selecione uma assinatura. Adicione o código a seguir ao script para entrar e selecionar sua assinatura do Azure:
 
     ```powershell
     Connect-AzureRmAccount
@@ -76,9 +72,10 @@ Este guia passo a passo mostra como criar um IR (tempo de execução) da integra
 
 1. Crie um grupo de recursos e um Data Factory.
 
-    *(Esta etapa é opcional. Se você já tiver um data factory, ignore esta etapa.)* 
+    > [!NOTE]  
+    > Esta etapa é opcional. Se você já tiver um data factory, ignore esta etapa. 
 
-    Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope. 
+    Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ Este guia passo a passo mostra como criar um IR (tempo de execução) da integra
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
 
-*(Esta etapa é opcional. Se você já tiver o tempo de execução da integração auto-hospedada que você deseja compartilhar com outros data factories, ignore esta etapa.)*
+> [!NOTE]  
+> Esta etapa é opcional. Se você já possui o tempo de execução de integração auto-hospedado que deseja compartilhar com outros data factories, pule esta etapa.
 
 Execute o comando a seguir para criar um tempo de execução da integração auto-hospedada:
 
@@ -132,7 +130,8 @@ A resposta contém a chave de autenticação para esse tempo de execução da in
 
 ### <a name="create-another-data-factory"></a>Criar outro data factory
 
-*(Esta etapa é opcional. Se você já tiver o data factory com o qual você deseja compartilhar, ignore esta etapa.)*
+> [!NOTE]  
+> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -141,9 +140,9 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 ### <a name="grant-permission"></a>Conceder permissão
 
-Conceda permissão para o Data Factory que precisa acessar o tempo de execução da integração auto-hospedada criado e registrado por você.
+Conceda permissão para o data factory que precisa acessar o tempo de execução de integração auto-hospedado que você criou e registrou.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Não ignore esta etapa!
 
 ```powershell
@@ -167,11 +166,11 @@ Set-AzureRmDataFactoryV2IntegrationRuntime `
     -Description $LinkedIntegrationRuntimeDescription
 ```
 
-Agora você pode usar esse tempo de execução de integração vinculado em qualquer serviço vinculado. O tempo de execução de integração vinculado está usando o tempo de execução de integração compartilhado para executar atividades.
+Agora você pode usar esse tempo de execução de integração vinculado em qualquer serviço vinculado. O tempo de execução de integração vinculado usa o tempo de execução de integração compartilhada para executar atividades.
 
 ## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revogar o compartilhamento do tempo de execução de integração de um data factory
 
-Para revogar o acesso de um data factory ao tempo de execução de integração compartilhado, você pode executar o comando a seguir:
+Para revogar o acesso de um data factory a partir do tempo de execução de integração compartilhada, execute o seguinte comando:
 
 ```powershell
 Remove-AzureRMRoleAssignment `
@@ -180,7 +179,7 @@ Remove-AzureRMRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Para remover o tempo de execução de integração vinculado existente, você pode executar o comando a seguir no tempo de execução de integração compartilhado:
+Para remover o tempo de execução de integração vinculado existente, execute o seguinte comando no tempo de execução de integração compartilhada:
 
 ```powershell
 Remove-AzureRmDataFactoryV2IntegrationRuntime `
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os conceitos de tempo de execução de integração no [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md).
+- Revise os [conceitos de tempo de execução de integração no Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Aprenda como criar um tempo de execução da integração auto-hospedada no portal do Azure em [Criar e configurar o tempo de execução da integração auto-hospedada](create-self-hosted-integration-runtime.md).
+- Saiba como [criar um tempo de execução de integração auto-hospedado no portal do Azure](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).

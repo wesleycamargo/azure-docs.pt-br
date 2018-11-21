@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043270"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300567"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais habilitadas para ADE (Azure Disk Encryption) para outra região do Azure
 
@@ -104,7 +104,7 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
 
 1. Clique em **Personalizar:** ao lado de "Assinatura de destino" para modificar a assinatura de destino padrão. Selecione a assinatura na lista de todas as assinaturas disponíveis no mesmo locatário do AAD (Azure Active Directory).
 
-2. Clique em **Personalizar** ao lado de 'Grupo de recursos, armazenamento, rede e conjuntos de disponibilidade' para modificar as seguintes configurações padrão:
+2. Clique em **Personalizar:** ao lado de "Grupos de recursos, Rede, Armazenamento e Conjuntos de disponibilidade para modificar as configurações padrão abaixo:
     - Em **Grupo de recursos de destino**, selecione o grupo de recursos da lista de todos os grupos de recursos no local de destino da assinatura.
     - Em **Rede virtual de destino**, selecione a rede em uma lista de todas as redes virtuais no local de destino.
     - Em **Conjunto de disponibilidade**, você pode adicionar configurações do conjunto de disponibilidade à VM, caso elas façam parte de um conjunto de disponibilidade na região de origem.

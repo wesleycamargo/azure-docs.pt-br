@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304545"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687394"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
@@ -79,8 +79,8 @@ O fluxo de entrada em um cliente nativo é o seguinte:
 
 1. O usuário tenta acessar um aplicativo nativo (por exemplo, o cliente Outlook) por meio de um dispositivo corporativo ingressado no domínio na sua rede corporativa.
 2. Se o usuário ainda não tiver conectado, o aplicativo nativo recupera o nome de usuário do usuário na sessão do Windows do dispositivo.
-3. O aplicativo envia o nome de usuário para o Azure AD e recupera o ponto de extremidade MEX WS-Trust do seu locatário.
-4. O aplicativo então consulta o ponto de extremidade MEX da WS-Trust para ver se o ponto de extremidade da autenticação integrada está disponível.
+3. O aplicativo envia o nome de usuário para o Azure AD e recupera o ponto de extremidade MEX WS-Trust do seu locatário. Esse ponto de extremidade do WS-Trust é usado exclusivamente pelo recurso de SSO contínuo e não é uma implementação geral do protocolo WS-Trust no Azure AD.
+4. O aplicativo então consulta o ponto de extremidade MEX da WS-Trust para ver se o ponto de extremidade da autenticação integrada está disponível. O ponto de extremidade de autenticação integrada é usado exclusivamente pelo recurso de SSO contínuo.
 5. Se a etapa 4 for bem-sucedida, um desafio Kerberos será emitido.
 6. Se o aplicativo conseguir recuperar o tíquete Kerberos, ele o encaminhará para o ponto de extremidade de autenticação integrado do Azure AD.
 7. O Azure AD descriptografa o tíquete Kerberos e o valida.

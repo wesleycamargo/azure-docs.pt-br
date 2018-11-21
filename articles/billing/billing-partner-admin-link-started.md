@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391768"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686987"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
@@ -136,4 +136,4 @@ A vinculação entre a ID de parceiro e a conta é feita para cada locatário do
 
 **Outro parceiro ou cliente pode editar ou remover a vinculação à ID de parceiro?**
 
-A vinculação está associada no nível da conta. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e o outros parceiros não podem alterar a vinculação à ID de parceiro. 
+A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e o outros parceiros não podem alterar a vinculação à ID de parceiro. 

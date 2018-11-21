@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964145"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625616"
 ---
 # <a name="manage-workspaces"></a>Gerenciar workspaces
 
@@ -239,7 +239,7 @@ Seu novo plano de dados é exibido na faixa de opções do portal do OMS, na par
 ![faixa de opções do OMS](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte [Coletar dados de computadores em seu ambiente com o Log Analytics](log-analytics-concept-hybrid.md) para coletar dados de computadores em seu data center ou em outro ambiente de nuvem.
+* Consulte a [visão geral do agente do Log Analytics](log-analytics-agent-overview.md) para reunir dados de computadores no datacenter ou outro ambiente de nuvem.
 * Consulte [Coletar dados sobre as máquinas virtuais do Azure](log-analytics-quick-collect-azurevm.md) para configurar a coleta de dados de máquinas virtuais do Azure.  
 * [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../monitoring/monitoring-solutions.md) para adicionar funcionalidades e reunir dados.
 

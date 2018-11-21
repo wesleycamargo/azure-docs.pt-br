@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008888"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634542"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar dados de Hive com o Microsoft Power BI usando ODBC no Azure HDInsight
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualize os dados do Apache Hive com o Microsoft Power BI usando o ODBC no Azure HDInsight
 
-Saiba como conectar o Microsoft Power BI ao Azure HDInsight usando ODBC e visualizar os dados do Hive. 
+Saiba como conectar o Microsoft Power BI ao Azure HDInsight usando o ODBC e visualizar os dados do Apache Hive. 
 
 >[!IMPORTANT]
 > Você pode aproveitar o driver ODBC Hive a ser importado por meio do conector ODBC genérico no Power BI Desktop. No entanto, não é recomendável para cargas de trabalho de BI considerando a natureza não interativo do mecanismo de consulta do Hive. [Conector de consulta interativa HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) e [conector do HDInsight Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são as melhores opções para o desempenho.
@@ -40,7 +40,7 @@ Antes de prosseguir com este artigo, você deve ter os seguintes itens:
 
 ## <a name="create-hive-odbc-data-source"></a>Criar uma fonte de dados ODBC do Hive
 
-Consulte [Criar uma fonte de dados ODBC do Hive](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source).
+Consulte [Criar uma fonte de dados ODBC do Hive](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source).
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados do HDInsight
 

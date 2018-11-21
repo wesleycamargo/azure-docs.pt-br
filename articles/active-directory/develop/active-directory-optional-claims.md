@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914644"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345480"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como fornecer declarações opcionais ao aplicativo Azure AD (visualização pública)
 
@@ -42,7 +42,7 @@ Uma das metas do [ponto de extremidade v2.0 do Azure AD](active-directory-appmod
 | Tipo de Conta | Ponto de extremidade V1.0 | Ponto de extremidade V2.0  |
 |--------------|---------------|----------------|
 | Conta pessoal da Microsoft  | N/D ‒ são os usados os tíquetes RPS | Suporte em breve |
-| Conta do AD do Azure          | Com suporte                          | Suporte com advertências      |
+| Conta do AD do Azure          | Com suporte                          | Suporte com advertências |
 
 > [!IMPORTANT]
 > Aplicativos que oferecem suporte a contas pessoais e ao Microsoft Azure Active Directory (registrados por meio do [portal de registro de aplicativos](https://apps.dev.microsoft.com)) não podem usar declarações opcionais. No entanto, os aplicativos registrados apenas para o Azure AD usando o ponto de extremidade v2.0 podem obter as declarações opcionais solicitadas no manifesto. No portal do Azure, você pode usar o editor de manifesto de aplicativo na experiência existente dos **Registros de aplicativo** para editar suas reivindicações opcionais. No entanto, essa funcionalidade ainda não está disponível usando o editor de manifesto do aplicativo no novo **Registros de aplicativo (visualização)** experiência.
@@ -60,8 +60,6 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
-| `signin_state`             | Entrar no estado de declaração   | JWT        |           | Seis valores de retorno, como sinalizadores:<br> "dvc_mngd": o dispositivo é gerenciado<br> "dvc_cmp": o dispositivo está em conformidade<br> "dvc_dmjd": o dispositivo ingressou no domínio<br> "dvc_mngd_app": o dispositivo é gerenciado por meio do MDM<br> "inknownntwk": o dispositivo está dentro de uma rede conhecida.<br> "kmsi": Manter-me Conectado foi usado. <br> |
-| `controls`                 | Declaração com vários valores e que contém os controles de sessão impostos pelas políticas de Acesso Condicional. | JWT        |           | Três valores:<br> "app_res": o aplicativo deve impor restrições mais granulares. <br> "ca_enf": a imposição de Acesso Condicional foi adiada e ainda é necessária. <br> "no_cookie": este token é insuficiente para troca para um cookie no navegador. <br>  |
 | `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
 | `sid`                      | ID de sessão usada para a saída de usuário por sessão. | JWT        |           |         |
 | `platf`                    | Plataforma de dispositivos    | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.|
@@ -76,6 +74,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `xms_pl`                   | Idioma preferido do usuário  | JWT ||O idioma preferido do usuário, se definido. Originado de seu locatário inicial, em cenários de acesso de convidado. Tem o formato II-PP ("en-us"). |
 | `xms_tpl`                  | Idioma preferido do locatário| JWT | | O idioma preferido do locatário do recurso, se definido. Com o formato II (“en”). |
 | `ztdid`                    | ID de implantação de zero toque | JWT | | A identidade do dispositivo usada para o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | O email endereçável para este usuário, se o usuário tiver um.  | JWT, SAML | | Esse valor é incluído por padrão, se o usuário é um convidado no locatário.  Para usuários gerenciados (aqueles dentro do Locatário), ele deve ser solicitado por meio dessa declaração opcional ou, na versão 2.0 apenas, com o escopo da OpenID.  Para usuários gerenciados, o endereço de email deve ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Status da conta de usuários no locatário. | JWT, SAML | | Se o usuário for um membro do locatário, o valor será `0`. Se eles forem convidado, o valor é `1`. |
 | `upn`                      | Declaração UserPrincipalName. | JWT, SAML  |           | Embora essa declaração seja incluída automaticamente, você pode especificá-la como uma declaração opcional para anexar propriedades adicionais a fim de modificar seu comportamento, no caso do usuário convidado. <br> Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

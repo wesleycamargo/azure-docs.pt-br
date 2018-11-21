@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0bde940718165f31ef06f1b09fc071e63d94c8b2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042046"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345633"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
@@ -71,7 +71,7 @@ As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure s�
 
 O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Você pode aplicar manualmente as recomendações de ajuste usando o portal ou pode permitir que o ajuste automático aplique de forma autônoma as recomendações de ajuste para você. Os benefícios de deixar que o sistema aplique de forma autônoma as recomendações de ajuste para você é que, nesse caso, ele valida automaticamente que há um ganho positivo no desempenho da carga de trabalho ou, caso contrário, se uma regressão for detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design. Caso você esteja aplicando manualmente as recomendações de ajuste, a validação de desempenho automática e os mecanismos de reversão não estarão disponíveis.
+Você pode aplicar manualmente as recomendações de ajuste usando o portal ou pode permitir que o ajuste automático aplique de forma autônoma as recomendações de ajuste para você. Os benefícios de permitir que o sistema aplique recomendações de ajuste autonomamente para você é que ele valida automaticamente que existe um ganho positivo no desempenho da carga de trabalho e, se não houver nenhuma melhoria de desempenho significativa detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design. Caso você esteja aplicando manualmente as recomendações de ajuste, a validação de desempenho automática e os mecanismos de reversão não estarão disponíveis.
 
 As opções de ajuste automático podem ser habilitadas ou desabilitadas independentemente por banco de dados ou podem ser configuradas em servidores lógicos e aplicadas em todos os bancos de dados que herdam as configurações do servidor. Os servidores lógicos podem herdar os padrões do Azure para as configurações de Ajuste automático. Atualmente, os padrões do Azure estão definidos como FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
 

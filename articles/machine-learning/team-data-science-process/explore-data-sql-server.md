@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d96852006377123f6e9d17c3ae5b79fe930c1e1c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 546d75172b9e6dbd77d63c36e5b8cebd0835a582
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836789"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345599"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados na Máquina Virtual do SQL Server no Azure
-Este documento aborda como explorar os dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
 
-Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
+Este artigo aborda como explorar dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.md).
 
 > [!NOTE]
 > As instruções SQL de exemplo neste documento pressupõem que os dados estão no SQL Server. Se não estiverem, consulte o mapa do processo de ciência de dados de nuvem para aprender a mover seus dados para o SQL Server.

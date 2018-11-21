@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ea7754c9bf755a5fc00823629df17317be0f8901
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343671"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515464"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conectar-se o Adafruit Feather HUZZAH ESP8266 ao Hub IoT do Azure na nuvem
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-![Conexão entre o DHT22, o Feather HUZZAH ESP8266 e o Hub IoT](media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
+![Conexão entre o DHT22, o Feather HUZZAH ESP8266 e o Hub IoT](./media/iot-hub-arduino-huzzah-esp8266-get-started/1_connection-hdt22-feather-huzzah-iot-hub.png)
 
 ## <a name="what-you-do"></a>O que fazer
 
@@ -38,7 +38,7 @@ Conecte o Adafruit Feather HUZZAH ESP8266 a um Hub IoT criado. Em seguida, você
 
 ## <a name="what-you-need"></a>O que você precisa
 
-![Partes necessárias para o tutorial](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Partes necessárias para o tutorial](./media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
 Para concluir esta operação, você precisará das seguintes partes do seu Kit de Início do Feather HUZZAH ESP8266:
 
@@ -62,7 +62,17 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 * Uma placa universal
 * Cabos de jumper macho/macho
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Difusão HUZZAH ESP8266 de conexão com o sensor e seu computador
 
@@ -72,7 +82,7 @@ Nesta seção, você conecta os sensores à sua placa. Em seguida, você conecta
 
 Use os cabos da placa universal e jumper para fazer a conexão da seguinte maneira. Se você não tiver um sensor, ignore esta seção porque você pode usar dados de sensor simulado em vez disso.
 
-![Referência de conexões](media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
+![Referência de conexões](./media/iot-hub-arduino-huzzah-esp8266-get-started/17_connections_on_breadboard.png)
 
 Para os pinos do sensor, use a seguinte fiação:
 

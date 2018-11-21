@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219470"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568447"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerenciar o servidor de configuração para VMs VMware
+# <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
 Você configura um servidor de configuração local quando você usa o [Azure Site Recovery](site-recovery-overview.md) para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O servidor de configuração coordena a comunicação entre o ambiente de VMware local e o Azure e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o servidor de configuração depois de implantado.
 
@@ -124,7 +124,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
 2. Abra uma janela de comando do PowerShell de administrador e execute o comando a seguir:
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. Inicie o portal do navegador do dispositivo do servidor de configuração usando o atalho em sua área de trabalho.

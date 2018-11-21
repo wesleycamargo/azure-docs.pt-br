@@ -1,6 +1,6 @@
 ---
-title: Usar o Hadoop Pig com o SSH em um cluster HDInsight – Azure
-description: Saiba como conectar a um cluster Hadoop baseado em Linux com o SSH e use o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes.
+title: Use o Apache Pig com SSH em um cluster do HDInsight - Azure
+description: Aprenda como se conectar a um cluster do Apache Hadoop baseado em Linux com o SSH e, em seguida, use o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1deb44fecad6c120dd1e8f82cec36bff6353fc0b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51003873"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632215"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar trabalhos do Pig em um cluster baseado em Linux com o comando Pig (SSH)
+# <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar tarefas do Apache Pig em um cluster baseado em Linux com o comando Pig (SSH)
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Saiba como executar trabalhos do Pig interativamente de uma conexão SSH para seu cluster HDInsight. A linguagem de programação Pig Latin permite descrever as transformações que são aplicadas aos dados de entrada para produzir a saída desejada.
+Aprenda a executar interativamente os trabalhos do Apache Pig a partir de uma conexão SSH para o cluster do HDInsight. A linguagem de programação Pig Latin permite descrever as transformações que são aplicadas aos dados de entrada para produzir a saída desejada.
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight baseado em Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

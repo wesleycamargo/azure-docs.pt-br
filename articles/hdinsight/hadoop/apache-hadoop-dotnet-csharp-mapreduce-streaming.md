@@ -1,6 +1,6 @@
 ---
 title: Usar C# com MapReduce no Hadoop no HDInsight – Azure
-description: Saiba como usar C# para criar soluções de MapReduce com Hadoop no Azure HDInsight.
+description: Saiba como usar C# para criar soluções de MapReduce com Apache Hadoop no Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cf68ba16cf19a20686f323832ccd7e7d1b543bb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010935"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632577"
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Use C# com streaming de MapReduce no Hadoop no HDInsight
+# <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
 Saiba como usar C# para criar uma solução de MapReduce no HDInsight.
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](../hdinsight-component-versioning.md).
 
-Hadoop Streaming é um utilitário que permite que você execute trabalhos MapReduce usando um script ou executável. Neste exemplo, o .NET é usado para implementar o mapeador e Redutor de uma solução de contagem de palavras.
+O streaming do Apache Hadoop é um utilitário que permite executar tarefas MapReduce usando um script ou executável. Neste exemplo, o .NET é usado para implementar o mapeador e Redutor de uma solução de contagem de palavras.
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580541"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568005"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimize o desempenho ao fazer upgrade do SQL Data Warehouse
 Atualize o SQL Data Warehouse do Azure para a última geração de arquitetura de armazenamento e hardware do Azure.
@@ -30,7 +30,7 @@ Esta atualização se aplica a data warehouses na camada de Computação Otimiza
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 > [!NOTE]
@@ -45,13 +45,17 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Inicie a atualização
 
-1. Vá para o seu data warehouse na camada de Computação Otimizada Gen1 no portal do Azure e clique em **Atualizar para Gen2**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Vá para o a computação otimizada do Computador 1 Gerado no portal do Azure e clique no cartão **Upgrade para Gen2** na guia Tarefas: ![Upgrade _1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> Se você não vir o cartão **Fazer upgrade para Gen2** na guia Tarefas, seu tipo de assinatura será limitado na região atual. [Envie um tíquete de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para obter a lista de permissões de assinatura.
 
 2. Por padrão, **selecione o nível de desempenho sugerido** para o data warehouse com base em seu nível de desempenho atual na camada de Computação Otimizada Gen1 usando o mapeamento abaixo:
     
    | Camada de Computação Otimizada Gen1 | Camada de Computação Otimizada Gen2 |
    | :----------------------: | :-------------------: |
-   |      DW100 – DW1000      |        DW1000c        |
+   |      DW100 – DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b617ae1a1df0ed220d03e0124aa9dafd9fc2388c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497851"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345990"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
-Este documento aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/).
 
-Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Essa tarefa é uma etapa no [Processo de Ciência de Dados](overview.md).
+Este artigos aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [pandas](http://pandas.pydata.org/).
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Essa tarefa é uma etapa no [Processo de Ciência de Dados de Equipe](overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:

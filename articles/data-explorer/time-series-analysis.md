@@ -1,6 +1,6 @@
 ---
 title: Análise de série temporal do Data Explorer do Azure
-description: Saiba mais sobre análise de séries temporais no Data Explorer do Azure
+description: 'Saiba mais sobre análise de séries temporais no Data Explorer do Azure '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220009"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636665"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série temporal no Data Explorer do Azure
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Use o operador [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) para criar um conjunto de três séries temporais, em que:
+- Use o operador [`make-series`](/azure/kusto/query/make-seriesoperator) para criar um conjunto de três séries temporais, em que:
     - `num=count()`: série de tráfego temporal
     - `range(min_t, max_t, 1h)`: série temporal é criada em compartimentos de 1 hora no intervalo de tempo (mais antigos e mais recentes carimbos de hora de registros da tabela)
-    - `default=0`: especifique o método de preenchimento para a falta de categorias para criar séries temporais regulares. Como alternativa, use [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) e [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) para alterações
+    - `default=0`: especifique o método de preenchimento para a falta de categorias para criar séries temporais regulares. Como alternativa, use [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) e [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) para alterações
     - `byOsVer`: partição de sistema operacional
 - A estrutura de dados da série temporal real é uma matriz numérica do valor agregado para cada intervalo de tempo. Podemos usar `render timechart` para visualização.
 
@@ -71,14 +71,14 @@ Na tabela acima, temos três partições. Podemos criar uma série temporal sepa
 ## <a name="time-series-analysis-functions"></a>Funções de análise de séries temporais
 
 Nesta seção, executaremos funções típicas de processamento em série.
-Depois que um conjunto de séries temporais é criado, o ADX suporta uma lista crescente de funções para processá-las e analisá-las, que podem ser encontradas na [documentação de séries temporais](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). Descreveremos algumas funções representativas para processar e analisar séries temporais.
+Depois que um conjunto de séries temporais é criado, o ADX suporta uma lista crescente de funções para processá-las e analisá-las, que podem ser encontradas na [documentação de séries temporais](/azure/kusto/query/machine-learning-and-tsa). Descreveremos algumas funções representativas para processar e analisar séries temporais.
 
 ### <a name="filtering"></a>Filtragem
 
 A filtragem é uma prática comum no processamento de sinais e útil para tarefas de processamento de séries temporais (por exemplo, suavizar um sinal com ruído, alterar a detecção).
 - Há duas funções genéricas de filtragem:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): Aplicando o filtro FIR. Usado para cálculo simples de média móvel e diferenciação da série temporal para detecção de mudança.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): Aplicando o filtro IIR. Usado para suavização exponencial e soma cumulativa.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Aplicando o filtro FIR. Usado para cálculo simples de média móvel e diferenciação da série temporal para detecção de mudança.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Aplicando o filtro IIR. Usado para suavização exponencial e soma cumulativa.
 - `Extend` a série temporal definida pela adição de uma nova série de médias móveis de tamanho 5 (denominada *ma_num*) à consulta:
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>Análise de regressão
 
 O ADX suporta análise de regressão linear segmentada para estimar a tendência da série temporal.
-- Use [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) para ajustar a melhor linha a uma série temporal para detecção geral de tendências.
-- Use [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) para detectar alterações de tendência, relativas à linha de base, que são úteis em cenários de monitoramento.
+- Use [series_fit_line()](/azure/kusto/query/series-fit-linefunction) para ajustar a melhor linha a uma série temporal para detecção geral de tendências.
+- Use [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) para detectar alterações de tendência, relativas à linha de base, que são úteis em cenários de monitoramento.
 
 Exemplo de funções `series_fit_line()` e `series_fit_2lines()` em uma consulta de série temporal:
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![Sazonalidade de série de tempo](media/time-series-analysis/time-series-seasonality.png)
 
-- Use [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) para detectar automaticamente os períodos na série temporal. 
-- Use [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) se nós sabemos que uma métrica deve ter Extrajudiciais distintos específicos e que queremos verificar se eles existem.
+- Use [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) para detectar automaticamente os períodos na série temporal. 
+- Use [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) se nós sabemos que uma métrica deve ter Extrajudiciais distintos específicos e que queremos verificar se eles existem.
+
 > [!NOTE]
 > É uma anomalia se períodos distintos específicos não existe
 
@@ -150,7 +151,7 @@ A função detecta a sazonalidade diária e semanal. As pontuações diárias s�
 
 ### <a name="element-wise-functions"></a>Funções elemento a elemento
 
-Operações aritméticas e lógicas podem ser feitas em uma série temporal. Usando [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction), podemos calcular uma série temporal residual, ou seja, a diferença entre a métrica original e a suavizada, e procurar por anomalias no sinal residual:
+Operações aritméticas e lógicas podem ser feitas em uma série temporal. Usando [series_subtract()](/azure/kusto/query/series-subtractfunction), podemos calcular uma série temporal residual, ou seja, a diferença entre a métrica original e a suavizada, e procurar por anomalias no sinal residual:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![Operações de série de tempo](media/time-series-analysis/time-series-operations.png)
 
-Azul: série temporal original Vermelho: série temporal suavizada Verde: série temporal residual
+- Azul: série temporal original
+- Vermelho: série temporal suavizada
+- Verde: série temporal residual
 
 ## <a name="time-series-workflow-at-scale"></a>Fluxo de trabalho de série de tempo em escala
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-Em menos de dois minutos, o ADX detectou duas séries temporais anormais (de 23115) nas quais a contagem de leitura caiu repentinamente.
+Em menos de dois minutos, o ADX analisou mais de 20.000 séries temporais e detectou duas séries temporais anormais, nas quais a contagem de leitura caiu repentinamente.
 
 Esses recursos avançados combinados com o desempenho rápido do ADX fornecem uma solução exclusiva e poderosa para análise de séries temporais.

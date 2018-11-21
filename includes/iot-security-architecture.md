@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264405"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293212"
 ---
-# <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança da Internet das Coisas
+# <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança da Internet das Coisas (IoT)
 
 Durante a criação de um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, conforme o sistema é projetado e desenvolvido. É importante projetar o produto desde o início com a segurança em mente porque a compreensão de como um invasor pode conseguir comprometer um sistema ajuda a garantir que as mitigações adequadas estão em vigor desde o início.
 
@@ -27,23 +27,23 @@ O objetivo da modelagem de risco é entender como um invasor pode ser capaz de c
 
 Muitas equipes de desenvolvimento fazem um excelente trabalho capturando os requisitos funcionais do sistema que beneficiam os clientes. No entanto, identificar formas não óbvias em que alguém pode utilizar o sistema de maneira indevida é mais desafiador. A modelagem de risco pode ajudar as equipes de desenvolvimento a compreender o que um invasor pode fazer e por quê. A modelagem de risco é um processo estruturado que cria uma discussão sobre as decisões de design de segurança no sistema, bem como alterações no design que são feitas ao longo do caminho que impactam a segurança. Embora um modelo de risco seja simplesmente um documento, esta documentação também representa uma forma ideal de garantir a continuidade do conhecimento, a retenção de lições aprendidas e ajuda a nova equipe a realizar a integração rapidamente. Por fim, um resultado da modelagem de risco é permitir que você considere outros aspectos de segurança, como quais compromissos de segurança deseja fornecer aos seus clientes. Esses compromissos em conjunto com a modelagem de risco informam e orientam o teste de sua solução de IoT (Internet das Coisas).
 
-### <a name="when-to-threat-model"></a>Quando fazer o modelo de risco
+### <a name="when-to-do-threat-modeling"></a>Quando fazer modelagem de ameaças
 
 A [modelagem de risco](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o valor máximo quando incorporada na fase de design. Ao realizar o design, você tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atualizadas e, além disso, essa eliminação nem sempre é possível. Conforme o produto amadurece, fica mais difícil eliminar as ameaças, o que acaba exigindo mais trabalho e concessões muito mais complexas do que a modelagem de risco no início do desenvolvimento.
 
-### <a name="what-to-threat-model"></a>O que incluir no modelo de risco
+### <a name="what-to-consider-for-threat-modeling"></a>O que considerar para a modelagem de ameaças
 
-Você deve usar o modelo de risco na solução como um todo e se concentrar nas seguintes áreas:
+Você deve analisar a solução como um todo e também se concentrar nas seguintes áreas:
 
 * Os recursos de segurança e privacidade
 * Os recursos cujas falhas são relevantes para a segurança
 * Os recursos que tocam um limite de confiança
 
-### <a name="who-threat-models"></a>Quem faz os modelos de risco
+### <a name="who-performs-threat-modeling"></a>Quem realiza modelagem de ameaças
 
 A modelagem de risco é um processo como qualquer outro. É uma boa ideia tratar o documento de modelo de risco como qualquer outro componente da solução e validá-lo. Muitas equipes de desenvolvimento fazem um excelente trabalho capturando os requisitos funcionais do sistema que beneficiam os clientes. No entanto, identificar formas não óbvias em que alguém pode utilizar o sistema de maneira indevida é mais desafiador. A modelagem de risco pode ajudar as equipes de desenvolvimento a compreender o que um invasor pode fazer e por quê.
 
-### <a name="how-to-threat-model"></a>Como fazer o modelo de risco
+### <a name="how-to-perform-threat-modeling"></a>Como realizar modelagem de ameaças
 
 O processo de modelagem de risco é composto por quatro etapas; as etapas são:
 
@@ -57,16 +57,21 @@ O processo de modelagem de risco é composto por quatro etapas; as etapas são:
 Há três regras básicas para ter em mente ao criar um modelo de risco:
 
 1. Crie um diagrama da arquitetura de referência.
-1. Inicie primeiro por abrangência. Obtenha uma visão geral e entenda o sistema como um todo, antes de se aprofundar. Essa abordagem ajuda a garantir o aprofundamento nas áreas certas.
-1. Conduza o processo, não deixe que o processo conduza você. Caso você encontre um problema na fase de modelagem e queira explorá-lo, vá em frente! Não pense que você precisa seguir essas etapas submissamente.
+
+2. Inicie primeiro por abrangência. Obtenha uma visão geral e entenda o sistema como um todo, antes de se aprofundar. Essa abordagem ajuda a garantir o aprofundamento nas áreas certas.
+
+3. Conduza o processo, não deixe que o processo conduza você. Caso você encontre um problema na fase de modelagem e queira explorá-lo, vá em frente! Não pense que você precisa seguir essas etapas submissamente.
 
 #### <a name="threats"></a>Ameaças
 
 Os quatro principais elementos de um modelo de risco são:
 
 * Processos, como serviços Web, serviços de Win32 e daemons *nix. Algumas entidades complexas (por exemplo, gateways de campo e sensores) podem ser abstraídas como um processo quando um detalhamento técnico nessas áreas não é possível.
+
 * Armazenamentos de dados (qualquer lugar em que os dados são armazenados, como um arquivo de configuração ou banco de dados)
+
 * Fluxo de dados (onde os dados se movem entre outros elementos no aplicativo)
+
 * Entidades externas (qualquer elemento que interage com o sistema, mas não está sob o controle do aplicativo, os exemplos incluem usuários e feeds de satélite)
 
 Todos os elementos no diagrama da arquitetura estão sujeitos a várias ameaças; neste artigo, usamos o mnemônico STRIDE. Leia [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Modelagem de risco novamente, STRIDE) para saber mais sobre os elementos do STRIDE.
@@ -135,7 +140,7 @@ Dispositivos de finalidade especial conectados têm um número significativo de 
 
 Ao explorar os padrões de interação, dê ao "controle de dispositivo" e os "dados de dispositivo" a mesma atenção durante a modelagem de risco. O "controle de dispositivo" pode ser classificado como qualquer informação fornecida para um dispositivo por qualquer pessoa com o objetivo de alterar ou influenciar seu comportamento em relação ao seu estado ou o estado de seu ambiente. Os "dados de dispositivo" podem ser classificados como qualquer informação que um dispositivo emite para quaisquer terceiros sobre seu estado e o estado observado de seu ambiente.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Fazendo a modelagem de risco da arquitetura de referência do IoT do Azure
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Executando a modelagem de ameaças para a arquitetura de referência do IoT do Azure
 
 A Microsoft usa a estrutura descrita anteriormente para a modelagem de risco da IoT do Azure. A seção abaixo usa o exemplo concreto da arquitetura de referência da IoT do Azure para demonstrar como pensar sobre a modelagem de risco para IoT e como tratar as ameaças identificadas. Este exemplo identifica quatro áreas principais de foco:
 

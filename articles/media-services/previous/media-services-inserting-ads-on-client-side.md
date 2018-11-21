@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903040"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625142"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserção de anúncios no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de anúncios no lado do cliente.
@@ -107,7 +107,7 @@ Os anúncios lineares podem ser exibidos na ordem especificada. Para fazer isso,
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ Os anúncios lineares podem ser exibidos na ordem especificada. Para fazer isso,
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ Anúncios não lineares também são especificados em um elemento de <Creative>.
     </Creative>
 ```
 
-O elemento <**NonLinearAds**> pode conter um ou mais elementos <**NonLinear**>, cada um deles podendo descrever um anúncio não linear. O elemento <**NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um <**StaticResource**>, <**IFrameResource**> ou <**HTMLResource**>. <**StaticResource**> descreve um recurso não HTML e define um atributo creativeType que especifica como o recurso é exibido:
+O elemento <**NonLinearAds**> pode conter um ou mais elementos <**NonLinear**>, cada um deles podendo descrever um anúncio não linear. O elemento <**NonLinear**> especifica o recurso para o anúncio não linear. O recurso pode ser um <**StaticResource**>, um <**IFrameResource**>, ou um <**HTMLResource**>. <**StaticResource**> descreve um recurso não HTML e define um atributo creativeType que especifica como o recurso é exibido:
 
 Image/gif, image/jpeg, image/png – o recurso é exibido em uma marcação HTML <**img**>.
 
@@ -352,7 +352,7 @@ O elemento **trigger** contém um elemento **startConditions** que especifica qu
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Usando a VPAID (Video Player-Ad Interface Definition)
 VPAID é uma API para habilitar unidades executáveis de anúncio para se comunicar com um player de vídeo. Isso permite experiências de anúncios altamente interativos. O usuário pode interagir com o anúncio e o anúncio pode responder às ações tomadas pelo visualizador. Por exemplo, um anúncio pode exibir botões que permitem ao usuário visualizar mais informações ou uma versão mais longa do anúncio. O player de vídeo deve oferecer suporte à API do VPAID e o anúncio executável deve implementar a API. Quando um player solicita um anúncio de um servidor de anúncios, o servidor pode responder com uma resposta VAST que contenha um anúncio VPAID.
 
-Um anúncio executável é criado no código que deve ser executado em um ambiente de tempo de execução como Adobe Flash ™ ou JavaScript, que pode ser executado em um navegador da Web. Quando um servidor de anúncios retorna uma resposta VAST que contém um anúncio VPAID, o valor do atributo apiFramework no elemento <MediaFile> deve ser "VPAID". Este atributo especifica que o anúncio contido é um anúncio VPAID executável. O atributo de tipo deve ser definido como o tipo MIME do executável, como "application/x-shockwave-flash" ou "application/x-javascript". O trecho XML a seguir mostra o elemento <MediaFile> de uma resposta VAST que contém um anúncio VPAID executável. 
+Um anúncio executável é criado no código que deve ser executado em um ambiente de tempo de execução como Adobe Flash ™ ou JavaScript, que pode ser executado em um navegador da Web. Quando um servidor de anúncios retorna uma resposta VAST que contém um anúncio VPAID, o valor do atributo apiFramework no elemento <MediaFile> deve ser "VPAID". Este atributo especifica que o anúncio contido é um anúncio VPAID executável. O atributo de tipo deve ser definido como o tipo MIME do executável, como "application/x-shockwave-flash" ou "application/x-javascript". O snippet XML a seguir mostra o elemento <MediaFile> de uma resposta VAST que contém um anúncio VPAID executável. 
 
 ```xml
     <MediaFiles>

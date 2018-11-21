@@ -8,55 +8,58 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283590"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616479"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
-
 ## <a name="overview"></a>Visão geral
-Este artigo mostra a você como lidar com problemas comuns durante a configuração de alertas de log no Azure Monitor. Além disso, fornece soluções para as perguntas frequentes sobre a funcionalidade ou configuração dos alertas de log. O termo **Alertas de Log** para descrever alertas em que o sinal é baseado em consulta personalizada no [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou no [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre a funcionalidade, a terminologia e o tipos em [Alertas de log – visão geral](monitor-alerts-unified-log.md).
+Este artigo mostra como resolver problemas comuns observados ao configurar alertas de log no monitor do Azure. Além disso, fornece soluções para perguntas frequentes sobre funcionalidade ou configuração de alertas de log. 
+
+O termo **Alertas de Log** para descrever alertas que são acionados com base em uma consulta personalizada no [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos em [Alertas de log - Visão geral](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Este artigo não considera casos nos quais a regra de alerta aparece como acionada no portal do Azure e a notificação é enviada por meio de Grupos de Ação associados. Para esses casos, consulte os detalhes no artigo sobre [Grupos de Ação](monitoring-action-groups.md).
+> Este artigo não considera os casos em que o portal do Azure é exibido, a regra de alerta é disparada e uma notificação é executada por Grupos de Ações associados. Para esses casos, consulte os detalhes no artigo sobre [Grupos de Ação](monitoring-action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de log não acionado
 
-Veja a seguir alguns motivos comuns por que uma [regra de alerta de log configurada no Azure Monitor](alert-log.md) não é disparada quando exibida nos [Alertas do Azure](monitoring-alerts-managing-alert-states.md), quando não isso não era esperado. 
+A seguir, são apresentados alguns motivos comuns por que uma regra de alerta de log [configurada no estado do Azure Monitor](alert-log.md) não mostra [como *acionado* quando esperado](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Hora da ingestão de dados para logs
-O alerta de log funciona por meio da execução periódica da consulta fornecida pelo cliente com base no [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou no [Application Insights](../application-insights/app-insights-analytics.md). Ambos são capacitados pelo Analytics, que processa grandes quantidades de dados de log e fornece a mesma funcionalidade. Como o serviço do Log Analytics envolve o processamento de muitos terabytes de dados de milhares de clientes e de fontes do mundo todo, ele é suscetível a um tempo de espera. Para saber mais, confira [Tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+O alerta de log executa periodicamente a consulta com base no [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Como o Log Analytics processa muitos terabytes de dados de milhares de clientes de fontes variadas em todo o mundo, o serviço é suscetível a um atraso de tempo variável. Para saber mais, confira [Tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Para superar o atraso da ingestão de dados que pode ocorrer em logs do Log Analytics ou do Application Insights; o alerta do log espera e tenta novamente após algum tempo quando encontra dados ainda não ingeridos durante o período do alerta. Alertas de log tem um tempo de espera cada vez maior, para ter certeza de que esperaremos o tempo necessário para a ingestão dos dados pelo Log Analytics. Portanto, se os logs consultados por sua regra de alerta de log forem afetados por atrasos de ingestão, o alerta de log disparará somente após os dados estarem disponíveis na pós-ingestão do Log Analytics e após o intervalo de tempo exponencial devido ao serviço de alerta de log repetir várias vezes nesse ínterim.
+Para atenuar atraso na ingestão de dados, o sistema aguardará e repetirá a consulta de alerta várias vezes, se descobrir que os dados necessários ainda não foram processados. O sistema tem um tempo de espera de aumento exponencial. O alerta de log será disparado somente depois que os dados estiverem disponíveis, portanto, o atraso poderá ocorrer devido à lenta ingestão de dados. 
 
 ### <a name="incorrect-time-period-configured"></a>Período de tempo incorreto configurado
-Conforme descrito no artigo sobre [terminologia para alertas de log](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o período indicado na configuração especifica o intervalo de tempo para a consulta. A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo. O período de tempo restringe os dados buscados para consulta de log para evitar abusos e contorna qualquer comando de tempo (como atrás) usados na consulta de log. 
-*Por exemplo, se o período de tempo está definido para 60 minutos e a consulta é executada às 13h15, somente os registros criados entre 12h15 e 13h15 são retornados para executar a consulta de log. Agora, se a consulta de log usa a hora como o comando de hora como ago (1d), a consulta de log seria executada somente para dados entre 12h15 e 13h15 - como se os dados existissem somente nos últimos 60 minutos. E não por sete dias de dados conforme especificado na consulta de log.*
+Conforme descrito no artigo sobre terminologia [para alertas de log](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o período de tempo indicado na configuração especifica o intervalo de tempo da consulta. A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo. O período de tempo restringe os dados buscados para consulta de log para evitar abusos e contorna qualquer comando de tempo (como atrás) usados na consulta de log. 
+*Por exemplo, se o período de tempo estiver definido como 60 minutos e a consulta for executada às 13h15, somente registros criados entre 12h15 e 13h15 serão usados para a consulta de log. Se a consulta de log usar um comando de tempo como *atrás (1d)*, a consulta ainda usará dados entre 12h15 e 13h15 porque o período de tempo está definido para esse intervalo.*
 
-Com base em sua lógica de consulta, verifique se o período de tempo apropriado foi fornecido na configuração. No exemplo mencionado anteriormente, se a consulta de log usa ago (1d), conforme mostrado com o marcador Verde, o período de tempo deverá ser definido como 24 horas ou 1.440 minutos (conforme indicado em Vermelho), para garantir que a consulta fornecida seja executada corretamente como o previsto.
-    ![Período de tempo](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
+Portanto, verifique se o período de tempo na configuração corresponde à consulta. Para o exemplo especificado anteriormente, se a consulta de log usar *atrás (1d)* como mostrado com marcador Verde, o período de tempo deverá ser definido como 24 horas ou 1440 minutos (conforme indicado em Vermelho), para garantir que a consulta seja executada conforme pretendido.
+
+![Período de tempo](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>A opção Suprimir Alertas está definida
-Conforme descrito na etapa 8 do artigo sobre [Criar uma regra de alerta de log no portal do Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), o alerta de log fornece uma opção de configuração da supressão automática da regra de alerta e para impedir a notificação/gatilho por um período determinado. A opção Suprimir Alertas fará com que o alerta de log execute sem disparar o grupo de ação durante o tempo especificado na opção **Suprimir Alertas** e, portanto, o usuário pode sentir que esse alerta não foi acionado, porém, na realidade, ele foi suprimido conforme configurado.
-    ![Suprimir alertas](./media/monitor-alerts-unified/LogAlertSuppress.png)
+Conforme descrito na etapa 8 do artigo sobre a [criação de uma regra de alerta de log no portal do Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), os alertas de log fornecem uma opção **Suprimir Alertas** para suprimir ações de disparo e notificação por um período de tempo configurado. Como resultado, você poderá pensar que um alerta não disparou enquanto na verdade isso aconteceu, mas foi suprimido.  
+
+![Suprimir alertas](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>A regra de alerta com medição métrica está incorreta
-O tipo de medição métrica da regra de alerta de log é o subtipo dos alertas de log, que tem recursos especiais mas, por sua vez, emprega restrição sobre a sintaxe de consulta do alerta. A regra de alerta do log de medição métrica exige que a saída da consulta do alerta forneça uma série de tempo de métrica - uma tabela com períodos distintos de tamanhos iguais, juntamente com os valores correspondentes de AggregatedValue computados. Além disso, os usuários podem escolher ter variáveis adicionais na tabela, junto com AggregatedValue, como Computador, Nó etc. usando os dados na tabela que podem ser classificados.
+**Alertas de log de medição métrica** são um subtipo de alertas de log que possuem recursos especiais e uma sintaxe de consulta de alerta restrita. Uma regra de alerta de log de medição métrica requer que a saída da consulta seja uma série temporal métrica, ou seja, uma tabela com períodos de tempo distintos igualmente dimensionados, juntamente com os valores agregados correspondentes. Além disso, os usuários podem optar por ter variáveis adicionais na tabela ao lado de AggregatedValue. Essas variáveis podem ser usadas para classificar a tabela. 
 
-Por exemplo, vamos supor que a regra de alerta de log de medição métrica tenha sido configurada como:
+Por exemplo, suponha que uma regra de alerta de log de medição métrica foi configurada como:
 - a consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - período de 6 horas
 - limite de 50
 - lógica de alerta de três violações consecutivas
 - Aggregate Upon escolhido como $table
 
-Como o comando inclui summarize … by e forneceu duas variáveis: timestamp e $table; o serviço de alerta escolherá $table para "Aggregate Upon" – Ele classifica a tabela resultante pelo campo $table, conforme mostrado abaixo, e analisa os vários AggregatedValue em busca do tipo de tabela (como availabilityResults) para ver se houve violações consecutivas de 3 ou mais.
+Como o comando incluiu *resumir … por* e forneceu duas variáveis (carimbo de data/hora e $table), o sistema escolherá $table como "Aggregate Upon". Ele classifica a tabela de resultados pelo campo *$table*, conforme mostrado abaixo, e analisa o AggregatedValue múltiplo para cada tipo de tabela (como availabilityResults) para verificar se houve violações consecutivas de 3 ou mais.
 
-   ![Execução de consulta de medição métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
+![Execução de consulta de medição métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
 Como "Aggregate Upon" é $table – os dados são classificados na coluna $table (como em VERMELHO); em seguida, agrupamos e procuramos por tipos de campo de "Aggregate Upon" (ou seja) $table – por exemplo: valores para availabilityResults serão considerados como uma plotagem/entidade (conforme realçado em Laranja). Nessa plotagem/entidade de valor – o serviço de alerta procura três violações consecutivas (como mostrado em Verde), para as quais o alerta será disparado para o valor de tabela 'availabilityResults'. Da mesma forma, se para qualquer outro valor de $table três violações consecutivas forem vistas - outra notificação de alerta será disparada para o mesmo; com o serviço de alerta classificando automaticamente os valores em uma plotagem/entidade (como em Laranja) por vez.
 
@@ -85,4 +88,5 @@ O que aparece na seção **Consulta a ser executada** é o serviço de alerta de
 
 * Saiba mais sobre os [Alertas de log nos alertas do Azure](monitor-alerts-unified-log.md)
 * Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md). 
+

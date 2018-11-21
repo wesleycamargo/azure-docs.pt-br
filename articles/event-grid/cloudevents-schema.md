@@ -6,24 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044542"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287193"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usar o esquema CloudEvents com a Grade de Eventos
 
-Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do Azure oferece suporte nativo a eventos no [esquema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). O [CloudEvents](http://cloudevents.io/) é uma [especificação de padrão aberto](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever dados de evento de uma maneira comum.
+Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do Azure oferece suporte nativo a eventos no [esquema JSON CloudEvents](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever dados de eventos.
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.
 
 O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Compute Foundation](https://www.cncf.io/). Ele está disponível como versão 0.1.
 
 Este artigo descreve como usar o esquema de CloudEvents com a Grade de Eventos.
+
+## <a name="install-preview-feature"></a>Instalar versão prévia do recurso
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -73,7 +75,7 @@ CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
 Para obter mais informações, confira a [especificação CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-Os valores dos cabeçalhos de eventos fornecidos no esquema CloudEvents e no esquema de Grade de Eventos são os mesmos, com exceção de `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
+Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grade de Eventos são os mesmos, exceto para `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
 
 ## <a name="configure-event-grid-for-cloudevents"></a>Configurar a Grade de Eventos para CloudEvents
 
@@ -91,12 +93,12 @@ Para todos os esquemas de evento, a Grade de Eventos requer validação ao publi
 
 ### <a name="input-schema"></a>Esquema de entrada
 
-Para definir o esquema de entrada em um tópico personalizado para CloudEvents, use o seguinte parâmetro no CLI do Azure quando você criar seu tópico personalizado `--input-schema cloudeventv01schema`. O tópico personalizado agora espera que os eventos de entrada no formato de CloudEvents v0.1.
+Quando você cria o tópico personalizado, você definir o esquema de entrada para um tópico personalizado.
 
-Para criar um tópico da Grade de Eventos, use:
+Para a CLI do Azure, use:
 
-```azurecli
-# if you have not already installed the extension, do it now.
+```azurecli-interactive
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -107,24 +109,50 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
+Para o PowerShell, use:
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName gridResourceGroup `
+  -Location westcentralus `
+  -Name <topic_name> `
+  -InputSchema CloudEventV01Schema
+```
+
 A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Para publicar eventos com o esquema do CloudEvent para um tópico, publique cada evento individualmente.
 
 ### <a name="output-schema"></a>Esquema de saída
 
-Para definir o esquema de saída em uma assinatura de evento para CloudEvents, use o seguinte parâmetro no CLI do Azure quando você criar sua Assinatura de Evento `--event-delivery-schema cloudeventv01schema`. Os eventos para essa assinatura de evento agora são fornecidos no formato de CloudEvents v0.1.
+Quando você cria a assinatura de evento, você definir o esquema de saída.
 
-Para criar uma assinatura de evento, use:
+Para a CLI do Azure, use:
 
-```azurecli
+```azurecli-interactive
+topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
   --name <event_subscription_name> \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Você precisa usar um gatilho HTTP. Para obter exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Use um gatilho HTTP como um gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
+Para o PowerShell, use:
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeliverySchema CloudEventV01Schema
+```
+
+A versão atual do CloudEvents não dá suporte a envio em lote de eventos. Uma assinatura de evento que está configurada para o esquema de CloudEvent recebe cada evento individualmente. No momento, você não pode usar um gatilho de Grade de Eventos para um aplicativo do Azure Functions, quando o evento é entregue no esquema do CloudEvents. Use um gatilho HTTP. Para obter exemplos de implementação de um gatilho HTTP que recebe eventos no esquema CloudEvents, consulte [Use um gatilho HTTP como um gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Próximas etapas
 

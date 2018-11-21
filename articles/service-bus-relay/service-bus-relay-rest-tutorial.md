@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614465"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
-
 Este tutorial descreve como compilar um aplicativo host simples da Retransmissão do Azure que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
 
 Este tutorial usa o modelo de programação REST do WCF (Windows Communication Foundation) para construir um serviço REST na Retransmissão do Azure. Para saber mais, confira [Modelo de programação REST WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Criando e implementando serviços](/dotnet/framework/wcf/designing-and-implementing-services) na documentação do WCF.
 
-## <a name="step-1-create-a-namespace"></a>Etapa 1: criar um namespace
+Neste tutorial, execute as seguintes etapas:
+
+> [!div class="checklist"]
+> * Criar um namespace de Retransmissão
+> * Definir um contrato de serviço WCF baseado em REST
+> * Implementar o contrato do WCF baseado em REST
+> * Hospedar e executar o serviço WCF baseado em REST
+> * Executar e testar o serviço
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
+
+- Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
+- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
+- SDK do Azure para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Criar um namespace de Retransmissão
 
 Para começar a usar os recursos de retransmissão no Azure, você deve primeiro criar um namespace de serviço. Um namespace fornece um contêiner de escopo para endereçar recursos do Azure dentro de seu aplicativo. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um namespace de Retransmissão.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Etapa 2: Definir um contrato de serviço WCF baseado em REST para usar com a Retransmissão do Azure
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definir um contrato de serviço WCF baseado em REST para usar com a Retransmissão do Azure
 
 Quando você cria um serviço no estilo REST do WCF, é preciso definir o contrato. O contrato especifica para quais operações o host oferece suporte. Uma operação de serviço pode ser considerada um método de serviço Web. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) deve ser aplicado a cada interface, e o atributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) deve ser aplicado a cada operação. Se um método em uma interface que tem o [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) não tiver o [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), tal método não será exposto. O código usado para essas tarefas é mostrado no exemplo logo após o procedimento.
 
@@ -45,7 +61,7 @@ A principal diferença entre um contrato básico do WCF e um contrato no estilo 
 4. Adicione referências ao Barramento de Serviço e ao **System.ServiceModel.dll** ao projeto instalando o pacote do NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ImageListener** e clique em **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Clique em **Instalar**e aceite os termos de uso.
 5. Você precisa adicionar explicitamente uma referência a **System.ServiceModel.Web.dll** ao projeto:
    
-    a. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
+     a. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Referências**, na pasta do projeto e clique em **Adicionar Referência**.
    
     b. Na caixa de diálogo **Adicionar Referência**, clique na guia **Estrutura** no lado esquerdo e, na caixa **Pesquisar**, digite **System.ServiceModel.Web**. Marque a caixa de seleção **System.ServiceModel.Web** e clique em **OK**.
 6. Adicione as instruções `using` abaixo na parte superior do arquivo Program.cs.
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Etapa 3: implementar um contrato de serviço WCF baseado em REST para usar no Barramento de Serviço
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementar o contrato de serviço WCF baseado em REST
 A criação de um serviço de Retransmissão de WCF no estilo REST exige primeiro a criação do contrato, que é definido por meio de uma interface. A próxima etapa é implementar a interface. Isso envolve a criação de uma classe chamada **ImageService** que implementa a interface **IImageContract** definida pelo usuário. Depois de implementar o contrato, configure a interface usando um arquivo App.config. O arquivo de configuração contém as informações necessárias para o aplicativo, como o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o serviço de retransmissão. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento.
 
 Assim como nas etapas anteriores, há pouca diferença entre a implementação de um contrato no estilo REST e um contrato de Retransmissão de WCF.
@@ -430,7 +446,7 @@ O exemplo a seguir mostra o arquivo App.config associado ao serviço.
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Etapa 4: hospedar o serviço WCF baseado em REST para usar a Retransmissão do Azure
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Hospedar o serviço WCF baseado em REST para usar a Retransmissão do Azure
 Esta etapa descreve como executar um serviço Web usando um aplicativo de console com Retransmissão de WCF. Confira uma lista completa com os códigos escritos nesta etapa logo após o procedimento.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Para criar um endereço base para o serviço
@@ -476,7 +492,7 @@ Esta etapa descreve como executar um serviço Web usando um aplicativo de consol
     host.Close();
     ```
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 O exemplo a seguir inclui o contrato e a implementação do serviço das etapas anteriores no tutorial e hospeda o serviço em um aplicativo de console. Compile o código a seguir em um arquivo executável chamado ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Compilando o código
+## <a name="run-and-test-the-service"></a>Executar e testar o serviço
 Após compilar a solução, faça o seguinte para executar o aplicativo:
 
 1. Pressione **F5** ou navegue até a localização do arquivo executável (ImageListener\bin\Debug\ImageListener.exe) para executar o serviço. Mantenha o aplicativo em execução, pois ele é necessário para executar a próxima etapa.

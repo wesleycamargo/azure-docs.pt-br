@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408054"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685660"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -92,7 +92,7 @@ Ao habilitar a autenticação e autorização com um desses provedores, seu pont
 O fluxo de autenticação é o mesmo para todos os provedores, mas difere dependendo se você deseja entrar com o SDK do provedor:
 
 - Sem SDK do provedor: o aplicativo delega o logon federado ao Serviço de Aplicativo. Esse é tipicamente o caso de aplicativos do navegador que podem apresentar a página de logon do provedor ao usuário. O código do servidor gerencia o processo de logon, portanto, ele também é chamado de _fluxo direcionado ao servidor_ ou _fluxo do servidor_. Esse caso aplica-se aos aplicativos Web. É aplicável também aos aplicativos nativos que conectam usuários usando o SDK de cliente dos Aplicativos Móveis porque o SDK abre um modo de exibição da Web para conectar usuários com a autenticação do Serviço de Aplicativo. 
-- Com SDK do provedor: o aplicativo conecta o usuário manualmente e, em seguida, envia o token de autenticação para o Serviço de Aplicativo para validação. Esse é tipicamente o caso de aplicativos sem navegador, que não podem apresentar a página de entrada do provedor ao usuário. O código do aplicativo gerencia o processo de entrada, portanto, ele também é chamado de _fluxo direcionado ao cliente_ ou _fluxo do cliente_. Esse caso aplica-se para APIs REST, [Azure Functions](../azure-functions/functions-overview.md) e clientes do navegador JavaScript, bem como aplicativos Web que precisam de mais flexibilidade no processo de entrada. Aplica-se também a aplicativos móveis nativos que conectam usuários usando o SDK do provedor.
+- Com o provedor SDK: o aplicativo assina os usuários no provedor manualmente e, em seguida, envia o token de autenticação para o Serviço de Aplicativo para validação. Esse é tipicamente o caso de aplicativos sem navegador, que não podem apresentar a página de entrada do provedor ao usuário. O código do aplicativo gerencia o processo de entrada, portanto, ele também é chamado de _fluxo direcionado ao cliente_ ou _fluxo do cliente_. Esse caso aplica-se para APIs REST, [Azure Functions](../azure-functions/functions-overview.md) e clientes do navegador JavaScript, bem como aplicativos Web que precisam de mais flexibilidade no processo de entrada. Aplica-se também a aplicativos móveis nativos que conectam usuários usando o SDK do provedor.
 
 > [!NOTE]
 > Chamadas de um aplicativo de navegador confiável no Serviço de Aplicativo chamam outra API REST no Serviço de Aplicativo ou o [Azure Functions](../azure-functions/functions-overview.md) pode ser autenticado usando o fluxo direcionado ao servidor. Para obter mais informações, consulte [Personalizar autenticação e autorização no serviço de aplicativos](app-service-authentication-how-to.md).
@@ -103,7 +103,7 @@ A tabela abaixo mostra as etapas do fluxo de autenticação.
 | Etapa | Sem SDK do provedor | Com SDK do provedor |
 | - | - | - |
 | 1. Conectar usuário | Redireciona o cliente para `/.auth/login/<provider>`. | O código do cliente coneta o usuário diretamente no SDK do provedor e recebe um token de autenticação. Para obter informações, consulte a documentação do provedor. |
-| 2. Pós-autenticação | Provedor redireciona o cliente para `/.auth/login/<provider>/callback`. | O código do cliente envia o token do provedor para `/.auth/login/<provider>` para validação. |
+| 2. Pós-autenticação | Provedor redireciona o cliente para `/.auth/login/<provider>/callback`. | O código do cliente [envia o token do provedor](app-service-authentication-how-to.md#validate-tokens-from-providers) para `/.auth/login/<provider>` para a validação. |
 | 3. Estabelecer sessão autenticada | O Serviço de Aplicativo adiciona um cookie autenticado à resposta. | O Serviço de Aplicativo retorna o próprio token de autenticação para o código do cliente. |
 | 4. Atender conteúdo autenticado | O cliente inclui o cookie de autenticação em solicitações subsequentes (manipuladas automaticamente pelo navegador). | O código do cliente apresenta o token de autenticação no cabeçalho `X-ZUMO-AUTH` (manipulado automaticamente pelos SDKs de cliente dos Aplicativos Móveis). |
 

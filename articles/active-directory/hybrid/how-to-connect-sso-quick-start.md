@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914083"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687326"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -91,7 +91,7 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 ![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> O SSO perfeito cria uma conta de computador chamada `AZUREADSSOACC` (que representa o Azure AD) em seu Active Directory (AD) local em cada floresta do AD. Esta conta de computador é necessária para o recurso funcionar. Mova a conta do computador `AZUREADSSOACC` para uma UO (unidade organizacional) em que outras contas de computador são armazenadas para garantir que ela seja gerenciada da mesma maneira e não seja excluída.
+> O SSO perfeito cria uma conta de computador chamada `AZUREADSSOACC` (que representa o Azure AD) em seu Active Directory (AD) local em cada floresta do AD. Esta conta de computador é necessária para o recurso funcionar. Se você estiver usando arquiteturas de Pass-the-Hash e atenuação de roubo de credencial em seu ambiente local, certifique-se de que o `AZUREADSSOACC` conta de computador não acaba no contêiner de quarentena. Faça as alterações apropriadas para criar a conta do computador no contêiner Computadores. Depois que o SSO perfeito for habilitado com êxito no assistente do Azure AD Connect, mova a conta do computador `AZUREADSSOACC` para uma unidade organizacional (UO) onde outras contas de computador são gerenciadas para garantir que ele não seja excluído inadvertidamente.
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 

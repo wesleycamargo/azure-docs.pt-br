@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/12/2018
 ms.author: shvija
-ms.openlocfilehash: 87d3261d5d9604b004c949e384e9d48e957229d7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455718"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624532"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Enviar eventos para Hubs de Eventos do Azure usando Java
 
@@ -143,7 +143,7 @@ eventHubClient.closeSync();
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você enviou mensagens para um hub de eventos usando Java. Para saber como receber eventos de um hub de eventos usando o .NET Framework, consulte [Receber eventos de hub de eventos – Java](event-hubs-java-get-started-receive-eph.md).
+Neste início rápido, você enviou mensagens para um hub de eventos usando Java. Para saber como receber eventos de um hub de eventos usando Java, consulte [Receber eventos do hub de eventos - Java](event-hubs-java-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

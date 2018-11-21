@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036331"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568719"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspeção de pacotes com o Observador de Rede do Azure
 
@@ -85,7 +85,7 @@ Usando a mesma captura no cenário anterior, clique em **Estatísticas** > **Hie
 
 É exibida a janela da hierarquia de protocolos. Essa exibição fornece uma lista de todos os protocolos que estavam em uso durante a sessão de captura e o número de pacotes transmitidos e recebidos usando os protocolos. Essa exibição pode ser útil para localizar o tráfego de rede indesejado em suas máquinas virtuais ou rede.
 
-![hierarquia de protocolos aberta][3]
+![Hierarquia de protocolo aberta][3]
 
 Como você pode ver na captura de tela a seguir, houve tráfego usando o protocolo BitTorrent, que é utilizado para o compartilhamento de arquivos ponto a ponto. Como administrador, você não espera ver o tráfego BitTorrent nessas máquinas virtuais em particular. Agora que você conhece esse tráfego, pode remover o software de ponto a ponto instalado na máquina virtual ou bloquear o tráfego usando os Grupos de Segurança de Rede ou um Firewall. Além disso, pode optar por executar as capturas de pacotes em um agendamento para poder analisar o uso do protocolo em suas máquinas virtuais regularmente. Para obter um exemplo sobre como automatizar as tarefas de rede no Azure, visite [Monitorar os recursos da rede com a automação do Azure](network-watcher-monitor-with-azure-automation.md)
 

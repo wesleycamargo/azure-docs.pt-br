@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278252"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687207"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar consultas do Hive no Azure HDInsight | Microsoft Docs
 
@@ -72,7 +72,7 @@ Algumas considerações sobre particionamento:
 
 * **Não particione pouco demais** – O particionamento em colunas com apenas alguns valores pode causar poucas partições. Por exemplo, o particionamento por gênero só cria duas partições (“masculino” e “feminino”), reduzindo a latência no máximo pela metade.
 * **Não particione muito demais** – No outro extremo, criar uma partição em uma coluna com um valor exclusivo (por exemplo, userid) causa várias partições. Partição demais causa muita carga sobre namenode do cluster porque ele precisa manipular o grande número de diretórios.
-* **Evite distorção de dados** -Escolha com bom senso sua chave de particionamento para que todas as partições tenham o mesmo tamanho. Por exemplo, o particionamento na coluna *Estado* pode afetar a distribuição de dados. Como o estado da Califórnia tem uma população quase 30 vezes maior do que a de Vermont, o tamanho da partição pode estar distorcido e o desempenho pode variar muito.
+* **Evite distorção de dados** -Escolha com bom senso sua chave de particionamento para que todas as partições tenham o mesmo tamanho. Por exemplo, o particionamento na coluna *Estado* pode afetar a distribuição de dados. Como o estado da Califórnia tem uma população quase 30 vezes maior que a de Vermont, o tamanho da partição é potencialmente distorcido e o desempenho pode variar muito.
 
 Para criar uma tabela de partição, use a cláusula *Particionado por* :
 

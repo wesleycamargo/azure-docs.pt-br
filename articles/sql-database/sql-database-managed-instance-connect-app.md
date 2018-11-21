@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870470"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514954"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -60,7 +60,7 @@ Se você estabeleceu com êxito a conexão do local ao Azure e não pode estabel
 A Instância Gerenciada pode ser acessada somente por meio de um endereço IP privado. Portanto, para acessá-la na caixa de desenvolvedor, primeiro você precisa fazer uma conexão entre a caixa de desenvolvedor e a VNET da Instância Gerenciada. Para isso, configure uma conexão ponto a site a uma VNet usando a autenticação de certificado nativa do Azure. Para ver mais informações, consulte [Configurar uma conexão ponto a site para conectar-se a uma Instância Gerenciada do Banco de Dados SQL do Azure do computador local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>Conectar-se do local com o emparelhamento VNet
-Outro cenário implementado pelos clientes é quando o gateway de VPN está instalado em uma rede virtual e uma assinatura separada daquela que hospeda a Instância Gerenciada. As duas redes virtuais são, então, emparelhadas. O diagrama de arquitetura de exemplo a seguir mostra como isso pode ser implementado.
+Outro cenário implementado pelos clientes é quando o gateway de VPN está instalado em uma rede virtual e uma assinatura separada daquela que hospeda a Instância Gerenciada. Então, as duas redes virtuais são emparelhadas. O diagrama de arquitetura de exemplo a seguir mostra como isso pode ser implementado.
 
 ![Emparelhamento VNet](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -83,6 +83,10 @@ Um caso especial de conexão do Serviço de Aplicativo do Azure à Instância Ge
 Este cenário é ilustrado no seguinte diagrama:
 
 ![emparelhamento de aplicativo integrado](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>O recurso de Integração VNet não integra um aplicativo com uma rede VNet que tem um Gateway ExpressRoute. Mesmo se o Gateway do ExpressRoute estiver configurado no modo de coexistência, a Integração com a VNet não funcionará. Se for necessário acessar recursos por meio de uma conexão do ExpressRoute, você poderá usar um Ambiente do Serviço de Aplicativo que executa na Rede Virtual.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>Solucionar problemas de conectividade
 

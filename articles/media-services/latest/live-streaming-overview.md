@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962377"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344959"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -44,11 +44,11 @@ Se quiser, também é possível aplicar uma **Filtragem Dinâmica**, que pode se
 
 Os seguintes aprimoramentos novos foram feitos na versão mais recente.
 
-- Novo modo de baixa latência para ao vivo (10 segundos de ponta a ponta).
+- Novo modo de baixa latência. Para obter mais informações, consulte [latência](#latency).
 - Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
 - Ingestão segura de RTMPS.
 
-    Quando você cria um LiveEvent, você receberá 4 URLs de ingestão. Os 4 URLs de ingesão são quase idênticas, têm o mesmo token de streaming (AppId), somente a parte de número de porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
+    Quando você cria um LiveEvent, obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
 - Suporte de transcodificação 24 horas por dia. 
 - Suporte aprimorado de sinalização de anúncio no RTMP via SCTE35.
 
@@ -82,7 +82,7 @@ Ao criar esse tipo de LiveEvent, especifique **Nenhum** (LiveEventEncodingType.N
 
 A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
 
-| Recurso | LiveEvent de passagem | LiveEvent básico |
+| Recurso | LiveEvent de passagem | LiveEvent padrão |
 | --- | --- | --- |
 | A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
 | Resolução máxima, número de camadas |4Kp30  |720p, 6 camadas, 30 fps |
@@ -94,7 +94,7 @@ A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
 | Suporte para sinalização de anúncios via SCTE35 inband|SIM |SIM |
 | Legendas CEA 608/708 de passagem |SIM |SIM |
 | Capacidade de recuperação de interrupções breves no feed de contribuição |SIM |Não (O LiveEvent começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada)|
-| Suporte para GOPs de entrada não uniforme |SIM |Não – a entrada deve ser fixa em GOPs de 2 s |
+| Suporte para GOPs de entrada não uniforme |SIM |Não - a entrada deve ser fixa em GOPs de 2 s |
 | Suporte para entrada de taxa de quadros variável |SIM |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
 | Desligamento automático de LiveEvents quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum LiveOutput em execução |
 
@@ -126,6 +126,20 @@ Um LiveEvent dá suporte a até três LiveOutputs em execução simultânea para
 Uma vez que o fluxo está fluindo para o LiveEvent, será possível iniciar o evento de streaming criando um Asset, LiveOutput e StreamingLocator. Isso arquivará o fluxo e o disponibilizará aos espectadores por meio do [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming padrão é adicionado à sua conta em estado Parado. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado Executando.
+
+## <a name="latency"></a>Latency
+
+Esta seção discute os resultados comuns que você vê ao usar as configurações de baixa latência e de vários jogadores. Os resultados variam com base na latência de rede e da CDN.
+
+Para usar o novo recurso LowLatency, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o LiveEvent. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](http://ampdemo.azureedge.net/) (AMP) página de demonstração e defina as opções de reprodução para usar a baixa latência heurística "perfil".
+
+### <a name="pass-through-liveevents"></a>LiveEvents de passagem
+
+||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
+|---|---|---|
+|TRAÇO no AMP|10s|8s|
+|HLS no player de iOS nativo|14s|10s|
+|HLS. JS no Player do Mixer|30 s|16s|
 
 ## <a name="billing"></a>Cobrança
 

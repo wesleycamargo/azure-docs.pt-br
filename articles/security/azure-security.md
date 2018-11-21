@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237546"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567155"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à Segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -59,9 +59,9 @@ Examine os recursos listados a seguir para garantir que a Plataforma do Azure se
 | [Plataforma Segura](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacidade e Controles](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformidade](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparência](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Ciclo de Desenvolvimento de Segurança](https://www.microsoft.com/en-us/sdl/), auditorias internas | [Gerenciar sempre seus dados](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Central de Confiabilidade](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Treinamento de segurança obrigatório, verificações de histórico](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlar o local dos dados](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub de Controles Comuns](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Como a Microsoft gerencia o local de dados nos serviços do Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Treinamento de segurança obrigatório, verificações em segundo plano](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlar o local dos dados](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub de Controles Comuns](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Como a Microsoft gerencia o local de dados nos serviços do Azure](http://azuredatacentermap.azurewebsites.net/)|
 | [Testes de penetração](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [Detecção de intrusão, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [Auditorias e registro em log](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Fornecer acesso a dados em seus próprios termos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Lista de verificação de inspeção dos Serviços de Nuvem ](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Quem na Microsoft pode acessar seus dados e em quais termos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
-| [Data center de última geração](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), segurança física, [Rede Segura](https://docs.microsoft.com/azure/security/security-network-overview) | [Respondendo às autoridades competentes](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformidade por serviço, local e setor](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
+| [Centro de dados de última geração](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), a segurança física, [rede segura](https://docs.microsoft.com/azure/security/security-network-overview) | [Respondendo às autoridades competentes](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformidade por serviço, local e setor](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Resposta ao incidente de segurança](https://aka.ms/SecurityResponsepaper), [Responsabilidade compartilhada](https://aka.ms/sharedresponsibility) |[Padrões de privacidade rigorosos](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Revisar a certificação para serviços do Azure, Hub de transparência](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
@@ -345,7 +345,7 @@ A [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-cen
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 A Central de Segurança ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-## <a name="identify-and-access-management"></a>Gerenciamento de identidade e de acesso
+## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 
 A proteção de sistemas, aplicativos e dados começa com controles de acesso baseados em identidade. Os recursos de gerenciamento de identidades e acesso integrados aos produtos e serviços comerciais da Microsoft ajudam a proteger as informações pessoais e corporativas contra o acesso não autorizado, mas as disponibilizam aos usuários legítimos, quando e onde eles precisarem.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial de Retransmissão de WCF do Barramento de Serviço do Azure | Microsoft Docs
+title: Expor um serviço de REST do WCF local ao cliente externo usando a Retransmissão do WCF do Azure | Microsoft Docs
 description: Compilar um cliente e um aplicativo de serviço usando a Retransmissão WCF.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262005"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615460"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Tutorial de Retransmissão de WCF do Azure
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Expor um serviço de REST do WCF local ao cliente externo usando a Retransmissão do WCF do Azure
 
 Este tutorial descreve como compilar um aplicativo cliente e de serviço simples de Retransmissão de WCF usando a Retransmissão do Azure. Para obter um tutorial semelhante que usa o [Sistema de mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Depois de trabalhar passando pela sequência de tópicos neste tutorial, você t
 
 As três etapas finais descrevem como criar um aplicativo cliente, configurá-lo e usar um cliente que pode acessar a funcionalidade do host.
 
+Neste tutorial, você executa as seguintes etapas:
+
+> [!div class="checklist"]
+> * Criar um namespace de Retransmissão.
+> * Criar um contrato de serviço WCF
+> * Implementar o contrato WCF
+> * Hospedar e executar o serviço WCF para registrar-se no serviço de Retransmissão
+> * Criar um cliente WCF para o contrato de serviço
+> * Configurar o cliente WCF
+> * Implementar o cliente WCF
+> * Executar os aplicativos. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir esse tutorial, você precisará do seguinte:
+Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
-* [Microsoft Visual Studio 2015 ou superior](https://visualstudio.com). Este tutorial usa o Visual Studio 2017.
-* Uma conta ativa do Azure. Se não tiver uma, você poderá criar uma conta gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+- Uma assinatura do Azure. Se você não tiver [uma conta gratuita](https://azure.microsoft.com/free/), crie uma antes de começar.
+- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial usam o Visual Studio 2017.
+- SDK do Azure para .NET. Instale-o na [página de downloads do SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
+## <a name="create-a-relay-namespace"></a>Criar um namespace de Retransmissão
+A primeira etapa é criar um namespace e obter uma chave de [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do serviço de retransmissão. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Azure autenticar o acesso a um aplicativo.
 
-A primeira etapa é criar um namespace e obter uma chave de [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do serviço de retransmissão. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Azure autenticar o acesso a um aplicativo. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um namespace de Retransmissão.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definir um contrato de serviço do WCF
-
 O contrato de serviço especifica a quais operações (a terminologia do serviço Web para funções ou métodos) o serviço dá suporte. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código para essas tarefas é fornecido no exemplo logo após o procedimento. Para uma discussão mais ampla de contratos e serviços, confira [Projetar e Implementar Serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Criar um contrato de retransmissão com uma interface
@@ -51,13 +64,13 @@ O contrato de serviço especifica a quais operações (a terminologia do serviç
 1. Abra o Visual Studio como administrador clicando com o botão direito no programa no menu **Iniciar** e, em seguida, selecionando **Executar como administrador**.
 2. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo** e selecione **Novo**, então, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique no modelo **Aplicativo de Console (.NET Framework)** e nomeie-o **EchoService**. Clique em **OK** para criar o projeto.
 
-    ![][2]
+    ![Criar um aplicativo de console][2]
 
 3. Instalar o pacote NuGet do Barramento de Serviço. Esse pacote adiciona automaticamente referências para as bibliotecas do Barramento de Serviço, bem como o WCF **System.ServiceModel**. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço.
 
-    No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e em **Gerenciar Pacotes NuGet...**. Clique na guia Procurar e então procure **WindowsAzure.ServiceBus**. Verifique se o nome do projeto está selecionado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso.
+    No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e em **Gerenciar Pacotes NuGet...**. Clique na guia **Procurar** e então procure **WindowsAzure.ServiceBus**. Verifique se o nome do projeto está selecionado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso.
 
-    ![][3]
+    ![Pacote de Barramento de Serviço][3]
 4. No Gerenciador de Soluções, clique duas vezes no arquivo Program.cs para abri-lo no editor, se já não estiver aberto.
 5. Adicione o seguinte usando as instruções na parte superior do arquivo:
 
@@ -231,7 +244,7 @@ O código a seguir mostra o formato básico do arquivo App.config associado ao h
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Hospedar e executar um serviço Web básico para efetuar o registro com o serviço de retransmissão
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Hospedar e executar o serviço WCF para registrar-se no serviço de retransmissão
 
 Esta etapa descreve como executar um serviço de Retransmissão do Azure.
 
@@ -501,7 +514,7 @@ Nesta etapa, você cria um arquivo App.config para um aplicativo cliente básico
     Essa etapa define o nome do ponto de extremidade, o contrato definido no serviço e o fato de que o aplicativo cliente usa TCP para se comunicar com a Retransmissão do Azure. O nome do ponto de extremidade é usado na próxima etapa para vincular esta configuração de ponto de extremidade com o URI do serviço.
 5. Clique em **Arquivo**, depois em **Salvar Tudo**.
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 O código a seguir mostra o arquivo App.config para o cliente Echo.
 
@@ -607,7 +620,7 @@ No entanto, uma das principais diferenças é que o aplicativo cliente usa um ca
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 Seu código completo deve aparecer conforme demonstrado a seguir, mostrando como criar um aplicativo cliente, como chamar as operações do serviço e como fechar o cliente após a conclusão da chamada da operação.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. Você pode continuar a enviar mensagens de texto do cliente para o serviço dessa maneira. Quando terminar, pressione Enter nas janelas do console de cliente e serviço para encerrar ambos os aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
+Vá para o tutorial a seguir: 
 
-Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples da a Retransmissão do Azure usando os recursos de Retransmissão de WCF do Barramento de Serviço. Para obter um tutorial semelhante que usa o [Sistema de Mensagens do Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md), consulte a [Introdução às filas do Barramento de Serviço](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Para saber mais sobre a Retransmissão do Azure, consulte os tópicos a seguir.
-
-* [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
-* [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Expor um serviço de REST do WCF local a um cliente fora da rede](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

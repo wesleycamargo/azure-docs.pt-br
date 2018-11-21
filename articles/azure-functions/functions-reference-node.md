@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036539"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567138"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -141,7 +141,7 @@ As entradas são divididas em duas categorias no Azure Functions: uma é a entra
 As saídas (ligações de `direction === "out"`) podem ser gravadas por uma função de várias maneiras. Em todos os casos, a propriedade `name` da ligação, conforme definido em *function.json*, corresponde ao nome do membro do objeto gravado na sua função. 
 
 Você pode atribuir dados a ligações de saída de uma das seguintes maneiras. Você não deve combinar esses métodos.
-- **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno assíncrona / Promessa, poderá retornar um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
+-  **_[Recomendado para várias saídas]_ Retornando um objeto.** Se você estiver usando uma função de retorno assíncrona / Promessa, poderá retornar um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são nomeadas "httpResponse" e "queueOutput" em *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -419,7 +419,7 @@ A tabela a seguir mostra a versão do Node.js usada por cada versão principal d
 | Versão do Functions | Versão do Node.js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueada pelo tempo de execução) |
-| 2. x  | _Active Directory LTS_ e _atual_ versões de Node. js (8.11.1 e 10.6.0 recomendado). Defina a versão usando a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+| 2. x  | _Active LTS_ e até numerado _Current_ Versões do Node.js (8.11.1 e 10.6.0 recomendadas). Defina a versão usando a [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
 
 Veja versão atual que o tempo de execução está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função.
 

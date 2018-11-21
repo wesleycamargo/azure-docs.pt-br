@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963073"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624820"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 
 Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis pede para os desenvolvedores escolherem entre os dois modelos de extremos de coerência: coerência forte e coerência eventual. Enquanto a  [linearizabilidade](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) de ou o modelo de consistência forte é o padrão-ouro de programação de dados, ela adiciona um preço alto de maior latência (em estado estacionário) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e melhor desempenho, mas é difícil programar aplicativos.
 
-O Cosmos DB aborda a coerência de dados como um espectro de opções, em vez dos dois extremos. Enquanto consistência forte e consistência eventual são os dois extremos do espectro, existem muitas escolhas de consistência ao longo do espectro. Essas opções de consistência permitem que os desenvolvedores façam escolhas precisas e compensações granulares com relação à alta disponibilidade ou desempenho. O Cosmos DB permitiu aos desenvolvedores escolher entre os cinco modelos de consistência bem definidos do espectro de consistência (do mais forte ao mais fraco) - **strong**, **stality limitado**, **session**, **prefixo consistente** e **eventual**. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [disponibilidade e compensações de desempenho](consistency-levels-tradeoffs.md) e são respaldados por SLAs abrangentes.
+O Cosmos DB aborda a coerência de dados como um espectro de opções, em vez dos dois extremos. Enquanto consistência forte e consistência eventual são os dois extremos do espectro, existem muitas escolhas de consistência ao longo do espectro. Essas opções de consistência permitem que os desenvolvedores façam escolhas precisas e compensações granulares com relação à alta disponibilidade ou desempenho. O Cosmos DB permitiu aos desenvolvedores escolher entre os cinco modelos de consistência bem definidos do espectro de consistência (do mais forte ao mais fraco) - **strong**, **stality limitado**, **session**, **prefixo consistente** e **eventual**. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [disponibilidade e compensações de desempenho](consistency-levels-tradeoffs.md) e são respaldados por SLAs abrangentes. A imagem a seguir mostra diferentes níveis de consistência como um espectro:
 
 ![Consistência como um espectro](./media/consistency-levels/five-consistency-levels.png)
 
-Os níveis de consistência são independentes da região. O nível de consistência da sua conta do Cosmos DB é garantido para todas as operações de leitura, independentemente das seguintes propriedades:
-
-- A região da qual as leituras e gravações são veiculadas
-- O número de regiões associadas à sua conta do Cosmos
-- Se a sua conta estiver configurada com uma ou várias regiões de gravação
+Os níveis de consistência são independentes da região. O nível de consistência da conta do Cosmos DB é garantido para todas as operações de leitura, independentemente da região da qual as leituras e gravações são atendidas, o número de regiões associadas à conta do Cosmos ou se a conta está configurada com uma ou várias regiões de gravação .
 
 ## <a name="scope-of-the-read-consistency"></a>Escopo da coerência de leitura
 

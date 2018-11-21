@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c318411fe17fb60c1c0bf991a07b46a515252952
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243413"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683201"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
-Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
+
+Este artigo descreve como criar tabelas particionadas para rápida importação em massa de dados em paralelo para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar um novo banco de dados e um conjunto de grupos de arquivos
 * [Crie um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não houver um.
@@ -81,7 +82,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
   Para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

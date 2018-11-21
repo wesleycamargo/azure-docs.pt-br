@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4885693abd8c6b66f8e68d83a8d6a2db3b0ed438
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542067"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344120"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Para copiar dados do Amazon S3, defina a propriedade type do conjunto de dados c
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **AmazonS3Object** |SIM |
-| bucketName | O nome do bucket S3. O filtro curinga não é suportado. |SIM |
+| bucketName | O nome do bucket S3. O filtro curinga não é suportado. |Sim para atividade de cópia/pesquisa, não para a atividade GetMetadata |
 | chave | O **filtro de nome ou curinga** da chave do objeto S3 sob o bucket especificado. Aplica-se apenas quando a propriedade "prefix" não é especificada. <br/><br/>O filtro curinga é suportado apenas para a parte do nome do arquivo, mas não para a parte da pasta. Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único).<br/>– Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Use `^` para se seu nome de arquivo real curinga ou esse caractere de escape dentro de escape. |Não  |
 | prefixo | Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a propriedade "chave" não é especificada. |Não  |
 | version | A versão do objeto S3 se o controle de versão do S3 está habilitado. |Não  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109254"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568811"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar um volume do StorSimple de um conjunto de backup
 
@@ -51,7 +51,7 @@ Antes de iniciar uma restauração, examine as seguintes advertências:
 
 ## <a name="how-does-restore-work"></a>Como restaurar o trabalho
 
-Para dispositivos que estão executando a Atualização 4 ou posterior, uma restauração baseada em mapa de calor é implementada. Quando as solicitações do host para acessar os dados chegam no dispositivo, essas solicitações são rastreadas e um mapa de calor é criado. Uma taxa de solicitação alta resulta em partes de dados com mais calor, enquanto uma taxa de solicitação menor é convertida em partes com menos calor. Você deve acessar os dados pelo menos duas vezes para que eles sejam marcados como _quentes_. Um arquivo que é modificado também é marcado como _quente_. Depois de iniciar a restauração, ocorre uma hidratação proativa de dados com base no mapa de calor. Para versões anteriores à Atualização 4, os dados são baixados durante a restauração com base somente no acesso.
+Para dispositivos que estão executando a Atualização 4 ou posterior, uma restauração baseada em mapa de calor é implementada. Quando as solicitações do host para acessar os dados chegam no dispositivo, essas solicitações são rastreadas e um mapa de calor é criado. Uma taxa de solicitação alta resulta em partes de dados com mais calor, enquanto uma taxa de solicitação menor é convertida em partes com menos calor. Você deve acessar os dados pelo menos duas vezes para ser marcado como _quente_. Um arquivo que é modificado também é marcado como _quente_. Depois de iniciar a restauração, ocorre uma hidratação proativa de dados com base no mapa de calor. Para versões anteriores à Atualização 4, os dados são baixados durante a restauração com base somente no acesso.
 
 As advertências a seguir são aplicáveis a restaurações baseadas em mapa de calor:
 
@@ -114,7 +114,7 @@ Os conjuntos de backup filtrados são então tabulados com base nos seguintes at
    
     ![Lista de conjunto de backup](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na folha **Volumes** do seu dispositivo e siga as etapas em [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
+3. Expanda o conjunto de backups para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na folha **Volumes** do seu dispositivo e siga as etapas em [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
    
    > [!IMPORTANT]
    > Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.

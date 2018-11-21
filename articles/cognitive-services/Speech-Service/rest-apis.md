@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038596"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566611"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST de serviço de fala
 
@@ -127,14 +127,43 @@ Código HTTP|Significado|Possível motivo
 
 ### <a name="json-response"></a>Resposta JSON
 
-Os resultados são retornados no formato JSON. O formato `simple` inclui somente os seguintes campos superiores.
+Os resultados são retornados no formato JSON. Dependendo dos seus parâmetros de consulta, um formato `simple` ou `detailed` está sendo retornado.
+
+#### <a name="the-simple-format"></a>O formato `simple` 
+
+Este formato inclui os seguintes campos de nível superior.
 
 |Nome do campo|Conteúdo|
 |-|-|
-|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte a próxima tabela.|
+|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte esta [tabela](rest-apis.md#recognitionstatus).|
 |`DisplayText`|O texto reconhecido após o uso de maiúsculas, a pontuação, a normalização de texto inverso (conversão de texto falado em formas mais curtas, como 200 para “duzentos” ou “Dr. Rodrigues” para “doutor Rodrigues”) e o mascaramento de conteúdo ofensivo. Apresentar somente em caso de êxito.|
 |`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
 |`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
+
+#### <a name="the-detailed-format"></a>O formato `detailed` 
+
+Este formato inclui os seguintes campos de nível superior.
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte esta [tabela](rest-apis.md#recognition-status).|
+|`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
+|`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
+|`NBest`|Uma lista de interpretações alternativas do mesmo discurso foi classificada de mais provável a menos provável. Consulte a [descrição NBest](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+O campo `NBest` é uma lista de interpretações alternativas de reconhecimento da mesma fala, classificadas da mais provável até a menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`Confidence`|A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total)
+|`Lexical`|O formato lexical do texto reconhecido: as palavras reais reconhecidas.
+|`ITN`|O formato de texto inverso normalizado (“canônico”) do texto reconhecido, com números de telefone, números, abreviações (“doutor Rodrigues” para “dr Rodrigues”) e demais transformações aplicadas.
+|`MaskedITN`| O formato ITN com mascaramento de conteúdo ofensivo aplicado se solicitado.
+|`Display`| O formato de exibição do texto reconhecido, com a pontuação e uso de maiúsculas adicionados.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 O campo `RecognitionStatus` pode conter os valores a seguir.
 
@@ -148,17 +177,6 @@ O campo `RecognitionStatus` pode conter os valores a seguir.
 
 > [!NOTE]
 > Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
-
-
-O formato `detailed` inclui os mesmos campos que o formato `simple`, juntamente com um campo `NBest`. O campo `NBest` é uma lista de interpretações alternativas de reconhecimento da mesma fala, classificadas da mais provável até a menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
-
-|Nome do campo|Conteúdo|
-|-|-|
-|`Confidence`|A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total)
-|`Lexical`|O formato lexical do texto reconhecido: as palavras reais reconhecidas.
-|`ITN`|O formato de texto inverso normalizado (“canônico”) do texto reconhecido, com números de telefone, números, abreviações (“doutor Rodrigues” para “dr Rodrigues”) e demais transformações aplicadas.
-|`MaskedITN`| O formato ITN com mascaramento de conteúdo ofensivo aplicado se solicitado.
-|`Display`| O formato de exibição do texto reconhecido, com a pontuação e uso de maiúsculas adicionados. Mesmo que `DisplayText` no resultado superior.
 
 ### <a name="sample-responses"></a>Respostas de exemplo
 

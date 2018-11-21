@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: 44bf04d3840009b9408ccfc51fdcefa7c7e116cb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278932"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685813"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure
 
@@ -152,7 +152,7 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
 - **Causa**. O agente cliente está desinstalado ou ausente.
 
 - **Resolução**. Se o agente cliente estiver desinstalado ou de outra maneira ausente:  
-    a. Remova o arquivo XML do agente da pasta de instalação da Sincronização de Dados SQL caso o arquivo exista.  
+     a. Remova o arquivo XML do agente da pasta de instalação da Sincronização de Dados SQL caso o arquivo exista.  
     b. Instale o agente em um computador local (pode ser o mesmo ou em outro computador). Em seguida, envie a chave do agente que é gerada no portal para o agente que é mostrado como offline.
 
 - **Causa**. Um banco de dados está offline.
@@ -172,7 +172,7 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
   Se essa operação não conseguir remover o banco de dados do grupo de sincronização:
 
   1. Pare e, em seguida, reinicie o serviço de host do agente cliente:  
-    a. Selecione o menu **Iniciar**.  
+     a. Selecione o menu **Iniciar**.  
     b. Insira **services.msc** na caixa de pesquisa.  
     c. Na seção **Programas** do painel de resultados da pesquisa, clique duas vezes em **Serviços**.  
     d. Clique com o botão direito do mouse no serviço **Sincronização de Dados SQL**.  
@@ -228,7 +228,7 @@ Não é possível excluir um grupo de sincronização em até três minutos apó
   1. Remova um grupo de sincronização enquanto os agentes de sincronização associados estiverem online (recomendado).
   1. Se o agente estiver offline, mas estiver instalado, coloque-o online no computador local. Aguarde até que o status do agente seja exibido como **Online** no portal da Sincronização de Dados SQL. Em seguida, remova o grupo de sincronização.
   1. Se o agente estiver offline porque foi desinstalado:  
-    a.  Remova o arquivo XML do agente da pasta de instalação da Sincronização de Dados SQL caso o arquivo exista.  
+     a.  Remova o arquivo XML do agente da pasta de instalação da Sincronização de Dados SQL caso o arquivo exista.  
     b.  Instale o agente em um computador local (pode ser o mesmo ou em outro computador). Em seguida, envie a chave do agente que é gerada no portal para o agente que é mostrado como offline.  
     c. Tente excluir o grupo de sincronização.
 
@@ -239,13 +239,18 @@ Se você restaurar um banco de dados perdido ou corrompido de um backup, poderá
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 
--   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)  
--   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)  
--   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)  
--   [Monitorar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)  
--   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:  
-    -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
+-   Visão geral - [Sincronize dados em vários bancos de dados locais e na nuvem com o Azure SQL Data Sync](sql-database-sync-data.md)
+-   Configurar sincronização de dados
+    - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
+    - Com o PowerShell
+        -  [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Agente de Sincronização de Dados - [Agente de Sincronização de Dados para Sincronização de Dados SQL do Azure](sql-database-data-sync-agent.md)
+-   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitore a sincronização de dados SQL com o Log Analytics](sql-database-sync-monitor-oms.md)
+-   Atualizar o esquema de sincronização
+    -   Com Transact-SQL - [Automatize a replicação de alterações de esquema no Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   Com o PowerShell - [usar o PowerShell para atualizar o esquema de sincronização em um grupo de sincronização existente](scripts/sql-database-sync-update-schema.md)
 
 Para saber mais sobre Bancos de Dados SQL, confira:
 

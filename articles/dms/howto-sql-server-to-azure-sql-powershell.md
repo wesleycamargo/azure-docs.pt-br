@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 0a4e88ed52e2da814d1b10dbc695c9c61b899ef1
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 11/10/2018
+ms.openlocfilehash: 771b89fda4e37d9e8ba47df95f7fd57b41f792a3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248182"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515532"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrar o SQL Server local para o Banco de Dados SQL do Azure usando o Azure PowerShell
 Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 ou posterior para um Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell. Migre bancos de dados de uma instância local do SQL Server para o Banco de Dados SQL do Azure usando o módulo `AzureRM.DataMigration` no Microsoft Azure PowerShell.
@@ -61,7 +61,7 @@ Crie uma nova instância do Serviço de Migração de Banco de Dados do Azure us
 - *Nome do Grupo de Recursos do Azure*. Use o comando [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) para criar o Grupo de recursos do Azure como mostrado anteriormente e forneça seu nome como um parâmetro.
 - *Nome do serviço*. Cadeia de caracteres que corresponde ao nome de serviço exclusivo desejado para o Serviço de Migração de Banco de Dados do Azure 
 - *Local*. Especifica o local do serviço. Especifique um local de data center do Azure, como Oeste dos EUA ou Sudeste Asiático
-- *Sku*. Esse parâmetro corresponde ao nome do SKU do DMS. Atualmente, os nomes de SKU com suporte são *Basic_1vCore*, *Basic_2vCores* e *GeneralPurpose_4vCores*
+- *Sku*. Esse parâmetro corresponde ao nome do SKU do DMS. É o nome da Sku com suporte no momento *GeneralPurpose_4vCores*.
 - *Identificador de Sub-rede Virtual*. Use o cmdlet [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig?view=azurermps-4.4.1) para criar uma sub-rede. 
 
 O exemplo a seguir cria um serviço nomeado *MyDMS* no grupo de recursos *MyDMSResourceGroup* localizado na região *Leste dos EUA* com uma rede virtual nomeada *MyVNET* e sub-rede virtual chamada *MySubnet*.

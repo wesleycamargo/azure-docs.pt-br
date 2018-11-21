@@ -3,7 +3,7 @@ title: Gerenciar certificados em um cluster do Azure Service Fabric | Microsoft 
 description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
-ms.author: chackdan
-ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.date: 11/13/2018
+ms.author: aljo-microsoft
+ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144748"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687411"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
@@ -47,7 +47,7 @@ Se a sua intenção for remover o certificado que está marcado como primário,v
 > [!TIP]
 > Agora é melhor e mais fácil adicionar um certificado secundário usando o cdmlet [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate). Não é necessário seguir o restante das etapas nesta seção.  Além disso, não é necessário o modelo usado originalmente para criar e implantar o cluster ao usar o cdmlet [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate).
 
-Estas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
+Essas etapas pressupõem que você esteja familiarizado com o funcionamento do Gerenciador de Recursos e tenha implantado pelo menos um cluster do Service Fabric usando um modelo do Resource Manager e tenha o modelo que você usou para configurar o cluster à mão. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
 > Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [repositório Git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
@@ -62,7 +62,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 
 1. Abra o modelo do Resource Manager que foi usado para implantar o cluster. (Se você baixou o exemplo do repositório anterior, use 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro e, em seguida, abra o modelo).
 
-2. Adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o trecho de código a seguir e adicioná-lo ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
+2. Adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o snippet de código a seguir e adicioná-lo ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
  
     ```json
        "secCertificateThumbprint": {
@@ -80,7 +80,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
     
     ```
 
-3. Faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir:
+3. Faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o snippet do JSON a seguir:
    
     ```JSON
           "properties": {
@@ -92,7 +92,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 
     Adicione uma nova marcação “thumbprintSecondary” e atribua a ela um valor de “[parameters('secCertificateThumbprint')]”.  
 
-    Agora a definição de recurso deve ser parecida com a seguinte (dependendo da fonte do modelo, ela poderá não ser exatamente como o trecho abaixo). 
+    Agora a definição de recurso deve ser parecida com a seguinte (dependendo da fonte do modelo, ela poderá não ser exatamente como o snippet abaixo). 
 
     ```JSON
           "properties": {
@@ -156,7 +156,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 
     ![Json_Pub_Setting4][Json_Pub_Setting4]
     
-    Adicione o secCertificateUrlValue a ele. use este trecho:
+    Adicione o secCertificateUrlValue a ele. use este snippet:
     
     ```json
                       {
@@ -175,7 +175,7 @@ Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON co
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edite o arquivo de modelo para refletir os novos parâmetros adicionados acima
-Se você estiver usando a amostra do [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para acompanhar, poderá começar a fazer alterações na amostra 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
+Se você estiver usando a amostra do [ git-repo ](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para acompanhar, você pode começar a fazer alterações na amostra 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
 
 Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois novos parâmetros para secCertificateThumbprint e secCertificateUrlValue. 
 
@@ -196,7 +196,7 @@ Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois no
 
 ```powershell
 Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
+Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
@@ -221,11 +221,11 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <R
 Veja um exemplo preenchido do mesmo comando powershell.
 
 ```powershell
-$ResouceGroup2 = "chackosecure5"
+$ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResouceGroup2
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

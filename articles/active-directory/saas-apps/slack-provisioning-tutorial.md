@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348898"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636536"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -57,7 +57,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 Esta seção orienta você pela conexão do Azure AD com a API de provisionamento de conta de usuário do Slack e pela configuração do serviço de provisionamento, a fim de criar, atualizar e desabilitar contas de usuário atribuídas no Slack com base na atribuição de usuário e de grupo do Azure AD.
 
-**Dica:** Você também pode optar por habilitar o Logon Único baseado em SAML para o ZenDesk, seguindo as instruções fornecidas no (portal do Microsoft Azure)[https://portal.azure.com]. O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
+**Dica:** você também pode optar por ativar o logon único com base em SAML para o Slack, seguindo as instruções fornecidas no [portal do Azure](https://portal.azure.com). O logon único pode ser configurado independentemente do provisionamento automático, embora esses dois recursos sejam complementares.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Slack no Azure AD:

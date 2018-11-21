@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740970"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685490"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -89,7 +89,7 @@ Crie os recursos do Azure - Azure Cosmos DB, Conta de armazenamento, Hub de Even
    ```powershell
    .\deploy.ps1
    ```
-5. Quando solicitado, insira a **ID de Assinatura** do Azure, **changefeedlab** para o nome do grupo de recursos e **run1** para o nome da implantação. Após o início da implantação dos recursos, poderá demorar até 10 minutos até ser concluída.
+5. Quando solicitado, insira sua ID de **Assinatura do Azure**, **changefeedlab** para o nome do grupo de recursos e **run1** para o nome da implantação. Após o início da implantação dos recursos, poderá demorar até 10 minutos até ser concluída.
 
 ## <a name="create-a-database-and-the-collection"></a>Criar um banco de dados e a coleção
 
@@ -257,7 +257,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
 7. Agora, se você quiser visualizar mais métricas, volte para **streamjob1** e crie mais três saídas com os seguintes campos.
 
-   a. **Alias de saída:** incomingRevenueOutput, nome do Conjunto de Dados: incomingRevenue, nome da Tabela: incomingRevenue  
+    a. **Alias de saída:** incomingRevenueOutput, nome do Conjunto de Dados: incomingRevenue, nome da Tabela: incomingRevenue  
    b. **Alias de saída:** top5Output, nome do Conjunto de Dados: top5, nome da Tabela: top5  
    c. **Alias de saída:** uniqueVisitorCountOutput, nome do Conjunto de Dados: uniqueVisitorCount, nome da Tabela: uniqueVisitorCount
 

@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282434"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300668"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -50,7 +50,7 @@ Atualmente, o tipo Standard dos Hubs de Eventos dá suporte a um período de ret
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorar meus Hubs de Eventos?
 Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus recursos ao [Azure Monitor](../azure-monitor/overview.md). Eles também permitem a avaliação da integridade geral do serviço do Hubs de Eventos, não apenas no nível do namespace, mas também no nível da entidade. Saiba qual monitoramento é oferecido para os [Hubs de Eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-## <a name="apache-kakfa-integration"></a>Integração do Apache Kakfa
+## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Como integrar o meu aplicativo existente do Kafka com os Hubs de Eventos?
 Os Hubs de Eventos fornecem um ponto de extremidade Kafka que pode ser usado por seus aplicativos baseados em Apache Kafka existentes. Basta uma alteração de configuração para obter a experiência de PaaS Kafka. Ela fornece uma alternativa à execução de seu próprio cluster Kafka. Os Hubs de Eventos são compatíveis com o Apache Kafka 1.0 e com versões mais recentes do cliente e funcionam com seus aplicativos, ferramentas e estruturas existentes do Kafka. Para saber mais, confira [Hubs de Eventos para repositório Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).

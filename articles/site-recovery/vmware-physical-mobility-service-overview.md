@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2018
 ms.author: raynew
-ms.openlocfilehash: 24102593a294d60b3cc2107bef8d443e672443b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a3e695e8c238dd4bc333d5cd477e70b93231399b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019708"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565013"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
@@ -46,6 +46,9 @@ Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Servidor do Ubuntu Linux 16
 Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
+## <a name="anti-virus-on-replicated-machines"></a>Antivírus em computadores replicados
+
+Se as máquinas que você deseja replicar tiverem o software antivírus ativo em execução, exclua a pasta de instalação do serviço Mobility das operações de antivírus (*C:\ProgramData\ASR\agent*). Isso garante que a replicação funciona conforme o esperado.
 
 ## <a name="update-the-mobility-service"></a>Atualizar o Serviço de Mobilidade
 
@@ -67,7 +70,7 @@ Quando você implantou o Site Recovery para habilitar a instalação por push do
 
 ## <a name="uninstall-the-mobility-service"></a>Desinstalar o serviço de Mobilidade
 
-### <a name="on-a-windows-machine"></a>Em um computador Windows
+### <a name="on-a-windows-machine"></a>Em uma máquina Windows
 
 Desinstale pela interface do usuário ou por um prompt de comando.
 

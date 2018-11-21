@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282791"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684902"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor  
 
@@ -48,7 +48,7 @@ Para que as Métricas para logs coletadas de dados do Log Analytics funcionem, o
 1. **Workspace ativo do Log Analytics**: é necessário ter um workspace ativo e válido do Log Analytics. Para obter mais informações, confira [Criar um workspace do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **O agente está configurado para o Workspace do Log Analytics**: o agente precisa estar configurado para que as VMs do Azure (e/ou) VMs locais enviem dados para o Workspace do Log Analytics usado na etapa anterior. Para saber mais, confira [Log Analytics - Visão geral do agente](../monitoring/monitoring-overview-azure-agents.md).
 3. **As soluções do Log Analytics com suporte estão instaladas**: a solução do Log Analytics deve estar configurada e enviando dados para o workspace do Log Analytics. As soluções com suporte são [Contadores de desempenho para Windows e Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registros de pulsação para a Integridade do Agente](../monitoring/monitoring-solution-agenthealth.md), [Gerenciamento de atualizações e [Dados de evento](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Soluções do Log Analytics configuradas para enviar logs**: a solução do Log Analytics deve ter os logs/dados necessários correspondentes às [métricas com suporte para workspaces do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) habilitados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) primeiro.
+4. **As soluções do Log Analytics configuradas para enviar logs**: A solução Log Analytics deve ter os logs / dados correspondentes a [métricas compatíveis com espaços de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ativados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Como configurar o Alerta de métrica para logs
  os alertas de métrica podem ser criados e gerenciados usando o portal do Azure, os modelos do Resource Manager, a API REST, o PowerShell e a CLI do Azure. Como os Alertas de métrica para logs é uma variante dos alertas de métrica, depois de concluir os pré-requisitos, o alerta de métrica para logs pode ser criado para o workspace do Log Analytics especificado. Todas as características e funcionalidades dos [ alertas de métrica](monitoring-near-real-time-metric-alerts.md) serão aplicáveis também aos alertas de métrica para logs, incluindo o esquema de conteúdo, os limites de cota aplicáveis e o preço cobrado.
@@ -101,7 +101,7 @@ Para obter o mesmo resultado, é possível usar o exemplo de modelo do Azure Res
             "type": "string",
             "defaultValue": "true",
             "metadata": {
-                "description": "Specifies whether the log convertion rule is enabled"
+                "description": "Specifies whether the log conversion rule is enabled"
             }
         },
         "convertRuleMetric": {
@@ -218,9 +218,9 @@ Para obter o mesmo resultado, é possível usar o exemplo de modelo do Azure Res
         }
     },
     "variables": {
-        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+        "convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
         "convertRuleSourceWorkspace": {
-            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+            "SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
         }
     },
     "resources": [

@@ -1,6 +1,6 @@
 ---
 title: Implante a solução de monitoramento remoto localmente – Docker - Azure | Microsoft Docs
-description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local para teste e desenvolvimento.
+description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local usando o Docker para teste e desenvolvimento.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285408"
+ms.locfileid: "51288537"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implante o acelerador de solução de Monitoramento Remoto localmente - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. O artigo mostra como implantar os microsserviços em contêineres de Docker locais. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: IoT Hub, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
+Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como implantar os microsserviços nos contêineres locais do Docker. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
 
 Se você quiser executar o acelerador de solução de Monitoramento Remoto em um IDE em seu computador local, consulte [Implantar o acelerador de solução de Monitoramento Remoto localmente – Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,26 +70,26 @@ docker-compose up
 Na primeira vez que você executar esse comando, o Docker baixa as imagens de microsserviço do hub do Docker para criar os contêineres localmente. Nas execuções seguintes, o Docker executa os contêineres imediatamente.
 
 > [!TIP]
-> Com frequência, publicamos novas imagens do Docker com a nova funcionalidade. Você pode usar o seguinte conjunto de comandos para limpeza de seus contêineres de Docker locais e imagens correspondentes antes de puxar os mais recentes. 
+> Frequentemente, a Microsoft publica novas imagens do Docker com novas funcionalidades. Você pode usar o conjunto de comandos a seguir para limpar os contêineres e imagens correspondentes do Docker antes de efetuar pull dos mais recentes:
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 Você pode usar um shell separado para exibir os logs do contêiner. Primeiro, encontre a ID de contêiner usando o comando `docker ps`. Em seguida, use `docker logs {container-id} --tail 1000` para exibir as últimas 1000 entradas para o contêiner especificado.
 
 ### <a name="start-the-stream-analytics-job"></a>Iniciar o trabalho do Stream Analytics
 
-Siga estas etapas para iniciar o trabalho de Stream Analytics:
+Execute estas etapas para iniciar o trabalho do Stream Analytics:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
 1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome da solução que você escolheu quando executou o script **start.cmd**.
 1. Clique no **trabalho do Stream Analytics** na lista de recursos.
-1. Na página de **painel de visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Depois, clique em **Iniciar** para iniciar o trabalho agora.
+1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Depois, clique em **Iniciar** para iniciar o trabalho agora.
 
-### <a name="connect-to-the-dashboard"></a>Conecte-se ao painel
+### <a name="connect-to-the-dashboard"></a>Conectar-se ao painel
 
 Para acessar o painel da solução de Monitoramento Remoto, navegue até [http://localhost:8080](http://localhost:8080) em seu navegador. Agora você pode usar a IU da Web e os microsserviços de locais.
 
@@ -101,14 +101,4 @@ Use o comando `docker-compose down --rmi all` para remover as imagens do Docker 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
-
-> [!div class="checklist"]
-> * Definir uma variável de ambiente local
-> * Configurar o acelerador de solução
-> * Implantar o acelerador de solução
-> * Entrar no acelerador de solução
-
-Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->
+Agora que você implantou a solução de monitoramento remoto, a próxima etapa é [explorar os recursos do painel de solução](quickstart-remote-monitoring-deploy.md).

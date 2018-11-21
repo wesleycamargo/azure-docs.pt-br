@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/05/2018
 ms.author: yushwang
-ms.openlocfilehash: cbbba60f42c2e0ef7a6e53c34e883e2fdf6f8781
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e93f1174f0beaa7b1c8b3164081714281d5b1050
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229162"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687530"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
@@ -39,7 +39,7 @@ Um dispositivo VPN é necessário para configurar uma conexão de VPN Site a Sit
 
 Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos nas famílias de dispositivos na lista abaixo devem funcionar com os gateways de VPN. Consulte [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para entender o uso do tipo de VPN (PolicyBased ou RouteBased) para a solução de Gateway de VPN que você deseja configurar.
 
-Para ajudar a configurar seu dispositivo VPN, veja os links que correspondem à família de dispositivos apropriada. Os links para as instruções de configuração são fornecidos em uma base de melhor esforço. Para obter suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
+Para ajudar a configurar seu dispositivo VPN, consulte os links que correspondem à família de dispositivos apropriada. Os links para as instruções de configuração são fornecidos em uma base de melhor esforço. Para obter suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
 
 |**Fornecedor**          |**Família do dispositivo**     |**Versão mínima do sistema operacional** |**Instruções de configuração PolicyBased** |**Instruções de configuração RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |

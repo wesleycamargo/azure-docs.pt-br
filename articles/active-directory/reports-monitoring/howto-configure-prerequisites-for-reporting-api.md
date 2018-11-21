@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8d610dc74b7e2ef10295bc0a3407cf7c3d781b51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f72d15707d9f56b9e9b5a5d527d1204007c40afa
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145240"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621965"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -31,12 +31,10 @@ A API de relatório usa [OAuth](https://msdn.microsoft.com/library/azure/dn64554
 
 Para preparar seu acesso à API de relatório, você precisa:
 
-1. Atribuir funções
-2. Registrar um aplicativo
-3. Conceder permissões
-4. Reunir definições de configuração
-
-
+1. [Atribuir funções](#assign-roles)
+2. [Registrar um aplicativo](#register-an-application)
+3. [Conceder permissões](#grant-permissions)
+4. [Reunir definições de configuração](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Atribuir funções
 
@@ -44,49 +42,46 @@ Para obter acesso aos dados de relatórios por meio da API, você precisa ter um
 
 - Leitor de segurança
 
-- Administrador de Segurança
+- Administrador de segurança
 
 - Administrador global
 
 
-
-
 ## <a name="register-an-application"></a>Registrar um aplicativo
 
-Você precisa registrar um aplicativo mesmo que esteja acessando a API de relatório usando um script. Isso lhe dá uma **ID do aplicativo**, que é necessária para uma chamada de autorização e permite que seu código receba tokens.
+Você precisa registrar um aplicativo mesmo se estiver acessando a API de relatórios usando um script. Isso fornece um **ID de Aplicativo**, que é necessário para as chamadas de autorização e permite que seu código receba tokens.
 
-Para configurar seu diretório para acessar a API de relatório do Azure AD, entre no Portal do Azure com uma conta de administrador do Azure que também seja membro da função de diretório de **Administrador Global** em seu locatário do Azure AD.
+Para configurar seu diretório para acessar a API de relatórios do Microsoft Azure Active Directory, você deve entrar no [Portal do Azure](https://portal.azure.com) com uma conta de administrador do Azure que também é membro da função de diretório **Administrador Global** no seu Locatário do Azure AD.
 
 > [!IMPORTANT]
-> Aplicativos em execução com credenciais com privilégios de "admin" como esse podem ser muito poderosos, portanto certifique-se de proteger as credenciais de ID/segredo do aplicativo.
+> Aplicativos em execução sob credenciais com privilégios de administrador podem ser muito poderosos, portanto, certifique-se de manter o ID do aplicativo e as credenciais secretas em um local seguro.
 > 
 
+**Para registrar um aplicativo do Microsoft Azure Active Directory:**
 
-**Para registrar um aplicativo do Azure Active Directory:**
-
-1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory** do painel de navegação à esquerda.
    
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página **Azure Active Directory**, clique em **Registros do aplicativo**.
+2. Na página **Azure Active Directory**, selecione **Registros de aplicativo**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. Na página **Registros do aplicativo**, na barra de ferramentas na parte superior, clique em **Novo registro de aplicativo**.
+3. Na página **Registros do aplicativo**, selecione **Novo Registro do aplicativo**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
-4. Na página **Criar**, realize as seguintes etapas:
+4. Na página **Criar**, execute as seguintes etapas:
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
-    a. Na caixa de texto **Nome**, digite `Reporting API application`.
+     a. Na caixa de texto **Nome**, digite `Reporting API application`.
 
     b. Como **Tipo de aplicativo**, selecione **Aplicativo/API Web**.
 
     c. Na caixa de texto **URL de Entrada**, digite `https://localhost`.
 
-    d. Clique em **Criar**. 
+    d. Selecione **Criar**. 
 
 
 ## <a name="grant-permissions"></a>Conceder permissões 
@@ -101,54 +96,49 @@ Dependendo da API que deseja acessar, você precisa garantir ao seu aplicativo a
 
 ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
-
 A seção a seguir lista as etapas para ambas as APIs. Se não quiser acessar uma das APIs, você poderá ignorar as etapas relacionadas.
- 
 
 **Para conceder ao seu aplicativo permissões para usar as APIs:**
 
-1. Na página **Registros do aplicativo**, na lista de aplicativos, clique em **Aplicativo da API de relatório**.
-
-2. Na página **Aplicativo da API de relatório**, na barra de ferramentas na parte superior, clique em **Configurações**. 
+1. Selecione seu aplicativo na página **Registros de aplicativo** e selecione **Configurações**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-3. Na página **Configurações**, clique em **Permissões necessárias**. 
+2. Na página **Configurações**, selecione **Permissões necessárias**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-4. Na página **Permissões necessárias**, na lista **API**, clique em **Microsoft Azure Active Directory**. 
+3. Na página **Permissões necessárias**, na lista **API**, clique em **Microsoft Azure Active Directory**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-5. No página **Habilitar acesso**, selecione **Ler dados do diretório** e desmarque **Entrar e ler o perfil do usuário**. 
+4. No página **Habilitar acesso**, selecione **Ler dados do diretório** e desmarque **Entrar e ler o perfil do usuário**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-6. Na barra de ferramentas na parte superior, clique em **Salvar**.
+5. Na barra de ferramentas na parte superior, clique em **Salvar**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
-7. Na página **Permissões necessárias**, na barra de ferramentas na parte superior, clique em **Adicionar**.
+6. Na página **Permissões necessárias**, na barra de ferramentas na parte superior, clique em **Adicionar**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/32.png)
 
-8. Na página **Adicionar acesso à API**, clique em **Selecionar uma API**.
+7. Na página **Adicionar acesso à API**, clique em **Selecionar uma API**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/31.png)
 
-9. Na página **Selecionar uma API**, clique em **Microsoft Graph** e em **Selecionar**.
+8. Na página **Selecionar uma API**, clique em **Microsoft Graph** e em **Selecionar**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/33.png)
 
-10. Na página **Habilitar acesso**, selecione **Ler todos os dados de log de auditoria** e, em seguida, clique em **Selecionar**.  
+9. Na página **Habilitar acesso**, selecione **Ler todos os dados de log de auditoria** e, em seguida, clique em **Selecionar**.  
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/34.png)
 
+10. Na página **Adicionar acesso à API**, clique em **Concluído**.  
 
-11. Na página **Adicionar acesso à API**, clique em **Concluído**.  
-
-12. Na página **Permissões necessárias**, na barra de ferramentas na parte superior clique em **Conceder Permissões** e, em seguida, em **Sim**.
+11. Na página **Permissões necessárias**, na barra de ferramentas na parte superior clique em **Conceder Permissões** e, em seguida, em **Sim**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/17.png)
 
@@ -167,11 +157,11 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
 **Para obter seu nome de domínio:**
 
-1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
+1. No [Portal do Azure Microsoft](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
    
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página **Azure Active Directory**, clique em **Personalizar nomes de domínio**.
+2. Na página do **Active Directory do Azure**, selecione **Nomes de domínio personalizados**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
@@ -186,12 +176,11 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
    
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página **Registros do aplicativo**, na lista de aplicativos, clique em **Aplicativo da API de relatório**.
+2. Selecione seu aplicativo na página **Registros de aplicativo**.
 
-3. Na página **Aplicativo da API de relatório**, em **ID do aplicativo**, clique em **Clique para copiar**.
+3. Na página do aplicativo, navegue até **ID do aplicativo** e selecione **clique para copiar**.
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
-
 
 
 ### <a name="get-your-applications-client-secret"></a>Obter seu segredo do cliente do aplicativo
@@ -203,23 +192,21 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
    
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. Na página **Registros do aplicativo**, na lista de aplicativos, clique em **Aplicativo da API de relatório**.
+2.  Selecione seu aplicativo na página **Registros de aplicativo**.
 
-
-3. Na página **Aplicativo da API de relatório**, na barra de ferramentas na parte superior, clique em **Configurações**. 
+3. Na página do aplicativo, na barra de ferramentas na parte superior, selecione **Configurações**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-4. Na página **Configurações**, na seção **Acesso APIR**, clique em **Chaves**. 
+4. Na página **Configurações**, na seção **Acesso à API**, clique em **Chaves**. 
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/12.png)
-
 
 5. Na página **Chaves**, execute as seguintes etapas:
 
     ![Registrar aplicativo](./media/howto-configure-prerequisites-for-reporting-api/14.png)
 
-    a. Na caixa de texto **Descrição**, digite `Reporting API`.
+     a. Na caixa de texto **Descrição**, digite `Reporting API`.
 
     b. Como **Expira**, selecione **Em 2 anos**.
 
@@ -231,6 +218,5 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Tenha uma primeira impressão das APIs de relatórios](concept-reporting-api.md)
 * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

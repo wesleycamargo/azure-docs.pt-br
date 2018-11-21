@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234613"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344070"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Assinar os eventos por meio do portal
 
@@ -45,6 +45,16 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 1. Forneça detalhes adicionais sobre a assinatura do evento como o ponto de extremidade para manipular eventos e um nome da assinatura.
 
    ![Fornecer detalhes da assinatura](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. Para ativar as letras inativas e personalizar as políticas de repetição, selecione **Recursos adicionais**.
+
+   ![Selecione os recursos adicionais](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Selecione um contêiner para usar para armazenar eventos que não são entregues e defina como as novas tentativas são enviadas.
+
+   ![Habilitar mensagens mortas e tente novamente](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. Ao terminar, selecione **Criar**.
 
 ## <a name="create-subscription-on-resource"></a>Criar assinatura no recurso
 

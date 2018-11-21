@@ -3,7 +3,7 @@ title: Governança de recursos do Azure Service Fabric para contêineres e servi
 description: O Azure Service Fabric permite especificar os limites de recurso para os serviços executados dentro ou fora de contêineres.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: 49c7e2c99cce13880781a67806543b1cde0c12b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208005"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300465"
 ---
 # <a name="resource-governance"></a>Governança de recursos 
 
@@ -78,12 +78,12 @@ Este é um exemplo de como instruir o Service Fabric a usar 50% da CPU disponív
 Se você precisar de uma configuração manual completa das capacidades de nó, poderá usar o mecanismo regular para descrever os nós no cluster. Este é um exemplo de como configurar o nó com dois núcleos e 2 GB de memória: 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 Quando a detecção automática de recursos disponíveis está habilitada e as capacidades de nó são definidas manualmente no manifesto do cluster, o Service Fabric verifica se o nó tem recursos suficientes para dar suporte à capacidade definida pelo usuário:
@@ -102,8 +102,8 @@ A detecção automática de recursos disponíveis poderá ser desativada se não
 Para obter o desempenho ideal, a seguinte configuração também deve ser ativada no manifesto do cluster: 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -131,7 +131,7 @@ Os limites da governança de recursos são especificados no manifesto do aplicat
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcleo nos nós em que ele é colocado. Esse pacote de serviço contém dois pacotes de códigos (**CodeA1** e **CodeA2**) e ambos especificam o parâmetro `CpuShares`. A proporção de CpuShares 512:256 divide o núcleo entre os dois pacotes de códigos. 
 
 Portanto, neste exemplo, CodeA1 obtém dois terços de um núcleo e CodeA2 obtém um terço de um núcleo (e uma reserva de garantia flexível dele). Se CpuShares não forem especificados para pacotes de códigos, o Service Fabric dividirá os núcleos igualmente entre eles.
@@ -180,8 +180,7 @@ Neste exemplo, os valores de parâmetro padrão são definidos para o ambiente d
 </Application>
 ```
 
-> [!IMPORTANT] 
-> Especificar a governança de recursos com os parâmetros do aplicativo está disponível a partir do Service Fabric versão 6.1.<br> 
+> [!IMPORTANT]  A especificação para governança de recursos com parâmetros do aplicativo está disponível, iniciando com Service Fabric versão 6.1.<br> 
 >
 > Quando são usados parâmetros de aplicativo para especificar a governança dos recursos, o Service Fabric não pode ser rebaixado para uma versão anterior à versão 6.1. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 454cfc97aa203d5de7b00f47e1f87fd0aed0d28a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255942"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622560"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
@@ -162,7 +162,7 @@ Os dados coletados do Microsoft Monitoring Agent (em nome da Central de Seguran�
 No portal do Azure, você pode navegar para ver uma lista de workspaces do Log Analytics, incluindo aqueles criados pela Central de Segurança do Azure. Um grupo de recursos relacionados será criado para novos workspaces. Ambos seguirão esta convenção de nomenclatura: 
 
 * Workspace: *DefaultWorkspace-[ID da assinatura]-[localização geográfica]*
-* Grupo de recursos: *DefaultResouceGroup-[localização geográfica]*
+* Grupo de recursos: *DefaultResourceGroup- [geo]*
 
 No caso de workspaces criados pela Central de Segurança do Azure, os dados serão retidos por 30 dias. No caso dos workspaces existentes, a retenção ocorre com base no tipo de preço do workspace. Se desejar, você também pode usar um workspace existente.
 

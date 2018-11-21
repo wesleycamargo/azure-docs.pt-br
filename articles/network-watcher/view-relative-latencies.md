@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27600884"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300601"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Exibir a latência relativa a regiões do Azure de localidades específicas
 
@@ -60,7 +60,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 > A região que você especifica no comando anterior não precisa ser a mesma que a região especificada durante a recuperação do observador de rede. O comando anterior requer apenas que você especifique um observador de rede existente. O observador de rede pode estar em qualquer região. Se você especificar valores para `-Country` e `-State`, eles deverão ser válidos. Os valores diferenciam maiúsculas de minúsculas. Os dados estão disponíveis em um número limitado de países, estados e cidades. Execute os comandos em [Exibir países, estados, cidades e provedores disponíveis](#view-available) para exibir uma lista dos países, cidades e estados disponíveis para usar com o comando anterior. 
 
 > [!WARNING]
-> Você deve especificar uma data posterior a 14 de novembro de 2017 para `-StartTime` e `-EndTime`. Especificar uma data anterior a 14 de novembro de 2017 não retorna qualquer dado. 
+> É necessário especificar uma data nos últimos 30 dias para `-StartTime` e `-EndTime`. A especificação de uma data anterior resultará na não devolução de dados.
 
 A saída do comando anterior é a seguinte:
 

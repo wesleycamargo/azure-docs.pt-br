@@ -1,6 +1,6 @@
 ---
-title: Analisar dados de sensor usando Hive e Hadoop – HDInsight do Azure
-description: Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o PowerView.
+title: Analisar dados do sensor usando o Apache Hive e o Apache Hadoop - Azure HDInsight
+description: Aprenda a analisar os dados do sensor usando o Console do Apache Hive Query com o HDInsight (Hadoop) e visualize os dados no Microsoft Excel com o PowerView.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249397"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634406"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analisar dados de sensor usando o Console de consulta Hive no Hadoop HDInsight
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analise os dados do sensor usando o Apache Hive Query Console no Apache Hadoop no HDInsight
 
-Saiba como analisar dados do sensor usando o Console de consulta Hive com HDInsight (Hadoop) e depois visualizar os dados no Microsoft Excel usando o Power View.
+Aprenda a analisar os dados do sensor usando o Hive Query Console com o HDInsight (Apache Hadoop) e visualize os dados no Microsoft Excel usando o Power View.
 
 > [!IMPORTANT]
 > As etapas neste documento só funcionam com clusters HDInsight baseados no Windows. O HDInsight está disponível somente no Windows para versões inferiores ao HDInsight 3.4. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

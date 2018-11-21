@@ -1,187 +1,52 @@
 ---
-title: Expirar os dados no Azure Cosmos DB com a vida útil | Microsoft Docs
+title: Expirar dados no Azure Cosmos DB com Vida Útil
 description: Com a TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do sistema após determinado período.
-services: cosmos-db
-keywords: vida útil
-author: SnehaGunda
-manager: kfile
+author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
-ms.author: sngun
-ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 11/14/2018
+ms.author: mjbrown
+ms.openlocfilehash: c08c171e3a95b0d0f408660a7ec9021ca0323fbd
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050723"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621259"
 ---
-# <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
-Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
+# <a name="time-to-live-for-azure-cosmos-db-data"></a>Vida Útil dos dados do Azure Cosmos DB
 
-Com a “vida útil” ou TTL, o Microsoft Azure Cosmos DB fornece a capacidade de limpar documentos automaticamente do banco de dados após determinado período. A vida útil padrão pode ser definida no nível de coleção e substituída conforme o documento. Depois de definir a TTL como um padrão de coleta ou em um nível de documento, o Cosmos DB removerá automaticamente os documentos existentes após esse período, em segundos, desde sua última modificação.
+Com a "Vida útil" ou TTL, o Azure Cosmos DB fornece a capacidade de excluir itens automaticamente de um contêiner após um determinado período de tempo. Por padrão, é possível definir a Vida Útil no nível do contêiner e substituir o valor em uma base por item. Após definir a Vida Útil em um nível de item ou contêiner, o Azure Cosmos DB removerá automaticamente esses itens após o período de tempo, desde a hora em que foram modificados pela última vez. O valor de Vida Útil é configurado em segundos. Ao configurar a Vida Útil, o sistema excluirá automaticamente os itens expirados com base no valor de TTL, diferentemente de uma operação de exclusão explicitamente emitida pelo aplicativo cliente.
 
-A vida útil no Azure Cosmos DB usa um deslocamento em relação à data da última modificação do documento. Para fazer isso, ela usa o campo `_ts`, encontrado em todos os documentos. O campo _ts é um carimbo de data/hora de época estilo Unix que representa a data e a hora. O campo `_ts` é atualizado sempre que um documento é modificado. 
+## <a name="time-to-live-for-containers-and-items"></a>Vida Útil para contêineres e itens
 
-## <a name="ttl-behavior"></a>Comportamento de TTL
-O recurso TTL é controlado pelas propriedades TTL em dois níveis: o nível de coleção e o nível de documento. Os valores são definidos em segundos e tratados como um delta no `_ts` em que o documento foi modificado pela última vez.
+O valor de Vida Útil é definido em segundos e é interpretado como um delta a partir do momento em que um item foi modificado pela última vez. É possível definir a Vida Útil em um contêiner ou um item dentro do contêiner:
 
-1. DefaultTTL da coleção
-   
-   * Se estiverem ausentes (ou definidos como nulos), os documentos não serão excluídos automaticamente.
-   * Se estiverem presentes e o valor estiver definido como "-1" = infinito, os documentos não expirarão por padrão
-   * Se estiverem presentes e o valor estiver definido como qualquer número ("n"), os documentos expirarão em "n" segundos após a última modificação
-2. TTL dos documentos: 
-   
-   * A propriedade será aplicável somente se houver uma DefaultTTL para a coleção pai.
-   * Substitui o valor de DefaultTTL da coleção pai.
+1. **Vida Útil em um contêiner** (definir usando `DefaultTimeToLive`):
 
-Assim que o documento tiver expirado (`ttl` + `_ts` <= hora atual do servidor), o documento será marcado como "expirado". Nenhuma operação será permitida nesses documentos após esse período e elas serão excluídas dos resultados de todas as consultas executadas. Os documentos são excluídos fisicamente no sistema e são excluídos em segundo plano oportunamente em um momento posterior. Isso não consome nenhuma [RU (Unidade de Solicitação)](request-units.md) do orçamento da coleção.
+   - Se ausentes (ou definidos como nulo), os itens não serão expirados automaticamente.
 
-A lógica acima pode ser mostrada na matriz a seguir:
+   - Se estiverem presentes e o valor estiver definido como "-1", será igual a infinito – os itens não expiram por padrão.
 
-|  | DefaultTTL ausente/não definida na coleção | DefaultTTL = -1 na coleção | DefaultTTL = n' na coleção |
-| --- |:--- |:--- |:--- |
-| TTL Ausente no documento |Nada para substituir no nível de documento, pois o documento e a coleção não têm nenhum conceito de TTL. |Nenhum documento nesta coleção expirará. |Os documentos nessa coleção expirarão quando o intervalo de n' expirar. |
-| TTL = -1 no documento |Nada para substituir no nível de documento, pois a coleção não define a propriedade DefaultTTL que pode ser substituída por um documento. A TTL de um documento não é interpretada pelo sistema. |Nenhum documento nesta coleção expirará. |O documento com TTL = -1 nesta coleção nunca expirará. Todos os outros documentos expirarão após o intervalo de n'. |
-| TTL = n no documento |Nada para substituir no nível de documento. A TTL de um documento não é interpretada pelo sistema. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de -1 e nunca expirarão. |O documento com TTL = n expirará após o intervalo de n, em segundos. Os outros documentos herdarão o intervalo de n' da coleção. |
+   - Se estiverem presentes e o valor estiver definido para algum número ("n") – os itens expirarão em "n" segundos após o último horário de modificação.
 
-## <a name="configuring-ttl"></a>Configurando a TTL
-Por padrão, a vida útil é desabilitada por padrão em todas as coleções e todos os documentos do Cosmos DB. TTL pode ser definido programaticamente ou usando o portal do Azure. Use as etapas a seguir para configurar o TTL no portal do Azure:
+2. **Vida Útil em um item** (definir usando `TimeToLive`):
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até a sua conta Microsoft Azure Cosmos DB.  
+   - Essa Propriedade será aplicável somente se `DefaultTimeToLive` estiver presente e não estiver definido como nulo para o contêiner pai.
 
-2. Navegue para a coleção que você deseja definir o valor de TTL, abra o painel **Escala e Configurações**. Você pode ver que o tempo de vida é definido por padrão como **desativar**. Você pode alterá-lo para  **(não padrão)** ou **em**.
+   - Se presente, substituirá o valor `DefaultTimeToLive` do contêiner pai.
 
-   **desativado** os documentos não serão excluídos automaticamente.  
-   **ativado (não padrão)** – esta opção define o valor de TTL como "-1" (infinito) que significa que documentos não expirarão por padrão.  
-   **ativado** – os documentos expirarão "n" segundos após a última modificação.  
+## <a name="time-to-live-configurations"></a>Configurações de Vida Útil
 
-   ![Vida útil para viver](./media/time-to-live/set-ttl-in-portal.png)
+* Se a TTL estiver definida como 'n' em um contêiner, os itens desse contêiner expirarão após n segundos.  Se houver itens no mesmo contêiner que tenham sua própria vida útil, definida como -1 (indicando que não expiram) ou se alguns itens substituíram a configuração de vida útil por um número diferente, esses itens expirarão com base na configuração do valor de TTL. 
 
-## <a name="enabling-ttl"></a>Habilitando a TTL
-Para habilitar a TTL em uma coleção, ou no documento em uma coleção, é necessário definir a propriedade DefaultTTL de uma coleção como -1 ou um número positivo diferente de zero. Definir a DefaultTTL como -1 significa que, por padrão, todos os documentos na coleção residirão para sempre, mas o serviço Cosmos DB deverá monitorar, nessa coleção, os documentos que substituíram esse padrão.
+* Se a TTL não estiver definida em um contêiner, o tempo de vida de um item nesse contêiner não terá efeito. 
 
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.Id = "orders";
-    collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive =-1; //never expire by default
+* Se a TTL em um contêiner for definida como -1, um item nesse contêiner que tenha a vida útil definida como n expirará após n segundos, e os itens restantes não expirarão. 
 
-    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(databaseName),
-        collectionDefinition,
-        new RequestOptions { OfferThroughput = 20000 });
-
-## <a name="configuring-default-ttl-on-a-collection"></a>Configurando a TTL padrão em uma coleção
-É possível configurar uma vida útil padrão em um nível de coleção. Para definir a TTL em uma coleção, é necessário fornecer um número positivo diferente de zero que indique o período, em segundos, para expirar todos os documentos na coleção após o último carimbo de data/hora modificado do documento (`_ts`). Outra opção é definir o padrão como -1, o que significa que, por padrão, todos os documentos inseridos na coleção residirão por tempo indeterminado.
-
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.Id = "orders";
-    collectionDefinition.PartitionKey.Paths.Add("/customerId");
-    collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
-    
-    DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
-        "/dbs/salesdb",
-        collectionDefinition,
-        new RequestOptions { OfferThroughput = 20000 });
-
-
-## <a name="setting-ttl-on-a-document"></a>Configurando a TTL em um documento
-Além de definir uma TTL padrão em uma coleção, é possível definir uma TTL específica em um nível de documento. Isso substituirá o padrão da coleção.
-
-* Para definir a TTL em um documento, é necessário fornecer um número positivo diferente de zero que indique o período, em segundos, para expirar todos os documentos após o último carimbo de data/hora modificado do documento (`_ts`).
-* Se um documento não tiver um campo TTL, será aplicado o padrão da coleção.
-* Se a TTL estiver desabilitada no nível de coleção, o campo TTL no documento será ignorado até que a TTL seja habilitada novamente na coleção.
-
-Veja a seguir um trecho que mostra como definir a expiração de TTL em um documento:
-
-    // Include a property that serializes to "ttl" in JSON
-    public class SalesOrder
-    {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        
-        [JsonProperty(PropertyName="cid")]
-        public string CustomerId { get; set; }
-        
-        // used to set expiration policy
-        [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-        public int? TimeToLive { get; set; }
-        
-        //...
-    }
-    
-    // Set the value to the expiration in seconds
-    SalesOrder salesOrder = new SalesOrder
-    {
-        Id = "SO05",
-        CustomerId = "CO18009186470",
-        TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days 
-    };
-
-
-## <a name="extending-ttl-on-an-existing-document"></a>Estendendo a TTL em um documento existente
-É possível redefinir a TTL em um documento executando qualquer operação de gravação no documento. Isso definirá o `_ts` como a hora atual, e a contagem regressiva para a expiração do documento, conforme definido pela `ttl`, será iniciada novamente. Se deseja alterar a `ttl` de um documento, é possível atualizar o campo da mesma forma que qualquer outro campo configurável.
-
-    response = await client.ReadDocumentAsync(
-        "/dbs/salesdb/colls/orders/docs/SO05"), 
-        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
-    
-    Document readDocument = response.Resource;
-    readDocument.TimeToLive = 60 * 30 * 30; // update time to live
-    
-    response = await client.ReplaceDocumentAsync(readDocument);
-
-## <a name="removing-ttl-from-a-document"></a>Removendo a TTL de um documento
-Se uma TTL tiver sido definida em um documento e você não deseja mais que o documento expire, é possível recuperar o documento, remover campo TTL e substituir o documento no servidor. Quando o campo TTL for removido do documento, será aplicado o padrão da coleção. Para interromper a expiração de um documento e fazer com ele não herde da coleção, é necessário definir o valor de TTL como -1.
-
-    response = await client.ReadDocumentAsync(
-        "/dbs/salesdb/colls/orders/docs/SO05"), 
-        new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
-    
-    Document readDocument = response.Resource;
-    readDocument.TimeToLive = null; // inherit the default TTL of the collection
-    
-    response = await client.ReplaceDocumentAsync(readDocument);
-
-## <a name="disabling-ttl"></a>Desabilitando a TTL
-Para desabilitar a TTL por completo em uma coleção e fazer com que o processo em segundo plano pare de procurar documentos expirados, a propriedade de DefaultTTL na coleção deve ser excluída. A exclusão dessa propriedade é diferente de defini-la como -1. A configuração como -1 significa que os novos documentos adicionados à coleção residirão para sempre, mas é possível substituí-la em documentos específicos da coleção. Remover esta propriedade por completo da coleção significa que os documentos não expirarão, mesmo que haja documentos que tenham explicitamente substituído um padrão anterior.
-
-    DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
-    
-    // Disable TTL
-    collection.DefaultTimeToLive = null;
-    
-    await client.ReplaceDocumentCollectionAsync(collection);
-
-<a id="ttl-and-index-interaction"></a> 
-## <a name="ttl-and-index-interaction"></a>TTL e interação de índice
-Adicionar ou alterar a configuração de TTL (vida útil) em uma coleção altera o índice de base. Quando o valor de TTL é alterado de Desativado para Ativado, a coleção é reindexada. Ao fazer alterações à política de indexação quando o modo de indexação for consistente, os usuários não perceberão uma alteração no índice. Quando o modo de indexação é definido como lento, o índice sempre é atualizado, e se o valor de TTL for alterado, o índice será recriado do zero. Quando o valor de TTL é alterado, e o modo de índice é definido como lento, as consultas feitas durante a recriação de índice não retornam resultados completos ou corretos.
-
-Se você precisar do retorno de dados exatos, não altere o valor de TTL quando o modo de indexação estiver definido como lento. O ideal é a escolha de índice consistente para garantir resultados de consulta consistentes. 
-
-## <a name="faq"></a>Perguntas frequentes
-**Qual o preço da TTL?**
-
-Não há nenhum custo adicional para definição de uma TTL em um documento.
-
-**Quanto tempo levará para que meu documento seja excluído após a habilitação da TTL?**
-
-Os documentos expiram imediatamente depois da TTL ser ativada e não poderão ser acessados por meio do CRUD ou das APIs de consulta. 
-
-**A TTL em um documento terá algum impacto sobre os encargos de RU?**
-
-Não haverá nenhum impacto nos encargos de RU para as exclusões de documentos expirados por meio da TTL no Cosmos DB.
-
-**O recurso TTL se aplica somente a documentos inteiros ou valores de propriedade de documentos individuais podem ser expirados?**
-
-A TTL se aplica a todo o documento. Se você quiser expirar apenas uma parte de um documento, extraia a parte do documento principal em um documento "vinculado" separado e, em seguida, use a TTL nesse documento extraído.
-
-**O recurso TTL tem requisitos específicos de indexação?**
-
-Sim. A coleção deve ter uma [política de indexação definida](indexing-policies.md) como Consistente ou Lenta. A tentativa de definir a DefaultTTL em uma coleção com a indexação definida como Nenhum resultará em um erro, assim como a tentativa de desativar a indexação em uma coleção que tenha uma DefaultTTL já definida.
+A exclusão de itens com base na TTL é gratuita. Não haverá custos adicionais (isto é, nenhuma RU adicional será consumida) quando o item for excluído como resultado da expiração de TTL.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o Azure Cosmos DB, consulte a página de [*documentação*](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço.
 
+Saiba como configurar a Vida Útil, consultando os seguintes artigos:
+
+* [Como configurar a Vida Útil](how-to-time-to-live.md)

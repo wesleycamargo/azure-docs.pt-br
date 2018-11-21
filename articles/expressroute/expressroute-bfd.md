@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384744"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631652"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD no ExpressRoute
 
@@ -67,7 +67,7 @@ Um exemplo de configuração de PE (usando o Cisco IOS XE) é mostrado abaixo.
 
 ## <a name="bfd-timer-negotiation"></a>Negociação de temporizador de BFD
 
-Entre pares de BFD, o mais lento dos dois pares determina a taxa de transmissão. Os intervalos de transmissão/recepção de BFD dos MSEEs estão definidos para 300 milissegundos. Ao configurar valores maiores você poderá forçar esses intervalos a serem mais longos, porém, não mais curtos.
+Entre pares de BFD, o mais lento dos dois pares determina a taxa de transmissão. Os intervalos de transmissão/recepção de BFD dos MSEEs estão definidos para 300 milissegundos. Em determinados cenários, o intervalo pode ser definido em um valor mais alto de 750 milissegundos. Ao configurar valores maiores você poderá forçar esses intervalos a serem mais longos, porém, não mais curtos.
 
 >[!NOTE]
 >Se você configurou circuitos de emparelhamento privado do ExpressRoute com redundância geográfica ou usa conectividade de VPN IPSec de site a site como backup para o emparelhamento privado do ExpressRoute, habilitar a BFD no emparelhamento privado permitiria failover mais rápido após uma falha de conectividade do ExpressRoute. 

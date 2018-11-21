@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d445a4673245b4c6d1986d099113beba79d136bb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310585"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687445"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -36,7 +36,7 @@ O SSO Contínuo é um recurso gratuito e você não precisa de nenhuma edição 
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>O SSO Contínuo está disponível na [nuvem do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
-Não. O SSO Contínuo está disponível apenas na instância mundial do Azure AD.
+ Não. O SSO Contínuo está disponível apenas na instância mundial do Azure AD.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos tiram proveito da capacidade de parâmetro `domain_hint` ou `login_hint` do SSO Contínuo?
 
@@ -46,7 +46,7 @@ Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o
 | -- | -- |
 | Painel de acesso | https://myapps.microsoft.com/contoso.com |
 | Outlook na Web | https://outlook.office365.com/contoso.com |
-| Portal do Office 365 | https://portal.office.com?domain_hint=contoso.com |
+| Portais do Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
 Além disso, os usuários também terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo está uma lista parcial de aplicativos que fazem esses tipos de solicitações de entrada.
 

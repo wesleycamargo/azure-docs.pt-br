@@ -2,18 +2,18 @@
 title: Registre um novo dispositivo do Azure IoT Edge (VS Code) | Microsoft Docs
 description: Use Visual Studio Code para criar um novo dispositivo IoT Edge no seu Azure IoT Hub
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034255"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578698"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registre um novo dispositivo Azure IoT Edge do Visual Studio Code
 
@@ -21,7 +21,7 @@ Antes que você possa usar os seus dispositivos IoT com o Azure IoT Edge, você 
 
 Este artigo descreve como registrar um novo dispositivo do IoT Edge usando Visual Studio Code (VS Code). Há múltiplas maneiras de fazer mais operações no VS Code. Este artigo usa o Explorer, mas você pode também usar a Paleta de Comandos para executar a maior parte dos passos. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na assinatura do Azure
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ Este artigo descreve como registrar um novo dispositivo do IoT Edge usando Visua
 
    ![Expanda Dispositivos do Azure Hub IoT](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, passe o mouse sobre o cabeçalho. 
+3. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, clique ou passe o mouse sobre o cabeçalho. 
 
 4. Escolha **Selecionar Hub IoT**.
 
@@ -51,7 +51,7 @@ Este artigo descreve como registrar um novo dispositivo do IoT Edge usando Visua
 
 1. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
 
-2. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, passe o mouse sobre o cabeçalho. 
+2. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, clique ou passe o mouse sobre o cabeçalho. 
 
 3. Selecione **Criar dispositivo IoT Edge**. 
 

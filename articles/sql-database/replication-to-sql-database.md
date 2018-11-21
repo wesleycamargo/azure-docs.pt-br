@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869322"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567886"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados únicos e agrupados do Banco de Dados SQL
 
@@ -65,7 +65,7 @@ A replicação do SQL Server pode ser configurada para bancos de dados únicos e
 
 1. Crie uma publicação de replicação transacional em um banco de dados do SQL Server local.  
 2. No SQL Server local, use o **Assistente para Nova Assinatura** ou instruções Transact-SQL para criar um push para assinatura para o Banco de Dados SQL do Azure.  
-3. O conjunto de dados inicial normalmente é um instantâneo criado pelo Agente de Instantâneo e distribuído e aplicado pelo Agente de Distribuição. O conjunto de dados inicial também pode ser fornecido por meio de um backup ou outros meios, como SQL Server Integration Services.  
+3. Com bancos de dados únicos e agrupados no Banco de Dados SQL do Azure, o conjunto de dados inicial é um instantâneo criado pelo Agente de Instantâneo e distribuído e aplicado pelo Agente de Distribuição. Com a Instância Gerenciada do Banco de Dados SQL do Azure, você também pode usar um backup de banco de dados para propagar o banco de dados do assinante.
 
 ### <a name="data-migration-scenario"></a>Cenário de migração de dados  
 

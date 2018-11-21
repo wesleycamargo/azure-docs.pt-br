@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237053"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684623"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para a restrição dos resultados do Azure Search usando identidades do Active Directory
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Etapa 4: Armazenar em Cache os identificadores de grupos
-Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações de grupo de usuários para que quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, economizando uma ida e volta ao AAD. Você pode usar (API de lote AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar uma única solicitação de Http com vários usuários e criar o cache.
+Opcionalmente, para reduzir a latência de rede, você pode armazenar em cache as associações de grupo de usuários para que quando uma solicitação de pesquisa for emitida, os grupos sejam retornados do cache, economizando uma ida e volta ao AAD. Você pode usar [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar uma única solicitação HTTP com vários usuários e criar o cache.
 
 O Microsoft Graph foi projetado para lidar com um grande volume de solicitações. Caso haja um número excessivo de solicitações, o Microsoft Graph apresenta uma falha na solicitação com o código de status HTTP 429. Para saber mais, veja [Limitação de mecanismo do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

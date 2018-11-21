@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 6fb70f9d21b4d915d8951ad70c335df213553949
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52c5e1a2166c2c609b2edc486bd451f01b3395fa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257581"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515783"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Agendar e difundir trabalhos (Java)
 
@@ -60,9 +60,17 @@ Para concluir este tutorial, você precisará:
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia de caracteres de conexão para o hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 Você também pode usar a ferramenta [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) para adicionar um dispositivo ao hub IoT.
 

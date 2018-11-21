@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dae003b011e8e33f0ae935d6dd8399a5687dff6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958144"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633760"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
-Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](monitoring-overview-unified-alerts.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
+Este artigo fornece detalhes sobre os alertas de Log, que são um dos tipos de alertas com suporte nos [Alertas do Azure](monitoring-overview-alerts.md) e que permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
 
 O Alerta de Log consiste em regras de Pesquisa de Log criadas para o [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Para saber mais sobre seu uso, consulte [Criar alertas de log no Azure](alert-log.md)
 
@@ -106,7 +106,7 @@ Agora, vamos supor que nós temos uma regra de alerta de log chamada *Contoso-Lo
 - Às 13h15, quando Contoso-Log-Alert foi executado pelos Alertas do Azure, o resultado da pesquisa de logs forneceu 2 registros, ultrapassando o limite e disparando o alerta, logo após disparar a [grupo de ações](monitoring-action-groups.md) associado.
 - Agora, na iteração seguinte, às 13h20, quando Contoso-Log-Alert foi executado pelo alerta do Azure, o resultado da pesquisa de logs novamente gerou 0 registros; o que está abaixo do limite e, portanto, não acionou o alerta.
 
-Mas, no caso listado acima, às 13h15, os alertas do Azure não podem determinar se os problemas subjacentes vistos às 13h10 persistiram e se há novas falhas de rede. Como a consulta fornecida pelo usuário pode estar levando em conta registros anteriores, os alertas do Azure podem ter certeza. Portanto, para ter cautela, Contoso-Log-Alert é disparado novamente às 13h15 por meio do [grupo de ações](monitoring-action-groups.md) configurado. Agora, às 13h20, quando não são vistos registros, os alertas do Azure não podem ter certeza de que a causa dos registros foi resolvida. Portanto, Contoso-Log-Alert não será alterado para Resolvido no painel de Alerta do Azure nem serão enviadas notificações informando a resolução do alerta.
+Mas, no caso listado acima, às 13h15, os alertas do Azure não podem determinar se os problemas subjacentes vistos às 13h10 persistiram e se há novas falhas de rede. Como a consulta fornecida pelo usuário pode estar levando em conta registros anteriores, os alertas do Azure podem ter certeza. Portanto, por precaução, quando o Contoso-Log-Alert for executado às 13h15, o [grupo de ações](monitoring-action-groups.md) configurado será acionado novamente. Agora, às 13h20, quando não são vistos registros, os alertas do Azure não podem ter certeza de que a causa dos registros foi resolvida. Portanto, Contoso-Log-Alert não será alterado para Resolvido no painel de Alerta do Azure nem serão enviadas notificações informando a resolução do alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e cobrança dos Alertas de Log
@@ -120,6 +120,6 @@ Preços aplicáveis aos Alertas de Log estão disponíveis na página [Preços d
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [criação de alertas de log no Azure](alert-log.md).
 * Entenda os [webhooks nos alertas de log no Azure](monitor-alerts-unified-log-webhook.md).
-* Saiba mais sobre os [Alertas do Azure](monitoring-overview-unified-alerts.md).
+* Saiba mais sobre os [Alertas do Azure](monitoring-overview-alerts.md).
 * Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md).
 * Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-queries.md).    

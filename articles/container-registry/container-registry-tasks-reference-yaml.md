@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854942"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634372"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-O tipo de etapa `build` dá suporte aos seguintes parâmetros:
+O tipo de etapa `build` suporta os parâmetros na tabela a seguir. O tipo de etapa `build` também suporta todas as opções de construção do comando [docker build](https://docs.docker.com/engine/reference/commandline/build/), como `--build-arg` para definir variáveis de tempo de criação.
 
 | Parâmetro | DESCRIÇÃO | Opcional |
 | --------- | ----------- | :-------: |

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389438"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568998"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -43,15 +43,21 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
 
    ![Credenciais de API do Google](media/google-federation/google-api.png)
  
-4. Escolha a guia **Tela de consentimento do OAuth** e insira um **Nome do produto mostrado aos usuários**. (Deixe as outras configurações.) Clique em **Salvar**.
+4. Escolha a guia de **tela de consentimento do OAuth** e insira um **nome do aplicativo**. (Deixe as outras configurações.)
 
    ![Tela de consentimento do OAuth do Google](media/google-federation/google-oauth-consent-screen.png)
 
-5. Escolha a guia **Credenciais**. No menu **Criar credenciais**, escolha **ID do cliente OAuth**.
+5. Role até a **autorizado domínios** seção e insira microsoftonline.com.
+
+   ![Seção domínios autorizados](media/google-federation/google-oauth-authorized-domains.png)
+
+6. Clique em **Salvar**.
+
+7. Escolha a guia **Credenciais**. No menu **Criar credenciais**, escolha **ID do cliente OAuth**.
 
    ![Credenciais de API do Google](media/google-federation/google-api-credentials.png)
 
-6. Em **Tipo de aplicativo**, escolha **Aplicativo Web** e, em **URIs de redirecionamento autorizados**, insira estes URIs:
+8. Em **Tipo de aplicativo**, escolha **Aplicativo Web** e, em **URIs de redirecionamento autorizados**, insira estes URIs:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
    
@@ -60,7 +66,7 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
 
    ![Criar ID do cliente OAuth](media/google-federation/google-create-oauth-client-id.png)
 
-7. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
+9. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
 
    ![ID do cliente e segredo do cliente OAuth](media/google-federation/google-auth-client-id-secret.png)
 

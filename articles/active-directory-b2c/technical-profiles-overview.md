@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269421"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578477"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -38,8 +38,7 @@ Um perfil técnico permite esses tipos de cenários:
 - [SAML2](saml-technical-profile.md) – federação com qualquer provedor de identidade de protocolo SAML.
 - [Self-Asserted](self-asserted-technical-profile.md) – Interagir com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a redefinição de senha.
 - **WsFed** – federação com qualquer provedor de identidade de protocolo WsFed. 
-- **Gerenciamento de sessão** – lida com diferentes tipos de sessões. 
-- **Provedor de contexto de percurso do usuário**
+- [Gerenciamento de sessão](active-directory-b2c-reference-sso-custom.md) – lida com diferentes tipos de sessões. 
 - **Percepções sobre o aplicativo**
 
 ## <a name="technical-profile-flow"></a>Fluxo do perfil técnico
@@ -56,7 +55,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
     - Crie ou atualize a conta de usuário.
     - Envia e verifica a mensagem de texto da MFA.
 4. **ValidationTechnicalProfiles** – no caso de um [perfil técnico autodeclarado](self-asserted-technical-profile.md), é possível chamar um [perfil técnico de validação](validation-technical-profile.md) de entrada. O perfil técnico de validação valida os dados analisados pelo usuário e retorna uma mensagem de erro ou OK, com ou sem declarações de saída. Por exemplo, antes de criar uma nova conta, o Azure AD B2C verifica se o usuário já existe nos serviços de diretório. Você pode chamar um perfil técnico da API REST para adicionar sua própria lógica de negócios.<p>O escopo das declarações de saída de um perfil técnico de validação limita-se ao perfil técnico que invoca o perfil técnico de validação e outros perfis técnicos de validação no mesmo perfil técnico. Se você quiser usar as declarações de saída na próxima etapa da orquestração, será necessário incluir as declarações de saída no perfil técnico que chama o perfil técnico de validação.
-5. **OutputClaims** – as declarações são retornadas para o recipiente de declarações. Você pode usar essas declarações na próxima etapa de orquestrações ou transformações de declarações de saída.
+5. **OutputClaims** -declarações são retornadas ao recipiente de declarações. Você pode usar essas declarações na próxima etapa de orquestrações ou transformações de declarações de saída.
 6. **OutputClaimsTransformations** – as declarações de entrada de todas as [ transformações de declarações](claimstransformations.md) de saída são retiradas do recipiente de declarações. As declarações de saída do perfil técnico das etapas anteriores podem ser entradas de uma transformação de declarações de saída. Após a execução, as declarações de saída são recolocadas no recipiente de declarações. As declarações de saída de uma transformação de declarações de saída também podem ser declarações de entrada de uma transformação de declarações de saída subsequentes.
 7. **Gerenciamento de sessão de SSO (logon único)** - [Gerenciamento de sessão de SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um usuário após o usuário já ter se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes de conta local precisam ser inseridos novamente.
 

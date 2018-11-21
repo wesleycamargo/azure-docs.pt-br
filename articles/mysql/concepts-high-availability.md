@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 90dc603c0ee520774bd22531c7136e0949f6cf90
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 82d6106b7cebf47e6d68347857dd3d8a2d22dc3c
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264173"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298680"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para MySQL
 O serviço do Banco de Dados do Azure para MySQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
@@ -35,4 +35,5 @@ Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure 
 Durante a operação de escala, ocorre uma interrupção nas conexões de banco de dados. Os aplicativos cliente são desconectados e as transações abertas não confirmadas são canceladas. Depois que o aplicativo cliente repetir a tentativa ou realizar uma nova conexão, o gateway direcionará a conexão para a instância recém-dimensionada. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados para MySQL](overview.md)
+- Para obter uma visão geral do serviço, consulte  [Visão geral do Banco de Dados para MySQL](overview.md)
+- Para obter uma visão geral sobre a lógica de repetição, consulte [Tratamento de erros transitórios de conectividade para Banco de Dados do Azure para MySQL](concepts-connectivity.md)

@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834719"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344426"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Descobrir e compartilhar tutoriais na Galeria de IA do Azure
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>Tutoriais
-A Galeria de IA do Azure oferece vários [tutoriais](https://gallery.cortanaintelligence.com/tutorials) que pode orientá-lo sobre os conceitos e tecnologias do aprendizado de máquina. Os tutoriais também podem descrever métodos avançados de solucionar problemas de aprendizado de máquina.
+[Galeria de AI do Azure](http://gallery.cortanaintelligence.com) oferece vários [tutoriais](https://gallery.cortanaintelligence.com/tutorials) que podem guiar você pelas tecnologias e conceitos de aprendizado de máquina. Os tutoriais também podem descrever métodos avançados de solucionar problemas de aprendizado de máquina.
 
 ## <a name="discover"></a>Descobrir
 Para procurar tutoriais [na Galeria](http://gallery.cortanaintelligence.com), acesse **Mais** e selecione **Tutoriais**.

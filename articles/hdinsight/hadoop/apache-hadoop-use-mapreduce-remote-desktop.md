@@ -1,6 +1,6 @@
 ---
-title: MapReduce e área de trabalho remota com o Hadoop no Azure HDInsight
-description: Saiba como usar o Remote Desktop para se conectar ao Hadoop no HDInsight e executar trabalhos MapReduce.
+title: MapReduce e Área de Trabalho Remota com o Apache Hadoop no HDInsight - Azure
+description: Aprenda a usar a Área de Trabalho Remota para se conectar ao Apache Hadoop no HDInsight e executar tarefas MapReduce.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012921"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634474"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Usar o MapReduce no Hadoop no HDInsight com Remote Desktop
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Use o MapReduce no Apache Hadoop no HDInsight com Área de Trabalho Remota
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Neste artigo, você aprenderá como se conectar a um Hadoop no cluster HDInsight usando a Área de Trabalho Remota e executar trabalhos MapReduce usando o comando Hadoop.
+Neste artigo, você aprenderá como se conectar a um Apache Hadoop no cluster HDInsight usando a Área de Trabalho Remota e, em seguida, executar tarefas MapReduce usando o comando Hadoop.
 
 > [!IMPORTANT]
 > A Área de Trabalho Remota está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

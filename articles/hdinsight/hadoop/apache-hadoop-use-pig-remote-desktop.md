@@ -1,6 +1,6 @@
 ---
-title: Usar o Pig do Hadoop com área de trabalho remota no HDInsight - Microsoft Azure
-description: Aprenda a usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster Hadoop em HDInsight baseado em Windows.
+title: Usar Apache Pig com Área de Trabalho Remota no HDInsight - Azure
+description: Saiba como usar o comando Pig para executar as instruções do Apache Pig Latin a partir de uma conexão de Área de Trabalho Remota para um cluster do Apache Hadoop baseado em Windows no HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007222"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633335"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar trabalhos do Pig por meio de uma conexão de área de trabalho remota
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Executar trabalhos do Apache Pig a partir de uma conexão de Área de Trabalho Remota
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Este documento fornece uma explicação passo a passo para usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster HDInsight baseado em Windows. O Pig Latin permite que você crie aplicativos MapReduce descrevendo as transformações de dados, em vez das funções mapear e reduzir.
+Este documento fornece uma explicação passo a passo para usar o comando do Apache Pig para executar instruções Pig Latin a partir de uma conexão de Área de Trabalho Remota para um cluster HDInsight baseado em Windows. O Pig Latin permite que você crie aplicativos MapReduce descrevendo as transformações de dados, em vez das funções mapear e reduzir.
 
 > [!IMPORTANT]
 > A Área de Trabalho Remota está disponível somente em clusters HDInsight que usam o Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

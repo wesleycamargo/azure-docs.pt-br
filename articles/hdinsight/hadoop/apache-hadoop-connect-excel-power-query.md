@@ -1,5 +1,5 @@
 ---
-title: Conectar o Excel ao Hadoop com o Power Query – Azure HDInsight
+title: Conectar o Excel ao Apache Hadoop com o Power Query - Azure HDInsight
 description: Saiba como aproveitar os componentes de business intelligence e usar o Power Query para Excel para acessar dados armazenados no Hadoop no HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 7335e4370d25b7cc404d93ad6f2c9ff524d928e0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: dc287325b3ef0fc951dab127e0def5f4023534ca
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016294"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632485"
 ---
-# <a name="connect-excel-to-hadoop-by-using-power-query"></a>Conectar o Excel ao Hadoop usando Power Query
-Um dos principais recursos da solução de big data da Microsoft é a integração dos componentes de BI (business intelligence) da Microsoft com os clusters Hadoop do HDInsight do Azure. Um dos principais exemplos é a capacidade de conectar o Excel com a conta de Armazenamento do Azure, que contém os dados associados ao seu cluster Hadoop usando o suplemento Microsoft Power Query para Excel. Este artigo explica como configurar e usar o Power Query para consultar dados associados a um cluster Hadoop gerenciado com o HDInsight.
+# <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conectar o Excel ao Apache Hadoop com o Power Query
+Um dos principais recursos da solução de big data da Microsoft é a integração dos componentes de BI (business intelligence) da Microsoft com clusters Apache Hadoop no Azure HDInsight. Um dos principais exemplos é a capacidade de conectar o Excel com a conta de Armazenamento do Azure, que contém os dados associados ao seu cluster Hadoop usando o suplemento Microsoft Power Query para Excel. Este artigo explica como configurar e usar o Power Query para consultar dados associados a um cluster Hadoop gerenciado com o HDInsight.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter os seguintes itens:

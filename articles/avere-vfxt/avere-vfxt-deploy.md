@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958575"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578620"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implantar cluster vFXT
 
-Para criar um cluster vFXT, a maneira mais fácil é usar um controlador de cluster, que é uma VM que tem os scripts, modelos e infraestrutura de software necessários para criar e gerenciar o cluster vFXT.
+A maneira mais fácil para criar um cluster vFXT no Azure é usar um controlador de cluster. O controlador de cluster é uma VM que inclui os scripts, modelos e a infraestrutura de software necessários para criar e gerenciar o cluster vFXT.
 
 A implantação de um novo cluster vFXT inclui as seguintes etapas:
 
@@ -68,7 +68,7 @@ Forneça as seguintes informações.
 
 Na seção **NOÇÕES BÁSICAS**:  
 
-* **Assinatura** do cluster
+* **Assinatura** para o cluster
 * **Grupo de recursos** do cluster 
 * **Localidade** 
 
@@ -82,7 +82,7 @@ Na seção **CONFIGURAÇÕES**:
 * Grupo de recursos de rede virtual, nome e nome da sub-rede – digite os nomes dos recursos existentes (se estiver usando uma vnet existente) ou digite novos nomes se estiver criando uma rede virtual
 * **Nome do controlador** – defina um nome para a VM do controlador
 * Nome de usuário do administrador do controlador – o padrão é `azureuser`
-* Chave SSH – cole a chave pública a ser associada ao nome de usuário do administrador. Leia [Como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se precisar de Ajuda.
+* Chave SSH – cole a chave pública a ser associada ao nome de usuário do administrador. Leia [Como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) se precisar de Ajuda.
 
 Em **TERMOS E CONDIÇÕES**: 
 
@@ -91,18 +91,16 @@ Em **TERMOS E CONDIÇÕES**:
   > [!NOTE] 
   > Se você não for um proprietário de assinatura, faça um proprietário aceitar os termos para você seguindo as etapas de pré-requisitos em [Aceitar termos de software com antecedência](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
+
 Clique em **Comprar** quando terminar. Depois de cinco ou seis minutos, o nó do controlador estará em funcionamento.
 
-Você deve acessar a página de saídas para reunir as informações necessárias para o cluster. Leia [Entradas necessárias para a criação do cluster](#inputs-needed-for-cluster-creation) para saber mais.
+Visite a página de saídas para reunir as informações do controlador que você precisa para criar o cluster. Leia [informações necessárias para criar o cluster](#information-needed-to-create-the-cluster) para saber mais.
 
 ### <a name="create-controller---azure-marketplace-image"></a>Criar controlador – Imagem do Azure Marketplace
 
-Localizar o modelo do controlador pesquisando o nome ``Avere`` no Azure Marketplace. Selecione o modelo **Avere vFXT para o controlador do Azure**. 
+Localizar o modelo do controlador pesquisando o nome ``Avere`` no Azure Marketplace. Selecione o modelo **Avere vFXT para o controlador do Azure**.
 
 Se você ainda não tiver feito isso, aceite os termos e habilite o acesso programático para a imagem do Marketplace clicando no link "Deseja implantar programaticamente?" embaixo do botão **Criar**.
-
-> [!NOTE] 
-> Durante a primeira semana de Disponibilidade Geral (31 de outubro – 7 de novembro de 2018), é necessário usar a opção de linha de comando para aceitar termos para duas imagens de software, em vez de seguir esse procedimento. Siga as instruções em [Aceitar termos de software com antecedência](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
 ![Captura de tela de um link para acesso programático, que está embaixo do botão Criar](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +123,7 @@ No primeiro painel, preencha ou confirme estas opções básicas:
   * Selecione o nome de usuário/senha ou a chave pública do SSH (recomendado).
   
     > [!TIP] 
-    > Uma chave SSH é mais segura. Leia [Como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se precisar de Ajuda. 
+    > Uma chave SSH é mais segura. Leia [Como criar e usar chaves SSH](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) se precisar de Ajuda. 
   * Especificar o nome de usuário 
   * Colar a chave SSH ou inserir e confirme a senha
 * **Regras de porta de entrada** – se estiver usando um endereço IP público, abra a porta 22 (SSH)
@@ -172,29 +170,31 @@ Se você estiver usando o Armazenamento de Blobs do Azure para seu armazenamento
 
   ![Captura de tela do portal do Azure com anotações para as etapas de criação de ponto de extremidade de serviço](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>Coletar entradas necessárias
+## <a name="information-needed-to-create-the-cluster"></a>Informações necessárias para criar o cluster
 
-É necessário ter as seguintes informações para criar o cluster. 
+Depois de criar o controlador de cluster, verifique se que você tem as informações que necessárias para as próximas etapas. 
 
-Se você criou no nó do controlador usando o modelo do Resource Manager, é possível [obter as informações da saída do modelo](#finding-template-output). 
+Informações necessárias para se conectar ao controlador: 
 
-É necessário conectar-se ao controlador: 
-
-* Nome de usuário e chave SSH ou senha do controlador
+* Nome de usuário do controlador e chave SSH (ou senha)
 * Endereço IP do controlador ou outro método para se conectar à VM do controlador
 
-São necessários para a criação do cluster: 
+Informações necessárias para o cluster: 
 
 * Nome do grupo de recursos
 * Localização do Azure 
 * Nome da rede virtual
 * Nome da sub-rede
-* Nome da função do nó de cluster
+* Nome de função do nó de cluster - esse nome é definido quando você cria a função, descrita [abaixo](#create-the-cluster-node-access-role)
 * Nome da conta de armazenamento, se estiver criando um contêiner de blob
 
-Também é possível encontrar informações ausentes navegando até a página de informações de VM do controlador. Por exemplo, clique em **Todos os recursos** e pesquise o nome do controlador; em seguida, clique no nome do controlador para ver os detalhes.
+Se você criou o nó do controlador usando o modelo do Resource Manager, poderá obter as informações da [saída do modelo](#find-template-output). 
 
-### <a name="finding-template-output"></a>Localizando a saída do modelo
+Se você usou a imagem do Azure Marketplace para criar o controlador, forneceu a maioria desses itens diretamente. 
+
+Encontre qualquer item ausente, navegando até a página de informações da VM do controlador. Por exemplo, clique em **Todos os recursos** e procure o nome do controlador e, em seguida, clique no nome do controlador para ver seus detalhes.
+
+### <a name="find-template-output"></a>Encontrar a saída do modelo
 
 Para localizar essas informações na saída do modelo do Resource Manager, siga este procedimento:
 
@@ -215,7 +215,7 @@ Para fazer o restante das etapas de implantação, é necessário se conectar ao
 1. O método para se conectar ao seu controlador de cluster depende de sua configuração.
 
    * Se o controlador tiver um endereço IP público, faça SSH no IP do controlador como o nome de usuário de administrador que você definiu (por exemplo, ``ssh azureuser@40.117.136.91``).
-   * Se o controlador não tem um IP público, use um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou uma conexão VPN com a rede virtual.
+   * Se o controlador não tiver um IP público, use uma VPN ou uma conexão [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) para sua vnet.
 
 1. Depois de fazer logon em seu controlador, faça a autenticação executando `az login`. Copie o código de autenticação fornecido no shell e, em seguida, usar um navegador da Web para carregar [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) e autenticar-se com o sistema Microsoft. Retorne ao shell para a confirmação.
 
@@ -226,7 +226,9 @@ Para fazer o restante das etapas de implantação, é necessário se conectar ao
 ## <a name="create-the-cluster-node-access-role"></a>Criar a função de acesso do nó de cluster
 
 > [!NOTE] 
-> Se você não for um proprietário de assinatura e a função ainda não tiver sido criada, faça um proprietário de assinatura seguir estas etapas ou use o procedimento em [Criar a função de acesso de tempo de execução do cluster do Avere vFXT sem um controlador](avere-vfxt-pre-role.md).
+> * Se você não for um proprietário de assinatura e a função ainda não tiver sido criada, faça um proprietário de assinatura seguir estas etapas ou use o procedimento em [Criar a função de acesso de tempo de execução do cluster do Avere vFXT sem um controlador](avere-vfxt-pre-role.md).
+> 
+> * Os usuários internos da Microsoft devem usar a função existente chamada "Avere Cluster Runtime Operator" em vez de tentar criar uma. 
 
 O [RBAC](https://docs.microsoft.com/azure/role-based-access-control/) (Controle de acesso baseado em função) fornece autorização para que os nós do cluster vFXT executem as tarefas necessárias.  
 
@@ -292,15 +294,18 @@ RESOURCE_GROUP=
 Salve o arquivo e saia.
 
 ### <a name="run-the-script"></a>Execute o script
+
 Execute o script digitando o nome do arquivo criado. (Exemplo: `./create-cloudbacked-cluster-west1`)  
 
-Considere executar este comando dentro de um [multiplexador de terminal](http://linuxcommand.org/lc3_adv_termmux.php) como `screen` ou `tmux` caso você perca sua conexão.  
+> [!TIP]
+> Considere executar este comando dentro de um [multiplexador de terminal](http://linuxcommand.org/lc3_adv_termmux.php) como `screen` ou `tmux` caso você perca sua conexão.  
+
 A saída também é registrada em `~/vfxt.log`.
 
 Quando o script for concluído, copie o endereço IP de gerenciamento necessário para a administração do cluster.
 
 ![Saída de linha de comando do script exibindo o endereço IP de gerenciamento perto da extremidade](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>Próxima etapa
+## <a name="next-step"></a>Próxima etapa
 
 Agora que o cluster está em execução e você conhece seu endereço IP de gerenciamento, é possível [conectar-se à ferramenta de configuração de cluster](avere-vfxt-cluster-gui.md) para habilitar o suporte e adicionar o armazenamento, se necessário.

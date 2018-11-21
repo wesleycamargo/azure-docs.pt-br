@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115532"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632723"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -24,11 +24,11 @@ Muitas empresas adotaram um modelo no qual os clusters são gerenciados por equi
 
 O HDInsight conta com um provedor de identidade popular -- o Active Directory -- de maneira gerenciada. Ao integrar o HDInsight com [Azure AD DS (Azure Active Directory Domain Services)](../../active-directory-domain-services/active-directory-ds-overview.md), será possível acessar os clusters usando as credenciais de domínio. 
 
-As VMs (máquinas virtuais) no HDInsight são ingressadas no domínio para o domínio fornecido. Portanto, todos os serviços executados no HDInsight (Ambari, servidor Hive, Ranger, servidor Spark Thrift e outros) funcionam perfeitamente para o usuário autenticado. Os administradores podem, então, criar políticas de autorização fortes usando o Apache Ranger para fornecer controle de acesso baseado em função para recursos no cluster.
+As VMs (máquinas virtuais) no HDInsight são ingressadas no domínio para o domínio fornecido. Portanto, todos os serviços em execução no HDInsight (Apache Ambari, servidor Apache Hive, Apache Ranger, servidor thrift do Apache Spark e outros) funcionam perfeitamente para o usuário autenticado. Os administradores podem, então, criar políticas de autorização fortes usando o Apache Ranger para fornecer controle de acesso baseado em função para recursos no cluster.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight ao Active Directory
 
-O Hadoop de software livre depende do Kerberos para autenticação e segurança. Portanto, os nós de cluster do HDInsight com o Enterprise Security Package (ESP) são unidos a um domínio gerenciado pelo Azure AD DS. A segurança do Kerberos é configurada para os componentes do Hadoop no cluster. 
+O código-fonte aberto do Apache Hadoop depende do Kerberos para autenticação e segurança. Portanto, os nós de cluster do HDInsight com o Enterprise Security Package (ESP) são unidos a um domínio gerenciado pelo Azure AD DS. A segurança do Kerberos é configurada para os componentes do Hadoop no cluster. 
 
 As seguintes coisas são criadas automaticamente:
 - uma entidade de serviço para cada componente do Hadoop 

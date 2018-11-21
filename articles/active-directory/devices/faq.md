@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140196"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515634"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
-**P: É possível registrar dispositivos Android ou iOS BYOD?**
-
-**R:** Sim, mas apenas com o serviço de registro de dispositivos do Azure e para clientes híbridos. Não há suporte a esses dispositivos com serviço de registro de dispositivo local no AD FS.
-
-**P: Como posso registrar um dispositivo macOS?**
-
-**R:** Para registrar um dispositivo macOS:
-
-1.  [Criar uma política de conformidade](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [Definir uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
-
-**Comentários:**
-
-- Os usuários que estão incluídos em sua política de acesso condicional precisam de uma [versão com suporte do Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para acessar os recursos. 
-
-- Durante a primeira tentativa de acesso, os usuários são solicitados a registrar o dispositivo usando o portal da empresa.
-
----
-
-**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo em minhas informações de usuário no Portal do Azure?**
-
-**R:** Dispositivos do Windows 10 que são ingressados no Azure AD Híbrido não aparecem nos dispositivos USER.
+**P: Registrei o dispositivo recentemente. Por que não consigo ver o dispositivo nas informações do meu usuário no portal do Azure? Ou, por que o proprietário do dispositivo está marcado como N/A para dispositivos híbridos do Azure AD?**
+**R:** Os dispositivos Windows 10 híbridos do Azure AD ingressados não são exibidos nos dispositivos de usuário.
 Você precisa usar o modo de exibição Todos os dispositivos no portal do Azure. Você também pode usar o cmdlet do PowerShell [MsolDevice Get](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0).
 
 Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
@@ -58,12 +38,16 @@ Apenas os dispositivos a seguir estão listados sob os dispositivos USER:
 
 **P: Como saber qual é o estado de registro do dispositivo do cliente?**
 
-**R:** você pode usar o portal do Azure. Vá para Todos os dispositivos e pesquise o dispositivo usando a respectiva ID. Verifique o valor na coluna de tipo de associação.
-
-Se você desejar verificar o estado do registro de dispositivo local de um dispositivo registrado:
+**R:** você pode usar o portal do Azure. Vá para Todos os dispositivos e pesquise o dispositivo usando a respectiva ID. Verifique o valor na coluna de tipo de associação. Às vezes, o dispositivo pode ter sido redefinido ou recriado. Portanto, é essencial também verificar o estado do registro do dispositivo no dispositivo:
 
 - Para dispositivos Windows 10 e Windows Server 2016 ou posterior, execute dsregcmd.exe /status.
 - Para versões do sistema operacional de nível inferior, execute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
+
+---
+
+**P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no dispositivo. Estou configurado corretamente para usar o acesso condicional?**
+
+**R:** O estado do ingresso do dispositivo, refletido por deviceID, deve corresponder ao do Microsoft Azure AD e atender a qualquer critério de avaliação para acesso condicional. Para obter mais informações, consulte [Exigir dispositivos gerenciados para acesso ao aplicativo em nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -88,25 +72,6 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 3.  Digite `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**P: Como cancelar a associação de um dispositivo ingressado no Azure AD localmente no dispositivo?**
-
-**R:** 
-- Para dispositivos associados do Azure AD híbrido, desative o registro automático para que a tarefa agendada não registre o dispositivo novamente. Agora, abra um prompt de comando como Administrador e digite `dsregcmd.exe /debug /leave`. Como alternativa, este comando pode ser executado como um script em vários dispositivos para cancelar a associação em massa.
-
-- Para dispositivos Azure AD simplesmente associados, verifique se você tem uma conta de administrador local offline ou crie uma, pois você não poderá entrar com as credenciais de usuário do Azure AD. Em seguida, acesse **Configurações** > **Contas** > **Acessar corporativo ou de estudante**. Selecione sua conta e clique em **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
-
----
-
-**P: Meus usuários não conseguem procurar impressoras em dispositivos ingressados no Azure AD. Como habilitar a impressão usando dispositivos ingressados no Azure AD?**
-
-**R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
-
----
-
-**P: Como fazer para conectar um dispositivo associado do Azure AD remoto?**
-**R:** Consulte o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
-
----
 
 **P: Por que vejo entradas de dispositivo duplicadas no Portal do Azure?**
 
@@ -128,7 +93,27 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 >[!Note] 
 >Para dispositivos inscritos, é recomendável apagar o dispositivo para garantir que usuários não possam acessar os recursos. Para obter mais informações, consulte [Inscrever dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+---
 
+# <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
+
+**P: Como cancelar a associação de um dispositivo ingressado no Azure AD localmente no dispositivo?**
+
+**R:** 
+- Para dispositivos associados do Azure AD híbrido, desative o registro automático para que a tarefa agendada não registre o dispositivo novamente. Agora, abra um prompt de comando como Administrador e digite `dsregcmd.exe /debug /leave`. Como alternativa, este comando pode ser executado como um script em vários dispositivos para cancelar a associação em massa.
+
+- Para dispositivos Azure AD simplesmente associados, verifique se você tem uma conta de administrador local offline ou crie uma, pois você não poderá entrar com as credenciais de usuário do Azure AD. Em seguida, acesse **Configurações** > **Contas** > **Acessar corporativo ou de estudante**. Selecione sua conta e clique em **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
+
+---
+
+**P: Meus usuários não conseguem procurar impressoras em dispositivos ingressados no Azure AD. Como habilitar a impressão usando dispositivos ingressados no Azure AD?**
+
+**R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
+
+---
+
+**P: Como fazer para conectar um dispositivo associado do Azure AD remoto?**
+**R:** Consulte o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
 
 ---
 
@@ -144,12 +129,6 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-**P: Posso ver o registro de dispositivo nas informações do usuário no Portal do Azure e posso ver o estado como registrado no dispositivo. Estou configurado corretamente para usar o acesso condicional?**
-
-**R:** O estado do ingresso do dispositivo, refletido por deviceID, deve corresponder ao do Microsoft Azure AD e atender a qualquer critério de avaliação para acesso condicional. Para obter mais informações, consulte [Exigir dispositivos gerenciados para acesso ao aplicativo em nuvem com acesso condicional](../conditional-access/require-managed-devices.md).
-
----
-
 **P: Por que recebo uma mensagem de "nome de usuário ou senha está incorreta" para um dispositivo que acabei de ingressar no Azure AD?**
 
 **R:** As razões comuns para esse cenário são:
@@ -158,7 +137,7 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 - O computador não pode se comunicar com o Azure Active Directory. Verifique se há problemas de conectividade de rede.
 
-- Os logons federados requerem que o servidor de federação dê suporte a um ponto de extremidade WS-Trust ativo. 
+- Os logons federados requerem que o servidor de federação dê suporte a pontos de extremidade do WS-Trust habilitados e acessíveis. 
 
 - Você habilitou a Autenticação de Passagem, e o usuário tem uma senha temporária que precisa ser alterada no logon.
 
@@ -170,14 +149,15 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
-**P: Por que minha tentativa de ingressar um computador falhou embora eu não tenha obtido nenhuma informação de erro?**
+**P: Por que minha tentativa de ingressar no Azure AD em um PC falhou, embora eu não tenha recebido nenhuma informação de erro?**
 
 **R:** Uma causa provável é que o usuário está conectado ao dispositivo usando a conta de administrador interno local. Crie uma conta local diferente antes de usar o Ingresso do Azure Active Directory para concluir a configuração. 
 
-
 ---
 
-**P: Onde posso encontrar informações de solução de problemas sobre o registro de dispositivo automático?**
+# <a name="hybrid-azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD Híbrido
+
+**P: Onde posso encontrar informações sobre solução de problemas para diagnosticar falhas de ingresso no Azure AD híbrido?**
 
 **R:** Para encontrar informações de solução de problemas, consulte:
 
@@ -188,3 +168,23 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Perguntas frequentes sobre o registro do Azure AD
+
+**P: É possível registrar dispositivos Android ou iOS BYOD?**
+
+**R:** Sim, mas apenas com o serviço de registro de dispositivos do Azure e para clientes híbridos. Não há suporte a esses dispositivos com serviço de registro de dispositivo local no AD FS.
+
+**P: Como posso registrar um dispositivo macOS?**
+
+**R:** Para registrar um dispositivo macOS:
+
+1.  [Criar uma política de conformidade](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [Definir uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
+
+**Comentários:**
+
+- Os usuários que estão incluídos em sua política de acesso condicional precisam de uma [versão com suporte do Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para acessar os recursos. 
+
+- Durante a primeira tentativa de acesso, os usuários são solicitados a registrar o dispositivo usando o portal da empresa.
+
+---

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247680"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616003"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -45,7 +45,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 * Introduz o conceito de [Transformações](transforms-jobs-concept.md) para processamento de trabalho baseado em arquivo. Uma transformação pode ser usada para criar configurações reutilizáveis, criar modelos do Azure Resource Manager e isolar configurações de processamento entre vários clientes ou locatários.
 * Um Ativo pode ter [vários StreamingLocators](streaming-locators-concept.md), cada um com diferentes configurações de Dynamic Packaging e Dynamic Encryption.
 * [A proteção de conteúdo](content-key-policy-concept.md) suporta recursos de várias chaves.
-* Você pode transmitir eventos ao vivo com até 24 horas de duração.
+* Você pode transmitir eventos ao vivo de até 24 horas longa quando usar os Serviços de Mídia do Microsoft Azure para transcodificação uma contribuição de taxa de bits única de feed em um fluxo de saída que tem várias taxas de bits.
 * Novo suporte a streaming ao vivo de baixa latência no LiveEvents.
 * A Versão Prévia do LiveEvent dá suporte para Empacotamento Dinâmico e Criptografia Dinâmica. Isso permite proteção de conteúdo na Versão Prévia, bem como empacotamento HLS e DASH.
 * LiveOutput é mais simples de usar do que a entidade Program nas APIs v2. 
@@ -59,6 +59,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 * Os v3 SDKs agora são desacoplados do Storage SDK, o que lhe dá mais controle sobre a versão do Storage SDK que você deseja usar e evita problemas de versão. 
 * Nas APIs da v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições do v2 Media Encoder Standard. Por exemplo, o bitrate em v2 seria especificado como 128 (kbps), mas em v3 seria 128000 (bits / segundo). 
 * Entidades AssetFiles, AccessPolicies e IngestManifests não existem na v3.
+* A propriedade IAsset.ParentAssets não existe na v3.
 * Os ContentKeys não é mais uma entidade, agora é uma propriedade do StreamingLocator.
 * O suporte para Grade de Eventos substitui o NotificationEndpoints.
 * As seguintes entidades foram renomeadas
@@ -95,7 +96,7 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 
 |Cenário|API V2|API V3|
 |---|---|---|
-|Criar um ativo e enviar um arquivo |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET V3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
+|Criar um ativo e enviar um arquivo |[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Enviar um trabalho|[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[exemplo de .NET V3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra como criar primeiro uma transformação e, em seguida, enviar uma tarefa.|
 |Publicar um ativo com criptografia AES |1. Criar ContentKeyAuthorizationPolicyOption<br/>2. Criar ContentKeyAuthorizationPolicy<br/>3. Criar AssetDeliveryPolicy<br/>4. Criar Ativo e carregar conteúdo OU Enviar trabalho e usar ativo de saída<br/>5. Associar AssetDeliveryPolicy com Ativo<br/>6. Criar ContentKey<br/>7. Anexar ContentKey ao Ativo<br/>8. Criar AccessPolicy<br/>9. Criar Localizador<br/><br/>[exemplo de .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Criar Política de Chave de Conteúdo<br/>2. Criar Ativo<br/>3. Carregar conteúdo ou usar Ativo como JobOutput<br/>4. Criar StreamingLocator<br/><br/>[exemplo de .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 

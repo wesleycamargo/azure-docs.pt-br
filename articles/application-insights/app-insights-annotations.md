@@ -11,21 +11,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2016
+ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f943f0e371b3092717a62a2e83a98211723e5302
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b7b663b95bee12848f4afe2d2f48504a4408266
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304400"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515159"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
+
 As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação ou outro evento relevante. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Eles podem ser criados automaticamente pelo [sistema de build do Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Você também pode criar anotações para sinalizar eventos desejados [criando-as no PowerShell](#create-annotations-from-powershell).
 
+> [!NOTE]
+> Este artigo reflete a experiência de métricas clássicas **reprovada**. Anotações só estão disponíveis no momento em que a experiência clássica em **[pastas de trabalho](app-insights-usage-workbooks.md)**. Para saber mais sobre o modo experiência de métricas, você pode consultar [deste artigo](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+
 ![Exemplo de anotações com correlação visível com tempo de resposta do servidor](./media/app-insights-annotations/00.png)
-
-
 
 ## <a name="release-annotations-with-azure-devops-services-build"></a>Anotações de versão com o build do Azure DevOps Services
 

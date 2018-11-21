@@ -1,8 +1,18 @@
 ---
-título: Habilitar replicação de VMs VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Descrição de Microsoft Docs: Este artigo descreve como habilitar a replicação de VMs VMware para recuperação de desastre para o Azure usando o Azure Site Recovery.
-author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: Habilite a replicação de VMs do VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Microsoft Docs'
+description: Este artigo descreve como habilitar a replicação de VMs do VMware para recuperação de desastre no Azure, usando o Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566341"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
 
@@ -68,10 +78,7 @@ Ao replicar máquinas virtuais VMware:
     ![Habilitar a replicação](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Clique em **Habilitar a Replicação**. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
-> [!NOTE]
-> Se o computador estiver preparado para a instalação por push, o componente de Serviço de Mobilidade será instalado quando a proteção estiver habilitada. Depois do componente estiver instalado no computador, um trabalho de proteção será iniciado e falhará. Após a falha, você precisa reiniciar manualmente cada computador. Após a reinicialização, o trabalho de proteção começa novamente e a replicação inicial ocorrerá.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 

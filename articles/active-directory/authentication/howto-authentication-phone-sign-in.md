@@ -1,6 +1,6 @@
 ---
 title: Entrada sem senha no Azure AD com o aplicativo Microsoft Authenticator (visualização pública)
-description: Entrar no Azure AD usando o aplicativo Microsoft Authenticator sem usar sua senha (visualização pública)
+description: Entrar no Azure AD usando o aplicativo Microsoft Authenticator sem usar sua senha (versão prévia pública)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804320"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287176"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Entrada sem senha pelo telefone com o aplicativo Microsoft Authenticator (visualização pública)
 
@@ -37,11 +37,16 @@ Para versão prévia pública, um administrador deve primeiro adicionar uma pol�
 
 ### <a name="steps-to-enable"></a>Etapas para habilitar
 
-1. Instale a [versão prévia pública do módulo do PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. No PowerShell, execute dois comandos:
-   1. `Connect-AzureAD`
-      1. Na caixa de diálogo de autenticação, entre com uma conta no locatário. A conta deve ser um Administrador de Segurança ou um Administrador Global.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Verifique se você tem a versão mais recente da versão do Public Preview do Módulo do PowerShell do Azure Active Directory V2. Você pode querer desinstalar e reinstalar para confirmar isso, executando os seguintes comandos:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Você pode ativar a visualização de entrada do telefone sem senha usando os seguintes comandos do PowerShell:
+
+1. `Connect-AzureAD`
+   1. Na caixa de diálogo de autenticação, entre com uma conta no locatário. A conta deve ser um Administrador de Segurança ou um Administrador Global.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Como os meus usuários finais habilitam entrada pelo telefone?
 
@@ -61,7 +66,7 @@ Depois que o usuário tem a conta MFA com notificações por push no aplicativo 
 
 ### <a name="ad-fs-integration"></a>Integração do AD FS
 
-Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados para o ADFS para verificação de entrada sem que o usuário realize uma etapa adicional de clicar em "Usar sua senha em vez disso". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. A exceção a esse processo é que, se um login_hint for especificado, um usuário será encaminhado automaticamente para o AD FS e ignorará a opção de usar a credencial sem senha.
+Quando um usuário tiver habilitado a credencial sem senha do Microsoft Authenticator, a autenticação para esse usuário sempre enviará como padrão uma notificação de aprovação. Essa lógica impede que os usuários em um locatário híbrido sejam direcionados para o ADFS para verificação de entrada sem que o usuário realize uma etapa adicional de clicar em "Usar sua senha em vez disso". Esse processo também ignorará quaisquer políticas de Acesso Condicional locais e fluxos de autenticação de Passagem. A exceção a esse processo é se um login_hint for especificado, um usuário será autoforwarded para o AD FS e ignorar a opção para usar a credencial sem senha.
 
 ### <a name="azure-mfa-server"></a>Servidor MFA do Azure
 

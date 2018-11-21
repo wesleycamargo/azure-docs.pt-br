@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006015"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613351"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorar a atividade da assinatura com o Log de Atividades do Azure
 
@@ -33,7 +33,7 @@ O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-dia
 Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
 
 > [!NOTE]
->  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferecem uma experiência aprimorada ao criar e gerenciar regras de alerta do log de atividades.  [Saiba mais](alert-activity-log.md).
+> [Os alertas mais recentes](monitoring-overview-alerts.md) oferecem uma experiência aprimorada ao criar e gerenciar regras de alerta do log de atividades.  [Saiba mais](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorias no Log de Atividades

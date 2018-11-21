@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336848"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344987"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: como modificar a inscrição para adicionar novas declarações e configurar a entrada do usuário.
 
@@ -277,8 +277,8 @@ Verificar email está habilitado por padrão no `<TechnicalProfile Id="LocalAcco
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Adicione a nova declaração aos fluxos para logons de conta social alterando os TechnicalProfiles listados abaixo. Eles são usados por logons de conta social/federados para gravar e ler os dados do usuário usando o alternativeSecurityId como o localizador.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Se a sua política suportar contas sociais, adicione a nova reivindicação aos fluxos de logins da conta social alterando os perfis técnicos listados abaixo. Essas declarações são usadas por logins de conta social para coletar e gravar dados do usuário.
+
+1. Localize o perfil técnico **SelfAsserted Social** e adicione a declaração de saída. A ordem das declarações no **OutputClaims** controla a ordem em que o Azure AD B2C renderiza as declarações na tela. Por exemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Localize o perfil técnico **AAD-UserWriteUsingAlternativeSecurityId** e inclua a declaração persistente. Por exemplo, `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Localize o perfil técnico **AAD-UserReadUsingAlternativeSecurityId** e inclua a declaração de saída. Por exemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.

@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209678"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577916"
 ---
 # <a name="confidence-score"></a>Pontuação de confiança
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -53,6 +53,8 @@ Ao escolher seu limite, tenha em mente o equilíbrio entre Precisão e Cobertura
 
 - Se a **Cobertura** (ou o retorno de chamada) for mais importante, e você quiser responder ao maior número de perguntas possível, mesmo que haja apenas uma relação parcial com a pergunta do usuário, então DIMINUA o limite. Isso significa que pode haver mais casos em que a resposta não responda à consulta real do usuário, mas forneça alguma outra resposta relacionada. *Por exemplo:* se você estabelecer o limite como **30**, poderá fornecer respostas não muito relacionadas, como, respondendo com o exemplo acima, para consultas como "Onde posso editar minha Base de conhecimento?"
 
+> [!NOTE]
+> As versões mais recentes do QnA Maker incluem melhorias na lógica de pontuação e poderão afetar seu limite. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limite, se necessário. Você pode verificar a versão do Serviço QnA [aqui](https://www.qnamaker.ai/UserSettings) e saber como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
 Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta.

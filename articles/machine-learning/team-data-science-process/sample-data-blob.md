@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: ffb92df0e0727d02985ec26f61739cdc759d0f93
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9f987daf8b0f111f8d527b2f18dc5e3428df282a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837660"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344919"
 ---
 # <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
-Este documento aborda os dados de amostragem armazenados no armazenamento de blobs do Azure, baixando-os de forma programática e realizando amostragem usando procedimentos escritos em Python.
 
-O **menu** a seguir leva a tópicos que descrevem como obter dados de exemplo de vários ambientes de armazenamento. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+Este artigo aborda os dados armazenados no armazenamento de blobs do Azure fazendo o download por meio de programação e, em seguida, amostrando-os usando procedimentos escritos em Python.
 
 **Por que fazer amostragem dos dados?**
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.

@@ -1,29 +1,29 @@
 ---
-title: Instalação silenciosa do Servidor de Backup do Azure v2
-description: Use um script do PowerShell para instalar silenciosamente o Servidor de Backup do Azure v2. Esse tipo de instalação também é chamado de uma instalação autônoma.
+title: Instalação silenciosa do Servidor de Backup do Azure V2
+description: Use um script do PowerShell para instalar silenciosamente o Servidor de Backup do Azure V2. Esse tipo de instalação também é chamado de uma instalação autônoma.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606402"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612688"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Executar uma instalação autônoma do Servidor de Backup do Azure v2
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
-Saiba como executar uma instalação autônoma do Servidor de Backup do Azure v2. 
+Saiba como executar uma instalação autônoma do Servidor de Backup do Azure.
 
-Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do Azure v1.
+Essas etapas não serão aplicáveis se você estiver instalando o Servidor de Backup do Azure V1.
 
-## <a name="install-backup-server-v2"></a>Instalar o Servidor de Backup v2
+## <a name="install-backup-server"></a>Instalar o servidor de backup
 
-1. No servidor que hospeda o Servidor de Backup do Azure v2, crie um arquivo de texto. (Você pode criar o arquivo no Bloco de Notas ou em outro editor de texto.) Salve o arquivo como MABSSetup.ini. 
+1. No servidor que hospeda o Servidor de Backup do Azure V2 ou posterior, crie um arquivo de texto. (Você pode criar o arquivo no Bloco de Notas ou em outro editor de texto.) Salve o arquivo como MABSSetup.ini.
 
 2. Cole o código a seguir no arquivo MABSSetup.ini. Substitua o texto dentro dos colchetes (\< \>) com valores do seu ambiente. O texto a seguir é um exemplo:
 

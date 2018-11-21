@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036420"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515362"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver o Azure Functions usando o Visual Studio  
 
@@ -189,7 +189,7 @@ Para saber mais sobre o uso das Ferramentas Básicas do Azure Functions, consult
 
 As configurações que você adicionou no local.settings.json também devem ser adicionadas ao aplicativo de funções no Azure. Essas configurações não são carregadas automaticamente quando você publicar o projeto.
 
-A maneira mais fácil para carregar as configurações necessárias para o seu aplicativo de função no Azure é usar o link **Gerenciar configurações de aplicativo...**  que é exibido depois que você publica seu projeto com êxito. 
+A maneira mais fácil para carregar as configurações necessárias para o seu aplicativo de função no Azure é usar o link **Gerenciar configurações de aplicativo...**  que é exibido depois que você publica seu projeto com êxito.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ Isso exibe a caixa de diálogo **Configurações de aplicativo** para o aplicati
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** representa um valor de configuração no arquivo local.settings.json e **Remoto** é a configuração atual no aplicativo de funções no Azure.  Escolha **Adicionar configuração** para criar uma nova configuração de aplicativo. Use o link **Inserir valor do local** para copiar um valor de configuração para o campo **Remoto**. As alterações pendentes serão gravadas no arquivo de configurações local e no aplicativo de funções quando você selecionar **OK**.
+
 Você também pode gerenciar as configurações de aplicativo em um desses outros modos:
 
 * [Usando o Portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Usando a opção de publicação `--publish-local-settings` nas ferramentas básicas do Azure Functions](functions-run-local.md#publish).
-* [Usando a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Usando a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Funções de monitoramento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 31f4c64296c180ac441f2fb691514a4b9fb35a57
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390084"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SharePoint no local da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. Na caixa de texto **Identificador**, digite a URL: `urn:sharepoint:federation`
 
@@ -130,7 +130,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 6. Na seção **Configuração do SharePoint local**, clique em **Configurar SharePoint local** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.** Para a **URL do Serviço de Logon Único**, use um valor do seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
-    > _my_directory_id_ é a ID do locatário da assinatura do Azure AD.
+    > _my_directory_id_ é a ID do locatário da assinatura do Microsoft Directory Azure.
 
     ![Configuração do SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
@@ -161,7 +161,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     Em seguida, siga estas etapas para habilitar o provedor de identidade confiável para seu aplicativo:
 
-    a. Na Administração Central, navegue até **Gerenciar Aplicativo de Web** e selecione o aplicativo Web que você deseja proteger com o Azure AD.
+     a. Na Administração Central, navegue até **Gerenciar Aplicativo de Web** e selecione o aplicativo Web que você deseja proteger com o Azure AD.
 
     b. Na faixa de opções, clique em **Provedores de Autenticação** e escolha a região que você deseja usar.
 
@@ -304,7 +304,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco no local do SharePoint no Painel de Acesso, você deverá entrar automaticamente no seu aplicativo local do SharePoint.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

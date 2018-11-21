@@ -1,6 +1,6 @@
 ---
 title: Extrair, transformar e carregar (ETL) em escala - Azure HDInsight
-description: Saiba como ETL é usado no HDInsight com Hadoop.
+description: Saiba como o ETL é usado no HDInsight com o Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048995"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633318"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
-Extração, transformação e carregamento (ETL) é o processo pelo qual os dados são adquiridos de várias fontes, coletados em um local padrão, limpos e processados e, por fim, carregados em um repositório de dados do qual podem ser consultados. Processos ETL herdados importam dados, os limpam no local e, em seguida, os armazenam em um mecanismo de dados relacionais. Com o HDInsight, uma ampla variedade de componentes do ecossistema Hadoop tem suporte para executar ETL em escala. 
+Extração, transformação e carregamento (ETL) é o processo pelo qual os dados são adquiridos de várias fontes, coletados em um local padrão, limpos e processados e, por fim, carregados em um repositório de dados do qual podem ser consultados. Processos ETL herdados importam dados, os limpam no local e, em seguida, os armazenam em um mecanismo de dados relacionais. Com o HDInsight, uma grande variedade de componentes do ecossistema Apache Hadoop suporta a execução de ETL em escala. 
 
 O uso do HDInsight no processo de ETL pode ser resumido por este pipeline:
 

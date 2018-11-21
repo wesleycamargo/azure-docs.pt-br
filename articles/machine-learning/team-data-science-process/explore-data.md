@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/08/2018
 ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55d92fedbb67d21d34464b792b3600eb6964840b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837274"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345514"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Explorar dados no Processo de Ciência de Dados de Equipe
-Este documento aborda como explorar dados em quatro ambientes diferentes, normalmente usados no Processo de Ciência de Dados:
 
-* **Contêiner de blob do azure** Os dados são explorados usando o pacote Python [Pandas](http://pandas.pydata.org/) .
-* **Dados do SQL Server** são explorados usando SQL e usando uma linguagem de programação como o Python.
-* **Tabela do Hive** Os dados são explorados usando consultas de Hive.
-* **Studio de AML(Azure Machine Learning)** são explorados usando módulos do AML.
+Explorar dados é uma etapa no [Processo de Ciência de Dados de Equipe](overview.md).
 
-Os links no **menu** a seguir levam aos tópicos que descrevem como usar essas ferramentas para explorar dados de vários ambientes de armazenamento. 
+Os artigos a seguir descrevem como explorar dados em três ambientes de armazenamento diferentes que são normalmente usados no Processo de Ciência de Dados:
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* Explore os dados do [Contêiner de blob do Azure](explore-data-blob.md) usando o capote Python [Pandas](http://pandas.pydata.org/).
+* Explore os dados do [SQL Server](explore-data-sql-server.md) usando o SQL e usando uma linguagem de programação como Python.
+* Explore os dados de [tabela de Hive](explore-data-hive-tables.md) usando as consultas do Hive.
 
+Além disso, o vídeo [Pré-processamento de Dados no Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), descreve os módulos mais usados para limpar e transformar dados no Azure Machine Learning Studio.

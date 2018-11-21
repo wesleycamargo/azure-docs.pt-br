@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801005"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344477"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Proteger serviços Web do Azure Machine Learning com SSL
 
@@ -53,9 +53,8 @@ Ao solicitar um certificado, você precisa fornecer o FQDN (nome de domínio tot
 > [!TIP]
 > Se a Autoridade de Certificação não puder fornecer o certificado e a chave como arquivos codificados em PEM, você poderá usar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
-> [!IMPORTANT]
-> Certificados autoassinados devem ser usados apenas para desenvolvimento. Eles não devem ser usados na produção. Se você usa um certificado autoassinado, confira a seção [Consumindo serviços Web com certificados autoassinados](#self-signed) para obter instruções específicas.
-
+> [!WARNING]
+> Certificados autoassinados devem ser usados apenas para desenvolvimento. Eles não devem ser usados na produção. Certificados autoassinados podem causar problemas nos aplicativos clientes. Para obter mais informações, consulte a documentação das bibliotecas de rede usadas no aplicativo cliente.
 
 ## <a name="enable-ssl-and-deploy"></a>Habilitar SSL e implantar
 
@@ -119,91 +118,8 @@ Em seguida, você precisa atualizar o DNS para apontar para o serviço Web.
 
   Atualize o DNS na guia "Configuração" do "Endereço IP Público" do cluster do AKS, conforme é mostrado na imagem. Encontre o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
-  ![Serviço do Azure Machine Learning: protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Serviço do Azure Machine Learning: protegendo serviços Web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## <a name="consume-authenticated-services"></a>Consumir serviços autenticados
+## <a name="next-steps"></a>Próximas etapas
 
-### <a name="how-to-consume"></a>Como consumir 
-+ **Para ACI e AKS**: 
-
-  Para serviços Web das ACI e do AKS, veja como consumir serviços Web nestes artigos:
-  + [Como implantar nas ACI](how-to-deploy-to-aci.md)
-
-  + [Como implantar no AKS](how-to-deploy-to-aks.md)
-
-+ **Para FPGA**:  
-
-  Os exemplos a seguir demonstram como consumir um serviço da FPGA autenticado em Python e C#.
-  Substitua `authkey` pela chave primária ou secundária que foi retornada quando o serviço foi implantado.
-
-  Exemplo de Python:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  Exemplo de C#:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Definir o cabeçalho de autorização
-Outros clientes gRPC podem autenticar solicitações definindo um cabeçalho de autorização. A abordagem geral é criar um objeto `ChannelCredentials` que combine `SslCredentials` com `CallCredentials`. Isso é adicionado ao cabeçalho de autorização da solicitação. Para saber mais sobre a implementação de suporte para cabeçalhos específicos, confira [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-Os exemplos a seguir demonstram como definir o cabeçalho em C# e Go:
-
-+ Use C# para definir o cabeçalho:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Use Go para definir o cabeçalho:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Consumir serviços com certificados autoassinados
-
-Há duas maneiras de habilitar o cliente para autenticação em um servidor protegido com um certificado autoassinado:
-
-* No sistema do cliente, defina a variável de ambiente `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` no sistema do cliente a fim de apontar para o arquivo de certificado.
-
-* Ao construir um objeto `SslCredentials`, passe o conteúdo do arquivo do certificado para o construtor.
-
-O uso de um desses métodos faz com que gRPC use o certificado como o certificado raiz.
-
-> [!IMPORTANT]
-> gRPC não aceitar certificados não confiáveis. O uso de um certificado não confiável falhará com um código de status `Unavailable`. Os detalhes da falha contêm `Connection Failed`.
+Saiba como [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md).

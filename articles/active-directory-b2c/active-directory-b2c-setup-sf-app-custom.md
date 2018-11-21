@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: afed471694dd66adfc285965433a1efd92d1653b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 03961cab8bcf71a9db69937257385db5d3b500d8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945087"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684096"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configure a entrada com um provedor SAML da Salesforce usando políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra como habilitar a entrada para usuários de uma organização da Salesforce usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure AD (Azure Active Directory) B2C.
+Este artigo mostra como habilitar a entrada para usuários de uma organização da Salesforce usando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure AD (Azure Active Directory) B2C. Habilitar entrada adicionando uma [perfil técnico SAML](saml-technical-profile.md) para uma política personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,7 +89,7 @@ Você precisa armazenar o certificado que criou no locatário do Azure AD B2C.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Na página Visão Geral, selecione **Identity Experience Framework – VERSÃO PRÉVIA**.
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 6. Para **Opções**, escolha `Upload`.
@@ -200,7 +200,7 @@ A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cr
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
-3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 4. Selecione **Aplicativos** e, em seguida, selecione **Adicionar**.
 5. Insira um nome para o aplicativo, por exemplo *testapp1*.
 6. Para **Aplicativo Web/API Web**, selecione `Yes` e, em seguida, insira `https://jwt.ms` para a **URL de resposta**.

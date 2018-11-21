@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432601"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567478"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -128,9 +128,11 @@ O usuário que criou o item é automaticamente o usuário proprietário do item.
 
 Nas ACLs do POSIX, cada usuário está associado a um "grupo primário". Por exemplo, o usuário "alice" pode pertencer ao grupo "finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o grupo primário dela. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
 
+Como não há "grupo primário" associado a usuários no Data Lake Storage Gen1, o grupo proprietário é atribuído conforme mostrado abaixo.
+
 **Atribuindo o grupo proprietário de um novo arquivo ou pasta**
 
-* **Caso 1**: a pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido para o usuário que criou a conta.
+* **Caso 1**: a pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
 * **Caso 2** (todos os outros casos): quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 **Alterando o grupo proprietário**
@@ -140,7 +142,9 @@ O grupo proprietário pode ser alterado por:
 * O usuário proprietário, se o usuário proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O usuário proprietário *não pode* alterar as ACLs de um arquivo ou uma pasta.  Embora o grupo proprietário esteja definido para o usuário que criou a conta no caso da pasta raiz, **Caso 1** acima, uma conta de usuário individual não é válida para fornecer permissões através do grupo proprietário.  Você pode atribuir essa permissão a um grupo de usuários válido, se for aplicável.
+> O usuário proprietário *não pode* alterar as ACLs de um arquivo ou uma pasta.
+>
+> Para contas criadas em ou antes de setembro de 2018, o grupo proprietário foi definido para o usuário que criou a conta no caso da pasta raiz do **Caso 1**, acima.  Uma única conta de usuário não é válida para fornecer permissões por meio do grupo proprietário, portanto, nenhuma permissão é concedida por essa configuração padrão. Você pode atribuir essa permissão a um grupo de usuários válido.
 
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
@@ -246,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
+ Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente uma pasta e seu conteúdo?
 

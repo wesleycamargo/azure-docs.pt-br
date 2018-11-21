@@ -15,23 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 0efd754936b67611a747c6c5756de92443a937e4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 60431578ba8b5c740fe5e1124dcdad32c3cb2ede
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837987"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344069"
 ---
 # <a name="heading"></a>Amostra de dados em contêineres de blob do Azure, SQL Server e tabelas Hive
-Este documento leva a artigos que abordam como obter amostras de dados armazenados em um dos três diferentes locais do Azure:
 
-* **dados no contêiner de blobs do Azure** é realizada baixando-os programaticamente e realizando a amostragem com um exemplo de código Python.
-* **dados do SQL Server** é realizada usando SQL e a linguagem de programação Python. 
-* **dados da tabela do Hive** é realizada usando consultas de Hive.
+Os artigos a seguir descrevem como exemplos de dados armazenados em um dos três locais diferentes do Azure:
 
-O **menu** abaixo leva a tópicos que descrevem como obter dados de exemplo de cada um desses ambientes de armazenamento do Azure. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+* [**Os dados do contêiner de blobs do Azure**](sample-data-blob.md) são amostrados fazendo o download programaticamente e, em seguida, amostrando-os com código Python de amostra.
+* [**Dados do SQL Server**](sample-data-sql-server.md) são amostrados usando o SQL e a linguagem de programação Python. 
+* [**Dados da tabela do hive** ](sample-data-hive.md) é realizada usando consultas de Hive.
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 

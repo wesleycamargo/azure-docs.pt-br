@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395446"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624634"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory
 
@@ -42,7 +42,7 @@ Para usar as exibições do Log Analytics, você precisa:
 
 1. Navegue para seu workspace do Log Analytics. Para fazer isso, primeiro navegue até o [portal do Azure](https://portal.azure.com) e selecione **Todos os serviços**. Digite **Log Analytics** na caixa de texto e selecione **Log Analytics**. Selecione o workspace para o qual você roteou os logs de atividade como parte dos pré-requisitos.
 2. Selecione **Designer de Exibição**, **Importe** e, em seguida, **Escolher Arquivo** para importar as exibições do seu computador local.
-3. Selecione as exibições que você baixou dos pré-requisitos e selecione **Salvar** para salvar a importação. Faça isso para a exibição **Eventos de Provisionamento de Conta do Azure AD**, para a exibição **Eventos de Entradas** e para a exibição **Usuários Dando Consentimento**.
+3. Selecione as exibições que você baixou dos pré-requisitos e selecione **Salvar** para salvar a importação. Faça isso para a exibição **Eventos de provisionamento de conta do Azure AD** e a exibição **Eventos de Entradas**.
 
 ## <a name="use-the-views"></a>Usar as exibições
 
@@ -52,7 +52,6 @@ Para usar as exibições do Log Analytics, você precisa:
 
     * **Eventos de Provisionamento de Conta do Azure AD**: esta exibição mostra os relatórios relacionados à auditoria da atividade de provisionamento, como o número de novos usuários provisionados e falhas de provisionamento, número de usuários atualizados e falhas de atualização e número de usuários desprovisionados e falhas correspondentes.    
     * **Eventos de Entradas**: esta exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como exibição resumida acompanhando o número de entradas ao longo do tempo.
-    * **Consentimento dos Usuários para Execução**: esta exibição mostra os relatórios relacionados ao consentimento do usuário, como o consentimento dados por usuário, entradas por usuários que recebeu consentimento, bem como entradas por aplicativo para todos os aplicativos baseados em consentimento. 
 
 3. Selecione qualquer uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas para qualquer um dos parâmetros do relatório. Por exemplo, vamos definir um alerta sempre que houver um erro de entrada. Para fazer isso, primeiro selecione a exibição **Eventos de Entradas**, selecione o relatório **Erros de entrada ao longo do tempo** e, em seguida, selecione **Analytics** para abrir a página de detalhes com a consulta real subjacente ao relatório. 
 

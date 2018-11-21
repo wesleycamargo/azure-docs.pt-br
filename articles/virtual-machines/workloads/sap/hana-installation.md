@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231093"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633947"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Instâncias Grandes) no Azure
 
@@ -103,7 +103,7 @@ A seguir, há notas de suporte da SAP aplicáveis à implementação do SAP HANA
 - [Nota de suporte SAP n° 2205917 – configurações de SO recomendadas para o banco de dados do SAP HANA para SLES 12 para aplicativos SAP](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [Nota de suporte SAP n° 1984787 – SUSE Linux Enterprise Server 12: notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
 - [Nota de suporte SAP n° 171356 – software SAP no Linux: informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
-- [Nota de suporte SAP n° 1391070 – soluções UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
+- [Nota de suporte SAP n° 1391070 – Soluções UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
 
 [Red Hat Enterprise Linux para SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) é outra oferta para execução do SAP HANA em instâncias grandes de HANA. As versões do RHEL 6.7 e 7.2 estão disponíveis. Observe que, ao contrário das VMs do Azure, em que apenas RHEL 7.2 e as versões mais recentes têm suporte, as grandes instâncias HANA também oferecem suporte para RHEL 6.7. No entanto, é recomendável usar uma versão do RHEL 7.x.
 
@@ -170,7 +170,7 @@ O volume de HANA/log/backup não deve ser o volume dos backups de banco de dados
 
 Além do armazenamento fornecido, você pode adquirir uma capacidade de armazenamento adicional em incrementos de 1 TB. Esse armazenamento adicional pode ser incluído como novos volumes para o HANA em Instâncias Grandes.
 
-Durante a integração com o SAP HANA no gerenciamento de serviços do Azure, o cliente especifica uma UID (ID de Usuário) e uma GID (ID de Grupo) para o usuário sidadm e o grupo sapsys (por exemplo: 1000, 500). É necessário que, durante a instalação do sistema SAP HANA, esses mesmos valores sejam usados. Como você deseja implantar várias instâncias do HANA em uma unidade, você obterá vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento da implantação, é necessário definir o seguinte:
+Durante a integração com SAP HANA no gerenciamento de serviços do Azure, o cliente especifica uma UID (ID de usuário) e uma GID (ID do grupo) para o usuário sidadm e o grupo sapsys (por exemplo: 1000.500). Durante a instalação do sistema SAP HANA, você deverá usar esses mesmos valores. Como você deseja implantar várias instâncias do HANA em uma unidade, você obterá vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento da implantação, é necessário definir o seguinte:
 
 - O SID das diferentes instâncias do HANA (o sidadm é derivado dele).
 - Os tamanhos de memória das diferentes instâncias do HANA. O tamanho de memória por instância define o tamanho dos volumes em cada conjunto de volumes individual.

@@ -1,6 +1,6 @@
 ---
-title: MapReduce e conexão SSH com o Hadoop no HDInsight
-description: Aprenda a usar o SSH para executar trabalhos MapReduce usando o Hadoop no HDInsight.
+title: MapReduce e conexão SSH com o Apache Hadoop no HDInsight - Azure
+description: Aprenda a usar o SSH para executar tarefas MapReduce usando o Apache Hadoop no HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8c3fb1a5474d0546dc06dfea681e6229b563ccc0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014336"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632519"
 ---
-# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Usar o MapReduce com Hadoop no HDInsight com SSH
+# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Use o MapReduce com o Apache Hadoop no HDInsight com SSH
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Saiba como enviar trabalhos MapReduce de uma conexão SSH (Secure Shell) para o HDInsight.
 
 > [!NOTE]
-> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte [Dicas do HDInsight baseado em Linux](../hdinsight-hadoop-linux-information.md).
+> Se você já estiver familiarizado com o uso de servidores Apache Hadoop baseados em Linux, mas for novo no HDInsight, consulte [dicas do HDInsight baseadas em Linux](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Pré-requisitos
 

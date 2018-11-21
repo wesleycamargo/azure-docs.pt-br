@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389625"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567036"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
@@ -31,7 +31,7 @@ O operador AnomalyDetection detecta três tipos de anomalias:
 
 * **Tendência negativa lenta**: uma diminuição lenta da tendência ao longo do tempo.  
 
-Ao usar o operador AnomalyDetection, será necessário especificar a cláusula **Limit Duration**. Essa cláusula especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) que deve ser considerado ao detectar anomalias. Esse operador pode, opcionalmente, ser limitado a apenas eventos que correspondem a uma determinada propriedade ou condição usando a cláusula **When** . Esse operador também pode, opcionalmente, processar grupos de eventos separadamente com base na chave especificada na cláusula  **Partition by** . Treinamento e previsão ocorrem de forma independente para cada partição. 
+Ao usar o operador AnomalyDetection, será necessário especificar a cláusula **Limit Duration**. Essa cláusula especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) que deve ser considerado ao detectar anomalias. Opcionalmente, esse operador poderá ser limitado a apenas eventos correspondentes a uma determinada propriedade ou condição, usando a cláusula **When**. Como alternativa, esse operador também poderá processar grupos de eventos separadamente com base na chave especificada na cláusula **Partition by**. Treinamento e previsão ocorrem de forma independente para cada partição. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Sintaxe para operador AnomalyDetection
 
@@ -45,11 +45,11 @@ Ao usar o operador AnomalyDetection, será necessário especificar a cláusula *
 
 * **scalar_expression** - A expressão escalar sobre a qual a detecção de anomalia é realizada. Os valores permitidos para esse parâmetro incluem tipos de dados Float ou Bigint que retornam um único valor (escalar). A expressão curinga **\*** não é permitida. A expressão escalar não pode conter outras funções analíticas ou funções externas. 
 
-* **partition_by_clause** - A cláusula `PARTITION BY <partition key>` divide a aprendizado e treinamento em partições separadas. Em outras palavras, um modelo separado seria usado por valor de `<partition key>`, e apenas os eventos com esse valor seriam usados para o aprendizado e treinamento nesse modelo. Por exemplo, a consulta a seguir treina e pontua uma leitura em relação a outras leituras do mesmo sensor somente:
+* **partition_by_clause** - A cláusula `PARTITION BY <partition key>` divide o aprendizado e o treinamento em partições separadas. Em outras palavras, um modelo separado seria usado por valor de `<partition key>`, e apenas os eventos com esse valor seriam usados para o aprendizado e treinamento nesse modelo. Por exemplo, a consulta a seguir treina e pontua uma leitura em relação a outras leituras do mesmo sensor somente:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration clause** `DURATION(<unit>, <length>)` - Especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) que deve ser considerado ao detectar anomalias. Consulte [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) para uma descrição detalhada das unidades com suporte e suas abreviaturas. 
+* **Cláusula limit_duration** `DURATION(<unit>, <length>)` - Especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) deverá ser considerado ao detectar anomalias. Consulte [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) para uma descrição detalhada das unidades com suporte e suas abreviaturas. 
 
 * **when_clause** - Especifica uma condição booliana para os eventos considerados na computação de detecção de anomalia.
 
@@ -131,7 +131,7 @@ Vamos revisar a computação de estranheza em detalhes (assumir um conjunto de j
    - Inclinação, se a inclinação for negativa  
    - 0, caso contrário  
 
-Quando o valor de estranheza para o evento de entrada é computado, um valor martingale é computado com base no valor de estranheza (consulte o [blog do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para detalhes sobre como o valor martingale é computado). Esse valor martingale é retomado como a pontuação de anomalia. O valor martingale aumenta lentamente em resposta a valores estranhos, o que permite que o detector permaneça robusto para mudanças esporádicas e reduz alertas falsos. Também possui uma propriedade útil: 
+Quando o valor de estranheza para o evento de entrada é computado, um valor martingale é computado com base no valor de estranheza (consulte o [blog do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para detalhes sobre como o valor martingale é computado). Esse valor martingale é retornado como a pontuação de anomalia. O valor martingale aumenta lentamente em resposta a valores estranhos, o que permite que o detector permaneça robusto para mudanças esporádicas e reduz alertas falsos. Também possui uma propriedade útil: 
 
 Probabilidade [existe t tal que M<sub>t</sub> > λ] < 1/λ, em que M<sub>t</sub> é o valor martingale em t instantâneo e λ é um valor real. Por exemplo, se houver um alerta quando M<sub>t</sub>>100, então, a probabilidade de falsos positivos será menor que 1/100.  
 

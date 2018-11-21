@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153211"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616054"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Detalhes da configuração de rede para Ambientes de Serviço de Aplicativo com o ExpressRoute
 ## <a name="overview"></a>Visão geral
@@ -81,7 +81,7 @@ Os detalhes sobre como criar e configurar rotas definidas pelo usuário estão d
 
 **Etapa 1: Criar uma tabela de rotas nomeada**
 
-O trecho a seguir cria uma tabela de rota chamada "DirectInternetRouteTable" na região oeste dos EUA no Azure:
+O snippet a seguir cria uma tabela de rota chamada "DirectInternetRouteTable" na região oeste dos EUA no Azure:
 
     New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest
 
@@ -93,7 +93,7 @@ A abordagem recomendada para configurar o acesso de saída à Internet é defini
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-Lembre-se de que 0.0.0.0/0 é um intervalo de endereços amplo e assim será substituído por intervalos de endereços mais específicos anunciados pelo ExpressRoute.  Para reiterar a recomendação anterior, um UDR com uma rota 0.0.0.0/0 deve ser usado em conjunto com uma configuração de Rota Expressa que só anuncia 0.0.0.0/0 também. 
+Lembre-se de que 0.0.0.0/0 é um intervalo de endereços amplo e assim será substituído por intervalos de endereços mais específicos anunciados pelo ExpressRoute.  Para reiterar a recomendação anterior, um UDR com uma rota 0.0.0.0/0 deve ser usado em conjunto com uma configuração do ExpressRoute que também só anuncia 0.0.0.0/0. 
 
 Como alternativa, você pode baixar uma lista abrangente e atualizada de intervalos CIDR em uso pelo Azure.  O arquivo Xml que contém todos os intervalos de endereços IP do Azure está disponível no [Centro de Download da Microsoft][DownloadCenterAddressRanges].  
 

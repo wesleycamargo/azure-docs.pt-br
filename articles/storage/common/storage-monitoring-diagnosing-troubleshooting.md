@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239535"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625990"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -642,7 +642,7 @@ As métricas de **PercentSuccess** capturam a porcentagem das operações que ti
 É importante observar que essas operações foram concluídas com sucesso e por isso não afetam as outras métricas como a de disponibilidade. Alguns exemplos de operações que executam com sucesso, mas que podem resultar em códigos de status HTTP sem sucesso incluem:
 
 * **ResourceNotFound** (Não encontrado 404), por exemplo, de uma solicitação GET para o blob que não existe.
-* **ResouceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
+* **ResourceAlreadyExists** (Conflito 409), por exemplo, de uma operação **CreateIfNotExist** em que o recurso já existe.
 * **ConditionNotMet** (Não Modificado 304), por exemplo, de uma operação condicional tal como quando o cliente envia um valor **ETag** e um cabeçalho HTTP **If-None-Match** para solicitar uma imagem apenas se ela tiver sido carregada desde a última operação.
 
 Você pode encontrar uma lista de códigos de erro comuns da API REST que os serviços de armazenamento retornam na página [Códigos de erro comuns da API REST](https://msdn.microsoft.com/library/azure/dd179357.aspx).

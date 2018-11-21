@@ -1,23 +1,37 @@
+---
+author: vhorne
+ms.service: application-gateway
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: victorh
+ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51628086"
+---
 | Recurso | Limite padrão | Observação |
 | --- | --- | --- |
-| Gateway de Aplicativo |50 por assinatura | Máximo de 1.000 |
+| Gateway de Aplicativo |1000 por assinatura | |
 | Configuração do IP de front-end |2 |1 pública e 1 privada |
-| Portas de front-end |20 | |
-| Pool de endereços de back-end |20 | |
-| Servidores de back-end por pool |100 | |
-| Ouvintes HTTP |20 | |
-| Regras de balanceamento de carga HTTP |200 |número de ouvintes HTTP * n, n =10 Padrão |
-| Configurações HTTP de back-end |20 |1 por pool de endereços de back-end |
-| Instâncias por gateway |10 | Para obter mais instâncias, abra um tíquete de suporte |
-| Certificados SSL |20 |1 por ouvintes HTTP |
-| Certificados de autenticação |5 | Máximo de 10 |
+| Portas de front-end |40 | |
+| Pool de endereços de back-end |40 | |
+| Servidores de back-end por pool |1.200 | |
+| Ouvintes HTTP |40 | |
+| Regras de balanceamento de carga HTTP |400 |número de ouvintes HTTP * n |
+| Configurações HTTP de back-end |40 | |
+| Instâncias por gateway |75 | |
+| Certificados SSL |40 |1 por ouvintes HTTP |
+| Certificados de autenticação |40 | |
 | Tempo limite mínimo de solicitação |1 segundo | |
 | Tempo limite máximo de solicitação |24 horas | |
 | Número de sites |20 |1 por ouvintes HTTP |
 | Mapas de URL por ouvinte |1 | |
+| Regras com base em caminho máximo por mapa de URL|100|
+| Configurações de redirecionamento |40| |
 | Conexões WebSocket Concorrentes |5.000| |
 |Tamanho máximo da URL|8000|
 | Tamanho de carregamento de arquivo máximo Padrão |2 GB | |
 | Tamanho de carregamento de arquivo máximo WAF |Gateways de WAF médio, 100 MB<br>Gateways de WAF grandes - 500 MB| |
 |Limite de tamanho de corpo de WAF (sem arquivos)|128 KB|
-

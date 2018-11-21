@@ -1,6 +1,6 @@
 ---
-title: Usar o MapReduce com Hadoop no Azure HDInsight
-description: Saiba como executar trabalhos do MapReduce no Hadoop em clusters HDInsight.
+title: MapReduce com Apache Hadoop no HDInsight
+description: Saiba como executar trabalhos do MapReduce no Apache Hadoop em clusters HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015155"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632639"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Usar o MapReduce no Hadoop do HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Usar MapReduce no Apache Hadoop em HDInsight
 
 Saiba como executar trabalhos do MapReduce em clusters HDInsight. Use a tabela a seguir para descobrir várias maneiras pelas quais o MapReduce pode ser usado com o HDInsight:
 
@@ -24,7 +24,7 @@ Saiba como executar trabalhos do MapReduce em clusters HDInsight. Use a tabela a
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** (os exemplos usam cURL) |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows | Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -32,7 +32,7 @@ Saiba como executar trabalhos do MapReduce em clusters HDInsight. Use a tabela a
 
 ## <a id="whatis"></a>O que é o MapReduce
 
-O MapReduce do Hadoop é uma estrutura de software para escrever trabalhos que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada bloco é processado em paralelo em todos os nós no cluster. Um trabalho do MapReduce consiste em duas funções:
+O MapReduce do Apache Hadoop é uma estrutura de software para gravar trabalhos que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada bloco é processado em paralelo em todos os nós no cluster. Um trabalho do MapReduce consiste em duas funções:
 
 * **Mapeador**: consome dados de entrada, analisa-os (normalmente com operações de classificação e filtro) e emite tuplas (pares chave-valor)
 
@@ -161,7 +161,7 @@ O HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a tab
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Usar o comando Hadoop por meio de **SSH** |Linux |Linux, Unix, Mac OS X ou Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Enviar o trabalho remotamente usando a **REST** |Linux ou Windows |Linux, Unix, Mac OS X ou Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar o trabalho remotamente usando o **Windows PowerShell** |Linux ou Windows | Windows |
 
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

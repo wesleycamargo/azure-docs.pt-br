@@ -1,6 +1,6 @@
 ---
-title: Como integrar os logs do Active Directory do Azure ao SumoLogic usando o Monitor do Azure (visualização) | Microsoft Docs
-description: Aprenda a integrar os logs do Azure Active Directory ao SumoLogic usando o Azure Monitor (visualização)
+title: Como integrar logs do Azure Active Directory Domain Services ao SumoLogic usando o Azure Monitor (visualização) | Microsoft Docs
+description: Aprenda a integrar os logs do Azure Active Directory Services ao SumoLogic usando o Azure Monitor (visualização)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4a39ee2fb057547c44c9eb08c85afdbb971ea5d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392203"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622392"
 ---
-# <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Integrar logs do Azure AD ao SumoLogic usando o Monitor do Azure (visualização)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integrar os logs do Azure Active Directory Domain Services ao SumoLogic usando o Azure Monitor (visualização)
 
-Neste artigo, você aprenderá como integrar logs do Azure Active Directory (Azure AD) ao SumoLogic usando o Monitor do Azure. Você primeiro encaminhar os logs para um hub de eventos do Azure e, em seguida, integre o hub de eventos com o SumoLogic.
+Neste artigo, você aprenderá como integrar logs do Microsoft Azure Active Directory (Azure AD) ao SumoLogic usando o Monitor do Azure. Você primeiro encaminhar os logs para um hub de eventos do Azure e, em seguida, integre o hub de eventos com o SumoLogic.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

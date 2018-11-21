@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 68fcdbdc2eb844e08c99c0f9567bac7d39ca6511
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310191"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687513"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitar Azure Disk Encryption para VMs de IaaS do Windows 
 
@@ -145,7 +145,7 @@ O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento d
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` reportar *Registrado*, registre novamente o provedor *Mirosoft.Compute* com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` relatar *Registrado*, registre novamente o provedor *Microsoft.Compute* com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -200,7 +200,7 @@ O Azure Disk Encryption para a versão prévia de conjuntos de dimensionamento d
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature#az_feature_show). Quando o `State` reportar *Registrado*, registre novamente o provedor *Mirosoft.Compute* com [az provider register](/cli/azure/provider#az_provider_register):
+Pode levar até 10 minutos para que a solicitação registro seja propagada. É possível verificar o status do registro com [az feature show](/cli/azure/feature#az_feature_show). Quando `State` reportar *Registrado*, registre novamente o *provedor Microsoft.Compute* com [registro do provedor de sincronização az](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -253,7 +253,7 @@ Use as instruções no apêndice para preparar imagens previamente criptografada
 ```azurepowershell-interactive
 $VirtualMachine = New-AzureRmVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
-New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Habilitar criptografia em um disco de dados adicionado recentemente

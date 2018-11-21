@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979498"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623937"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
 
-Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação de referência/sintaxe para a linguagem de consulta SQL, que é compatível com contas de API do SQL. Para obter uma explicação das consultas SQL, veja [Consultar dados do Azure Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe da linguagem de consulta SQL, compatível com as contas de API do SQL. Para obter um passo a passo de exemplos de consultas SQL, consulte [Consultas SQL no Cosmos DB](sql-api-sql-query.md).  
   
-Visite o [Query Playground](http://www.documentdb.com/sql/demo), onde você pode experimentar o Azure Cosmos DB e executar consultas SQL em relação a nosso conjunto de dados.  
+Visite o [Playground para Consultas](http://www.documentdb.com/sql/demo), onde você pode experimentar o Cosmos DB e executar consultas SQL em relação a nosso conjunto de dados.  
   
 ## <a name="select-query"></a>Consulta SELECT  
 Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada. As convenções usadas para descrever as instruções SELECT são tabuladas na seção Convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause)
@@ -60,7 +60,7 @@ Observe que isso é diferente da ordem em que aparecem na sintaxe. A ordenação
 
 ### <a name="whitespace-characters-and-comments"></a>Comentários e caracteres de espaço em branco  
 
-Todos os caracteres de espaço em branco que não fazem parte de uma cadeia de caracteres entre aspas ou identificador entre aspas não fazem parte da gramática da linguagem e são ignorados durante a análise.  
+Os caracteres em branco que não fazem parte de uma cadeia de caracteres entre aspas ou identificador entre aspas não fazem parte da gramática do idioma e serão ignorados durante a análise.  
 
 A linguagem de consulta dá suporte a comentários de estilo T-SQL, como  
 
@@ -69,7 +69,7 @@ A linguagem de consulta dá suporte a comentários de estilo T-SQL, como
 Embora os comentários e caracteres de espaço em branco não tenham nenhum significado na gramática, eles devem ser usados para separar os tokens. Por exemplo: `-1e5` é um token de número único, ao passo que `: – 1 e5` é um token de sinal de subtração seguido pelo número 1 e identificador e5.  
 
 ##  <a name="bk_select_query"></a> Cláusula SELECT  
-As cláusulas na instrução SELECT devem ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando são usadas, elas devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause)
+As cláusulas na instrução SELECT devem ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando são usadas, elas devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause).
 
 **Sintaxe**  
 
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 A sintaxe `SELECT *` só será válida se a cláusula FROM tiver declarado exatamente um alias. `SELECT *` fornece uma projeção de identidade, que pode ser útil se nenhuma projeção é necessária. SELECT * só é válida se a cláusula FROM é especificada e introduzida uma única fonte de entrada.  
   
-Observe que `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser expressos, como alternativa, usando instruções SELECT simples, conforme mostrado abaixo.  
+Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser expressos, como alternativa, usando instruções SELECT simples, conforme mostrado abaixo.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ Observe que `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e pod
 [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Cláusula FROM  
-Especifica a fonte ou as fontes unidas. A cláusula FROM é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Normalmente, a coleção inteira é a fonte, mas é possível também especificar um subconjunto da coleção. Se esta cláusula não for especificada, outras cláusulas ainda serão executadas como se a cláusula FROM fornecesse um único documento. Para obter exemplos, consulte [exemplos da cláusula FROM](sql-api-sql-query.md#FromClause)
+Especifica a fonte ou as fontes unidas. A cláusula FROM é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Geralmente, o contêiner inteiro é a origem, mas é possível especificar um subconjunto do contêiner. Se esta cláusula não for especificada, outras cláusulas ainda serão executadas como se a cláusula FROM fornecesse um único documento. Para obter exemplos, consulte [exemplos da cláusula FROM](sql-api-sql-query.md#FromClause)
   
 **Sintaxe**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Argumentos**  
   
 - `<from_source>`  
   
-  Especifica uma fonte de dados, com ou sem um alias. Se o alias não for especificado, ele será inferido de `<collection_expression>` usando as seguinte regras:  
+  Especifica uma fonte de dados, com ou sem um alias. Se o alias não for especificado, ele será inferido de `<container_expression>` usando as seguinte regras:  
   
-  -  Se a expressão for um collection_name, collection_name será usado como um alias.  
+  -  Se a expressão for um container_name, o container_name será usado como um alias.  
   
-  -  Se a expressão for `<collection_expression>`, property_name e, em seguida, property_name serão usados como alias. Se a expressão for um collection_name, collection_name será usado como um alias.  
+  -  Se a expressão for `<container_expression>`, property_name e, em seguida, property_name serão usados como alias. Se a expressão for um container_name, o container_name será usado como um alias.  
   
 - AS `input_alias`  
   
-  Especifica que `input_alias` é um conjunto de valores retornados pela expressão de coleção subjacente.  
+  Especifica que `input_alias` é um conjunto de valores retornados pela expressão do contêiner subjacente.  
  
 - `input_alias` IN  
   
-  Especifica que o `input_alias` deve representar o conjunto de valores obtidos pela iteração em todos os elementos da matriz de cada matriz retornada pela expressão de coleção subjacente. Qualquer valor retornado pela expressão de coleção subjacente que não seja uma matriz é ignorado.  
+  Especifica que `input_alias` deve representar o conjunto de valores obtidos pela iteração em todos os elementos de matriz de cada matriz retornada pela expressão de contêiner subjacente. Qualquer valor retornado pela expressão de contêiner subjacente que não seja uma matriz será ignorado.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Especifica a expressão de coleção a ser usada para recuperar os documentos.  
+  Especifica a expressão do contêiner a ser usada para recuperar os documentos.  
   
 - `ROOT`  
   
-  Especifica que documento deve ser recuperado da coleção padrão conectada no momento.  
+  Especifica que o documento deve ser recuperado do padrão, contêiner atualmente conectado.  
   
-- `collection_name`  
+- `container_name`  
   
-  Especifica que documento deve ser recuperado da coleção fornecida. O nome da coleção deve corresponder ao nome da coleção conectada no momento.  
+  Especifica que o documento deve ser recuperado do contêiner fornecido. O nome do contêiner deve corresponder ao nome do contêiner atualmente conectado.  
   
 - `input_alias`  
   
   Especifica que documento deve ser recuperado de outra fonte definida pelo alias fornecido.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Especifica que documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de coleção especificada.  
+  Especifica que documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de contêiner especificada.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Especifica que documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de coleção especificada.  
+  Especifica que documento deve ser recuperado acessando a propriedade `property_name` ou o elemento de matriz array_index para todos os documentos recuperados pela expressão de contêiner especificada.  
   
 **Comentários**  
   
-Todos os aliases fornecidos ou inferidos nos `<from_source>(`s) devem ser exclusivos. A sintaxe de `<collection_expression>.`property_name é a mesma de `<collection_expression>' ['"property_name"']'`. No entanto, a sintaxe desta última pode ser usada se um nome de propriedade contém um caractere não identificador.  
+Todos os aliases fornecidos ou inferidos nos `<from_source>(`s) devem ser exclusivos. A sintaxe de `<container_expression>.`property_name é a mesma de `<container_expression>' ['"property_name"']'`. No entanto, a sintaxe desta última pode ser usada se um nome de propriedade contém um caractere não identificador.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>manipulação de propriedades ausentes, elementos de matriz ausentes e valores indefinidos
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Manipulação de propriedades ausentes, elementos de matriz ausentes e valores indefinidos
   
-Se uma expressão de coleção acessar propriedades ou elementos da matriz e o valor não existir, esse valor será ignorado e não processado.  
+Se uma expressão de contêiner acessar propriedades ou elementos da matriz e o valor não existir, esse valor será ignorado e não processado.  
   
-### <a name="collection-expression-context-scoping"></a>Escopo de contexto de expressão de coleção  
+### <a name="container-expression-context-scoping"></a>Escopo do contexto da expressão do contêiner  
   
-Uma expressão de coleção pode ser coleção com escopo ou documento com escopo:  
+Uma expressão contêiner pode ter escopo no contêiner ou no escopo do documento:  
   
--   Uma expressão é coleção com escopo se a fonte subjacente da expressão de coleção é ROOT ou `collection_name`. Essa expressão representa um conjunto de documentos recuperados diretamente da coleção e não depende de processamento de outras expressões de coleção.  
+-   Uma expressão será contida no contêiner, se a origem subjacente da expressão do contêiner for ROOT ou `container_name`. Essa expressão representa um conjunto de documentos recuperados diretamente do contêiner e não depende do processamento de outras expressões de contêiner.  
   
--   Uma expressão tem escopo de documento se a fonte subjacente da expressão de coleção é um `input_alias` introduzido anteriormente na consulta. Essa expressão representa um conjunto de documentos obtidos avaliando a expressão de coleção no escopo de cada documento pertencente ao conjunto associado à coleção de alias.  O conjunto resultante será uma união de conjuntos obtidos pela avaliação da expressão de coleção para cada um dos documentos no conjunto subjacente.  
+-   Uma expressão terá escopo de documento, se a fonte subjacente da expressão de contêiner for `input_alias` introduzido anteriormente na consulta. Essa expressão representa um conjunto de documentos obtidos pela avaliação da expressão contêiner no escopo de cada documento pertencente ao conjunto associado ao contêiner de alias.  O conjunto resultante será uma união de conjuntos obtidos pela avaliação da expressão do contêiner para cada um dos documentos no conjunto subjacente.  
   
 ### <a name="joins"></a>Junções 
   
-Na versão atual, o BD Cosmos do Azure dá suporte a junções internas. Recursos adicionais de junção serão disponibilizados em breve. 
+Na versão atual, o Cosmos DB dá suporte a junções internas. Recursos adicionais de junção serão disponibilizados em breve. 
 
 Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas. Para obter exemplos, consulte [exemplos de palavra-chave JOIN](sql-api-sql-query.md#Joins)
   
 A avaliação da junção depende do escopo de contexto dos conjuntos participantes:  
   
--  Uma junção entre um conjunto de coleção A e o conjunto de coleção com escopo definido B resulta em um produto cruzado de todos os elementos nos conjuntos A e B.
+-  Uma junção entre o conjunto de contêineres A e o conjunto de escopo no contêiner B, resulta em um produto cruzado de todos os elementos nos conjuntos A e B.
   
 -   Uma associação entre o conjunto A e o conjunto com escopo de documento B resulta em uma união de todos os conjuntos obtidos pela avaliação do conjunto com escopo de documento B para cada documento do conjunto A.  
   
- Na versão atual, há suporte para, no máximo, uma expressão com escopo de coleção pelo processador de consulta.  
+ Na versão atual, há suporte para, no máximo, uma expressão com escopo de contêiner pelo processador de consulta.  
   
 ### <a name="examples-of-joins"></a>Exemplos de junções  
   
 Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Permite que cada fonte defina `input_alias1, input_alias2, …, input_aliasN`. Essa cláusula FROM retorna um conjunto de tuplas N (tupla com valores N). Cada tupla terá os valores produzidos pela iteração de todos os alias da coleção em seus respectivos conjuntos.  
+ Permite que cada fonte defina `input_alias1, input_alias2, …, input_aliasN`. Essa cláusula FROM retorna um conjunto de tuplas N (tupla com valores N). Cada tupla possui valores produzidos pela iteração de todos os aliases de contêiner sobre seus respectivos conjuntos.  
   
 **Exemplo 1** - 2 fontes  
   
-- Permite que `<from_source1>` tenha escopo de coleção e represente o conjunto {A, B, C}.  
+- Permite que `<from_source1>` tenha escopo de contêiner e represente o conjunto {A, B, C}.  
   
 - Permite que `<from_source2>` tenha escopo de documento, referenciando input_alias1 e represente os conjuntos:  
   
@@ -252,7 +252,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
 **Exemplo 2** - 3 fontes  
   
-- Permite que `<from_source1>` tenha escopo de coleção e represente o conjunto {A, B, C}.  
+- Permite que `<from_source1>` tenha escopo de contêiner e represente o conjunto {A, B, C}.  
   
 - Permite que `<from_source2>` tenha escopo de documento, referenciando `input_alias1` e represente os conjuntos:  
   
@@ -279,9 +279,9 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
   
 **Exemplo 3** - 3 fontes  
   
-- Permite que <from_source1> tenha escopo de coleção e represente o conjunto {A, B, C}.  
+- Permite que <from_source1> tenha escopo de contêiner e represente o conjunto {A, B, C}.  
   
-- Permite que `<from_source1>` tenha escopo de coleção e represente o conjunto {A, B, C}.  
+- Permite que `<from_source1>` tenha escopo de contêiner e represente o conjunto {A, B, C}.  
   
 - Permite que <from_source2> tenha escopo de documento, referenciando input_alias1 e represente os conjuntos:  
   
@@ -333,7 +333,7 @@ WHERE <filter_condition>
   
  **Comentários**  
   
- Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano verdadeiro atenderá à condição. Nenhum outro valor, seja indefinido, nulo, falso, número, matriz ou objeto, atenderá à condição.  
+ Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano verdadeiro satisfará a condição, qualquer outro valor: indefinido, nulo, falso, Número, Matriz ou Objeto não satisfará a condição.  
   
 ##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
  Especifica a ordem de classificação para resultados retornados pela consulta. Para obter exemplos, consulte [exemplos da cláusula ORDER BY](sql-api-sql-query.md#OrderByClause)
@@ -371,7 +371,7 @@ ORDER BY <sort_specification>
   
  **Comentários**  
   
- Enquanto a gramática de consulta dá suporte a vários pedidos por propriedades, o tempo de execução de consulta do BD Cosmos do Azure dá suporte à classificação apenas em relação a uma única propriedade e somente em relação a nomes de propriedade, ou seja, não em relação a propriedades calculadas. A classificação também requer que a política de indexação inclua um índice de intervalo para a propriedade e o tipo especificado, com precisão máxima. Consulte a documentação de política de indexação para obter mais detalhes.  
+ Enquanto a gramática de consulta der suporte a vários pedidos por propriedades, o tempo de execução de consulta do Cosmos DB dará suporte à classificação apenas em relação a uma única propriedade e somente em relação a nomes de propriedades (não em relação a propriedades calculadas). A classificação também requer que a política de indexação inclua um índice de intervalo para a propriedade e o tipo especificado, com precisão máxima. Consulte a documentação de política de indexação para obter mais detalhes.  
   
 ##  <a name="bk_scalar_expressions"></a> Expressões escalares  
  Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para se obter um único valor. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. As expressões simples podem ser combinadas em expressões complexas usando operadores. Para obter exemplos, consulte [exemplos de expressões escalares](sql-api-sql-query.md#scalar-expressions)
@@ -424,7 +424,7 @@ ORDER BY <sort_specification>
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Representa um valor da propriedade com nome `property_name` ou elemento de matriz com índice `array_index` de um objeto ou uma matriz. Se o índice de matriz/propriedade não existe ou é referenciado em um valor que não é um objeto ou uma matriz, a expressão é avaliada como valor indefinido.  
+     Representa um valor da propriedade com nome `property_name` ou elemento de matriz com índice `array_index` de um objeto ou uma matriz. Se o índice de propriedade/matriz não existir ou o índice de propriedade/matriz for referenciado em um valor que não seja um objeto/matriz, a expressão será avaliada como um valor indefinido.  
   
 -   `unary_operator <scalar_expression>`  
   
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **Comentários**  
   
- No BD Cosmos do Azure, os tipos de valores geralmente não são conhecidos até que sejam realmente recuperados do banco de dados. Para dar suporte à execução de consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo. Além disso, os operadores por si só não executam conversões implícitas.  
+ No Cosmos DB, os tipos de valores geralmente não são conhecidos até serem recuperados do banco de dados. Para dar suporte à execução de consultas com eficiência, a maioria dos operadores tem requisitos restritos de tipo. Além disso, os operadores por si só não executam conversões implícitas.  
   
- Isso significa que uma consulta como: SELECT * FROM ROOT r WHERE r.Age = 21 retornará apenas documentos com propriedade Age igual ao número 21. Documentos com propriedade Age igual à cadeia de caracteres "21" ou à cadeia de caracteres "0021" não corresponderão, já que a expressão "21" = 21 é avaliada como indefinida. Isso permite um melhor uso dos índices, pois a pesquisa de um valor específico (por exemplo, número 21) é mais rápida que a pesquisa de um número indefinido de possíveis correspondências (ou seja, número 21 ou cadeias de caracteres "21", "021", "21,0"...). Isso é diferente de como o JavaScript avalia os operadores em relação a valores de tipos diferentes.  
+ Isso significa que uma consulta como: SELECT * FROM ROOT r WHERE r.Age = 21 retornará apenas documentos com propriedade Age igual ao número 21. Documentos com propriedade Age igual à cadeia de caracteres "21" ou à cadeia de caracteres "0021" não corresponderão, já que a expressão "21" = 21 é avaliada como indefinida. Isso permite um melhor uso dos índices porque a pesquisa de um valor específico (como o número 21) é mais rápida do que a pesquisa por um número indefinido de correspondências em potencial (o número 21 ou cadeia de caracteres "21", "021", "21.0" …). Isso é diferente de como o JavaScript avalia os operadores em relação a valores de tipos diferentes.  
   
  **Comparação e igualdade de objetos e matrizes**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|Um caractere Unicode definido por 4 dígitos hexadecimais.|U+XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a>Diretrizes de desempenho de consulta  
- Para que uma consulta seja executada com eficiência em uma grande coleção, ela deve usar filtros que podem ser oferecidos por um ou mais índices.  
+ Para que uma consulta seja executada de forma eficiente para um contêiner grande, ela deve usar filtros que podem ser exibidos por meio de um ou mais índices.  
   
  Os seguintes filtros serão considerados para a pesquisa de índice:  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   Use o operador de intervalo (<, \<=, >, >=) com uma expressão de caminho de documento e constantes numéricas.  
   
--   Expressão de caminho de documento significa qualquer expressão que identifica um caminho constante nos documentos da coleção de banco de dados referenciada.  
+-   Expressão de caminho de documento significa qualquer expressão que identifique um caminho constante nos documentos do contêiner de banco de dados referenciado.  
   
  **Expressão de caminho de documento**  
   
- Expressões de caminho de documento são expressões que um caminho de propriedade ou um indexador de matriz avalia em um documento proveniente dos documentos da coleção do banco de dados. Esse caminho pode ser usado para identificar o local dos valores referenciados em um filtro diretamente nos documentos da coleção do banco de dados.  
+ Expressões de caminho de documento são expressões que um caminho de propriedade ou um indexador de matriz avalia em um documento proveniente dos documentos do contêiner do banco de dados. Esse caminho pode ser usado para identificar o local dos valores referenciados em um filtro diretamente nos documentos do contêiner do banco de dados.  
   
  Para uma expressão ser considerada uma expressão de caminho de documento, ela deve:  
   
-1.  Fazer referência diretamente à raiz da coleção.  
+1.  Fazer referência diretamente à raiz do contêiner.  
   
 2.  Fazer referência ao indexador de matriz da constante ou à propriedade de alguma expressão de caminho de documento  
   
@@ -674,7 +674,7 @@ ORDER BY <sort_specification>
     |[ ...n ]|Indica que o item precedente pode ser repetido n vezes. As ocorrências são separadas por espaços em branco.|  
   
 ##  <a name="bk_built_in_functions"></a> Funções internas  
- O BD Cosmos do Azure fornece muitas funções SQL internas. As categorias de funções internas estão listadas abaixo.  
+ O Cosmos DB fornece muitas funções SQL internas. As categorias de funções internas estão listadas abaixo.  
   
 |Função|DESCRIÇÃO|  
 |--------------|-----------------|  
@@ -682,7 +682,7 @@ ORDER BY <sort_specification>
 |[Funções de verificação de tipo](#bk_type_checking_functions)|As funções de verificação de tipo permitem que você verifique o tipo de uma expressão em consultas SQL.|  
 |[Funções de cadeia de caracteres](#bk_string_functions)|As funções de cadeia de caracteres executam uma operação em um valor de cadeia de caracteres de entrada e retornam uma cadeia de caracteres, um valor numérico ou um valor booliano.|  
 |[Funções de matriz](#bk_array_functions)|As funções de matriz executam uma operação em um valor de matriz de entrada e retornam um valor numérico, booliano ou um valor de matriz.|  
-|[Funções espaciais](#bk_spatial_functions)|As funções espaciais a seguir executam uma operação em um valor de entrada de objeto espacial e retornam um valor numérico ou um valor booliano.|  
+|[Funções espaciais](#bk_spatial_functions)|As funções espaciais executam uma operação em um valor de entrada de objeto espacial e retornam um valor numérico ou booliano.|  
   
 ###  <a name="bk_mathematical_functions"></a>Funções matemáticas  
  As funções a seguir executam um cálculo, normalmente com base em valores de entrada que são fornecidos como argumentos, e retornam um valor numérico.  
@@ -2808,7 +2808,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Exemplos**  
   
- O exemplo a seguir mostra como localizar todas as áreas que fazem interseção com o polígono determinado.  
+ O exemplo a seguir mostra como localizar todas as áreas que interseccionam com o polígono especificado.  
   
 ```  
 SELECT a.id   
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>Próximas etapas  
- [Sintaxe SQL e consulta SQL para BD Cosmos do Azure](sql-api-sql-query.md)   
- [Documentação do BD Cosmos do Azure](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [Sintaxe SQL e consulta SQL para Cosmos DB](sql-api-sql-query.md)
+
+- [Documentação do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

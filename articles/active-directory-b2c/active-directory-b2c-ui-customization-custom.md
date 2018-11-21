@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945052"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625787"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -99,17 +99,13 @@ Para criar um contêiner público no armazenamento de Blobs, faça o seguinte:
 
 Configure o Armazenamento de nlobs para o Compartilhamento de Recursos entre Origens do Azure fazendo o seguinte:
 
->[!NOTE]
->Quer experimentar o recurso de personalização da interface do usuário usando nosso conteúdo de HTML e CSS de exemplo? Fornecemos [uma ferramenta auxiliar simples](active-directory-b2c-reference-ui-customization-helper-tool.md) que carrega e configura nosso conteúdo de exemplo em sua conta de armazenamento de Blobs. Se você usar a ferramenta, pule para [Modificar a política personalizada de inscrição ou entrada](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. Na folha **Armazenamento**, em **Configurações**, abra **CORS**.
-2. Clique em **Adicionar**.
-3. Para **Origens permitidas**, digite um asterisco (\*).
-4. Na lista suspensa **Verbos permitidos**, selecione **OBTER** e **OPÇÕES**.
-5. Para **Cabeçalhos permitidos**, digite um asterisco (\*).
-6. Para **Cabeçalhos expostos**, digite um asterisco (\*).
-7. Para **Idade máxima (segundos)**, digite **200**.
-8. Clique em **Adicionar**.
+1. No menu, selecione **CORS**.
+2. Para **origens permitidas**, insira `your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `fabrikam.b2clogin.com`.
+3. Para **métodos permitidos**, selecione ambos `GET` e `OPTIONS`.
+4. Para **cabeçalhos permitidos**, digite um asterisco (*).
+5. Para **cabeçalhos expostos**, digite um asterisco (*).
+6. Para **Idade máxima de**, insira 200.
+7. Clique em **Salvar**.
 
 ## <a name="test-cors"></a>Testar o CORS
 

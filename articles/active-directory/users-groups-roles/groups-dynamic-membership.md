@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282060"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633522"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -352,7 +352,7 @@ Os seguintes atributos de dispositivo podem ser usados.
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Um valor de cadeia de caracteres. | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Pessoal, Empresa, Desconhecido | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Pessoal, corporativo, desconhecido | (device.deviceOwnership -eq "Corporate")
  domainName | Um valor de cadeia de caracteres. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome do perfil de perfil de registro de dispositivo Apple ou Autopilot do Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro, falso | (device.isRooted -eq true)

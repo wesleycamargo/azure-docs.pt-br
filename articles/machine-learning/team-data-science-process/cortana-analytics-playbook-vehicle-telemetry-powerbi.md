@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262261"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300924"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de instalação do Painel de Power BI do modelo de solução de análise de telemetria do veículo
-Este menu fornece links para os capítulos deste manual: 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 A solução Análise de Telemetria do Veículo demonstra como revendedores de carro, fabricantes de automóveis e seguradoras podem usar os recursos do Cortana Intelligence. Eles podem se obter insights preditivos em tempo real sobre a integridade do veículo e os hábitos de condução para melhorar o desenvolvimento, a pesquisa e a experiência do cliente e as campanhas de marketing. Estas instruções passo a passo mostram como configurar os relatórios e painel do Power BI depois de implantar a solução na sua assinatura. 
+
+Para revisar a descrição resumida desta solução, consulte [Guia estratégico da Solução de Análise de Telemetria do Veículo](cortana-analytics-playbook-vehicle-telemetry.md).
+Para explorar essa solução, consulte [Guia estratégico da solução de análise de telemetria do veículo: aprofundar a solução](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Implante a solução [Análise de Telemetria do Veículo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
@@ -177,7 +177,7 @@ Você configurou com êxito o relatório "Veículos em operação". Você pode c
 
 1. Para adicionar um **filtro de nível de página** a fim de mostrar os dados dos veículos que exigem manutenção: 
 
-   a. Arraste o campo **MaintenanceLabel** para os **Filtros de Nível de Página**.
+    a. Arraste o campo **MaintenanceLabel** para os **Filtros de Nível de Página**.
   
       ![Filtros em nível de página](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)
 
@@ -205,7 +205,7 @@ Você configurou com êxito o relatório "Veículos em operação". Você pode c
 
 1. Na seção **Formatar**, altere **Cores dos Dados** na visualização: 
 
-    a. Altere a cor do **Mínimo** para **F2C812**.
+     a. Altere a cor do **Mínimo** para **F2C812**.
 
     b. Altere a cor do **Máximo** para **FF6300**.
 
@@ -419,7 +419,7 @@ Você configurou todos os relatórios que correspondem ao caminho de processamen
 
 1. **Na Página 3**, fixe o seguinte conteúdo:  
 
-    a. **Contagem de vin**  
+     a. **Contagem de vin**  
 
    ![Página 3 Contagem de vin](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
 
@@ -429,7 +429,7 @@ Você configurou todos os relatórios que correspondem ao caminho de processamen
 
 1. **Na Página 5**, fixe o seguinte conteúdo: 
 
-    a. **Contagem de vin**
+     a. **Contagem de vin**
 
    ![Página 5 gráfico 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)
 
@@ -439,7 +439,7 @@ Você configurou todos os relatórios que correspondem ao caminho de processamen
 
 1. **Na Página 4**, fixe o seguinte conteúdo:  
 
-    a. **Contagem de vin** 
+     a. **Contagem de vin** 
 
    ![Página 7 gráfico 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 

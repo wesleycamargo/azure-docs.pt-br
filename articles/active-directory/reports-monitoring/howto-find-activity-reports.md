@@ -10,29 +10,31 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 182537d6f07b624f2395f591681ed4596579bde0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145650"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624905"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
-Neste artigo, descrevemos como localizar relatórios de atividade de usuário do Azure Active Directory no portal do Azure.
+Neste artigo, você aprenderá a localizar relatórios de atividades de usuários do Azure AD (Azure Active Directory) no portal do Azure.
 
-## <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
+## <a name="audit-logs-report"></a>Relatório de logs de auditoria
 
-Para relatórios baseados no contexto no Portal do Azure, os relatórios existentes são mesclados em uma única exibição. Uma única API subjacente fornece os dados para a exibição.
+O relatório de logs de auditoria combina vários relatórios sobre atividades de aplicativos em uma única exibição para relatórios baseados em contexto. Para acessar o relatório de logs de auditoria:
 
-Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**, selecione **logs de auditoria**.
+1. Navegue até o [Portal do Azure](https://portal.azure.com).
+2. Selecione o diretório no canto superior direito e, em seguida, selecione a folha **Azure Active Directory** do painel de navegação esquerdo.
+3. Selecione **Logs de auditorias** da seção **Atividade** da folha do Azure Active Directory. 
 
-![Logs de auditoria](./media/howto-find-activity-reports/482.png "Logs de auditoria")
+    ![Logs de auditoria](./media/howto-find-activity-reports/482.png "Logs de auditoria")
 
-Os relatórios a seguir são consolidados nessa exibição:
+O relatório de logs de auditoria consolida os seguintes relatórios:
 
 * Relatório de auditoria
 * Atividade de redefinição de senha
@@ -43,26 +45,11 @@ Os relatórios a seguir são consolidados nessa exibição:
 * Status de substituição de senha
 * Erros de provisionamento de conta
 
+### <a name="filtering-on-audit-logs"></a>Filtragem em logs de auditoria
 
-O relatório Uso do Aplicativo foi aprimorado e está incluído na exibição **Entradas**. Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**, selecione **Entradas**.
+É possível usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro **Categoria de atividade**. Por exemplo, para exibir todas as atividades relacionadas à redefinição de senha de autoatendimento, selecione a categoria **Gerenciamento de senha de autoatendimento**. 
 
-![Exibição de entradas](./media/howto-find-activity-reports/483.png "Exibição de entradas")
-
-A exibição **Entradas** inclui todas as entradas de usuário. Use essas informações para obter informações de uso do aplicativo. Também é possível exibir informações de uso do aplicativo na visão geral **Aplicativos empresariais**, na seção **GERENCIAR**.
-
-![Aplicativos empresariais](./media/howto-find-activity-reports/484.png "Aplicativos empresariais")
-
-## <a name="access-a-specific-report"></a>Acessar uma porta específica
-
-Embora o Portal do Azure ofereça uma exibição única, também é possível examinar relatórios específicos.
-
-### <a name="audit-logs"></a>Logs de auditoria
-
-Em resposta aos comentários dos clientes, no Portal do Azure, você pode usar a filtragem avançada para acessar os dados desejados. É um filtro que você pode usar é *categoria de atividade*, que lista os tipos diferentes de logs de atividade no Azure AD. Para restringir os resultados para o que você está procurando, selecione uma categoria.
-
-Por exemplo, se você estiver interessado apenas em atividades relacionadas à redefinição de senha de autoatendimento, escolha a categoria **Gerenciamento de Senhas de Autoatendimento**. As categorias que você vê têm base no recurso no qual você está trabalhando.  
-
-![Opções de categoria na página Filtrar Logs de Auditoria](./media/howto-find-activity-reports/06.png "Opções de categoria na página filtrar Logs de Auditoria")
+    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
 
 As categorias de atividades incluem:
 
@@ -71,19 +58,36 @@ As categorias de atividades incluem:
 - Gerenciamento de grupos de autoatendimento
 - Provisionamento de conta de usuário
 
-### <a name="application-usage"></a>Uso do aplicativo
 
-Para exibir detalhes sobre o uso do aplicativo para todos os aplicativos ou para um único aplicativo, em **ATIVIDADE**, selecione **Entradas**. Para restringir os resultados, filtre o nome de usuário ou nome do aplicativo.
+## <a name="sign-ins-report"></a>Relatório de entradas 
+
+A exibição **Entradas** inclui todas as entradas do usuário, bem como o relatório **Uso do Aplicativo**. Também é possível exibir as informações de uso do aplicativo na seção **Gerenciar** da visão geral dos **Aplicativos empresariais**.
+
+    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
+
+Para acessar o relatório de entradas:
+
+1. Navegue até o [Portal do Azure](https://portal.azure.com).
+2. Selecione o diretório no canto superior direito e, em seguida, selecione a folha **Azure Active Directory** do painel de navegação esquerdo.
+3. Selecione **Entradas** da seção **Atividade** da folha Azure Active Directory. 
+
+    ![Exibição de entradas](./media/howto-find-activity-reports/483.png "Exibição de entradas")
+
+
+### <a name="filtering-on-application-name"></a>Filtragem no nome do aplicativo
+
+É possível usar o relatório de entradas para exibir detalhes sobre o uso do aplicativo, filtrando o nome de usuário ou o nome do aplicativo.
 
 ![Página Filtrar Eventos de Entrada](./media/howto-find-activity-reports/07.png "Página Filtrar Eventos de Entrada")
 
-### <a name="security-reports"></a>Relatórios de segurança
+## <a name="security-reports"></a>Relatórios de segurança
 
-#### <a name="azure-ad-anomalous-activity-reports"></a>Relatórios de atividades anômalas do Azure AD
+### <a name="anomalous-activity-reports"></a>Relatórios de atividades anômalas
 
-Os relatórios de segurança de atividade anômala do Azure AD são consolidados para fornecer uma visão central. Essa exibição mostra todos os eventos de risco relacionado à segurança que o Azure AD pode detectar e relatar.
+Relatórios de atividade anômalas fornecem informações sobre eventos de risco relacionados à segurança que o Azure AD pode detectar e relatar.
 
-A tabela a seguir lista os relatórios de segurança de atividades anômalas do Azure AD e os tipos de evento de risco correspondentes no Portal do Azure.
+A tabela a seguir lista os relatórios de segurança de atividades anômalas do Azure AD e os tipos de evento de risco correspondentes no Portal do Azure. Para saber mais, veja [Eventos de risco do Azure Active Directory](concept-risk-events.md).  
+
 
 | Relatório de atividades anômalas do Azure AD |  Tipo de evento de risco do Identity Protection|
 | :--- | :--- |
@@ -99,29 +103,18 @@ Os seguintes relatórios de segurança de atividade anômala do Azure AD não s�
 * Entradas após várias falhas
 * Entradas de várias geografias
 
-Para saber mais, veja [Eventos de risco do Azure Active Directory](concept-risk-events.md).  
 
+### <a name="detected-risk-events"></a>Eventos de risco detectados
 
-#### <a name="detected-risk-events"></a>Eventos de risco detectados
+Você pode acessar relatórios sobre eventos de risco detectados na seção **Segurança** da folha **Azure Active Directory** no [portal do Azure](https://portal.azure.com). Os eventos de risco detectados são controlados nos seguintes relatórios:   
 
-No Portal do Azure, você pode acessar os relatórios sobre os eventos de risco detectados na folha **Azure Active Directory** em **SEGURANÇA**. Os eventos de risco detectados são controlados nos seguintes relatórios:   
+- [Usuários em risco](concept-user-at-risk.md)
+- [Entradas de risco](concept-risky-sign-ins.md)
 
-- Usuários em risco
-- Entradas de risco
-
-![Relatórios de segurança](./media/howto-find-activity-reports/04.png "Relatórios de segurança")
-
-Para saber mais sobre relatórios de segurança, veja:
-
-- [Relatório de segurança de usuários em risco no portal do Azure Active Directory](concept-user-at-risk.md)
-- [Relatório de entradas de risco no portal do Azure Active Directory](concept-risky-sign-ins.md)
-
-
-Para ver o relatório **Uso do Aplicativo**, na folha **Azure Active Directory**, em **GERENCIAR**, selecione **Aplicativos Empresariais** e selecione **Entradas**.
-
-
-![Relatório de Inscrições de Aplicativos Corporativos](./media/howto-find-activity-reports/199.png)
+    ![Relatórios de segurança](./media/howto-find-activity-reports/04.png "Relatórios de segurança")
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ter uma visão geral dos relatórios, consulte [Relatórios do Azure Active Directory](overview-reports.md).
+* [Visão geral de logs de auditoria](concept-audit-logs.md)
+* [Visão geral de entradas](concept-sign-ins.md)
+* [Visão geral de eventos de risco](concept-risk-events.md)

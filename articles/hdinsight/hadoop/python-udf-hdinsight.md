@@ -1,6 +1,6 @@
 ---
-title: Python UDF com Apache Hive e Pig – HDInsight do Azure
-description: Saiba como usar UDFs (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight, a pilha de tecnologias do Hadoop no Azure.
+title: Python UDF com Apache Hive e Apache Pig - Azure HDInsight
+description: Aprenda a usar as Funções Definidas pelo Usuário Python (UDF) do Apache Hive e do Apache Pig no HDInsight, a pilha da tecnologia Apache Hadoop no Azure.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6227b9517da3dacb18b4f9653a7012ef9ab5a4a7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232266"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632604"
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Usar as UDF (Funções Definidas pelo Usuário) do Python com o Hive e o Pig no HDInsight
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usar funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no HDInsight
 
-Saiba como usar funções definidas pelo usuário do Python (UDF) com o Apache Hive e o Pig no Hadoop no Azure HDInsight.
+Aprenda a usar as funções definidas pelo usuário (UDF) do Python com o Apache Hive e o Apache Pig no Apache Hadoop no Azure HDInsight.
 
 ## <a name="python"></a>Python no HDInsight
 

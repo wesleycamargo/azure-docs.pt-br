@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412441"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632553"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -60,12 +60,15 @@ Os servidores de réplica são criados usando as mesmas configurações de servi
 - Período de retenção do backup
 - Opção de redundância de backup
 - Versão do mecanismo de MySQL
+- Regras de firewall
 
 Depois que uma réplica tiver sido criada, você poderá alterar a camada de preços (exceto para e de Basic), geração de computação, vCores, armazenamento e retenção de backup, independentemente do servidor mestre.
 
 ### <a name="master-server-configuration"></a>Configuração do servidor mestre
 
-Se a configuração do servidor mestre (ex. vCores ou storage) é atualizado, a configuração das réplicas também deve ser atualizada para valores iguais ou maiores. Sem isso, o servidor de réplica pode não conseguir acompanhar as alterações feitas no mestre e pode falhar como resultado. 
+Se a configuração do servidor mestre (ex. vCores ou storage) é atualizado, a configuração das réplicas também deve ser atualizada para valores iguais ou maiores. Sem isso, o servidor de réplica pode não conseguir acompanhar as alterações feitas no mestre e pode falhar como resultado.
+
+Novas regras de firewall adicionadas ao servidor mestre após a criação de um servidor de réplica não serão replicadas para a réplica. A réplica também deverá ser atualizada com essa nova regra de firewall.
 
 ### <a name="deleting-the-master-server"></a>Excluindo o servidor principal
 
@@ -87,7 +90,4 @@ Os usuários no servidor mestre são replicados para as réplicas de leitura. Vo
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Saiba como [criar e gerenciar réplicas de leitura usando a CLI do Azure](howto-read-replicas-cli.md)

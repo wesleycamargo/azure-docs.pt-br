@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4f44deac1e8833af064e0abea4e65c5ca2b2f93
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309165"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686187"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -125,7 +125,7 @@ Para erros relacionados à instalação, consulte os logs do Azure AD Connect em
 
 Para erros relacionados ao Agente de autenticação, abra o aplicativo Visualizador de Eventos no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-Para análises detalhadas, habilite o log de "Sessão". Não execute o Agente de Autenticação com esse log habilitado durante operações normais; use somente para solução de problemas. O conteúdo do log é visível somente depois que o log está desabilitado novamente.
+Para análises detalhadas, habilite o log de "Sessão" (botão direito do mouse dentro do aplicativo de Visualizador de eventos para encontrar essa opção). Não execute o Agente de Autenticação com esse log habilitado durante operações normais; use somente para solução de problemas. O conteúdo do log é visível somente depois que o log está desabilitado novamente.
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhados
 

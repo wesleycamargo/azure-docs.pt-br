@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138853"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515073"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Como gerenciar dispositivos usando o portal do Azure
 
@@ -151,7 +151,7 @@ Para ativar / desativar um dispositivo, você tem duas opções:
 **Comentários:**
 
 - Você precisa ser um administrador global no Azure Active Directory para habilitar / desabilitar um dispositivo. 
-- Desabilitar um dispositivo impede que um dispositivo acesse seus recursos do Azure AD. 
+- A desativação de um dispositivo impede que um dispositivo seja autenticado com êxito no Azure AD, impedindo que o dispositivo acesse os recursos do Microsoft Azure Active Directory protegidos pela CA do dispositivo ou usando as suas credenciais do WH4B. 
 
 
 

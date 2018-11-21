@@ -1,6 +1,6 @@
 ---
-title: Use o MapReduce e o PowerShell com o Hadoop - Azure HDInsight
-description: Aprenda a usar o PowerShell para executar trabalhos MapReduce remotamente com Hadoop no HDInsight.
+title: Use o MapReduce e o PowerShell com o Apache Hadoop - Azure HDInsight
+description: Aprenda a usar o PowerShell para executar trabalhos do MapReduce remotamente com o Apache Hadoop no HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: c67ef23a7869c6db6b736b188289a053244b9cbb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008157"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634134"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>Executar trabalhos MapReduce com Hadoop no HDInsight usando o PowerShell
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Uma introdução à segurança do Hadoop com o Enterprise Security Package
+title: Uma introdução à segurança do Apache Hadoop com Enterprise Security Package
 description: Saiba como o Enterprise Security Package dá suporte aos quatro pilares da segurança empresarial.
 services: hdinsight
 ms.service: hdinsight
@@ -9,23 +9,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946384"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631992"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Hadoop com o Enterprise Security Package
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com Enterprise Security Package
 
-No passado, o Azure HDInsight dava suporte apenas a um único usuário: o administrador local. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que as cargas de trabalho com base no Hadoop ganharam mais popularidade no setor empresarial, a necessidade de funcionalidades de nível empresarial, como autenticação baseada no Azure Active Directory, suporte a vários usuários e controle de acesso baseado em função, tornou-se cada vez mais importante. 
+No passado, o Azure HDInsight dava suporte apenas a um único usuário: o administrador local. Isso funcionava bem para equipes de aplicativos ou departamentos menores. À medida que as cargas de trabalho com base no Apache Hadoop ganharam mais popularidade no setor empresarial, a necessidade de funcionalidades de nível empresarial, como autenticação baseada no Azure Active Directory, suporte a vários usuários e controle de acesso baseado em função, tornou-se cada vez mais importante. 
 
 Você pode criar um cluster do HDInsight com o ESP (Enterprise Security Package) que é ingressado em um domínio do Active Directory. Em seguida, você poderá configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para fazer logon no cluster HDInsight. Ninguém de fora da empresa pode fazer logon ou acessar o cluster do HDInsight. 
 
-O administrador corporativo pode configurar o RBAC (controle de acesso baseado em função) para segurança do Hive, usando [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar RBAC restringe o acesso a dados somente para o que é necessário. Finalmente, o administrador pode auditar o acesso aos dados pelos funcionários e quaisquer alterações feitas para acessar as políticas de controle. O administrador pode, então, alcançar um alto grau de governança dos recursos corporativos.
+O administrador corporativo pode configurar o RBAC (controle de acesso baseado em função) para segurança do Apache Hive, usando o [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar RBAC restringe o acesso a dados somente para o que é necessário. Finalmente, o administrador pode auditar o acesso aos dados pelos funcionários e quaisquer alterações feitas para acessar as políticas de controle. O administrador pode, então, alcançar um alto grau de governança dos recursos corporativos.
 
 > [!NOTE]
-> Os novos recursos descritos neste artigo estão disponíveis em versão prévia apenas nos tipos de cluster a seguir: Hadoop, Spark e Consulta Interativa. O Oozie agora está habilitado nos clusters ESP. Para acessar a IU da Web do Oozie, os usuários devem habilitar o [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> O Oozie agora está habilitado nos clusters ESP. Para acessar a IU da Web do Oozie, os usuários devem habilitar o [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 A segurança empresarial contém quatro pilares principais: segurança de perímetro, autenticação, autorização e criptografia.
 

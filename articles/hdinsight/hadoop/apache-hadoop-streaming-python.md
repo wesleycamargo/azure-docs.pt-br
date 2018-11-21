@@ -1,6 +1,6 @@
 ---
 title: Desenvolver trabalhos MapReduce de streaming do Python com o HDInsight – Azure
-description: Saiba como usar o Python no streaming para trabalhos de MapReduce. O Hadoop fornece uma API de streaming para MapReduce para escrever em linguagens diferentes do Java.
+description: Saiba como usar o Python no streaming para trabalhos de MapReduce. O Apache Hadoop fornece uma API de streaming para MapReduce para gravação em linguagens diferentes do Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008718"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634015"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver programas MapReduce de streaming do Python para o HDInsight
 
-Saiba como usar o Python no streaming para operações do MapReduce. O Hadoop fornece uma API de streaming para o MapReduce que permite que você escreva funções de mapeamento e redução em outras linguagens além do Java. As etapas neste documento implementam os componentes Map e Reduce em Python.
+Saiba como usar o Python no streaming para operações do MapReduce. O Apache Hadoop fornece uma API de streaming para MapReduce que permite que você escreva funções de mapeamento e redução em outras linguagens além do Java. As etapas neste documento implementam os componentes Map e Reduce em Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux no cluster HDInsight
+* Um Apache Hadoop baseado em Linux no cluster HDInsight
 
   > [!IMPORTANT]
   > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

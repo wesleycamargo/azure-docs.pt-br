@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: danlep
-ms.openlocfilehash: cab19cf051efea55a476128e4038aa69efdce8d9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157081"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288859"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 
@@ -56,7 +56,7 @@ A **exclusão de recursos de rede** requer [etapas adicionais](#delete-network-r
 
 ## <a name="required-network-resources"></a>Recursos de rede necessários
 
-Três recursos de Rede Virtual do Azure são necessários para a implantação de grupos de contêineres em uma rede virtual: a [rede virtual](#virtual-network) propriamente dita, uma [sub-rede delegada](#subnet-delegated) dentro da rede virtual e um [perfil de rede](#network-profile).
+Três recursos de Rede Virtual do Azure são necessários para a implantação de grupos de contêineres em uma rede virtual: a [rede virtual](#virtual-network) propriamente dita, uma [sub-rede delegada](#subnet-delegated) dentro da rede virtual e um [perfil de rede](#network-profile). 
 
 ### <a name="virtual-network"></a>Rede virtual
 
@@ -70,15 +70,17 @@ A sub-rede que você usa para grupos de contêineres poderá conter somente grup
 
 ### <a name="network-profile"></a>Perfil de rede
 
-Um perfil de rede é um modelo de configuração de rede para recursos do Azure. Ele especifica determinadas propriedades de rede para o recurso; por exemplo, a sub-rede na qual ele deve ser implantado. Na primeira vez que você implanta um grupo de contêineres em uma sub-rede (e, portanto, em uma rede virtual), o Azure cria um perfil de rede para você. Em seguida, você pode usar esse perfil de rede para implantações futuras na sub-rede.
+Um perfil de rede é um modelo de configuração de rede para recursos do Azure. Ele especifica determinadas propriedades de rede para o recurso; por exemplo, a sub-rede na qual ele deve ser implantado. Quando você usa o comando [az container create][az-container-create] pela primeira vez para implantar um grupo de contêiner em uma sub-rede (e, portanto, em uma rede virtual), o Azure cria um perfil de rede para você. Em seguida, você pode usar esse perfil de rede para implantações futuras na sub-rede. 
+
+Para usar um modelo do Resource Manager, um arquivo YAML ou um método programático para implantar um grupo de contêiner em uma sub-rede, é necessário fornecer o ID completo do recurso do Gerenciador de Recursos de um perfil de rede. Você pode usar um perfil criado anteriormente usando o [criar az contêiner][az-container-create] ou criar um perfil usando um modelo do Resource Manager (consulte [referência](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Para obter o ID de um perfil criado anteriormente, use o comando [lista de perfis de rede az][az-network-profile-list]. 
 
 No diagrama a seguir, vários grupos de contêineres foram implantados em uma sub-rede delegada a Instâncias de Contêiner do Azure. Depois de implantar um grupo de contêineres em uma sub-rede, você pode implantar grupos de contêineres adicionais nela especificando o mesmo perfil de rede.
 
 ![Grupos de contêineres dentro de uma rede virtual][aci-vnet-01]
 
-## <a name="deploy-to-virtual-network"></a>Implantar em uma rede virtual
+## <a name="deployment-scenarios"></a>Cenários de implantação
 
-É possível implantar grupos de contêineres em uma nova rede virtual e permitir que o Azure crie os recursos de rede necessários para você ou implante em uma rede virtual existente.
+Você pode usar o [az container create][az-container-create] para implantar grupos de contêineres em uma nova rede virtual e permitir que o Azure crie os recursos de rede necessários para você ou implante em uma rede virtual existente. 
 
 ### <a name="new-virtual-network"></a>Nova rede virtual
 
@@ -99,19 +101,21 @@ Para implantar um grupo de contêineres em uma rede virtual existente:
 
 1. Crie uma sub-rede dentro da sua rede virtual existente ou retire de uma sub-rede existente *todos* os outros recursos
 1. Implante um grupo de contêineres com [az container create][az-container-create] e especifique um dos itens a seguir:
-   * Nome da rede virtual e nome da sub-rede</br>
-    ou o
-   * ID ou nome do perfil de rede
+   * Nome da rede virtual e nome da sub-rede
+   * ID de recurso de rede virtual e ID de recurso de sub-rede, que permite usar uma rede virtual de um grupo de recursos diferente
+   * Nome ou ID do perfil de rede, que você pode obter usando [lista de perfis de rede az][az-network-profile-list]
 
 Depois de implantar um grupo de contêineres em uma sub-rede existente pela primeira vez, o Azure delega essa sub-rede às Instâncias de Contêiner do Azure. Você não poderá mais implantar recursos além de grupos de contêineres nessa sub-rede.
 
+## <a name="deployment-examples"></a>Exemplos de implantação
+
 As seções a seguir descrevem como implantar grupos de contêineres em uma rede virtual com a CLI do Azure. Os exemplos de comando são formatados para o shell **Bash**. Se você preferir outro shell, como o PowerShell ou o Prompt de Comando, ajuste os caracteres de continuação de linha adequadamente.
 
-## <a name="deploy-to-new-virtual-network"></a>Implantar em uma rede virtual nova
+### <a name="deploy-to-a-new-virtual-network"></a>Implantar em uma nova rede virtual
 
 Primeiramente, implante um grupo de contêineres e especifique os parâmetros para uma nova rede virtual e sub-rede. Quando você especifica esses parâmetros, o Azure cria a rede virtual e a sub-rede, delega a sub-rede para Instâncias de Contêiner do Azure e também cria um perfil de rede. Depois que esses recursos são criados, seu grupo de contêineres é implantado na sub-rede.
 
-Execute o comando [az container create][az-container-create], que especifica as configurações para uma nova rede virtual e sub-rede. Esse comando implanta o contêiner [microsoft/aci-helloworld][aci-helloworld], que executa um servidor da Web Node.js pequeno que atende a uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
+Execute o comando [az container create][az-container-create], que especifica as configurações para uma nova rede virtual e sub-rede. Você precisa fornecer o nome de um grupo de recursos que foi criado em uma região que [suporta](#preview-limitations) grupos de contêineres em uma rede virtual. Esse comando implanta o contêiner [microsoft/aci-helloworld][aci-helloworld], que executa um servidor da Web Node.js pequeno que atende a uma página da Web estática. Na próxima seção, você implantará um segundo grupo de contêineres na mesma sub-rede e testará a comunicação entre as duas instâncias de contêiner.
 
 ```azurecli
 az container create \
@@ -126,7 +130,7 @@ az container create \
 
 Quando você implanta em uma nova rede virtual usando esse método, a implantação pode demorar alguns minutos enquanto os recursos de rede são criados. Após a implantação inicial, as implantações adicionais do grupo de contêineres são concluídas mais rapidamente.
 
-## <a name="deploy-to-existing-virtual-network"></a>Implantar em uma rede virtual existente
+### <a name="deploy-to-existing-virtual-network"></a>Implantar em uma rede virtual existente
 
 Agora que você implantou um grupo de contêineres em uma nova rede virtual, implante um segundo grupo de contêineres na mesma sub-rede e verifique a comunicação entre as duas instâncias de contêiner.
 
@@ -174,7 +178,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 A saída de log deve mostrar que `wget` conseguiu se conectar e baixar o arquivo de índice do primeiro contêiner usando seu endereço IP privado na sub-rede local. O tráfego de rede entre os dois grupos de contêineres permaneceu dentro da rede virtual.
 
-## <a name="deploy-to-existing-virtual-network---yaml"></a>Implantar em uma rede virtual existente – YAML
+### <a name="deploy-to-existing-virtual-network---yaml"></a>Implantar em uma rede virtual existente – YAML
 
 Também é possível implantar um grupo de contêineres em uma rede virtual existente usando um arquivo YAML. Para implantar em uma sub-rede em uma rede virtual, você pode especificar várias propriedades adicionais no YAML:
 

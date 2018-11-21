@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958531"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514818"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos e políticas de resolução de conflitos
 
 Conflitos e políticas de resolução de conflitos são aplicáveis se a conta do Cosmos é configurada com várias regiões de gravação.
 
-Para contas do Cosmos DB configuradas com várias regiões de gravação, os conflitos de atualização podem ocorrer quando vários gravadores atualizam simultaneamente o mesmo item em várias regiões. Conflitos de atualização são classificados nos três tipos a seguir:
+Para contas Cosmos configuradas com várias regiões de gravação, conflitos de atualização podem ocorrer quando vários gravadores atualizam simultaneamente o mesmo item em várias regiões. Conflitos de atualização são classificados nos três tipos a seguir:
 
 1. **Conflitos de inserção:** Esses conflitos podem ocorrer quando um aplicativo insere simultaneamente dois ou mais itens com o mesmo índice exclusivo (por exemplo, propriedade de ID) de duas ou mais regiões. Nesse caso, todas as gravações podem ter êxito inicialmente em suas respectivas regiões locais, mas, com base na política de resolução de conflitos escolhida, apenas um item com a ID original é confirmado no final.
 

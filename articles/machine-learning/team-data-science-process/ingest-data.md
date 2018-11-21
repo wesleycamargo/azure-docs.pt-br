@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: d045bd37a4b3192672cc1bd37bc4bd14ea8d5402
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a5db14b99a81c373fbc72f523798e1f3bbdf9285
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837177"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344494"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados em ambientes de armazenamento para análise
+
 O Processo de Ciência de Dados de Equipe exige que os dados sejam incluídos ou carregados em uma variedade de ambientes de armazenamento diferentes para serem processados ou analisados da maneira mais apropriada em cada estágio do processo. Os destinos de dados geralmente usados para processamento incluem Armazenamento de Blobs do Azure, bancos de dados do SQL Azure, SQL Server na VM do Azure, HDInsight (Hadoop) e Azure Machine Learning. 
 
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Os artigos a seguir descrevem como ingerir dados em vários ambientes de destino nos quais os dados são armazenados e processados.
 
-Esse **menu** liga os tópicos que descrevem como ingerir dados em ambientes de destino nos quais os dados podem ser armazenados e processados.
+* Para/Do [Armazenamento de Blobs do Azure](move-azure-blob.md)
+* Para [SQL Server na VM do Azure](move-sql-server-virtual-machine.md)
+* Para [Banco de Dados SQL do Azure](move-sql-azure.md)
+* Para [Tabelas do Hive](move-hive-tables.md)
+* Para [Tabelas particionadas SQL](parallel-load-sql-partitioned-tables.md)
+* Do [SQL Server local](move-sql-azure-adf.md)
 
-Necessidades comerciais e técnicos, bem como o local inicial, formato e tamanho de seus dados que determinarão os ambientes de destino no qual os dados precisam ser incluídos para atingir as metas de sua análise. Não é incomum para um cenário exigir dados a serem movidos entre vários ambientes para atingir a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, a exploração de dados, pré-processamento, limpar, redução da resolução e treinamento de modelo.
-
+As necessidades técnicas e de negócios, bem como a localização inicial, o formato e o tamanho dos dados determinarão os ambientes de destino nos quais os dados precisarão ser ingeridos para atingir as metas da análise. Não é incomum para um cenário exigir dados a serem movidos entre vários ambientes para atingir a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, a exploração de dados, pré-processamento, limpar, redução da resolução e treinamento de modelo.

@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146078"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623751"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
-Com os relatórios do Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com) você obtém todas as informações de que precisa para determinar como seu ambiente está se comportando.
-
-A arquitetura de relatório no Azure Active Directory consiste nos seguintes componentes:
+A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Atividades de entrada** – informações sobre o uso de aplicativos gerenciados e de atividades de entrada do usuário
-    - **Logs de auditoria** – informações de atividade do sistema sobre o gerenciamento de usuários e de grupos, sobre os aplicativos gerenciados e sobre as atividades de diretório.
+    - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - **Logs de Auditoria** - [Logs de Auditoria](concept-audit-logs.md) fornecer informações de atividades do sistema sobre usuários e gerenciamento de grupos, aplicativos gerenciados e atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, veja Entradas de risco.
-    - **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, consulte Usuários sinalizados para risco.
+    - **Entradas arriscadas** - Uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** - Um [usuário arriscado](concept-user-at-risk.md) é um indicador de uma conta de usuário que pode ter sido comprometida.
 
-Este tópico fornece uma visão geral das atividades de entrada.
+Este tópico fornece uma visão geral das atividades de entradas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
-* Usuários na função Admin de segurança, Leitor de segurança, Leitor de relatório
+* Usuários nas funções Administrador de Segurança, Leitor de Segurança e Leitor de Relatório
 * Administradores globais
-* Qualquer usuário (não administradores) pode acessar suas próprias entradas 
+* Além disso, qualquer usuário (não administrador) pode acessar suas próprias entradas 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
 * Seu locatário deve ter uma licença do Azure AD Premium associada a ele para ver o relatório de atividade de entrada
 
+## <a name="sign-ins-report"></a>Relatório de entradas
 
-## <a name="sign-in-activities"></a>Atividades de entrada
-
-Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
+O relatório de entradas de usuário fornece respostas para as seguintes perguntas:
 
 * O que é o padrão de entrada de um usuário?
 * Quantos usuários entraram em uma semana?
 * Qual é o status dessas entradas?
 
-Seu primeiro ponto de entrada para todos os dados de atividades de login é **Login** na seção Atividade do **Active Directory do Azure**.
-
+É possível acessar o relatório de entradas, selecionando **Entradas** na seção **Atividade** da folha **Azure Active Directory** no [portal do Azure](https://portal.azure.com).
 
 ![Atividade de entrada](./media/concept-sign-ins/61.png "Atividade de entrada")
-
 
 Um log de entradas tem um modo de exibição de lista padrão que mostra:
 
@@ -82,7 +77,7 @@ Isso permite a você exibir campos adicionais ou remover campos que já estão e
 
 ![Atividade de entrada](./media/concept-sign-ins/02.png "Atividade de entrada")
 
-Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre ele em uma exibição horizontal.
+Selecione um item na exibição de lista para obter informações mais detalhadas.
 
 ![Atividade de entrada](./media/concept-sign-ins/03.png "Atividade de entrada")
 
@@ -100,7 +95,7 @@ Para restringir os dados relatados a um nível que funciona para você, filtre o
 - Usuário
 - Aplicativo
 - Status de entrada
-- Status da detecção de riscos
+- Acesso Condicional
 - Data
 
 ![Atividade de entrada](./media/concept-sign-ins/04.png "Atividade de entrada")
@@ -115,11 +110,12 @@ O filtro **status de entrada** permite que você selecione:
 - Sucesso
 - Failure
 
-O filtro **Riscos Detectados** filtro permite que você selecione:
+O filtro **Acesso Condicional** permite que você selecione o status da política de Autoridade de Certificação para a entrada:
 
 - Todos
-- SIM
-- Não 
+- Não aplicado
+- Sucesso
+- Failure
 
 O filtro **Data** permite definir um período de tempo para os dados retornados.  
 Os valores possíveis são:
@@ -149,11 +145,14 @@ Se você adicionar outros campos ao modo de exibição de entradas, esses campos
 
 ## <a name="download-sign-in-activities"></a>Baixar atividades de entrada
 
-Você pode baixar os dados de atividade de entrada se desejar trabalhar com eles fora do portal do Azure. Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes.  Além de um botão de download, o portal do Azure também fornece uma opção para gerar um script para baixar seus dados.  
+Você poderá [baixar os dados de entradas](quickstart-download-sign-in-report.md), caso queira trabalhar com esses dados fora do portal do Azure. Clicar em **Baixar** cria um arquivo CSV contendo os 5 mil registros mais recentes.  Além de um botão de download, o portal do Azure também oferece uma opção para [gerar um script para baixar seus dados](tutorial-signin-logs-download-script.md).  
 
 ![Baixar](./media/concept-sign-ins/71.png "Baixar")
 
 Se você precisar de mais flexibilidade, você pode usar a solução de script. Clicar em **Script** cria um script do PowerShell que inclui todos os filtros que você definiu. Baixe e execute esse script no **modo de administrador** para gerar o arquivo CSV. 
+
+> [!IMPORTANT]
+> O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Executando o script em uma máquina com Windows 10
 
@@ -164,28 +163,18 @@ Se você deseja executar o script em uma máquina do **Windows 10**, é necessá
 3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para Todos**. 
 4. Agora você pode executar o script do PowerShell baixado no modo de administrador para gerar o arquivo CSV.
 
-Além da implementação técnica, o número de registros que você pode baixar também é restringido pelas [políticas de retenção de relatório do Azure Active Directory](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Atalhos dos dados de entradas
 
-
-## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de entrada
-
-Além do Azure Active Directory, o portal do Azure fornece pontos de entrada adicionais para os dados de atividades de entrada:
+Além do Azure AD, o portal do Azure fornece pontos de entrada adicionais aos dados de entradas:
 
 - Visão geral da proteção de segurança de identidade
 - Usuários
 - Grupos
 - Aplicativos empresariais
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de entradas de usuário na proteção de segurança de identidade
 
-### <a name="users-sign-ins-activities"></a>Atividades de logon de usuários
-
-Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
-
-- O que é o padrão de entrada de um usuário?
-- Quantos usuários entraram em uma semana?
-- Qual é o status dessas entradas?
-
-O ponto de entrada para esses dados é o gráfico de entradas do usuário na página de visão geral da **proteção de segurança de identidade**. O grafo de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O grafo de entrada de usuário na página de visão geral da **proteção de segurança de identidade** mostra agregações semanais de entradas de todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/concept-sign-ins/06.png "Atividade de entrada")
 
@@ -211,7 +200,6 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - Data
 - MFA obrigatório
 - Status de entrada
-
  
 Na página **Usuários**, você obtém uma visão geral completa de todas as entradas do usuário clicando em **Entradas** na seção **Atividade**.
 
@@ -243,9 +231,9 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 
 ![Atividade de entrada](./media/concept-sign-ins/11.png "Atividade de entrada")
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber mais sobre os códigos de erro da atividade de entrada, confira o [Códigos de erro do relatório de atividade de entrada no portal do Azure Active Directory](reference-sign-ins-error-codes.md).
+* [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
+* [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)
+* [Latências do relatório do Azure AD](reference-reports-latencies.md)
 

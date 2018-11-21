@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354256"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625074"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicativo a ser usado ao adicionar um aplicativo
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolhendo o tipo de aplicativo ao adicionar um aplicativo no Active Directory Domain Services do Azure
+Conheça os quatro tipos de aplicativos que você pode adicionar ao Microsoft Azure Active Directory (Azure Active Directory). Ao adicionar um aplicativo no Azure Active Directory Domain Services, você será solicitado a escolher um dos quatro tipos de aplicativo. 
 
-Este artigo o ajuda você a entender os quatro tipos principais de aplicativos que você pode integrar ao Azure AD:
-
-* O que tem suporte em cada um deles
-* Por que você escolheria cada aplicativo
-* Como configurar propriedades principais desses aplicativos, como quantos usuários são **provisionados** ou qual tecnologia de **logon único** usar.
-
-## <a name="supported-application-types-in-azure-ad"></a>Tipos de aplicativos com suporte no Azure AD
+## <a name="what-are-the-types-of-applications"></a>Quais são os tipos de aplicativos?
 
 O Azure AD oferece suporte a quatro tipos de aplicativos principais que você pode adicionar usando o recurso **Adicionar** encontrado em **Aplicativos Empresariais**. Estão incluídos:
 
@@ -41,7 +36,7 @@ O Azure AD oferece suporte a quatro tipos de aplicativos principais que você po
 
 -   **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Qualquer link da Web desejado, ou qualquer aplicativo que renderiza um campo de nome de usuário e senha, dá suporte aos protocolos SAML ou OpenID Connect ou dá suporte ao SCIM que você deseja integrar para logon único com o Azure Active Directory.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Recursos e funções com suporte de todos os tipos de aplicativos anteriores
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Recursos e capacidades suportados pelos tipos de aplicativo
 
 Os seguintes recursos são suportados por qualquer um dos quatro tipos de aplicativos anteriores no Azure Active Directory:
 

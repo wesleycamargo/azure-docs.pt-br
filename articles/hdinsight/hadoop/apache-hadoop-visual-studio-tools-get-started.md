@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao Azure HDInsight usando as Ferramentas do Data Lake para Visual Studio
-description: Saiba como instalar e usar as Ferramentas do Data Lake para Visual Studio para se conectar a clusters Hadoop no Azure HDInsight e executar consultas do Hive.
+description: Saiba como instalar e usar o Data Lake Tools para Visual Studio para se conectar a clusters do Apache Hadoop no HDInsight do Azure e, em seguida, executar consultas do Hive.
 keywords: ferramentas do hadoop, consulta hive, visual studio, hadoop do visual studio
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247136"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634661"
 ---
-# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Usar Ferramentas do Data Lake para Visual Studio a fim de se conectar ao Azure HDInsight e executar consultas Hive
+# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Use Data Lake Tools para Visual Studio para se conectar ao Azure HDInsight e executar consultas do Apache Hive
 
-Saiba como usar as Ferramentas do Data Lake para Visual Studio (também chamadas Ferramentas do Azure Data Lake e Stream Analytics para Visual Studio) a fim de se conectar a clusters Hadoop no [Azure HDInsight](../hdinsight-hadoop-introduction.md) e enviar consultas Hive. 
+Aprenda a usar o Data Lake Tools para Visual Studio (também chamado Azure Data Lake e Stream Analytics Tools para Visual Studio) para se conectar a clusters do Apache Hadoop no [Azure HDInsight](../hdinsight-hadoop-introduction.md) e enviar consultas do Hive. 
 
 Para obter mais informações sobre como usar o HDInsight, consulte [Introdução ao HDInsight](../hdinsight-hadoop-introduction.md) e [Começar a usar o HDInsight](apache-hadoop-linux-tutorial-get-started.md). 
 

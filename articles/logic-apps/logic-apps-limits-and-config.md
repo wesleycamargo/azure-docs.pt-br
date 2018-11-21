@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232266"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346687"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -321,9 +321,9 @@ Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endere
 | Oeste do Reino Unido | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### <a name="connectors"></a>Conectores
+### <a name="managed-connectors"></a>Conectores gerenciados
 
-Para dar suporte às chamadas que os [conectores](../connectors/apis-list.md) fazem, defina suas configurações de firewall para que elas incluam esses endereços IP de saída, com base nas regiões em que os aplicativos lógicos existem.
+Para suportar as chamadas que [conectores gerenciados pela Microsoft](../connectors/apis-list.md) criam, configure suas configurações de firewall para que elas incluam esses endereços IP de saída, com base nas regiões onde seus aplicativos lógicos existem.
 
 > [!IMPORTANT]
 > Se você tiver configurações existentes, atualize-as **assim que possível antes de 1º de setembro de 2018** para que elas incluam e correspondam aos endereços IP nessa lista para as regiões em que os aplicativos lógicos existem. 

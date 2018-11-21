@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c731d0498c026a5d0659335550f6e280a031b1e4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011350"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612798"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -55,7 +55,7 @@ Consulte as [Perguntas comuns para a transição do portal do OMS para o portal 
 O gerenciamento de acesso ao portal do Azure é mais avançado e mais poderoso do que o gerenciamento de acesso no Portal do OMS. Consulte [Gerenciar workspaces](log-analytics-manage-access.md#manage-accounts-and-users) para obter detalhes sobre o gerenciamento de acesso no Log Analytics.
 
 > [!NOTE]
-> As versões anteriores deste artigo diziam que as permissões seriam convertidas automaticamente do portal do OMS para o portal do Azure. Esta conversão automática não está mais planejada e você mesmo deve executar a conversão.
+> As versões anteriores deste artigo diziam que as permissões seriam convertidas automaticamente do portal do OMS para o portal do Azure. Essa conversão automática não é mais planejada e você mesmo deve realizar a conversão.
 
 Talvez você já tenha acesso apropriado no portal do Azure, caso em que você não precisa fazer nenhuma alteração. Há alguns casos em que talvez você não tenha acesso apropriado. Nesse caso, o administrador deve atribuir permissões a você.
 
@@ -84,7 +84,7 @@ Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orie
 Os alertas foram [estendidos para o portal do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Quando isso for concluído, as ações de gerenciamento de alertas só estarão disponíveis no portal do Azure. Os alertas existentes continuarão sendo listados no portal do OMS. Se você acessar os alertas de forma programática usando a API REST de Alerta do Log Analytics ou o Modelo de Recurso de Alerta do Log Analytics, use grupos de ação em vez de ações nas chamadas à API, modelos do Azure Resource Manager e comandos do PowerShell.
 
 ### <a name="alert-management-solution"></a>solução de Gerenciamento de Alertas
-Em vez da [solução de gerenciamento de alertas](log-analytics-solution-alert-management.md), você pode usar a [interface de alertas unificada do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para visualizar e gerenciar seus alertas. Essa nova experiência agrega alertas de várias fontes no Azure, incluindo alertas de log do Log Analytics. Você pode ser distribuições de seus alertas, tirar proveito de agrupamento automatizado de alertas relacionados por meio de grupos inteligentes, bem como exibir alertas entre várias assinaturas durante a aplicação de filtros avançados. Todos esses recursos estão disponíveis em versão prévia desde 4 de junho de 2018. A solução de gerenciamento de alertas não estará disponível no portal do Azure. 
+Em vez da [solução de gerenciamento de alertas](log-analytics-solution-alert-management.md), você pode usar a [interface de alertas unificada do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para visualizar e gerenciar seus alertas. Essa nova experiência agrega alertas de várias fontes no Azure, incluindo alertas de log do Log Analytics. Você pode ser distribuições de seus alertas, tirar proveito de agrupamento automatizado de alertas relacionados por meio de grupos inteligentes, bem como exibir alertas entre várias assinaturas durante a aplicação de filtros avançados. Todos esses recursos estão disponíveis em versão prévia desde 4 de junho de 2018. A solução de gerenciamento de alertas não estará disponível no portal do Azure. 
 
 Os dados coletados pela solução de Gerenciamento de Alertas (registros com um tipo de alerta) continuarão no Log Analytics enquanto a solução estiver instalada para o workspace. A partir de agosto de 2018, o streaming de alertas dos alertas unificados nos workspaces será habilitado, substituindo essa funcionalidade. Algumas alterações de esquema são esperadas e serão apresentadas em uma data posterior.
 

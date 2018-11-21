@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353520"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685711"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -28,7 +28,7 @@ Este artigo aborda perguntas frequentes geradas pela comunidade de usuários dos
 
 P: Como fazer streaming para dispositivos iOS da Apple?
 
-A: Adicione o caminho "(format = m3u8-aapl)" à parte "/Manifest" da URL para informar o servidor de origem de streaming para retornar o conteúdo HLS para consumo nos dispositivos nativos Apple iOS. Para saber mais detalhes, consulte (distribuição de conteúdo)[media-services-deliver-content-overview.md],
+R: adicione o caminho "(format = m3u8-aapl)" à parte "/ Manifest" do URL para informar o servidor de origem de streaming a devolver o conteúdo HLS para consumo em dispositivos nativos Apple iOS (para detalhes, consulte [ conteúdo ](media-services-deliver-content-overview.md)),
 
 P: Como você dimensiona indexação?
 

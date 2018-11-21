@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401538"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285734"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Discos Gerenciados SSD Ultra (versão prévia) para cargas de trabalho de Máquina Virtual do Azure
 
@@ -23,7 +23,7 @@ O SSD Ultra do Azure (versão prévia) proporciona alta taxa de transferência, 
 
 **Discos Gerenciados**: os SSDs Ultra estão disponíveis somente como Discos Gerenciados. Os SSDs Ultra não podem ser implantados como um Disco não gerenciado ou um Blob de páginas. Durante a criação de um Disco Gerenciado, você especificará o tipo de SKU do disco como UltraSSD_LRS e indicará o tamanho do disco, o IOPS e a taxa de transferência que você precisa e o Azure criará e gerenciará o disco para você.  
 
-**Máquinas virtuais**: os SSDs Ultra são projetados para funcionar com todos os SKUs de Máquina Virtual do Azure habilitadas para SSD Premium, no entanto, durante a versão prévia, os tamanhos de VM serão limitados a instâncias de VM ES/DS v3.
+**Máquinas Virtuais**: os SSDs Ultra são projetados para funcionar com todas as SKUs de máquinas virtuais do Azure habilitadas para SSD Premium, no entanto, como está atualmente em versão prévia, as VMs são dimensionadas como ES/DS v3.
 
 **Configuração dinâmica de desempenho**: os SSDs Ultra permitem que você altere dinamicamente o desempenho (IOPS e taxa de transferência) do disco, juntamente com suas necessidades de carga de trabalho, sem precisar reiniciar as máquinas virtuais.
 
@@ -55,7 +55,7 @@ A tabela a seguir resume as diferentes configurações compatíveis com os difer
 
 ## <a name="pricing-and-billing"></a>Preços e cobrança
 
-Ao usar SSDs Ultra, as seguintes considerações de cobrança se aplicam:
+Ao usar os SSDs Ultra, as seguintes considerações de faturamento serão aplicadas:
 
 - Tamanho do Disco Gerenciado
 - IOPS do Disco Gerenciado provisionado
@@ -64,11 +64,11 @@ Ao usar SSDs Ultra, as seguintes considerações de cobrança se aplicam:
 
 ### <a name="managed-disk-size"></a>Tamanho do Disco Gerenciado
 
-Os Discos Gerenciados são cobrados no tamanho provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado compatível e é cobrado de acordo, por hora. Por exemplo, se você provisionasse um Disco SSD Ultra de 200 GiB e o excluísse após 20 horas, ele seria mapeado para a oferta de tamanho de disco de 256 GiB e você seria cobrado pelos 256 GiB por 20 horas. Isso é independente da quantidade de dados reais gravados no disco.
+Os discos gerenciados são cobrados nos tamanhos de VM que você escolhe ao provisionar uma nova VM do Azure. O Azure mapeia o tamanho provisionado (arredondado) para a opção de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima. Cada disco é mapeado para um tamanho de disco provisionado com suporte e será cobrado de acordo com uma hora por hora. Por exemplo, se você provisionasse um Disco SSD Ultra de 200 GiB e o excluísse após 20 horas, ele seria mapeado para a oferta de tamanho de disco de 256 GiB e você seria cobrado pelos 256 GiB por 20 horas. Essa cobrança foi baseada no consumo de horas de computação, independentemente do volume de dados realmente gravado no disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>IOPS do Disco Gerenciado provisionado
 
-IOPS é o número de solicitações que seu aplicativo está enviando para os discos em um segundo. Uma operação de entrada/saída pode ser sequencial ou aleatória, de leitura ou de gravação. Assim como o tamanho do disco, o IOPS provisionado é cobrado por hora. Para obter detalhes sobre o IOPS de disco oferecido, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima.
+IOPS é o número de solicitações que o aplicativo está enviando aos discos por segundo. Uma operação de entrada/saída pode ser leitura ou gravação sequencial ou leitura ou gravação aleatória. Com base no tamanho do disco ou no número de discos conectados à VM, o número médio de IOPS será cobrado por hora. Para obter detalhes sobre o IOPS de disco oferecido, consulte a tabela na seção de Escalabilidade e Metas de Desempenho acima.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Taxa de transferência do Disco Gerenciado Provisionado
 

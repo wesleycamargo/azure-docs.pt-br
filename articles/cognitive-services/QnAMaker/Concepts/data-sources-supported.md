@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213297"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624870"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Fontes de dados para conteúdo do QnA Maker
 
@@ -26,9 +26,9 @@ A tabela a seguir resume os tipos de conteúdo e formatos de arquivo com suporte
 |Tipo de Fonte|Tipo de conteúdo| Exemplos|
 |--|--|--|
 |URL|Perguntas frequentes (simples, com seções ou com uma página inicial de tópicos)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [Perguntas frequentes com links](https://www.microsoft.com/software-download/faq), [Perguntas frequentes com página inicial de tópicos](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF/DOC|Perguntas frequentes, Manual do Produto, Brochuras, Artigo, Panfleto de Política, Guia de suporte, QnA estruturada etc.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
-|Excel|Arquivo de QnA estruturado (incluindo suporte para RTF, HTML)|[Exemplo de QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
+|PDF/DOC|Perguntas frequentes, Manual do Produto, Brochuras, Artigo, Panfleto de Política, Guia de suporte, QnA estruturada etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Arquivo de QnA estruturado (incluindo suporte para RTF, HTML)|[Exemplo de QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|Arquivo QnA estruturado|[Exemplo de chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="faq-urls"></a>URLs de perguntas frequentes
 
@@ -131,6 +131,10 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 ## <a name="editorially-add-to-knowledge-base"></a>Adicionar de modo editorial à base de dados de conhecimento
 
 Se não tiver conteúdo pré-existente para preencher a base de dados de conhecimento, você poderá adicionar QnAs editorialmente na Base de Dados de Conhecimento do QnA Maker. Saiba como atualizar sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Considerações de formatação
+
+Depois de importar um arquivo ou URL, ele é convertido em Markdown e armazenado nesse formato. Se o processo de conversão não estiver convertendo corretamente links em seus arquivos e URLs, edite as perguntas e respostas na página **Editar**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

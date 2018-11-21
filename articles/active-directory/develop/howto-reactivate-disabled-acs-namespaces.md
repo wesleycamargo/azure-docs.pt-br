@@ -15,27 +15,27 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019707"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577934"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Como: Reativar namespaces do Serviço de Controle de Acesso desabilitado
 
 Em novembro de 2017, anunciamos que o Serviço de Coleta de Auditoria (ACS), um Serviço do Microsoft Azure Active Directory (Azure AD), está sendo desativado em 7 de novembro de 2018.
 
-Desde então, enviamos vários e-mails para o email de administrador das assinaturas do ACS sobre a aposentadoria do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de aposentadoria de novembro 7, 2018.
+Desde então, enviamos emails para o email de administrador das assinaturas do ACS sobre a desativação do ACS 12 meses, 9 meses, 6 meses, 3 meses, 1 mês, 2 semanas, 1 semana e 1 dia antes da data de desativação de 7 de novembro 2018.
 
-Em 3 de outubro de 2018, anunciamos (por e-mail e [uma postagem no blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) uma oferta de extensão a clientes que não podem concluir sua migração antes de 7 de novembro de 2018. O comunicado também continha instruções para solicitar a extensão.
+Em 3 de outubro de 2018, anunciamos (por e-mail e [uma postagem no blog](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) uma oferta de extensão a clientes que não podem concluir sua migração antes de 7 de novembro de 2018. O anúncio também continha instruções para solicitar a extensão.
 
 ## <a name="why-your-namespace-is-disabled"></a>Por que o seu namespace está desabilitado
 
-Se você não tiver optado pela extensão, começaremos a desativar os namespaces do ACS a partir de 7 de novembro de 2018. Se você perdeu as comunicações e ainda gostaria de optar pela extensão até 4 de fevereiro de 2019, siga as instruções nas seções a seguir.
+Se você não aceitou a extensão, começaremos a desabilitar os namespaces do ACS a partir de 7 de novembro de 2018. Se você perdeu as comunicações e ainda gostaria de optar pela extensão até 4 de fevereiro de 2019, siga as instruções nas seções a seguir.
 
 > [!NOTE]
-> Você deve ser um administrador da assinatura para executar os comandos do PowerShell e solicitar uma extensão.
+> Você deve ser um administrador de serviços ou coadministrador da assinatura para executar os comandos do PowerShell e solicitar uma extensão.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>Localizar e ativar seus namespaces do ACS
 
@@ -62,6 +62,9 @@ Você pode usar o ACS PowerShell para listar todos os namespaces do ACS e reativ
         ```
     
         em que `[Command-Name]` é o nome do comando do ACS.
+1. Conecte-se ao ACS usando o cmdlet **Connect-AcsAccount**. 
+
+    Talvez seja necessário alterar a política de execução, executando **Set-ExecutionPolicy** antes de poder executar o comando.
 1. Liste suas assinaturas do Azure disponíveis usando o cmdlet **Get-AcsSubscription**.
 1. Liste seus namespaces do ACS usando o cmdlet **Get-AcsNamespace**.
 1. Confirme se os namespaces estão desabilitados confirmando que `State` é `Disabled`.

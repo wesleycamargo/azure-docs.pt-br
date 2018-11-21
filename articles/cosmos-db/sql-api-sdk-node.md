@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282417"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687496"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "51282417"
 * Diversas correções de erro de digitação
 
 ### <a name="2.0.4"/>2.0.4</a>
-* Corrige o problema de definição de tipo introduzido na versão 2.0.3
+* Correções de tipo de problema de definição, introduzido no 2.0.3
 
 ### <a name="2.0.3"/>2.0.3</a>
 * Remover a dependência `big-integer`
@@ -153,7 +153,7 @@ ms.locfileid: "51282417"
 * O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* hashPartitionResolver resolveForRead() corrigido: quando nenhuma chave de partição fornecida estava emitindo exceção, em vez de retornar uma lista de todos os links registrados.
+* Corrigido hashPartitionResolver resolveForRead (): quando nenhuma chave de partição fornecida gerava uma exceção, em vez de retornar uma lista de todos os links registrados.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para os fins do Azure Cosmos DB. Use um agente dedicado para todas as solicitações da biblioteca.

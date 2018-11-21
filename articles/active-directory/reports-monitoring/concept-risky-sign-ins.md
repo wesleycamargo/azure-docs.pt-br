@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/14/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869628"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623852"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Relatório de entradas de risco no portal do Azure Active Directory
 
-Com os relatórios de segurança no Azure Active Directory (Azure AD) você pode obter informações sobre a probabilidade de contas de usuário comprometidas em seu ambiente. 
+O Azure AD (Azure Active Directory) detecta ações suspeitas relacionadas às contas de usuário. Para cada ação detectada, um registro chamado **evento de risco** é criado. Para obter mais detalhes, consulte [Eventos de risco do Azure AD](concept-risk-events.md). 
 
-O Azure AD detecta ações suspeitas relacionadas às suas contas de usuário. Para cada ação detectada, um registro chamado *evento de risco* é criado. Para obter mais detalhes, veja [Eventos de risco do Azure Active Directory](concept-risk-events.md). 
+Você pode acessar os relatórios de segurança do [portal do Azure](https://portal.azure.com) selecionando a folha **Azure Active Directory** e, em seguida, navegando até a seção **Segurança**. 
 
-Os eventos de risco detectados são usados para calcular:
+Há dois relatórios de segurança diferentes que são calculados com base nos eventos de risco:
 
-- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. Para obter mais detalhes, confira [Como configurar a política de risco de entrada](../identity-protection/howto-sign-in-risk-policy.md). 
+- **Entradas arriscadas** - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário.
 
-- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. Para obter mais detalhes, confira [Como configurar a política de risco](../identity-protection/howto-user-risk-policy.md).  
-
-Você pode encontrar os relatórios de segurança no [Portal do Azure](https://portal.azure.com) na folha **Azure Active Directory** na seção **Segurança**. 
+- **Usuários sinalizados para riscos** - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
 ![Entradas de risco](./media/concept-risky-sign-ins/10.png)
+
+Para saber como configurar as políticas que disparam esses eventos de risco, consulte [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md).  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>Quem pode acessar o relatório de entradas de risco?
 
@@ -49,18 +49,17 @@ Para saber como atribuir funções administrativas a um usuário no Azure Active
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?  
 
-Todas as edições do Azure Active Directory fornecem relatórios de entradas de risco.  
-No entanto, o nível de granularidade do relatório varia entre as edições: 
+Todas as edições do Azure AD fornecem relatórios de entradas de risco. No entanto, o nível de granularidade do relatório varia entre as edições: 
 
-- Nas **edições do Azure Active Directory Gratuita e Basic**, você obtém uma lista de entradas de risco. 
+- Nas **edições Gratuita e Básica do Azure Active**, você recebe uma lista de entradas de risco. 
 
-- A edição do **Azure Active Directory Premium 1** estende esse modelo, também permitindo que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
+- Além disso, a edição do **Azure Active Directory Premium 1** permite que você examine alguns dos eventos de risco subjacentes que foram detectados para cada relatório. 
 
 - A edição do **Azure Active Directory Premium 2** fornece as informações mais detalhadas sobre todos os eventos de risco subjacentes e também permite configurar políticas de segurança que atendem automaticamente aos níveis de risco configurados.
 
-## <a name="azure-active-directory-free-and-basic-edition"></a>Edições gratuita e básica do Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Relatório de entradas arriscadas da edição gratuita e básica do Azure AD
 
-As edições gratuita e básica do Azure Active Directory fornecem uma lista de entradas de risco que foram detectadas dos seus usuários. O relatório lista:
+As edições gratuitas e básicas do Azure AD fornecem uma lista de entradas arriscadas que foram detectadas para os usuários. Cada registro contém os seguintes atributos:
 
 - **Usuário** - o nome do usuário usado durante a operação de entrada
 - **IP** - o endereço IP do dispositivo usado para se conectar ao Azure Active Directory
@@ -68,10 +67,9 @@ As edições gratuita e básica do Azure Active Directory fornecem uma lista de 
 - **Hora da entrada** - o horário em que a entrada foi realizada
 - **Status** - o status da entrada
 
-
 ![Entradas de risco](./media/concept-risky-sign-ins/01.png)
 
-Com base em sua investigação da entrada arriscada, você poderá fazer comentários ao Azure Active Directory na forma das seguintes ações:
+Com base na investigação de entrada arriscada, você poderá fornecer feedback ao Azure AD realizando as seguintes ações:
 
 - Resolver
 - Marcar como falso positivo
@@ -80,28 +78,23 @@ Com base em sua investigação da entrada arriscada, você poderá fazer coment�
 
 ![Entradas de risco](./media/concept-risky-sign-ins/21.png)
 
-
-
-Esse relatório fornece uma opção para:
+Este relatório também fornece uma opção para:
 
 - Recursos do Search
 - Baixar os dados do relatório
 
-
 ![Entradas de risco](./media/concept-risky-sign-ins/93.png)
 
 
-## <a name="azure-active-directory-premium-editions"></a>Edições premium do Azure Active Directory
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Relatório de entradas arriscadas para as edições Premium do Azure AD
 
-O relatório de entradas de risco nas edições premium do Azure Active Directory oferece:
+O relatório de entradas arriscadas nas edições Premium do Azure AD fornece:
 
 - Informações agregadas sobre os [tipos de eventos de risco](concept-risk-events.md) que foram detectados
 
 - Uma opção para baixar o relatório
 
-
 ![Entradas de risco](./media/concept-risky-sign-ins/456.png)
-
 
 Ao selecionar um evento de risco, você obtém uma exibição detalhada do relatório deste evento de risco que habilita:
 
@@ -112,7 +105,6 @@ Ao selecionar um evento de risco, você obtém uma exibição detalhada do relat
 - O exame de uma lista de usuários para os quais esse evento de risco foi detectado
 
 - Fechar eventos de risco manualmente. 
-
 
 ![Entradas de risco](./media/concept-risky-sign-ins/457.png)
 
@@ -126,21 +118,15 @@ Ao selecionar um usuário, você obtém uma exibição detalhada do relatório d
 
 - Investigar os eventos de risco relatados para o usuário. 
 
-
 ![Entradas de risco](./media/concept-risky-sign-ins/324.png)
-
 
 Para investigar um evento de risco, selecione um na lista.  
 Isso abre a folha de **Detalhes** para este evento de risco. Na folha **Detalhes**, existe a opção de fechar manualmente um evento de risco ou reativar um evento de risco fechado manualmente. 
 
-
 ![Entradas de risco](./media/concept-risky-sign-ins/325.png)
-
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre o Azure Active Directory Identity Protection, veja [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-
+- [Como configurar a política de risco do usuário](../identity-protection/howto-user-risk-policy.md)
+- [Como configurar a política de correção de risco](../identity-protection/howto-user-risk-policy.md)
+- [Tipos de evento de risco](concept-risk-events.md)

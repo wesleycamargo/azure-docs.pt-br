@@ -2,18 +2,18 @@
 title: Noções básicas sobre o tempo de execução do Azure IoT Edge | Microsoft Docs
 description: Saiba mais sobre o tempo de execução do Azure IoT Edge e como ele fortalece seus dispositivos de borda
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 05c97d21e9acf1bb49418e3a7d0ccf1657f84435
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393467"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685184"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -31,65 +31,67 @@ O tempo de execução do IoT Edge executa as seguintes funções em dispositivos
 
 ![O tempo de execução do IoT Edge comunica insights e integridade de módulo para o Hub IoT](./media/iot-edge-runtime/Pipeline.png)
 
-As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
+As responsabilidades do tempo de execução do IoT Edge se enquadram em duas categorias: gerenciamento de comunicação e de módulo. Essas duas funções são executadas por dois componentes que representam o tempo de execução do IoT Edge. O hub do IoT Edge é responsável pela comunicação, enquanto o agente do IoT Edge gerencia a implantação e o monitoramento de módulos. 
 
 Tanto o hub quanto o agente do Edge são módulos, assim como qualquer outro módulo em execução em um dispositivo IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Hub do IoT Edge
 
-O hub do Edge é um dos dois módulos que compõem o tempo de execução do Azure IoT Edge. Ele atua como um proxy local para o Hub IoT expondo os mesmos pontos de extremidade de protocolo que o Hub IoT. Essa consistência significa que os clientes (sejam dispositivos ou módulos) podem se conectar no tempo de execução do IoT Edge como faria para no Hub IoT. 
+O hub do Edge é um dos dois módulos que compõem o tempo de execução do Azure IoT Edge. Ele atua como um proxy local para o Hub IoT expondo os mesmos pontos de extremidade de protocolo que o Hub IoT. Essa consistência significa que os clientes (sejam dispositivos ou módulos) podem se conectar no tempo de execução do IoT Edge como faria para no Hub IoT. 
 
 >[!NOTE]
 >O hub do Edge dá suporte a clientes que se conectam usando MQTT ou AMQP. Ele não oferece suporte a clientes que usam HTTP. 
 
-O hub do Edge não é uma versão completa do Hub IoT executado localmente. Há algumas coisas que o hub do Edge delega para o Hub IoT silenciosamente. Por exemplo, o hub do Edge encaminha solicitações de autenticação para o Hub IoT quando um dispositivo tenta se conectar. Depois que a primeira conexão é estabelecida, as informações de segurança são armazenadas em cache localmente pelo hub do Edge. São permitidas conexões subsequentes desse dispositivo sem ele precisar se autenticar na nuvem. 
+O hub do Edge não é uma versão completa do Hub IoT executado localmente. Há algumas coisas que o hub do Edge delega para o Hub IoT silenciosamente. Por exemplo, o hub do Edge encaminha solicitações de autenticação para o Hub IoT quando um dispositivo tenta se conectar. Depois que a primeira conexão é estabelecida, as informações de segurança são armazenadas em cache localmente pelo hub do Edge. São permitidas conexões subsequentes desse dispositivo sem ele precisar se autenticar na nuvem. 
 
 >[!NOTE]
 >O tempo de execução deve ser conectado toda vez que tenta autenticar um dispositivo.
 
-Para reduzir a largura de banda que a solução IoT Edge usa, o hub do Edge otimiza quantas conexões reais são feitas com a nuvem. O hub do Edge usa conexões lógicas de clientes como módulos ou dispositivos de folha e combina-os em uma única conexão física com a nuvem. Os detalhes desse processo são transparentes para o restante da solução. Os clientes pensam que têm sua própria conexão para a nuvem, mesmo que estejam todos sendo enviados pela mesma conexão. 
+Para reduzir a largura de banda que a solução IoT Edge usa, o hub do Edge otimiza quantas conexões reais são feitas com a nuvem. O hub do Edge usa conexões lógicas de clientes como módulos ou dispositivos de folha e combina-os em uma única conexão física com a nuvem. Os detalhes desse processo são transparentes para o restante da solução. Os clientes pensam que têm sua própria conexão para a nuvem, mesmo que estejam todos sendo enviados pela mesma conexão. 
 
 ![O hub do Edge funciona como um gateway entre vários dispositivos físicos e a nuvem](./media/iot-edge-runtime/Gateway.png)
 
-O hub do Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. O local usado para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. 
+O hub do Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. O local usado para esse cache temporário é determinado por uma propriedade do gêmeo do módulo do hub do Edge. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. 
 
 ### <a name="module-communication"></a>Comunicação do módulo
 
-O hub do Edge facilita a comunicação de módulo para módulo. O uso do hub do Edge como um agente de mensagem mantém os módulos independentes uns dos outros. Os módulos precisam apenas especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Um desenvolvedor de soluções junta essas entradas e saídas para que os módulos processem os dados na ordem específica para essa solução. 
+O hub do Edge facilita a comunicação de módulo para módulo. O uso do hub do Edge como um agente de mensagem mantém os módulos independentes uns dos outros. Os módulos precisam apenas especificar as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Um desenvolvedor de soluções junta essas entradas e saídas para que os módulos processem os dados na ordem específica para essa solução. 
 
 ![O hub do Edge facilita a comunicação de módulo para módulo](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 Para enviar dados ao hub do Edge, um módulo chamará o método SendEventAsync. O primeiro argumento especifica em qual saída enviar a mensagem. O pseudocódigo a seguir envia uma mensagem na saída1:
 
    ```csharp
-   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
-   await client.OpenAsync(); 
-   await client.SendEventAsync(“output1”, message); 
+   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
    ```
 
 Para receber uma mensagem, registre um retorno de chamada que processa as mensagens recebidas em uma entrada específica. O pseudocódigo a seguir registra a função messageProcessor a ser usada para processar todas as mensagens recebidas em entrada1:
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+Para obter mais informações sobre a classe ModuleClient e seus métodos de comunicação, consulte a referência de API para seu idioma preferencial do SDK: [ C# ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C e Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), ou [Node. js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 O desenvolvedor da solução é responsável por especificar as regras que determinam como o hub do Edge passa mensagens entre os módulos. As regras de roteamento são definidas na nuvem e propagadas para o hub do Edge no seu dispositivo gêmeo. A mesma sintaxe para rotas do Hub IoT é usada para definir rotas entre módulos no Azure IoT Edge. 
 
-<!--- For more info on how to declare routes between modules, see []. --->   
+<!--- For more info on how to declare routes between modules, see []. --->   
 
 ![Rotas entre módulos](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>Agente do IoT Edge
 
-O agente do IoT Edge é o outro módulo que compõe o tempo de execução do Azure IoT Edge. Ele é responsável por instanciar módulos, fazendo com que continuem a funcionar, e indicar o status dos módulos para o Hub IoT. Assim como qualquer outro módulo, o agente do Edge usa seu módulo gêmeo para armazenar esses dados de configuração. 
+O agente do IoT Edge é o outro módulo que compõe o tempo de execução do Azure IoT Edge. Ele é responsável por instanciar módulos, fazendo com que continuem a funcionar, e indicar o status dos módulos para o Hub IoT. Assim como qualquer outro módulo, o agente do Edge usa seu módulo gêmeo para armazenar esses dados de configuração. 
 
-O [daemon de segurança do IoT Edge](iot-edge-security-manager.md) inicia o agente do Edge na inicialização do dispositivo. O agente recupera seu módulo gêmeo do Hub IoT e inspeciona o manifesto de implantação. O manifesto de implantação é um arquivo JSON que declara os módulos que precisam ser iniciados. 
+O [daemon de segurança do IoT Edge](iot-edge-security-manager.md) inicia o agente do Edge na inicialização do dispositivo. O agente recupera seu módulo gêmeo do Hub IoT e inspeciona o manifesto de implantação. O manifesto de implantação é um arquivo JSON que declara os módulos que precisam ser iniciados. 
 
-Cada item no manifesto de implantação contém informações específicas sobre um módulo e é usado pelo agente o Edge para controlar o ciclo de vida do módulo. Estas são algumas das propriedades mais interessantes: 
+Cada item no manifesto de implantação contém informações específicas sobre um módulo e é usado pelo agente o Edge para controlar o ciclo de vida do módulo. Estas são algumas das propriedades mais interessantes: 
 
 * **Settings.Image**: a imagem de contêiner que o agente do Edge usa para iniciar o módulo. O agente do Edge deverá ser configurado com as credenciais para o registro de contêiner se a imagem estiver protegida por senha. As credenciais para o registro de contêiner pode ser configurado remotamente usando o manifesto de implantação ou no próprio dispositivo Edge atualizando o `config.yaml` arquivo na pasta de programa do IoT Edge.
-* **settings.createOptions**: uma cadeia de caracteres que é passada diretamente para o daemon do Docker ao iniciar o contêiner do módulo. A adição de opções de Docker a esta propriedade permite opções avançadas, como encaminhamento de porta ou montagem de volumes no contêiner do módulo.  
-* **status**: o estado no qual o agente do Edge coloca o módulo. Geralmente, esse valor é definido como *executando*, já que a maioria das pessoas deseja que o agente do Edge inicie imediatamente todos os módulos no dispositivo. No entanto, você pode especificar o estado inicial de um módulo para ser interrompido e aguardar para mandar o agente do Edge iniciar um módulo. O agente do Edge relata o status de cada módulo para a nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade relatada é um indicador de um dispositivo com comportamento inadequado. Os status com suporte são:
+* **settings.createOptions**: uma cadeia de caracteres que é passada diretamente para o daemon do Docker ao iniciar o contêiner do módulo. A adição de opções de Docker a esta propriedade permite opções avançadas, como encaminhamento de porta ou montagem de volumes no contêiner do módulo.  
+* **status**: o estado no qual o agente do Edge coloca o módulo. Geralmente, esse valor é definido como *executando*, já que a maioria das pessoas deseja que o agente do Edge inicie imediatamente todos os módulos no dispositivo. No entanto, você pode especificar o estado inicial de um módulo para ser interrompido e aguardar para mandar o agente do Edge iniciar um módulo. O agente do Edge relata o status de cada módulo para a nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade relatada é um indicador de um dispositivo com comportamento inadequado. Os status com suporte são:
    * Baixando
    * Executando
    * Não Íntegro

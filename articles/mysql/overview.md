@@ -2,23 +2,22 @@
 title: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL
 description: Visão geral do serviço de banco de dados relacional Banco de Dados do Azure para MySQL.
 services: mysql
+ms.service: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
-ms.service: mysql
-ms.topic: article
-ms.date: 06/02/2018
 ms.custom: mvc
-ms.openlocfilehash: b7af709c4175ecd6100de6d638ac9862488a7190
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.topic: article
+ms.date: 11/14/2018
+ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266339"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684783"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
-O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud, baseado no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/). O Banco de Dados do Azure para MySQL fornece:
+O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft com base no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/), versões 5.6 e 5.7. O Banco de Dados do Azure para MySQL fornece:
 
 - Alta disponibilidade interna sem nenhum custo adicional.
 - Desempenho previsível, com preços pré-pagos inclusivos.
@@ -39,7 +38,7 @@ Para ver diversos exemplos da CLI do Azure, consulte:
 - [Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
-O serviço Banco de Dados do Azure para MySQL oferece várias camadas de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja [Tipos de preço](concepts-service-tiers.md) para obter detalhes.
+O serviço Banco de Dados do Azure para MySQL oferece várias camadas de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-service-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 Como você decide quando aumentar e reduzir? Use os recursos internos de alerta e monitoramento de desempenho, em conjunto com as classificações de desempenho baseadas nos vCores. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução dos vCores com base nas suas necessidades de desempenho atuais ou previstas. Veja [Alertas](howto-alert-on-metric.md) para obter detalhes.

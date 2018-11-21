@@ -1,6 +1,6 @@
 ---
 title: Implantar a solução de monitoramento remoto localmente (via Visual Studio IDE) – Azure | Microsoft Docs
-description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local para teste e desenvolvimento.
+description: Este guia de instruções mostra como implantar o acelerador de solução de monitoramento remoto no computador local usando o Visual Studio para teste e desenvolvimento.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278813"
+ms.locfileid: "51287601"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implantar o acelerador da solução de monitoramento remoto localmente - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. O artigo mostra como executar os microsserviços no Visual Studio. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
+Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Você aprenderá como executar os microsserviços no Visual Studio. Uma implantação de microsserviços local usa os seguintes serviços de nuvem: Hub IoT, Cosmos DB, Azure Streaming Analytics e Azure Time Series Insights.
 
 Se você quiser executar o acelerador de solução de Monitoramento Remoto no Docker em seu computador local, confira [Implantar o acelerador de solução de Monitoramento Remoto localmente – Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -115,14 +115,4 @@ Você também pode excluir a cópia local do repositório de Monitoramento Remot
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como:
-
-> [!div class="checklist"]
-> * Definir uma variável de ambiente local
-> * Configurar o acelerador de solução
-> * Implantar o acelerador de solução
-> * Entrar no acelerador de solução
-
-Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->
+Agora que você implantou a solução de monitoramento remoto, a próxima etapa é [explorar os recursos do painel de solução](quickstart-remote-monitoring-deploy.md).

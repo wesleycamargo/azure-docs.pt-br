@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 18a3b90c4d3df746aded8dc8a2600112fca62b16
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219729"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514376"
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução ao gerenciamento de dispositivos (Python)
 
@@ -40,9 +40,13 @@ Para concluir este tutorial, você precisará do seguinte:
 * Se você estiver usando o sistema operacional Windows, então o [Pacote redistribuível do Visual C++][lnk-visual-c-redist] permite o uso de DLLs nativas do Python.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar cadeia de conexão para hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
 Nesta seção, você irá:

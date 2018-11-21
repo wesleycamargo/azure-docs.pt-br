@@ -1,6 +1,6 @@
 ---
-title: Usar Hive com Hadoop para análise de log do site – Azure HDInsight
-description: Saiba como usar o Hive com o HDInsight para analisar os logs do Website. Você usará um arquivo de log como entrada em uma tabela do HDInsight e usará o HiveQL para consultar os dados.
+title: Use o Hive com o Apache Hadoop para análise de log de sites - Azure HDInsight
+description: Aprenda a usar o Apache Hive com o HDInsight para analisar os registros do site. Você usará um arquivo de log como entrada em uma tabela do HDInsight e usará o HiveQL para consultar os dados.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233585"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634338"
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Usar o Hive com o HDInsight baseado no Windows para analisar logs de sites
+# <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Use o Apache Hive com o HDInsight baseado em Windows para analisar logs de sites
 Saiba como usar o HiveQL com HDInsight para analisar os logs de um Website. A análise de log do Website pode ser usada para segmentar seu público com base em atividades semelhantes, categorizar os visitantes do site por demografia e descobrir o conteúdo que eles veem, seus Websites de origem e assim por diante.
 
 > [!IMPORTANT]

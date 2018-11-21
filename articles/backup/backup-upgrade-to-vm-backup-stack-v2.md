@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962519"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636502"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade para pilha de Backup de VM V2 do Azure
 
@@ -86,15 +86,42 @@ Execute os cmdlets a seguir de um terminal do PowerShell elevado:
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+Execute os seguintes comandos em um shell:
+1.  Entre na sua conta do Azure:
+
+    ```
+    az login
+    ```
+
+2.  Selecione a assinatura que você deseja registrar:
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  Registrar esta assinatura:
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>Verificar se a atualização foi concluída
+### <a name="powershell"></a>PowerShell
 De um terminal do PowerShell elevado, execute o cmdlet a seguir:
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Se informar “Registrada”, a assinatura será atualizada para o modelo de implantação do Gerenciador de Recursos de pilha de backup VM
+### <a name="cli"></a>CLI
+Em ashell, execute o seguinte comando:
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+Se ele diz: "Registrado", em seguida, sua assinatura é atualizada para a V2 da pilha de backup.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

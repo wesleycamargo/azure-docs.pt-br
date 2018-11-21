@@ -1,6 +1,6 @@
 ---
-title: Usar o Hive do Hadoop com o PowerShell no HDInsight
-description: Usar o PowerShell para executar consultas Hive com Hadoop no HDInsight
+title: Usar Apache Hive com PowerShell no HDInsight - Azure
+description: Use o PowerShell para executar consultas do Hive no Apache Hadoop no HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257860"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633104"
 ---
-# <a name="run-hive-queries-using-powershell"></a>Executar consultas Hive usando o PowerShell
+# <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas do Apache Hive usando o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Grupo de Recursos do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight.
+Este documento fornece um exemplo do uso do Azure PowerShell no modo Grupo de Recursos do Azure para executar consultas do Hive em um Apache Hadoop no cluster do HDInsight.
 
 > [!NOTE]
 > Esse documento não fornece uma descrição detalhada do que as instruções HiveQL que usadas nos exemplos fazem. Para obter informações sobre o HiveQL usado neste exemplo, veja [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou maior.
+* Um Apache Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou superior.
 
   > [!IMPORTANT]
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: b4194ef5ab1c2c09206ea0acf78cb539bc2fc0b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836510"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343985"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 Este artigo explica a finalidade da criação de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Os exemplos usados para ilustrar esse processo são extraídos do Azure Machine Learning Studio. 
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Este **menu** leva você até os artigos que descrevem como criar recursos para dados em vários ambientes. Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Essa tarefa é uma etapa no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos de aprendizado criando recursos de dados brutos que facilitam o processo de aprendizado de recursos. A engenharia e a seleção de recursos faz parte do processo de TDSP descrito em [O que é o ciclo de vida de Processo de Ciência de Dados de Equipe?](overview.md) A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP. 
 
@@ -37,6 +35,11 @@ A engenharia de recurso tenta aumentar a capacidade de previsão dos algoritmos 
 Normalmente, a **engenharia de recursos** é aplicada primeiro para gerar recursos adicionais e a etapa de **seleção do recurso** é feita para eliminar recursos redundantes, altamente correlacionados ou irrelevantes.
 
 Os dados de treinamento usados no aprendizado de máquina frequentemente podem ser aprimorados pela extração de recursos dos dados brutos coletados. Um exemplo de recurso de engenharia no contexto de aprender a classificar imagens de caracteres manuscritos é a criação de um mapa de densidade de bits construído por meio dos dados brutos de distribuição de bits. Este mapa pode ajudar a localizar as bordas dos caracteres da forma mais eficiente do que simplesmente usar a distribuição bruta diretamente.
+
+Para criar recursos para dados em ambientes específicos, consulte os artigos a seguir:
+
+* [Criar recursos de dados no SQL Server](create-features-sql-server.md)
+* [Criar recursos de dados em um cluster Hadoop usando as consultas do Hive](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

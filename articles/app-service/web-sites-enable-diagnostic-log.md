@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231610"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636950"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
 O Azure oferece diagnóstico integrado para ajudar na depuração de um [aplicativo Web do Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, você saberá como habilitar o registro em log de diagnóstico e adicionar instrumentação ao seu aplicativo, bem como acessar as informações registradas pelo Azure.
 
-Este artigo usa o [Portal do Azure](https://portal.azure.com), o Azure PowerShell e a interface de linha de comando do Azure (CLI do Azure) para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Este artigo usa o [portal do Azure](https://portal.azure.com) e a CLI do Azure para trabalhar com logs de diagnóstico. Para saber mais sobre como trabalhar com logs de diagnóstico usando o Visual Studio, confira [Solucionando problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Para **Log do aplicativo**, você pode ativar a opção do sistema de arquivos t
 
 Para **Log do servidor Web**, você pode selecionar **armazenamento** ou **sistema de arquivos**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estejam gravados. 
 
-Se você armazena logs no sistema de arquivos, os arquivos podem ser acessados por FTP ou baixados como um arquivo Zip usando o PowerShell do Azure ou a interface de linha de comando do Azure (CLI do Azure).
+Se você armazenar logs no sistema de arquivos, os arquivos poderão ser acessados por FTP ou baixados como um arquivo Zip usando a CLI do Azure.
 
 Por padrão, os logs não são excluídos automaticamente (com exceção do **Log do aplicativo (Filesystem)**). Para excluir automaticamente os logs, defina o campo **Período de retenção (dias)**.
 
@@ -73,24 +73,20 @@ Por padrão, os logs não são excluídos automaticamente (com exceção do **Lo
 > Se você [regenerar as chaves de acesso de sua conta de armazenamento](../storage/common/storage-create-storage-account.md), será necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
 >
 > 1. Na guia **Configurar**, defina o respectivo recurso de log como **Desativado**. Salve sua configuração.
-> 2. Habilite novamente o log para o blob ou para a tabela da conta de armazenamento. Salve sua configuração.
+> 2. Habilite o registro no blob da conta de armazenamento novamente. Salve sua configuração.
 >
 >
 
-Qualquer combinação de sistema de arquivos, armazenamento de tabela ou armazenamento de blob pode ser habilitada ao mesmo tempo e tem configurações de nível de log individuais. Por exemplo, você pode desejar gravar erros e avisos no armazenamento de blob como uma solução de log a longo prazo, habilitando o log de sistema de arquivos em um nível detalhado.
+Qualquer combinação de sistema de arquivos ou armazenamento de blobs pode ser habilitada ao mesmo tempo e ter configurações de nível de log individuais. Por exemplo, você pode desejar gravar erros e avisos no armazenamento de blob como uma solução de log a longo prazo, habilitando o log de sistema de arquivos em um nível detalhado.
 
-Enquanto todos os três locais de armazenamento fornecem as mesmas informações básicas para eventos registrados, o **armazenamento de tabelas** e o **armazenamento de blobs** registram mais informações, como a ID da instância, a ID do thread e um carimbo de data/hora mais granular (formato de tique canônico) do que o log no **sistema de arquivos**.
+Enquanto ambos os locais de armazenamento fornecem as mesmas informações básicas para eventos registrados, o **armazenamento de blobs** registra informações adicionais como a ID da instância, ID do thread e um carimbo de data/hora mais granular (formato de tique) do que o registro no **sistema de arquivos**.
 
 > [!NOTE]
-> As informações armazenadas em **armazenamento de tabelas** ou **armazenamento de blobs** podem ser acessadas apenas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar armazenamentos de tabela ou de blob e o HDInsight pode acessar dados gravados no armazenamento de blob. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
->
-> [!NOTE]
-> O diagnóstico também pode ser habilitado a partir do PowerShell do Azure usando o cmdlet **Set-AzureWebsite** . Se você não instalou o Azure PowerShell ou não o configurou para usar sua Assinatura do Azure, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
+> As informações armazenadas no **armazenamento de blobs** só podem ser acessadas usando um cliente de armazenamento ou um aplicativo que possa trabalhar diretamente com esses sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Gerenciador de Armazenamento que pode ser usado para explorar o armazenamento de blobs, e o HDInsight pode acessar os dados armazenados no armazenamento de blobs. Você também pode gravar um aplicativo que acesse o Armazenamento do Azure usando um dos [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Como baixar logs
-Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo Web podem ser diretamente acessadas usando FTP. Também podem ser baixadas como um arquivo Zip com o PowerShell do Azure ou a interface de linha de comando do Azure.
+Informações de diagnóstico armazenadas no sistema de arquivos do aplicativo Web podem ser diretamente acessadas usando FTP. Além disso, pode ser baixado como um arquivo Zip usando a CLI do Azure.
 
 A estrutura de diretórios onde os logs estão armazenados é a seguinte:
 
@@ -106,19 +102,7 @@ Para abrir uma conexão FTP ao servidor FTP do seu aplicativo, consulte [Implant
 
 Uma vez conectado ao servidor FTP/S do seu aplicativo web, abra a pasta **LogFiles**, onde os arquivos de log estão armazenados.
 
-### <a name="download-with-azure-powershell"></a>Baixar com o PowerShell do Azure
-Para baixar os arquivos de log, inicie uma nova instância do PowerShell do Azure e use o seguinte comando:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Esse comando salva os logs do aplicativo Web especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
-
-> [!NOTE]
-> Se você não instalou o Azure PowerShell ou não o configurou para usar sua Assinatura do Azure, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Baixar com a interface de linha de comando do Azure
+### <a name="download-with-azure-cli"></a>Baixar com a CLI do Azure
 Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, abra uma nova sessão de prompt de comando, PowerShell, Bash ou Terminal e insira o seguinte comando:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 Esse comando salva os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Se você não instalou a CLI do Azure ou não a configurou para usar sua Assinatura do Azure, consulte [Como usar a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ O Application Insights do Visual Studio fornece ferramentas para filtrar e pesqu
 [Saiba mais sobre desempenho de rastreamento com o Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Como transmitir logs
-Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. Você pode transmitir informações de log para seu ambiente de desenvolvimento usando o PowerShell do Azure ou a Interface de Linha de Comando do Azure.
+Ao desenvolver um aplicativo, é sempre útil visualizar informações de registro em log realizado em tempo quase real. É possível transmitir informações de registro para o ambiente de desenvolvimento usando a CLI do Azure.
 
 > [!NOTE]
 > Alguns tipos de buffer de log gravam no arquivo de log, o que pode resultar em eventos com problemas na transmissão. Por exemplo, uma entrada para log de aplicativo, que ocorre quando um usuário visita uma página, pode ser exibida durante a transmissão antes da entrada de log HTTP correspondente para a solicitação da página.
@@ -153,29 +137,7 @@ Ao desenvolver um aplicativo, é sempre útil visualizar informações de regist
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>O streaming realizado com o PowerShell do Azure
-Para transmitir informações de log, inicie uma nova instância do Azure PowerShell e use o seguinte comando:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Isto faz a conexão ao aplicativo Web especificado pelo parâmetro **-Name** e inicia o streaming de informações para a janela do PowerShell, enquanto eventos de log ocorrem no aplicativo Web. Qualquer informação escrita para os arquivos com terminação .txt ou .htm que sejam armazenadas no diretório /LogFiles (d:/home/LogFiles) será transmitida à console local.
-
-Para filtrar eventos específicos como erros, use o parâmetro **-Mensagem** . Por exemplo: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Para visualizar uma lista de caminhos disponíveis, use o parâmetro -ListPath.
-
-> [!NOTE]
-> Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Transmitir com a Interface da linha de comando do Azure
+### <a name="streaming-with-azure-cli"></a>Streaming com CLI do Azure
 Para transmitir informações de log, abra uma nova sessão de prompt de comando, PowerShell, Bash ou Terminal e insira o seguinte comando:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Se você não instalou a Interface de Linha de Comando ou não a configurou para usar a sua Assinatura do Azure, consulte [Como usar a Interface da linha de comando do Azure](../cli-install-nodejs.md).
+> Se você não instalou a CLI do Azure ou não a configurou para usar sua Assinatura do Azure, consulte [Como usar a CLI do Azure](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a> Como compreender os logs de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Logs de diagnóstico de aplicativo
-O diagnóstico de aplicativo armazenará informações em um formato específico para aplicativos .NET, dependendo se você armazenar os logs no sistema de arquivos, no armazenamento de tabela ou no armazenamento de blob. O conjunto de dados de base armazenados é o mesmo em todos os três tipos de armazenamento - a data e hora em que o evento ocorreu, a ID do processo que produziu o evento, o tipo de evento (informação, aviso ou erro) e a mensagem do evento.
+O diagnóstico de aplicativo armazena informações em um formato específico para aplicativos .NET, dependendo se você armazena logs no sistema de arquivos ou no armazenamento de blobs. 
+
+O conjunto de dados armazenados de base é o mesmo em ambos os tipos de armazenamento - a data e hora em que o evento ocorreu, a ID do processo que produziu o evento, o tipo de evento (informação, aviso ou erro) e a mensagem do evento. Usar o sistema de arquivos para armazenamento de log será útil quando você precisar de acesso imediato para solucionar um problema porque os arquivos de log são atualizados quase instantaneamente. O armazenamento de blobs é usado para fins de arquivamento porque os arquivos são armazenados em cache e, em seguida, liberados para o contêiner de armazenamento em um agendamento.
 
 **Sistema de Arquivos**
 
@@ -211,27 +175,9 @@ Por exemplo, um evento de erro deve aparecer semelhante ao seguinte exemplo:
 
 O registro em sistema de arquivos fornece a informação mais básica dos três métodos disponíveis, fornecendo apenas a hora, o ID do processo, o nível de evento e a mensagem.
 
-**Armazenamento de tabelas**
-
-Ao registrar no armazenamento de tabela, propriedades adicionais são usadas para facilitar a busca de dados armazenados na tabela e de informações mais granulares sobre o evento. As seguintes propriedades (colunas) são usadas para cada entidade (linha) armazenada na tabela.
-
-| Nome da propriedade | Valor/formato |
-| --- | --- |
-| PartitionKey |Data/hora do evento no formato aaaaMMddHH |
-| RowKey |Um valor de GUID que identifica exclusivamente esta entidade |
-| Timestamp |A data e hora em que o evento ocorreu |
-| EventTickCount |A data e hora em que o evento ocorreu, em formato de escala (maior precisão) |
-| ApplicationName |O nome do aplicativo Web |
-| Nível |Nível de evento (por exemplo, erro, aviso, informação) |
-| EventId |A ID deste evento<p><p>terá como padrão 0 caso nenhuma seja especificada |
-| InstanceId |A instância do aplicativo Web onde o evento ocorreu |
-| Pid |ID do Processo |
-| Tid |A ID do thread que produziu o evento |
-| Mensagem |A mensagem com detalhes do evento |
-
 **Armazenamento de Blobs**
 
-Ao registrar o log no armazenamento de blob, os dados serão armazenados em um formato de valores separados por vírgulas (CSV). Semelhante ao armazenamento de tabela, campos adicionais são registrados para fornecer informações mais granulares sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
+Ao registrar o log no armazenamento de blob, os dados serão armazenados em um formato de valores separados por vírgulas (CSV). Campos adicionais são registrados para fornecer informações mais detalhadas sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
 
 | Nome da propriedade | Valor/formato |
 | --- | --- |
@@ -251,7 +197,7 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte exemplo:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> A primeira linha do log contém os cabeçalhos da coluna, como representado neste exemplo.
+> Para o ASP.NET Core, o registro é realizado usando o provedor [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) e esse provedor deposita arquivos de log adicionais no contêiner de blob. Para obter mais informações, consulte [Registro do ASP.NET Core no Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

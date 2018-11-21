@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646772"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262980"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parâmetros comuns de fluxo de trabalho para validação de pilha do Azure como um serviço
 
@@ -40,11 +40,11 @@ Parâmetros do ambiente descrevem o ambiente do Azure Stack em teste. Esses valo
 
 1. Faça logon em qualquer máquina que tem acesso ao ambiente do Azure Stack ou o DVM.
 2. Execute os seguintes comandos em uma janela elevada do PowerShell:
-    ```PowerShell
+    ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
-    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
-    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $CloudAdminPassword)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation' -Credential $stampInfoCreds
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 
@@ -56,7 +56,7 @@ Valores de parâmetro de ambiente também podem ser localizadas manualmente na *
 
 Parâmetros comuns de teste incluem informações confidenciais que não podem ser armazenadas em arquivos de configuração. Eles devem ser fornecidos manualmente.
 
-Parâmetro    | DESCRIÇÃO
+Parâmetro    | Description
 -------------|-----------------
 Usuário de administrador de locatários                            | Administrador do Azure Active Directory locatário que foi provisionado pelo administrador de serviços no diretório do AAD. Esse usuário executa ações de nível de locatário, como implantação de modelos para configurar recursos (VMs, contas de armazenamento, etc.) e executar cargas de trabalho. Para obter detalhes sobre como provisionar a conta de locatário, consulte [adicionar um novo locatário do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Usuário de administrador de serviço             | Administrador de diretório Active Directory do Azure do locatário de diretório do AAD especificado durante a implantação do Azure Stack. Pesquise `AADTenant` na configuração ECE de arquivo e selecione o valor no `UniqueName` elemento.

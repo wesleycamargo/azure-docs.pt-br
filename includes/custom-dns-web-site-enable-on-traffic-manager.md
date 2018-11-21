@@ -1,7 +1,20 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 2e6697b07f305a78ef4cc3f462c76804160a9d12
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571790"
+---
 Depois que os registros do nome de domínio forem propagados, você deverá ser capaz de usar o navegador para verificar se o nome de domínio personalizado pode ser usado para acessar seu aplicativo Web no Serviço de Aplicativo do Azure.
 
 > [!NOTE]
-> Pode levar algum tempo para o CNAME propagar por meio do sistema DNS. É possível usar um serviço como <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> para verificar se o CNAME está disponível.
+> Pode levar algum tempo para o CNAME propagar por meio do sistema DNS. Você pode usar um serviço como <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> para verificar se o CNAME está disponível.
 > 
 > 
 

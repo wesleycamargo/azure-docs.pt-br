@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 39bcea36f3599530413aa9fc4dbb308ee2fb1681
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.date: 11/8/2018
+ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066846"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300685"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologias de rede para migrações da Instância Gerenciada do BD SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure
 Este artigo discute as diversas topologias de rede com as quais o Serviço de Migração de Banco de Dados do Azure pode trabalhar para fornecer uma experiência de migração abrangente de SQL Servers locais para Instância Gerenciada do Banco de Dados SQL do Azure.
@@ -64,6 +64,22 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 **Requisitos**
 - Configure um [emparelhamento de rede da VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a VNET usada para a Instância Gerenciada do Banco de Dados SQL do Azure e o Serviço de Migração de Banco de Dados do Azure.
 
+## <a name="inbound-security-rules"></a>Regras de segurança de entrada
+
+| **NOME**   | **PORTA** | **PROTOCOLO** | **FONTE** | **DESTINO** | **AÇÃO** |
+|------------|----------|--------------|------------|-----------------|------------|
+| DMS_subnet | Qualquer      | Qualquer          | DMS SUBNET | Qualquer             | PERMITIR      |
+
+## <a name="outbound-security-rules"></a>Regras de segurança de saída
+
+| **NOME**                  | **PORTA**                                              | **PROTOCOLO** | **FONTE** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
+|---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gerenciamento                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | PERMITIR      | Comunicação do plano de gerenciamento por meio do barramento de serviço e o armazenamento de BLOBs do Azure. <br/>(Se o emparelhamento da Microsoft é habilitado, você talvez não precise essa regra.)                                                             |
+| Diagnósticos               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | PERMITIR      | DMS usa a regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
+| Servidor de origem SQL         | 1433 (ou porta TCP IP que o SQL Server está escutando) | TCP          | Qualquer        | Espaço de endereço local | PERMITIR      | Conectividade de origem do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                                       |
+| Instância nomeada do SQL Server | 1434                                                  | UDP          | Qualquer        | Espaço de endereço local | PERMITIR      | Conectividade de origem de instância nomeada do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                        |
+| Compartilhamento SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereço local | PERMITIR      | Compartilhamento de rede SMB para que o DMS armazene arquivos de backup de banco de dados para migrações para o MI do Banco de Dados SQL do Azure e os SQL Servers na VM do Azure <br/>(Se você tiver conectividade site a site, talvez não seja necessária essa regra). |
+| DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | PERMITIR      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Veja também
 - [Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)

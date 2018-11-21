@@ -1,5 +1,5 @@
 ---
-title: Conectar o Excel ao Hadoop com o driver ODBC do Hive – Azure HDInsight
+title: Conecte o Excel ao Apache Hadoop com o driver ODBC do Hive - Azure HDInsight
 description: Saiba como configurar e usar o driver ODBC do Microsoft Hive para Excel para consultar dados em clusters HDInsight no Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005080"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632502"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conectar o Excel ao Hadoop no Azure HDInsight com o driver ODBC do Microsoft Hive
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Baixe e instale o driver ODBC do Microsoft Hive no [Centro de download][hive-odb
 
 Este driver pode ser instalado em versões de 32 ou 64 bits do Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 e Windows Server 2012. O driver permite conexão com o Azure HDInsight. Você deve instalar a versão que corresponda à versão do aplicativo onde você usa o driver ODBC. Para este tutorial, o driver é usado do Office Excel.
 
-## <a name="create-hive-odbc-data-source"></a>Criar uma fonte de dados ODBC do Hive
+## <a name="create-apache-hive-odbc-data-source"></a>Criar fonte de dados ODBC do Apache Hive
 As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 1. No Windows 8 ou no Windows 10, pressione a tecla Windows para abrir a tela Iniciar e digite **fontes de dados**.

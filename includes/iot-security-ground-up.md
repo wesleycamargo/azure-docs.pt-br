@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069924"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289267"
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>Segurança da Internet das Coisas desde o princípio
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Segurança para a Internet das Coisas (IoT) a partir do zero
 
 A Internet das Coisas (IoT) apresenta desafios específicos de segurança, privacidade e conformidade para empresas em todo o mundo. Ao contrário da tecnologia cibernética tradicional, na qual esses problemas giram em torno do software e de como ele é implementado, a IoT se preocupa com o que acontece quando os mundos físico e cibernético convergem. Proteger as soluções da IoT exige a garantia de provisionamento seguro dos dispositivos, a conectividade segura entre eles e a nuvem e a proteção garantida dos dados na nuvem durante o processamento e o armazenamento. Trabalhando contra essa funcionalidade, no entanto, estão os dispositivos com recursos limitados, a distribuição geográfica das implantações e um grande número de dispositivos em uma solução.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f85de79b683ba7b10f5466c4a8042fc0ffdea90
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382271"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612468"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico OAuth2 em uma política personalizada do Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ O Azure AD (Azure Active Directory) B2C oferece suporte para o provedor de ident
 
 ## <a name="protocol"></a>Protocolo
 
-O atributo **Nome** do elemento **Protocolo** precisa ser definido como `OAuth2`. Por exemplo, o protocolo para o perfil técnico **Facebook-OAUTH** é `OAuth2`:
+O atributo **Name** do elemento **Protocol** precisa ser definido como `OAuth2`. Por exemplo, o protocolo para o perfil técnico **Facebook-OAUTH** é `OAuth2`:
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH">
@@ -46,7 +46,7 @@ Os elementos **InputClaims** e **InputClaimsTransformations** não são necessá
 
 ## <a name="output-claims"></a>Declarações de saída
 
-O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade OAuth2. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que defina o atributo `DefaultValue`.
+O elemento **OutputClaims** contém uma lista de declarações retornadas pelo provedor de identidade OAuth2. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no provedor de identidade. Você também pode incluir declarações que não são retornadas pelo provedor de identidade, desde que você defina o atributo `DefaultValue`.
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 

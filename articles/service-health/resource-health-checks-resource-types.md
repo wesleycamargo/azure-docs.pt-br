@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f02e20efbcb34d1f70f9f10acbe5bb3800cb4d2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069187"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683937"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -100,6 +100,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li> Operações de tempo de execução como o registro, a instalação ou o envio podem ser executadas no namespace?</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+|Verificações executadas|
+|---|
+|<ul><li>O recurso de capacidade está funcionando?</li><li>Todas as cargas de trabalho estão funcionando?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Verificações executadas|

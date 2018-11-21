@@ -14,16 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903993"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615188"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
-O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure.
+O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure. O observador de Rede é ativado por meio da criação de um recurso do Observador de Rede. Este recurso permite que você utilize os recursos do Observador de Rede.
+
+## <a name="network-watcher-is-automatically-enabled"></a>O observador de rede é habilitado automaticamente
+Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o observador de Rede será ativado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para ativar automaticamente o Observador de Rede.
+
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Desativação da ativação automática do Observador de Rede
+Se você desejar desativar a ativação automática do Observador de Rede, poderá fazer isso executando os seguintes comandos:
+
+> [!WARNING]
+> A desativação da ativação automática do Observador de Rede é uma alteração permanente. Quando você recusa você não pode participar sem [contatando o suporte](https://azure.microsoft.com/support/options/)
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+```azurecli-interactive
+az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+```
+
+
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um Observador de Rede no portal
 

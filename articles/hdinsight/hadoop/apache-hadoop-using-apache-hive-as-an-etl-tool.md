@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042246"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632536"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
 
-Você normalmente precisa limpar e transformar os dados de entrada antes de carregá-los em um destino adequado para análise. Operações de extração, transformação e carregamento (ETL) são usadas para preparar os dados e carregá-los em um destino de dados.  O Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregá-los em um data warehouse relacional para sistemas de suporte à decisão. Nessa abordagem, os dados são extraídos da origem e armazenados no armazenamento escalonável, como blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Store. Os dados são, então, transformados usando uma sequência de consultas de Hive e, finalmente, organizados no Hive em preparação para o carregamento em massa no armazenamento de dados de destino.
+Você normalmente precisa limpar e transformar os dados de entrada antes de carregá-los em um destino adequado para análise. Operações de extração, transformação e carregamento (ETL) são usadas para preparar os dados e carregá-los em um destino de dados.  O Apache Hive no HDInsight pode ler dados não estruturados, processar os dados conforme necessário e, em seguida, carregá-los em um data warehouse relacional para sistemas de suporte à decisão. Nessa abordagem, os dados são extraídos da origem e armazenados no armazenamento escalonável, como blobs de Armazenamento do Microsoft Azure ou Azure Data Lake Store. Os dados são, então, transformados usando uma sequência de consultas de Hive e, finalmente, organizados no Hive em preparação para o carregamento em massa no armazenamento de dados de destino.
 
 ## <a name="use-case-and-model-overview"></a>Visão geral de caso de uso e modelo
 

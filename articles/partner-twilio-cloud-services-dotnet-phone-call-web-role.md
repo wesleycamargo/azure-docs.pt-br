@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 9433cbaba774237bc739106af410dd8d3dd7308f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025694"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568532"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure
 Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicita ao usuário para fazer uma chamada com o número e mensagem determinados, conforme mostrado na seguinte captura de tela.
@@ -30,7 +30,7 @@ Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da 
 Você precisará fazer o seguinte para usar o código deste tópico:
 
 1. Adquirir uma conta e um token de autenticação da Twilio do seu [Console do Twilio][twilio_console]. Para começar com o Twilio, inscreva-se em [ https://www.twilio.com/try-twilio ] [ try_twilio]. Você pode avaliar os preços em [ http://www.twilio.com/pricing ] [ twilio_pricing]. Para obter informações sobre a API fornecida pela Twilio, veja [http://www.twilio.com/voice/api][twilio_api].
-2. Adicione a *biblioteca do .NET da Twilio* à sua função web. Consulte **Para adicionar as bibliotecas da Twilio ao seu projeto de função web**, posteriormente neste tópico.
+2. Adicione a *biblioteca do .NET Twilio* à função Web. Consulte **Para adicionar as bibliotecas da Twilio ao seu projeto de função web**, posteriormente neste tópico.
 
 Você deve estar familiarizado com a criação de uma [Função web básica no Azure][azure_webroles_get_started].
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258826"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345786"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -37,13 +37,13 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 * Para constantes de cadeia de caracteres, se você precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ela deve ser escapada com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Anexar](#append)&nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Juntar](#join) &nbsp;&nbsp;&nbsp;&nbsp;[Mid](#mid)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacríticos](#normalizediacritics) [Não](#not) &nbsp;&nbsp;&nbsp;&nbsp;[Substitua](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [ StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp;[alternar](#switch)
 
 - - -
 ### <a name="append"></a>Acrescentar
-**Função:**<br> Append(source, suffix)
+**Função:**<br>  Append(source, suffix)
 
-**Descrição:**<br> seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
+**Descrição:**<br>  seleciona um valor da cadeia de caracteres de source e acrescenta o sufixo ao final dela.
 
 **Parâmetros:**<br> 
 
@@ -54,9 +54,9 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Função:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Função:**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Descrição:**<br> obtém uma cadeia de caracteres de data de um formato e a converte em um formato diferente.
+**Descrição:**<br>  obtém uma cadeia de caracteres de data de um formato e a converte em um formato diferente.
 
 **Parâmetros:**<br> 
 
@@ -68,7 +68,7 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 - - -
 ### <a name="join"></a>Ingressar
-**Função:**<br> Join(separator, source1, source2, …)
+**Função:**<br>  Join(separator, source1, source2, …)
 
 **Descrição:**<br> Join() é semelhante a Append(), exceto por poder combinar diversos valores de cadeia de caracteres **source** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres de **separator**.
 
@@ -83,9 +83,9 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="mid"></a>Mid
-**Função:**<br> Mid(source, start, length)
+**Função:**<br>  Mid(source, start, length)
 
-**Descrição:**<br> retorna uma subcadeia de caracteres do valor de source. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres da cadeia de caracteres de source.
+**Descrição:**<br>  retorna uma subcadeia de caracteres do valor de source. Uma subcadeia de caracteres é uma cadeia de caracteres que contém apenas alguns dos caracteres da cadeia de caracteres de source.
 
 **Parâmetros:**<br> 
 
@@ -109,7 +109,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 - - -
 ### <a name="not"></a>não
-**Função:**<br> Not(source)
+**Função:**<br>  Not(source)
 
 **Descrição:**<br> Inverte o valor booliano de **source**. Se o valor de **source** for "*True*", retorna "*False*". Caso contrário, retorna "*True*".
 
@@ -124,7 +124,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 **Função:**<br> Substitua(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrição:**<br>
-substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
+ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira diferente dependendo dos parâmetros fornecidos:
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
@@ -152,6 +152,24 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 | **template** |Opcional |Cadeia de caracteres |Quando o valor de **template** for fornecido, procuraremos **oldValue** dentro de template e o substituiremos pelo valor de source. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Função:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
+
+**Descrição:**<br> Requer um mínimo de dois argumentos, que são definidas usando expressões de regras de geração de valor exclusivo. A função avalia cada regra e, em seguida, verifica o valor gerado para exclusividade no aplicativo/diretório de destino. O primeiro valor exclusivo encontrado será retornado o um. Se todos os valores já existem no destino, a entrada será obter mantida em garantia e o motivo pelo qual obtém registrado nos logs de auditoria. Não há nenhum limite superior para o número de argumentos que podem ser fornecidos.
+
+> [!NOTE]
+>1. Essa é uma função de nível superior, ele não pode ser aninhado.
+>2. Essa função destina-se somente a ser usado para criações de entrada. Ao usá-lo com um atributo, defina a **Aplicar mapeamento** propriedade **somente durante a criação do objeto**.
+
+
+**Parâmetros:**<br> 
+
+| NOME | Obrigatório/repetição | Tipo | Observações |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -165,9 +183,9 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Função:**<br> StripSpaces(source)
+**Função:**<br>  StripSpaces(source)
 
-**Descrição:**<br> remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
+**Descrição:**<br>  remove todos os caracteres de espaço (" ") da caracteres da cadeia de source.
 
 **Parâmetros:**<br> 
 
@@ -177,7 +195,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 
 - - -
 ### <a name="switch"></a>Switch
-**Função:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Função:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Descrição:**<br> Quando o valor de **source** corresponde a um parâmetro **key**, retorna **value** para esse parâmetro **key**. Se o valor de **source** não corresponder a nenhum parâmetro key, **defaultValue** será retornado.  Os parâmetros **key** e **value** devem sempre ocorrer em pares. A função sempre espera um número par de parâmetros.
 
@@ -193,7 +211,7 @@ substitui valores dentro de uma cadeia de caracteres. Ela funciona de maneira di
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Retirar o nome de domínio conhecido
 Você precisa retirar um nome de domínio conhecido do email de um usuário para obter um nome de usuário. <br>
-Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
+ Por exemplo, se o domínio for "contoso.com", você pode usar a seguinte expressão:
 
 **Expressão:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -238,8 +256,9 @@ NormalizeDiacritics([givenName])
 * **SAÍDA**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Gerar data como uma cadeia de caracteres em um determinado formato
+
 Você deseja enviar datas para um aplicativo SaaS em um determinado formato. <br>
-Por exemplo, você deseja formatar datas para o ServiceNow.
+ Por exemplo, você deseja formatar datas para o ServiceNow.
 
 **Expressão:** <br>
 
@@ -251,8 +270,9 @@ Por exemplo, você deseja formatar datas para o ServiceNow.
 * **SAÍDA**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Substituir um valor com base em um conjunto predefinido de opções
+
 Você precisa definir o fuso horário do usuário com base no código de estado armazenado no AD do Azure. <br>
-Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
+ Se o código de estado não corresponder a nenhuma das opções predefinidas, use o valor padrão de "Australia/Sydney".
 
 **Expressão:** <br>
 
@@ -262,6 +282,26 @@ Se o código de estado não corresponder a nenhuma das opções predefinidas, us
 
 * **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Australia/Brisbane"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
+
+Com base no usuário primeiro nome, sobrenome e sobrenome, você precisa gerar um valor para o atributo UPN e procure sua exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
+
+**Expressão:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Entrada/saída de exemplo:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **SAÍDA**: "John.Smith@contoso.com" se o valor de UPN do John.Smith@contoso.com ainda não existir no diretório
+* **SAÍDA**: "J.Smith@contoso.com" se o valor UPN de John.Smith@contoso.com já existir no diretório
+* **SAÍDA**: "Jo.Smith@contoso.com" se os dois valores UPN acima já existirem no diretório
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o provisionamento/desprovisionamento de usuários para aplicativos SaaS](user-provisioning.md)

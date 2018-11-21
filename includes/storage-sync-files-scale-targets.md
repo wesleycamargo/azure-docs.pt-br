@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 03fe587ede297ac7dea90b7a5fb2d5323f60659e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49312613"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628087"
 ---
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
-| Serviços de sincronização de armazenamento por assinatura | 15 serviços de sincronização de armazenamento | Não  |
+| Serviços de sincronização de armazenamento por assinatura | 15 serviços de sincronização de armazenamento por região | Não  |
 | Grupos de sincronização por Serviço de Sincronização de Armazenamento | 100 grupos de sincronização | SIM |
 | Servidores registrados por Serviço de Sincronização de Armazenamento | 99 servidores | SIM |
 | Pontos de extremidade de nuvem por grupo de sincronização | 1 ponto de extremidade de nuvem | SIM |
@@ -30,4 +30,4 @@ ms.locfileid: "49312613"
 | Tamanho máximo do descritor de segurança (diretórios e arquivos) do objeto | 4 KiB | SIM |
 | Tamanho do arquivo | 100 GiB | Não  |
 | Tamanho mínimo do arquivo para que um arquivo seja colocado em camadas | 64 KiB | SIM |
-| Sessões de sincronização simultâneas | 2 sessões de sincronização ativas por processador ou, no máximo, 8 sessões de sincronização ativas por servidor | SIM |
+| Sessões de sincronização simultâneas | Agente de V4: limite varia de acordo com os recursos de sistema disponíveis. <BR> Agente V3: 2 sessões de sincronização ativas por processador ou no máximo 8 sessões de sincronização ativas por servidor | SIM

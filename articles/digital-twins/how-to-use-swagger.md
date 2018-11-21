@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960185"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624243"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Usar o Gêmeos Digitais do Azure Swagger
 
 Cada instância de Gêmeos Digitais do Azure provisionada inclui sua própria documentação de referência do Swagger gerada automaticamente.
 
 [Swagger](https://swagger.io/) ou [OpenAPI](https://www.openapis.org/), une informações de API complexas em um recurso de referência interativo e agnóstico de idioma. O Swagger fornece material de referência crítico sobre quais cargas úteis, métodos HTTP e pontos de extremidade específicos do JSON devem ser usados para executar operações em uma API.
+
+> [!IMPORTANT]
+> O suporte para autenticação do Swagger estará temporariamente desabilitado durante a visualização pública.
 
 ## <a name="swagger-summary"></a>Resumo do Swagger
 
@@ -33,20 +36,7 @@ O Swagger fornece um resumo interativo da sua API, que inclui:
 
 O Swagger é uma ferramenta conveniente para auxiliar no desenvolvimento e no teste de chamadas feitas para a API de gerenciamento.
 
-> [!TIP]
-> Uma versão prévia do Swagger é fornecida para demonstrar o conjunto de recursos da API.
-> Ele está hospedado no [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-Você pode acessar sua própria documentação de Swagger da API de gerenciamento gerada em:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Nome do atributo personalizado | Substitua por |
-| --- | --- |
-| *yourInstanceName* | O nome da sua instância de Gêmeos Digitais do Azure |
-| *yourLocation* | Em qual região do servidor de sua instância está hospedada |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Material de referência
 
@@ -104,7 +94,10 @@ Os exemplos também incluem os códigos de erro para ajudar a depurar ou melhora
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorização OAuth 2.0 do Swagger
 
-Para testar interativamente as solicitações com base nos recursos de API protegidos por OAuth 2.0, confira a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+Para saber mais sobre solicitações de teste interativas protegidas pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> O suporte para autenticação do OAuth 2.0 estará temporariamente desabilitado durante a visualização pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 

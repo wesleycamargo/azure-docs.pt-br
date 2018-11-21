@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161804"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567053"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ O elemento **UserJourney** contém os seguintes elementos:
 
 Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Se alguma delas falhar, a transação falhará. Essas etapas de orquestração fazem referência aos blocos de construção e aos provedores de declarações permitidos no arquivo de política. Qualquer etapa de orquestração responsável por mostrar ou renderizar uma experiência do usuário também tem uma referência ao identificador de definição do conteúdo correspondente.
 
-Etapas de orquestração podem ser executadas condicionalmente, com base em pré-condições definidas no elemento da etapa de orquestração. Por exemplo, você pode optar por executar uma etapa de orquestração somente se houver uma declaração específica ou se uma declaração for igual ou não ao valor especificado. 
-
+As etapas de orquestração podem ser executadas condicionalmente com base nas condições prévias definidas no elemento da etapa de orquestração. Por exemplo, você pode optar por executar uma etapa de orquestração somente se houver uma declaração específica ou se uma declaração for igual ou não ao valor especificado. 
 
 Para especificar a lista ordenada de etapas de orquestração, um elemento **OrchestrationSteps** é adicionado como parte da política. Este elemento é obrigatório.
 
@@ -66,7 +65,7 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | Classificar | SIM | A ordem das etapas de orquestração. | 
 | Tipo | SIM | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> | 
-| ContentDefinitionReferenceId | Não  | O identificador da [definição de conteúdo](contentdefinitions.md) associada com esta etapa de orquestração. Geralmente, o identificador de referência da definição de conteúdo é definido no perfil técnico autodeclarado. No entanto, há alguns casos em que o Azure AD B2C precisa exibir algo sem um perfil técnico. Há dois exemplos, se o tipo da etapa de orquestração for um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C precisa exibir a seleção do provedor de identidade sem a necessidade de ter um perfil técnico. | 
+| ContentDefinitionReferenceId | Não  | O identificador da [definição de conteúdo](contentdefinitions.md) associada com esta etapa de orquestração. Geralmente, o identificador de referência da definição de conteúdo é definido no perfil técnico autodeclarado. No entanto, há alguns casos em que o Azure AD B2C precisa exibir algo sem um perfil técnico. Haverá dois exemplos, se o tipo da etapa de orquestração for um dos seguintes: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C precisa exibir a seleção do provedor de identidade sem a necessidade de ter um perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Não  | O tipo da etapa de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do provedor de declarações que emite o token para a terceira parte confiável.  Se ausente, nenhum token de terceira parte confiável será criado. |
 
 

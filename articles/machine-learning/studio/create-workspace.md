@@ -12,19 +12,16 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 94502cbb0946ad1568cf33716480406b17fd57ac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19cbb27221bfb95a0900eb7a604e540cb066037e
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833947"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345548"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Criar e compartilhar um workspace de Azure Machine Learning
-Esse menu vincula-se aos tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo CAPS (Processo Cortana Analytics).
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
-
-Para usar o Azure Machine Learning Studio, você precisa ter um workspace de do Machine Learning. Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
+Para usar o Azure Machine Learning Studio é necessário ter um espaço de trabalho do Machine Learning Studio. Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -68,8 +65,8 @@ Se você encontrar um problema ao criar seu workspace, consulte [Guia de soluç�
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>Compartilhar um workspace do Azure Machine Learning
 Depois de criar um Workspace do Machine Learning, você pode convidar usuários ao seu workspace e compartilhar acesso ao seu workspace, conjuntos de dados, notebooks etc. Você pode adicionar usuários em uma das duas funções:
 
-* **Usuário**: um usuário do espaço de trabalho pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no espaço de trabalho.
-* **Proprietário**: um proprietário pode convidar e remover usuários no espaço de trabalho, além do que o usuário pode fazer.
+* **Usuário**: um usuário do workspace pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no workspace.
+* **Proprietário**: um proprietário pode convidar e remover usuários no workspace, além do que o usuário pode fazer.
 
 > [!NOTE]
 > A conta de administrador que cria o workspace é adicionado automaticamente ao workspace como proprietário. No entanto, outros administradores ou usuários nessa assinatura não recebem automaticamente acesso ao workspace - é preciso convidá-los explicitamente.

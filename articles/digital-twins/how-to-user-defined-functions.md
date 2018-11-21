@@ -1,59 +1,50 @@
 ---
 title: Como usar funções definidas pelo usuário em Gêmeos Digitais do Azure | Microsoft Docs
-description: Orientação sobre como criar funções definidas pelo usuário, correspondentes e atribuições de função com Gêmeos Digitais do Azure.
+description: Diretrizes sobre como criar funções definidas pelo usuário, correspondentes e atribuições de função com Gêmeos Digitais do Azure.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215490"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636825"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Como usar funções definidas pelo usuário em Gêmeos Digitais do Azure
 
-[Funções definidas pelo usuário](./concepts-user-defined-functions.md) permitem ao usuário executar lógica personalizada em mensagens de telemetria de entrada e os metadados de grafo espacial, permitindo que o usuário envie eventos para pontos de extremidade predefinidos. Neste guia, vamos examinar um exemplo de agir em eventos de temperatura para detectar e alertar sobre qualquer leitura que exceda uma determinada temperatura.
+[UDF](./concepts-user-defined-functions.md) (Funções Definidas pelo Usuário) permitem que o usuário execute uma lógica personalizada em relação às mensagens de telemetria recebidas e aos metadados de grafo espacial. Em seguida, o usuário poderá enviar eventos para pontos de extremidade predefinidos. Este guia descreve um exemplo de como agir em eventos de temperatura para detectar e alertar sobre qualquer leitura que exceda uma determinada temperatura.
 
-Nos exemplos a seguir, `https://yourManagementApiUrl` refere-se ao URI de APIs de Gêmeos Digitais:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Nome do Atributo Personalizado | Substitua por |
-| --- | --- |
-| *yourInstanceName* | O nome da sua instância de Gêmeos Digitais do Azure |
-| *yourLocation* | Em qual região do servidor de sua instância está hospedada |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="client-library-reference"></a>Referência da biblioteca de clientes
 
-As funções disponíveis como métodos auxiliares no tempo de execução de funções definidas pelo usuário são enumeradas na seguinte [Referência de Cliente](#Client-Reference).
+As funções que estão disponíveis como métodos auxiliares no tempo de execução das funções definidas pelo usuário são listadas na seção de [referência do cliente](#Client-Reference).
 
 ## <a name="create-a-matcher"></a>Criar um correspondente
 
-Correspondentes são objetos de grafo, que determinam quais funções definidas pelo usuário serão executadas para uma mensagem de telemetria determinada.
+Correspondentes são objetos de grafo que determinam quais funções definidas pelo usuário são executadas para uma determinada mensagem de telemetria.
 
-Comparações de condição de correspondente válidas:
+- Comparações de condição de correspondente válidas:
 
-- `Equals`
-- `NotEquals`
-- `Contains`
+  - `Equals`
+  - `NotEquals`
+  - `Contains`
 
-Destinos de condição de correspondente válidos:
+- Destinos de condição de correspondente válidos:
 
-- `Sensor`
-- `SensorDevice`
-- `SensorSpace`
+  - `Sensor`
+  - `SensorDevice`
+  - `SensorSpace`
 
-O correspondente de exemplo a seguir será avaliado como verdadeiro em qualquer evento de telemetria do sensor com `"Temperature"` como valor de tipo de dados. Você pode criar vários correspondentes em uma função definida pelo usuário.
+O correspondente de exemplo a seguir é avaliado como verdadeiro em qualquer evento de telemetria do sensor `"Temperature"` como valor de tipo de dados. Você pode criar vários correspondentes em uma função definida pelo usuário:
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -64,48 +55,47 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Nome do Atributo Personalizado | Substitua por |
+| Valor | Substitua por |
 | --- | --- |
-| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento  |
-| *yourSpaceIdentifier* | Em qual região do servidor de sua instância está hospedada |
+| YOUR_SPACE_IDENTIFIER | Em qual região do servidor de sua instância está hospedada |
 
 ## <a name="create-a-user-defined-function-udf"></a>Criar uma UDF (função definida pelo usuário)
 
-Após os correspondentes terem sido criados, carregue o snippet de código de função com a seguinte chamada POST:
+Depois que os correspondentes forem criados, carregue o trecho de código de função com a seguinte chamada **POST**:
 
 > [!IMPORTANT]
 > - Nos Cabeçalhos, defina o seguinte `Content-Type: multipart/form-data; boundary="userDefinedBoundary"`.
-> - O Corpo tem várias partes:
->   - A primeira parte é sobre os metadados necessários para o UDF.
->   - A segunda parte é a lógica de computação em JavaScript.
-> - Substitua em `userDefinedBoundary` seção `SpaceId` e GUIDs `Machers`.
+> - Corpo com diversas partes:
+>   - A primeira parte é sobre os metadados necessários para a UDF.
+>   - A segunda parte é a lógica de computação JavaScript.
+> - Na seção **USER_DEFINED_BOUNDARY** substitua os valores **SpaceId** e **Machers**.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
-| Nome do Atributo Personalizado | Substitua por |
+| Valor de parâmetro | Substitua por |
 | --- | --- |
-| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento  |
+| *USER_DEFINED_BOUNDARY* | Um nome de limite de conteúdo com diversas partes |
 
-Corpo:
+### <a name="body"></a>Corpo
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -113,13 +103,13 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Nome do Atributo Personalizado | Substitua por |
+| Valor | Substitua por |
 | --- | --- |
-| *yourSpaceIdentifier* | O identificador de espaço  |
-| *yourMatcherIdentifier* | A ID do correspondente que você deseja usar |
+| YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
+| YOUR_MATCHER_IDENTIFIER | A ID do correspondente que você quer usar |
 
 ### <a name="example-functions"></a>Funções de exemplo
 
@@ -139,7 +129,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O parâmetro *de telemetria* expõe os atributos **SensorId** e **Message** (correspondendo a uma mensagem enviada por um sensor). O parâmetro *executionContext* expõe os seguintes atributos:
+O parâmetro de **telemetria** expõe os atributos **SensorId** e **Message**, correspondendo a uma mensagem enviada por um sensor. O parâmetro **executionContext** expõe os seguintes atributos:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -151,7 +141,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-No próximo exemplo, registraremos uma mensagem se a leitura da telemetria do sensor ultrapassar um limite pré-definido. Se as configurações de diagnóstico estiverem ativadas na instância Digital Twins, os logs das funções definidas pelo usuário também serão encaminhados:
+No próximo exemplo, registramos uma mensagem se a leitura da telemetria do sensor ultrapassar um limite predefinido. Se as configurações de diagnóstico estiverem habilitadas na instância dos Gêmeos Digitais do Azures, os logs das funções definidas pelo usuário também serão encaminhados:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -166,7 +156,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-O código a seguir disparará uma notificação se o nível de temperatura subir acima a constante predefinida.
+O código a seguir disparará uma notificação se o nível de temperatura ultrapassar a constante predefinida:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -190,57 +180,52 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Para obter um exemplo de código UDF mais complexo, veja [Verificar espaços disponíveis com UDF de ar fresco](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)
+Para um código de exemplo de UDF mais complexo, [verifique os espaços disponíveis com uma UDF atualizada](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-É necessário criar uma atribuição de função para a função definida pelo usuário sob a qual executar. Se não fizermos isso, ela não terá as permissões corretas para interagir com a API de Gerenciamento para executar ações nos objetos de grafo. As ações que função definida pelo usuário executa não são isentas do controle de acesso baseado em função nas APIs de Gerenciamento de Gêmeos Digitais. Elas podem ter escopo limitado especificando determinadas funções ou determinados caminhos de controle de acesso. Para saber mais, confira a documentação de [Controle de Acesso Baseado em Função](./security-role-based-access-control.md).
+É necessário criar uma atribuição de função para que a função definida pelo usuário seja executada. Se não fizermos isso, não haverá permissões adequadas para interagir com a API de Gerenciamento para executar ações em objetos de grafos. As ações que a função definida pelo usuário executa não estão isentas do controle de acesso baseado em função nas APIs do Gerenciamento de Gêmeos Digitais do Azure. Elas podem ter escopo limitado, especificando determinadas funções ou determinados caminhos de controle de acesso. Para obter mais informações, consulte a documentação de [controle de acesso baseado em função](./security-role-based-access-control.md).
 
-1. Consultar as funções e obter o ID da função que você deseja atribuir à UDF; passe para **RoleId** abaixo.
+1. Consulte as funções e obtenha a ID da função que você quer atribuir à UDF. Passe-a para **RoleId**:
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
-```
+    ```plaintext
+    GET YOUR_MANAGEMENT_API_URL/system/roles
+    ```
 
-| Nome do Atributo Personalizado | Substitua por |
-| --- | --- |
-| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento  |
+1. **ObjectId** será o ID do UDF que foi criado anteriormente.
+1. Encontre o valor do **Caminho** consultando seus espaços com `fullpath`.
+1. Copie o valor `spacePaths` retornado. Isso será utilizado no código a seguir:
 
-2. **ObjectId** será o ID do UDF que foi criado anteriormente.
-3. Encontre o valor do **Caminho** consultando seus espaços com `fullpath`.
-4. Copie o valor `spacePaths` retornado. Você vai usar isso abaixo.
+    ```plaintext
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
+    ```
 
-```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
-```
+    | Valor de parâmetro | Substitua por |
+    | --- | --- |
+    | *YOUR_SPACE_NAME* | O nome do espaço que você deseja usar |
 
-| Nome do Atributo Personalizado | Substitua por |
-| --- | --- |
-| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento  |
-| *yourSpaceName* | O nome do espaço que você deseja usar |
+1. Cole o valor `spacePaths` retornado no **Caminho** para criar uma atribuição de função de UDF:
 
-4. Agora, cole retornado `spacePaths` de valor em **caminho** para criar uma atribuição de função UDF.
+    ```plaintext
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
+    {
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
+    }
+    ```
 
-```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
-{
-  "RoleId": "yourDesiredRoleIdentifier",
-  "ObjectId": "yourUserDefinedFunctionId",
-  "ObjectIdType": "UserDefinedFunctionId",
-  "Path": "yourAccessControlPath"
-}
-```
-
-| Nome do Atributo Personalizado | Substitua por |
-| --- | --- |
-| *yourManagementApiUrl* | O caminho da URL completo para a API de Gerenciamento  |
-| *yourDesiredRoleIdentifier* | O identificador para a função desejada |
-| *yourUserDefinedFunctionId* | A ID para o UDF que você deseja usar |
-| *yourAccessControlPath* | O caminho de controle de acesso |
+    | O valor | Substitua por |
+    | --- | --- |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | O identificador para a função desejada |
+    | YOUR_USER_DEFINED_FUNCTION_ID | A ID para o UDF que você deseja usar |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | A ID especificando o tipo de UDF |
+    | YOUR_ACCESS_CONTROL_PATH | O caminho de controle de acesso |
 
 ## <a name="send-telemetry-to-be-processed"></a>Enviar telemetria para ser processada
 
-A telemetria gerada pelo sensor descrito no grafo deve disparar a execução da função definida pelo usuário que foi carregada. Depois que a telemetria for captada pelo processador de dados, um plano de execução será criado para a invocação da função definida pelo usuário.
+A telemetria gerada pelo sensor descrito no gráfico dispara a execução da função definida pelo usuário que foi carregada. O processador de dados pega a telemetria. Em seguida, um plano de execução será criado para a chamada da função definida pelo usuário.
 
 1. Recupere os correspondentes para o sensor do qual a leitura foi gerada.
 1. Dependendo do quais correspondentes foram avaliados com sucesso, recupere as funções definidas pelo usuário associadas.
@@ -250,240 +235,240 @@ A telemetria gerada pelo sensor descrito no grafo deve disparar a execução da 
 
 ### <a name="getspacemetadataid--space"></a>getSpaceMetadata(id) ⇒ `space`
 
-Dado um identificador de espaço, recupera o espaço do grafo.
+Dado um identificador de espaço, essa função recupera o espaço do grafo.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
-| ------ | ------------------- | ------------ |
-| *ID*  | `guid` | identificador de espaço |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
+| ---------- | ------------------- | ------------ |
+| *ID*  | `guid` | Identificador de espaço |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
-Dado um identificador de sensor, recupera o sensor do grafo.
+Dado um identificador de sensor, essa função recupera o sensor do grafo.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
-| ------ | ------------------- | ------------ |
-| *ID*  | `guid` | identificador de sensor |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
+| ---------- | ------------------- | ------------ |
+| *ID*  | `guid` | Identificador de sensor |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
-Dado um identificador de dispositivo, recupera o dispositivo do grafo.
+Dado um identificador de dispositivo, essa função recupera o dispositivo do grafo.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *ID* | `guid` | identificador de dispositivo |
+| *ID* | `guid` | Identificador de dispositivo |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒ `value`
 
-Dado um identificador de sensor e seu tipo de dados, recupere o valor atual para aquele sensor.
+Dado um identificador de sensor e o tipo de dados, essa função recupera o valor atual para esse sensor.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *sensorId*  | `guid` | identificador de sensor |
-| *dataType*  | `string` | tipo de dados de sensor |
+| *sensorId*  | `guid` | Identificador de sensor |
+| *dataType*  | `string` | Tipo de dados de sensor |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
 
-Dado um identificador de espaço e o nome do valor, recupere o valor atual para aquela propriedade de espaço.
+Dado um identificador de espaço e o nome do valor, essa função recupera o valor atual para essa propriedade de espaço.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId*  | `guid` | identificador de espaço |
-| *valueName* | `string` | nome da propriedade de espaço |
+| *spaceId*  | `guid` | Identificador de espaço |
+| *valueName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
-Dado um identificador de sensor e seu tipo de dados, recupere os valores históricos para aquele sensor.
+Dado um identificador de sensor e o tipo de dados, essa função recupera os valores históricos desse sensor.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | identificador de sensor |
-| *dataType* | `string` | tipo de dados de sensor |
+| *sensorId* | `guid` | Identificador de sensor |
+| *dataType* | `string` | Tipo de dados de sensor |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
-Dado um identificador de espaço e o nome do valor, recupere os valores históricos para aquela propriedade no espaço.
+Dado um identificador de espaço e o nome do valor, essa função recupera os valores históricos dessa propriedade no espaço.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
-| *valueName* | `string` | nome da propriedade de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
+| *valueName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
-Dado um identificador de espaço, recupere os espaços filho para aquele espaço pai.
+Dado um identificador de espaço, essa função recupera os espaços filhos para esse espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
-Dado um identificador de espaço, recupere os sensores filho para aquele espaço pai.
+Dado um identificador de espaço, essa função recupera os sensores filhos para esse espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
-Dado um identificador de espaço, recupere os dispositivos filho para aquele espaço pai.
+Dado um identificador de espaço, essa função recupera os dispositivos filhos para esse espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
-Dado um identificador de dispositivo, recupere os sensores filho para aquele dispositivo pai.
+Dado um identificador de dispositivo, essa função recupera os sensores filhos desse dispositivo pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | identificador de dispositivo |
+| *deviceId* | `guid` | Identificador de dispositivo |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
-Dado um identificador de espaço, recupere seu espaço pai.
+Dado um identificador de espaço, essa função recupera o espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *childSpaceId* | `guid` | identificador de espaço |
+| *childSpaceId* | `guid` | Identificador de espaço |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
-Dado um identificador de sensor, recupere seu espaço pai.
+Dado um identificador de sensor, essa função recupera o espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | identificador de sensor |
+| *childSensorId* | `guid` | Identificador de sensor |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
-Dado um identificador de dispositivo, recupere seu espaço pai.
+Dado um identificador de dispositivo, essa função recupera o espaço pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *childDeviceId* | `guid` | identificador de dispositivo |
+| *childDeviceId* | `guid` | Identificador de dispositivo |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
-Dado um identificador de sensor, recupere seu dispositivo pai.
+Dado um identificador de sensor, essa função recupera o dispositivo pai.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *childSensorId* | `guid` | identificador de sensor |
+| *childSensorId* | `guid` | Identificador de sensor |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
-Dado um identificador de espaço, recupere a propriedade e seu valor do espaço.
+Dado um identificador de espaço, essa função recupera a propriedade e o valor do espaço.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
-| *propertyName* | `string` | nome da propriedade de espaço |
+| *spaceId* | `guid` | Identificador de espaço |
+| *propertyName* | `string` | Nome da propriedade de espaço |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
-Dado um identificador de sensor, recupere a propriedade e seu valor do sensor.
+Dado um identificador de sensor, esta função recupera a propriedade e o valor do sensor.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | identificador de sensor |
-| *propertyName* | `string` | nome da propriedade do sensor |
+| *sensorId* | `guid` | Identificador de sensor |
+| *propertyName* | `string` | Nome da propriedade do sensor |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
-Dado um identificador de dispositivo, recupere a propriedade e seu valor do dispositivo.
+Dado um identificador de dispositivo, essa função recupera a propriedade e o valor do dispositivo.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *deviceId* | `guid` | identificador de dispositivo |
-| *propertyName* | `string` | nome da propriedade do dispositivo |
+| *deviceId* | `guid` | Identificador de dispositivo |
+| *propertyName* | `string` | Nome da propriedade do dispositivo |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
 
-Define um valor no objeto do sensor com o tipo de dados fornecido.
+Essa função define um valor no objeto sensor com o tipo de dados dado.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *sensorId* | `guid` | identificador de sensor |
-| *dataType*  | `string` | tipo de dados de sensor |
-| *valor*  | `string` | value |
+| *sensorId* | `guid` | Identificador de sensor |
+| *dataType*  | `string` | Tipo de dados de sensor |
+| *valor*  | `string` | Valor |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
-Define um valor no objeto do espaço com o tipo de dados fornecido.
+Essa função define um valor no objeto de espaço com o tipo de dados fornecido.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *spaceId* | `guid` | identificador de espaço |
-| *dataType* | `string` | tipo de dados |
-| *valor* | `string` | value |
+| *spaceId* | `guid` | Identificador de espaço |
+| *dataType* | `string` | Tipo de dados |
+| *valor* | `string` | Valor |
 
 ### <a name="logmessage"></a>log(message)
 
-Registra em log a seguinte mensagem dentro da função definida pelo usuário.
+Essa função registra a seguinte mensagem dentro da função definida pelo usuário.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *message* | `string` | mensagem a ser registrada em log |
+| *message* | `string` | Mensagem a ser registrada em log |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
 
-Envia uma notificação personalizada a ser expedida.
+Essa função envia uma notificação personalizada a ser despachada.
 
 **Tipo**: função global
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *topologyObjectId*  | `guid` | identificador de objeto do grafo (por exemplo, espaço/sensor/ID do dispositivo)|
-| *topologyObjectType*  | `string` | (ex. espaço/sensor/dispositivo)|
-| *payload*  | `string` | o conteúdo JSON a ser enviado com a notificação |
+| *topologyObjectId*  | `guid` | Identificador de objeto do grafo. Exemplos são espaço, sensor e ID do dispositivo.|
+| *topologyObjectType*  | `string` | Exemplos são sensor e dispositivo.|
+| *payload*  | `string` | A carga útil JSON a ser enviada com a notificação. |
 
 ## <a name="return-types"></a>Tipos de retorno
 
-Estes são os modelos que descrevem os objetos de retorno da referência do cliente acima.
+Os modelos a seguir descrevem os objetos de retorno da referência do cliente anterior.
 
 ### <a name="space"></a>Espaço
 
@@ -498,49 +483,49 @@ Estes são os modelos que descrevem os objetos de retorno da referência do clie
 }
 ```
 
-### <a name="space-methods"></a>Métodos de Espaço
+### <a name="space-methods"></a>Métodos de espaço
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Retorna o espaço do pai do espaço atual.
+Essa função retorna o espaço pai do espaço atual.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Retorna os sensores filho do espaço atual.
+Essa função retorna os sensores filhos do espaço atual.
 
 #### <a name="childdevices--device"></a>ChildDevices() ⇒ `device[]`
 
-Retorna os dispositivos filho do espaço atual.
+Essa função retorna os dispositivos filhos do espaço atual.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retorna a propriedade estendida e seu valor para o espaço atual.
+Essa função retorna a propriedade estendida e o valor para o espaço atual.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade estendida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
 #### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
 
-Retorna o valor do espaço atual.
+Essa função retorna o valor do espaço atual.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | nome do valor |
+| *valueName* | `string` | Nome do valor |
 
 #### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
 
-Retorna os valores históricos do espaço atual.
+Essa função retorna os valores históricos do espaço atual.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *valueName* | `string` | nome do valor |
+| *valueName* | `string` | Nome do valor |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
-Envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | payload JSON a ser incluído na notificação |
 
@@ -562,29 +547,29 @@ Envia uma notificação com o payload especificado.
 }
 ```
 
-### <a name="device-methods"></a>Métodos do Dispositivo
+### <a name="device-methods"></a>Métodos do dispositivo
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 
-Retorna o espaço do pai do dispositivo atual.
+Essa função retorna o espaço pai do dispositivo atual.
 
 #### <a name="childsensors--sensor"></a>ChildSensors() ⇒ `sensor[]`
 
-Retorna os sensores filho do dispositivo atual.
+Essa função retorna os sensores filhos do dispositivo atual.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retorna a propriedade estendida e seu valor para o dispositivo atual.
+Essa função retorna a propriedade estendida e o valor para o dispositivo atual.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade estendida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
-Envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | payload JSON a ser incluído na notificação |
 
@@ -610,37 +595,37 @@ Envia uma notificação com o payload especificado.
 }
 ```
 
-### <a name="sensor-methods"></a>Métodos do Sensor
+### <a name="sensor-methods"></a>Métodos do sensor
 
 #### <a name="space--space"></a>Space() ⇒ `space`
 
-Retorna o espaço do pai do sensor atual.
+Essa função retorna o espaço pai do sensor atual.
 
 #### <a name="device--device"></a>Device() ⇒ `device`
 
-Retorna o dispositivo pai do sensor atual.
+Essa função retorna o dispositivo pai do sensor atual.
 
 #### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty(propertyName) ⇒ `extendedProperty`
 
-Retorna a propriedade estendida e seu valor para o sensor atual.
+Essa função retorna a propriedade estendida e o valor para o sensor atual.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
-| *propertyName* | `string` | nome da propriedade estendida |
+| *propertyName* | `string` | Nome da propriedade estendida |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
-Retorna o valor do sensor atual.
+Essa função retorna o valor do sensor atual.
 
 #### <a name="history--value"></a>History() ⇒ `value[]`
 
-Retorna os valores históricos do sensor atual.
+Esta função retorna os valores históricos do sensor atual.
 
 #### <a name="notifypayload"></a>Notify(payload)
 
-Envia uma notificação com o payload especificado.
+Essa função envia uma notificação com a carga especificada.
 
-| Param  | Tipo                | DESCRIÇÃO  |
+| Parâmetro  | Tipo                | DESCRIÇÃO  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | payload JSON a ser incluído na notificação |
 
@@ -665,6 +650,6 @@ Envia uma notificação com o payload especificado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como criar pontos de extremidade de Gêmeos Digitais para os quais enviar eventos, leia [Criar pontos de extremidade de Gêmeos Digitais](how-to-egress-endpoints.md).
+- Saiba com [criar pontos de extremidade de Gêmeos Digitais do Azure ](how-to-egress-endpoints.md) para envio de eventos.
 
-Para obter mais detalhes sobre pontos de extremidade de Gêmeos Digitais, leia [Saiba mais sobre pontos de extremidade](concepts-events-routing.md).
+- Para obter mais detalhes sobre os pontos de extremidade de Gêmeos Digitais do Azure, saiba [mais sobre pontos de extremidade](concepts-events-routing.md).

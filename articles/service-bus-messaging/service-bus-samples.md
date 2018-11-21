@@ -14,30 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: d4b7babe9d8243c5240ab6d7f990bbaa2a6969a2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4713033ec8729a68f4c5ee13ac6140e0c5f33779
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854432"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578086"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 
 Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos em dois locais:
 
-- [Exemplos de mensagens do Barramento de Serviço no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): um conjunto mais recente de exemplos, hospedado no GitHub. Consulte o [arquivo leiame](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) no repositório para obter descrições desses exemplos do .NET. Os exemplos são atualizados continuamente, então volte a consultar com frequência para ver se há atualizações.
-- [Página de exemplos do MSDN](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): exemplos mais antigos que residem na galeria de códigos do MSDN. Embora esses exemplos ainda funcionem, eles não recebem manutenção e podem estar desatualizados em relação às atuais práticas de programação recomendadas.
- 
+- [.NET e Java](https://github.com/Azure/azure-service-bus/tree/master/samples) . Consulte a [Leiame do .NET](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md) no repositório para obter descrições dos exemplos de .NET e o [Java Leiame](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) para as descrições dos exemplos de Java.
+- [TypeScript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 
 Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) é um exemplo hospedado no GitHub que permite a conexão a um namespace de serviço do Barramento de Serviço e o fácil gerenciamento de entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação, e a capacidade de testar entidades do sistema de mensagens e os serviços de retransmissão. Encontre toda a documentação e fonte do Explorer do Barramento de Serviço no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Os locais de exemplo estão aqui:
-
-- [Exemplos do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples)
-- [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 

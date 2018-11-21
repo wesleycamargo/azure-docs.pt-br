@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349136"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621999"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
-Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar o provisionamento de conta de usuário automático e o desprovisionamento para aplicativos que oferecem suporte a ele, especialmente aqueles que foram adicionados da categoria "em destaque" da [Galeria de aplicativos do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
+Este artigo descreve como usar o [Portal do Microsoft Azure](https://portal.azure.com) para gerenciar o provisionamento e o desprovisionamento de conta de usuário automáticos para aplicativos que o suportam. Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
-Todos os aplicativos configurados para logon único em um diretório por um administrador de diretório usando a [galeria de aplicativos do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery) podem ser exibidos e gerenciados no [Portal do Azure](https://portal.azure.com). Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
+Todos os aplicativos configurados para logon único em um diretório podem ser exibidos e gerenciados no [Portal do Microsoft Azure](https://portal.azure.com). Os aplicativos podem ser localizados na seção **Todos os Serviços** &gt; **Aplicativos Empresariais** do portal. Aplicativos empresariais são aplicativos que são implantados e usados dentro da sua organização.
 
 ![Painel Aplicativos Empresariais](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Esta seção fornece detalhes de adição sobre a operação de serviço do prov
 
 São fornecidos links para o **Relatório de atividade de provisionamento** que fornece um log de todos os usuários e grupos criados, atualizados e removidos entre o Azure AD e o aplicativo de destino e o **Relatório de erros de provisionamento** que fornece mensagens de erro mais detalhadas para objetos de usuário e grupo que não puderam ser lidos, criados, atualizados ou removidos. 
 
-## <a name="feedback"></a>Comentários
 
-Continue a fazer seus comentários! Poste seus comentários e suas ideias para aprimoramento na seção **Portal de Administração** do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  O time de engenharia está para criar algo novo e interessante diariamente e ele usa suas diretrizes para formar e definir o que devemos criar a seguir.
 

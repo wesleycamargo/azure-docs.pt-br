@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234758"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300941"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guia estratégico da Solução de Análise de Telemetria do Veículo: aprofundamento na solução
-Este menu fornece links para as seções deste guia estratégico: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+Este artigo detalha cada um dos estágios descritos na arquitetura da solução. Instruções e ponteiros para personalização são incluídos. 
 
-Este documento faz uma busca detalhada em cada um dos estágios descritos na arquitetura da solução. Instruções e ponteiros para personalização são incluídos. 
+Para revisar a descrição resumida desta solução, consulte [Guia estratégico da Solução de Análise de Telemetria do Veículo](cortana-analytics-playbook-vehicle-telemetry.md).
+
 
 ## <a name="data-sources"></a>Fontes de dados
 A solução usa duas fontes de dados diferentes:
@@ -675,3 +675,7 @@ Este documento contém um detalhamento da Solução de Análise da Telemetria do
 * [Funcionalidades de movimentação de dados do Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Atividade .NET do Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Solução de atividade .NET do Azure Data Factory do Visual Studio usada para preparar os dados de exemplo](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para saber como configurar os relatórios e painéis do Power BI para essa solução, consulte [Instruções de instalação do painel de Power BI do modelo de Solução de Análise de Telemetria do Veículo](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

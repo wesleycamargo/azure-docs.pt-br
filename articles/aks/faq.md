@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: 1e101e308ec350e9900c1347da730ca02b16c7bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 55f32c403da179a0b7babc2172a80c2168cfab17
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377456"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636910"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -46,6 +46,8 @@ Sim, o Azure aplica automaticamente os patches de segurança para os nós no clu
 - Manualmente, por meio do portal do Azure ou da CLI do Azure.
 - Atualizando o cluster AKS. O cluster atualiza automaticamente [cordon e drain nodes][cordon-drain], depois traz de volta cada nó com a última imagem do Ubuntu e uma nova versão de patch ou uma versão menor do Kubernetes. Para obter mais informações, consulte [atualizar um cluster AKS][aks-upgrade].
 - Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinicialização software livre para Kubernetes. O Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações do SO são gerenciadas no cluster usando o mesmo [cordon e o processo de drenagem][cordon-drain] como uma atualização do cluster.
+
+Para obter mais informações sobre como usar o kured, consulte [Aplicar atualizações de segurança e o kernel para nós do AKS][node-updates-kured].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que são criados dois grupos de recursos com o AKS?
 
@@ -97,6 +99,7 @@ Em um contrato de nível serviço (SLA), o provedor concorda em reembolse o clie
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-advanced-networking.md
 [aks-rbac-aad]: ./aad-integration.md
+[node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->
 
@@ -105,3 +108,4 @@ Em um contrato de nível serviço (SLA), o provedor concorda em reembolse o clie
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+

@@ -1,6 +1,6 @@
 ---
-title: Consultar o Hive por meio do driver JDBC - Azure HDInsight
-description: Use o driver JDBC de um aplicativo Java para enviar consultas do Hive ao Hadoop no HDInsight. Conecte-se de forma programática e do cliente SQL SQuirrel.
+title: Consultar Apache Hive por meio do driver JDBC - Azure HDInsight
+description: Use o driver JDBC de um aplicativo Java para enviar consultas do Apache Hive ao Hadoop no HDInsight. Conecte-se de forma programática e do cliente SQL SQuirrel.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014407"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633437"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consultar o Hive por meio do driver JDBC no HDInsight
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consultar o Apache Hive por meio do driver JDBC no HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Saiba como usar o driver JDBC de um aplicativo Java para enviar consultas do Hive para Hadoop no Azure HDInsight. As informações neste documento mostram como se conectar programaticamente e do cliente SQL SQuirrel.
+Saiba como usar o driver JDBC de um aplicativo Java para enviar consultas do Apache Hive ao Apache Hadoop no Azure HDInsight. As informações neste documento mostram como se conectar programaticamente e do cliente SQL SQuirrel.
 
 Para obter mais informações sobre a Interface JDBC do Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 

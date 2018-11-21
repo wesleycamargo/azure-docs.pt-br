@@ -1,6 +1,6 @@
 ---
-title: Função definida pelo usuário de Java (UDF) com o Hive no HDInsight – Azure
-description: Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
+title: Função Definida pelo Usuário (UDF) Java com o Apache Hive no HDInsight - Azure
+description: Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que funciona com o Apache Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006236"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634066"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um Java UDF com Apache Hive no HDInsight
 
-Saiba como criar um UDF (função definida pelo usuário) baseado em Java que funcione com o Hive. O UDF Java neste exemplo converte uma tabela de cadeias de caracteres de texto em caracteres minúsculos.
+Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que funciona com o Apache Hive. O UDF Java neste exemplo converte uma tabela de cadeias de caracteres de texto em caracteres minúsculos.
 
 ## <a name="requirements"></a>Requisitos
 

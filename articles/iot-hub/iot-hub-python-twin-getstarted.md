@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
-ms.openlocfilehash: e75b6bbd688ae6e4422d5caba160095763e84994
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5086c831f45fd9c8e411fb02b21d03795d747c8a
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185611"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514172"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -39,9 +39,17 @@ Para concluir este tutorial, você precisará do seguinte:
 > Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` atualmente estão disponíveis apenas para o sistema operacional Windows. Para Linux/Mac OS, confira as seções do Linux e Mac OS específicas na publicação [Preparação do seu ambiente de desenvolvimento para o Python][lnk-python-devbox].
 > 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
 Nesta seção, você cria um aplicativo de console do Python que adiciona metadados de local ao dispositivo gêmeo associado à **{Device Id}**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados em Redmond e, depois, aqueles que relatam uma conexão celular.

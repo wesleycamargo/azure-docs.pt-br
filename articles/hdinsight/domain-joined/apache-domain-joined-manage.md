@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973551"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634457"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerenciar clusters HDInsight com Enterprise Security Package
 Saiba mais sobre usuários e funções no ESP (Enterprise Security Package) do HDInsight e como gerenciar clusters ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Use o VSCode para vincular ao cluster ingressado no domínio
 
-É possível vincular um cluster normal usando o nome de usuário gerenciado Ambari, além de vincular um cluster hadoop de segurança usando o nome de usuário do domínio (como: user1@contoso.com).
+É possível vincular um cluster normal usando o nome de usuário gerenciado do Apache Ambari, além de vincular um cluster de segurança do Apache Hadoop, usando o nome de usuário de domínio (como: user1@contoso.com).
 1. Abra a paleta de comandos selecionando **CTRL+SHIFT+P** e, em seguida, insira **HDInsight: Vincular um cluster**.
 
    ![comando para vincular cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
@@ -222,5 +222,5 @@ O Enterprise Security Package do HDInsight tem as seguintes funções:
 3. Clique em **Adicionar Usuário** ou **Adicionar Grupo** para atribuir usuários e grupos a funções diferentes.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para configurar um cluster HDInsight com Enterprise Security Package, consulte [Configurar clusters HDInsight com ESP](apache-domain-joined-configure.md).
+* Para configurar um cluster HDInsight com Enterprise Security Package, confira [Configurar clusters HDInsight com ESP](apache-domain-joined-configure.md).
 * Para configurar as políticas do Hive e executar as consultas do Hive, consulte [Configurar políticas do Hive para clusters HDInsight com ESP](apache-domain-joined-run-hive.md).

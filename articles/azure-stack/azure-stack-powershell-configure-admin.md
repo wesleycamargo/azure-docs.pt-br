@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: f5df27df5901d6568b30e1ae4f40cae8b3de4c86
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 530b2a1909ec198ddff5abfe4fd5bb7c645f7582
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298812"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261572"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Conectar-se ao Azure Stack com o PowerShell como um operador
 
@@ -27,7 +27,7 @@ ms.locfileid: "51298812"
 
 Você pode configurar o Azure Stack para usar o PowerShell para gerenciar recursos como a criação de planos, ofertas, cotas e alertas. Este tópico ajuda você a configurar o ambiente de operador.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](.\asdk\asdk-connect.md#connect-with-rdp) ou de um cliente de externo com base no Windows se você estiver [conectado para o ASDK por meio de VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
 
@@ -43,9 +43,12 @@ Configure o ambiente de operador do Azure Stack com o PowerShell. Execute um dos
     # To get this value for Azure Stack integrated systems, contact your service provider.
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRmEnvironment -Name "AzureStackAdmin" -ARMEndpoint $ArmEndpoint -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.

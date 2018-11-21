@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416113"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288111"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 
@@ -139,10 +139,10 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **metadados**|||
 |Tipo de banco de dados do Hive|Mysql, Postgres||
-|Não. de metastores do Hive|2||
-|Não. de tabelas do Hive|100||
-|Não. de políticas do Ranger|20||
-|Não. de fluxos de trabalho do Oozie|100||
+| Não. de metastores do Hive|2||
+| Não. de tabelas do Hive|100||
+| Não. de políticas do Ranger|20||
+| Não. de fluxos de trabalho do Oozie|100||
 |**Tópico**: **escala**|||
 |Volume de dados incluindo Replicação|100 TB||
 |Volume diário de ingestão|50 GB||
@@ -154,11 +154,11 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Espaço em disco usado|75%||
 |% média de rede usada|25%
 |**Tópico**: **equipe**|||
-|Não. de Administradores|2||
-|Não. de Desenvolvedores|10||
-|Não. de usuários finais|100||
+| Não. de Administradores|2||
+| Não. de Desenvolvedores|10||
+| Não. de usuários finais|100||
 |Habilidades|Hadoop, Spark||
-|Não. de recursos disponíveis para esforços de Migração|2||
+| Não. de recursos disponíveis para esforços de Migração|2||
 |**Tópico**: **limitações**|||
 |Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
@@ -180,9 +180,9 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Usar Monitoramento e Alertas do Azure vs. integrar monitoramento de terceiros|Usar Monitoramento e Alertas do Azure||
 |**Tópico**: **preferências de segurança** |||
 |Pipeline de dados privados e protegidos?|SIM||
-|Cluster com ingresso no domínio (ESPP)?|     SIM||
+|Cluster de domínio ingressado (ESP)?|     SIM||
 |Sincronização do AD Local com a Nuvem?|     SIM||
-|Não. de usuários do AD a sincronizar?|          100||
+| Não. de usuários do AD a sincronizar?|          100||
 |OK sincronizar senhas com a nuvem?|    SIM||
 |Somente usuários de nuvem?|                 SIM||
 |MFA necessária?|                       Não || 

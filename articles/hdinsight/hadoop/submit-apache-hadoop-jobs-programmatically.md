@@ -1,6 +1,6 @@
 ---
-title: Enviar trabalhos Hadoop no HDInsight
-description: Saiba como enviar trabalhos Hadoop no Azure HDInsight.
+title: Enviar trabalhos do Apache Hadoop no HDInsight
+description: Saiba como enviar trabalhos do Apache Hadoop no HDInsight do Azure.
 ms.reviewer: jasonh
 services: hdinsight
 ms.author: hrasheed
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 9a764814028c1858139e2439c674c176d4e754ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 633a5c26711b7ef9f891455c6712b77238fd3a62
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009133"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631959"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Enviar trabalhos Hadoop no HDInsight
 
-É possível enviar trabalhos Hadoop no Azure HDInsight usando o SDK do Microsoft .NET para HDInsight, curl ou o Azure PowerShell.
+Você pode enviar tarefas do Apache Hadoop no HDInsight do Azure usando o Microsoft .NET SDK para HDInsight, curl ou o Azure PowerShell.
 
 ## <a name="resources"></a>Recursos
 

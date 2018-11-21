@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236068"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621336"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no banco de dados do Azure Cosmos de solicitação
 
@@ -52,8 +52,8 @@ Ao estimar o número de RU / s para provisão, é importante considerar os segui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [Taxa de transferência de provisionamento para contêineres e bancos de dados do Cosmos DB](set-throughput.md)
-* Saiba mais sobre [Partições lógicas](partition-data.md)
-* Saiba mais sobre [Colocação em escala de taxa de transferência](scaling-throughput.md)
+* Saiba mais sobre [provisionamento de taxa de transferência para contêineres do Cosmos DB e bancos de dados](set-throughput.md)
+* Saiba mais sobre [Llogical partições](partition-data.md)
+* Saiba mais sobre [globalmente colocação em escala de taxa de transferência provisionada](scaling-throughput.md)
 * Aprenda [como provisionar a taxa de transferência em um contêiner Cosmos](how-to-provision-container-throughput.md)
 * Aprenda [como provisionar a taxa de transferência em um banco de dados Cosmos](how-to-provision-database-throughput.md)
