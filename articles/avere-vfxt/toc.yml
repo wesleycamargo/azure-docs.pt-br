@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é Avere vFXT para Azure?
+  - name: O que é o Avere vFXT para Azure?
     href: avere-vfxt-overview.md
 - name: Conceitos
   items:
@@ -23,7 +23,7 @@ items:
     href: avere-vfxt-enable-support.md
   - name: Configurar o armazenamento
     href: avere-vfxt-add-storage.md
-  - name: Montar cluster do Avere vFXT
+  - name: Montar o cluster do Avere vFXT
     href: avere-vfxt-mount-clients.md
   - name: Mover dados para o cluster do Avere vFXT
     href: avere-vfxt-data-ingest.md
@@ -43,17 +43,15 @@ items:
     items:
     - name: Documentação complementar
       href: avere-vfxt-additional-resources.md
-    - name: Lista de permissões da porta
-      href: avere-vfxt-required-ports.md
     - name: Criar a função de cluster sem um controlador
       href: avere-vfxt-pre-role.md
     - name: Configuração de DNS do cluster do Avere
       href: avere-vfxt-configure-dns.md
     - name: Autorizar não proprietários a implantar Avere vFXT
       href: avere-vfxt-non-owner.md
-ms.openlocfilehash: 6f99a33ffbf637e02d487a511d17bf8a365cb3ba
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 319745fad14ca3cce97e8735def901f380132eff
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669125"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273704"
