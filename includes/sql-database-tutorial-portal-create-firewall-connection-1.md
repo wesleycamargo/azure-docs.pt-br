@@ -1,6 +1,19 @@
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: a999a18ccd504d6928a5eb1e209fbf55cb8506f5
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52268668"
+---
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Criar um banco de dados SQL em branco
 
@@ -52,7 +65,7 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 9. Depois de selecionar a camada de servidor, o número de DTUs e a quantidade de armazenamento, clique em **Aplicar**.  
 
-10. Selecione um **agrupamento** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
+10. Selecione uma **ordenação** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre ordenações, confira [Ordenações](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
 11. Clique em **Criar** para provisionar o banco de dados. O provisionamento leva cerca de um minuto e meio para concluir. 
 
@@ -94,7 +107,7 @@ Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dad
 
 Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o SQL Server Management Studio.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
 3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
 

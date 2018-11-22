@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: ca2f855166d9a36f600889059368ebeb313e789c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: feb44920c36f2d17dafb1d33ef1c1e680fd37db4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636281"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163547"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo .Net Core para gerenciar os dados da API de SQL do Azure Cosmos DB
 
@@ -399,7 +399,7 @@ Parabéns! Você criou dois documentos do Azure Cosmos DB com êxito.
 
 ## <a id="Query"></a>Etapa 7: Consultar recursos do Azure Cosmos DB
 
-O Azure Cosmos DB tem suporte para [consultas](sql-api-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O exemplo de código a seguir mostra diversas consultas - usando a sintaxe SQL do Azure Cosmos DB bem como o LINQ - que podem ser realizadas nos documentos que inserimos na etapa anterior.
+O Azure Cosmos DB tem suporte para [consultas](how-to-sql-query.md) avançadas de documentos JSON armazenados em cada coleção. O exemplo de código a seguir mostra diversas consultas - usando a sintaxe SQL do Azure Cosmos DB bem como o LINQ - que podem ser realizadas nos documentos que inserimos na etapa anterior.
 
 Copie e cole o método **ExecuteSimpleQuery** sob seu método **CreateFamilyDocumentIfNotExists**.
 
@@ -456,7 +456,7 @@ O diagrama a seguir ilustra como a sintaxe da consulta SQL do Azure Cosmos DB é
 
 ![Diagrama que ilustra o escopo e o significado da consulta usada pelo tutorial do NoSQL para criar um aplicativo de console em C#](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-A palavra-chave [FROM](sql-api-sql-query.md#FromClause) é opcional na consulta, pois as consultas do Azure Cosmos DB já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Azure Cosmos DB infere nas Famílias, raiz ou o nome de variável escolhido, faz referência à coleção atual por padrão.
+A palavra-chave [FROM](how-to-sql-query.md#FromClause) é opcional na consulta, pois as consultas do Azure Cosmos DB já têm o escopo para uma única coleção. Portanto, "FROM Families f" pode ser trocado por "FROM root r" ou qualquer outra variável de nome que você escolher. O Azure Cosmos DB infere nas Famílias, raiz ou o nome de variável escolhido, faz referência à coleção atual por padrão.
 
 ## <a id="ReplaceDocument"></a>Etapa 8: substituir o documento JSON
 

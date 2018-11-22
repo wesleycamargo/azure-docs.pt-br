@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5169f6c7ff3d34d90f3f2e4b37b01733384966ff
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268352"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283577"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando Python para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. É possível usar a **camada gratuita para fazer 5.000 transações/mês** para concluir este passo a passo.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
 

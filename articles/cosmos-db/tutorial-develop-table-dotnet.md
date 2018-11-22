@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e198a85d1c04cbc437ad23dadfa3005a72eaa2ce
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238992"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161626"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabela no .NET
 
@@ -293,7 +293,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-O Azure Cosmos DB oferece suporte à mesma funcionalidade de consulta que o armazenamento de tabela do Azure para a API de Tabela. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Os recursos adicionais serão fornecidos na API de Tabela em uma atualização futura do serviço. Confira a [Consulta do Azure Cosmos DB](sql-api-sql-query.md) para obter uma visão geral desses recursos. 
+O Azure Cosmos DB oferece suporte à mesma funcionalidade de consulta que o armazenamento de tabela do Azure para a API de Tabela. O Azure Cosmos DB também oferece suporte à classificação, agregações, consulta geoespacial, hierarquia e uma ampla variedade de funções internas. Confira a [Consulta do Azure Cosmos DB](how-to-sql-query.md) para obter uma visão geral desses recursos. 
 
 ## <a name="replace-an-entity"></a>Substituir uma entidade
 Para atualizar uma entidade, recupere-a do serviço Tabela, modifique o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela. O código a seguir altera o número de telefone de um cliente existente. 

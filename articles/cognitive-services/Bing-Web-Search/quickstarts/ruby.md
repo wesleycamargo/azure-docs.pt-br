@@ -3,19 +3,19 @@ title: 'Início Rápido: executar uma pesquisa com Ruby – API de Pesquisa na W
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a fazer sua primeira chamada à API de Pesquisa na Web do Bing usando Ruby e receber uma resposta JSON.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: e1819be51c339b302dbc1181e2a8f998170b2413
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b6d5122fce4db393e4b7bdb9b3556e49551d2c17
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127050"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163615"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Início Rápido: Usar Ruby para chamar a API de Pesquisa na Web do Bing  
 

@@ -3,19 +3,19 @@ title: 'Início Rápido: usar o SDK de Pesquisa na Web do Bing para Node.js'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Node.js. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: b27c11a69c7d16f38c2448d380b611940078c501
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: 14227239f3772f7c820f0c5dc941a89da9675f4e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121885"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162402"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Início Rápido: usar o SDK de Pesquisa na Web do Bing para Node.js
 

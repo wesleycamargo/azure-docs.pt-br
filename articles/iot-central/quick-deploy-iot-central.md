@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f0e5b9d6e873cad1a997bda2ee286c92ad3818d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3ffc361421f57b405c284742b662a833b178f9da
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959453"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260316"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
@@ -29,10 +29,10 @@ Para começar a criar um novo aplicativo Azure IoT Central, selecione **Novo Apl
 Para criar um novo aplicativo Azure IoT Central:
 
 1. Escolha um plano de pagamento:
-    - Os aplicativos de **Avaliação** são gratuitos por sete dias antes de expirarem. Eles podem ser convertidos em Pagamento Conforme o Uso a qualquer momento antes de expirarem.
-    - Aplicativos de **Pagamento Conforme o Uso** são cobrados por dispositivo; os primeiros cinco dispositivos são gratuitos.
+    - Os aplicativos de **Avaliação** são gratuitos por sete dias antes de expirarem. Eles podem ser convertidos em Pagamento Conforme o Uso em qualquer momento antes de expirarem.
+    - Os aplicativos **Pagamento Conforme o Uso** são cobrados por dispositivo, com os primeiros 5 dispositivos gratuitos.
 
-    Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+    Saiba mais sobre preços na [Página de preços da microsoft IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 1. Escolha um nome amigável do aplicativo, como **IoT Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para você. Você pode alterar esse prefixo de URL para algo mais fácil de lembrar.
 
@@ -60,4 +60,4 @@ Para criar um novo aplicativo Azure IoT Central:
 Neste início rápido, você criou um aplicativo IoT Central. Aqui estão sugestões para as próximas etapas:
 
 > [!div class="nextstepaction"]
-> [Faça um tour pelo IoT Central](#overview-iot-central-tour)
+> [Faça um tour pelo IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 30d56acf6bd3a882622af41ca0f2095572f72f71
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615731"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165434"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar as conexões coexistentes do ExpressRoute e do Site a Site (clássico)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Poder configurar a VPN site a site e o ExpressRoute tem várias vantagens. Você
 
 **Sobre modelos de implantação do Azure**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
 > Os circuitos de ExpressRoute devem ser previamente configurados antes de você seguir as instruções abaixo. Verifique se você seguiu as guias para [criar um circuito de ExpressRoute](expressroute-howto-circuit-classic.md) e [configurar o roteamento](expressroute-howto-routing-classic.md) antes de seguir as etapas abaixo.

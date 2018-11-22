@@ -2,20 +2,20 @@
 title: Início rápido do Azure - Executar trabalho do Lote - .NET
 description: Execute rapidamente um trabalho do Lote e tarefas com a biblioteca de clientes .NET do Lote.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/06/2018
-ms.author: danlep
+ms.date: 11/16/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814824"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975102"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início rápido: executar o primeiro trabalho do Lote do Azure com a API do .NET
 
@@ -73,7 +73,7 @@ Para ver o fluxo de trabalho do Lote em ação, compile e execute o aplicativo n
 Em seguida, execute-o. Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/16/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -150,7 +150,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Para criar um pool do Lote, o aplicativo usa o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de pool. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Lote dá suporte a uma ampla gama de imagens do Linux e do Windows Server no Azure Marketplace, bem como imagens de VM personalizadas.
 
-O número de nós (`PoolNodeCount`) e o tamanho da VM (`PoolVMSize`) são constantes definidas. O exemplo cria por padrão um pool com dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio entre desempenho e custo para este exemplo rápido. 
+O número de nós (`PoolNodeCount`) e o tamanho da VM (`PoolVMSize`) são constantes definidas. O exemplo cria por padrão um pool com dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio entre desempenho e custo para este exemplo rápido.
 
 O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envia o pool para o serviço Lote.
 
@@ -158,7 +158,7 @@ O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envia o p
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =

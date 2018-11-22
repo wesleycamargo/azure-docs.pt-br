@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 75eb260b107df3877219266794e45eb11d5deb35
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3910e13900ec1774e5a1fe449b4f510a661f1f53
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633233"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165315"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -93,7 +93,7 @@ Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenv
 Os artigos a seguir oferecem a você uma introdução ao Serviço de Aplicativo no Linux com aplicativos Web escritos em várias linguagens:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](quickstart-dotnetcore.md)
+* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

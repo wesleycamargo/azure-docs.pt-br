@@ -3,19 +3,19 @@ title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Python'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo Python. Neste início rápido, você aprenderá a enviar uma solicitação, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: c83848bc3c8f14aa49c1f87f1cd44224bb3e8081
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127628"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283273"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Python
 
@@ -206,7 +206,7 @@ Este exemplo usa os parâmetros `count` e `offset` para limitar o número de res
 
 ### <a name="filter-for-news-and-freshness"></a>Filtro para notícias e atualização
 
-Este exemplo usa os parâmetros `response_filter` e `freshness` para filtrar os resultados da pesquisa usando o método [`search` do SDK](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). Os resultados da pesquisa retornados são limitados a artigos de notícias e as páginas que Bing descobriu nas últimas 24 horas. São impressos o `name` e a `URL` para o primeiro resultado.
+Este exemplo usa os parâmetros `response_filter` e `freshness` para filtrar os resultados da pesquisa usando o método [`search` do SDK](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search). Os resultados da pesquisa retornados são limitados a artigos de notícias e as páginas que Bing descobriu nas últimas 24 horas. São impressos o `name` e a `URL` para o primeiro resultado.
 
 1. Adicione este código ao seu projeto Python:
     ```python

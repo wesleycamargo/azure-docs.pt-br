@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 08fe85ae88b1f53941d490a6c22684d223da24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636455"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160946"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo de console do Node.js com o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
 
@@ -497,9 +497,9 @@ Parabéns! Você criou um item do Azure Cosmos DB com êxito.
 
 
 ## <a id="Query"></a>Etapa 8: Consultar recursos do Azure Cosmos DB
-O Azure Cosmos DB tem suporte para [consultas avançadas](sql-api-sql-query.md) de documentos JSON armazenados em cada contêiner. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em seu contêiner.
+O Azure Cosmos DB tem suporte para [consultas avançadas](how-to-sql-query.md) de documentos JSON armazenados em cada contêiner. O código de exemplo a seguir mostra uma consulta que pode ser executada em documentos em seu contêiner.
 
-1. Copie e cole a função **queryContainer** abaixo da função **createFamilyItem** no arquivo app.js. O Azure Cosmos DB dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](sql-api-sql-query.md).
+1. Copie e cole a função **queryContainer** abaixo da função **createFamilyItem** no arquivo app.js. O Azure Cosmos DB dá suporte a consultas do tipo SQL, conforme mostrado abaixo. Para saber mais sobre como criar consultas complexas, consulte o [Espaço de Consulta](https://www.documentdb.com/sql/demo) e a [documentação de consulta](how-to-sql-query.md).
 
    ```nodejs
    /**

@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 11/09/2018
-ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578273"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710640"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Início Rápido: usar Python para começar a usar o Azure Machine Learning
 
@@ -42,7 +42,7 @@ Os seguintes recursos do Azure serão adicionados automaticamente ao workspace q
 >[!NOTE]
 > O código deste artigo foi testado com a versão 0.1.74 do SDK do AML 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 
 ## <a name="install-the-sdk"></a>Instalar o SDK

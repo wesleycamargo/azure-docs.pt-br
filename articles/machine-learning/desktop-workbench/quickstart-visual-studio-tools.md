@@ -11,18 +11,18 @@ ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 37663e5053de8066458364bbfdf824caa154dfb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 48651d7c4589af4f8866001c1330c041cab5ea1a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227018"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261353"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Ferramentas do Visual Studio para IA
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-Ferramentas do Visual Studio para IA é uma extensão de desenvolvimento para criar, testar e implantar soluções de IA e de aprendizagem profunda. Ele apresenta uma integração perfeita com o Azure Machine Learning, especialmente uma exibição de histórico de execução, detalhando o desempenho de métricas personalizadas e treinamentos anteriores. Ele oferece uma exibição de gerenciador de amostras, que permite procurar e inicializar um novo projeto com o [Kit de Ferramentas Cognitivas Microsoft (anteriormente conhecido como CNTK)](https://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e outras estruturas de aprendizagem profunda. Por fim, ele fornece um gerenciador para destinos de computação, o que habilita você a enviar trabalhos para treinar modelos em ambientes remotos como Máquinas Virtuais do Azure ou servidores Linux com GPU. Ele também fornece um acesso facilitado a [IA de Lote do Azure (versão prévia)](https://docs.microsoft.com/azure/batch-ai/).
+Ferramentas do Visual Studio para IA é uma extensão de desenvolvimento para criar, testar e implantar soluções de IA e de aprendizagem profunda. Ele apresenta uma integração perfeita com o Azure Machine Learning, especialmente uma exibição de histórico de execução, detalhando o desempenho de métricas personalizadas e treinamentos anteriores. Ele oferece uma exibição de gerenciador de amostras, que permite procurar e inicializar um novo projeto com o [Kit de Ferramentas Cognitivas Microsoft (anteriormente conhecido como CNTK)](https://docs.microsoft.com/cognitive-toolkit/), [Google TensorFlow](https://www.tensorflow.org) e outras estruturas de aprendizagem profunda. Por fim, ele fornece um gerenciador para destinos de computação, o que habilita você a enviar trabalhos para treinar modelos em ambientes remotos como Máquinas Virtuais do Azure ou servidores Linux com GPU. Ele também fornece um acesso facilitado a [IA de Lote do Azure (versão prévia)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Introdução 
 Para começar, será necessário baixar e instalar o [Visual Studio](https://www.visualstudio.com/downloads/). Depois que você tiver aberto o Visual Studio, execute as etapas a seguir:

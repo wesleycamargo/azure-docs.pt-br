@@ -3,19 +3,19 @@ title: 'Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing ao seu aplicativo C#. Neste início rápido, você aprenderá a criar uma instância de um cliente, enviar uma solicitação e imprimir a resposta.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 04a70c2afbd499d3965e23487cd49540b38e08af
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: aahi
+ms.openlocfilehash: 0c5ac37b5a3992c3f9e80fd8f155f368fa61615c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318649"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163802"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para C#
 
@@ -25,7 +25,7 @@ O SDK de Pesquisa na Web do Bing torna fácil integrar a Pesquisa na Web do Bing
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
+Aqui estão alguns requisitos que serão necessários antes de executar este início rápido:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) ou
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
@@ -270,7 +270,7 @@ Este exemplo usa os parâmetros `count` e `offset` para limitar o número de res
         }
     }
     ```
-2. Adicionar `WebResultsWithCountAndOffset` à `main`:
+2. Adicione `WebResultsWithCountAndOffset` à `main`:
     ```csharp
     static void Main(string[] args)
     {
@@ -327,7 +327,7 @@ Este exemplo usa o parâmetro `response_filter` para filtrar os resultados da pe
         }
     }
     ```
-2. Adicionar `WebResultsWithCountAndOffset` à `main`:
+2. Adicione `WebResultsWithCountAndOffset` à `main`:
     ```csharp
     static void Main(string[] args)
     {
@@ -385,7 +385,7 @@ Este exemplo usa os parâmetros `answer_count`, `promote` e `safe_search` para f
         }
     }
     ```
-2. Adicionar `WebResultsWithCountAndOffset` à `main`:
+2. Adicione `WebResultsWithCountAndOffset` à `main`:
     ```csharp
     static void Main(string[] args)
     {

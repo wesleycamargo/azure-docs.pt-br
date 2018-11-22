@@ -6,22 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/19/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 0a82e5122ddaf5c8c50423de8f658372c8a1b747
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 68d03a5e37559c6db2955cc966d4f074c9adbe64
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686034"
+ms.locfileid: "51711235"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Início Rápido: Carregar, baixar, listar e excluir blobs usando o SDK do Armazenamento do Azure v10 para JavaScript (versão prévia)
 
 Neste início rápido, você aprenderá a usar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-storage-js) no Node.js para carregar, baixar, listar e excluir blobs e gerenciar contêineres.
 
-Para concluir este início rápido, você precisa de uma [assinatura do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 

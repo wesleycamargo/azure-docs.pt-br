@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288025"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264116"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de pesquisa cognitivas usando habilidades e dados de exemplo
 
@@ -33,9 +33,16 @@ Você pode experimentar pesquisa cognitiva em um serviço do Azure Search criado
 * Centro-Oeste dos EUA
 * Centro-Sul dos Estados Unidos
 * Leste dos EUA
+* Leste dos EUA 2
+* Oeste dos EUA 2
+* Canadá Central
 * Europa Ocidental
+* Sul do Reino Unido
 * Norte da Europa
+* Sul do Brasil
 * Sudeste Asiático
+* Índia Central
+* Leste da Austrália
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

@@ -85,12 +85,14 @@ items:
   - name: Práticas recomendadas
     href: luis-concept-best-practices.md
   - name: Planejar seu aplicativo
+    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
   - name: Aplicativo criador
     items:
     - name: Ciclo de criação
       href: luis-concept-app-iteration.md
     - name: Colaboração
+      displayName: shared, transfer, ownership, author, access
       href: luis-concept-collaborator.md
     - name: Controle de versão
       href: luis-concept-version.md
@@ -99,6 +101,7 @@ items:
     - name: Intenções
       href: luis-concept-intent.md
     - name: Entidades
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
       href: luis-concept-entity-types.md
     - name: Declarações
       href: luis-concept-utterance.md
@@ -139,6 +142,7 @@ items:
   - name: Segurança
     items:
     - name: Acesso ao aplicativo
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center
       href: luis-concept-security.md
     - name: Chaves de criação e de ponto de extremidade
       href: luis-concept-keys.md
@@ -179,22 +183,29 @@ items:
       - name: Bot do aplicativo Web
         items:
         - name: Node.js
+          displayName: ABS, azure bot, service
           href: luis-nodejs-tutorial-build-bot-framework-sample.md
         - name: C#
+          displayName: ABS, azure bot, service
           href: luis-csharp-tutorial-build-bot-framework-sample.md
       - name: Application Insights
         items:
         - name: Node.js
+          displayName: Application insight, kusto
           href: luis-tutorial-function-appinsights.md
         - name: C#
+          displayName: Application insight, kusto
           href: luis-tutorial-bot-csharp-appinsights.md
   - name: Melhorar a precisão da previsão
     items:
     - name: Examinar enunciados de ponto de extremidade
+      displayName: active learning
       href: luis-how-to-review-endoint-utt.md
     - name: Adicionar lista de frase
+      displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Adicionar padrões
+      displayName: syntax, template
       href: luis-how-to-model-intent-pattern.md
   - name: Treinar
     href: luis-how-to-train.md
@@ -209,14 +220,18 @@ items:
   - name: Gerenciar aplicativo
     items:
     - name: Usando o dashboard
+      displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
     - name: Criar chaves de ponto de extremidade
+      displayName: azure portal
       href: luis-how-to-azure-subscription.md
     - name: Adicionar chaves de ponto de extremidade ao aplicativo
+      displayName: assign key, assign
       href: luis-how-to-manage-keys.md
     - name: Gerenciar versões
       href: luis-how-to-manage-versions.md
     - name: Gerenciar autores e colaboradores
+      displayName: access, transfer, AAD, tenant, Azure AD, consent
       href: luis-how-to-collaborate.md
     - name: Gerenciar chave de criação
       href: luis-how-to-account-settings.md
@@ -289,6 +304,7 @@ items:
     - name: Ponto de extremidade da API REST V2
       href: https://aka.ms/luis-endpoint-apis
     - name: Códigos HTTP
+      displayName: 400, 401, 403, 409, 410, 414, 429
       href: luis-reference-response-codes.md
   - name: SDKs
     items:
@@ -368,9 +384,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 43d36dd8f08508139bc74904c9c155b947ace52e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d5a40f294e63ad72c667ed94fd367588537450c6
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139662"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283256"

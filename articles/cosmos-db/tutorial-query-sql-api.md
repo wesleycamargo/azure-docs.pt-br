@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a56147432d4ef1cc9ac2568259cc2bbf2c7da7ab
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958861"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162655"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
 
@@ -65,9 +65,9 @@ As consultas de SQL neste artigo usam o seguinte exemplo de documento.
 Você pode executar consultas usando o Data Explorer no Portal do Azure, por meio da [API REST e SDKs](sql-api-sdk-dotnet.md) e até mesmo o [Playground de consultas](https://www.documentdb.com/sql/demo), que executa consultas em um conjunto existente de dados de exemplo.
 
 Para saber mais sobre consultas SQL, confira:
-* [Consulta e sintaxe SQL](sql-api-sql-query.md)
+* [Consulta e sintaxe SQL](how-to-sql-query.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial presume que você tem uma conta e uma coleção do Azure Cosmos DB. Não tenho nenhum deles? Conclua o [início rápido de 5 minutos](create-mongodb-nodejs.md).
 

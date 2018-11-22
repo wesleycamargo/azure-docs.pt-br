@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232374"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161057"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Introdução ao Azure Cosmos DB: API do SQL
 
@@ -24,7 +24,7 @@ O [Azure Cosmos DB](introduction.md) é o serviço multimodelo de banco de dados
 
 ![API do SQL do Azure](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-Com a API do SQL, o Azure Cosmos DB oferece [recursos de consulta SQL](sql-api-sql-query.md) avançados e conhecidos com baixa latência consistente sobre dados JSON sem esquemas. Neste artigo, fornecemos uma visão geral da API do SQL do Azure Cosmos DB, como você pode usá-lo para armazenar grandes volumes de dados JSON, consultá-los em ordem de latência de milissegundos e evoluir facilmente o esquema. 
+Com a API do SQL, o Azure Cosmos DB oferece [recursos de consulta SQL](how-to-sql-query.md) avançados e conhecidos com baixa latência consistente sobre dados JSON sem esquemas. Neste artigo, fornecemos uma visão geral da API do SQL do Azure Cosmos DB, como você pode usá-lo para armazenar grandes volumes de dados JSON, consultá-los em ordem de latência de milissegundos e evoluir facilmente o esquema. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Quais benefícios e os principais recursos que o Azure Cosmos DB oferece?
 O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por meio da API do SQL:
@@ -34,7 +34,7 @@ O Azure Cosmos DB, oferece os seguintes principais recursos e benefícios por me
 
 * **Replicação de várias regiões:** o Azure Cosmos DB replica de forma transparente os seus dados para todas as regiões associadas à sua conta, permitindo que você desenvolva aplicativos que exigem acesso global aos dados e fornecendo compensações entre consistência, disponibilidade e desempenho, tudo isso com garantias correspondentes. O Azure Cosmos DB fornece failover regional transparente com APIs de hospedagem múltipla, e capacidade de dimensionar de forma elástica a taxa de transferência e o armazenamento em todo o mundo. Saiba mais em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md).
 
-* **Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos e consulte-os com uma sintaxe SQL familiar. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada por log, sem bloqueio e altamente simultânea para indexar automaticamente todo o conteúdo do documento. Isso habilita consultas avançadas em tempo real sem a necessidade de especificar dicas de esquema, índices secundários ou exibições. Saiba mais em [Consulta do Azure Cosmos DB](sql-api-sql-query.md). 
+* **Consultas ad hoc com sintaxe SQL familiar:** armazene documentos JSON heterogêneos e consulte-os com uma sintaxe SQL familiar. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada por log, sem bloqueio e altamente simultânea para indexar automaticamente todo o conteúdo do documento. Isso habilita consultas avançadas em tempo real sem a necessidade de especificar dicas de esquema, índices secundários ou exibições. Saiba mais em [Consulta do Azure Cosmos DB](how-to-sql-query.md). 
 * **Execução de JavaScript dentro do banco de dados:** expresse a lógica do aplicativo como procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) usando JavaScript padrão. Isso permite que a lógica do aplicativo opere em dados sem se preocupar com incompatibilidade entre o aplicativo e o esquema do banco de dados. A API do SQL oferece execução transacional completa da lógica do aplicativo JavaScript diretamente dentro do mecanismo do banco de dados. A profunda integração do JavaScript habilita a execução das operações INSERT, REPLACE, DELETE e SELECT por meio de um programa JavaScript como uma transação isolada. Saiba mais em [Programação no lado do servidor do SQL](programming.md).
 
 * **Níveis de consistência ajustáveis:** escolha entre cinco níveis de consistência bem definidos para chegar ao equilíbrio ideal entre consistência e desempenho. Para operações de consulta e leitura, o Azure Cosmos DB oferece cinco níveis de consistência diferentes: forte, desatualização limitada, sessão, prefixo constante e eventual. Esses níveis de consistência granulares e bem-definidos permitem que você faça compensações seguras entre consistência, disponibilidade e latência. Saiba mais em [Como usar níveis de consistência para maximizar a disponibilidade e o desempenho](consistency-levels.md).

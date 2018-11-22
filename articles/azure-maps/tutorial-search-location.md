@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412713"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262050"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -115,7 +115,7 @@ A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permit
    </html>
    ```
 
-   Observe que o cabeçalho HTML inclui os arquivos de recurso CSS e JavaScript hospedados pela biblioteca de Controle de mapa do Azure. Observe o evento `onload` no corpo da página, que chamará a função `GetMap` quando o corpo da página for carregado. Essa função conterá o código JavaScript embutido para acessar as APIs do Azure Mapas.
+   Observe que o cabeçalho HTML inclui os arquivos de recurso CSS e JavaScript hospedados pela biblioteca de Controle de mapa do Azure. Observe o evento `onload` no corpo da página que chamará a função `GetMap` quando o corpo da página for carregado. Essa função conterá o código JavaScript embutido para acessar as APIs do Azure Mapas.
 
 3. Adicione o seguinte código JavaScript à função `GetMap` do arquivo HTML. Substitua a cadeia de caracteres **\<Sua Chave do Azure Mapas\>** pela chave primária que você copiou da conta dos Mapas.
 
@@ -178,7 +178,7 @@ Esta seção mostra como usar a API dos Mapas do Azure para encontrar um ponto d
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Adicione o bloco de script a seguir para criar a consulta de pesquisa. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa trata a maioria das entradas difusas, como endereços, locais e POI (pontos de interesse). Esse código pesquisa postos de gasolina próximos, dentro do raio especificado. A resposta, em seguida, é analisada em formato GeoJSON e adicionada à fonte de dados, o que automaticamente resulta na renderização de dados no mapa por meio da camada de símbolos. A última parte do script define a exibição de câmera dos mapas usando a caixa delimitadora dos resultados com a propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) do mapa. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo, já que a caixa delimitadora é calculada com base nas coordenadas. 
+2. Adicione o bloco de script a seguir para criar a consulta de pesquisa. Ele usa o Serviço de Pesquisa Difusa, que é uma API de pesquisa básica do Serviço de Pesquisa. O Serviço de Pesquisa Difusa trata a maioria das entradas difusas, como endereços, locais e POI (pontos de interesse). Esse código pesquisa postos de gasolina próximos, dentro do raio especificado. A resposta, em seguida, é analisada em formato GeoJSON e adicionada à fonte de dados, o que automaticamente resulta na renderização de dados no mapa por meio da camada de símbolos. A última parte do script define a exibição de câmera dos mapas usando a caixa delimitadora dos resultados com a propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do mapa. Um preenchimento é adicionado para compensar as dimensões de pixel dos ícones de símbolo, já que a caixa delimitadora é calculada com base nas coordenadas. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

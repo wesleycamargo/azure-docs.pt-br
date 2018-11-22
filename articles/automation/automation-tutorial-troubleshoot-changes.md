@@ -11,12 +11,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1865fcf47510bbaae82f98ccad85993a85ffc1ab
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fc4ccdc2d73d0aa7213db9b1d9a28d029ec032b7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959130"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284652"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -44,7 +44,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de alterações e Inventário
 
@@ -72,7 +72,7 @@ Para pesquisar os logs executando consultas, selecione **Log Analytics** na part
 Os dados do Controle de alterações são armazenados com o tipo **ConfigurationChange**.
 A consulta de exemplo do Log Analytics retorna todos os serviços do Windows que foram interrompidos.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
