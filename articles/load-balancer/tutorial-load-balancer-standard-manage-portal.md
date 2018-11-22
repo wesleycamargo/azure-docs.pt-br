@@ -101,8 +101,8 @@ Nesta seção, você criará uma regra NSG para permitir conexões de entrada us
 1. Clique em **Todos os recursos** no menu da esquerda e, depois, na lista de recursos, clique em **myNetworkSecurityGroup**, que está localizado no grupo de recursos **myResourceGroupSLB**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada**, depois clique em **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Fonte**.
-    - *Internet* – para **Marca de serviço de fonte**
+    - *Service Tag* – para **Origem**.
+    - *Internet* – para **Marca de serviço de origem**
     - *80* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**
