@@ -6,12 +6,12 @@ description: Saiba como compilar e gerenciar aplicativos avançados com os servi
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b2819f0b3f59b4ca7b08c7caed0ce059b28a62e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 189e1745a0768f36dd776ba88230a2d47037f9c2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252421"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285162"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -280,7 +280,7 @@ Terraform </a>
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-Projeto de DevOps do Azure </a>
+Azure DevOps Projects </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -1272,7 +1272,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                         <li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Projeto de DevOps do Azure</p>
+                                                <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -4846,7 +4846,7 @@ Automatizar tarefas do Azure usando scripts com o PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Projeto de DevOps do Azure</h3>
+                                                    <h3>Azure DevOps Projects</h3>
                                                     <p>Implantar rapidamente qualquer linguagem em qualquer plataforma do Azure</p>
                                                 </div>
                                             </div>

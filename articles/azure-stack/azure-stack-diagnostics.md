@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976121"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283445"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -76,9 +76,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar o Get-AzureStackLog em um sistema de Kit de desenvolvimento na pilha do Azure (ASDK)
 Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK.
 
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para armazenar os logs em um usuário especificado local.
-- O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
-
 1. Entrar como **AzureStack\CloudAdmin** no computador host ASDK.
 2. Abra uma nova janela do PowerShell como administrador.
 3. Execute o **Get-AzureStackLog** cmdlet do PowerShell.
@@ -111,7 +108,10 @@ Use estas etapas para executar o Get-AzureStackLog em um computador de host ASDK
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
-- Se o **FromDate** e **ToDate** parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são usados para armazenar os logs em um usuário especificado local.
+
+- O **FromDate** e **ToDate** parâmetros podem ser usados para coletar logs para um determinado período de tempo. Se esses parâmetros não forem especificados, os logs são coletados para as últimas quatro horas por padrão.
+
 - Use o **FilterByNode** parâmetro para filtrar logs por nome do computador. Por exemplo: 
 
     ```powershell
