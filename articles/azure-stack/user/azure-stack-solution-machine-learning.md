@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616360"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285111"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda
 
@@ -89,7 +89,7 @@ Conhecimento prévio do Azure e o Azure Stack é necessário. Para saber mais an
 
  -  Um sistema integrado do Azure Stack ou implantação do Kit de desenvolvimento do Azure Stack.
 
-    - Você encontrar instruções para instalar o Azure Stack no [instalar o Kit de desenvolvimento do Azure Stack](/articles/azure-stack/asdk/asdk-install).
+    - Você encontrar instruções para instalar o Azure Stack no [instalar o Kit de desenvolvimento do Azure Stack](../asdk/asdk-install.md).
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Essa instalação pode exigir algumas horas para ser concluído.
 
  -  Implantação do [serviço de aplicativo](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) os serviços de PaaS para o Azure Stack
@@ -202,7 +202,7 @@ Coloque a DSVM de novo no mesmo grupo de recursos como a conta de armazenamento 
 
 1.  Nos recursos opcionais de configurações
 
-    a.  Selecione o **conta de armazenamento** criado anteriormente.
+     a.  Selecione o **conta de armazenamento** criado anteriormente.
 
     b.  Criar um novo **rede Virtual**, **sub-rede**, e **IP público** ela deve por padrão criam um nome com base no nome do grupo de recursos.
 
