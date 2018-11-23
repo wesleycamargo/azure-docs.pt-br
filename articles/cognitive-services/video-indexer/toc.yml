@@ -3,36 +3,36 @@ items:
 - name: Visão geral
   items:
   - name: O que é o Video Indexer?
-    href: video-indexer-overview.md
+    href: ../../media-services/video-indexer/video-indexer-overview.md
   - name: Conceitos
-    href: video-indexer-concepts.md
+    href: ../../media-services/video-indexer/video-indexer-concepts.md
 - name: Guia de início rápido
   items:
   - name: Introdução
-    href: video-indexer-get-started.md
+    href: ../../media-services/video-indexer/video-indexer-get-started.md
   expanded: true
 - name: Guias de como fazer
   items:
   - name: Migrar de v1 para v2
-    href: migrate-from-v1-to-v2.md
+    href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
   - name: Conecte-se ao Azure
-    href: connect-to-azure.md
+    href: ../../media-services/video-indexer/connect-to-azure.md
   - name: Gerenciar conta conectada ao Azure
-    href: manage-account-connected-to-azure.md
+    href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
   - name: Usar a API do Video Indexer
-    href: video-indexer-use-apis.md
+    href: ../../media-services/video-indexer/video-indexer-use-apis.md
   - name: Usar a API para carregar e indexar vídeos
-    href: upload-index-videos.md
+    href: ../../media-services/video-indexer/upload-index-videos.md
   - name: Examinar a saída do Video Indexer
-    href: video-indexer-output-json-v2.md
+    href: ../../media-services/video-indexer/video-indexer-output-json-v2.md
   - name: Localizar os minutos exatos nos vídeos
-    href: video-indexer-search.md
+    href: ../../media-services/video-indexer/video-indexer-search.md
   - name: Exibir e editar informações do Video Indexer
-    href: video-indexer-view-edit.md
+    href: ../../media-services/video-indexer/video-indexer-view-edit.md
   - name: Criar informações de vídeo de vídeos existentes
-    href: video-indexer-create-new.md
+    href: ../../media-services/video-indexer/video-indexer-create-new.md
   - name: Inserir widgets em seu aplicativo
-    href: video-indexer-embed-widgets.md
+    href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
 - name: Referência
   items:
   - name: API do Video Indexer
@@ -47,9 +47,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-ms.openlocfilehash: 893802d670b2fe5fe63caa3f55107ef178792a9c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 5283cc39c64c31d6b9014043bf37e066cef582a7
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744231"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290749"
