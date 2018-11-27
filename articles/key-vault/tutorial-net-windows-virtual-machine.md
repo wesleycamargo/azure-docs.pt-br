@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Como usar o Azure Key Vault com a máquina virtual do Azure com Linux no .NET | Microsoft Docs
+title: Tutorial – Como usar o Azure Key Vault com a máquina virtual do Azure com Windows no .NET | Microsoft Docs
 description: 'Tutorial: Configurar um aplicativo ASP.NET Core para ler um segredo do Key Vault'
 services: key-vault
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d5596343a293d333dac9ca7e31a9fbc3363f3fd9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688211"
+ms.locfileid: "51711320"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutorial: Como usar o Azure Key Vault com a máquina virtual do Azure com Linux no .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutorial: Como usar o Azure Key Vault com a máquina virtual do Azure com Windows no .NET
 
 O Azure Key Vault ajuda a proteger segredos, como chaves de API, cadeias de conexão de banco de dados necessárias para acessar seus aplicativos, serviços e recursos de TI.
 
-Neste tutorial, siga as etapas necessárias para fazer um aplicativo Web do Azure ler informações do Azure Key Vault usando identidades gerenciadas de recursos do Azure. Este tutorial se baseia em [aplicativos Web do Azure](../app-service/app-service-web-overview.md). A seguir, você aprenderá a:
+Neste tutorial, execute as etapas necessárias para fazer um aplicativo de console ler informações do Azure Key Vault usando identidades gerenciadas de recursos do Azure. Este tutorial se baseia em [aplicativos Web do Azure](../app-service/app-service-web-overview.md). A seguir, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar um cofre da chave.
+> * Crie um cofre da chave.
 > * Armazenar um segredo no cofre de chaves.
 > * Recuperar um segredo do cofre de chaves.
 > * Criar uma Máquina Virtual do Azure.
@@ -202,8 +202,7 @@ Depois, altere o arquivo de classe para conter o código abaixo. É um processo 
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];             
                 token = ojObject.Value.ToString();
             }
             return token;

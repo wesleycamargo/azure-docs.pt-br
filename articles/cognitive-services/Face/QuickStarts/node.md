@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: ba42cc7ede2ab790e5f50f3db525e48ebd21f522
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577948"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852496"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início Rápido: Detectar faces em uma imagem usando a API REST de Detecção Facial e Node.js
 
@@ -79,9 +79,9 @@ request.post(options, (error, response, body) => {
 ### <a name="subscription-key"></a>Chave de assinatura
 Substitua `<Subscription Key>` pela sua chave de assinatura de Detecção Facial válida.
 
-### <a name="face-endpoint-url"></a>URL de ponto de extremidade de Detecção Facial
+### <a name="face-endpoint-url"></a>URL de ponto de extremidade de detecção facial
 
-A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Você precisará alterar a primeira parte dessa URL para corresponder à região de sua chave de assinatura (a menos que já está correta).
+A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Talvez seja necessário alterar a primeira parte dessa URL para corresponder à região de sua chave de assinatura (consulte os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região).
 
 ### <a name="url-query-string"></a>Cadeia de consulta de URL
 
@@ -281,7 +281,7 @@ Você verá as informações faciais exibidas como dados JSON na janela do conso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você escreveu um comando cURL que chama a API de Detecção Facial do Azure para detectar faces em uma imagem e retornar seus atributos. Agora, explore a documentação de referência da API de Detecção Facial para saber mais.
+Neste Início Rápido, você escreveu um comando cURL que chama a API de Detecção Facial do Azure para detectar faces em uma imagem e retornar seus atributos. Em seguida, explore a documentação de referência de API de Detecção Facial para saber mais.
 
 > [!div class="nextstepaction"]
 > [API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

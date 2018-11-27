@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393705"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854094"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Tutorial: Visualizar dados do Azure Data Explorer no Power BI
 
@@ -34,11 +34,11 @@ Neste tutorial, você aprenderá como:
 
 Além de assinaturas do Azure e Power BI, você precisará do seguinte para concluir este tutorial:
 
-* [Cluster em um banco de dados](create-cluster-database-portal.md)
+* [Um cluster de teste e um banco de dados](create-cluster-database-portal.md)
 
-* [Os dados de exemplo StormEvents](ingest-sample-data.md)
+* [Os dados de exemplo StormEvents](ingest-sample-data.md). [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (clique em **DOWNLOAD GRATUITO**)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (selecione **DOWNLOAD GRATUITO**)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Renderizar elementos visuais no Azure Data Explorer
 
@@ -82,17 +82,17 @@ Agora é hora de examinar o Power BI, mas há muito mais que você pode fazer co
 
 Agora você conecta ao Azure Data Explorer no Power BI Desktop.
 
-1. No Power BI Desktop, selecione **Obter Dados** então **Mais**.
+1. No Power BI Desktop, na guia **Página Inicial**, selecione **Obter Dados** e depois **Mais**.
 
     ![Obter dados](media/visualize-power-bi/get-data-more.png)
 
-1. Pesquise *Kusto*, selecione **(Beta) Azure Kusto**, em seguida, **Conectar**.
+1. Pesquise por *Azure Data Explorer*, depois selecione **Azure Data Explorer (Beta)** e **Conectar**.
 
     ![Pesquisar e obter dados](media/visualize-power-bi/search-get-data.png)
 
 1. Em **Visualizar Conector**, selecione **Continuar**.
 
-1. Na tela de **Kusto**, insira o nome do seu cluster de teste e o banco de dados. O cluster deve estar no formato de `https://<ClusterName>.<Region>.kusto.windows.net`. Insira *StormEvents* para o nome da tabela. Deixe todas as outras opções com os valores padrão e, em seguida, selecione **Okey**.
+1. Na próxima tela, insira o nome do seu cluster de teste e o banco de dados. O cluster deve estar no formato de `https://<ClusterName>.<Region>.kusto.windows.net`. Insira *StormEvents* para o nome da tabela. Deixe todas as outras opções com os valores padrão e, em seguida, selecione **Okey**.
 
     ![Cluster, o banco de dados, opções de tabela](media/visualize-power-bi/cluster-database-table.png)
 
@@ -194,9 +194,9 @@ Até este ponto, o trabalho feito no Power BI foi todo local, usando o Power BI 
 
 1. Se você ainda não entrou no Power BI, percorra o processo de logon.
 
-1. Selecione **Meu espaço de trabalho**, em seguida, **Selecione**.
+1. Selecione **Meu workspace**, em seguida, **Selecione**.
 
-    ![Selecione o espaço de trabalho](media/visualize-power-bi/select-workspace.png)
+    ![Selecione o workspace](media/visualize-power-bi/select-workspace.png)
 
 1. Quando a publicação for concluída, selecione **abra storm-events.pbix no Power BI**.
 
@@ -218,7 +218,7 @@ Até este ponto, o trabalho feito no Power BI foi todo local, usando o Power BI 
 
 Se você não quiser manter o relatório que você criou, basta excluir o arquivo *storm-events.pbix*. Se você quiser remover o relatório publicado, siga estas etapas.
 
-1. Sob **Meu espaço de trabalho**, role para baixo até **RELATÓRIOS** e localize **storm-events**.
+1. Sob **Meu workspace**, role para baixo até **RELATÓRIOS** e localize **storm-events**.
 
 1. Selecione as reticências (**...**) ao lado **storm-events**, em seguida, selecione **REMOVER**.
 

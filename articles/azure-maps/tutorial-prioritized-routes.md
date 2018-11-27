@@ -3,18 +3,18 @@ title: Várias rotas com os Mapas do Azure | Microsoft Docs
 description: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412696"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705270"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
@@ -289,14 +289,9 @@ Você pode acessar o exemplo de código para este tutorial aqui:
 
 > [Várias rotas com o Azure Mapas](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-[Consulte o exemplo dinâmico aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+[Confira o exemplo dinâmico aqui](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Para saber mais sobre a cobertura e as funcionalidades do Azure Mapas:
-
-> [!div class="nextstepaction"]
-> [Níveis de zoom e grade lado a lado](zoom-levels-and-tile-grid.md)
-
-Para ver mais exemplos de código e uma experiência interativa de codificação:
+O próximo tutorial demonstra o processo de criação de um localizador de lojas simples usando o Azure Mapas.
 
 > [!div class="nextstepaction"]
-> [Como usar o Controle de Mapeamento](how-to-use-map-control.md)
+> [Criar um localizador de lojas usando o Azure Mapas](./tutorial-create-store-locator.md)

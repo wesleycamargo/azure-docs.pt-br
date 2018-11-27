@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: b7cba2959bead5eeed72a87219c70f896b5a48b8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682955"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976971"
 ---
 # <a name="what-is-custom-translator-preview"></a>O que é Tradutor Personalizado (Versão Prévia)?
 
@@ -32,7 +32,7 @@ O Tradutor Personalizado fornece recursos diferentes para criar e acessar um sis
 |---------|---------|
 |[Aproveitar a tecnologia de tradução automática neural](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimore sua tradução aproveitando a NMT (Tradução Automática Neural) fornecida pelo Tradutor personalizado.       |
 |[Criar sistemas que conhecem sua terminologia comercial](what-are-parallel-documents.md)     |  Personalize e crie sistemas de tradução usando documentos paralelos, que entendem as terminologias usadas em seus negócios e no setor.       |
-|[Usar dicionário para criar seus modelos](what-is-dictionary.md)     |   Se você não tiver um conjunto de dados de treinamento, poderá treinar um modelo com dados de dicionário.       |
+|[Usar um dicionário para criar seus modelos](what-is-dictionary.md)     |   Se você não tiver um conjunto de dados de treinamento, poderá treinar um modelo com dados de dicionário.       |
 |[Colaborar com outras pessoas](how-to-manage-settings.md#share-your-workspace)     |   Colabore com sua equipe compartilhando seu trabalho com pessoas diferentes.     |
 |[Acessar seu modelo de tradução personalizada](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Seu modelo de tradução personalizada pode ser acessado a qualquer momento em seus aplicativos ou programas existentes por meio da API de Texto V3 do Microsoft Translator.       |
 

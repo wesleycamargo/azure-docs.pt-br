@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: c675b6d50cf6bf5c4e7ea064f3741cae7a091946
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c21d5618b3e3223297ddd97dc5c98e5eb8c18c0b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578297"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974803"
 ---
 # <a name="get-started"></a>Início Rápido: Criar um balanceador de carga público usando o Azure PowerShell
 Este início rápido mostra como criar um Balanceador de Carga Básico usando o Azure PowerShell. Para testar o balanceador de carga, implante duas VMs (máquinas virtuais) que executam o Windows Server e balanceie a carga de um aplicativo Web entre as VMs.
@@ -44,7 +44,7 @@ Para acessar seu aplicativo na Internet, você precisará de um endereço IP pú
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
@@ -251,7 +251,7 @@ Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Cre
 $cred = Get-Credential
 ```
 
-Agora você pode criar VMs com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O seguinte exemplo cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam:
+Agora você pode criar VMs com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. Durante a criação do exemplo de VM abaixo, as NICs criadas anteriormente estão associadas às VMs, pois recebem a mesma rede virtual (*myVnet*) e sub-rede (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

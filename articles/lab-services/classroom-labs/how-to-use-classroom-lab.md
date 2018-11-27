@@ -12,47 +12,54 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 4b137396dd6a8ff924c9380aeb87a81b95f91414
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5a55a35dc4baacf8248adad3133220214050eeb
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466215"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706680"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como acessar um laboratório de sala de aula, conecte-se à VM no laboratório e interrompa a VM. 
 
-## <a name="view-all-the-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
-
+## <a name="register-to-a-lab"></a>Registrar-se em um laboratório
 1. Navegue até a **URL de registro** que você recebeu do professor/educador. 
 2. Entre no serviço usando sua conta da escola para concluir o registro. 
-3. Depois de registrado, confirme que você vê as máquinas virtuais para os laboratórios aos quais você tem acesso. 
+3. Depois de registrado, confirme que consegue ver a máquina virtual do laboratório ao qual você tem acesso. 
+2. Aguarde até que a máquina virtual fique pronta e **inicie** a VM. Esse processo demora um pouco.  
+
+    ![Iniciar a VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+
+
+## <a name="view-all-the-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
+Depois de se registrar nos laboratórios, você pode exibir todos os laboratórios de sala de aula por meio das seguintes etapas: 
+
+1. Navegue até [https://labs.azure.com](https://labs.azure.com). 
+2. Entre no serviço usando a conta de usuário usada para se registrar no laboratório. 
+3. Confirme que você vê todos os laboratórios aos quais tem acesso. 
 
     ![Exibir todos os laboratórios](../media/how-to-use-classroom-lab/all-labs.png)
 
 ## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>Conecte-se à máquina virtual em um laboratório de sala de aula
 
-1. Selecione **Conectar** no bloco que representa a máquina virtual do laboratório que você deseja acessar.
+1. Inicie a VM caso ainda não o tenha feito; selecione **Iniciar**.
+2. Selecione **Conectar** no bloco que representa a máquina virtual do laboratório que você deseja acessar. 
 
     ![Exibir todos os laboratórios](../media/how-to-use-classroom-lab/connect-button.png)
-2. Pode levar alguns minutos para que a máquina virtual esteja pronta.
-
-    ![Preparando a máquina virtual para que esteja pronta](../media/how-to-use-classroom-lab/getting-virtual-machine-ready.png)
-3. Salve o arquivo RDP no disco rígido e abra-o. 
-    
-    ![Salve o arquivo RDP](../media/how-to-use-classroom-lab/save-rdp-file.png)
+3. Salve o arquivo RDP (para VM Windows) no disco rígido e abra-o. 
 4. Use o **nome de usuário** e **senha** obtido do seu professor/educador para fazer logon no computador. 
 
 ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Interrompa a máquina virtual em um laboratório de sala de aula
 
-Selecione **Parar** no bloco que representa o laboratório de sala de aula. Quando a VM for interrompida, o botão **Iniciar** no bloco está habilitado. 
+Para parar a VM, selecione **Parar** no bloco. Quando a VM for interrompida, o botão **Iniciar** no bloco está habilitado. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Introdução à configuração de um laboratório usando o Azure Lab Services:
+Confira os seguintes artigos:
 
-- [Configurar um laboratório de sala de aula](how-to-manage-classroom-labs.md)
-- [Configurar um laboratório](../tutorial-create-custom-lab.md)
-
+- [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
+- [Como um proprietário de laboratório, crie e gerencie laboratórios](how-to-manage-classroom-labs.md)
+- [Como um proprietário de laboratório, configure e publique modelos](how-to-create-manage-template.md)
+- [Como um proprietário de laboratório, configure e controle o uso de um laboratório](how-to-configure-student-usage.md)
  

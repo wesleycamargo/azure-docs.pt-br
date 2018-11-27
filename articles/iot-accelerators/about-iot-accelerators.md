@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345106"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824533"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 
@@ -50,7 +50,7 @@ Use este acelerador de solução para coletar a telemetria de ativos industriais
 
 ### <a name="predictive-maintenance"></a>Manutenção preditiva
 
-Use este acelerador de solução para prever quando um dispositivo remoto deve falhar, para que você possa realizar manutenção antes que a falha prevista ocorra. Este acelerador de solução usa algoritmos de aprendizado de máquina para prever falhas de telemetria do dispositivo. Os exemplos de dispositivo incluem motores de avião ou elevadores.
+Use este acelerador de solução para prever quando um dispositivo remoto deve falhar, para que você possa realizar manutenção antes que o dispositivo falhe. Este acelerador de solução usa algoritmos de aprendizado de máquina para prever falhas de telemetria do dispositivo. Os exemplos de dispositivo incluem motores de avião ou elevadores.
 
 É possível usar o painel de manutenção preditiva para exibir a análise de manutenção preditiva:
 
@@ -97,7 +97,7 @@ Você pode implantar o acelerador de solução de monitoramento remoto nas segui
 * **Básica**: Versão de custo reduzido para obter uma demonstração ou testar uma implantação. Todos os microsserviços implantam em uma única máquina virtual do Azure.
 * **Local:** Implantação da máquina local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e conecta-se ao Hub IoT, Azure Cosmos DB e serviços de armazenamento do Azure na nuvem.
 
-O custo de executar um acelerador de solução é uma agregação do [custo de serviços subjacentes do Azure](https://azure.microsoft.com/pricing). Você verá os detalhes dos serviços do Azure usados quando você escolher as opções de implantação.
+O custo para executar um acelerador de solução é o [custo combinado da execução dos serviços subjacentes do Azure](https://azure.microsoft.com/pricing). Você verá os detalhes dos serviços do Azure usados quando você escolher as opções de implantação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

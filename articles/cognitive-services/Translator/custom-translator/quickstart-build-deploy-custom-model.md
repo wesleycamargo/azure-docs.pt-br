@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626517"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975765"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
 
@@ -26,7 +26,7 @@ Este artigo fornece instruções passo a passo para criar um sistema de traduç�
 
 2. Uma assinatura da API de Tradução de Texto pelo portal do Azure. Você precisará da chave de assinatura da API de Tradução de Texto para associar ao seu espaço de trabalho no Tradutor Personalizado. Confira [Como inscrever-se na API de Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Assim que você atender aos dois requisitos acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai). Quando estiver no portal do Tradutor Personalizado, navegue até a página Configurações, na qual você pode associar sua chave de assinatura da API de Tradução de Texto da Microsoft ao seu espaço de trabalho. 
+3. Assim que você atender aos dois requisitos acima, entre no portal do [Tradutor Personalizado](https://portal.customtranslator.azure.ai). Quando estiver no portal do Tradutor Personalizado, navegue até a página Configurações, na qual você pode associar sua chave de assinatura da API de Tradução de Texto da Microsoft ao seu espaço de trabalho.
 
 ## <a name="create-a-project"></a>Criar um projeto
 

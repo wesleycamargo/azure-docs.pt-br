@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741010"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706969"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: Migrar seus dados para a conta de API de MongoDB do Azure Cosmos DB
 
@@ -36,13 +36,13 @@ Antes de migrar dados para a conta de API do MongoDB, verifique se você tem alg
 
 1. Crie previamente e dimensione suas coleções:
         
-    * Por padrão, o Azure Cosmos DB prevê uma nova coleção MongoDB com 1.000 unidades de solicitação por segundo (RU/s). Antes de iniciar a migração utilizando mongoimport ou mongorestore, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou de ferramentas e drivers do MongoDB. Se o tamanho dos dados for superior a 10 GB, certifique-se de criar uma [coleção particionada](partition-data.md) com uma chave de fragmentos apropriada.
+   * Por padrão, o Azure Cosmos DB prevê uma nova coleção MongoDB com 1.000 unidades de solicitação por segundo (RU/s). Antes de iniciar a migração utilizando mongoimport ou mongorestore, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou de ferramentas e drivers do MongoDB. Se o tamanho dos dados for superior a 10 GB, certifique-se de criar uma [coleção particionada](partition-data.md) com uma chave de fragmentos apropriada. O MongoDB recomenda o armazenamento de dados de entidade em coleções. Você pode colocalizar entidades com tamanho e taxa de transferência de provisionamento comparáveis no nível do banco de dados Cosmos do Azure.
 
-    * A partir do [portal do Azure](https://portal.azure.com), aumente o rendimento das coleções de 1.000 RUs/s para uma coleção de partição única e 2.500 RUs/s para uma coleção fragmentada apenas para a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Para economizar custos, é possível reduzir a taxa de transferência imediatamente após a migração.
+   * No [portal do Azure](https://portal.azure.com), aumente a taxa de transferência das coleções de 1000 RUs/s para uma coleção de partição única, e 2.500 RUs/s para uma coleção fragmentada, apenas durante a migração. Com a taxa de transferência mais elevada, você pode evitar a limitação de taxa e migrar em menos tempo. Para economizar custos, é possível reduzir a taxa de transferência imediatamente após a migração.
 
-    * Além do provisionamento RUs/s no nível da coleção, você também pode provisionar RU/s para um conjunto de coleções no nível do banco de dados pai. Isso exige criar previamente o banco de dados e as coleções, além da definição de uma chave de fragmentação para cada coleção.
+   * Além do provisionamento RUs/s no nível da coleção, você também pode provisionar RU/s para um conjunto de coleções no nível do banco de dados pai. Isso exige criar previamente o banco de dados e as coleções, além da definição de uma chave de fragmentação para cada coleção.
 
-    * Você pode criar coleções fragmentadas por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usamos o Shell do Mongo para criar uma coleção fragmentada:
+   * Você pode criar coleções fragmentadas por meio de sua ferramenta, driver ou SDK favorito. Neste exemplo, usamos o Shell do Mongo para criar uma coleção fragmentada:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
@@ -60,7 +60,7 @@ Antes de migrar dados para a conta de API do MongoDB, verifique se você tem alg
 
 1. Calcule a taxa de RU aproximada para gravação de um documento único:
 
-   a. Conecte-se à sua conta da API do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
+    a. Conecte-se à sua conta da API do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
     
    b. Execute um comando de inserção de exemplo utilizando um dos documentos de exemplo do MongoDB Shell:
    

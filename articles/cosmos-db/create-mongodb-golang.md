@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053124"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706459"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Golang e o portal do Azure
 
@@ -42,7 +42,7 @@ Em outras palavras, o aplicativo Golang só sabe que está se conectando a um ba
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/dl/) e um conhecimento básico sobre a linguagem [Go](https://golang.org/).
-- Um IDE — [Gogland](https://www.jetbrains.com/go/) da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/). Neste tutorial, estou usando Goglang.
+- Um IDE — [GoLand](https://www.jetbrains.com/go/) da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) da Microsoft ou [Atom](https://atom.io/). Neste tutorial, estou usando Goglang.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
@@ -65,7 +65,7 @@ Clone o aplicativo de exemplo e instale os pacotes necessários.
     go get gopkg.in/mgo.v2
     ```
 
-O driver [mgo](http://labix.org/mgo) (pronuncia-se *mango*) é um driver [MongoDB](http://www.mongodb.org/) para a [linguagem Go](http://golang.org/) que implementa uma seleção bem testada e avançada de recursos em uma API muito simples seguindo expressões Go padrão.
+O driver [mgo](http://labix.org/mgo) é um driver [MongoDB](http://www.mongodb.org/) para a [linguagem Go](http://golang.org/) que implementa uma seleção bem testada e avançada de recursos em uma API muito simples seguindo expressões Go padrão.
 
 <a id="connection-string"></a>
 
@@ -91,15 +91,15 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Executar o aplicativo](#run-the-app). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Executar o aplicativo](#run-the-app). 
 
-Todos os trechos de código a seguir são retirados do arquivo main.go.
+Todos os snippets de código a seguir são retirados do arquivo main.go.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Conectando o aplicativo Go para o BD Cosmos do Azure
 
 O BD Cosmos do Azure dá suporte ao MongoDB habilitado para SSL. Para se conectar a um MongoDB habilitado para SSL, você precisa definir a função **DialServer** em [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo)e usar a função [tls.*Dial* ](http://golang.org/pkg/crypto/tls#Dial) para realizar a conexão.
 
-O trecho de código Golang a seguir se conecta ao aplicativo Go com a API MongoDB do Cosmos DB do Azure. A classe *DialInfo* contém opções para estabelecer uma sessão com um cluster do MongoDB.
+O snippet de código Golang a seguir se conecta ao aplicativo Go com a API MongoDB do Cosmos DB do Azure. A classe *DialInfo* contém opções para estabelecer uma sessão com um cluster do MongoDB.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -135,7 +135,7 @@ session.SetSafe(&mgo.Safe{})
 
 O método **mgo.Dial()** é usado quando não há nenhuma conexão SSL. Para uma conexão SSL, o método **mgo.DialWithInfo()** é necessário.
 
-Uma instância do objeto **DialWIthInfo{}** é usada para criar o objeto de sessão. Quando a sessão é estabelecida, você pode acessar a coleção usando o trecho de código abaixo:
+Uma instância do objeto **DialWIthInfo{}** é usada para criar o objeto de sessão. Quando a sessão é estabelecida, você pode acessar a coleção usando o snippet de código abaixo:
 
 ```go
 collection := session.DB("database").C("package")

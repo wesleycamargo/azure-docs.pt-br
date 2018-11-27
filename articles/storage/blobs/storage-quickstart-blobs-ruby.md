@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992755"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711218"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início rápido: Carregar, baixar e listar blobs usando Ruby
 
@@ -21,18 +21,17 @@ Neste guia de início rápido, você aprenderá a usar o Ruby para carregar, bai
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido: 
-* Instalar o [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale a [biblioteca do Armazenamento do Azure para o Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) usando o pacote rubygem. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Verifique se você tem os pré-requisitos adicionais a seguir instalados:
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Biblioteca do Armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) usando o pacote rubygem: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) usado neste guia de início rápido é um aplicativo Ruby.  
 

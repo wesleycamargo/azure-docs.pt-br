@@ -1,24 +1,19 @@
 ---
-title: Transmitir para os Hubs de Eventos do Azure para o Apache Kafka | Microsoft Docs
+title: Transmitir nos Hubs de Eventos do Azure para Apache Kafka
 description: Transmitir para Hubs de Eventos usando o protocolo de Kafka e APIs.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418782"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975304"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir para Hubs de Eventos do Apache Kafka
 Este guia de início rápido mostra como transmitir para o Kafka habilitado dos Hubs de Eventos sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Você aprenderá a usar seu produtores e os consumidores para se comunicar com os Hubs de Eventos habilitados com Kafka com apenas uma alteração de configuração nos seus aplicativos. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -47,7 +42,7 @@ Para concluir este início rápido, você precisa atender aos seguinte pré-requ
  
 3. Forneça um nome exclusivo e habilite o Kafka no namespace. Clique em **Criar**.
     
-    ![Criar um namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Criar um namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Depois que o namespace foi criado, na guia **Configurações**, clique em **Políticas de acesso compartilhado** para obter a cadeia de conexão.
 

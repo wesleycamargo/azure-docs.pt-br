@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Analisar dados do Apache Spark usando o Power BI no Azure HDInsight '
-description: Use o Microsoft Power BI para visualizar dados Spark armazenados em clusters HDInsight
+description: Use o Microsoft Power BI para visualizar dados do Apache Spark armazenados em clusters HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252455"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712408"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados Spark usando o Power BI no HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight 
 
 Saiba como usar o Microsoft Power BI para visualizar dados em um cluster do Apache Spark no Azure HDInsight.
 
@@ -78,7 +78,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
     ![Coloque os dados no Power BI Desktop do Apache Spark do HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Coloque os dados no Power BI do Apache Spark BI")
 
 
-2. Digite `Spark` na caixa de pesquisa, selecione **Spark no HDInsight (Beta)** e, em seguida, clique em **Conectar**.
+2. Insira `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark** e, em seguida, clique em **Conectar**.
 
     ![Colocar dados no Power BI do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Colocar dados no Power BI do Apache Spark BI")
 

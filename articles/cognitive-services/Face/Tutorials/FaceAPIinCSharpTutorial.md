@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685473"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852666"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados faciais em uma imagem
 
@@ -67,7 +67,7 @@ Abra *MainWindow.xaml.cs* e adicione os namespaces da biblioteca de clientes, ju
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Em seguida, insira este código na classe **MainWindow**. Isso cria uma instância de **FaceClient** usando a chave de assinatura, que você deve inserir por conta própria. Você também deve definir a cadeia de caracteres de região no `faceEndpoint` para a região correta da assinatura.
+Em seguida, insira este código na classe **MainWindow**. Isso cria uma instância de **FaceClient** usando a chave de assinatura, que você deve inserir por conta própria. Você também deve definir a cadeia de caracteres de região no `faceEndpoint` como a região correta para a sua assinatura (confira os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -83,7 +83,7 @@ Por fim, adicione os métodos **BrowseButton_Click** e **FacePhoto_MouseMove** �
 
 ### <a name="try-the-app"></a>Testar o aplicativo
 
-Pressione **Iniciar** no menu para testar seu aplicativo. Quando a janela do aplicativo abrir, clique em **Procurar** no canto inferior esquerdo. Um diálogo **Arquivo Aberto** deverá aparecer. Selecione uma imagem do sistema de arquivos e verifique se ela é exibida na janela. Em seguida, feche o aplicativo e avance para a próxima etapa.
+Pressione **Iniciar** no menu para testar seu aplicativo. Quando a janela do aplicativo abrir, clique em **Procurar** no canto inferior esquerdo. Um diálogo **Arquivo Aberto** deverá aparecer. Selecione uma imagem do sistema de arquivos e verifique se ela é exibida na janela. Depois, feche o aplicativo e avance para a próxima etapa.
 
 ![Captura de tela mostrando a imagem não modificada dos rostos](../Images/getting-started-cs-ui.png)
 
@@ -123,7 +123,7 @@ Execute o aplicativo e procure uma imagem contendo um rosto. Aguarde alguns segu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu o processo básico para usar o SDK do .NET do serviço de Detecção Facial e criou um aplicativo para detectar e enquadrar rostos em uma imagem. A seguir, saiba mais sobre os detalhes de detecção facial.
+Neste tutorial, você aprendeu o processo básico para usar o SDK do .NET do serviço de Detecção Facial e criou um aplicativo para detectar e enquadrar rostos em uma imagem. A seguir, saiba mais sobre os detalhes da detecção facial.
 
 > [!div class="nextstepaction"]
 > [Como detectar rostos em uma imagem](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

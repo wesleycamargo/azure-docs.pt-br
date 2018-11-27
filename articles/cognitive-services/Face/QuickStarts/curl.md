@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578009"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853771"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar faces em uma imagem usando a API REST de Detecção Facial e cURL
 
@@ -40,7 +40,7 @@ Substitua `<Subscription Key>` pela sua chave de assinatura de Detecção Facial
 
 ### <a name="face-endpoint-url"></a>URL de ponto de extremidade de detecção facial
 
-A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Você precisará alterar a primeira parte dessa URL para corresponder à região de sua chave de assinatura (a menos que já está correta).
+A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Talvez seja necessário alterar a primeira parte dessa URL para corresponder à região de sua chave de assinatura (consulte os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região).
 
 ### <a name="url-query-string"></a>Cadeia de consulta de URL
 

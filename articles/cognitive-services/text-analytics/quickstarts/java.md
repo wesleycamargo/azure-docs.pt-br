@@ -10,30 +10,31 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267708"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283937"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando Java para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
-Este artigo mostra como [detectar o idioma](#Detect), [analisar o sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Java.
+Este artigo mostra como [detectar o idioma](#Detect), [analisar o sentimento](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction) e [identificar entidades vinculadas](#Entities) usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com Java.
 
 Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. É possível usar a **camada gratuita para 5.000 transações/mês** para concluir este início rápido.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
 Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Detectar o idioma
 
-A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método Detectar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+A API de Detecção de Idioma detecta o idioma de um documento de texto usando o  [método Detectar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Crie um projeto Java em seu IDE favorito.
 2. Adicione o código fornecido abaixo.

@@ -1,112 +1,103 @@
 ---
 title: 'Início Rápido: Publicar uma base de dados de conhecimento - REST, Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Este início rápido com base em REST orienta você na publicação de sua base de dados de conhecimento, que envia por push a última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento publicada. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
+description: Este início rápido com base em REST orienta você na publicação de sua base de dados conhecimento, que envia por push a última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento publicada. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 67914cccd4b1cee2bb43f18fc00346f15d79cafa
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b10180ad89890c314aec7059347186fa66b354f6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646085"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165073"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: publicar uma base de dados de conhecimento no QnA Maker usando Go
 
-Este início rápido orienta você durante a publicação programática de sua KB (base de dados de conhecimento). A publicação envia por push a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou chat bot.
+Esse início rápido baseado em REST orienta você durante a publicação programática de sua KB (base de dados de conhecimento). A publicação envia por push a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou chat bot.
 
 Este início rápido chama as APIs de QnA Maker:
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) – esta API não requer nenhuma informação no corpo da solicitação.
 
-1. Crie um novo projeto Go no seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Execute o programa.
+## <a name="prerequisites"></a>Pré-requisitos
 
-```go
+* [Go 1.10.1](https://golang.org/dl/)
+* Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar sua chave, selecione **Teclas** em **Gerenciamento de Recursos** no seu painel. 
+
+* A ID da KB (base de dados de conhecimento) do QnA Maker encontrada na URL no parâmetro de cadeia de caracteres de consulta kbid, conforme mostrada abaixo.
+
+    ![ID da base de dados de conhecimento do QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+
+    Se você não tiver uma base de dados de conhecimento, pode criar uma de amostra para usar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+
+> [!NOTE] 
+> Os arquivos da solução completa estão disponíveis no repositório GitHub [**Azure-Samples/cognitive-services-qnamaker-go**](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+
+## <a name="create-a-go-file"></a>Criar um arquivo Go
+
+Abra o VSCode e crie um novo arquivo denominado `publish-kb.go`.
+
+## <a name="add-the-required-dependencies"></a>Adicione as dependências necessárias
+
+Na parte superior de `publish-kb.go`, adicione as seguintes linhas para adicionar as dependências necessárias ao projeto:
+
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+
+## <a name="create-the-main-function"></a>Criar a função principal
+
+Após as dependências exigidas, adicione a classe a seguir:
+
+```Go
 package main
 
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strconv"
-)
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace this with a valid subscription key.
-var subscriptionKey string = "ENTER KEY HERE"
-
-// NOTE: Replace this with a valid knowledge base ID.
-var kb string = "ENTER ID HERE";
-
-var host string = "https://westus.api.cognitive.microsoft.com"
-var service string = "/qnamaker/v4.0"
-var method string = "/knowledgebases/"
-
-func pretty_print(content string) string {
-    var obj map[string]interface{}
-    json.Unmarshal([]byte(content), &obj)
-    result, _ := json.MarshalIndent(obj, "", "  ")
-    return string(result)
-}
-
-func post(uri string, content string) string {
-    req, _ := http.NewRequest("POST", uri, bytes.NewBuffer([]byte(content)))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.Itoa(len(content)))
-    client := &http.Client{}
-    response, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-
-    defer response.Body.Close()
-    body, _ := ioutil.ReadAll(response.Body)
-
-    if(response.StatusCode == 204) {
-        return "{'result' : 'Success.'}"
-    } else {
-        return string(body)
-    }
-}
-
-func publish(uri string, req string) string {
-    fmt.Println("Calling " + uri + ".")
-    return post(uri, req)
-}
-
 func main() {
-    var uri = host + service + method + kb
-    body := publish(uri, "")
-    fmt.Printf(body + "\n")
 
 }
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>A resposta de Publicar uma base de dados de conhecimento
+## <a name="add-required-constants"></a>Adicionar constantes necessárias
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
+Dentro da função **principal**,
 
-```json
-{
-  "result": "Success."
-}
+
+ adicione as constantes necessárias para acessar o QnA Maker. Substitua os valores pelos seus próprios.
+
+[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
+
+## <a name="add-post-request-to-publish-kb"></a>Adicionar solicitação POST para publicar base de dados de conhecimento
+
+Após as constantes necessárias, adicione o código a seguir, o qual faz uma solicitação HTTPS à API de QnA Maker para publicar uma base de dados de conhecimento e recebe a resposta:
+
+[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
+
+A chamada à API retorna um status 204 de publicação bem-sucedida sem nenhum conteúdo no corpo da resposta. O código adiciona conteúdo para respostas 204.
+
+Para qualquer outra resposta, essa resposta é retornada inalterada.
+
+## <a name="build-and-run-the-program"></a>Compilar e executar o programa
+
+Insira o comando a seguir para compilar o arquivo. O prompt de comando não retorna nenhuma informação para um build bem-sucedido.
+
+```bash
+go build publish-kb.go
 ```
+
+Insira o comando a seguir em uma linha de comando para executar o programa. Ele envia a solicitação à API do QnA Maker para publicar a base de dados de conhecimento, depois imprime 204 em caso de êxito ou erros.
+
+```bash
+./publish-kb
+```
+
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Após a publicação da base de dados de conhecimento, você precisa da [URL do ponto de extremidade para gerar uma resposta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

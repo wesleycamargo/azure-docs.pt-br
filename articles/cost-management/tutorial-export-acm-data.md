@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913556"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822344"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerenciar dados exportados
 
-Se leu o tutorial de análise de custo, você está familiarizado com o download manual dos dados do Gerenciamento de Custos. No entanto, você pode criar uma tarefa recorrente diária, que exporta automaticamente seus dados do Gerenciamento de Custos com essa frequência para o Armazenamento do Azure. Os dados exportados estão no formato CSV e contém todas as informações que são coletadas pelo Gerenciamento de Custos. Em seguida, você pode usar os dados exportados no Armazenamento do Azure com sistemas externos e combiná-los com seus próprios dados personalizados. Você também pode usar os dados exportados em um sistema externo, tal como um painel ou outro sistema financeiro.
+Se leu o tutorial de análise de custo, você está familiarizado com o download manual dos dados do Gerenciamento de Custos. No entanto, você pode criar uma tarefa recorrente que exporta automaticamente seus dados de Gerenciamento de Custos para o Armazenamento do Azure com uma frequência diária, semanal ou mensal. Os dados exportados estão no formato CSV e contém todas as informações que são coletadas pelo Gerenciamento de Custos. Em seguida, você pode usar os dados exportados no Armazenamento do Azure com sistemas externos e combiná-los com seus próprios dados personalizados. Você também pode usar os dados exportados em um sistema externo, tal como um painel ou outro sistema financeiro.
 
 Os exemplos neste tutorial orientam você ao exportar os dados do Gerenciamento de Custos e, em seguida, verificar se eles foram exportados com êxito.
 
@@ -48,11 +48,17 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 Gerenciamento de Custos + Cobrança &gt; Gerenciamento de Custos &gt; selecione uma assinatura ou um grupo de recursos em uma assinatura &gt; Exportar &gt;  **Adicionar**.
 
-Digite um nome para a exportação e especifique a assinatura, a conta de armazenamento do Azure, o contêiner e o diretório de armazenamento de arquivos/contêiner de blobs e, em seguida, clique em **Criar**.
+Digite um nome para a exportação e selecione a opção "Exportação diária de custos do mês atual". Clique em **Próximo**.
 
-![Nova exportação](./media/tutorial-export-acm-data/new-export01.png)
+![Nova exportação: tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 
-Sua nova exportação aparece na lista de exportações. Por padrão, as novas exportações estão habilitadas e são executadas diariamente. Se você quiser desabilitar ou excluir uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desabilitar** ou **Excluir**.
+Especifique a assinatura da sua conta de Armazenamento do Azure e, depois, selecione sua conta de armazenamento.  Especifique o contêiner de armazenamento e o caminho do diretório para o qual você gostaria de enviar o arquivo de exportação.  Clique em **Próximo**.
+
+![Nova exportação: armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
+
+Revise os detalhes da exportação e clique em **Criar**.
+
+Sua nova exportação aparece na lista de exportações. Por padrão, as novas exportações estão habilitadas. Se você quiser desabilitar ou excluir uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desabilitar** ou **Excluir**.
 
 Inicialmente, pode levar uma ou duas horas até que a exportação seja executada. No entanto, pode levar até quatro horas para que os dados sejam mostrados em arquivos exportados.
 

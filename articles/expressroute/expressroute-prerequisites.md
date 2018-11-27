@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
-ms.author: cherylmc
-ms.openlocfilehash: 24cb21e81d2b4385423512ae58de2d6c0f94b93b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/15/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251893"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713428"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
@@ -37,7 +37,7 @@ Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, voc�
 
 ## <a name="network-requirements"></a>Requisitos de rede
 * **Conectividade redundante**: não há nenhum requisito de redundância de conectividade física entre você e seu provedor. A Microsoft não exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores emparelhados, mesmo quando você tiver apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink).
-* **Roteamento**: dependendo de como você se conecta ao Microsoft Cloud, você ou seu provedor precisarão configurar e gerenciar as sessões BGP para [domínios de roteamento](expressroute-circuit-peerings.md). Algum provedor de conectividade Ethernet ou o provedor de troca de nuvem pode oferecer gerenciamento BGP como um serviço de valor agregado.
+* **Roteamento**: dependendo de como você se conecta ao Microsoft Cloud, você ou seu provedor precisarão configurar e gerenciar as sessões BGP para [domínios de roteamento](expressroute-circuit-peerings.md). Alguns provedores de conectividade Ethernet ou os provedores de troca de nuvem podem oferecer gerenciamento BGP como um serviço de valor agregado.
 * **NAT**: a Microsoft só aceita endereços IP públicos por meio de emparelhamento da Microsoft. Se você estiver usando endereços IP privados em sua rede local, você ou seu provedor precisará converter os endereços IP privados em endereços IP públicos [usando NAT](expressroute-nat.md).
 * **QoS**: o Skype for Business tem vários serviços (por exemplo: voz, vídeo, texto) que exigem tratamento diferenciado de QoS. Você e seu provedor devem seguir os [requisitos de QoS](expressroute-qos.md).
 * **Segurança de rede**: considere a [segurança de rede](../best-practices-network-security.md) ao se conectar ao Microsoft Cloud pelo ExpressRoute.

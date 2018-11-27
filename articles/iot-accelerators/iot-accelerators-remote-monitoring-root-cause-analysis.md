@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369296"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284550"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realizar uma análise da causa raiz em um alerta
 
@@ -40,7 +40,7 @@ Use filtros para selecionar quais dispositivos conectados deverão ser exibidos 
 
 [![Filtrar caminhões no painel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-Quando você aplica um filtro, somente os dispositivos que correspondem às condições do filtro são exibidos no mapa e no painel de telemetria na página **Painel**. Você pode ver que há dois caminhões conectados ao acelerador de soluções, incluindo o **caminhão-02**.
+Quando você aplica um filtro, somente os dispositivos que correspondem às condições do filtro são exibidos no mapa e no painel de telemetria no **Painel**. Você pode ver que há dois caminhões conectados ao acelerador de soluções, incluindo o **caminhão-02**.
 
 ## <a name="view-real-time-telemetry"></a>Exibir telemetria em tempo real
 
@@ -66,7 +66,7 @@ Filtre os dispositivos digitando **caminhão de entrega** na caixa de filtro e s
 
 [![Temperatura do caminhão do Explorador do TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-Você verá o mesmo modo de exibição que você viu no painel de Monitoramento Remoto e agora pode ampliar para ver detalhadamente o período em que o alerta foi disparado:
+Você vê o mesmo modo de exibição do painel de Monitoramento remoto. Além disso, agora é possível ampliar mais próximo ao período no qual o alerta foi disparado:
 
 [![Zoom do Explorador do TSI](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -80,7 +80,7 @@ No novo painel, altere o nome do novo rótulo para **Dispositivos** para que ele
 
 ## <a name="diagnose-the-alert"></a>Diagnosticar o alerta
 
-Quando você examinar os fluxos na exibição atual, poderá ver que os perfis de altitude dos dois caminhões são muito diferentes. Além disso, a queda de temperatura no **caminhão de entrega 02** acontece quando o caminhão atinge uma alta altitude. Você está surpreso com a descoberta, porque os caminhões foram programados para usar a mesma rota.
+Quando você examinar os fluxos na exibição atual, poderá ver que os perfis de altitude dos dois caminhões são diferentes. Além disso, a queda de temperatura no **caminhão de entrega 02** acontece quando o caminhão atinge uma alta altitude. Você está surpreso com a descoberta, porque os caminhões foram programados para usar a mesma rota.
 
 Para confirmar a suspeita de que os caminhões fizeram caminhos diferentes, adicione outro painel ao painel lateral usando o botão **Adicionar**. No novo painel, altere o nome do novo rótulo para **Dispositivos** para que ele corresponda ao anterior. Selecione **longitude** como a **Medida** e **iothub-connection-device-id** como o valor **Dividir por** para adicionar a telemetria de longitude à sua exibição. Você pode ver que os caminhões fizeram percursos diferentes observando a diferença entre os fluxos de **longitude**:
 
@@ -88,7 +88,7 @@ Para confirmar a suspeita de que os caminhões fizeram caminhos diferentes, adic
 
 ## <a name="create-a-new-rule"></a>Criar uma nova regra
 
-Embora as rotas de caminhão normalmente sejam otimizadas com antecedência, você percebe que padrões de tráfego, clima e outros eventos imprevisíveis podem causar atrasos e os motoristas precisam tomar decisões de última hora com base em seu bom senso. No entanto, como a temperatura de seus ativos dentro do veículo é crítica, você deve criar uma regra adicional em sua solução de Monitoramento Remoto para garantir que você receberá um aviso se a altitude média em um intervalo de 1 minuto ficar acima de 350 pés:
+Embora as rotas de caminhão normalmente sejam otimizadas com antecedência, você percebe que padrões de tráfego, clima e outros eventos imprevisíveis podem causar atrasos e os motoristas precisam tomar decisões de última hora com base no melhor julgamento. No entanto, como a temperatura de seus ativos dentro do veículo é crítica, você deve criar uma regra adicional em sua solução de Monitoramento remoto. Essa regra é para garantir que você receberá um aviso caso a altitude média em um intervalo de 1 minuto fique acima de 350 pés:
 
 [![Guia de regras de Monitoramento Remoto para definir regra de altitude](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

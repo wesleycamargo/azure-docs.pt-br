@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dbd4b1cc7c1ec2a6d612020a99367138cada24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240283"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161004"
 ---
 # <a name="about-site-recovery"></a>Sobre o Azure Site Recovery
 
@@ -56,7 +56,7 @@ O Site Recovery pode gerenciar a replicação para:
 
 **Com suporte** | **Detalhes**
 --- | ---
-**Cenários de replicação** | Replicar VMs do Azure de uma região do Azure para outra.<br/><br/>  Replique VMs locais da VMware, VMs do Hyper-V, servidores físicos (Windows e Linux), VMs do Azure4 Stack no Azure.<br/><br/> Replique VMs locais da VMware, VMs do Hyper-V gerenciado pelo System Center VMM e servidores físicos para um site secundário.
+**Cenários de replicação** | Replicar VMs do Azure de uma região do Azure para outra.<br/><br/>  Replique VMs locais da VMware, VMs do Hyper-V, servidores físicos (Windows e Linux), VMs do Azure Stack no Azure.<br/><br/> Replique VMs locais da VMware, VMs do Hyper-V gerenciado pelo System Center VMM e servidores físicos para um site secundário.
 **Regiões** | Examine as [regiões com suporte](https://azure.microsoft.com/regions/services/) para o Site Recovery. |
 **Computadores replicados** | Analise os requisitos de replicação para a replicação de [VM do Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), de [VMs VMware locais e de servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines) e de [VMs Hyper-V local](hyper-v-azure-support-matrix.md#replicated-vms).
 **Cargas de trabalho** | Você pode replicar qualquer carga de trabalho em execução em um computador com suporte para replicação. Além disso, a equipe do Site Recovery realizou testes específicos do aplicativo para [alguns aplicativos](site-recovery-workload.md#workload-summary).

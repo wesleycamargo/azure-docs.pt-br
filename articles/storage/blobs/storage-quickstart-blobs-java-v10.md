@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416861"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713275"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início Rápido: Carregar, baixar e listar blobs usando o SDK de Armazenamento de Java V10
 
@@ -21,14 +21,12 @@ Neste início rápido, você aprende a usar o novo SDK de Armazenamento de Java 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instale e configure estes aplicativos:
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-* [Maven](http://maven.apache.org/download.cgi) para trabalhar na linha de comando ou em qualquer ambiente de desenvolvimento integrado Java desejado
+Verifique se você tem os pré-requisitos adicionais a seguir instalados:
+
+* [Maven](http://maven.apache.org/download.cgi) para trabalhar na linha de comando ou qualquer ambiente de desenvolvimento Java integrado que você preferir.
 * [JDK](https://aka.ms/azure-jdks)
-
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 

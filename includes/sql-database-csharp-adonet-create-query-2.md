@@ -1,4 +1,16 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52268688"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
 ## <a name="c-program-example"></a>Exemplo de programa em C#
@@ -39,7 +51,7 @@ Este programa C# é logicamente um arquivo .cs. Mas aqui o programa é dividido 
 7. Para executar o programa do Visual Studio, clique no botão **Iniciar**. A saída do relatório é exibida em uma janela cmd.exe.
 
 > [!NOTE]
-> Você tem a opção de editar a T-SQL para adicionar um líder  **#**  aos nomes de tabela, que cria como tabelas temporárias em **tempdb**. Isso pode ser útil para fins de demonstração, quando nenhum banco de dados de teste está disponível. As tabelas temporárias são excluídas automaticamente quando a conexão é fechada. Nenhuma REFERÊNCIA a chaves estrangeiras é imposta para tabelas temporárias.
+> Você tem a opção de editar a T-SQL para adicionar um líder **#** aos nomes de tabela, que cria como tabelas temporárias em **tempdb**. Isso pode ser útil para fins de demonstração, quando nenhum banco de dados de teste está disponível. As tabelas temporárias são excluídas automaticamente quando a conexão é fechada. Nenhuma REFERÊNCIA a chaves estrangeiras é imposta para tabelas temporárias.
 >
 
 <a name="cs_1_connect"/>

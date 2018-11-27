@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003740"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852190"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -54,6 +54,8 @@ Uma mensagem é composta de dados brutos produzidos por um serviço para serem c
 A Grade de Eventos é um backplane de eventos que permite a programação reativa e controlada por evento. Ele usa um modelo de publicação/assinatura. Editores emitem eventos, mas não têm nenhuma expectativa sobre quais eventos são manipulados. Os assinantes decidem quais eventos desejam manipular.
 
 A Grade de Eventos está profundamente integrada aos serviços do Azure e pode ser integrada aos serviços de terceiros. Ele simplifica o consumo de eventos e reduz os custos, eliminando a necessidade de sondagem de constante. A Grade de Eventos faz o roteamento de eventos eficiente e confiável e encaminha eventos de recursos do Azure e não Azure. Ela distribui os eventos para os pontos de extremidade do assinante registrado. A mensagem de evento tem as informações necessárias para reagir a alterações em serviços e aplicativos. A Grade de Eventos não é um pipeline de dados e não entrega o objeto real atualizado.
+
+A Grade de Eventos dá suporte a mensagens mortas para eventos que não são entregues a um ponto de extremidade.
 
 Ele tem as seguintes características:
 

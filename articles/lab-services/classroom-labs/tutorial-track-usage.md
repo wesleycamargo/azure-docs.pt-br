@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450123"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707088"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar o uso de um laboratório no Azure Lab Services
 Este tutorial mostra como um criador/proprietário de laboratório pode acompanhar o uso de um laboratório.
@@ -49,18 +49,14 @@ Neste tutorial, você executa as seguintes ações:
     ![Uso de VM](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gerenciar VMs de aluno 
-Conforme você passar o mouse sobre uma linha na lista da máquina virtual, verá os controles para realizar as seguintes tarefas: 
+Conforme você passar o mouse sobre uma linha na lista da máquina virtual, verá os controles para realizar as seguintes tarefas (conforme exibido na imagem na seção anterior): 
 
 - Como conectar-se a uma VM
 - Iniciar uma VM
 - Parar uma VM
 - Excluir uma VM
 
-![Controles da VM](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você aprendeu a localizar os usuários que foram registrados no laboratório, acompanhar o uso de VMs no laboratório e gerenciar VMs no laboratório.
-
-Para saber mais sobre os laboratórios da sala de aula, consulte os tópicos nos [guias de tutorial](how-to-manage-lab-accounts.md).
+Para saber mais sobre os laboratórios da sala de aula, confira os artigos nos [Guias de instruções](how-to-manage-lab-accounts.md).

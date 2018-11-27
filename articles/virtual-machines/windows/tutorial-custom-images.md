@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255193"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263308"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs por meio da imagem
 
-Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM com base em uma imagem personalizada é semelhante à criação de uma VM usando uma imagem do Marketplace. Ao usar uma imagem do Marketplace, você precisa fornecer informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Ao usar o parâmetro simplificado definido para o [novo AzureRMVM]() cmdlet, você só precisará fornecer o nome da imagem personalizada, desde que ela esteja no mesmo grupo de recursos. 
+Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM com base em uma imagem personalizada é semelhante à criação de uma VM usando uma imagem do Marketplace. Ao usar uma imagem do Marketplace, você precisa fornecer informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Ao usar o parâmetro simplificado definido para o [novo AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet, você só precisará fornecer o nome da imagem personalizada, desde que ela esteja no mesmo grupo de recursos. 
 
 Este exemplo cria uma VM chamada *myVMfromImage* a partir de *myImage*, em *myResourceGroup*.
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Exclua uma imagem. Este exemplo exclui a imagem denominada *myOldImage* do *myResourceGroup*.
+Exclua uma imagem. Este exemplo exclui a imagem denominada *myImage* do *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

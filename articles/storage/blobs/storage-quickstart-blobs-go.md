@@ -6,14 +6,14 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: d3f6f2c9a1ca5016eb9a6597ba32dc1471f77cb4
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038317"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711150"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, baixar e listar blobs usando Go
 
@@ -21,17 +21,20 @@ Neste início rápido, você aprenderá a usar a linguagem de programação Go p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido: 
-* Instale o [Go 1.8 ou superior](https://golang.org/dl/)
-* Baixe e instale o [SDK do Azure Storage Blob para Go](https://github.com/azure/azure-storage-blob-go/) usando `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> Não se esqueça de colocar Azure em maiúsculas na URL. Fazer o contrário pode causar problemas de importação relacionadas a caso ao trabalhar com o SDK. Você também precisa colocar Azure em maiúsculas em suas instruções de importação.
+Verifique se você tem os pré-requisitos adicionais a seguir instalados:
+ 
+* [Go 1.8 ou superior](https://golang.org/dl/)
+* [SDK do Azure Storage Blob para Go](https://github.com/azure/azure-storage-blob-go/) usando comando a seguir:
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > Coloque em maiúscula `Azure` na URL para evitar problemas de importação relacionadas à capitalização ao trabalhar com o SDK. Coloque `Azure` em maiúscula também em suas instruções de importação.
+    
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) usado neste início rápido é um aplicativo Go básico.  
 

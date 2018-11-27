@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309018"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283954"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: usando C# para chamar o Serviço Cognitivo de Análise de Texto
 <a name="HOLTop"></a>
 
-Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com C#. O código foi escrito para funcionar em um aplicativo .Net Core, com referências mínimas a bibliotecas externas; portanto, você também pode executá-lo no Linux ou no macOS.
+Este artigo mostra como detectar a linguagem, analisar o sentimento e extrair frases-chave usando as  [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)  com C#. O código foi escrito para funcionar em um aplicativo .Net Core, com referências mínimas a bibliotecas externas; portanto, você também pode executá-lo no Linux ou no macOS.
 
 Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. É possível usar a **camada gratuita para 5.000 transações/mês** para concluir este início rápido.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
 

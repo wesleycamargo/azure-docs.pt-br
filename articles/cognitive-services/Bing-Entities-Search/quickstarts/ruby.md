@@ -3,23 +3,23 @@ title: 'Início Rápido: API de Pesquisa de Entidade do Bing, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Entidade do Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 0fe7e1c80b4da9f2629157dad1d283d76ac99afa
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814450"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162903"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido para API de Pesquisa de Entidade do Bing com Ruby
 
-Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com o Ruby.
+Este artigo mostra como usar a API de [Pesquisa de Entidade do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  com Ruby.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

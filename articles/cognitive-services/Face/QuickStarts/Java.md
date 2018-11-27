@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 0a8a97be89893dbf072942501be51b82d20c1ef4
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578010"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851663"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar faces em uma imagem usando a API REST e Java
 
@@ -62,7 +62,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Adicionar campos essenciais
 
-Adicione os seguintes campos à classe **Main**. Esses dados especificam como se conectar ao serviço de Detecção Facial e onde obter os dados de entrada. Você precisará atualizar o campo `subscriptionKey` com o valor da sua chave de assinatura e, talvez, precise alterar a cadeia de caracteres `uriBase` para que contenha o identificador de região correto. Talvez você também queria definir o valor `imageWithFaces` para um caminho que aponte para um arquivo de imagem diferente.
+Adicione os seguintes campos à classe **Main**. Esses dados especificam como se conectar ao serviço de Detecção Facial e onde obter os dados de entrada. Você precisará atualizar o campo `subscriptionKey` com o valor da sua chave de assinatura e, talvez, precise alterar a cadeia de caracteres `uriBase` para que contenha o identificador de região correto (confira os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região). Talvez você também queria definir o valor `imageWithFaces` para um caminho que aponte para um arquivo de imagem diferente.
 
 O campo `faceAttributes` é simplesmente uma lista de certos tipos de atributos. Ele especificará quais informações devem ser recuperadas sobre as faces detectadas.
 
@@ -75,7 +75,7 @@ private static final String subscriptionKey = "<Subscription Key>";
 // subscription keys from westus, replace "westcentralus" in the URL
 // below with "westus".
 //
-// Free trial subscription keys are generated in the westcentralus region. If you
+// Free trial subscription keys are generated in the "westus" region. If you
 // use a free trial subscription key, you shouldn't need to change this region.
 private static final String uriBase =
     "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
