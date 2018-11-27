@@ -90,7 +90,7 @@ en-IE | Inglês (Irlanda) |Masculino | “Voz da Conversão de Texto em Fala do 
 en-IN | Inglês (Índia) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Heera, Apollo)”
 | | |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, PriyaRUS)”
 | | |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Ravi, Apollo)”
-pt-BR | Inglês (EUA) |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, ZiraRUS)”
+en-US | Inglês (EUA) |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, ZiraRUS)”
 | | |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, JessaRUS)”
 | | |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, BenjaminRUS)”
 | | |Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)"
