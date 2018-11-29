@@ -162,6 +162,6 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **R:** O nome da política no relatório todas as entrada baseia-se no nome da política de autoridade de certificação no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
 
- **P: Meu login foi bloqueado devido a uma política de acesso condicional, mas o relatório de atividades de login mostra que o login foi bem-sucedido. Por quê?**
+**P: Meu login foi bloqueado devido a uma política de acesso condicional, mas o relatório de atividades de login mostra que o login foi bem-sucedido. Por quê?**
 
 **A:** Atualmente, o relatório de entrada pode não mostrar resultados precisos para cenários do Exchange ActiveSync quando o acesso condicional é aplicado. Pode haver casos em que o resultado do login no relatório mostra um login bem-sucedido, mas o login realmente falhou devido a uma política de acesso condicional. 
