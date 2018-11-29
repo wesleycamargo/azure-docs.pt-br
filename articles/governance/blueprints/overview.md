@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277521"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498609"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -57,7 +57,7 @@ Um plano gráfico é composto por _artefatos_. Plantas atualmente dão suporte o
 |Recurso  | Opções de hierarquia| DESCRIÇÃO  |
 |---------|---------|---------|
 |Grupos de recursos     | Assinatura | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager.         |
-|Modelo do Azure Resource Manager      | Grupo de recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
+|Modelo do Azure Resource Manager      | Assinatura, Grupo de Recursos | Modelos são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
 |Atribuição de política     | Assinatura, Grupo de Recursos | Permite a atribuição de uma política ou iniciativa à assinatura a qual o blueprint está atribuído. A política ou iniciativa deve estar dentro do escopo do blueprint (no grupo de gerenciamento de blueprint ou abaixo). Se a política ou iniciativa tiver parâmetros, esses parâmetros serão atribuídos na criação do blueprint ou durante a atribuição do blueprint.       |
 |Atribuição de função   | Assinatura, Grupo de Recursos | Adicione um usuário ou grupo existente a uma função interna para fazer com que as pessoas certas tenham sempre o acesso correto aos seus recursos. Atribuições de função podem ser definidas para a assinatura inteira ou aninhadas em um grupo de recursos específico incluído no blueprint. |
 

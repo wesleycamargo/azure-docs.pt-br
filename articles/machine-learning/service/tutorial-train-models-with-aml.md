@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283648"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496215"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial nº 1: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
 
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Execute o Notebook `01.train-models.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
+Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://aka.ms/aml-notebook-tut-01). Execute o Notebook `01.train-models.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

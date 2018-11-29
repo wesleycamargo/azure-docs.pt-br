@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0c7431e5b66da721248b2a49c214584bf43e577f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284737"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498561"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Tutorial: Treinar um modelo de classificação com aprendizado de máquina automatizado no serviço do Azure Machine Learning
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Execute o Notebook `03.auto-train-models.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
+Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://aka.ms/aml-notebook-tut-03). Execute o Notebook `03.auto-train-models.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
