@@ -18,7 +18,7 @@ ms.locfileid: "39036863"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
-Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Search. Para consultas de texto, o Azure Search fornecerá perfeitamente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você pode obter um resultado que pode parecer "estranho". Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas para parâmetros de consulta ou a configuração de índice que proporcionará o resultado desejado. 
+Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Search. Para consultas de texto, o Azure Search produzirá facilmente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você poderá obter um resultado que pode parecer "estranho". Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas nos parâmetros de consulta ou na configuração de índice que proporcionarão o resultado desejado. 
 
 > [!Note] 
 > O Azure Search usa o Lucene para pesquisa de texto completo, mas a integração do Lucene não é completa. Vamos seletivamente expor e estender a funcionalidade do Lucene para habilitar os cenários importantes para o Azure Search. 
