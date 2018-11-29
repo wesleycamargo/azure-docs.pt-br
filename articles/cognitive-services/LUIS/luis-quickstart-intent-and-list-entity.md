@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280684"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425064"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: Extrair correspondências de texto exatas
 Neste tutorial, entenda como obter dados que correspondam a uma lista predefinida de itens. Cada item na lista pode incluir uma lista de sinônimos. Para o aplicativo de recursos humanos, um funcionário pode ser identificado com várias partes importantes de informações como nome, email, número de telefone e ID de imposto federal dos EUA. 
@@ -41,7 +41,7 @@ Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
 > * Publicar
 > * Obter intenções e entidades do ponto de extremidade
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usar o aplicativo existente
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
@@ -57,7 +57,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 
 ## <a name="moveemployee-intent"></a>Intenção MoveEmployee
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Criar nova intenção**. 
 
@@ -84,7 +84,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 
     Lembre-se de que o número e datetimeV2 foram adicionados em um tutorial anterior e serão rotulados automaticamente quando forem encontrados em quaisquer exemplos de enunciados.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entidade de lista de funcionários
 Agora que a intenção **MoveEmployee** tem enunciados de exemplo, o LUIS precisa entender o que é um funcionário. 

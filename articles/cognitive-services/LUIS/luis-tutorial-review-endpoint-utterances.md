@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d2400c09a7d18faccc94464158419c81962d4a86
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8fbe856826770eb38cd4a6d921c1b0f4eacf9c2a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282145"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426954"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrigir previsões incertas
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
@@ -61,7 +61,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 
 ## <a name="review-endpoint-utterances"></a>Examinar declarações de ponto de extremidade
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Examinar enunciados de ponto de extremidade** na barra de navegação à esquerda. A lista é filtrada para a intenção **ApplyForJob**. 
 

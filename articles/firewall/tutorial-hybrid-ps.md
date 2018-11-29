@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854162"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316388"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -309,9 +309,6 @@ Em seguida, crie duas rotas:
 
 - Uma rota da sub-rede do gateway do hub até a sub-rede do spoke pelo endereço IP de firewall
 - Uma rota padrão da sub-rede do spoke pelo endereço IP de firewall
-
-> [!NOTE]
-> O Firewall do Azure aprende suas redes locais usando o BGP. Isso poderá incluir uma rota padrão, que roteia o tráfego de Internet de volta à sua rede local. Em uma implantação de produção, você pode querer que o tráfego da Internet seja enviado diretamente do firewall à Internet. É possível adicionar uma rota definida pelo usuário padrão (0.0.0.0/0) no AzureFirewallSubnet com o próximo tipo de salto **Internet**. O tráfego destinado localmente ainda é encapsulado à força por meio do Gateway de VPN/ExpressRoute usando as rotas mais específicas aprendidas com o BGP.
 
 ```azurepowershell
 #Create a route table

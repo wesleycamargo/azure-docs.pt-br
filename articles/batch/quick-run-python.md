@@ -2,20 +2,20 @@
 title: Início rápido do Azure - Executar trabalho do Lote - Python
 description: Execute rapidamente um trabalho e tarefas do Lote usando a biblioteca de cliente do Python do Lote.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 424516a4a321227e4e79cfe33d40e8fdca24a779
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815266"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427311"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar o primeiro trabalho do Lote com a API do Python
 
@@ -55,8 +55,7 @@ Em seu ambiente de desenvolvimento do Python, instale os pacotes necessários us
 pip install -r requirements.txt
 ```
 
-Abra o arquivo `python_quickstart_client.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores obtidos para suas contas. Por exemplo: 
-
+Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores obtidos para suas contas. Por exemplo: 
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -81,7 +80,7 @@ Depois de executar o script, examine o código para saber o que cada parte do ap
 Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [Portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas em sua conta do Lote.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -115,7 +114,7 @@ O aplicativo Python neste guia de início rápido faz o seguinte:
 * Cria um trabalho e três tarefas a serem executadas em nós. Cada tarefa processa um dos arquivos de entrada usando uma linha de comando do Shell Bash.
 * Exibe os arquivos retornados pelas tarefas.
 
-Confira o arquivo `python_quickstart_client.py` e as seções a seguir para obter mais detalhes. 
+Confira o arquivo `python_quickstart_client.py` e as seções a seguir para obter mais detalhes.
 
 ### <a name="preliminaries"></a>Etapas preliminares
 
@@ -123,8 +122,8 @@ Para interagir com uma conta de armazenamento, o aplicativo usa o pacote [azure-
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=_STORAGE_ACCOUNT_NAME,
-    account_key=_STORAGE_ACCOUNT_KEY)
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
 O aplicativo usa a referência `blob_client` para criar um contêiner na conta de armazenamento e carregar os arquivos de dados no contêiner. Os arquivos no armazenamento são definidos como objetos [ResourceFile](/python/api/azure.batch.models.resourcefile) do Lote que ele pode baixar mais tarde para os nós de computação.
@@ -142,14 +141,13 @@ input_files = [
 O aplicativo cria um objeto [BatchServiceClient](/python/api/azure.batch.batchserviceclient) para criar e gerenciar pools, trabalhos e tarefas no serviço de Lote. O cliente do Lote no exemplo usa a autenticação de chave compartilhada. O Lote também dá suporte à autenticação do Azure Active Directory.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
-
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um pool de nós de computação
 
@@ -170,8 +168,8 @@ new_pool = batch.models.PoolAddParameter(
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),
-    vm_size=_POOL_VM_SIZE,
-    target_dedicated_nodes=_POOL_NODE_COUNT
+    vm_size=config._POOL_VM_SIZE,
+    target_dedicated_nodes=config._POOL_NODE_COUNT
 )
 batch_service_client.pool.add(new_pool)
 ```
@@ -220,7 +218,7 @@ for task in tasks:
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, _STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

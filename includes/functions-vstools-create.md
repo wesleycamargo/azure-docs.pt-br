@@ -3,17 +3,17 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a8be74558fb71ceb1c28c27004b27a5a5f477a8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c746fc86ea4d260575eb97b16d4a190b175f754
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650618"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585619"
 ---
 O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para o gerenciamento, implantação e compartilhamento de recursos.
 

@@ -4,17 +4,17 @@ description: Este artigo orienta você pelas etapas para habilitar o módulo do 
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6bd7ceaeaf0b064ebbd8f069a4741489349bb980
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646381"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427498"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Execute a primeira consulta ao Resource Graph usando o Azure PowerShell
 
@@ -37,9 +37,6 @@ O módulo Gráfico de Recursos do Azure requer o seguinte software:
   - Para o PowerShell Core, use a versão **Az** do módulo do Azure PowerShell.
 
   - Para o PowerShell Core, use a versão **AzureRm** do módulo do Azure PowerShell.
-
-  > [!NOTE]
-  > Atualmente, não é recomendável instalar o módulo no Cloud Shell.
 
 - PowerShellGet 2.0.1 ou superior. Se ele não estiver instalado ou atualizado, siga [estas instruções](/powershell/gallery/installing-psget).
 

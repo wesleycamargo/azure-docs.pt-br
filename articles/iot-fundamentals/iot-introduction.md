@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288740"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582410"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure IoT (Internet das Coisas)?
 
@@ -113,7 +113,7 @@ Há vários serviços relacionados à IoT no Azure, e pode ser complexo saber qu
 
 5. [**IoT Edge**](/azure/iot-edge/): esse serviço se baseia no Hub IoT. Ele pode ser usado para analisar dados em dispositivos IoT em vez de na nuvem. Ao mover partes da sua carga de trabalho para a borda, menos mensagens precisam ser enviadas para a nuvem. 
 
-6. [**Gêmeos Digitais do Azure**](/azure/azure-digital-twins/): esse serviço permite que você crie modelos abrangentes do ambiente físico. Você pode modelar os relacionamentos e as interações entre pessoas, espaços e dispositivos. Por exemplo, você pode prever as necessidades de manutenção de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar o uso de espaço disponível em um escritório.
+6. [**Gêmeos Digitais do Azure**](../digital-twins/index.yml): esse serviço permite que você crie modelos abrangentes do ambiente físico. Você pode modelar os relacionamentos e as interações entre pessoas, espaços e dispositivos. Por exemplo, você pode prever as necessidades de manutenção de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar o uso de espaço disponível em um escritório.
 
 7. [**Time Series Insights**](/azure/time-series-insights): esse serviço permite que você armazene, visualize e consulte grandes quantidades de dados de série temporal gerados por dispositivos IoT. Você pode usar esse serviço com o Hub IoT. 
 

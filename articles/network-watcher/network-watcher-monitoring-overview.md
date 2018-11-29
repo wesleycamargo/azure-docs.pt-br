@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614270"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427014"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -37,7 +37,7 @@ Se um ponto de extremidade ficar inacessível, solucionar problemas de conexão 
 
 O monitor de Conexão também fornece a latência média, mínima e máxima observada ao longo do tempo. Depois de obter a latência de uma conexão, você pode achar que é capaz de reduzir a latência, movendo os recursos do Azure para diferentes regiões do Microsoft Azure. Saiba mais sobre como determinar [latências relativas entre as regiões do Microsoft Azure e os provedores de serviço de internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e como monitorar a comunicação entre uma máquina virtual e um ponto de extremidade com o [monitor de conexão](connection-monitor.md). Se, em vez disso, você testar uma conexão em um ponto no tempo, em vez de monitorar a conexão ao longo do tempo, como é feito com o monitor de conexão, use o recurso [solucionar problemas de conexão](#connection-troubleshoot).
 
-O Monitor de Desempenho de Rede é uma solução de monitoramento de rede híbrida baseada na nuvem que ajuda a monitorar o desempenho de rede entre vários pontos em sua infraestrutura de rede. Também ajuda a monitorar a conectividade de rede para serviços e pontos de extremidade do aplicativo e a monitorar o desempenho do Azure ExpressRoute. O Monitor de Desempenho de Rede detecta problemas de tráfego de rede, como blackholing, erros de roteamento e problemas que os métodos de monitoramento de rede convencionais não são capazes de detectar. A solução gera alertas e notifica como e quando um limite é ultrapassado para um link de rede. Ela também garante a detecção oportuna de problemas de desempenho de rede e localiza a origem do problema para determinado segmento de rede ou dispositivo. Saiba mais sobre o [monitor de desempenho de rede](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+O Monitor de Desempenho de Rede é uma solução de monitoramento de rede híbrida baseada na nuvem que ajuda a monitorar o desempenho de rede entre vários pontos em sua infraestrutura de rede. Também ajuda a monitorar a conectividade de rede para serviços e pontos de extremidade do aplicativo e a monitorar o desempenho do Azure ExpressRoute. O Monitor de Desempenho de Rede detecta problemas de tráfego de rede, como blackholing, erros de roteamento e problemas que os métodos de monitoramento de rede convencionais não são capazes de detectar. A solução gera alertas e notifica como e quando um limite é ultrapassado para um link de rede. Ela também garante a detecção oportuna de problemas de desempenho de rede e localiza a origem do problema para determinado segmento de rede ou dispositivo. Saiba mais sobre o [monitor de desempenho de rede](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Exibir recursos em uma rede virtual e suas relações
 
@@ -97,7 +97,7 @@ Saiba mais sobre os logs de fluxo de NSG concluindo o tutorial [Registrar o trá
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Exibir logs de diagnóstico para recursos de rede
 
-Você pode habilitar o log de diagnóstico para recursos de rede do Microsoft Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e os gateways de aplicativos. O recurso *logs de diagnóstico* fornece uma única interface para habilitar e desabilitar logs de diagnóstico de recursos de rede para qualquer recurso de rede existente que gera um log de diagnóstico. Você pode exibir logs de diagnóstico usando ferramentas como o Microsoft Power BI e Análise de Logs do Azure. Para saber mais sobre como analisar logs de diagnóstico de rede do Microsoft Azure, consulte [Soluções de rede do Azure na Análise de Log](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Você pode habilitar o log de diagnóstico para recursos de rede do Microsoft Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e os gateways de aplicativos. O recurso *logs de diagnóstico* fornece uma única interface para habilitar e desabilitar logs de diagnóstico de recursos de rede para qualquer recurso de rede existente que gera um log de diagnóstico. Você pode exibir logs de diagnóstico usando ferramentas como o Microsoft Power BI e Análise de Logs do Azure. Para saber mais sobre como analisar logs de diagnóstico de rede do Microsoft Azure, consulte [Soluções de rede do Azure na Análise de Log](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do Observador de Rede
 Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será ativado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para ativar automaticamente o Observador de Rede. Para saber mais, veja [Criação do Observador de Rede](network-watcher-create.md).

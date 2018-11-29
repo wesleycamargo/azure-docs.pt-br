@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: a1f477dd02e048a3bfb77463c2d9857ee32fb8fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 06a156ebeee2467cdc756761984b6a069121b665
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235302"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333197"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: criar uma base de dados de conhecimento no QnA Maker usando o Go
 
@@ -72,7 +72,7 @@ Adicione as seguintes funções para fazer uma solicitação HTTP POST para cria
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-Essa chamada à API retorna uma resposta JSON que inclui a ID da operação no campo **Local** do cabeçalho. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito. 
+Essa chamada à API retorna uma resposta JSON que inclui a ID da operação. Use a ID da operação para determinar se a base de dados de conhecimento foi criada com êxito. 
 
 ```JSON
 {

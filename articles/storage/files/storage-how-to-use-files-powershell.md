@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157370"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582442"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: criar e gerenciar um compartilhamento de arquivos do Azure com o Azure PowerShell 
 Este guia oferece orientações básicas sobre como trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando o PowerShell. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -49,7 +49,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
-Agora você pode criar seu primeiro compartilhamento de arquivos do Azure. Você pode criar um compartilhamento de arquivos usando o cmdlet [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare). Esse exemplo cria um compartilhamento chamado `myshare`.
+Agora você pode criar seu primeiro compartilhamento de arquivos do Azure. Você pode criar um compartilhamento de arquivos usando o cmdlet [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare). Esse exemplo cria um compartilhamento chamado `myshare`.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -79,7 +79,7 @@ Na maioria dos casos, você usará o compartilhamento de arquivos do Azure em ve
 Os exemplos a seguir mostram como usar o módulo AzureRM do PowerShell para manipular o compartilhamento de arquivos do Azure com o protocolo REST de arquivo. 
 
 #### <a name="create-directory"></a>Criar diretório
-Para criar um novo diretório chamado *myDirectory* na raiz do seu compartilhamento de arquivos do Azure, use o cmdlet [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+Para criar um novo diretório chamado *myDirectory* na raiz do seu compartilhamento de arquivos do Azure, use o cmdlet [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory).
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `

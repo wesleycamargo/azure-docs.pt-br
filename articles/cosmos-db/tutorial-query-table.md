@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 8a629a7b1340547f43919a1e88abbda53e9e2ae0
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9d47928984330f2366da066c221e2bb502aa7193
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763384"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442940"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API de Tabela
 
@@ -41,7 +41,7 @@ Consulte [Consultar tabelas e entidades](https://docs.microsoft.com/rest/api/sto
 
 Para obter mais informações sobre os recursos premium que o Azure Cosmos DB oferece, consulte [Azure Cosmos DB API de Tabela](table-introduction.md) e [Desenvolver com a API de Tabela em .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para essas consultas funcionarem, você deve ter uma conta do Azure Cosmos DB e ter dados de entidade no contêiner. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-table-dotnet.md) ou o [tutorial de desenvolvedor](tutorial-develop-table-dotnet.md) para criar uma conta e preencher seu banco de dados.
 
@@ -95,9 +95,9 @@ CloudTable table = tableClient.GetTableReference("people");
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(
         TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
             TableOperators.And,
-            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
     ));
 
 await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180936"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335105"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simular uma falha ao acessar o armazenamento redundante com acesso de leitura
 
@@ -145,7 +145,7 @@ Para adicionar uma rota estática a um host de destino, digite o comando a segui
  
 Substitua `<destination_ip>` pelo seu endereço IP da conta de armazenamento e `<gateway_ip>` pelo seu endereço IP do host local. Para continuar a usar o aplicativo, pressione **qualquer tecla**.
 
-Depois que o aplicativo começar a ser executado novamente, as solicitações para o ponto de extremidade primário começam a falhar. O aplicativo tenta se reconectar ao ponto de extremidade primário 5 vezes. Após o limite de falha de cinco tentativas, ele solicita a imagem do ponto de extremidade secundário de somente leitura. Depois que o aplicativo recupera com sucesso a imagem do ponto de extremidade secundário 20 vezes, o aplicativo tenta se conectar ao ponto de extremidade primário. Se o ponto de extremidade primário ainda estiver inacessível, o aplicativo retoma a leitura a partir do ponto de extremidade secundário. Esse é o padrão [Disjuntor](/azure/architecture/patterns/circuit-breaker.md) descrito no tutorial anterior.
+Depois que o aplicativo começar a ser executado novamente, as solicitações para o ponto de extremidade primário começam a falhar. O aplicativo tenta se reconectar ao ponto de extremidade primário 5 vezes. Após o limite de falha de cinco tentativas, ele solicita a imagem do ponto de extremidade secundário de somente leitura. Depois que o aplicativo recupera com sucesso a imagem do ponto de extremidade secundário 20 vezes, o aplicativo tenta se conectar ao ponto de extremidade primário. Se o ponto de extremidade primário ainda estiver inacessível, o aplicativo retoma a leitura a partir do ponto de extremidade secundário. Esse é o padrão [Disjuntor](/azure/architecture/patterns/circuit-breaker) descrito no tutorial anterior.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular a restauração do ponto de extremidade primário
 

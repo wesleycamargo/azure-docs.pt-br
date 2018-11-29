@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281788"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422415"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar intenções e entidades comuns
 Neste tutorial, modifique o aplicativo de recursos humanos. Adicione intenções e entidades predefinidas ao aplicativo de tutorial de Recursos Humanos para adquirir rapidamente previsão de intenção e extração de dados. Não é necessário rotular os enunciados com as entidades pré-criadas, porque a entidade é detectada automaticamente.
@@ -48,7 +48,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 ## <a name="add-prebuilt-intents"></a>Adicionar intenções predefinidas
 O LUIS oferece várias intenções predefinidas para ajudar com intenções do comuns do usuário.  
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Adicionar intenção pré-criada**. 
 

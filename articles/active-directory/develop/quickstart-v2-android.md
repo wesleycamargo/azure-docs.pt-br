@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995730"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427005"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: conectar usuários e chamar a API do Microsoft Graph em um aplicativo Android
 
@@ -29,7 +29,7 @@ ms.locfileid: "46995730"
 
 Este início rápido contém um exemplo de código que demonstra como um aplicativo Android pode conectar contas corporativas, pessoais ou de estudante, obter um token de acesso e chamar a API do Microsoft Graph.
 
-![Como funciona o aplicativo de exemplo gerado por este início rápido](media/quickstart-v2-android/android-intro.png)
+![Como funciona o aplicativo de exemplo gerado por esse Início rápido](media/quickstart-v2-android/android-intro.png)
 
 > [!NOTE]
 > **Pré-requisitos**
@@ -123,7 +123,7 @@ Leia as seções a seguir para obter mais informações sobre este início rápi
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pelo Azure AD (Microsoft Azure Active Directory). Você pode usar o Gradle para instalá-lo adicionando o seguinte nos **Scripts Gradle** > **build.gradle (módulo: aplicativo)** sob **Dependências**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pelo Azure AD (Microsoft Azure Active Directory). Você pode usar o Gradle para instalá-lo adicionando o seguinte nos **Scripts Gradle** > **build.gradle (módulo: aplicativo)** sob **Dependências**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
