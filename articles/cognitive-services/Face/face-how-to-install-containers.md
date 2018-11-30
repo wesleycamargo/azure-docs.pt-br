@@ -10,18 +10,18 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634866"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634533"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
 O uso de Contêineres é uma abordagem para distribuição de software na qual um aplicativo ou serviço é empacotado como uma imagem de contêiner. A configuração e as dependências do aplicativo ou serviço estão incluídas na imagem do contêiner. A imagem do contêiner pode então ser implantada em um host de contêiner com pouca ou nenhuma modificação. Os contêineres são isolados uns dos outros e do sistema operacional subjacente, com um espaço menor do que uma máquina virtual. Os contêineres podem ser instanciados a partir de imagens de contêiner para tarefas de curto prazo e removidos quando não são mais necessários.
 
-O Face fornece um contêiner Linux padronizado para o Docker, chamado Face, que detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outros recursos faciais preditos pela máquina. Além da detecção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Ele também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.
+O Face fornece um contêiner Linux padronizado para o Docker, chamado Face, que detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outros recursos faciais preditos pela máquina. Além da detecção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -29,11 +29,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar o contêiner Face:
 
-**Mecanismo do Docker**: você deve ter o Docker Engine instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Mecanismo do Docker**: você deve ter o Docker Engine instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure.
 
-**Familiaridade com o Microsoft Container Registry and Docker**: Você deve ter um conhecimento básico dos conceitos do Microsoft Container Registry e Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos`docker`.  
+**Familiaridade com Docker e Registro de Contêiner da Microsoft**: é necessário ter uma compreensão básica de ambos os conceitos de Docker e Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
 
 Para uma cartilha no Docker e noções básicas sobre contêineres, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -58,9 +58,6 @@ Execute as etapas a seguir para criar e recuperar informações de um recurso Fa
 
 1. Crie um recurso de rosto no portal do Azure.  
    Se você quiser usar o container Face, crie primeiro um recurso Face correspondente no portal do Azure. Para obter mais informações, consulte [Início rápido: crie uma conta de serviços cognitivos no Portal do Azure](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > O recurso de detecção facial deve usar o tipo de preço F0.
 
 1. Obtenha o URL do ponto de extremidade e a chave de assinatura do recurso do Azure.  
    Depois que o recurso do Azure for criado, você deverá usar o URL do ponto de extremidade e a chave de assinatura desse recurso para instanciar o contêiner Face correspondente. Você pode copiar o URL do ponto de extremidade e a chave de assinatura de, respectivamente, as páginas Início rápido e Chaves do recurso Face no portal do Azure.

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798688"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425132"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Ajustando o desempenho de consulta com o Azure Cosmos DB
 
-O Azure Cosmos DB fornece um [API do SQL para consultar dados](sql-api-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
+O Azure Cosmos DB fornece um [API do SQL para consultar dados](how-to-sql-query.md), sem a necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para desenvolvedores:
 
 * Detalhes de alto nível sobre como funciona a execução da consulta SQL do Azure Cosmos DB
 * Obter detalhes sobre cabeçalhos de solicitação e resposta de consulta e opções do SDK do cliente
@@ -70,7 +70,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 FeedResponse<dynamic> result = await query.ExecuteNextAsync();
 ```
 
-O trecho de código do SDK mostrado acima, corresponde a seguinte solicitação de API REST:
+O snippet de código do SDK mostrado acima, corresponde a seguinte solicitação de API REST:
 
 ```
 POST https://arramacquerymetrics-westus.documents.azure.com/dbs/db/colls/sample/docs HTTP/1.1
@@ -218,7 +218,7 @@ Consulte [distribuição global do Azure Cosmos DB](tutorial-global-distribution
 A seção sobre métricas de execução de consulta explica como recuperar o tempo de execução do servidor de consultas ( `totalExecutionTimeInMs`), de modo que você possa diferenciar entre o tempo gasto na execução da consulta e o tempo gasto em trânsito de rede.
 
 ### <a name="indexing-policy"></a>Política de indexação
-Consulte [Configurando a política de indexação](indexing-policies.md) para indexação de caminhos, tipos e os modos e como elas afetam a execução da consulta. Por padrão, a política de indexação usa a indexação de Hash para cadeias de caracteres, que é eficiente para consultas de igualdade, mas não para consultas de intervalo/ordem através de consultas. Se você precisar de consultas de intervalo para cadeias de caracteres, é recomendável especificar o tipo de índice de intervalo para todas as cadeias de caracteres. 
+Consulte [Configurando a política de indexação](index-policy.md) para indexação de caminhos, tipos e os modos e como elas afetam a execução da consulta. Por padrão, a política de indexação usa a indexação de Hash para cadeias de caracteres, que é eficiente para consultas de igualdade, mas não para consultas de intervalo/ordem através de consultas. Se você precisar de consultas de intervalo para cadeias de caracteres, é recomendável especificar o tipo de índice de intervalo para todas as cadeias de caracteres. 
 
 ## <a name="query-execution-metrics"></a>Métricas de execução da consulta
 Você pode obter métricas detalhadas na execução da consulta, passando no cabeçalho `x-ms-documentdb-populatequerymetrics` opcional (`FeedOptions.PopulateQueryMetrics` no SDK do .NET). O valor retornado em `x-ms-documentdb-query-metrics` tem os seguintes pares chave-valor destinados para solução de problemas avançados de execução de consulta. 
@@ -274,8 +274,8 @@ Aqui estão alguns exemplos de consultas e como interpretar algumas das métrica
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre os operadores de consulta SQL e palavras-chave com suporte, consulte [Consulta SQL](sql-api-sql-query.md). 
+* Para saber mais sobre os operadores de consulta SQL e palavras-chave com suporte, consulte [Consulta SQL](how-to-sql-query.md). 
 * Para saber sobre unidades de solicitação, consulte [Unidades de solicitação](request-units.md).
-* Para saber sobre a política de indexação, consulte [Política de indexação](indexing-policies.md) 
+* Para saber sobre a política de indexação, consulte [Política de indexação](index-policy.md) 
 
 

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289012"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424093"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos v2.0 - SPAs que usam o fluxo implícito
 
@@ -34,7 +34,7 @@ Com o ponto de extremidade v2.0, você pode autenticar usuários em seus aplicat
 * Muitos servidores de autorização e provedores de identidade não são compatíveis com solicitações CORS.
 * Redirecionamentos para fora do aplicativo em páginas inteiras do navegador se tornam algo particularmente invasivo para a experiência do usuário.
 
-Para esses aplicativos (AngularJS, Ember.js, React.js etc.), o Azure AD (Azure Active Directory) é compatível com o Fluxo de concessão implícita do OAuth 2.0. O fluxo está descrito na [Especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ele permite que o aplicativo obtenha tokens do Azure AD sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente. Há algumas considerações de segurança importantes que você deve levar em conta ao usar o fluxo implícito, especificamente sobre [cliente](http://tools.ietf.org/html/rfc6749#section-10.3) e [representação de usuário](http://tools.ietf.org/html/rfc6749#section-10.3).
+Para esses aplicativos (AngularJS, Ember.js, React.js etc.), o Azure AD (Azure Active Directory) é compatível com o Fluxo de concessão implícita do OAuth 2.0. O fluxo está descrito na [Especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ele permite que o aplicativo obtenha tokens do Azure AD sem executar uma troca de credenciais de servidor back-end. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente. Há algumas considerações de segurança importantes que você deve levar em conta ao usar o fluxo implícito, especificamente sobre [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de usuário](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Se você quer usar o fluxo implícito e o Azure AD para adicionar autenticação ao seu aplicativo JavaScript, recomendamos o uso da biblioteca JavaScript de software livre, a [msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri` | recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. |
 | `scope` | obrigatório |Uma lista de escopos separados por espaços. Para o OpenID Connect, é necessário incluir o escopo `openid`, que é traduzido para a permissão "Fazer seu logon" na interface do usuário de consentimento. Como opção, convém incluir[ escopos](v2-permissions-and-consent.md) `email`ou `profile` para obter acesso a dados adicionais do usuário. Você também pode incluir outros escopos nessa solicitação a fim de solicitar o consentimento a vários recursos. |
 | `response_mode` | opcional |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. O padrão é consulta de um token de acesso, mas um fragmento caso a solicitação inclua um id_token. |
-| `state` | recomendável |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `state` | recomendável |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 | `nonce` | obrigatório |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode verificar esse valor para reduzir os ataques de reprodução de token. Normalmente, o valor é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. Necessário somente quando um id_token é solicitado. |
 | `prompt` | opcional |Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são 'login', 'none', 'select_account' e 'consent'. `prompt=login` forçará o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto - ele garantirá que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade v2.0 retornará um erro. `prompt=select_account` envia o usuário para um seletor de conta em que todas as contas lembradas na sessão serão exibidas. `prompt=consent` irá disparar a caixa de diálogo de consentimento do OAuth depois que o usuário iniciar a sessão, solicitando que ele conceda permissões ao aplicativo. |
 | `login_hint`  |opcional |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, se você souber o nome de usuário com antecedência. Geralmente, os aplicativos usarão esse parâmetro durante a reautenticação, após já terem extraído o nome de usuário de uma entrada anterior usando a declaração `preferred_username` .|
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="validate-the-idtoken"></a>Validar o id_token
 
-Apenas receber o id_token não é suficiente para autenticar o usuário; você deve também validar a assinatura do id_token e verificar as declarações no token com base nos requisitos do aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
+Apenas receber o id_token não é suficiente para autenticar o usuário; você deve também validar a assinatura do id_token e verificar as declarações no token com base nos requisitos do aplicativo. O ponto de extremidade v2.0 usa [JWTs (Tokens Web JSON)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
 Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do id_token, será necessário verificar algumas declarações: Consulte a [referência do `id_token`](id-tokens.md) para obter mais informações, incluindo [validação de tokens](id-tokens.md#validating-an-idtoken) e [informações importantes sobre substituição de chave de assinatura](active-directory-signing-key-rollover.md). Há, pelo menos, uma disponível para a maioria das linguagens e plataformas.
 

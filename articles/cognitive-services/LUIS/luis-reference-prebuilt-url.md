@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1615d7e37119f185ebbb3bd674bc006d96d72e4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030162"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446497"
 ---
 # <a name="url-entity"></a>Entidade de URL
 A entidade de URL extrai URLs com nomes de domínio ou endereços IP. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo URLs ao aplicativo. A entidade de URL é compatível somente com a cultura `en-us`. 

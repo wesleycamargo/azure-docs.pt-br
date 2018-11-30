@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052902"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444676"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um Certificado de Autoridade de Certificação personalizado no Gerenciamento de API do Azure
 
 O Gerenciamento de API do Azure permite instalar Certificados de Autoridade de Certificação no computador de dentro da raiz confiável e de repositórios de certificados intermediários. Essa funcionalidade deve ser usada se os serviços exigem um Certificado de Autoridade de Certificação personalizado.
 
 O artigo mostra como gerenciar Certificado de Autoridade de Certificação de uma instância do serviço Gerenciamento de API do Azure no portal do Azure.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Carregar um Certificado de Autoridade de Certificação
 

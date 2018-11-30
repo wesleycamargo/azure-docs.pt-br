@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983341"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443620"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto no Gerenciamento de API do Azure
+
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
   
  Os modelos desta seção permitem personalizar o conteúdo das páginas de produto no portal do desenvolvedor.  
@@ -31,7 +32,9 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 -   [Produto](#Product)  
   
 > [!NOTE]
->  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Lista de produtos  
  O modelo **Lista de produtos** permite personalizar o corpo da página de lista de produtos no portal do desenvolvedor.  
@@ -75,7 +78,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |Paginamento|Entidade de [paginação](api-management-template-data-model-reference.md#Paging).|As informações de paginação da coleção de produtos.|  
 |Filtragem|Entidade de [filtragem](api-management-template-data-model-reference.md#Filtering).|As informações de filtragem da página de lista de produtos.|  
@@ -200,12 +203,12 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|Tipo|Descrição|  
+|Propriedade|Tipo|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
 |Produto|[Produto](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|booleano|Se o usuário atual assinou esse produto.|  
 |SubscriptionState|número|O estado da assinatura. Os possíveis estados são:<br /><br /> -   `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active` – a assinatura está ativa.<br />-   `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br />-   `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br />-   `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br />-   `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
-|limites|array|Essa propriedade foi preterida e não deve ser usada.|  
+|limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
 |DelegatedSubscriptionEnabled|booleano|Se [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para essa assinatura.|  
 |DelegatedSubscriptionUrl|string|Se delegação estiver habilitada, a URL da assinatura delegada.|  
 |IsAgreed|booleano|Se o produto tiver termos, se o atual usuário concordou com os termos.|  
@@ -259,4 +262,4 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com modelos, confira [Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos](api-management-developer-portal-templates.md).
+Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

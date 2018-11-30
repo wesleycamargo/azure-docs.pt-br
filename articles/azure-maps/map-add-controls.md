@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 781e5d71637a1e86a56dee0aad3c1a5e00f1807a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2eefa639ca5f13d23c3b2048436d739a01bd0dfa
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885780"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975611"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Adicionar controles de mapa aos mapas do Azure
 
@@ -21,45 +21,45 @@ Este artigo mostra como adicionar controles de mapa a um mapa. Você também apr
 
 ## <a name="add-zoom-control"></a>Adicionar o controle de zoom
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adicionando um controle de zoom</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionando um controle de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adicionando um controle de zoom</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O primeiro bloco de código define a chave de assinatura e cria um objeto de Mapa sem pré-definir o estilo. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O controle de zoom adiciona a capacidade de aumentar e diminuir o zoom do mapa. O segundo bloco de código cria um objeto Zoom Control usando o atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol). O controle de Zoom está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
+O controle de zoom adiciona a capacidade de aumentar e diminuir o zoom do mapa. O segundo bloco de código cria um objeto Zoom Control usando o atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol). O controle de Zoom está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
 
 ## <a name="add-pitch-control"></a>Adicionar controle de densidade
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de densidade' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adicionando um controle de pitch</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionando um controle de densidade' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adicionando um controle de pitch</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O primeiro bloco de código define a chave de assinatura e cria um objeto de Mapa sem pré-definir o estilo. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O controle de afinação adiciona a capacidade de alterar o tom do mapa. O segundo bloco de código cria um objeto Controle de Pitch usando o atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. O controle de Pitch está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
+O controle de afinação adiciona a capacidade de alterar o tom do mapa. O segundo bloco de código cria um objeto Controle de Pitch usando o atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. O controle de Pitch está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
 
 ## <a name="add-compass-control"></a>Adicionar controle de bússola
 
-<iframe height='500' scrolling='no' title='Adicionando um controle de rotação' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adicionando um controle de rotação</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionando um controle de rotação' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adicionando um controle de rotação</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O primeiro bloco de código define a chave de assinatura e cria um objeto de Mapa sem pré-definir o estilo. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O segundo bloco de código cria um objeto de Controle de Bússola usando o atlas [Compass Control](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). Ele também adiciona o controle da bússola ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. O controle de Bússola está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
+O segundo bloco de código cria um objeto de Controle de Bússola usando o atlas [Compass Control](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Ele também adiciona o controle da bússola ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. O controle de Bússola está dentro do **ouvinte de eventos** do mapa para garantir que seja carregado após o carregamento total do mapa.
 
 ## <a name="a-map-with-all-controls"></a>Um mapa com todos os controles
 
-<iframe height='500' scrolling='no' title='Um mapa com todos os controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>Um mapa com todos os controles</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Um mapa com todos os controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>Um mapa com todos os controles</a> pelos Mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O primeiro bloco de código define a chave de assinatura e cria um objeto de Mapa sem pré-definir o estilo. Consulte [criar um mapa](./map-create.md) para obter instruções sobre como criar um mapa.
 
-O segundo bloco de código cria um objeto de Controle de Bússola usando o atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
+O segundo bloco de código cria um objeto de Controle de Bússola usando o atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
 
-O terceiro bloco de código cria um objeto de Controle de Zoom usando o atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
+O terceiro bloco de código cria um objeto de Controle de Zoom usando o atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
 
-O quarto bloco de código cria um objeto de Controle de Pitch usando o atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
+O quarto bloco de código cria um objeto de Controle de Pitch usando o atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa.
 
-O último bloco de código cria um objeto de Selecionador de Estilos usando o atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. Todos os objetos de controle são adicionados dentro do **ouvinte de eventos** do mapa para garantir que sejam carregados após o carregamento total do mapa.
+O último bloco de código cria um objeto de Selecionador de Estilos usando o atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) e o adiciona ao mapa usando o método [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) do mapa. Todos os objetos de controle são adicionados dentro do **ouvinte de eventos** do mapa para garantir que sejam carregados após o carregamento total do mapa.
 
 A ordem dos objetos de controle no script determina a ordem em que aparecem no mapa. Para alterar a ordem dos controles no mapa, você pode alterar a ordem deles no script.
 

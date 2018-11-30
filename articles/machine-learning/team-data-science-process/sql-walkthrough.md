@@ -2,25 +2,21 @@
 title: Criar e implantar um modelo de machine learning usando o SQL Server em uma VM do Azure | Microsoft Docs
 description: Processo e Tecnologia de Análise Avançada em ação
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 23766598b1af4e05b007e5ba844190f1fe03a660
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394367"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445456"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -71,7 +67,7 @@ Neste tutorial, demonstraremos a importação em massa paralela dos dados para u
 Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md)
-2. [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
+2. [Criar um workspace de Azure Machine Learning](../studio/create-workspace.md)
 3. [Provisione uma Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor do IPython Notebook.
    
    > [!NOTE]
@@ -555,7 +551,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
 
 ## <a name="mlmodel"></a>Criando modelos no Azure Machine Learning
-Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do Azure Machine Learning. Se ainda não tiver criado um espaço de trabalho do Machine Learning, consulte [Criar um espaço de trabalho do Azure Machine Learning](../studio/create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu workspace do Azure Machine Learning. Se ainda não tiver criado um workspace do Machine Learning, consulte [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md).
 
 1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).

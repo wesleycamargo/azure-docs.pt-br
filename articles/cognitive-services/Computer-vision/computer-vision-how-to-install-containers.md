@@ -10,16 +10,16 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634635"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
-O uso de contêineres é uma abordagem de distribuição de software em que um aplicativo ou serviço é empacotado como uma imagem de contêiner. A configuração e as dependências para o aplicativo ou serviço são incluídas na imagem de contêiner. A imagem de contêiner pode ser implantada em um host de contêiner com pouca ou nenhuma modificação. Os contêineres são isolados entre si e o sistema operacional subjacente, com um volume menor do que uma máquina virtual. Contêineres podem ser criados com base em imagens de contêiner para tarefas de curto prazo e removidos quando não são mais necessários.
+O uso de Contêineres é uma abordagem para distribuição de software na qual um aplicativo ou serviço é empacotado como uma imagem de contêiner. A configuração e as dependências do aplicativo ou serviço estão incluídas na imagem do contêiner. A imagem do contêiner pode então ser implantada em um host de contêiner com pouca ou nenhuma modificação. Os contêineres são isolados uns dos outros e do sistema operacional subjacente, com um espaço menor do que uma máquina virtual. Contêineres podem ser criados com base em imagens de contêiner para tarefas de curto prazo e removidos quando não são mais necessários.
 
 A parte Reconhecimento de Texto da Pesquisa Visual Computacional também está disponível como um contêiner do Docker. Ela permite a você detectar e extrair texto impresso das imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes e cartões de visita.  
 > [!IMPORTANT]
@@ -31,13 +31,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve cumprir os seguintes pré-requisitos antes de usar o contêiner de Reconhecimento de Texto:
 
-**Mecanismo do Docker**: você deve ter o mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para dar suporte a contêineres do Linux. Contêineres do Docker também podem ser implantados diretamente para o [Serviço de Kubernetes do Azure](/azure/aks/), [Instâncias de Contêiner do Azure](/azure/container-instances/), ou um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre a implantação do Kubernetes para o Azure Stack, confira [Implantar Kubernetes para o Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Mecanismo do Docker**: você deve ter o mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-O Docker deve ser configurado para permitir que os contêineres se conectem com o Azure e enviem dados de cobrança para ele.
+O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure.
 
-**Familiaridade com o Registro de Contêiner da Microsoft e o Docker**: você deve ter uma compreensão básica de ambos os conceitos de Registro de Contêiner da Microsoft e do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento de comandos `docker` básicos.  
+**Familiaridade com Docker e Registro de Contêiner da Microsoft**: é necessário ter uma compreensão básica de ambos os conceitos de Docker e Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
 
-Para instruções sobre conceitos básicos do Docker e de contêiner, confira [Visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
+Para uma cartilha no Docker e noções básicas sobre contêineres, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
 ### <a name="server-requirements-and-recommendations"></a>Recomendações e requisitos do servidor
 
@@ -45,10 +45,10 @@ O contêiner de Reconhecimento de Texto requer um mínimo de 1 núcleo de CPU, p
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registro de contêiner privado
 
-Você deve primeiro concluir e enviar o [formulário de Solicitação de Contêineres de Pesquisa Visual dos Serviços Cognitivos](https://aka.ms/VisionContainersPreview) para solicitar acesso ao contêiner de Reconhecimento de Texto. O formulário solicita informações sobre você, sua empresa e o cenário do usuário para o qual você usará o contêiner. Depois de enviado, a equipe dos Serviços Cognitivos do Azure analisa o formulário para verificar se você satisfaz os critérios para acesso ao registro de contêiner privado.
+Você deve primeiro concluir e enviar o [formulário de Solicitação de Contêineres de Pesquisa Visual dos Serviços Cognitivos](https://aka.ms/VisionContainersPreview) para solicitar acesso ao contêiner de Reconhecimento de Texto. O formulário solicita informações sobre você, sua empresa e o cenário do usuário para o qual você usará o contêiner. Depois de submetida, a equipe de Serviços Cognitivos do Azure revisa o formulário para garantir que você atenda aos critérios de acesso ao registro do contêiner particular.
 
 > [!IMPORTANT]
-> Você precisa usar um endereço de email associado a uma conta Microsoft (MSA) ou então uma conta do Azure AD (Azure Active Directory) no formulário.
+> Você deve usar um endereço de e-mail associado a uma Conta da Microsoft (MSA) ou uma conta do Microsoft Azure Active Directory (Azure AD) no formulário.
 
 Se a solicitação for aprovada, você receberá então um email com instruções sobre como obter suas credenciais e acessar o registro de contêiner privado.
 
@@ -59,25 +59,22 @@ Se quiser usar o contêiner de Reconhecimento de Texto, você precisará criar u
 Execute as etapas a seguir para criar e recuperar informações de um recurso do Azure:
 
 1. Crie um recurso do Azure no portal do Azure.  
-   Se quiser usar o contêiner de Reconhecimento de Texto, crie primeiro um recurso de Pesquisa Visual Computacional correspondente no portal do Azure. Para obter mais informações, confira [Início rápido: criar uma conta de serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
+   Se quiser usar o contêiner de Reconhecimento de Texto, crie primeiro um recurso de Pesquisa Visual Computacional correspondente no portal do Azure. Para obter mais informações, consulte [Início rápido: crie uma conta de serviços cognitivos no Portal do Azure](../cognitive-services-apis-create-account.md).
 
-   > [!IMPORTANT]
-   > O recurso de Pesquisa Visual Computacional precisa usar o tipo de preço F0.
-
-1. Obter a URL do ponto de extremidade e a chave de assinatura para o recurso do Azure.  
+1. Obtenha o URL do ponto de extremidade e a chave de assinatura do recurso do Azure.  
    Depois de criar o recurso do Azure, você deve usar a chave de assinatura e a URL de ponto de extremidade desse recurso para instanciar o contêiner de Reconhecimento de Texto correspondente. Você pode copiar a URL de ponto de extremidade e a chave de assinatura de, respectivamente, as páginas Início Rápido e de Chaves do recurso de Pesquisa Visual Computacional no portal do Azure.
 
 ## <a name="log-in-to-the-private-container-registry"></a>Fazer logon no registro de contêiner privado
 
-Há várias maneiras de autenticar com o registro de contêiner privado para Contêineres de serviços Cognitivos, mas o método recomendado da linha de comando é usando a [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/).
+Há várias maneiras de autenticar com o registro de contêiner particular para Contêineres de Serviços Cognitivos, mas o método recomendado a partir da linha de comandos é usando a [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/), conforme mostrado no exemplo a seguir, para fazer logon em `containerpreview.azurecr.io`, o registro de contêiner privado para Contêineres de Serviços Cognitivos. Substitua *\<username\>* pelo nome de usuário e *\<password\>* pela senha fornecida nas credenciais que você recebeu da equipe dos Serviços Cognitivos do Azure.
+Use o comando [login do docker](https://docs.docker.com/engine/reference/commandline/login/), conforme mostrado no exemplo a seguir, para efetuar login no `containerpreview.azurecr.io`, o registro do contêiner particular para Contêineres de Serviços Cognitivos. Substitua *\<nome de usuário\>* pelo nome de usuário e *\<senha\>* com a senha fornecida nas credenciais recebidas da equipe do Azure Cognitive Services.
 
 ```docker
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Se você protegeu suas credenciais em um arquivo de texto, você pode concatenar o conteúdo desse arquivo de texto, usando o comando `cat` para o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<passwordFile\>* pelo caminho e nome do arquivo de texto que contém a senha e *\<username\>* pelo nome de usuário fornecido em suas credenciais.
+Se você tiver protegido suas credenciais em um arquivo de texto, poderá concatenar o conteúdo desse arquivo de texto, usando o `cat` comando, para o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua *\<passwordFile\>* pelo caminho e nome do arquivo de texto que contém a senha e o *\<nome de usuário\>* com o nome de usuário fornecido em suas credenciais.
 
 ```docker
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
@@ -96,16 +93,16 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 Para obter uma descrição completa de marcas disponíveis para o contêiner de Reconhecimento de Texto, confira [Reconhecimento de Texto](https://go.microsoft.com/fwlink/?linkid=2018655) no Hub do Docker.
 
 > [!TIP]
-> Você pode usar o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) comando para listar as imagens de contêiner baixadas. Por exemplo, o comando a seguir lista a ID, o repositório e a tag de cada imagem de contêiner baixada, formatada como uma tabela:
+> Você pode usar o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) comando para listar as imagens de contêiner baixadas. Por exemplo, o comando a seguir lista o ID, o repositório e a tag de cada imagem do contêiner transferida por download, formatada como uma tabela:
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
 >
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Criar uma instância de um contêiner com base em uma imagem de contêiner baixada
+## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Instanciar um contêiner de uma imagem de contêiner baixada
 
-Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para criar uma instância de um contêiner de uma imagem de contêiner baixada. Por exemplo, o seguinte comando:
+Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para instanciar um contêiner a partir de uma imagem de contêiner baixada. Por exemplo, o seguinte comando:
 
 * Cria uma instância de um contêiner com base em uma imagem de contêiner de Reconhecimento de Texto
 * Aloca dois núcleos de CPU e 8 gigabytes (GB) de memória
@@ -149,12 +146,12 @@ Os contêineres de Reconhecimento de Texto enviam informações de cobrança do 
 |--------|-------------|
 | `ApiKey` | A chave de API do recurso de Pesquisa Visual Computacional usado para rastrear informações de cobrança.<br/>O valor dessa opção deve ser definido como uma chave de API para o recurso de Pesquisa Visual Computacional do Azure provisionado especificado em `Billing`. |
 | `Billing` | O ponto de extremidade do recurso de Pesquisa Visual Computacional usado para rastrear informações de cobrança.<br/>O valor dessa opção precisa ser definido para o URI de ponto de extremidade de um recurso de Pesquisa Visual Computacional do Azure provisionado.|
-| `Eula` | Indica que você aceitou a licença para o contêiner.<br/>O valor dessa opção deve ser definido para `accept`. |
+| `Eula` | Indica que você aceitou a licença para o contêiner.<br/>O valor dessa opção deve ser definido como `accept`. |
 
 > [!IMPORTANT]
-> Todas as três opções deverão ser especificadas com os valores válidos, caso contrário o contêiner não iniciará.
+> Todas as três opções devem ser especificadas com valores válidos ou o contêiner não será iniciado.
 
-Para obter mais informações sobre essas opções, confira [Configurar os contêineres](computer-vision-resource-container-config.md).
+Para obter mais informações sobre essas opções, consulte [Configurar contêineres](computer-vision-resource-container-config.md).
 
 ## <a name="summary"></a>Resumo
 
@@ -165,11 +162,11 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Imagens de contêiner são executadas no Docker.
 * Você pode usar a API REST ou o SDK para chamar as operações em contêineres de Pesquisa Visual Computacional especificando o URI do host do contêiner.
 * Você deve especificar as informações de cobrança ao criar uma instância de um contêiner.
-* ** Contêineres de Serviços Cognitivos não são licenciados para execução sem estarem conectados ao Azure para fins de medição. Os clientes precisam habilitar os contêineres comunicarem informações de cobrança com o serviço de medição em todos os momentos. Contêineres dos Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está sendo analisado) para a Microsoft.  
+* ** Os contêineres do Cognitive Services não estão licenciados para serem executados sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Examinar [Configurar contêineres](computer-vision-resource-container-config.md) para saber mais sobre as definições de configuração
+* Revise [Configurar contêineres](computer-vision-resource-container-config.md) para configurações
 * Examinar [Visão geral da Pesquisa Visual Computacional](Home.md) para saber mais sobre como reconhecer texto impresso e manuscrito  
 * Veja a [API da Pesquisa Visual Computacional](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos compatíveis com o contêiner.
 * Veja as [Perguntas frequentes](FAQ.md) para resolver problemas relacionados à funcionalidade de Pesquisa Visual Computacional.

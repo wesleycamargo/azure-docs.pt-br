@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958537"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854179"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Escrever consultas avançadas no Log Analytics
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Funções
-É possível salvar uma consulta com um alias da função para que ele possa ser referenciado por outras consultas. Por exemplo, a consulta padrão a seguir retorna todas as atualizações de segurança ausentes relatadas no último dia:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-Você pode salvar essa consulta como uma função e dar a ela um alias como _security_updates_last_day_. Em seguida, você pode usar esse alias em outra consulta para procurar atualizações de segurança necessárias relacionadas ao SQL:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Para salvar uma consulta como uma função, selecione o botão **Salvar** no portal e altere **Salvar como** para _Função_. O alias da função pode conter letras, dígitos ou sublinhados, mas deve começar com uma letra ou um sublinhado.
-
-> [!NOTE]
-> Salvar uma função é possível em consultas do Log Analytics, mas atualmente não para consultas do Application Insights.
-
 
 ## <a name="print"></a>Imprimir
 `print` retornará uma tabela com uma única coluna e uma única linha, mostrando o resultado de um cálculo. Isso geralmente é usado em casos em que é necessário um cálculo simples. Por exemplo, para localizar a hora atual em PST e adicionar uma coluna com EST:

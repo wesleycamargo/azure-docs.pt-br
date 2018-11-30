@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230862"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160963"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referências de consulta do Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Baixe as [folhas de referências de consulta tamanho A3 do Azure Cosmos DB](http
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais ajuda na gravação de consultas, leia os artigos a seguir:
-* Para consultas de API de SQL, leia [Consultar usando a API de SQL](tutorial-query-sql-api.md), [Consulta de SQL para Azure Cosmos DB](sql-api-sql-query.md) e [Referência de sintaxe SQL](sql-api-sql-query-reference.md)
+* Para consultas de API de SQL, leia [Consultar usando a API de SQL](tutorial-query-sql-api.md), [Consulta de SQL para Azure Cosmos DB](how-to-sql-query.md) e [Referência de sintaxe SQL](sql-api-sql-query-reference.md)
 * Para consultas do MongoDB, leia [Consultar usando a API do MongoDB](tutorial-query-mongodb.md) e [Suporte de API do MongoDB para sintaxe e recursos do MongoDB](mongodb-feature-support.md)
 * Para consultas de API do Gremlin, leia [Consultar usando API do Graph](tutorial-query-graph.md) e [Suporte ao grafo do Gremlin do Azure Cosmos DB](gremlin-support.md)
 * Para consultas de API de Tabela, leia [Consultar usando a API de Tabela](tutorial-query-table.md)

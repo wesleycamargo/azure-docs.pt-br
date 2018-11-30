@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345124"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422738"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -181,7 +181,7 @@ Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para obter mais informações sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |
 | expires_in |O período de tempo pelo qual o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
@@ -272,7 +272,7 @@ A resposta contém um token SAML codificado em Base64url e UTF8.
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |
 | expires_in |O período de tempo pelo qual o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |

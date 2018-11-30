@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253832"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421940"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar email usando o SendGrid do Java em uma implantação do Azure
 O exemplo a seguir mostra como você pode usar o SendGrid para enviar emails de uma página da web hospedada no Azure. O aplicativo resultante solicitará os valores de email ao usuário, conforme mostrado na captura de tela a seguir.
@@ -32,7 +32,7 @@ O email resultante será semelhante à captura de tela a seguir.
 
 Você precisará fazer o seguinte para usar o código deste tópico:
 
-1. Obter os JARs javax.mail, por exemplo, de <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Obter os JARs javax.mail, por exemplo, de <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Adicione os JARs ao seu caminho de compilação do Java.
 3. Se estiver usando o Eclipse para criar esse aplicativo Java, você poderá incluir as bibliotecas do SendGrid no seu arquivo de implantação de aplicativo (WAR) usando o recurso do assembly de implantação do Eclipse. Se não estiver usando o Eclipse para criar esse aplicativo Java, verifique se as bibliotecas estão incluídas na mesma função do Azure que o seu aplicativo Java e adicionadas ao caminho de classe do seu aplicativo.
 
@@ -45,7 +45,7 @@ O código a seguir mostra como criar um formulário da web para recuperar dados 
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ O código a seguir, que é chamado quando você preenche o formulário em emailf
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

@@ -3,7 +3,7 @@ title: Guia de planejamento e operações da Central de Segurança | Microsoft D
 description: Este documento ajuda você a planejar antes de adotar a Central de Segurança do Azure e fornece considerações sobre as operações diárias.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
-ms.author: yurid
-ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622560"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619938"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
 
-    
+
 ## <a name="planning-guide"></a>Guia de planejamento
 Este guia aborda um conjunto de etapas e tarefas que você pode seguir para otimizar seu uso da Central de Segurança com base no modelo de gerenciamento de nuvem e nos requisitos de segurança de sua organização. Para tirar total proveito da Central de Segurança, é importante entender como as pessoas ou equipes diferentes em sua organização usam o serviço para atender às necessidades de desenvolvimento e operações seguras, monitoramento, administração resposta a incidentes. As principais áreas a serem consideradas ao planejar o uso da Central de Segurança são:
 
@@ -40,7 +40,7 @@ Na próxima seção, você aprenderá a planejar cada uma dessas áreas e aplica
 
 > [!NOTE]
 > Leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md) para obter uma lista das perguntas comuns que também podem ser úteis durante as fases de design e planejamento.
-> 
+>
 
 ## <a name="security-roles-and-access-controls"></a>Funções de segurança e controles de acesso
 Dependendo do tamanho e da estrutura de sua organização, vários indivíduos e equipes podem usar a Central de Segurança para executar tarefas variadas relacionadas à segurança. No diagrama a seguir, você tem um exemplo de pessoas fictícias e suas respectivas funções e responsabilidades de segurança:
@@ -74,7 +74,7 @@ A Central de Segurança permite que essas pessoas atendam a várias responsabili
 **Sam (Analista de Segurança)**
 
 * Investiga os ataques
-* Trabalhar com o Proprietário da Carga de Trabalho de Nuvem para aplicar a correção 
+* Trabalhar com o Proprietário da Carga de Trabalho de Nuvem para aplicar a correção
 
 A Central de Segurança usa o [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md) que fornece [funções internas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure. Quando um usuário abre a Central de Segurança, ele vê apenas as informações relacionadas aos recursos aos quais tem acesso. Isso significa que o usuário recebe a função de Leitor, Colaborador ou Proprietário para a assinatura ou grupo de recursos ao qual o recurso pertence. Além dessas funções, há duas funções específicas da Central de Segurança:
 
@@ -84,9 +84,9 @@ A Central de Segurança usa o [RBAC (Controle de Acesso Baseado em Função)](..
 As funções da Central de Segurança descritas acima não têm acesso a outras áreas de serviço do Azure como Armazenamento, Web e Móveis ou Internet das Coisas.  
 
 > [!NOTE]
-> Um usuário precisa ser pelo menos o proprietário de uma assinatura, do grupo de recursos ou colaborador para ser capaz de ver a Central de Segurança no Azure. 
-> 
-> 
+> Um usuário precisa ser pelo menos o proprietário de uma assinatura, do grupo de recursos ou colaborador para ser capaz de ver a Central de Segurança no Azure.
+>
+>
 
 Usando as pessoas explicadas no diagrama anterior, o seguinte RBAC seria necessário:
 
@@ -118,8 +118,8 @@ Ao planejar o controle de acesso usando o RBAC para a Central de Segurança, com
 
 > [!NOTE]
 > Recomendamos que você atribua a função menos permissiva necessária para os usuários realizarem suas tarefas. Por exemplo, os usuários que precisarem apenas exibir informações sobre o estado de segurança dos recursos, mas não precisarem executar ações, por exemplo, aplicar recomendações ou editar políticas, deverão receber a função de Leitor.
-> 
-> 
+>
+>
 
 ## <a name="security-policies-and-recommendations"></a>Políticas de segurança e recomendações 
 Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. Na Central de Segurança, você pode definir políticas para suas assinaturas do Azure, que podem ser adaptadas para o tipo de carga de trabalho ou a confidencialidade dos dados.
@@ -151,15 +151,15 @@ Se em algum momento você quiser desabilitar a Coleta de dados, desative-a na po
 
 > [!NOTE]
 > Para obter uma lista das VMs com suporte, leia as [Perguntas frequentes (FAQ) da Central de Segurança do Azure](security-center-faq.md).
-> 
+>
 
 ### <a name="workspace"></a>Workspace
 
 Um workspace é um recurso do Azure que funciona como um contêiner para os dados. Você ou outros membros de sua organização podem usar vários workspaces para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
 
-Os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do Azure) são armazenados em um workspace do Log Analytics existente associado à sua assinatura do Azure ou em um novo workspace, levando em conta a área geográfica da VM. 
+Os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do Azure) são armazenados em um workspace do Log Analytics existente associado à sua assinatura do Azure ou em um novo workspace, levando em conta a área geográfica da VM.
 
-No portal do Azure, você pode navegar para ver uma lista de workspaces do Log Analytics, incluindo aqueles criados pela Central de Segurança do Azure. Um grupo de recursos relacionados será criado para novos workspaces. Ambos seguirão esta convenção de nomenclatura: 
+No portal do Azure, você pode navegar para ver uma lista de workspaces do Log Analytics, incluindo aqueles criados pela Central de Segurança do Azure. Um grupo de recursos relacionados será criado para novos workspaces. Ambos seguirão esta convenção de nomenclatura:
 
 * Workspace: *DefaultWorkspace-[ID da assinatura]-[localização geográfica]*
 * Grupo de recursos: *DefaultResourceGroup- [geo]*
@@ -168,7 +168,7 @@ No caso de workspaces criados pela Central de Segurança do Azure, os dados ser�
 
 > [!NOTE]
 > A Microsoft está comprometida com a proteção da privacidade e da segurança dos dados. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço. Para saber mais sobre manipulação de dados e privacidade, leia [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md).
-> 
+>
 
 ## <a name="onboarding-non-azure-resources"></a>Integração de recursos não Azure
 
@@ -195,7 +195,7 @@ Planeje acessar a opção [Inteligência contra ameaças](https://docs.microsoft
 ### <a name="monitoring-for-new-or-changed-resources"></a>Monitoramento de recursos novos ou alterados
 A maioria dos ambientes do Azure são dinâmicos, com novos recursos gerados e excluídos regularmente, com configurações ou alterações etc. A Central de Segurança ajuda a garantir que você tenha visibilidade sobre o estado de segurança desses novos recursos.
 
-Quando você adiciona novos recursos (VMs, Bancos de Dados SQL) ao seu Ambiente do Azure, a Central de Segurança descobre automaticamente esses recursos e começa a monitorar a segurança. Isso também inclui as funções Web do PaaS e as funções de trabalho. Se a Coleta de Dados estiver habilitada na [Política de Segurança](security-center-policies.md), os recursos de monitoramento adicionais serão habilitados automaticamente para as máquinas virtuais.
+Quando você adiciona novos recursos (VMs, Bancos de Dados SQL) ao seu Ambiente do Azure, a Central de Segurança descobre automaticamente esses recursos e começa a monitorar a segurança. Isso também inclui as funções Web do PaaS e as funções de trabalho. Se a Coleta de Dados estiver habilitada na [Política de Segurança](security-center-azure-policy.md), os recursos de monitoramento adicionais serão habilitados automaticamente para as máquinas virtuais.
 
 ![Principais áreas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
@@ -214,7 +214,7 @@ Convém também monitorar regularmente o estado dos recursos existentes para ide
 
 ### <a name="hardening-access-and-applications"></a>Proteção de acesso e aplicativos
 
-Como parte de suas operações de segurança, você também deve adotar medidas preventivas para restringir o acesso às VMs e controlar os aplicativos que estão em execução nas VMs. Ao bloquear o tráfego de entrada para suas VMs do Azure, você estará reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para conexão com as VMs quando necessário. Use o recurso de acesso [VMs just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para proteger o acesso a suas VMs. 
+Como parte de suas operações de segurança, você também deve adotar medidas preventivas para restringir o acesso às VMs e controlar os aplicativos que estão em execução nas VMs. Ao bloquear o tráfego de entrada para suas VMs do Azure, você estará reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para conexão com as VMs quando necessário. Use o recurso de acesso [VMs just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para proteger o acesso a suas VMs.
 
 Você pode usar [Controles de Aplicativo Adaptáveis](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para controlar quais aplicativos podem ser executados em suas VMs localizadas no Azure, o que ajuda a proteger suas VMs de malware, dentre outros benefícios. A Central de Segurança usa o aprendizado de máquina para analisar os processos em execução na VM e ajuda a aplicar regras de lista de permissões usando essa inteligência.
 
@@ -228,11 +228,11 @@ Embora este artigo não tenha a intenção de ajudá-lo a criar seu próprio pla
 
 > [!NOTE]
 > Você pode usar o [Guia de Tratamento de Incidentes de Segurança do Computador](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) do NIST (Instituto Nacional de Padrões e Tecnologia) como uma referência para ajudar a criar seu próprio plano.
-> 
+>
 
 Você pode usar os Alertas da Central de Segurança durante os estágios a seguir:
 
-* **Detectar**: identifica uma atividade suspeita em um ou mais recursos. 
+* **Detectar**: identifica uma atividade suspeita em um ou mais recursos.
 * **Avaliar**: realiza a avaliação inicial para obter mais informações sobre a atividade suspeita.
 * **Diagnosticar**: usa as etapas de correção para realizar o procedimento técnico para endereçar o problema.
 
@@ -251,9 +251,9 @@ Depois de identificar o sistema comprometido, você pode executar [guias estrat�
 No vídeo [Como Utilizar a Central de Segurança do Azure e o Microsoft Operations Management Suite para obter uma Resposta a Incidentes](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703), você pode ver algumas demonstrações que podem ajudar a entender como a Central de Segurança pode ser usada em cada um desses estágios.
 
 > [!NOTE]
-> Leia [Aproveitando a Central de Segurança do Azure para a Resposta a Incidentes](security-center-incident-response.md) para saber mais sobre como usar os recursos da Central de Segurança como auxílio durante o processo de Resposta a incidentes. 
-> 
-> 
+> Leia [Aproveitando a Central de Segurança do Azure para a Resposta a Incidentes](security-center-incident-response.md) para saber mais sobre como usar os recursos da Central de Segurança como auxílio durante o processo de Resposta a incidentes.
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a planejar a adoção da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -263,4 +263,3 @@ Neste documento, você aprendeu a planejar a adoção da Central de Segurança. 
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.
-

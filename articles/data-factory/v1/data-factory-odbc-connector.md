@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628538"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975985"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de armazenamentos de dados ODBC usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -355,33 +355,6 @@ Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para 
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura repetida de fontes relacionais
 Ao copiar dados de armazenamentos de dados relacionais, lembre-se da capacidade de repetição para evitar resultados não intencionais. No Azure Data Factory, você pode repetir a execução de uma fatia manualmente. Você também pode configurar a política de repetição para um conjunto de dados de modo que uma fatia seja executada novamente quando ocorrer uma falha. Quando uma fatia é executada novamente, seja de que maneira for, você precisa garantir que os mesmos dados sejam lidos não importa quantas vezes uma fatia seja executada. Confira [Leitura repetida de fontes relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="ge-historian-store"></a>Repositório GE Historian
-Você cria um serviço vinculado de ODBC para vincular um armazenamento de dados [GE Proficy Historian (agora GE Historian)](http://www.geautomation.com/products/proficy-historian) a um Azure Data Factory, como mostrado no seguinte exemplo:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Instale o Gateway de Gerenciamento de Dados em um computador local e registre o gateway no portal. O gateway instalado no computador local usa o driver ODBC para GE Historian para se conectar ao repositório de dados GE Historian. Portanto, instale o driver, se ele ainda não estiver instalado no computador do gateway. Veja a seção [Habilitando a conectividade](#enabling-connectivity) para obter detalhes.
-
-Antes de usar o repositório GE Historian em uma solução de Data Factory, verifique se o gateway pode se conectar ao armazenamento de dados usando instruções na próxima seção.
-
-Leia o artigo desde o início para uma visão geral detalhada do uso de dados ODBC armazena como armazenamentos de dados de origem em uma operação de cópia.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Solucionar problemas de conectividade
 Para solucionar problemas de conexão, use a guia **Diagnósticos** do **Gerenciador de Configuração do Gateway de Gerenciamento de Dados**.

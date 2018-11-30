@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 480bed08e15c41ee2a233b0d4ddf7d6f28fd3c5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 060d10133ec4b8488410140faf32053acb59cf0d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259593"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307009"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Central de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 A [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -57,7 +57,7 @@ Uma política de segurança define o conjunto de controles que são recomendados
 ![Política de segurança](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Para saber mais sobre cada **Política de prevenção** disponível, confira o artigo [Definir políticas de segurança](security-center-policies.md).
+> Para saber mais sobre cada **Política de prevenção** disponível, confira o artigo [Definir políticas de segurança](security-center-azure-policy.md).
 > 
 
 ## <a name="manage-security-recommendations"></a>Gerenciar recomendações de segurança
@@ -80,7 +80,7 @@ Depois de definir uma política de segurança, a Central de Segurança analisa o
 > 
 
 ## <a name="monitor-security-health"></a>Monitorar integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da segurança do recurso** . Quando você clicar em **Máquinas virtuais** no bloco de integridade **Segurança de recursos**, a folha **Máquinas virtuais** será aberta com recomendações para suas VMs. 
+Depois de habilitar as [políticas de segurança](security-center-azure-policy.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da segurança do recurso** . Quando você clicar em **Máquinas virtuais** no bloco de integridade **Segurança de recursos**, a folha **Máquinas virtuais** será aberta com recomendações para suas VMs. 
 
 ![Integridade da segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,7 +92,7 @@ A Central de Segurança coleta, analisa e integra automaticamente os dados de re
 Selecione um alerta de segurança para saber mais sobre o evento que disparou o alerta e, se houver, as etapas necessárias para corrigir um ataque. Os alertas de segurança são agrupados por [tipo](security-center-alerts-type.md) e data.
 
 ## <a name="monitor-security-health"></a>Monitorar integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da segurança do recurso** . Quando você clicar em **Máquinas virtuais** no bloco de integridade **Segurança de recursos**, a folha **Máquinas virtuais** será aberta com recomendações para suas VMs. 
+Depois de habilitar as [políticas de segurança](security-center-azure-policy.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos com os problemas na folha **Integridade da segurança do recurso** . Quando você clicar em **Máquinas virtuais** no bloco de integridade **Segurança de recursos**, a folha **Máquinas virtuais** será aberta com recomendações para suas VMs. 
 
 ![Integridade da segurança](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
@@ -104,7 +104,7 @@ Se você clicar nesta recomendação, você verá mais detalhes sobre as ações
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345363"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446358"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -25,7 +25,7 @@ Quando você cria uma instância de Gerenciamento de API (APIM), o Azure a atrib
 > [!WARNING]
 > Clientes que desejam usar a anexação de certificado para aumentar a segurança de seus aplicativos devem usar um nome de domínio personalizado > e o certificado que gerenciam, não o padrão. Clientes que fixam o certificado padrão > assumirão uma dependência forte das propriedades do certificado que não controlam, o que não é uma prática recomendada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar as etapas descritas neste artigo, você precisa ter:
 
@@ -36,6 +36,8 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 + Uma instância do APIM. Para obter mais informações, consulte [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Um nome de domínio personalizado que pertence a você. O nome de domínio personalizado que você deseja usar deve ser adquirido separadamente e hospedado em um servidor DNS. Este tópico não dá instruções sobre como hospedar um nome de domínio personalizado.
 + Você deve ter um certificado válido com chaves pública e privada (.PFX). A entidade ou o SAN (nome alternativo da entidade) deve corresponder ao nome de domínio (isso permite que o APIM exponha com segurança URLs sobre SSL).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Usar o portal do Azure para definir um nome de domínio personalizado
 

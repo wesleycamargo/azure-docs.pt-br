@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: cc4b165b4fa04e22c9c57547df1657a0c6fc4537
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b89830d566b36b0446836d8f32aee5756e2d0991
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498424"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
 
@@ -47,7 +47,6 @@ Considere os detalhes a seguir ao escolher uma chave de partição:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [escolhendo uma chave de partição](partitioning-overview.md#choose-partitionkey)
 * Saiba mais sobre [partições](partition-data.md)
 * Saiba mais sobre a [produtividade provisionada no DB Cosmos do Azure](request-units.md)
 * Saiba mais sobre [distribuição global no BD Cosmos do Azure](distribute-data-globally.md)

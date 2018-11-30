@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: dobett
+ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279432"
+---
 ## <a name="automatic-device-management"></a>Gerenciamento de Dispositivo Automático
 O gerenciamento automático do dispositivo no Hub IoT do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de grande frotas de dispositivos sobre a totalidade de seu ciclo de vida. Com o gerenciamento automático do dispositivo, você pode direcionar um conjunto de dispositivos com base em suas propriedades, definir uma configuração desejada e permitir que o Hub IoT atualize dispositivos sempre que entrem no escopo.  Consiste em [configurações de dispositivo automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) e [implantações automáticas do IoT Edge](../articles/iot-edge/how-to-deploy-monitor.md).
 

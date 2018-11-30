@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054343"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976342"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um pipeline com base em um agendamento
 Este artigo fornece informações sobre o gatilho de agendamento e as etapas para criar, iniciar e monitorar um gatilho de agendamento. Para outros tipos de gatilhos, consulte [Execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md).
@@ -102,7 +102,7 @@ Esta seção mostra como usar o Azure PowerShell para criar, iniciar e monitorar
     }
     ```
 
-    No trecho JSON:
+    No snippet JSON:
     - O elemento **type** do gatilho é definido como “ScheduleTrigger”.
     - O elemento **frequency** é definido como “Minutes” e o elemento **interval** é definido como 15. Portanto, o gatilho executa o pipeline a cada 15 minutos entre os horários de início e término.
     - O elemento **endTime** é uma hora após o valor do elemento **startTime**. Portanto, o gatilho executa o pipeline 15 minutos, 30 minutos e 45 minutos após a hora de início. Não se esqueça de atualizar a hora de início para a hora UTC atual e a hora de término para uma hora após a hora de início. 
@@ -315,7 +315,7 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 | **startTime** | Um valor de Data/Hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o gatilho não é iniciado antes do valor de **startTime** especificado. |
 | **endTime** | A data e a hora de início do gatilho. O gatilho não é executado após a data e a hora de término especificadas. O valor da propriedade não pode estar no passado. Essa propriedade é opcional. |
 | **timeZone** | O fuso horário. Atualmente, há suporte apenas para o fuso horário UTC. |
-| **recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência é compatível com os elementos **frequency**, **interva**l, **endTime**, **count** e **schedule**. Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
+| **recurrence** | Um objeto de recorrência que especifica as regras de recorrência para o gatilho. O objeto de recorrência dá suporte aos elementos **frequency**, **interval**l, **endTime**, **count** e **schedule**. Quando um objeto de recorrência é definido, o elemento **frequency** é obrigatório. Os outros elementos do objeto de recorrência são opcionais. |
 | **frequency** | A unidade de frequência com a qual o gatilho se repete. Os valores com suporte incluem “minute”, “hour”, “day”, “week” e “month”. |
 | **interval** | Um inteiro positivo que indica o intervalo para o valor de **frequência**, que determina a frequência com a qual o gatilho é executado. Por exemplo, se **interval** for 3 e **frequency** é "week", o gatilho é repetido a cada 3 semanas. |
 | **schedule** | O agendamento de recorrência do gatilho. Um gatilho com um valor de **frequency** especificado altera sua recorrência com base em um agendamento de recorrência. A propriedade **schedule** contém modificações para a recorrência que se baseiam em minutos, horas, dias da semana, dias do mês e número da semana.
@@ -325,10 +325,10 @@ A seguinte tabela fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | type | Obrigatório | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Cadeia de caracteres | sim | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | sim | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | Cadeia de caracteres | SIM | Nenhum | Data e hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Objeto | SIM | Nenhum | Objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Número | Não  | 1 | 1 a 1.000 | `"interval":10` |
-| **endTime** | Cadeia de caracteres | sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | Cadeia de caracteres | SIM | Nenhum | Um valor de Data/Hora que representa uma hora no futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objeto | Não  | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime

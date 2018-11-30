@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: bcbe4afe5ca5abf9a709f5abbcdffa474c44702c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612115"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163193"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo
 
-O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, o Azure Cosmos DB indexa automaticamente e com eficiência todos os dados ingeridos. Isso permite consultas [SQL](sql-api-sql-query.md) (e [JavaScript](programming.md)) rápidas e consistentes em qualquer tipo de dados. 
+O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, o Azure Cosmos DB indexa automaticamente e com eficiência todos os dados ingeridos. Isso permite consultas [SQL](how-to-sql-query.md) (e [JavaScript](programming.md)) rápidas e consistentes em qualquer tipo de dados. 
 
 Este artigo descreve o custo do Azure Cosmos DB para operações simples de gravação e leitura quando ele é usado como um repositório de chaves/valores. Operações de gravação incluem inserções, substituições, exclusões e upserts de documentos. Além de garantir uma 99,99% SLA de disponibilidade para todas as contas de região única e todas as contas de várias regiões com consistência reduzida e 99,999% disponibilidade de leitura em todas as contas de banco de dados de várias regiões, o Azure Cosmos DB oferece garantidamente < latência de 10 ms para leituras e < latência de 15 ms para gravações (indexadas), respectivamente, no 99º percentual. 
 

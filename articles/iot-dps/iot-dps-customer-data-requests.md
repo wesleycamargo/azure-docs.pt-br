@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666930"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584138"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
 
@@ -39,9 +39,9 @@ Para obter mais informações, confira [Como gerenciar registros de dispositivos
 
 Também é possível executar operações de exclusão para ambos os tipos de registros usando APIs REST:
 
-* Para excluir informações de registro referentes a um único dispositivo, use [Registro de Dispositivo – Excluir](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Para excluir informações de registro referentes a um grupo de dispositivos, use [Grupo de Registros de Dispositivos – Excluir](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Para excluir informações sobre os dispositivos provisionados, use [Estado do Registro – Excluir Estado do Registro](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Para excluir informações de registro referentes a um único dispositivo, use [Registro de Dispositivo – Excluir](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Para excluir informações de registro referentes a um grupo de dispositivos, use [Grupo de Registros de Dispositivos – Excluir](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Para excluir informações sobre os dispositivos provisionados, use [Estado do Registro – Excluir Estado do Registro](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
@@ -53,9 +53,9 @@ Para obter mais informações sobre como gerenciar registros, confira [Como gere
 
 Também é possível executar operações de exportação para ambos os tipos de registros usando APIs REST:
 
-* Para exportar informações de registro referentes a um único dispositivo, use [Registro de Dispositivo – Obter](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Para exportar informações de registro referentes a um grupo de dispositivos, use [Registro de Dispositivo – Obter](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-* Para exportar informações sobre os dispositivos já provisionados, use [Estado do Registro – Obter Estado do Registro](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* Para exportar informações de registro referentes a um único dispositivo, use [Registro de Dispositivo – Obter](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Para exportar informações de registro referentes a um grupo de dispositivos, use [Registro de Dispositivo – Obter](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Para exportar informações sobre os dispositivos já provisionados, use [Estado do Registro – Obter Estado do Registro](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
 > Quando você usa os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como logs gerados pelo sistema. Alguns logs gerados pelo sistema do Serviço de Provisionamento de Dispositivos não são acessíveis nem exportáveis por administradores de locatários. Esses logs constituem ações reais conduzidas no serviço e dados de diagnóstico relacionados a dispositivos individuais.

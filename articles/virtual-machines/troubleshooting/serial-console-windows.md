@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515855"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335650"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Console serial da máquina virtual para Windows
 
@@ -133,7 +133,7 @@ Por padrão, todas as assinaturas têm acesso de console serial habilitado para 
 > Para habilitar ou desabilitar o console serial para uma assinatura, você precisa ter permissões de gravação para a assinatura. Essas permissões incluem, mas não estão limitadas a, funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
 
 ### <a name="subscription-level-disable"></a>Desabilitação no nível da assinatura
-O console serial pode ser desativado para uma assinatura inteira por meio da [chamada Disable Console REST API](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Você pode usar a função **Try It** disponível nesta página de documentação da API para desativar e ativar o console serial para uma assinatura. Digite seu ID de assinatura para **subscriptionId**, digite "default" para **padrão** e, em seguida, selecione **Executar**. Comandos da CLI do Azure ainda não estão disponíveis.
+O console serial pode ser desativado para uma assinatura inteira por meio da [chamada Disable Console REST API](/rest/api/serialconsole/console/disableconsole). Você pode usar a função **Try It** disponível nesta página de documentação da API para desativar e ativar o console serial para uma assinatura. Digite seu ID de assinatura para **subscriptionId**, digite "default" para **padrão** e, em seguida, selecione **Executar**. Comandos da CLI do Azure ainda não estão disponíveis.
 
 ![Experimente o API REST](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52439972"
+---
 1. Abra o projeto no Android Studio.
 
 2. No **Gerenciador de Projetos**, no Android Studio, abra o arquivo `ToDoActivity.java` e adicione as seguintes instruções de importação:
@@ -80,7 +92,7 @@
     }
     ```
 
-6. Para garantir que o redirecionamento funcione conforme o esperado, adicione o seguinte trecho de `RedirectUrlActivity` a `AndroidManifest.xml`:
+6. Para garantir que o redirecionamento funcione conforme o esperado, adicione o seguinte snippet de `RedirectUrlActivity` a `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">

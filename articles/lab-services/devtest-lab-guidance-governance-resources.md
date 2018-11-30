@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740361"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262067"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governança da infraestrutura do Azure DevTest Labs – Recursos
 Este artigo aborda o alinhamento e o gerenciamento de recursos para o DevTest Labs em sua organização. 
@@ -35,7 +35,7 @@ Antes de uma organização começa a usar o Azure para desenvolvimento de aplica
 - A segmentação é necessária para separar os ambientes de desenvolvimento e produção? 
 - Quais controles são introduzidos para facilidade de gerenciamento, estabilidade e crescimento de longo prazo?
 
-A **primeira prática recomendada** é examinar a taxonomia do Azure das organizações, em que são detalhadas as divisões entre as assinaturas de desenvolvimento e aquelas de produção. No diagrama a seguir, a taxonomia sugerida permite uma separação lógica entre os ambientes de desenvolvimento/teste e os de produção. Com essa abordagem, uma organização pode introduzir códigos de cobrança para acompanhar os custos associados com cada ambiente separadamente. Para obter mais informações, confira [Governança de assinatura prescritiva](/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, você pode usar as [marcas do Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar os recursos para fins de faturamento e acompanhamento.
+A **primeira prática recomendada** é examinar a taxonomia do Azure das organizações, em que são detalhadas as divisões entre as assinaturas de desenvolvimento e aquelas de produção. No diagrama a seguir, a taxonomia sugerida permite uma separação lógica entre os ambientes de desenvolvimento/teste e os de produção. Com essa abordagem, uma organização pode introduzir códigos de cobrança para acompanhar os custos associados com cada ambiente separadamente. Para obter mais informações, confira [Governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, você pode usar as [marcas do Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar os recursos para fins de faturamento e acompanhamento.
 
 A **segunda prática recomendada** é habilitar a assinatura do DevTest no Azure Enterprise Portal. Ele permite que uma organização execute sistemas operacionais cliente que não estão normalmente disponíveis em uma assinatura do Azure Enterprise. Em seguida, use o software empresarial, no qual você paga somente pela computação e não se preocupa com o licenciamento. Ele garante que a cobrança por serviços designados, incluindo imagens da galeria em IaaS como o Microsoft SQL Server, seja baseada somente no consumo. Detalhes sobre a assinatura do Azure DevTest podem ser encontrados [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para os clientes do EA (Contrato Enterprise) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes com pagamento conforme o uso.
 

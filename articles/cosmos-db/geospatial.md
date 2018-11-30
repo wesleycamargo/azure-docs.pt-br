@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961901"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284482"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Use dados de localização Geoespacial e GeoJSON com a conta da API do Azure Cosmos DB SQL
 
@@ -151,7 +151,7 @@ Se você não tiver as informações de latitude e de longitude, mas se tiver os
 Agora que já vimos como inserir dados geoespaciais, vamos dar uma olhada em como consultar esses dados usando o Azure Cosmos DB com o SQL e o LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Funções internas espaciais do SQL
-O Azure Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. Para obter mais informações sobre o conjunto completo de funções internas na linguagem SQL, consulte [Query Azure Cosmos DB](sql-api-sql-query.md).
+O Azure Cosmos DB dá suporte às funções internas do OGC (Open Geospatial Consortium) a seguir em consultas geoespaciais. Para obter mais informações sobre o conjunto completo de funções internas na linguagem SQL, consulte [Query Azure Cosmos DB](how-to-sql-query.md).
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ Agora que você aprendeu a usar o suporte geoespacial no Azure Cosmos DB, em seg
 
 * Começar a codificar com os [exemplos de código geoespacial .NET no GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Experimente as consultas geoespaciais no [Espaço de Consulta do Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
-* Saiba mais sobre a [Consulta do Azure Cosmos DB](sql-api-sql-query.md)
-* Saiba mais sobre as [Políticas de indexação do Azure Cosmos DB](indexing-policies.md)
+* Saiba mais sobre a [Consulta do Azure Cosmos DB](how-to-sql-query.md)
+* Saiba mais sobre as [Políticas de indexação do Azure Cosmos DB](index-policy.md)
 

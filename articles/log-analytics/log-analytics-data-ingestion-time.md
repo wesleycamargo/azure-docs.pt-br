@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955227"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334543"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
 O Azure Log Analytics é um serviço de dados de alta escala no Azure Monitor que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Geralmente, há dúvidas sobre o tempo necessário para que os dados fiquem disponíveis no Log Analytics depois de serem coletados. Este artigo explica os diferentes fatores que afetam essa latência.
@@ -40,7 +40,7 @@ Os detalhes sobre a latência diferente introduzida nesse processo são descrito
 Os agentes e as soluções de gerenciamento usam estratégias diferentes para coletar dados de uma máquina virtual, o que pode afetar a latência. Alguns exemplos específicos incluem os seguintes:
 
 - Os eventos do Windows, os eventos de syslog e as métricas de desempenho são coletados imediatamente. Os contadores de desempenho do Linux são sondados em intervalos de 30 segundos.
-- Os logs do IIS e os logs personalizados são coletados quando seu carimbo de data/hora é alterado. Para os logs do IIS, isso é influenciado pelo [agendamento de sobreposição configurado no IIS](log-analytics-data-sources-iis-logs.md). 
+- Os logs do IIS e os logs personalizados são coletados quando seu carimbo de data/hora é alterado. Para os logs do IIS, isso é influenciado pelo [agendamento de sobreposição configurado no IIS](../azure-monitor/platform/data-sources-iis-logs.md). 
 - A solução Replicação do Active Directory realiza sua avaliação a cada cinco dias, enquanto a solução Avaliação do Active Directory realiza uma avaliação semanal da infraestrutura do Active Directory. O agente coletará esses logs somente quando a avaliação for concluída.
 
 ### <a name="agent-upload-frequency"></a>Frequência de upload de agente
@@ -61,7 +61,7 @@ Veja a documentação de cada solução para determinar sua frequência de colet
 Depois que os registros de log são ingeridos no pipeline do Log Analytics, eles são gravados em um armazenamento temporário para garantir o isolamento do locatário e garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionamento de novos tipos de dados personalizados
-Quando um novo tipo de dados personalizados é criado com base em um [log personalizado](../log-analytics/log-analytics-data-sources-custom-logs.md) ou na [API do Coletor de Dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contêiner de armazenamento dedicado. Essa é uma sobrecarga única que ocorre apenas na primeira aparência desse tipo de dados.
+Quando um novo tipo de dados personalizados é criado com base em um [log personalizado](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) ou na [API do Coletor de Dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contêiner de armazenamento dedicado. Essa é uma sobrecarga única que ocorre apenas na primeira aparência desse tipo de dados.
 
 ### <a name="surge-protection"></a>Proteção contra aumento
 A principal prioridade do Log Analytics é garantir que nenhum dado do cliente seja perdido e, portanto, o sistema tem uma proteção interna para aumentos de dados. Isso inclui buffers para garantir que, mesmo sob carga imensa, o sistema continue funcionando. Sob carga normal, esses controles adicionam menos de um minuto, mas em condições extremas e falhas, eles podem adicionar tempo significativo, ao mesmo tempo que garantem que os dados estão seguros.

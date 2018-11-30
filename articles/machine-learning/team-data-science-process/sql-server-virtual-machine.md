@@ -2,25 +2,21 @@
 title: Explorar dados na máquina virtual do SQL Server no Azure | Microsoft Docs
 description: Explorar dados e gerar recursos em uma máquina virtual do SQL Server no Azure
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: deguhath
-ms.openlocfilehash: 350e634ce87e2f61352beb194b4468828aea60c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 73e56497834344e0e41d89313086c051683b4fbb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394945"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442550"
 ---
 # <a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.

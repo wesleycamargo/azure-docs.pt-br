@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625057"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632680"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Integrar soluções de Gerenciamento de Atualizações, Controle de Alterações e Inventário
 
@@ -81,7 +81,7 @@ Clique em **+Adicionar VMs do Azure**, selecione uma ou mais VMs na lista. Máqu
 
 Computadores que não estão no Azure precisam ser adicionados manualmente. Na sua conta de Automação do Azure, selecione **Inventário** ou **Controle de alterações** em **GERENCIAMENTO DE CONFIGURAÇÃO** ou **Gerenciamento de atualizações** em **GERENCIAMENTO DE ATUALIZAÇÕES**.
 
-Clique em **Adicionar computador não Azure**. Esta ação abre uma nova janela do navegador com as instruções [sobre como instalar e configurar o Microsoft Monitoring Agent na máquina](../log-analytics/log-analytics-agent-overview.md) para que a máquina possa começar a gerar relatórios para a solução. Se você estiver integrando uma máquina que atualmente é gerenciada pelo System Center Operations Manager, um novo agente não é necessário, as informações do espaço de trabalho são inseridas no agente existente.
+Clique em **Adicionar computador não Azure**. Esta ação abre uma nova janela do navegador com as instruções [sobre como instalar e configurar o Microsoft Monitoring Agent na máquina](../azure-monitor/platform/log-analytics-agent.md) para que a máquina possa começar a gerar relatórios para a solução. Se você estiver integrando uma máquina que atualmente é gerenciada pelo System Center Operations Manager, um novo agente não é necessário, as informações do espaço de trabalho são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Integrar computadores no workspace
 

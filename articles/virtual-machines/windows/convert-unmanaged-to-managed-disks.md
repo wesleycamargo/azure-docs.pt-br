@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 6e7d4a0ab6d79e1615f921965fb3d77998eaf90c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 26ddc1df8353a8a8b0e0c54a0c906c8d8b6b45b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39000940"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495334"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não gerenciados em Managed Disks
 
@@ -105,10 +105,10 @@ Antes de converter, verifique se todas as extensões de VM estão no estado 'Pro
 Também é possível converter discos não gerenciados em discos gerenciados usando o portal do Azure.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione a VM da lista de VMs no portal.
+2. Selecione a VM na lista de VMs no portal.
 3. Na folha da VM, selecione **Discos** no menu.
 4. Na parte superior da folha **Discos**, selecione **Migrar para discos gerenciados**.
-5. Se sua VM estiver em um conjunto de disponibilidade, haverá um aviso na folha **Migrar para discos gerenciados** informando que você precisa converter o conjunto de disponibilidade primeiro. O aviso deve ter um link "é possível clicar para converter o conjunto de disponibilidade". Quando o conjunto de disponibilidade for convertido ou se sua VM não estiver em um conjunto de disponibilidade, clique em **Migrar** para iniciar o processo de migração de seus discos para discos gerenciados. 
+5. Se sua VM estiver em um conjunto de disponibilidade, haverá um aviso na folha **Migrar para discos gerenciados** informando que você precisa converter o conjunto de disponibilidade primeiro. O aviso deve ter um link em que você pode clicar para converter o conjunto de disponibilidade. Quando o conjunto de disponibilidade for convertido ou se sua VM não estiver em um conjunto de disponibilidade, clique em **Migrar** para iniciar o processo de migração de seus discos para discos gerenciados. 
 
 A VM será interrompida e reiniciada após a conclusão da migração.
 

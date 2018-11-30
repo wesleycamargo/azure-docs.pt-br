@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ea014aae49ec322e9a1f1222c881885b84e87584
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008064"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311765"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure
 A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recurso do Azure: VMs (máquinas virtuais), rede, SQL e dados, e aplicativos.
@@ -62,7 +62,7 @@ Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 |Data Lake Store|15|Habilitar a criptografia em repouso do Data Lake Store|Habilite Transparent Data Encryption para proteger os dados em repouso no seu Data Lake Store. A criptografia em repouso é transparente, o que significa que o Data Lake Store criptografa automaticamente os dados antes de persistir e descriptografa os dados antes de recuperá-los. Você não precisa fazer nenhuma alteração nos aplicativos e serviços que interagem com o Data Lake Store para comportar a criptografia. A criptografia em repouso minimiza o risco de perda de dados por roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
 |Conta de armazenamento|15|Habilitar a criptografia para a Conta de Armazenamento do Microsoft Azure|Habilite a Criptografia do Serviço de Armazenamento do Microsoft Azure para dados em repouso. A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação. Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo.|
 |Data Lake Analytics|5|Habilitar logs de diagnóstico no Data Lake Analytics|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
-|Data Lake Store|5|Habilitar logs de diagnóstico no Azure Data Lake Store|Habilite os logs e retenha-os por até um ano. Isso permitirá que você recrie trilhas de atividade para fins de investigação quando ocorrer um incidente de segurança ou sua rede estiver comprometida. |
+|Data Lake Store|5|Habilitar logs de diagnóstico no Azure Data Lake Store|Habilite os logs e retenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |SQL|30|Corrigir vulnerabilidades em seus bancos de dados SQL|A avaliação de vulnerabilidade do SQL verifica a presença de eventuais vulnerabilidades de segurança em seu banco de dados e expõe quaisquer desvios das práticas recomendadas como configurações incorretas, permissões excessivas e dados confidenciais desprotegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o desenvolvimento da segurança de seu banco de dados.|
 |SQL|20|Provisionar um administrador do Microsoft Azure Active Directory para o servidor SQL|Provisione um administrador do Microsoft Azure Active Directory para o servidor SQL para habilitar a autenticação do Microsoft Azure Active Directory. A autenticação do Microsoft Azure Active Directory permite o gerenciamento simplificado de permissões e o gerenciamento centralizado de identidades dos usuários de banco de dados e de outros serviços da Microsoft.|
 |Conta de armazenamento|15|Desabilitar o acesso de rede irrestrito à conta de armazenamento|Audite o acesso irrestrito à rede nas configurações de firewall da conta de armazenamento. Em vez disso, configure as regras de rede de forma que somente aplicativos das redes permitidas podem acessar a conta de armazenamento. Para permitir conexões de clientes específicos locais ou da internet, o acesso pode ser concedido para o tráfego de redes virtuais do Azure específicas ou para intervalos de endereços IP públicos da internet.|
@@ -79,6 +79,6 @@ Para saber mais sobre as recomendações que se aplicam aos outros tipos de recu
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 4e0ee7eca3c843df46ad1f4e92757c9bcc3755ff
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 73f6790db2552123d81b779a472c13f159bca35c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685728"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165655"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação de desastre de VMs VMware para o Azure usando o PowerShell
 
@@ -94,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Use a chave de registro do cofre baixada e siga as etapas nos artigos fornecidos abaixo para concluir a instalação e o registro do Servidor de Configuração.
-   - [Escolher as metas de proteção](vmware-azure-set-up-source.md#choose-protection-goals)
+   - [Escolher as metas de proteção](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Configure o ambiente de origem](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Definir o contexto do cofre

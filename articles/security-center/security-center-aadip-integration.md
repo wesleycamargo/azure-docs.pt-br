@@ -3,7 +3,7 @@ title: Conectar o Azure Active Directory Identity Protection à Central de Segur
 description: Saiba como a Central de Segurança do Azure integra-se ao Azure Active Directory Identity Protection.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2018
-ms.author: yurid
-ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226353"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635298"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Conexão do Azure Active Directory Identity Protection à Central de Segurança do Azure
 Este documento ajuda você a configurar a integração entre o Azure AD (Active Directory) Identity Protection e a Central de Segurança do Azure.
 
 ## <a name="why-connect-azure-ad-identity-protection"></a>Por que conectar o Azure AD Identity Protection?
-O [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) ajuda a detectar possíveis vulnerabilidades que afetam as identidades da sua organização. Quando conectado, é possível exibir alertas do Azure AD Identity Protection na Central de Segurança. Essa integração permite que você exiba, correlacione e investigue todos os alertas de segurança relacionados às suas cargas de trabalho de nuvem híbrida na Central de Segurança. 
+O [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) ajuda a detectar possíveis vulnerabilidades que afetam as identidades da sua organização. Quando conectado, é possível exibir alertas do Azure AD Identity Protection na Central de Segurança. Essa integração permite que você exiba, correlacione e investigue todos os alertas de segurança relacionados às suas cargas de trabalho de nuvem híbrida na Central de Segurança.
 
 ## <a name="how-do-i-configure-this-integration"></a>Como faço para configurar essa integração?
 Se a sua organização já estiver usando o Azure AD Identity Protection, siga as etapas abaixo para configurar a integração:
@@ -42,13 +42,13 @@ Se a sua organização já estiver usando o Azure AD Identity Protection, siga a
 
 5. Clique em **Conectar**.
 
-Depois de concluir essa configuração, a solução do Azure AD Identity Protection aparece na página **Soluções de Segurança** em **Soluções conectadas**. 
+Depois de concluir essa configuração, a solução do Azure AD Identity Protection aparece na página **Soluções de Segurança** em **Soluções conectadas**.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a conectar-se do Azure AD Identity Protection à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 * [Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure](security-center-ata-integration.md)
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.
@@ -56,5 +56,3 @@ Neste documento, você aprendeu a conectar-se do Azure AD Identity Protection à
 - [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md) – saiba como os dados são gerenciados e protegidos na Central de Segurança do Azure.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
-
-

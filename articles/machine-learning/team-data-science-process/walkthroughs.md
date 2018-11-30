@@ -2,25 +2,21 @@
 title: Passo a passo de execução do Processo de Ciência de Dados de Equipe no Azure | Microsoft Docs
 description: Como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253560"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495900"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
@@ -32,7 +28,6 @@ Estes **passo a passos completos** demonstram as etapas do Processo de Ciência 
 Confira aqui descrições resumidas do que esses exemplos de passo a passo fornecem em suas respectivas plataformas:
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) Esses tutoriais e exemplos passo a passo mostram como criar projetos estruturados de Ciência de dados de equipe com o Azure Machine Learning Workbench para realizar processamento de idioma natural e classificação.
 - [Passo a passo do HDInsight Spark usando PySpark e Scala](walkthroughs-spark.md) Esses passo a passos usam PySpark e Scala em um cluster Azure Spark para executar a análise preditiva.
 - [Passo a passos do HDInsight Hadoop usando Hive](walkthroughs-hdinsight-hadoop.md) Estes passo a passos usam Hive com um cluster HDInsight Hadoop para realizar análise preditiva.
 - [Passo a passo do Azure Data Lake usando U-SQL](walkthroughs-azure-data-lake.md) Estes passo a passos usam U-SQL com o Azure Data Lake para realizar a análise preditiva.

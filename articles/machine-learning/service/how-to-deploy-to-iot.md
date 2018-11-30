@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091616"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709994"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Prepare-se para implantar modelos no IoT Edge
 
@@ -27,9 +27,9 @@ Antes de implantar um modelo em um dispositivo de borda, use as etapas deste doc
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
-* Um espaço de trabalho do serviço de aprendizado de máquina do Azure. Para criar um, use as etapas no documento [Introdução ao serviço de aprendizado de máquina do Azure](quickstart-get-started.md).
+* Um workspace de serviço do Azure Machine Learning. Para criar um, use as etapas no documento [Introdução ao serviço de aprendizado de máquina do Azure](quickstart-get-started.md).
 
 * Um ambiente de desenvolvimento. Para obter mais informações, consulte o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
 
@@ -45,7 +45,7 @@ Para aprender como registrar seu dispositivo e instalar o tempo de execução da
 
 Os módulos do Azure IoT Edge se baseiam em imagens de contêiner. Para implantar seu modelo em um dispositivo IoT Edge, use as etapas a seguir para registrar seu modelo em um espaço de trabalho do Serviço de Aprendizado de Máquina do Azure e criar uma imagem do Docker. 
 
-1. Inicialize o espaço de trabalho e carregue o arquivo config.json:
+1. Inicialize o workspace e carregue o arquivo config.json:
 
     ```python
     from azureml.core  import Workspace
@@ -54,7 +54,7 @@ Os módulos do Azure IoT Edge se baseiam em imagens de contêiner. Para implanta
     ws  = Workspace.from_config()
     ```    
 
-1. Registre o modelo no seu espaço de trabalho. Substitua o texto padrão pelo caminho, nome, tags e descrição do modelo:
+1. Registre o modelo no seu workspace. Substitua o texto padrão pelo caminho, nome, tags e descrição do modelo:
 
     > [!IMPORTANT]
     > Se você usou o Aprendizado de Máquina do Azure para treinar o modelo, ele já pode estar registrado no espaço de trabalho. Nesse caso, ignore esta etapa. Para ver uma lista de modelos registrados com este espaço de trabalho, use `Model.list(ws)`.

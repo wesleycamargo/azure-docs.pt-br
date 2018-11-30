@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2018
 ms.author: spelluru
-ms.openlocfilehash: 523394010058ace7f61da2196a110fd3e6db610c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1f796f7dc0a5ca4e1143f07303c218117e745e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739848"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314312"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagem: PEPS (primeiro a entrar, primeiro a sair) 
 
 As sessões do Barramento de Serviço do Microsoft Azure permitem o tratamento conjunto e ordenado de sequências não associadas de mensagens relacionadas. Para obter uma garantia de PEPS no Barramento de Serviço, use as Sessões. O Barramento de Serviço não é prescritivo em relação à natureza da relação entre as mensagens e também não define um modelo específico para determinar onde uma sequência de mensagem começa ou termina.
 
 > [!NOTE]
-> A camada básica do Barramento de Serviço não dá suporte a sessões. As camadas Standard e Premium dão suporte a sessões. Para obter mais informações, consulte [Preços de Barramento de Serviço](/pricing/details/service-bus/).
+> A camada básica do Barramento de Serviço não dá suporte a sessões. As camadas Standard e Premium dão suporte a sessões. Para obter mais informações, consulte [Preços de Barramento de Serviço](service-bus-pricing-billing.md).
 
 Qualquer remetente pode criar uma sessão ao enviar mensagens em uma fila ou tópico definindo a propriedade [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) como algum identificador definido pelo aplicativo que é exclusivo para a sessão. No nível do protocolo AMQP 1.0, esse valor é mapeado para a propriedade *group-id*.
 

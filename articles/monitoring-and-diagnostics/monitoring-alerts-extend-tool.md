@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614933"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632986"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 O recurso de alertas no Azure Log Analytics está sendo substituído por Alertas do Azure. Como parte dessa transição, os alertas que você configurou originalmente no Log Analytics serão estendidos para o Azure. Caso não queira aguardar até que os alertas sejam movidos automaticamente para o Azure, você poderá iniciar o processo:
@@ -150,7 +150,7 @@ Se a solicitação POST tiver êxito, ela retornará um status HTTP 200 OK, junt
 }
 ```
 
-Essa resposta indica que os alertas foram estendidos com êxito para os Alertas do Azure. A propriedade de versão serve apenas para verificar se os alertas foram estendidos para o Azure e não têm relação com a [API de Pesquisa do Log Analytics](../log-analytics/log-analytics-api-alerts.md). Quando os alertas são estendidos ao Azure com êxito, todos os endereços de email fornecidos com a solicitação POST serão enviados para o relatório. Se todos os alertas no workspace especificado já estiverem agendados para serem estendidos, a resposta à solicitação POST será de que a tentativa foi proibida (para o código de status 403). Para exibir qualquer mensagem de erro ou reconhecer se o processo está paralisado, você poderá enviar para a solicitação GET. Se houver uma mensagem de erro, ela será retornada junto com as informações de resumo.
+Essa resposta indica que os alertas foram estendidos com êxito para os Alertas do Azure. A propriedade de versão serve apenas para verificar se os alertas foram estendidos para o Azure e não têm relação com a [API de Pesquisa do Log Analytics](../azure-monitor/platform/api-alerts.md). Quando os alertas são estendidos ao Azure com êxito, todos os endereços de email fornecidos com a solicitação POST serão enviados para o relatório. Se todos os alertas no workspace especificado já estiverem agendados para serem estendidos, a resposta à solicitação POST será de que a tentativa foi proibida (para o código de status 403). Para exibir qualquer mensagem de erro ou reconhecer se o processo está paralisado, você poderá enviar para a solicitação GET. Se houver uma mensagem de erro, ela será retornada junto com as informações de resumo.
 
 ```json
 {

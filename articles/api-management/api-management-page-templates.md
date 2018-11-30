@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27744990"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441903"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configura o respectivo conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como o [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), bem como um conjunto fornecido de [Recursos de cadeia de caracteres](api-management-template-resources.md#strings), [Recursos do Glyph](api-management-template-resources.md#glyphs) e [Controles de página](api-management-page-controls.md) localizados, você tem grande flexibilidade para configurar o conteúdo das páginas, conforme a necessidade, usando esses modelos.  
@@ -34,6 +34,8 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 > [!NOTE]
 >  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="SignIn"></a> Entrar  
  O modelo **entrar** permite personalizar a página de entrada no portal do desenvolvedor.  
@@ -224,13 +226,13 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 ### <a name="data-model"></a>Modelo de dados  
   
-|Propriedade|type|DESCRIÇÃO|  
+|Propriedade|Tipo|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|referenceCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
-|errorCode|cadeia de caracteres|Código gerado se esta página foi exibida devido a um erro interno.|  
-|emailBody|cadeia de caracteres|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
-|requestedUrl|cadeia de caracteres|A URL solicitada quando a página não foi encontrada.|  
-|referrerUrl|cadeia de caracteres|A URL de referência para a URL solicitada.|  
+|referenceCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
+|errorCode|string|Código gerado se esta página foi exibida devido a um erro interno.|  
+|emailBody|string|Corpo de email gerado se esta página foi exibida devido a um erro interno.|  
+|requestedUrl|string|A URL solicitada quando a página não foi encontrada.|  
+|referrerUrl|string|A URL de referência para a URL solicitada.|  
   
 ### <a name="sample-template-data"></a>Amostra de dados do modelo  
   

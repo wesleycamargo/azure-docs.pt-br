@@ -15,20 +15,20 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235984"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313234"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar o Azure Active Directory a logs de auditoria
 
-Eventos de auditoria do Azure AD (Azure Active Directory) ajudam a identificar ações privilegiadas que ocorreram no Azure Active Directory. Você pode ver os tipos de eventos que você pode acompanhar examinando os [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+Eventos de auditoria do Azure AD (Azure Active Directory) ajudam a identificar ações privilegiadas que ocorreram no Azure Active Directory. Você pode ver os tipos de eventos que você pode acompanhar examinando os [eventos de relatório de auditoria do Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 
 >[!IMPORTANT]
-> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer, veja a postagem [Usar o monitor do Azure para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> O recurso Integração de log do Azure será preterido em 01/06/2019. Os downloads de AzLog serão desabilitados em 27 de junho de 2018. Para obter diretrizes sobre o que fazer para prosseguir com a análise da postagem [Usar o Azure Monitor para a integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Etapas para integrar os logs de auditoria do Azure Active Directory
 

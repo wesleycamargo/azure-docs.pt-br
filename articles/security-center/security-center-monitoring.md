@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2827461ee78be8d8976ec23e59d489213eb94e31
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248853"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316014"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Fortaleça sua postura de segurança com a Central de Segurança do Azure
 Este artigo ajuda você a fortalecer sua postura de segurança. Use os recursos de monitoramento da Central de Segurança do Azure para garantir que a segurança do recurso seja a mais justa possível e monitorar a conformidade com as políticas.
@@ -27,7 +27,7 @@ Este artigo ajuda você a fortalecer sua postura de segurança. Use os recursos 
 ## <a name="how-do-you-strengthen-your-security-posture"></a>Como você fortalecer sua postura de segurança?
 Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Reforçar sua postura de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou às práticas recomendadas.
 
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode visualizar uma lista completa de problemas e formas de proteger sua rede e remediar riscos no bloco **Recomendações**.
+Depois de habilitar as [políticas de segurança](security-center-azure-policy.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Dependendo do número deVMs e computadores que tenham o agente instalado, pode levar uma hora ou mais para que a coleta de informações sobre VMs e configuração do computador, como o status das atualizações de segurança e a configuração do sistema operacional, se torne disponível. Você pode visualizar uma lista completa de problemas e formas de proteger sua rede e remediar riscos no bloco **Recomendações**.
 
 Você pode ver o estado de segurança de seus recursos e quaisquer problemas por tipo de recurso:
 
@@ -49,7 +49,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 ## <a name="see-also"></a>Consulte também
 Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.

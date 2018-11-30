@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959036"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443518"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -27,7 +27,8 @@ O Gerenciamento de API do Azure pode ser implantado na VNET (rede virtual) para 
 
 > [!NOTE]
 > O Gerenciamento de API do Azure oferece suporte às VNets clássicas e do Azure Resource Manager.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +39,6 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + Uma instância do APIM. Para obter mais informações, consulte [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
-+ A conectividade VNET está disponível somente nas camadas Premium e Developer. Alterne para uma dessas camadas seguindo as instruções no tópico [atualizar e colocar em escala](upgrade-and-scale.md#upgrade-and-scale).
 
 ## <a name="enable-vpn"> </a>Habilitar conexão de VNET
 

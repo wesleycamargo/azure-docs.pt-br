@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971715"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311238"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um emparelhamento de rede virtual – modelos de implantação e assinaturas diferentes
 
@@ -97,7 +97,7 @@ Este tutorial usa contas diferentes para cada assinatura. Se você estiver usand
 
 ## <a name="cli"></a>Criar emparelhamento – CLI do Azure
 
-Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Você pode concluir as etapas no Azure Cloud Shell, apenas selecionando o botão **Experimentar** em qualquer uma das etapas a seguir ou instalando a [CLI clássica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e executando os comandos no computador local.
+Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Você pode concluir as etapas no Azure Cloud Shell, apenas selecionando o botão **Experimentar** em qualquer uma das etapas a seguir ou instalando a [CLI clássica](/cli/azure/install-classic-cli) e a [CLI](/cli/azure/install-azure-cli) e executando os comandos no computador local.
 
 1. Se estiver usando o Cloud Shell, pule para a etapa 2, porque ele fará sua entrada no Azure automaticamente. Abra uma sessão de comando e entre no Azure usando o comando `azure login`.
 2. Execute a CLI Clássica no modo de Gerenciamento de Serviços inserindo o comando `azure config mode asm`.

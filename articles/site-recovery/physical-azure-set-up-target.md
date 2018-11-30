@@ -1,18 +1,18 @@
 ---
 title: Configurar o ambiente de destino para a recuperação de desastre de servidores físicos locais no Azure | Microsoft Docs
 description: Este artigo descreve como configurar o ambiente de destino do Azure para recuperação de desastre de servidores físicos usando o Azure Site Recovery.
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: b89d04a6e2fd11a61de8b56690664f6204c208ad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.author: ramamill
+ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209285"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974162"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 

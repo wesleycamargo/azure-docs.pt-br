@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684810"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276033"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Guia SKUs do módulo do IoT Edge
 
@@ -125,7 +125,7 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Rotas padrão**        | Cada nome e valor de rota padrão deve ter menos de 512 caracteres. É possível definir até 5 rotas padrão. Certifique-se de usar uma [sintaxe de rota](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) correta no valor da rota. Para referir-se ao módulo, use o nome do módulo padrão que será o **Título da SKU** sem espaços e caracteres especiais. Para referir-se a outros módulos ainda não conhecidos, use a convenção `<FROM_MODULE_NAME>` para que os clientes saibam que precisam atualizar essas informações. Saiba mais sobre [Rotas do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por exemplo, se o módulo `ContosoModule` escuta entradas em `ContosoInput` e dados de saída em `ContosoOutput`, defina as 2 rotas padrão a seguir:<br/>- Nome nº 1: `ToContosoModule`<br/>- Valor nº 1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nome nº 2: `FromContosoModuleToCloud`<br/>- Valor nº 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Rotas padrão**        | Cada nome e valor de rota padrão deve ter menos de 512 caracteres. É possível definir até 5 rotas padrão. Certifique-se de usar uma [sintaxe de rota](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) correta no valor da rota. Para referir-se ao módulo, use o nome do módulo padrão que será o **Título da SKU** sem espaços e caracteres especiais. Para referir-se a outros módulos ainda não conhecidos, use a convenção `<FROM_MODULE_NAME>` para que os clientes saibam que precisam atualizar essas informações. Saiba mais sobre [Rotas do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por exemplo, se o módulo `ContosoModule` escuta entradas em `ContosoInput` e dados de saída em `ContosoOutput`, defina as 2 rotas padrão a seguir:<br/>- Nome nº 1: `ToContosoModule`<br/>- Valor nº 1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nome nº 2: `FromContosoModuleToCloud`<br/>- Valor nº 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Propriedades desejadas do gêmeo padrão**      | Cada nome e valor das propriedades desejadas do gêmeo padrão devem ter menos de 512 caracteres. É possível definir até 5 propriedades desejadas de nome/valor do gêmeo. Os valores das propriedades desejadas do gêmeo devem ser válidos como JSON, sem escape, sem matrizes e com uma hierarquia aninhada máxima de 4. Saiba mais sobre as [propriedades desejadas do gêmeo](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Por exemplo, se um módulo der suporte a uma taxa de atualização configurável dinamicamente através de propriedades desejadas do gêmeo, é recomendável definir a seguinte propriedade desejada do gêmeo padrão:<br/> - Nome nº 1: `RefreshRate`<br/>- Valor nº 1: `60`|
 | **Variáveis de ambiente padrão**  | Cada nome e valor de variáveis de ambiente padrão deve ter menos de 512 caracteres. Você pode definir até 5 variáveis de ambiente de nome/valor. <br/>Por exemplo, se um módulo precisar aceitar termos de uso antes de ser iniciado, será possível definir a seguinte variável de ambiente:<br/> - Nome nº 1: `ACCEPT_EULA`<br/>- Valor nº 1: `Y`|
 | **CreateOptions padrão**  | O createOptions deve ter menos de 512 caracteres. Deve ser um JSON válido, sem escape. Saiba mais sobre [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Por exemplo, se um módulo exigir associar uma porta, você poderá definir as seguintes createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

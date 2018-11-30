@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746710"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285145"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Linux em seu cluster do Service Fabric
 
@@ -147,7 +147,7 @@ O comportamento do aplicativo de orquestração de patch pode ser configurado pa
 
 1. Prepare o cluster concluindo todas as etapas necessárias.
 2. Implante o aplicativo de orquestração de patch como qualquer outro aplicativo do Service Fabric. Você pode implantar o aplicativo usando o PowerShell ou a CLI do Azure Service Fabric. Siga as etapas em [Implantar e remover aplicativos usando o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) ou [Implantar o aplicativo usando a CLI do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. Para configurar o aplicativo no momento da implantação, passe o `ApplicationParamater` para o cmdlet `New-ServiceFabricApplication` ou os scripts fornecidos. Para sua conveniência, scripts de powershell (Deploy.ps1) e de bash (Deploy.sh) são fornecidos com o aplicativo. Para usar o script:
+3. Para configurar o aplicativo no momento da implantação, passe o `ApplicationParameter` para o cmdlet `New-ServiceFabricApplication` ou os scripts fornecidos. Para sua conveniência, scripts de powershell (Deploy.ps1) e de bash (Deploy.sh) são fornecidos com o aplicativo. Para usar o script:
 
     - Conecte-se a um cluster do Service Fabric.
     - Execute o script de implantação. Se desejar, passe o parâmetro do aplicativo para o script. Por exemplo: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

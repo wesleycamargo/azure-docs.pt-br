@@ -2,25 +2,21 @@
 title: Folha de consulta de pipeline de dados automatizados do Azure Machine Learning | Microsoft Docs
 description: Uma folha de consulta para impressão que mostra como configurar um pipeline de dados automatizado para o serviço Web do Azure Machine Learning, independentemente se seus dados são locais, estão em streaming, no Azure ou em um serviço de nuvem de terceiros.
 services: machine-learning
-documentationcenter: ''
-author: garyericson
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: garye
-ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=garyericson, ms.author=garye)
+ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243991"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444419"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Folha de consulta de um pipeline de dados automatizado das previsões do Azure Machine Learning
 A **folha de consulta de pipeline de dados automatizado de Microsoft Azure Machine Learning** ajuda você a navegar pela tecnologia que pode ser usada para enviar seus dados para o serviço Web de Machine Learning onde podem ser pontuados por seu modelo de análise preditiva.

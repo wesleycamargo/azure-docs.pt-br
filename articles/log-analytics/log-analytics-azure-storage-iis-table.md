@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d1170845968cd5c9d4a4c09c9906dea962138d7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278643"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712952"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Usar o armazenamento de blobs do Azure para IIS e armazenamento de tabelas do Azure para eventos com o Log Analytics
 
@@ -194,5 +194,5 @@ Revise o exemplo de script a seguir, copie-o, modifique-o conforme necessário, 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Coletar logs e métricas para serviços do Azure](log-analytics-azure-storage.md) para serviços do Azure com suporte.
-* [Habilitar Soluções](../monitoring/monitoring-solutions.md) para fornecer informações sobre os dados.
+* [Habilitar Soluções](../azure-monitor/insights/solutions.md) para fornecer informações sobre os dados.
 * [Usar consultas de pesquisa](log-analytics-queries.md) para analisar os dados.

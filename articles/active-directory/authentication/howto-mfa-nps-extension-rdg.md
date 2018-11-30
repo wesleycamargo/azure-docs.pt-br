@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318598"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426060"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -359,7 +359,7 @@ Para executar opções de solução de problemas avançadas, consulte os arquivo
 
 Para obter uma descrição desses arquivos de log, consulte [Interpretar arquivos de log de formato de banco de dados de NPS](https://technet.microsoft.com/library/cc771748.aspx). As entradas nesses arquivos de log podem ser difícil de interpretar sem importá-los para uma planilha ou um banco de dados. Você pode encontrar vários analisadores de IAS on-line para ajudá-lo a interpretar os arquivos de log. 
 
-A imagem abaixo mostra a saída de um desses [aplicativos shareware](http://www.deepsoftware.com/iasviewer) que pode ser baixado. 
+A imagem abaixo mostra a saída de um desses [aplicativos shareware](https://www.deepsoftware.com/iasviewer) que pode ser baixado. 
 
 ![Aplicativo shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 

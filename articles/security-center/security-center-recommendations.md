@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253152"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316610"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerenciando recomendações de segurança na Central de Segurança do Azure
 Este documento mostra como usar as recomendações na Central de Segurança do Azure para ajudar a proteger os recursos do Azure.
@@ -34,13 +34,13 @@ A Central de Segurança analisa periodicamente o estado de segurança de seus re
 
 ## <a name="implementing-security-recommendations"></a>Implementando recomendações de segurança
 ### <a name="set-recommendations"></a>Definir recomendações
-Em [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md), você aprenderá a:
+Em [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md), você aprenderá a:
 
 * Configurar políticas de segurança.
 * Habilitar a coleta de dados.
 * Escolher quais recomendações ver como parte da política de segurança.
 
-As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e em interfaces de rede, auditoria do banco de dados SQL, Transparent Data Encryption do banco de dados SQL e firewalls do aplicativo Web.  [Configurando políticas de segurança](security-center-policies.md) fornece uma descrição de cada opção de recomendação.
+As recomendações de política atuais giram em torno de atualizações do sistema, regras de linha de base, programas antimalware, [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e em interfaces de rede, auditoria do banco de dados SQL, Transparent Data Encryption do banco de dados SQL e firewalls do aplicativo Web.  [Configurando políticas de segurança](security-center-azure-policy.md) fornece uma descrição de cada opção de recomendação.
 
 ### <a name="monitor-recommendations"></a>Monitorar as recomendações
 Depois de definir uma política de segurança, a Central de Segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **Recomendações** na folha **Visão geral** permite saber o número total de recomendações identificadas pela Central de Segurança.
@@ -135,7 +135,7 @@ Na tabela de recomendações acima, selecione uma recomendação e execute suas 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você foi apresentado às recomendações de segurança da Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) : saiba como monitorar o status de integridade de suas soluções de parceiros.
