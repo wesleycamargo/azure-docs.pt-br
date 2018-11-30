@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614048"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635366"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo para o Azure Stack
 
@@ -67,7 +67,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 6. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-    a. Selecione **Connect** ao lado de **assinaturas do Azure Stack**.
+     a. Selecione **Connect** ao lado de **assinaturas do Azure Stack**.
 
      - Se você estiver usando o Azure Active Directory (Azure AD), insira a conta de administrador do Azure AD e a senha que você forneceu quando você implantou o Azure Stack. Selecione **entrar**.
      - Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Insira sua senha e, em seguida, selecione **Sign In**.
@@ -83,7 +83,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 7. Agora você pode implantar em uma rede virtual existente que você configurou [usando as seguintes etapas](azure-stack-app-service-before-you-get-started.md#virtual-network), ou deixar que o instalador do serviço de aplicativo criar uma nova rede virtual e sub-redes. Para criar uma rede virtual, siga estas etapas:
 
-   a. Selecione **criar VNet com as configurações padrão**, aceite os padrões e, em seguida, selecione **próxima**.
+    a. Selecione **criar VNet com as configurações padrão**, aceite os padrões e, em seguida, selecione **próxima**.
 
    b. Como alternativa, selecione **usar a rede virtual existente e sub-redes**. Conclua as seguintes ações:
 
@@ -103,7 +103,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 9. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-   a. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para a identidade (do Azure AD).
+    a. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para a identidade (do Azure AD).
 
    b. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo de certificado.
 
@@ -168,7 +168,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 14. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-     a. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
+      a. Insira o nome de usuário do administrador de máquina virtual de função de trabalho e a senha.
 
      b. Insira o nome de usuário do administrador de máquina virtual de outras funções e a senha.
 
@@ -178,7 +178,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 15. Na página de resumo do instalador do serviço de aplicativo, siga estas etapas:
 
-    a. Verifique se as seleções feitas por você. Para fazer alterações, use o **anterior** botões para visitar a páginas anteriores.
+     a. Verifique se as seleções feitas por você. Para fazer alterações, use o **anterior** botões para visitar a páginas anteriores.
 
     b. Se as configurações estão corretas, selecione a caixa de seleção.
 
@@ -188,7 +188,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
 16. Na próxima página do instalador do serviço de aplicativo, siga estas etapas:
 
-    a. Acompanhe o progresso da instalação. Serviço de aplicativo no Azure Stack leva cerca de 60 minutos para implantar com base nas seleções padrão.
+     a. Acompanhe o progresso da instalação. Serviço de aplicativo no Azure Stack leva cerca de 60 minutos para implantar com base nas seleções padrão.
 
     b. Depois que o instalador foi concluída com êxito, selecione **Exit**.
 
@@ -202,17 +202,17 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >Se você estiver implantando em uma rede virtual existente e usando um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída. Essa regra permite o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:<br>
-    >  - Fonte: qualquer
-    >  - Intervalo de porta de origem: *
-    >  - Destino: Endereços IP
-    >  - Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
-    >  - Intervalo de porta de destino: 445
-    >  - Protocolo: TCP
-    >  - Ação: permitir
-    >  - Prioridade: 700
-    >  - Nome: Outbound_Allow_SMB445
+    Se você estiver implantando em uma rede virtual existente e usando um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída. Essa regra permite o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+
+    - Fonte: qualquer
+    - Intervalo de porta de origem: *
+    - Destino: Endereços IP
+    - Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+    - Intervalo de porta de destino: 445
+    - Protocolo: TCP
+    - Ação: permitir
+    - Prioridade: 700
+    - Nome: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Test drive do serviço de aplicativo no Azure Stack
 
