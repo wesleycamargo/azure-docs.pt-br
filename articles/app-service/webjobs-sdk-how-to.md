@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577004"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335207"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -462,7 +462,7 @@ Recomendamos a estrutura de log que foi desenvolvida para ASP.NET, e o artigo [I
 
 ### <a name="log-filtering"></a>Filtragem de linha
 
-Cada log criado por uma instância de `ILogger` possui um `Category` e `Level` associados. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) é uma enumeração e o código inteiro indica a importância relativa:
+Cada log criado por uma instância de `ILogger` possui um `Category` e `Level` associados. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração e o código inteiro indica a importância relativa:
 
 |LogLevel    |Código|
 |------------|---|
@@ -474,7 +474,7 @@ Cada log criado por uma instância de `ILogger` possui um `Category` e `Level` a
 |Crítico    | 5 |
 |Nenhum        | 6 |
 
-Cada categoria pode ser filtrada independentemente para um determinado [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Por exemplo, você talvez queira ver todos os logs para o processamento de gatilho de blob, mas apenas `Error` e superiores para todo o resto.
+Cada categoria pode ser filtrada independentemente para um determinado [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Por exemplo, você talvez queira ver todos os logs para o processamento de gatilho de blob, mas apenas `Error` e superiores para todo o resto.
 
 Para tornar mais fácil especificar regras de filtragem, o WebJobs SDK fornece o `LogCategoryFilter` que pode ser transferido para muitos dos provedores de log existentes, incluindo o Application Insights e o Console.
 
@@ -537,4 +537,4 @@ config.LoggerFactory = new LoggerFactory()
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Este guia forneceu trechos de código que mostram como lidar com cenários comuns para trabalhar com o WebJobs SDK. Para obter exemplos completos, consulte [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
+Este guia forneceu snippets de código que mostram como lidar com cenários comuns para trabalhar com o WebJobs SDK. Para obter exemplos completos, consulte [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).

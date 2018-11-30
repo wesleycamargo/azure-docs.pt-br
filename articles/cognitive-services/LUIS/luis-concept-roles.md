@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a92852a2721bd391ddf7c3cf3489b820c4a1400
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f5f790d4cdba8b6ebc1ed2694cb4552cb565f676
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277598"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427209"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Papéis de entidades em padrões são subtipos contextuais
 As funções são subtipos nomeados, contextuais de uma entidade usada apenas em [padrões](luis-concept-patterns.md).
@@ -43,7 +43,7 @@ Na declaração modelo do padrão, as funções são usadas dentro da declaraç�
 A entidade e a função estão entre parênteses, `{}`. A entidade e a função são separadas por dois-pontos. 
 
 
-[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+[!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Funções com entidades pré-construídas
 

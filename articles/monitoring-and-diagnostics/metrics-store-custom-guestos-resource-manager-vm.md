@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e7049ec075cbabb678a98502527f0190dab99ea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413580"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444521"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -27,7 +27,7 @@ Se você ainda não estiver familiarizado com modelos do Resource Manager, saiba
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Sua assinatura precisa ser registrada com o [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Sua assinatura deve ser registrada com [Microsoft. Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - Você precisará ter o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado. 
 
@@ -153,7 +153,7 @@ Adicione a configuração a seguir para habilitar a extensão de diagnóstico em
             "properties": { 
             "publisher": "Microsoft.Azure.Diagnostics", 
             "type": "IaaSDiagnostics", 
-            "typeHandlerVersion": "1.4", 
+            "typeHandlerVersion": "1.12", 
             "autoUpgradeMinorVersion": true, 
             "settings": { 
                 "WadCfg": { 
@@ -231,7 +231,7 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager 
 
 > [!NOTE]
-> Você precisa ter a versão 1.5 ou posterior da extensão do Diagnóstico do Azure E precisa ter a propriedade **autoUpgradeMinorVersion**: definida para 'true' no modelo do Resource Manager.  Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações em seu modelo, altere-as e reimplante o modelo. 
+> Você precisa ter a versão 1.5 ou posterior da extensão do Diagnóstico do Azure E precisa ter a propriedade **autoUpgradeMinorVersion**: definida para 'true' no modelo do Resource Manager.  Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
 
 
 Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.  

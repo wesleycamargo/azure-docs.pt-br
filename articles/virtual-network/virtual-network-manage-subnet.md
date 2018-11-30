@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954306"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633105"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
 
@@ -69,7 +69,7 @@ A conta em que você realizou o logon, ou se conectou ao Azure, deve estar atrib
 4. Na lista de sub-redes, selecione a sub-rede para a qual deseja alterar as configurações. É possível adicionar ou remover as seguintes configurações:
 
     - **Intervalo de endereços:** se nenhum recurso for implantado dentro da sub-rede, você poderá alterar o intervalo de endereços. Se houver recursos na sub-rede, você deverá mover os recursos para outra sub-rede ou excluí-los da sub-rede primeiro. As etapas necessárias para mover ou excluir um recurso variam de acordo com o recurso. Para saber como mover ou excluir os recursos que estão nas sub-redes, leia a documentação para cada tipo de recurso que deseja mover ou excluir. Consulte as restrições de **Intervalo de endereços** na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
-    - **Usuários**: é possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Utilizar atribuição de função para gerenciar o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Usuários**: é possível controlar o acesso à sub-rede utilizando funções internas ou suas próprias funções personalizadas. Para saber mais sobre como atribuir funções e usuários para acessar a sub-rede, consulte [Utilizar atribuição de função para gerenciar o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Grupo de segurança de rede** e **Tabela de rotas**: Veja a etapa 5 de [Adicionar uma sub-rede](#add-a-subnet).
     - **Pontos de extremidade de serviço**: consulte pontos de extremidade de serviço na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Os pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede do uso da rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo de próximo salto de *Internet*, usando uma nova rota com o endereço prefixos do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*. Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não estará habilitado até que os fluxos de tráfego para o serviço para todas as interfaces de rede sejam atualizadas com a nova rota. Para saber mais sobre roteamento, consulte [Visão geral de roteamento](virtual-networks-udr-overview.md).
     - **Delegação de sub-rede**: consulte pontos de extremidade de serviço na etapa 5 de [Adicionar uma sub-rede](#add-a-subnet). A delegação de sub-rede pode ser modificada para ter nenhuma ou várias delegações habilitadas para ela. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação de sub-rede não poderá ser removida até todos os recursos para o serviço serem removidos. Para delegar para um serviço diferente, selecione o serviço que você deseja delegar na lista **Serviços**. 

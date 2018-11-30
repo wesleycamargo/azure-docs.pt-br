@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231514"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426247"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
@@ -122,7 +122,7 @@ Como pode ser visto nesta tabela, é muito importante distinguir entre os cenár
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso de Uso do Exemplo 1: Sistemas eSmart – otimização de sobrecarga
 Uma função importante de uma [rede inteligente](https://en.wikipedia.org/wiki/Smart_grid) é otimizar e ajustar de forma dinâmica e constante de acordo com os padrões de consumo à medida que eles são alterados. O consumo de energia pode ser afetado por alterações a curto prazo causadas principalmente por flutuações de temperatura (*por exemplo*, mais energia é usada em sistemas de ar condicionado ou de aquecimento). Ao mesmo tempo, o consumo de energia também é influenciado pelas tendências a longo prazo. Elas podem incluir efeitos de periodicidade, feriados nacionais, crescimento do consumo a longo prazo e até fatores econômicos como o índice do consumidor, o preço do petróleo e o PIB.
 
-Neste caso de uso, o [eSmart](http://www.esmartsystems.com/) queria implantar uma solução baseada em nuvem que permitia prever a propensão a uma situação de sobrecarga em uma determinada subestação da rede. Em particular, o eSmart queria identificar as subestações que provavelmente seriam sobrecarregadas na hora seguinte, para que uma ação imediata pudesse ser tomada para evitar ou resolver a situação.
+Neste caso de uso, o [eSmart](https://www.esmartsystems.com/) queria implantar uma solução baseada em nuvem que permitia prever a propensão a uma situação de sobrecarga em uma determinada subestação da rede. Em particular, o eSmart queria identificar as subestações que provavelmente seriam sobrecarregadas na hora seguinte, para que uma ação imediata pudesse ser tomada para evitar ou resolver a situação.
 
 Uma previsão de execução precisa e rápida exige a implementação de três modelos de previsão:
 
@@ -365,7 +365,7 @@ Depois de concluirmos a fase de modelagem e de validarmos o desempenho do modelo
 No contexto da previsão da demanda de energia, nosso objetivo é invocar previsões periódicas e contínuas, garantindo que os dados atualizados estejam disponíveis para o modelo e que os dados previstos sejam enviados para o cliente consumidor.
 
 ### <a name="web-services-deployment"></a>Implantação de Serviços Web
-O principal bloco de construção implantável no AM do Azure é o serviço Web. Essa é a maneira mais eficiente de habilitar o consumo de um modelo preditivo na nuvem. O serviço Web encapsula o modelo e o encerra com uma API (Application Programming Interface, Interface de Programação de Aplicativo) [RESTful](http://www.restapitutorial.com/) . A API pode ser usada como parte de qualquer código de cliente, como ilustrado no diagrama a seguir.
+O principal bloco de construção implantável no AM do Azure é o serviço Web. Essa é a maneira mais eficiente de habilitar o consumo de um modelo preditivo na nuvem. O serviço Web encapsula o modelo e o encerra com uma API (Application Programming Interface, Interface de Programação de Aplicativo) [RESTful](https://www.restapitutorial.com/) . A API pode ser usada como parte de qualquer código de cliente, como ilustrado no diagrama a seguir.
 
 ![Implantação e Consumo do Serviço Web](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

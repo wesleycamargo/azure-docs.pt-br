@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142685"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976512"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicativos de produção de perfil no Azure com o Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Ativar o Profiler para seu aplicativo
@@ -38,7 +38,7 @@ A execução do Profiler no local não é oficialmente suportada, mas temos algu
 
 ## <a name="view-profiler-data"></a>Exibir dados do criador de perfil
 
-Para que o profiler carregue rastreios, seu aplicativo manipula ativamente as solicitações. Se você estiver fazendo uma experiência, poderá gerar solicitações para seu aplicativo da Web usando [Testes de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se você tiver ativado recentemente o Profiler, poderá executar um teste de carga curta. Enquanto o teste de carga estiver em execução, pressione o botão **Perfil Agora** na página [**Configurações do Perfilador**](). Depois que o profiler estiver em execução, ele será exibido de forma aleatória aproximadamente uma vez a cada hora e por um período de dois minutos. Se seu aplicativo estiver lidando com um fluxo constante de solicitações, o Profiler fará o upload de rastreamentos a cada hora.
+Para que o profiler carregue rastreios, seu aplicativo manipula ativamente as solicitações. Se você estiver fazendo uma experiência, poderá gerar solicitações para seu aplicativo da Web usando [Testes de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se você tiver ativado recentemente o Profiler, poderá executar um teste de carga curta. Enquanto o teste de carga estiver em execução, pressione o botão **Perfil Agora** na página [**Configurações do Perfilador**](app-insights-profiler-settings.md#profiler-settings-page). Depois que o profiler estiver em execução, ele será exibido de forma aleatória aproximadamente uma vez a cada hora e por um período de dois minutos. Se seu aplicativo estiver lidando com um fluxo constante de solicitações, o Profiler fará o upload de rastreamentos a cada hora.
 
 Depois que seu aplicativo receber algum tráfego e o profiler tiver tido tempo de fazer o upload dos transes, você deverá ter rastreamentos para visualizar. Esse processo pode levar de 5 a 10 minutos. Para visualizar os rastreios, acesse o painel **Desempenho**, selecione **Executar Ações** para visualizar os rastreios do profiler e, em seguida, selecione o botão **Profiler Traces**.
 

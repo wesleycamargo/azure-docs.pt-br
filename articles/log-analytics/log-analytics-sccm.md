@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016688"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633139"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conectar o Configuration Manager ao Log Analytics
 É possível conectar o ambiente do System Center Configuration Manager ao Azure Log Analytics para sincronizar dados de coleta de dispositivo e fazer referência a essas coleções no Log Analytics e na Automação do Azure.  
@@ -57,7 +57,7 @@ No procedimento a seguir, você concede a função *Colaborador* no workspace do
 6. Na lista suspensa **Atribuir acesso a** selecione o aplicativo Configuration Manager criado no AD anteriormente e clique em **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>Baixe e instale o agente
-Revise o artigo [Conectar computadores Windows ao serviço do Log Analytics no Azure](log-analytics-agent-windows.md) para reconhecer os métodos disponíveis para instalar o Microsoft Monitoring Agent no computador que hospeda a função de sistema do site de ponto de conexão de serviço do Configuration Manager.  
+Revise o artigo [Conectar computadores Windows ao serviço do Log Analytics no Azure](../azure-monitor/platform/agent-windows.md) para reconhecer os métodos disponíveis para instalar o Microsoft Monitoring Agent no computador que hospeda a função de sistema do site de ponto de conexão de serviço do Configuration Manager.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Adicionar uma conexão do Log Analytics ao Configuration Manager
 Para adicionar uma conexão do Log Analytics, seu ambiente do Configuration Manager deve ter uma [ponto de conexão de serviço](https://technet.microsoft.com/library/mt627781.aspx) configurado para o modo online.

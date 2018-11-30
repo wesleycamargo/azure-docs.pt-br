@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145733"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446493"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
 * Externo
 * Interna
 
-
 Quando o Gerenciamento de API é implantado em um modo de rede virtual interna, todos os pontos de extremidade de serviço (gateway, portal do Desenvolvedor, portal do Azure, gerenciamento direto e Git) ficam visíveis apenas de dentro de uma rede virtual cujo acesso você controla. Nenhum dos pontos de extremidade de serviço é registrado no servidor DNS público.
 
 Usando o Gerenciamento de API no modo interno você pode chegar aos seguintes cenários:
+
 * Torne as APIs hospedadas em seu datacenter privado seguras e acessíveis por terceiros externamente usando as conexões VPN Site a Site ou ExpressRoute do Azure.
 * Habilite cenários de nuvem híbrida expondo as APIs baseadas em nuvem e as APIs locais por meio de um gateway comum.
 * Gerencie suas APIs hospedadas em várias localizações geográficas usando um único ponto de extremidade de gateway. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

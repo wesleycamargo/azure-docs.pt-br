@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311635"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852367"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ No exemplo a seguir, um tipo de declaração denominado `correlationId` é defin
 </ClaimType>
 ```
 
-No perfil técnico, mapeie o resolvedor de declaração para o tipo de declaração. O Azure AD B2C preenche o valor do resolvedor de declaração `{context:corelationId}` para a declaração `correlationId` e envia a declaração para o perfil técnico.
+No perfil técnico, mapeie o resolvedor de declaração para o tipo de declaração. O Azure AD B2C preenche o valor do resolvedor de declaração `{Context:CorrelationId}` para a declaração `correlationId` e envia a declaração para o perfil técnico.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Tipos de resolvedor de declaração
@@ -50,7 +50,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1033 |
 | {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
-| {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
+| {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Política
 

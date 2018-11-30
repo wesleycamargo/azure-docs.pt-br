@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140395"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443008"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 
@@ -26,11 +26,10 @@ O Gerenciamento de API do Azure dá suporte à implantação multirregião, o qu
 
 Inicialmente, um novo serviço do Gerenciamento de API do Azure contém apenas uma [unidade][unit] em uma única região do Azure, a Região Primária. Regiões adicionais podem ser facilmente adicionadas por meio do portal do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região ficar offline, o tráfego será automaticamente redirecionado para o gateway mais próximo entre os demais.
 
-> [!IMPORTANT]
-> A implantação multirregião só está disponível na camada **[Premium][Premium]**.
-
 > [!NOTE]
 > O Gerenciamento de API do Azure replica apenas o componente de gateway de API entre regiões. O componente de gerenciamento de serviço é hospedado somente na Região Primária. No caso de uma interrupção na Região Primária, não será possível aplicar alterações de configuração em uma instância do serviço de Gerenciamento de API do Azure - incluindo as configurações ou atualizações de políticas.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>Implantar uma instância do serviço de Gerenciamento de API em uma nova região
 

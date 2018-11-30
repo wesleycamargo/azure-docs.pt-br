@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955384"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422364"
 ---
 # <a name="native-apps"></a>Aplicativos nativos
 
-Aplicativos nativos são aplicativos que chamam uma API Web em nome de um usuário. Este cenário se baseia no tipo de concessão de código de autorização OAuth 2.0 com um cliente público, conforme descrito na seção 4.1 da [especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749). O aplicativo nativo obtém um token de acesso para o usuário usando o protocolo OAuth 2.0. Esse token de acesso é enviado na solicitação para a API da Web, que autoriza o usuário e retorna o recurso desejado.
+Aplicativos nativos são aplicativos que chamam uma API Web em nome de um usuário. Este cenário se baseia no tipo de concessão de código de autorização OAuth 2.0 com um cliente público, conforme descrito na seção 4.1 da [especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749). O aplicativo nativo obtém um token de acesso para o usuário usando o protocolo OAuth 2.0. Esse token de acesso é enviado na solicitação para a API da Web, que autoriza o usuário e retorna o recurso desejado.
 
 ## <a name="diagram"></a>Diagrama
 
@@ -62,5 +62,5 @@ Quando o aplicativo nativo usa seu código de autorização para obter um token 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre outros [Tipos de aplicativo e cenários](app-types.md)
-- Saiba sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+- Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
+- Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD

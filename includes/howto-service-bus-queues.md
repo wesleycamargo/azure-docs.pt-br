@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+ms.openlocfilehash: d3d33c87dc1adf65a53b71cc4c833e7f4a191670
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330671"
+---
 ## <a name="what-are-service-bus-queues"></a>O que são as filas do Barramento de Serviço?
 Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado** . Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento. De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 

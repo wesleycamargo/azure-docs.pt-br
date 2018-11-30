@@ -2,30 +2,26 @@
 title: 'O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse | Microsoft Docs'
 description: Processo e Tecnologia de Análise Avançada em ação
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: deguhath
-ms.openlocfilehash: 192af40df3a8bc0545c9c3a86792e7eb8cb31de9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586097"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445686"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
 
-O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Azure Machine Learning.
+O procedimento segue o fluxo de trabalho [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no SQL DW e como usar o SQL DW ou um Notebook IPython para explorar os dados e os recursos de engenharia para modelagem. Em seguida, mostraremos como compilar e implantar um modelo com o Azure Machine Learning.
 
 ## <a name="dataset"></a>O conjunto de dados Corridas de Táxi de NYC
 Os dados de Corridas de Táxi de NYC são formados por cerca de 20 GB de arquivos CSV compactados (aproximadamente 48 GB descompactados) que incluem mais de 173 milhões de corridas individuais, com tarifas pagas por cada corrida. Cada registro de corrida inclui o local e o horário de saída e chegada, o número da carteira de habilitação do taxista anônimo e o número de medalhão (ID exclusiva do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
@@ -103,7 +99,7 @@ Siga a documentação em [Criar um SQL Data Warehouse](../../sql-data-warehouse/
            --If the master key exists, do nothing
     END CATCH;
 
-**Crie um espaço de trabalho de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um espaço de trabalho do Azure Machine Learning](../studio/create-workspace.md).
+**Crie um workspace de Azure Machine Learning em sua assinatura do Azure.** Para obter instruções, confira [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md).
 
 ## <a name="getdata"></a>Carregar os dados no SQL Data Warehouse
 Abra um console de comando do Windows PowerShell. Execute os seguintes comandos do PowerShell para baixar os arquivos de exemplo de script SQL que compartilhamos com você no GitHub para um diretório local especificado com o parâmetro *-DestDir*. Você pode alterar o valor do parâmetro *-DestDir* para qualquer diretório local. Se *-DestDir* não existir, ele será criado pelo script do PowerShell.
@@ -442,7 +438,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
 | 4 |85765 |
 
 ### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar a distância da corrida
-Este exemplo converte a longitude e latitude de saída e chegada para pontos geográficos do SQL, calcula a distância de corrida usando a diferença de pontos geográficos do SQL e retorna uma amostra aleatória dos resultados de comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
+Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
     SET ANSI_NULLS ON
@@ -571,9 +567,9 @@ Nesta seção, realizaremos a exploração de dados e a geração de recursos ex
 
 As informações necessárias do Azure SQL DW no exemplo de Notebook IPython e o arquivo de script Python baixados em seu computador local foram conectados anteriormente pelo script do PowerShell. Eles são executáveis sem qualquer modificação.
 
-Se você já tiver configurado um espaço de trabalho do AzureML, carregue diretamente o exemplo de Notebook IPython no serviço do Notebook IPython do AzureML e comece a executá-lo. Estas são as etapas para carregar no serviço Notebook IPython do AzureML:
+Se você já tiver configurado um workspace do AzureML, carregue diretamente o exemplo de Notebook IPython no serviço do Notebook IPython do AzureML e comece a executá-lo. Estas são as etapas para carregar no serviço Notebook IPython do AzureML:
 
-1. Faça logon em seu espaço de trabalho do AzureML, clique em "Studio" na parte superior e clique em "NOTEBOOKS" no lado esquerdo da página Web.
+1. Faça logon em seu workspace do AzureML, clique em "Studio" na parte superior e clique em "NOTEBOOKS" no lado esquerdo da página Web.
    
     ![Plotar nº 22][22]
 2. Clique em "NOVO" no canto inferior esquerdo da página Web e selecione "Python 2". Em seguida, forneça um nome para o notebook e clique na marca de seleção para criar o novo Notebook IPython em branco.
@@ -813,7 +809,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 2. **Classificação multiclasse**: para prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
-Para iniciar o exercício de modelagem, faça logon no seu espaço de trabalho do **Azure Machine Learning**. Se você ainda não tiver criado uma espaço de trabalho de aprendizado de máquina, consulte [Criar um espaço de trabalho de AM do Azure](../studio/create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu workspace do **Azure Machine Learning**. Se você ainda não tiver criado uma workspace do machine learning, consulte [Criar um workspace de AM do Azure](../studio/create-workspace.md).
 
 1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
 2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).

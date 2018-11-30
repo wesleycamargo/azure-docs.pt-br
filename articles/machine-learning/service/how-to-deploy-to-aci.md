@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345027"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710365"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Implantar serviços web nas Instâncias de Contêiner do Azure 
 
@@ -28,7 +28,7 @@ Este artigo mostra três maneiras diferentes de implantar um modelo em ACI. Elas
 * Implantar do modelo registrado usando `Webservice.deploy_from_model()`
 * Implantar o modelo registrado da imagem usando `Webservice.deploy_from_image()`
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

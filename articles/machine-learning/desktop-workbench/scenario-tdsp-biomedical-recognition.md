@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238989"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262085"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidade biomédica usando o Modelo TDSP (Processo de Ciência de Dados de Equipe)
 
@@ -174,7 +174,7 @@ O Word2Vec é o algoritmo de aprendizado sem supervisão de incorporação de pa
 
 ![Modelo Skip Gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-O modelo usa amostragem Softmax hierárquico e negativa para otimizar o desempenho. O H-SoftMax (SoftMax hierárquico) é uma aproximação inspirada por árvores binárias. O H-SoftMax substitui essencialmente a camada SoftMax simples por uma camada hierárquica que tem as palavras como folhas. Isso nos permite decompor o cálculo da probabilidade de uma palavra em uma sequência de cálculos de probabilidade, o que nos poupa de precisar calcular a normalização cara em todas as palavras. Como uma árvore binária balanceada tem uma profundidade de log2(|V|) (V é o vocabulário), só é necessário avaliar no máximo log2(|V|) nós para obter a probabilidade final de uma palavra. A probabilidade de uma palavra w dado seu contexto c é, então, simplesmente o produto das probabilidades das viradas à direita e à esquerda, respectivamente, que levam ao seu nó folha. É possível criar uma árvore de Huffmann com base na frequência das palavras no conjunto de dados para garantir que palavras mais frequentes obtenham representações mais curtas. Para saber mais, confira [este link](http://sebastianruder.com/word-embeddings-softmax/).
+O modelo usa amostragem Softmax hierárquico e negativa para otimizar o desempenho. O H-SoftMax (SoftMax hierárquico) é uma aproximação inspirada por árvores binárias. O H-SoftMax substitui essencialmente a camada SoftMax simples por uma camada hierárquica que tem as palavras como folhas. Isso nos permite decompor o cálculo da probabilidade de uma palavra em uma sequência de cálculos de probabilidade, o que nos poupa de precisar calcular a normalização cara em todas as palavras. Como uma árvore binária balanceada tem uma profundidade de log2(|V|) (V é o vocabulário), só é necessário avaliar no máximo log2(|V|) nós para obter a probabilidade final de uma palavra. A probabilidade de uma palavra w dado seu contexto c é, então, simplesmente o produto das probabilidades das viradas à direita e à esquerda, respectivamente, que levam ao seu nó folha. É possível criar uma árvore de Huffmann com base na frequência das palavras no conjunto de dados para garantir que palavras mais frequentes obtenham representações mais curtas. Para saber mais, confira [este link](http://ruder.io/word-embeddings-softmax/).
 Imagem extraída [daqui](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualização

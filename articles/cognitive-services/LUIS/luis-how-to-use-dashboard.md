@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212793"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335003"
 ---
 # <a name="application-dashboard"></a>Painel do aplicativo
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 
@@ -26,15 +26,7 @@ O painel do aplicativo permite que você monitore seu aplicativo em uma visão r
 > * Usar a chave do ponto de extremidade do LUIS para todas as solicitações de ponto de extremidade incluindo [API](https://aka.ms/luis-endpoint-apis) e bot do LUIS
 > * Use uma chave do ponto de extremidade diferente para cada aplicativo do LUIS. Não use uma chave de ponto de extremidade para todos os aplicativos. A chave do ponto de extremidade é rastreada no nível da chave, não no nível do aplicativo.  
 
-A página **Painel** oferece uma visão geral do aplicativo LUIS, incluindo o estado do modelo atual, além do uso do [ponto de extremidade](luis-glossary.md#endpoint) ao longo do tempo. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+A página **Painel** oferece uma visão geral do aplicativo LUIS, incluindo o estado do modelo atual, além do uso do [ponto de extremidade](luis-glossary.md#endpoint) ao longo do tempo. 
   
 ## <a name="app-status"></a>Status do aplicativo
 O painel exibe o treinamento do aplicativo e o status de publicação, incluindo a data e a hora quando o aplicativo foi treinado e publicado pela última vez.  
@@ -49,7 +41,6 @@ O painel exibe o número total de intenções, entidades e declarações rotulad
 ## <a name="endpoint-hits"></a>Ocorrências de ponto de extremidade
 O painel exibe o total de ocorrências de ponto de extremidade que o aplicativo do LUIS recebe e permite que você exiba as ocorrências dentro de um período especificado. O número total de ocorrências exibido é a soma das ocorrências do ponto de extremidade que usam uma [Chave do ponto de extremidade](./luis-concept-keys.md#endpoint-key) e ocorrências do ponto de extremidade que usam uma [Chave de criação](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Ocorrências de ponto de extremidade](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

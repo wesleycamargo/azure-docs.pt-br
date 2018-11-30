@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612740"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634516"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -42,8 +42,8 @@ As diferentes maneiras de usar consultas no Log Analytics incluem:
 
 - **Portais.** Você pode executar análises interativas de dados de log no [portal do Azure](log-analytics-log-search-portals.md).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  
 - **Regras de alerta** As [Regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificam proativamente os problemas dos dados no workspace.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
-- **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure. 
-- **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](log-analytics-view-designer.md).  As consultas de logs fornecem os dados usados por [blocos](log-analytics-view-designer-tiles.md) e [blocos de visualização](log-analytics-view-designer-parts.md) em cada exibição.  
+- **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](../azure-monitor/platform/dashboards.md), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure. 
+- **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](../azure-monitor/platform/view-designer.md).  As consultas de logs fornecem os dados usados por [blocos](../azure-monitor/platform/view-designer-tiles.md) e [blocos de visualização](../azure-monitor/platform/view-designer-parts.md) em cada exibição.  
 - **Exportação.**  Ao importar dados do workspace do Log Analytics para o Excel ou o [Power BI](log-analytics-powerbi.md), você cria uma consulta de logs para definir os dados a serem exportados.
 - **PowerShell.** É possível executar um script do PowerShell a partir de uma linha de comando ou um runbook de Automação do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
 - **API do Log Analytics.**  A [API da pesquisa de logs do Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) permite que qualquer cliente da API REST recupere dados de log do workspace.  A solicitação de API inclui uma consulta que é executada no Log Analytics para determinar os dados a serem recuperados.
@@ -111,4 +111,4 @@ Embora o [Application Insights](../application-insights/app-insights-overview.md
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [portais utilizados para criar e editar pesquisas de logs](log-analytics-log-search-portals.md).
-- Confira um [tutorial sobre como escrever consultas](log-analytics-tutorial-viewdata.md) utilizando a nova linguagem de consulta.
+- Confira um [tutorial sobre como escrever consultas](query-language/get-started-queries.md) utilizando a nova linguagem de consulta.
