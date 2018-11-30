@@ -2,25 +2,21 @@
 title: Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
 description: As metas, as tarefas e os resultados para o estágio de aceitação do cliente dos seus projetos de ciência de dados
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 9dd3ab8c9451ecfe6b095b52f5af083a7c7e9550
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232752"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441478"
 ---
 # <a name="customer-acceptance"></a>Aceitação do cliente
 
@@ -64,4 +60,4 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://aka.ms/datascienceprocess) (Usar o TDSP com o Azure Machine Learning).
+Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) (Usar o TDSP com o Azure Machine Learning).

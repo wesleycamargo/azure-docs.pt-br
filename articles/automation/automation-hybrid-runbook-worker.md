@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634159"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize recursos em seu datacenter ou nuvem usando o Hybrid Runbook Worker
 
@@ -36,7 +36,7 @@ Para instalar e configurar um Windows Hybrid Runbook Worker, você pode usar doi
 
 |SO  |Tipos de implantação  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
+| Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Você pode remover um ou mais trabalhadores de runbook híbridos de um grupo ou 
 1. No portal do Azure, vá para sua conta de automação.
 2. Em **Configurações**, selecione **Chaves** e anote os valores para **URL** e **Chave de acesso principal**. Você precisará dessas informações para a próxima etapa.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Abra uma sessão do PowerShell no modo de Administrador e execute o comando a seguir ‑ . Use a opção **-Verbose** para obter um log detalhado do processo de remoção.
 
@@ -95,7 +95,7 @@ Para remover um grupo, você primeiro precisa remover o Hybrid Runbook Worker de
 
 ### <a name="hybrid-worker-role"></a>Função de trabalhador híbrido
 
-Para o Hybrid Runbook Worker conectar e registrar com Log Analytics, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está na parte superior para as [portas e URLs necessárias para o Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) para se conectar ao Log Analytics.
+Para o Hybrid Runbook Worker conectar e registrar com Log Analytics, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. Esse acesso está na parte superior para as [portas e URLs necessárias para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para se conectar ao Log Analytics.
 
 Se você usar um servidor proxy para comunicação entre o agente e o serviço do Log Analytics, verifique se os recursos apropriados estão acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se você usar o gateway do Log Analytics como um proxy, verifique se ele está configurado para hybrid workers. Para obter instruções sobre como fazer isso, confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 

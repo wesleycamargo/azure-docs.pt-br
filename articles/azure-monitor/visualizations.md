@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973568"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632969"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
-Este artigo fornece um resumo dos métodos disponíveis para visualizar dados armazenados no Monitor do Azure. Isso inclui [métricas no armazenamento de métricas do Azure](../monitoring/monitoring-data-collection.md#metrics) e [dados de log no Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+Este artigo fornece um resumo dos métodos disponíveis para visualizar dados armazenados no Monitor do Azure. Isso inclui [métricas no armazenamento de métricas do Azure](../azure-monitor/platform/data-collection.md#metrics) e [dados de log no Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados de monitoramento para detalhar problemas e identificar padrões. Dependendo da ferramenta que você usa, você também pode ter a opção de compartilhar visualizações com outros usuários dentro e fora de sua organização.
 
@@ -50,7 +50,7 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 - Detalhamento contextual limitado.
 
 ## <a name="azure-monitor-views"></a>Modos de exibição do Monitor do Azure
-[Exibições no Monitor do Azure](../log-analytics/log-analytics-view-designer.md) permitem que você crie visualizações personalizadas com dados de log armazenados no Log Analytics. Elas são usadas pelas [soluções de monitoramento](../monitoring/monitoring-solutions.md) para apresentar os dados coletados.
+[Exibições no Monitor do Azure](../azure-monitor/platform/view-designer.md) permitem que você crie visualizações personalizadas com dados de log armazenados no Log Analytics. Elas são usadas pelas [soluções de monitoramento](../azure-monitor/insights/solutions.md) para apresentar os dados coletados.
 
 ![Visualizar](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a princi
 - Visualizações ricas para dados do Log Analytics.
 - Exporte e importe visualizações para transferi-las para outros grupos de recursos e assinaturas.
 - Integra-se ao modelo de gerenciamento do Log Analytic com workspaces e soluções de monitoramento.
-- [Filtros](../log-analytics/log-analytics-view-designer-filters.md) para parâmetros personalizados.
+- [Filtros](../azure-monitor/platform/view-designer-filters.md) para parâmetros personalizados.
 - Interativo, suporta drill-in de vários níveis (veja as brocas em outra visão)
 
 ### <a name="limitations"></a>Limitações
@@ -138,9 +138,9 @@ Você pode acessar dados nas métricas do Azure e no Log Analytics por meio de s
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Aprenda sobre os [dados coletados pelo Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Aprenda sobre os [dados coletados pelo Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Saiba mais sobre os [painéis do Azure](../azure-portal/azure-portal-dashboards.md).
-- Saiba mais sobre [modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Saiba mais sobre [modos de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Saiba mais sobre [pastas de trabalho no Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Saiba mais sobre [importar dados de log no Power BI](../log-analytics/log-analytics-powerbi.md).
 - Saiba mais sobre o [plug-in de fonte de dados do Azure Monitor do Grafana](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

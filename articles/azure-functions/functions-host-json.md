@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: d794648d3af086263ccffc782f3f3fdf6456eacc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013370"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635162"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
 
@@ -69,7 +69,7 @@ Os seguintes arquivos *host.json* de exemplo têm todas as opções possíveis e
           "default": "None"
         },
         "applicationInsights": {
-            "sampling": {
+            "samplingSettings": {
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 5
             }
@@ -104,7 +104,7 @@ A definição de configuração pode ser encontrada em [Associações e gatilhos
 
 ## <a name="durabletask"></a>durableTask
 
-A definição de configuração pode ser encontrada em [Associações para Durable Functions](durable-functions-bindings.md#host-json).
+A definição de configuração pode ser encontrada em [Associações para Durable Functions](durable/durable-functions-bindings.md#host-json).
 
 ## <a name="eventhub"></a>eventHub
 

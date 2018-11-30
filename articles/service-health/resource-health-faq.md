@@ -3,7 +3,7 @@ title: Perguntas frequentes sobre o Azure Resource Health | Microsoft Docs
 description: Visão geral do Azure Resource Health
 services: Resource health
 documentationcenter: dev-center-name
-author: BernardoAMunoz
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: BernardoAMunoz
-ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143927"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977192"
 ---
 # <a name="azure-resource-health-faq"></a>Perguntas frequentes sobre o Azure Resource Health
 Conheça as respostas para as perguntas comuns sobre o Azure Resource Health.
@@ -93,7 +93,7 @@ Enquanto o [status do Azure](https://status.azure.com) e o painel de Integridade
 Não. As informações de integridade estão disponíveis para todos os tipos de recursos disponíveis por meio do Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Precisamos habilitar o Resource Health para minha organização?
-Não.  O Azure Resource Health é acessível no portal do Azure sem nenhum requisito de instalação.
+ Não.  O Azure Resource Health é acessível no portal do Azure sem nenhum requisito de instalação.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>O Resource Health está disponível gratuitamente?
 Sim.  O Azure Resource Health está disponível gratuitamente.

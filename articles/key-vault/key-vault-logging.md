@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159571"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426937"
 ---
 # <a name="azure-key-vault-logging"></a>Logs do Cofre da Chave do Azure
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -265,7 +265,7 @@ A tabela a seguir lista o operationName e o comando da API REST correspondente.
 
 ## <a id="loganalytics"></a>Usar Log Analytics
 
-Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure. Para obter mais informações, incluindo como configurar isso, consulte [Solução Azure Key Vault no Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). Este artigo também contém instruções se você precisar migrar da solução Key Vault antiga que foi oferecida durante a versão prévia do Log Analytics, em que você primeiro roteava os logs para uma conta de armazenamento do Azure e configurava o Log Analytics para ler daquela conta.
+Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs AuditEvent do Cofre de Chaves do Azure. Para obter mais informações, incluindo como configurar isso, consulte [Solução Azure Key Vault no Log Analytics](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se você precisar migrar da solução Key Vault antiga que foi oferecida durante a versão prévia do Log Analytics, em que você primeiro roteava os logs para uma conta de armazenamento do Azure e configurava o Log Analytics para ler daquela conta.
 
 ## <a id="next"></a>Próximas etapas
 Para obter um tutorial que usa o Cofre de Chaves do Azure em um aplicativo Web, confira [Usar o Cofre de Chaves do Azure em um Aplicativo Web](key-vault-use-from-web-application.md).

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458978"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706714"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados para e da Instância Gerenciada do Banco de Dados SQL do Azure usando o Azure Data Factory
 
@@ -115,7 +115,7 @@ Para copiar dados de/para a Instância Gerenciada do Banco de Dados SQL do Azure
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type do conjunto de dados deve ser definida como: **SqlServerTable** | SIM |
-| tableName |Nome da tabela ou exibição na instância do banco de dados ao qual o serviço vinculado se refere. | SIM |
+| tableName |Nome da tabela ou exibição na instância do banco de dados ao qual o serviço vinculado se refere. | Não para fonte, Sim para o coletor |
 
 **Exemplo**
 
@@ -155,7 +155,6 @@ Para copiar dados da Instância Gerenciada do Banco de Dados SQL do Azure, defin
 
 - Se **sqlReaderQuery** for especificado para SqlSource, a atividade de cópia executará essa consulta na fonte de dados da Instância Gerenciada para obter os dados. Como alternativa, você pode especificar um procedimento armazenado especificando o **sqlReaderStoredProcedureName** e o **storedProcedureParameters** (se o procedimento armazenado usa parâmetros).
 - Se você não especificar a propriedade “sqlReaderQuery” nem a “sqlReaderStoredProcedureName”, as colunas definidas na seção “estrutura” do JSON do conjunto de dados serão usadas para criar uma consulta (`select column1, column2 from mytable`) para ser executada na Instância Gerenciada. Se a definição de conjunto de dados não tiver a seção "structure", todas as colunas serão selecionadas da tabela.
-- Quando você usa **sqlReaderStoredProcedureName**, ainda é necessário especificar uma propriedade **tableName** fictícia no JSON do conjunto de dados.
 
 **Exemplo: usando uma consulta SQL**
 
@@ -252,7 +251,7 @@ Para copiar dados para a Instância Gerenciada do Banco de Dados SQL do Azure, d
 |:--- |:--- |:--- |
 | Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlSink** | SIM |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não  |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período.  Exemplo: "00:30:00" (30 minutos). |Não  |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes da gravação dos dados na Instância Gerenciada. Isso será invocado somente uma vez por execução de cópia. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não  |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar os dados de origem à tabela de destino, por exemplo, para fazer upserts ou transformações usando sua própria lógica de negócios. <br/><br/>Observe que esse procedimento armazenado será **invocado por lote**. Se você deseja executar uma operação que é executada apenas uma vez e que não tem nenhuma relação com os dados de origem, por exemplo, excluir/truncar, use a propriedade `preCopyScript`. |Não  |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
@@ -507,7 +506,7 @@ Ao copiar dados da/para a Instância Gerenciada do Banco de Dados SQL do Azure, 
 | sql_variant |Objeto * |
 | text |String, Char[] |
 | tempo real |timespan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

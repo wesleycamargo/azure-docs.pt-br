@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320332"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314738"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando o just in time
 
@@ -262,7 +262,7 @@ Nesse artigo você aprendeu como o acesso just in time à VM na Central de Segur
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-- [Configurando políticas de segurança](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Configurando políticas de segurança](security-center-azure-policy.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Gerenciar recomendações de segurança](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger seus recursos do Azure.
 - [Monitoramento da integridade da segurança](security-center-monitoring.md) – saiba como monitorar a integridade dos seus recursos do Azure.
 - [Gerenciar e responder aos alertas de segurança](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e responder aos alertas de segurança.

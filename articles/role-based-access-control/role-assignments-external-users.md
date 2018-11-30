@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304434"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284516"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gerenciar acesso para usuários externos usando RBAC
 
@@ -45,7 +45,7 @@ No Portal do Azure, depois de entrar como administrador, selecione "Assinaturas"
 ![folha de assinatura no portal do Azure](./media/role-assignments-external-users/0.png) Por padrão, se o usuário administrador tiver comprado a assinatura do Azure, ele aparecerá como **Administrador da conta**, sendo essa a função da assinatura. Para obter mais informações sobre as funções de assinatura do Azure, confira [Adicionar ou alterar administradores de assinatura do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o usuário "alflanigan@outlook.com" é o **Proprietário** da assinatura de "Avaliação Gratuita" no locatário AAD definido como "Locatário padrão do Azure". Uma vez que esse usuário é o criador da assinatura do Azure com a Conta da Microsoft inicial "Outlook" (Conta da Microsoft = Outlook, Live etc.), o nome de domínio padrão para todos os outros usuários adicionados neste locatário será **"\@alflaniganuoutlook.onmicrosoft.com"**. Por design, a sintaxe do novo domínio é formada reunindo o nome de usuário e o nome de domínio do usuário que criou o locatário e adicionando a extensão **".onmicrosoft.com"**.
-Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais informações sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
+Além disso, os usuários podem entrar com um nome de domínio personalizado no locatário depois de o adicionarem e verificarem para o novo locatário. Para obter mais informações sobre como verificar um nome de domínio personalizado em um locatário do Azure Active Directory, consulte [Adicionar um nome de domínio personalizado ao seu diretório](../active-directory/fundamentals/add-custom-domain.md).
 
 Neste exemplo, o diretório "Locatário padrão do Azure" contém somente usuários com o nome de domínio "\@alflanigan.onmicrosoft.com".
 
@@ -85,7 +85,7 @@ Enquanto for um convidado no diretório, o usuário externo poderá gerenciar to
 
 ![acesso restrito ao azure active-directory, portal do Azure](./media/role-assignments-external-users/9.png)
 
-O Azure Active Directory e uma assinatura do Azure não têm uma relação de pai-filho como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicativos Web, armazenamento etc.) têm com uma assinatura do Azure. Todos estes segundos são criados, gerenciados e cobrados em uma assinatura do Azure, enquanto uma assinatura do Azure é usada para gerenciar o acesso a um diretório do Azure. Para mais informações, consulte [Como uma assinatura do Azure está relacionada ao Microsoft Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory).
+O Azure Active Directory e uma assinatura do Azure não têm uma relação de pai-filho como outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicativos Web, armazenamento etc.) têm com uma assinatura do Azure. Todos estes segundos são criados, gerenciados e cobrados em uma assinatura do Azure, enquanto uma assinatura do Azure é usada para gerenciar o acesso a um diretório do Azure. Para mais informações, consulte [Como uma assinatura do Azure está relacionada ao Microsoft Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 De todas as funções RBAC internas, **Proprietário** e **Colaborador** oferecem acesso de gerenciamento total a todos os recursos no ambiente, sendo a diferença que um Colaborador não pode criar nem excluir novas funções de RBAC. Outras funções internas, como **Colaborador de Máquina Virtual** oferecem acesso de gerenciamento completo apenas aos recursos indicados pelo nome, não importa o **Grupo de Recursos** em que eles estão sendo criados.
 

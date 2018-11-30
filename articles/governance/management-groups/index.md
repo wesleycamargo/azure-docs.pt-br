@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748163"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584597"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -28,12 +28,12 @@ Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiõ
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso. O diagrama a seguir mostra um exemplo de criação de uma hierarquia para governança usando grupos de gerenciamento.
 
-![árvore](./media/MG_overview.png)
+![árvore](./media/tree.png)
 
-Criando uma hierarquia como este exemplo, você pode aplicar uma política, como locais de VMs limitados à Região Oeste dos EUA no “grupo de gerenciamento da Equipe de Infraestrutura”, para habilitar políticas de conformidade e segurança internas. Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Como essa política herda do grupo de gerenciamento para as assinaturas, essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
+Criar uma hierarquia para que você possa aplicar uma política, por exemplo, limitar locais de VMs à Região Oeste dos EUA no grupo de “Gerenciamento da Equipe de Infraestrutura”. Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
 
-Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você tem a capacidade de criar uma atribuição de [controle de acesso baseado em função](../../role-based-access-control/overview.md) (RBAC) no grupo de gerenciamento, que herdará o acesso a todas as assinaturas.
-Sem a necessidade de fazer script de atribuições de RBAC em várias assinaturas, uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam.
+Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas. Ao mover várias assinaturas nesse grupo de gerenciamento, você poderá criar uma atribuição de [controle de acesso baseado em função](../../role-based-access-control/overview.md) (RBAC) no grupo de gerenciamento, que herdará o acesso a todas as assinaturas.
+Uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam em vez de fazer script de atribuições de RBAC em várias assinaturas.
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre os grupos de gerenciamento
 
@@ -42,7 +42,7 @@ Sem a necessidade de fazer script de atribuições de RBAC em várias assinatura
   - Esse limite não inclui o nível Raiz nem o nível da assinatura.
 - Cada grupo de gerenciamento e assinatura pode dar suporte a apenas um pai.
 - Cada grupo de gerenciamento pode ter vários elementos filhos.
-- Todas as assinaturas e todos os grupos de gerenciamento estão contidos em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o Grupo de gerenciamento raiz](#important-facts-about-the-root-management-group) para obter as exceções durante a Versão Prévia.
+- Todas as assinaturas e todos os grupos de gerenciamento estão em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o Grupo de gerenciamento raiz](#important-facts-about-the-root-management-group) para obter as exceções durante a Versão Prévia.
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
@@ -73,17 +73,17 @@ Quando um usuário começa a usar grupos de gerenciamento, ocorre um processo de
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas as assinaturas
 
-Alguns diretórios, que começaram a usar os grupos de gerenciamento no início na versão prévia (25 de junho de 2018), podiam ter um problema em que todas as assinaturas não são impostas na hierarquia.  Isso ocorre porque os processos para impor as assinaturas na hierarquia foram implementados depois que uma atribuição de função ou política foi feita no grupo de gerenciamento raiz no diretório.
+Alguns diretórios, que começaram a usar os grupos de gerenciamento no início na versão prévia (25 de junho de 2018), podiam ter um problema em que todas as assinaturas não são impostas na hierarquia.  Esses processos para impor as assinaturas na hierarquia foram implementados depois que uma atribuição de função ou política foi feita no grupo de gerenciamento raiz no diretório.
 
 ### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
 
-Há duas opções de autoatendimento para resolver isso.
+Há duas opções para resolver esse problema.
 
 1. Remover todas as atribuições de Função e Política do grupo de gerenciamento raiz
-    1. Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h.  O motivo para essa verificação é garantir que não seja concedido nenhum acesso acidental ou atribuição de política a todas as assinaturas de locatários.
+    1. Ao remover as atribuições de função e política do grupo de gerenciamento raiz, o serviço preencherá todas as assinaturas na hierarquia no próximo ciclo de 24h.  Esse processo é usado para que não haja acesso acidental ou atribuição de política a todas as assinaturas de locatários.
     1. A melhor maneira de fazer esse processo sem afetar seus serviços é aplicar as atribuições de função ou política um nível abaixo do grupo de gerenciamento raiz. Em seguida, você pode remover todas as atribuições do escopo raiz.
 1. Chamar a API diretamente para iniciar o processo de preenchimento
-    1. Qualquer cliente autorizado no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz. O processo pode ser feito sem alterar quaisquer atribuições no nível raiz, pois você informa não ter problemas que qualquer atribuição de política ou acesso na raiz possa ser aplicada a todas as assinaturas.
+    1. Qualquer cliente no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, ela inicia o processo de configuração inicial de mover todas as assinaturas para a hierarquia. Esse processo também inicia a imposição de que a nova assinatura seja filha do grupo de gerenciamento raiz. Esse processo pode ser feito sem alterar as atribuições no nível raiz. Ao chamar a API, você informa não ter problemas que qualquer atribuição de política ou acesso na raiz possa ser aplicada a todas as assinaturas.
 
 Se você tiver dúvidas sobre esse processo de preenchimento, entre em contato com: managementgroups@microsoft.com  
   
@@ -105,18 +105,32 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 |Colaborador da política de recurso |        |        |      |        |               | X             |       |
 |Administrador de Acesso do Usuário   |        |        |      |        | X             |               |       |
 
-*: O MG Contributor e o MG Reader só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
+*: o MG Contributor e o MG Reader só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
 
 No momento, não há suporte para funções RBAC personalizadas em grupos de gerenciamento. Confira o [fórum de comentários do grupo de gerenciamento](https://aka.ms/mgfeedback) para exibir o status desse item.
+
+## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
+
+Para controlar os grupos de gerenciamento por meio desta API, use a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs). No momento não é possível usar o PowerShell, a CLI ou o portal do Azure para controlar a atividade de grupos de gerenciamento.
+
+1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
+1. Como o usuário de auditoria, chame a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs) para ver as atividades do grupo de gerenciamento. Convém filtrar pelo Provedor de Recursos **Microsoft.Management** para todas as atividades do grupo de gerenciamento.  Exemplo:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Para chamar convenientemente esta API da linha de comando, tente [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Como alterar, excluir ou gerenciar grupos de gerenciamento](manage.md)
-- [Instalar o módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Revisar as especificações API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalar a extensão CLI do Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
+- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Revisar grupos de gerenciamento na API REST](https://aka.ms/mgAPIdocs)
+- [Revisar grupos de gerenciamento na CLI do Azure](https://aka.ms/mgclidoc)

@@ -2,25 +2,21 @@
 title: Identificar cenários e planejar o processo de análise - Azure | Microsoft Docs
 description: Planeje a análise avançada considerando uma série de perguntas importantes.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 949bd8337ced7aa12d4354a46f6ee887a1922a7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227732"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446400"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas que ajudam a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita em [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](overview.md). Cada uma dessas etapas exige recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
@@ -30,13 +26,13 @@ Quais recursos você deve planejar incluir ao configurar um ambiente para o proc
 ## <a name="logistic-questions-data-locations-and-movement"></a>Perguntas sobre logística: locais e movimentação de dados
 As perguntas sobre logística dizem respeito ao local da **fonte de dados**, ao **destino** no Azure e aos requisitos de movimentação dos dados, incluindo o agendamento, a quantidade e os recursos envolvidos. Pode ser necessário mover os dados várias vezes durante o processo de análise. Um cenário comum é mover os dados locais para alguma forma de armazenamento no Azure e então para o Machine Learning Studio.
 
-1. **Qual é a sua fonte de dados?** Ela é local ou fica na nuvem? Por exemplo: 
+1. **Qual é a sua fonte de dados?**  Ela é local ou fica na nuvem? Por exemplo: 
    
    * Os dados estão disponíveis publicamente em um endereço HTTP.
    * Os dados residem em um local de arquivo local/na rede.
    * Os dados estão em um banco de dados do SQL Server.
    * Os dados são armazenados em um contêiner de armazenamento do Azure.
-2. **Qual é o destino do Azure?** Onde ele precisa estar para processamento ou modelagem? Por exemplo: 
+2. **Qual é o destino do Azure?**  Onde ele precisa estar para processamento ou modelagem? Por exemplo: 
    
    * Armazenamento do Blobs do Azure
    * Bancos de dados do SQL Azure
@@ -83,7 +79,7 @@ Para obter informações sobre as limitações de outros serviços do Azure usad
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Perguntas sobre qualidade de dados: exploração e pré-processamento
 1. **O que você sabe sobre seus dados?** Explore os dados para obter uma compreensão de suas características básicas. Quais padrões ou tendências eles exibem, quais exceções eles têm ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a criação gráficos de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process (Dados de exemplo no Processo de Ciência de Dados de Equipe)](explore-data.md).
 2. **Os dados exigem pré-processamento ou limpeza?**
-   O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](prepare-data.md).
+    O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Perguntas sobre ferramentas e linguagens
 Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas de desenvolvimento você precisa ou com as quais se sente mais confortável.

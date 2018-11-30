@@ -4,7 +4,7 @@ description: Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cr
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 95d90e898ddc8766cf96a5a72c315407cd596393
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393852"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275948"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
 Este artigo descreve como as informações coletadas nas novas APIs de Cobrança Microsoft Azure podem ser usadas no Cloud Cruiser para análise e simulação de custo do fluxo de trabalho.
@@ -50,7 +50,7 @@ O Cloud Cruiser pode usar as informações da API RateCard de diferentes maneira
 
 Para demonstrar este caso de uso, imagine uma carga de trabalho de várias instâncias em execução no Microsoft Azure Pack (WAP). O objetivo é simular essa mesma carga de trabalho no Azure e estimar os custos de fazer essa migração. Para criar esta simulação, há duas tarefas principais a serem executadas:
 
-1. **Importe e processe as informações de serviço coletadas da API RateCard.** Essa tarefa também é executada em pastas de trabalho, onde a extração da API RateCard é transformada e publicada para um novo plano de taxa. Esse novo plano de taxas é usado nas simulações para estimar os preços do Azure.
+1. **Importe e processe as informações de serviço coletadas da API RateCard.**  Essa tarefa também é executada em pastas de trabalho, onde a extração da API RateCard é transformada e publicada para um novo plano de taxa. Esse novo plano de taxas é usado nas simulações para estimar os preços do Azure.
 2. **Normalizar serviços WAP e serviços do Azure para IaaS.** Por padrão, os serviços WAP se baseiam em recursos individuais (CPU, tamanho da memória, tamanho do disco, etc.) enquanto os serviços do Azure baseiam-se no tamanho da instância (A0 A1, A2, etc.). A primeira tarefa pode ser executada pelo mecanismo ETL do Cloud Cruiser, chamado de pastas de trabalho, onde esses recursos podem ser incorporados em tamanhos de instância, semelhantes aos serviços de instância do Azure.
 
 ### <a name="import-data-from-the-ratecard-api"></a>Importar dados da API RateCard

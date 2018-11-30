@@ -1,26 +1,22 @@
 ---
 title: Explorar dados em um cluster Hadoop e criar modelos no Azure Machine Learning | Microsoft Docs
 description: Usando o Processo de Ciência de Dados de Equipe para um cenário completo, que emprega um cluster HDInsight Hadoop para criar e implantar um modelo.
-services: machine-learning,hdinsight
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586114"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444198"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -80,7 +76,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster HDInsight ao criá-lo. Essa conta de armazenamento acessa dados que são processados no cluster.
    * Depois de criar o cluster, habilite o Acesso Remoto no nó de cabeçalho do cluster. Navegue para a guia **Configuração** e selecione **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
-3. [Criar um espaço de trabalho do Azure Machine Learning](../studio/create-workspace.md): use esse espaço de trabalho para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
+3. [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md): use esse workspace para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
 
 ## <a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
@@ -721,7 +717,7 @@ Para executar essa consulta no prompt do diretório do Hive:
 Agora temos uma tabela interna, **nyctaxidb.nyctaxi_downsampled_dataset**, que pode ser acessada usando o módulo [Importar Dados][import-data] do Machine Learning. Além disso, podemos usar esse conjunto de dados para criar modelos do Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Use o módulo Importar Dados no Machine Learning para acessar os dados reduzidos
-Para emitir consultas do Hive no módulo [Importar Dados][import-data] do Machine Learning, você precisa ter acesso a um espaço de trabalho do Machine Learning. Também precisa ter acesso às credenciais do cluster e à sua conta de armazenamento associada.
+Para emitir consultas do Hive no módulo [Importar Dados][import-data] do Machine Learning, você precisa ter acesso a um workspace do Machine Learning. Também precisa ter acesso às credenciais do cluster e à sua conta de armazenamento associada.
 
 Estes são alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros a serem inseridos:
 
@@ -765,7 +761,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** regressão logística de classe dois
 
-  a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **tip\_class**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+   a. Para esse problema, o rótulo (ou a classe) de destino é **tipped**. O conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular, **tip\_class**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Deixamos de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O seguinte diagrama mostra nosso experimento para prever se uma gorjeta foi paga ou não para determinada corrida:
 
@@ -785,7 +781,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** regressão logística de várias classes
 
-  a. Para esse problema, nosso rótulo (ou nossa classe) de destino é **tip\_class**, que pode ter um dos cinco valores (0, 1, 2, 3 ou 4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular, **tipped**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+   a. Para esse problema, nosso rótulo (ou nossa classe) de destino é **tip\_class**, que pode ter um dos cinco valores (0, 1, 2, 3 ou 4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular, **tipped**, **tip\_amount** e **total\_amount** revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O diagrama a seguir mostra o experimento para prever em qual compartimento uma gorjeta provavelmente se enquadrará. Os compartimentos são: Classe 0: gorjeta = US$ 0, Classe 1: gorjeta > US$ 0 e gorjeta <= US$ 5, Classe 2: gorjeta > US$ 5 e gorjeta <= US$ 10, Classe 3: gorjeta > US$ 10 e gorjeta <= US$ 20 e Classe 4: gorjeta > US$ 20.
 
@@ -805,7 +801,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
 
   **Aprendiz usado:** árvore de decisão aprimorada
 
-  a. Para esse problema, o rótulo (ou a classe) de destino é **tip\_amount**. As perdas de destino nesse caso são: **tipped**, **tip\_class** e **total\_amount**. Todas essas variáveis revelam informações sobre o valor da gorjeta que normalmente não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+   a. Para esse problema, o rótulo (ou a classe) de destino é **tip\_amount**. As perdas de destino nesse caso são: **tipped**, **tip\_class** e **total\_amount**. Todas essas variáveis revelam informações sobre o valor da gorjeta que normalmente não estão disponíveis no momento do teste. Removemos essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
   O seguinte diagrama mostra o experimento para prever o valor da gorjeta oferecida:
 

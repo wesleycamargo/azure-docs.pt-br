@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262192"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584767"
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
@@ -199,7 +199,7 @@ A [Proteção Avançada contra Ameaças do Azure para o Banco de Dados do Azure 
 - Acesso de um aplicativo potencialmente prejudicial 
 - Credenciais de força bruta do Banco de dados do Azure para PostgreSQL 
 
-A [Proteção Avançada contra Ameaças do Azure do Banco de Dados do Azure para MySQL](/mysql/concepts-data-access-and-security-threat-protection.md) fornece proteção semelhante à Proteção Avançada do PostgreSQL.  
+A [Proteção Avançada contra Ameaças do Azure do Banco de Dados do Azure para MySQL](../mysql/concepts-data-access-and-security-threat-protection.md) fornece proteção semelhante à Proteção Avançada do PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Gerenciamento de segurança centralizado
 
@@ -220,7 +220,7 @@ O [SQL Information Protection](../sql-database/sql-database-data-discovery-and-c
 
 Além disso, calcula a sensibilidade do conjunto de resultados das consultas SQL, para que as consultas que extraem dados confidenciais possam ser explicitamente auditadas e os dados possam ser protegidos. Para obter mais detalhes sobre o SQL Information Protection, consulte Descoberta e Classificação de Dados do Banco de Dados SQL do Azure.
 
-É possível configurar as [Políticas do SQL Information Protection](/security-center/security-center-info-protection-policy.md) na Central de Segurança do Azure.
+É possível configurar as [Políticas do SQL Information Protection](../security-center/security-center-info-protection-policy.md) na Central de Segurança do Azure.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

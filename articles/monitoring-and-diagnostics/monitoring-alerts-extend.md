@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612566"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632663"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 Até recentemente, o Azure Log Analytics incluía sua própria funcionalidade de alerta, que poderia notificar proativamente você sobre as condições com base em dados do Log Analytics. Você gerenciava regras de alerta no Portal do Microsoft Operations Management Suite. Agora a nova experiência de alertas tem alertas integrados entre vários serviços no Microsoft Azure. Isso está disponível como **Alertas** no Azure Monitor no Portal do Azure e oferece suporte a alertas de logs de atividades, métricas e logs do Log Analytics e do Azure Application Insights. 
@@ -55,7 +55,7 @@ Quando você tenta editar um alerta existente ou criar um novo alerta no portal 
 > Certifique-se de que as permissões atribuídas às pessoas que precisam adicionar ou editar alertas foram atribuídas corretamente no Azure. Para entender quais permissões você precisa conceder, consulte [permissões para usar Alertas e o Azure Monitor](monitoring-roles-permissions-security.md).  
 > 
 
-É possível continuar criando alertas com base na [API do Log Analytics](../log-analytics/log-analytics-api-alerts.md) e no [Modelo de Recursos do Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). É necessário incluir grupos de ação quando você faz isso.
+É possível continuar criando alertas com base na [API do Log Analytics](../azure-monitor/platform/api-alerts.md) e no [Modelo de Recursos do Log Analytics](../azure-monitor/insights/solutions-resources-searches-alerts.md). É necessário incluir grupos de ação quando você faz isso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

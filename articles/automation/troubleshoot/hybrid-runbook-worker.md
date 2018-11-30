@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321760"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284551"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solucionar problemas de trabalhadores de runbooks híbridos
 
@@ -30,7 +30,7 @@ O operador de Runbook híbrido depende de um agente para se comunicar com sua co
 
 A execução do runbook falha e você recebe o seguinte erro:
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
@@ -90,7 +90,7 @@ Se você vir o erro: **A classe especificada não existe..** no `/var/opt/micros
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 O Windows Hybrid Runbook Worker depende do Microsoft Monitoring Agent para se comunicar com sua conta de automação para registrar o trabalhador, receber tarefas do runbook e relatar o status. Se o registro do trabalhador falhar, aqui estão algumas das possíveis causas do erro:
 
