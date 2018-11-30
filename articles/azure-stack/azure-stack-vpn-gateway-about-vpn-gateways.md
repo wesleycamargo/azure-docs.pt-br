@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300142"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496208"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -117,6 +117,10 @@ A tabela a seguir mostra os tipos de gateway e a produtividade agregada estimada
 *Observação (1)* -taxa de transferência VPN não é uma taxa de transferência garantida para conexões entre locais na Internet. É a medida de taxa de transferência máxima possível.  
 *Observação (2)* -Max túneis é o total por implantação do Azure Stack para todas as assinaturas.  
 *Observação (3)* -roteamento de BGP não tem suporte para a SKU básica.
+
+>[!NOTE]
+>Apenas uma Conexão de VPN Site a Site pode ser criado entre duas implantações do Azure Stack.  Isso é devido a uma limitação na plataforma que permitirá que apenas uma única conexão de VPN para o mesmo endereço IP.  Pois o Azure Stack utiliza o gateway de multilocatário que usa um único IP público para todos os Gateways de VPN no sistema do Azure Stack, pode haver apenas uma Conexão de VPN entre dois sistemas do Azure Stack.  Essa limitação também se aplica à conexão a mais de um conexões VPN Site a Site com qualquer Gateway de VPN que usa um único endereço IP.  O Azure Stack não permitirá mais de um recurso de Gateway de rede Local a ser criado usando o mesmo endereço IP.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
