@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567138"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620618"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Exportando uma função assíncrona
-Ao usar a declaração JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) ou de outra forma retornar uma Promessa [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (não disponível com as Funções v1.x), você não precisa chamar explicitamente o [`context.done`](#contextdone-method) callback para sinalizar que sua função foi concluída. Sua função é concluída quando a função assíncrona exportada / Promise é concluída.
-
 Ao usar a declaração [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) ou o JavaScript simples [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) na versão 2.x do tempo de execução Functions, não é necessário chamar explicitamente o [`context.done`](#contextdone-method) retorno de chamada para sinalizar que sua função foi concluída. Sua função é concluída quando a função assíncrona exportada / Promise é concluída. Para funções que visam o tempo de execução da versão 1.x, você ainda deve chamar [`context.done`](#contextdone-method) quando seu código terminar de ser executado.
 
 O exemplo a seguir é uma função simples que registra que foi acionada e imediatamente conclui a execução.

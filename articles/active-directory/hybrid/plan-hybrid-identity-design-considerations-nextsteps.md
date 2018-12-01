@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eb3bd1b2186d323c5b9d10d89bb68c03bd2b84a8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a36dc0cd8148b8cf58729d2e8d22011e61140b0f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305705"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426315"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerações do design de identidade híbrida do Active Directory do Azure - próximas etapas
 Agora que você terminou de definir seus requisitos e examinou todas as opções para sua solução de gerenciamento de dispositivo móvel, você está pronto para executar as próximas etapas para implantar a infraestrutura de suporte que é ideal para você e sua organização.
@@ -43,10 +43,10 @@ Conceitos e procedimentos de planejamento, implantação e conteúdo de administ
 O monitoramento dos seguintes recursos geralmente fornece as últimas notícias e atualizações em soluções de gerenciamento de dispositivo móvel:
 
 * [Blog do Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Blog Microsoft na nuvem](http://blogs.technet.com/b/in_the_cloud/)
-* [Blog do Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
-* [Blog do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
-* [Blog da Equipe do Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
+* [Blog Microsoft na nuvem](https://blogs.technet.com/b/in_the_cloud/)
+* [Blog do Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
+* [Blog do Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
+* [Blog da Equipe do Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](plan-hybrid-identity-design-considerations-overview.md)

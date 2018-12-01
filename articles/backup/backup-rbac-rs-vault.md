@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011316"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704640"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos.
@@ -41,7 +41,7 @@ A tabela a seguir captura as ações de gerenciamento de backups e a função RB
 | | Colaborador de Máquina Virtual | Recurso de VM |
 | Backup sob demanda de VM | Operador de Backup | Recurso de cofre de recuperação |
 | Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |
-| | Colaborador de Máquina Virtual | Grupo de recursos no qual a VM será implantada |
+| | Colaborador | Grupo de recursos no qual a VM será implantada |
 | | Colaborador de Máquina Virtual | VM de origem armazenada em backup |
 | Restaurar backup de VM de discos não gerenciados | Operador de Backup | Recurso de cofre de recuperação |
 | | Colaborador de Máquina Virtual | VM de origem armazenada em backup |

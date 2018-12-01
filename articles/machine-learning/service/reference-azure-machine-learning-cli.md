@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f5c74055747cacbede479e12397bbb66ac74d10e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615629"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713411"
 ---
 # <a name="use-the-azure-machine-learning-cli-extension"></a>Use a extensão CLI do Azure Machine Learning
 
@@ -43,7 +43,7 @@ O CLI não é um substituto para o SDK do Azure Machine Learning. É uma ferrame
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> Para usar a CLI, você deve ter uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> Para usar a CLI, você deve ter uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 

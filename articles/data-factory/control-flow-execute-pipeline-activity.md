@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051756"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163111"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
 A atividade de execução de pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -62,9 +62,9 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 ## <a name="type-properties"></a>Propriedades de tipo
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | sim
-Tipo | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | sim
-pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | sim
+Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | SIM
+Tipo | Deve ser definido como: **ExecutePipeline**. | Cadeia de caracteres | SIM
+pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | SIM
 parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não 
 waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. | O padrão é falso. | BOOLEAN | Não 
 
@@ -93,7 +93,7 @@ Este cenário tem dois pipelines:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -245,7 +245,7 @@ O pipeline mestre encaminha esses valores para o pipeline invocado, conforme mos
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }

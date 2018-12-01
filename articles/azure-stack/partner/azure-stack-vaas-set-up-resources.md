@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: d9406032a55c0bbd73bf16ae2f0fa272dddd7698
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651669"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426321"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configurar recursos para a validação como um serviço
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Você precisará criar uma solução. Uma validação como uma solução de serviço (VaaS) representa uma solução do Azure Stack com uma lista de hardware específicas de materiais. Você usará a solução para verificar se o hardware pode dar suporte a execução do Azure Stack. Siga este tutorial se preparar para usar o serviço com sua solução.
 

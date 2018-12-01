@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297564"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423110"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -242,7 +242,7 @@ Nesta seção, você configura o servidor VPN para usar a autenticação RADIUS.
 
 7. Na janela **Adicionar servidor do RADIUS**, faça o seguinte:
 
-    a. Na caixa **Nome do servidor**, digite o nome ou o endereço IP do servidor RADIUS que você configurou na seção anterior.
+     a. Na caixa **Nome do servidor**, digite o nome ou o endereço IP do servidor RADIUS que você configurou na seção anterior.
 
     b. Para o **Segredo compartilhado**, selecione **Alterar** e, em seguida, insira a senha de segredo compartilhado que você criou e registrou anteriormente.
 
@@ -438,7 +438,7 @@ Um evento relacionado do log de Autenticação Multifator do Azure é mostrado a
 
 Para executar solução de problemas avançada, consulte os arquivos de log de formato do banco de dados NPS no qual o serviço NPS está instalado. Os arquivos de log são criados na pasta _%SystemRoot%\System32\Logs_ como arquivos de texto separado por vírgula. Para obter uma descrição dos arquivos de log, consulte [Interpretar Arquivos de Log de Formato de Banco de Dados do NPS](https://technet.microsoft.com/library/cc771748.aspx). 
 
-As entradas nesses arquivos de log são difíceis de interpretar, a menos que você as exporte para uma planilha ou um banco de dados. Você pode encontrar muitas ferramentas de análise de IAS (Internet Authentication Service) online para ajudá-lo a interpretar os arquivos de log. A saída de um desses [aplicativos shareware](http://www.deepsoftware.com/iasviewer) que pode ser baixado é mostrada aqui: 
+As entradas nesses arquivos de log são difíceis de interpretar, a menos que você as exporte para uma planilha ou um banco de dados. Você pode encontrar muitas ferramentas de análise de IAS (Internet Authentication Service) online para ajudá-lo a interpretar os arquivos de log. A saída de um desses [aplicativos shareware](https://www.deepsoftware.com/iasviewer) que pode ser baixado é mostrada aqui: 
 
 ![Aplicativo shareware](./media/howto-mfa-nps-extension-vpn/image49.png)
 

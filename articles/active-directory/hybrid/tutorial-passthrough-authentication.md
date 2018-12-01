@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fed1078b9a4e0ca4d0674db522f73705fa3efd0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254480"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422297"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial: Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
 
@@ -249,7 +249,7 @@ Nesse momento, verificaremos se os usuários que estavam no diretório local for
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar entrando com um dos usuários
 
-1.  Navegue até [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Navegue até [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. Entre com uma conta de usuário que foi criada no novo locatário.  Será necessário entrar usando o formato a seguir: (user@domain.onmicrosoft.com). Use a mesma senha que o usuário usa para entrar no local.
 ![Verificar](media/tutorial-password-hash-sync/verify1.png)
 

@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 6d8d0b2dc0f6baf48d2aacb9c7203937aef08d15
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422381"
 ---
 # <a name="azure-firewall-logs"></a>Logs do Firewall do Azure
 
 Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
 
-Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Armazenamento e Hubs de Eventos e analisados no Log Analytics ou por outras ferramentas, como Excel e Power BI.
+Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Armazenamento e Hubs de Eventos e analisados no Log Analytics ou por outras ferramentas, como Excel e Power BI.
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 1079b83411fd76b4b9115ee80e385f1f2c63ba85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247085"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309082"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -76,7 +76,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 ```
 
 * *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>2.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Precisa atualizar para um novo SDK?* Atualize as dependências do seu projeto.
+* *Precisa atualizar para um novo SDK?*  Atualize as dependências do seu projeto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Se você estiver usando o Gradle... <a name="gradle-setup" />
 Se o seu projeto já estiver configurado para usar o Gradle para compilação, realize a mesclagem do trecho de código a seguir ao seu arquivo build.gradle.
@@ -492,7 +492,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 [apiexceptions]: app-insights-api-custom-events-metrics.md#trackexception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: /app-insights-java-quick-start.md
+[eclipse]: app-insights-java-quick-start.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md

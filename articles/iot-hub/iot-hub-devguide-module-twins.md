@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309721"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284295"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
 
@@ -327,7 +327,7 @@ Essas informações são armazenadas em cada nível (não apenas nas folhas da e
 ## <a name="optimistic-concurrency"></a>Simultaneidade otimista
 
 Marcas, propriedades desejadas e reportadas oferecem suporte à simultaneidade otimista.
-As tags têm um ETag, conforme [RFC7232]()https://tools.ietf.org/html/rfc7232, que representa a representação JSON da tag. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
+Marcas tem uma Etag, de acordo com [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da marca. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
 
 As propriedades desejadas e reportadas do módulo gêmeo não têm as ETags, mas um valor `$version` com garantia de ser incremental. De forma semelhante a uma ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, um aplicativo de módulo para uma propriedade relatada ou o back-end de solução para uma propriedade desejada.
 

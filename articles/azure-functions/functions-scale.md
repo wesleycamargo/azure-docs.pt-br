@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f597425fc3813f243950b16f5debbd63ce3a805
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113930"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975883"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
-O Azure Functions executa em dois modos diferentes: plano de Consumo e plano do Serviço de Aplicativo do Azure. O plano de Consumo aloca automaticamente a potência de computação quando o código está em execução. O aplicativo é escalado horizontalmente quando necessário para lidar com a carga e reduzido verticalmente quando o código não está em execução. Você não precisa pagar por VMs ociosas nem reservar capacidade com antecedência. Este artigo se concentra no plano de Consumo, um modelo de aplicativo [sem servidor](https://azure.microsoft.com/solutions/serverless/). Para obter detalhes sobre como o plano do Serviço de Aplicativo dedicado funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+O Azure Functions executa em dois modos diferentes: plano de Consumo e plano do Serviço de Aplicativo do Azure. O plano de Consumo aloca automaticamente a potência de computação quando o código está em execução. O aplicativo é escalado horizontalmente quando necessário para lidar com a carga e reduzido verticalmente quando o código não está em execução. Você não precisa pagar por VMs ociosas nem reservar capacidade com antecedência.
 
 > [!NOTE]  
 > Atualmente, a [hospedagem do Linux](functions-create-first-azure-function-azure-cli-linux.md) só está disponível em um Plano do Serviço de Aplicativo.

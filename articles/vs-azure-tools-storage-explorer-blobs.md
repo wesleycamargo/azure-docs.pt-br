@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036253"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422045"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerenciar recursos de Armazenamento de Blobs com o Gerenciador de Armazenamento do Azure
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ Você pode usar o armazenamento de Blob para expor dados publicamente para o mun
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte:
 
-* [Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+* [Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com)
 * [Conectar-se a uma conta de armazenamento ou serviço do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contêiner de blob
@@ -213,7 +213,7 @@ As etapas a seguir ilustram como gerenciar os blobs (e pastas) dentro de um cont
      3. Escolha **Sim** na caixa de diálogo de confirmação.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](http://www.storageexplorer.com).
+* Exibir as [notas de versão e os vídeos mais recentes do Gerenciador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [criar aplicativos usando os blobs, tabelas, filas e arquivos do Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

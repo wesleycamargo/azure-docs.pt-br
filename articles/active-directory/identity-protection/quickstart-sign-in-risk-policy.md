@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632380"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822119"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detectado com o Azure Active Directory Identity Protection  
 
@@ -122,6 +122,6 @@ Quando não for mais necessário, exclua o usuário de teste, o Navegador Tor e 
 
 - Se você não souber excluir um usuário do Azure AD, consulte [Como adicionar ou excluir usuários](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
-- Para obter instruções remover o Tor Browser, consulte [Desinstalando](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Para obter instruções remover o Tor Browser, consulte [Desinstalando](https://tb-manual.torproject.org/uninstalling/).
 
 

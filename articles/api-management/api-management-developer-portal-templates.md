@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118217"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446952"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvedor de Gerenciamento de API do Azure usando modelos
 
@@ -31,7 +31,10 @@ Há três maneiras básicas para personalizar o portal do desenvolvedor no Geren
 
 Modelos são usados para personalizar o conteúdo das páginas de portal de desenvolvedor geradas pelo sistema (por exemplo, documentos de API, produtos, autenticação do usuário etc.). Com a sintaxe do [DotLiquid](http://dotliquidmarkup.org/), e um conjunto fornecido de recursos de cadeia de caracteres localizados, ícones e controles de página, você conta com muita flexibilidade para configurar o conteúdo das páginas como quiser.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="developer-portal-templates-overview"></a>Visão geral de modelos de portal do desenvolvedor
+
 A edição dos modelos é feita no **Portal do desenvolvedor** ao entrar como administrador. Para chegar lá, primeiro abra o Portal do Azure e clique em **Portal do desenvolvedor** na barra de ferramentas de serviço da sua instância de Gerenciamento de API.
 
 Para acessar os modelos de portal do desenvolvedor, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **Modelos**.

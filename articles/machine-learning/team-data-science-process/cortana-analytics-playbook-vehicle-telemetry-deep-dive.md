@@ -2,25 +2,21 @@
 title: Aprofundamento sobre como prever a integridade do veículo e os hábitos de condução – Azure | Microsoft Docs
 description: Use os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300941"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444368"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guia estratégico da Solução de Análise de Telemetria do Veículo: aprofundamento na solução
 
@@ -670,7 +666,7 @@ Este documento contém um detalhamento da Solução de Análise da Telemetria do
 ### <a name="references"></a>Referências
 
 * [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://docs.microsoft.com/rest/api/datafactory/)
 * [SDK dos Hubs de Eventos do Azure para ingestão de fluxo](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funcionalidades de movimentação de dados do Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Atividade .NET do Azure Data Factory](../../data-factory/transform-data-using-dotnet-custom-activity.md)

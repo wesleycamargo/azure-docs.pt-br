@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637707"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426801"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
 
@@ -34,7 +34,7 @@ A seguinte terminologia é usada neste artigo:
 |ID de logon alternativa|Um atributo local diferente do UserPrincipalName, como um atributo de email, usado para conexão.|
 
 ## <a name="what-is-userprincipalname"></a>O que é o UserPrincipalName?
-O UserPrincipalName é um atributo que é um nome de logon de um usuário, no estilo da Internet, com base no padrão [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) da Internet. 
+O UserPrincipalName é um atributo que é um nome de logon de um usuário, no estilo da Internet, com base no padrão [RFC 822](https://www.ietf.org/rfc/rfc0822.txt) da Internet. 
 
 ### <a name="upn-format"></a>Formato UPN
 Um UPN consiste em um prefixo UPN (o nome da conta de usuário) e um sufixo UPN (um nome de domínio de DNS). O prefixo é associado com o sufixo usando o "\@" símbolo. Por exemplo, "alguém\@example.com". Um UPN deve ser exclusivo entre todos os objetos de entidade de segurança em uma floresta de diretórios. 

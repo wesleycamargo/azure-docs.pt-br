@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963811"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261744"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console serial da máquina virtual para Linux
 
@@ -95,7 +95,7 @@ Por padrão, todas as assinaturas têm acesso de console serial habilitado para 
 > Para habilitar ou desabilitar o console serial para uma assinatura, você precisa ter permissões de gravação para a assinatura. Essas permissões incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
 
 ### <a name="subscription-level-disable"></a>Desabilitação no nível da assinatura
-O console serial pode ser desativado para uma assinatura inteira por meio da [chamada Disable Console REST API](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Você pode usar a função **Try It** disponível nesta página de documentação da API para desativar e ativar o console serial para uma assinatura. Digite seu ID de assinatura para **subscriptionId**, insira **padrão** para **padrão** e, em seguida, selecione **Executar**. Comandos da CLI do Azure ainda não estão disponíveis.
+O console serial pode ser desativado para uma assinatura inteira por meio da [chamada Disable Console REST API](/rest/api/serialconsole/console/disableconsole). Você pode usar a função **Try It** disponível nesta página de documentação da API para desativar e ativar o console serial para uma assinatura. Digite seu ID de assinatura para **subscriptionId**, insira **padrão** para **padrão** e, em seguida, selecione **Executar**. Comandos da CLI do Azure ainda não estão disponíveis.
 
 ![Experimente o API REST](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

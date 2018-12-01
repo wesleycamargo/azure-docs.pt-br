@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095331"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334883"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções de colocação em escala de nuvem com o Azure
 
@@ -49,7 +49,7 @@ Neste tutorial, você criará um ambiente de exemplo para:
 -   Assinatura do Azure. Se necessário, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 - Um sistema integrado do Azure Stack ou implantação do Kit de desenvolvimento do Azure Stack.
-    - Você encontrar instruções para instalar o Azure Stack no [instalar o Kit de desenvolvimento do Azure Stack](/articles/azure-stack/asdk/asdk-install).
+    - Você encontrar instruções para instalar o Azure Stack no [instalar o Kit de desenvolvimento do Azure Stack](../asdk/asdk-install.md).
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Essa instalação pode exigir algumas horas para ser concluído.
 
 -   Implante [serviço de aplicativo](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) os serviços de PaaS para o Azure Stack.
@@ -97,7 +97,7 @@ Atualize o arquivo de zona DNS para o domínio. Azure AD verificará a proprieda
 Configurar a integração contínua híbrida e implantação contínua (CI/CD) para implantar aplicativo Web no Azure e o Azure Stack e automático de alterações por push para ambas as nuvens.
 
 > [!Note]  
-> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" seção para o operador de pilha do Azure.
+> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](../azure-stack-app-service-before-you-get-started.md)" seção para o operador de pilha do Azure.
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Adicione código ao Visual Studio Team Services projeto
 
@@ -259,7 +259,7 @@ Agora que as informações de ponto de extremidade existem, o VSTS para a conex�
 ## <a name="develop-the-application-build"></a>Desenvolver a compilação do aplicativo
 
 > [!Note]  
-> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" seção para o operador de pilha do Azure.
+> O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](../azure-stack-app-service-before-you-get-started.md)" seção para o operador de pilha do Azure.
 
 Use [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/resources/templates/) código do aplicativo do VSTS para implantar em ambas as nuvens.
 

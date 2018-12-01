@@ -3,19 +3,19 @@ title: Pesquisa do site, usar a Pesquisa Personalizada do Bing de interface do u
 titlesuffix: Azure Cognitive Services
 description: Descreve como configurar a Pesquisa Personalizada do Bing da interface do usuário hospedada.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813967"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424979"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a experiência de interface do usuário hospedada
 
@@ -105,7 +105,7 @@ Para configurar uma interface do usuário hospedada para seu aplicativo Web, sig
 > [!NOTE]
 > À medida que você faz alterações na configuração de interface do usuário hospedada personalizada, o painel à direita fornece uma referência visual para as alterações feitas. Os resultados da pesquisa exibidos não são os resultados reais da instância.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Consumir interface do usuário personalizada
 

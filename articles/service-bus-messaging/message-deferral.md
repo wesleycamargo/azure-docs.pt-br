@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855384"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282542"
 ---
 # <a name="message-deferral"></a>Adiamento de mensagens
 
@@ -40,7 +40,6 @@ Para recuperar uma mensagem adiada, seu proprietário é responsável por memori
 
 Se uma mensagem não puder ser processada porque um recurso específico para lidar com essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso sumariamente, uma maneira de colocar essa mensagem de lado por alguns minutos é lembrar o **NúmerodeSequência** em uma [mensagem agendada](message-sequencing.md) para ser postada em alguns minutos, e recuperar a mensagem adiada novamente quando a mensagem agendada chegar. Se um manipulador de mensagens depender de um banco de dados para todas as operações e o banco de dados estiver temporariamente indisponível, ele não deverá usar o adiamento, mas suspender o recebimento de mensagens completamente até o banco de dados estar disponível novamente.
 
-O adiamento de mensagens não tem impacto na expiração da mensagem, o que significa que mensagens adiadas ainda expiraram no horário agendado inicialmente e, em seguida, são movidas para a fila de mensagens mortas, se estiverem configuradas para isso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

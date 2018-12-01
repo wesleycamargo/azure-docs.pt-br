@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623937"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163590"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe SQL do Azure Cosmos DB
 
-Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe da linguagem de consulta SQL, compatível com as contas de API do SQL. Para obter um passo a passo de exemplos de consultas SQL, consulte [Consultas SQL no Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB suporta documentos de consulta usando um SQL (Structured Query Language) familiar, como a gramática, em documentos JSON hierárquicos, sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe da linguagem de consulta SQL, compatível com as contas de API do SQL. Para obter um passo a passo de exemplos de consultas SQL, consulte [Consultas SQL no Cosmos DB](how-to-sql-query.md).  
   
 Visite o [Playground para Consultas](http://www.documentdb.com/sql/demo), onde você pode experimentar o Cosmos DB e executar consultas SQL em relação a nosso conjunto de dados.  
   
 ## <a name="select-query"></a>Consulta SELECT  
-Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada. As convenções usadas para descrever as instruções SELECT são tabuladas na seção Convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause)
+Toda consulta consiste em uma cláusula SELECT e cláusulas FROM e WHERE opcionais de acordo com os padrões ANSI-SQL. Normalmente, para cada consulta, a fonte da cláusula FROM é enumerada. Então, o filtro da cláusula WHERE é aplicado para recuperar um subconjunto de documentos JSON. Por fim, a cláusula SELECT é usada para projetar os valores JSON solicitados na lista selecionada. As convenções usadas para descrever as instruções SELECT são tabuladas na seção Convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause)
   
 **Sintaxe**  
   
@@ -69,7 +69,7 @@ A linguagem de consulta dá suporte a comentários de estilo T-SQL, como
 Embora os comentários e caracteres de espaço em branco não tenham nenhum significado na gramática, eles devem ser usados para separar os tokens. Por exemplo: `-1e5` é um token de número único, ao passo que `: – 1 e5` é um token de sinal de subtração seguido pelo número 1 e identificador e5.  
 
 ##  <a name="bk_select_query"></a> Cláusula SELECT  
-As cláusulas na instrução SELECT devem ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando são usadas, elas devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause).
+As cláusulas na instrução SELECT devem ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando são usadas, elas devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause).
 
 **Sintaxe**  
 
@@ -132,7 +132,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e podem ser
 [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Cláusula FROM  
-Especifica a fonte ou as fontes unidas. A cláusula FROM é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Geralmente, o contêiner inteiro é a origem, mas é possível especificar um subconjunto do contêiner. Se esta cláusula não for especificada, outras cláusulas ainda serão executadas como se a cláusula FROM fornecesse um único documento. Para obter exemplos, consulte [exemplos da cláusula FROM](sql-api-sql-query.md#FromClause)
+Especifica a fonte ou as fontes unidas. A cláusula FROM é opcional, a menos que a fonte seja filtrada ou projetada mais adiante na consulta. O objetivo desta cláusula é especificar a fonte de dados na qual a consulta deve operar. Geralmente, o contêiner inteiro é a origem, mas é possível especificar um subconjunto do contêiner. Se esta cláusula não for especificada, outras cláusulas ainda serão executadas como se a cláusula FROM fornecesse um único documento. Para obter exemplos, consulte [exemplos da cláusula FROM](how-to-sql-query.md#FromClause)
   
 **Sintaxe**  
   
@@ -216,7 +216,7 @@ Uma expressão contêiner pode ter escopo no contêiner ou no escopo do document
   
 Na versão atual, o Cosmos DB dá suporte a junções internas. Recursos adicionais de junção serão disponibilizados em breve. 
 
-Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas. Para obter exemplos, consulte [exemplos de palavra-chave JOIN](sql-api-sql-query.md#Joins)
+Junções internas resultam em um produto completo cruzando os conjuntos associados à junção. O resultado de uma junção de N maneiras é um conjunto de tuplas com N elementos, em que cada valor na tupla é associado ao alias do conjunto membro da junção e pode ser acessado pela referência desse alias em outras cláusulas. Para obter exemplos, consulte [exemplos de palavra-chave JOIN](how-to-sql-query.md#Joins)
   
 A avaliação da junção depende do escopo de contexto dos conjuntos participantes:  
   
@@ -311,7 +311,7 @@ Vamos começar com a seguinte cláusula FROM: `<from_source1> JOIN <from_source2
  [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> Cláusula WHERE  
- Especifica o critério de pesquisa para os documentos retornados pela consulta. Para obter exemplos, consulte [exemplos da cláusula WHERE](sql-api-sql-query.md#WhereClause)
+ Especifica o critério de pesquisa para os documentos retornados pela consulta. Para obter exemplos, consulte [exemplos da cláusula WHERE](how-to-sql-query.md#WhereClause)
   
  **Sintaxe**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  Para que o documento seja retornado, uma expressão especificada como condição de filtro deve ser avaliada como verdadeira. Somente o valor booliano verdadeiro satisfará a condição, qualquer outro valor: indefinido, nulo, falso, Número, Matriz ou Objeto não satisfará a condição.  
   
 ##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
- Especifica a ordem de classificação para resultados retornados pela consulta. Para obter exemplos, consulte [exemplos da cláusula ORDER BY](sql-api-sql-query.md#OrderByClause)
+ Especifica a ordem de classificação para resultados retornados pela consulta. Para obter exemplos, consulte [exemplos da cláusula ORDER BY](how-to-sql-query.md#OrderByClause)
   
  **Sintaxe**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  Enquanto a gramática de consulta der suporte a vários pedidos por propriedades, o tempo de execução de consulta do Cosmos DB dará suporte à classificação apenas em relação a uma única propriedade e somente em relação a nomes de propriedades (não em relação a propriedades calculadas). A classificação também requer que a política de indexação inclua um índice de intervalo para a propriedade e o tipo especificado, com precisão máxima. Consulte a documentação de política de indexação para obter mais detalhes.  
   
 ##  <a name="bk_scalar_expressions"></a> Expressões escalares  
- Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para se obter um único valor. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. As expressões simples podem ser combinadas em expressões complexas usando operadores. Para obter exemplos, consulte [exemplos de expressões escalares](sql-api-sql-query.md#scalar-expressions)
+ Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados para se obter um único valor. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. As expressões simples podem ser combinadas em expressões complexas usando operadores. Para obter exemplos, consulte [exemplos de expressões escalares](how-to-sql-query.md#scalar-expressions)
   
  Para obter detalhes sobre os valores que a expressão escalar pode ter, consulte a seção [Constantes](#bk_constants).  
   
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Sintaxe SQL e consulta SQL para Cosmos DB](sql-api-sql-query.md)
+- [Sintaxe SQL e consulta SQL para Cosmos DB](how-to-sql-query.md)
 
 - [Documentação do Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

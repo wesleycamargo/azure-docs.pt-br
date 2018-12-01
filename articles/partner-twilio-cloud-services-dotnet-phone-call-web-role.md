@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568532"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422908"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure
 Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicita ao usuário para fazer uma chamada com o número e mensagem determinados, conforme mostrado na seguinte captura de tela.
@@ -29,7 +29,7 @@ Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da 
 ## <a name="twilio-prereqs"></a>Pré-requisitos
 Você precisará fazer o seguinte para usar o código deste tópico:
 
-1. Adquirir uma conta e um token de autenticação da Twilio do seu [Console do Twilio][twilio_console]. Para começar com o Twilio, inscreva-se em [ https://www.twilio.com/try-twilio ] [ try_twilio]. Você pode avaliar os preços em [ http://www.twilio.com/pricing ] [ twilio_pricing]. Para obter informações sobre a API fornecida pela Twilio, veja [http://www.twilio.com/voice/api][twilio_api].
+1. Adquirir uma conta e um token de autenticação da Twilio do seu [Console do Twilio][twilio_console]. Para começar com o Twilio, inscreva-se em [ https://www.twilio.com/try-twilio ] [ try_twilio]. Você pode avaliar os preços em [ https://www.twilio.com/pricing ] [ twilio_pricing]. Para obter informações sobre a API fornecida pela Twilio, veja [https://www.twilio.com/voice/api][twilio_api].
 2. Adicione a *biblioteca do .NET Twilio* à função Web. Consulte **Para adicionar as bibliotecas da Twilio ao seu projeto de função web**, posteriormente neste tópico.
 
 Você deve estar familiarizado com a criação de uma [Função web básica no Azure][azure_webroles_get_started].
@@ -126,7 +126,7 @@ namespace WebRole1
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
-                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var url = $"https://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
@@ -148,7 +148,7 @@ A chamada é feita, e o ponto de extremidade da Twilio, a versão da API e o sta
 
 ![Resposta de chamada do Azure usando a Twilio e o ASP.NET][twilio_dotnet_basic_form_output]
 
-Para obter mais informações sobre TwiML, consulte [ http://www.twilio.com/docs/api/twiml ] [ twiml]. Para obter mais informações sobre &lt;Say&gt; e outros verbos da Twilio podem ser encontrados em [ http://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
+Para obter mais informações sobre TwiML, consulte [ https://www.twilio.com/docs/api/twiml ] [ twiml]. Para obter mais informações sobre &lt;Say&gt; e outros verbos da Twilio podem ser encontrados em [ https://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 
 ## <a id="nextsteps"></a>Próximas etapas
 Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio em uma função web do ASP.NET no Azure. Antes de implantar o Azure na produção, convém adicionar mais tratamento de erros ou outros recursos. Por exemplo: 
@@ -162,15 +162,15 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 * [Como usar o Twilio para funcionalidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/voice/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 
 [twilio_dotnet_basic_form]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
 [twilio_dotnet_basic_form_output]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
-[twiml]: http://www.twilio.com/docs/api/twiml
+[twiml]: https://www.twilio.com/docs/api/twiml
 
 
 
@@ -181,10 +181,10 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 [howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 [azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started

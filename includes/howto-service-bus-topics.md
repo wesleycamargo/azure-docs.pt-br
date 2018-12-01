@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+ms.openlocfilehash: ef6d5d22f70d5fff38f90b457a7c945ab59fc67c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330690"
+---
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as assinaturas do Barramento de Serviço?
 Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de comunicação de mensagens de *publicação/assinatura* . Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
 
@@ -23,7 +36,7 @@ Para criar um namespace:
 7. Em **Localização**, escolha o país ou região no qual o namespace deve ser hospedado.
    
     ![Criar um namespace][create-namespace]
-8. Selecione o botão **Criar** . Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
+8. Selecione o botão **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
 ### <a name="obtain-the-credentials"></a>Obter as credenciais
 1. Na lista de namespaces, clique no nome do namespace recém-criado.

@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: 16ce537a54fc77fc0f72b859d6d193501d86c1fc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52268673"
+---
 ## <a name="create-a-ruby-application"></a>Criar um aplicativo Ruby
 Para obter instruções, confira [Criar um aplicativo Ruby no Azure (a página pode estar em inglês)](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 

@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3d66d825306c5183bdd8d8e611d98904eef2022a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628086"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52439961"
 ---
 | Recurso | Limite padrão | Observação |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "51628086"
 | Certificados de autenticação |40 | |
 | Tempo limite mínimo de solicitação |1 segundo | |
 | Tempo limite máximo de solicitação |24 horas | |
-| Número de sites |20 |1 por ouvintes HTTP |
+| Número de sites |40 |1 por ouvintes HTTP |
 | Mapas de URL por ouvinte |1 | |
 | Regras com base em caminho máximo por mapa de URL|100|
 | Configurações de redirecionamento |40| |

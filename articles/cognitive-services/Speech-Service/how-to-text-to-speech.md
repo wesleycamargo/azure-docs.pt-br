@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469904"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712000"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Usar "Conversão de Texto em Fala" no Serviço de Fala
 
@@ -92,7 +92,7 @@ Se ocorrer um erro, os códigos de status abaixo são usados. O corpo da respost
 429|Número Excessivo de Solicitações|Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura.
 |502|Gateway incorreto    | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos.
 
-Para obter mais informações sobre a API REST de Conversão de Texto em Fala, consulte [APIs REST](rest-apis.md#text-to-speech).
+Para obter mais informações sobre a API REST de Conversão de Texto em Fala, consulte [APIs REST](rest-apis.md#text-to-speech-api).
 
 ## <a name="next-steps"></a>Próximas etapas
 

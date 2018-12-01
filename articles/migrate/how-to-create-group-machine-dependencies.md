@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403794"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635672"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas usando o mapeamento de dependências da máquina
 
@@ -35,7 +35,7 @@ Para aproveitar a visualização de dependência, você precisa associar um work
 > Não é possível alterar o workspace associado a um projeto de migração.
 
 ### <a name="download-and-install-the-vm-agents"></a>Fazer o download e instalar os agente de VM
-Depois de configurar um workspace, você precisa baixar e instalar agentes em cada computador local que deseja avaliar. Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o [gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md) nelas.
+Depois de configurar um workspace, você precisa baixar e instalar agentes em cada computador local que deseja avaliar. Além disso, se você tiver máquinas sem conectividade com a Internet, será necessário fazer o download e instalar o [gateway do Log Analytics](../azure-monitor/platform/gateway.md) nelas.
 
 1. Em **Visão geral**, clique em **Gerenciar** > **Máquinas**e selecione a máquina exigida.
 2. Na coluna **Dependências**, clique em **Instalar agentes**.
@@ -72,7 +72,7 @@ Para instalar o agente em uma máquina com Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Saiba mais sobre o suporte do agente de Dependência para os sistemas operacionais [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) e [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
+Saiba mais sobre o suporte do agente de Dependência para os sistemas operacionais [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) e [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).
 
 [Saiba mais](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
 

@@ -1,4 +1,16 @@
-
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52439963"
+---
 Agora que você aprendeu os conceitos básicos do Armazenamento de Blobs do Azure, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 * Exiba a documentação de referência do serviço Blob na referência [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://go.microsoft.com/fwlink/?LinkID=390731) para obter detalhes completos sobre as APIs disponíveis.

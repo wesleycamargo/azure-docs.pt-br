@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: 5ac7982d306125804fc5b7873e537f9381f717cb
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279435"
+---
 **Discos de máquina virtual não gerenciados Premium: de acordo com os limites de conta**
 
 | Recurso | Limite padrão |

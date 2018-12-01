@@ -4,11 +4,11 @@ A Microsoft e os contribuintes concedem a você uma licença para a documentaç�
 
 Microsoft, Windows, Microsoft Azure e/ou outros produtos e serviços Microsoft mencionados na documentação podem ser marcas comerciais ou registradas da Microsoft nos Estados Unidos e/ou em outros países.
 As licenças para este projeto não concedem direitos para uso de nomes, logotipos ou marcas da Microsoft.
-As diretrizes gerais de marca registrada da Microsoft podem ser encontradas em [http://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
+As diretrizes gerais de marca registrada da Microsoft podem ser encontradas em [https://go.microsoft.com/fwlink/?LinkID=254653](httpss://go.microsoft.com/fwlink/?LinkID=254653).
 
 Informações de privacidade podem ser encontradas em [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
 A Microsoft e os colaboradores reservam todos os outros direitos, sejam sob seus respectivos direitos autorais, patentes ou marcas ou por implicação, preclusão ou de outro modo.
 
-O gopher Go foi criado por [Renee French](http://reneefrench.blogspot.com/).
+O gopher Go foi criado por [Renee French](https://reneefrench.blogspot.com/).
 O design é licenciado nos termos da [licença de Atribuições 3.0 da Creative Commons](https://creativecommons.org/licenses/by/3.0/us/).

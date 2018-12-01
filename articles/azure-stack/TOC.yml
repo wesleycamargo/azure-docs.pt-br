@@ -30,13 +30,13 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: Oferecer bancos de dados SQL altamente disponíveis
     href: azure-stack-tutorial-sql.md
-  - name: Oferecer bancos de dados de MyQL altamente disponíveis
+  - name: Oferecer bancos de dados MySQL altamente disponíveis
     href: azure-stack-tutorial-mysql.md
   - name: Oferecer Aplicativos Web
     href: azure-stack-tutorial-app-service.md
 - name: Conceitos
   items:
-  - name: Planejamento de capacidade
+  - name: Planejamento da capacidade
     href: capacity-planning.md
     items:
     - name: Planejamento de capacidade de computação
@@ -112,7 +112,7 @@ items:
         href: azure-stack-integrate-physical-device-auditing.md
   - name: Política de manutenção
     href: azure-stack-servicing-policy.md
-  - name: Recursos e conceitos principais
+  - name: Principais recursos e conceitos
     href: azure-stack-key-features.md
   - name: Bases de administração
     href: azure-stack-manage-basics.md
@@ -128,7 +128,7 @@ items:
       href: azure-stack-region-management.md
     - name: Usando o portal do administrador
       href: azure-stack-manage-portals.md
-    - name: Conectar ao Azure
+    - name: Conecte-se ao Azure
       items:
       - name: Conectar-se usando VPN
         href: azure-stack-connect-vpn.md
@@ -198,7 +198,7 @@ items:
         href: azure-stack-identity-overview.md
       - name: Arquitetura de identidade
         href: azure-stack-identity-architecture.md
-      - name: Gerenciar RBAC
+      - name: Gerenciar o RBAC
         href: azure-stack-manage-permissions.md
       - name: Adicionar usuários do Azure AD
         href: azure-stack-add-new-user-aad.md
@@ -378,7 +378,7 @@ items:
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview
-- name: Relacionado
+- name: Relacionados
   items:
   - name: Documentação do Usuário do Azure Stack
     href: /azure/azure-stack/user/
@@ -392,15 +392,15 @@ items:
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
   - name: Comentários de documentação de pilha do Azure
     href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
-  - name: Informações sobre preços
+  - name: Informações sobre preço
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Treinamento e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: b339c19e4736ddf55794ae07f2f14b3d993f7762
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ca980f7c8ff55635b63dafe84f075b98a70229b4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686646"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312038"

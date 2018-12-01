@@ -3,7 +3,7 @@ title: Guia estratégico de segurança na Central de Segurança do Azure | Micro
 description: Este documento ajuda você a usar guias estratégicos de segurança na Central de Segurança do Azure para automatizar a resposta a incidentes de segurança.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/09/2018
-ms.author: yurid
-ms.openlocfilehash: 05245b2a7a4f7bf61052b13da5ee2a98be721f7c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259948"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619904"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Guia estratégico de segurança na Central de Segurança do Azure (versão prévia)
 Este documento ensina a usar guias estratégicos de segurança na Central de Segurança do Azure para responder a problemas de segurança.
 
 ## <a name="what-is-security-playbook-in-security-center"></a>O que é o guia estratégico de segurança na Central de Segurança?
-Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados na Central de Segurança depois que determinado guia estratégico é disparado pelo alerta selecionado. O guia estratégico de segurança pode ajudar a automatizar e coordenar a resposta a um alerta de segurança específico detectado pela Central de Segurança. Os guias estratégicos de segurança na Central de Segurança se baseiam nos [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você pode usar os modelos que são fornecidos na categoria Segurança nos modelos de Aplicativos Lógicos; pode modificá-los com base em suas necessidades ou pode criar novos guias estratégicos usando o [fluxo de trabalho dos Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)e a Central de Segurança como o gatilho. 
+Guia estratégico de segurança é uma coleção de procedimentos que podem ser executados na Central de Segurança depois que determinado guia estratégico é disparado pelo alerta selecionado. O guia estratégico de segurança pode ajudar a automatizar e coordenar a resposta a um alerta de segurança específico detectado pela Central de Segurança. Os guias estratégicos de segurança na Central de Segurança se baseiam nos [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), o que significa que você pode usar os modelos que são fornecidos na categoria Segurança nos modelos de Aplicativos Lógicos; pode modificá-los com base em suas necessidades ou pode criar novos guias estratégicos usando o [fluxo de trabalho dos Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)e a Central de Segurança como o gatilho.
 
 > [!NOTE]
-> O guia estratégico aproveita os Aplicativos Lógicos do Azure e, portanto, geram encargos. Visite a página [Aplicativos Lógicos do Azure](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes de preços. 
+> O guia estratégico aproveita os Aplicativos Lógicos do Azure e, portanto, geram encargos. Visite a página [Aplicativos Lógicos do Azure](https://azure.microsoft.com/pricing/details/logic-apps/) para obter mais detalhes de preços.
 
 ## <a name="how-to-create-a-security-playbook-from-security-center"></a>Como criar um guia estratégico de segurança na Central de Segurança?
 Siga estas etapas para criar um novo guia estratégico de segurança na Central de Segurança:
@@ -37,7 +37,7 @@ Siga estas etapas para criar um novo guia estratégico de segurança na Central 
 2.  Na seção **Automação e Orquestração** no painel esquerdo, clique em **Guias Estratégicos (Versão prévia)**.
 
     ![Aplicativo Lógico](./media/security-center-playbooks/security-center-playbooks-fig17.png)
- 
+
 3. Em **Central de Segurança - Guias estratégicos (Versão prévia)**, clique no botão **Adicionar**.
 
     ![Criar aplicativo lógico](./media/security-center-playbooks/security-center-playbooks-fig2.png)
@@ -47,7 +47,7 @@ Siga estas etapas para criar um novo guia estratégico de segurança na Central 
     ![Criar aplicativo lógico](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
 5. O **Designer de Aplicativo Lógico** é exibido. Clique em **Aplicativo Lógico em Branco** para criar um novo guia estratégico. Você também pode selecionar **Segurança** nas categorias e usar um dos modelos.
-    
+
     ![Designer de aplicativo lógico](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 
 6. No campo **Pesquisar todos os gatilhos e conectores**, digite *Central de Segurança do Azure*e selecione **Quando uma resposta a um alerta da Central de Segurança do Azure é disparada**.
@@ -57,7 +57,7 @@ Siga estas etapas para criar um novo guia estratégico de segurança na Central 
 7. Agora você pode definir o que acontece ao adicionar o manual. Você pode adicionar uma ação, uma condição lógica, condições de caso de alternância ou loops.
 
     ![Designer de aplicativo lógico](./media/security-center-playbooks/security-center-playbooks-fig5.png)
-     
+
 ## <a name="how-to-run-a-security-playbook-in-security-center"></a>Como executar um guia estratégico de segurança na Central de Segurança?
 
 Você pode executar um guia estratégico de segurança na Central de Segurança quando quiser orquestrar, saber mais sobre outros serviços ou fazer correções. Para acessar os guias, siga estas etapas:
@@ -78,7 +78,7 @@ Você pode executar um guia estratégico de segurança na Central de Segurança 
 
 ### <a name="history"></a>Histórico
 
-Depois de executar o manual, você também pode acessar execuções anteriores e etapas com mais informações sobre o status de guias estratégicos executados anteriormente. O histórico é contextualizado por alerta, o que significa que o histórico do guia estratégico que você vê nessa página está relacionado ao alerta que disparou o guia estratégico. 
+Depois de executar o manual, você também pode acessar execuções anteriores e etapas com mais informações sobre o status de guias estratégicos executados anteriormente. O histórico é contextualizado por alerta, o que significa que o histórico do guia estratégico que você vê nessa página está relacionado ao alerta que disparou o guia estratégico.
 
 ![Histórico](./media/security-center-playbooks/security-center-playbooks-fig16.png)
 
@@ -86,7 +86,7 @@ Para ver mais detalhes sobre a execução de um guia estratégico específico, c
 
 ![Detalhes](./media/security-center-playbooks/security-center-playbooks-fig14.png)
 
-Nesse fluxo de trabalho, você pode ver o tempo que cada tarefa levou para ser executada e pode expandir cada tarefa para ver o resultado. 
+Nesse fluxo de trabalho, você pode ver o tempo que cada tarefa levou para ser executada e pode expandir cada tarefa para ver o resultado.
 
 ### <a name="changing-an-existing-playbook"></a>Alterando um guia estratégico existente
 
@@ -102,7 +102,6 @@ Neste documento, você aprendeu a usar guias estratégicos na Central de Seguran
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança. 
+* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
-

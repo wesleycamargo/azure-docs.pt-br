@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 45407fb2eca5527c8b24f199c9470311a0e5d6a9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113504"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976750"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -68,9 +68,9 @@ O agente do nó do Lote é um programa que é executado em cada nó no pool e fo
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Criar um pool do Linux: Python do Lote
-O trecho de código a seguir mostra um exemplo de como usar a [Biblioteca de cliente do Lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo de Python do Lote pode ser encontrada no [pacote azure.batch][py_batch_docs] em Ler os Documentos.
+O snippet de código a seguir mostra um exemplo de como usar a [Biblioteca de cliente do Lote do Microsoft Azure para Python][py_batch_package] para criar um pool de nós de computação do Ubuntu Server. A documentação de referência para o módulo de Python do Lote pode ser encontrada no [pacote azure.batch][py_batch_docs] em Ler os Documentos.
 
-Esse trecho de código cria uma [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU e versão). No entanto, recomendamos para o código de produção que você use o método [list_node_agent_skus][py_list_skus] no código de produção para determinar e selecionar dentre as combinações de SKU do agente do nó e imagem disponíveis no tempo de execução.
+Esse snippet de código cria uma [ImageReference][py_imagereference] explicitamente e especifica cada uma de suas propriedades (editor, oferta, SKU e versão). No entanto, recomendamos para o código de produção que você use o método [list_node_agent_skus][py_list_skus] no código de produção para determinar e selecionar dentre as combinações de SKU do agente do nó e imagem disponíveis no tempo de execução.
 
 ```python
 # Import the required modules from the
@@ -126,7 +126,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Conforme mencionado anteriormente, recomendamos que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [ist_node_agent_skus][py_list_skus] para selecionar dinamicamente entre as combinações de imagem do agente do nó/Marketplace com suporte no momento. O trecho de código Python a seguir mostra como usar esse método.
+Conforme mencionado anteriormente, recomendamos que, em vez de criar o [ImageReference][py_imagereference] explicitamente, você use o método [ist_node_agent_skus][py_list_skus] para selecionar dinamicamente entre as combinações de imagem do agente do nó/Marketplace com suporte no momento. O snippet de código Python a seguir mostra como usar esse método.
 
 ```python
 # Get the list of node agents from the Batch service
@@ -146,9 +146,9 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Criar um pool do Linux: .NET do Lote
-O trecho de código a seguir mostra um exemplo de como usar a biblioteca de cliente [.NET do Lote][nuget_batch_net] para criar um pool de nós de computação do Ubuntu Server. Você pode encontrar a [documentação de referência do .NET do Lote][api_net] no docs.microsoft.com.
+O snippet de código a seguir mostra um exemplo de como usar a biblioteca de cliente [.NET do Lote][nuget_batch_net] para criar um pool de nós de computação do Ubuntu Server. Você pode encontrar a [documentação de referência do .NET do Lote][api_net] no docs.microsoft.com.
 
-O trecho de código a seguir usa o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para fazer a seleção na lista de combinações de SKU do agente do nó e imagem do Marketplace com suporte no momento. Essa técnica é interessante porque a lista de combinações com suporte pode ser alterada periodicamente. Os mais comum é que combinações com suporte sejam adicionadas.
+O snippet de código a seguir usa o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para fazer a seleção na lista de combinações de SKU do agente do nó e imagem do Marketplace com suporte no momento. Essa técnica é interessante porque a lista de combinações com suporte pode ser alterada periodicamente. Os mais comum é que combinações com suporte sejam adicionadas.
 
 ```csharp
 // Pool settings
@@ -196,7 +196,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Embora o trecho de código anterior use o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para relacionar e selecionar dinamicamente dentre as combinações de SKU do agente do nó e imagem com suporte (recomendado), você também pode configurar um [ImageReference][net_imagereference] explicitamente:
+Embora o snippet de código anterior use o método [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] para relacionar e selecionar dinamicamente dentre as combinações de SKU do agente do nó e imagem com suporte (recomendado), você também pode configurar um [ImageReference][net_imagereference] explicitamente:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -247,7 +247,7 @@ A tabela a seguir relaciona as imagens de máquina virtual do Marketplace que s�
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Conectar-se a nós do Linux usando SSH
 Durante o desenvolvimento ou durante a solução de problemas, talvez seja necessário entrar nos nós em seu pool. Ao contrário dos nós de computação do Windows, não é possível usar o protocolo RDP para se conectar aos nós Linux. Em vez disso, o serviço do Lote habilita acesso do SSH em cada nó para a conexão remota.
 
-O trecho de código Python a seguir cria um usuário em cada nó em um pool, requerido para conexão remota. Ele imprime as informações de conexão SSH (secure shell) para cada nó.
+O snippet de código Python a seguir cria um usuário em cada nó em um pool, requerido para conexão remota. Ele imprime as informações de conexão SSH (secure shell) para cada nó.
 
 ```python
 import datetime
@@ -350,6 +350,6 @@ Os [exemplos de código Python][github_samples_py] no repositório [azure-batch-
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
 [py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
 [py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
-[py_list_skus]: http://azure-sdk-for-python.readthedocs.org/en/dev/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
+[py_list_skus]: https://docs.microsoft.com/python/api/azure-batch/azure.batch.operations.AccountOperations?view=azure-python#list-node-agent-skus
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/

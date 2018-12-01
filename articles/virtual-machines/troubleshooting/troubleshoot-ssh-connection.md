@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230896"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976206"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
 Há vários motivos pelos quais você pode encontrar erros de SSH (Secure Shell), falhas na conexão SSH ou então o SSH é recusado ao tentar se conectar a uma VM (máquina virtual) Linux. Este artigo ajuda você a localizar e corrigir os problemas. Você pode usar o portal do Azure, a CLI do Azure ou a Extensão de Acesso da VM para Linux para solucionar problemas de conexão.
@@ -242,7 +242,7 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
 * Reimplante a VM em um novo nó do Azure. Para obter informações sobre como reimplantar uma VM, veja [Reimplantar Máquina Virtual em um novo nó do Azure](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     Após a conclusão dessa operação, os dados de disco efêmeros serão perdidos e os endereços IP dinâmicos associados à máquina virtual serão atualizados.
-* Siga as instruções em [Como redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](../linux/classic/reset-access-classic.md?) para:
+* Siga as instruções em [Como redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](../linux/classic/reset-access-classic.md) para:
   
   * Redefinir a senha ou a chave SSH.
   * Criar uma nova conta de usuário *sudo*.

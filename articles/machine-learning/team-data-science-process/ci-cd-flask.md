@@ -1,26 +1,22 @@
 ---
 title: 'Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando aplicativo Docker, Kubernetes e Python Flask'
 description: 'Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando Docker e Kubernetes'
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094374"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496740"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>Aplicativos de DevOps para IA (inteligência artificial): criando pipeline de integração contínua no Azure usando o Docker e Kubernetes
 Para um aplicativo de IA, há geralmente dois fluxos de trabalho: cientistas de dados criando modelos de aprendizado de máquina e desenvolvedores de aplicativos compilando o aplicativo e o expondo ao consumo de usuários finais. Neste artigo, demonstraremos como implementar um pipeline de CI (integração contínua)/CD (entrega contínua) para um aplicativo de IA. O aplicativo de IA é uma combinação de código do aplicativo incorporado com um modelo de ML (aprendizado de máquina) pré-treinado. Neste artigo, estamos buscando um modelo pré-treinado de uma conta de armazenamento de blobs do Azure privada, que pode ser uma conta AWS S3 também. Usaremos um aplicativo Web python flask simples no artigo.
@@ -55,7 +51,7 @@ A arquitetura de pipeline é fornecida abaixo.
 1. Os desenvolvedores trabalham no IDE escolhido no código do aplicativo.
 2. Eles confirmam o código de controle do código-fonte de escolha (o Azure DevOps tem bom suporte para vários controles do código-fonte)
 3. Separadamente, o cientista de dados trabalha no desenvolvimento do modelo.
-4. Quando satisfeitos, eles publicam o modelo em um repositório de modelos; neste caso, estamos usando uma conta de armazenamento de blobs. Isso pode ser facilmente substituído pelo serviço de gerenciamento de Modelos do Azure ML Workbench por meio de APIs REST.
+4. Quando satisfeitos, eles publicam o modelo em um repositório de modelos; neste caso, estamos usando uma conta de armazenamento de blobs. 
 5. Um build é iniciado no Azure DevOps com base em confirmação no GitHub.
 6. O pipeline de build do Azure DevOps recebe o modelo mais recente do contêiner de Blob e cria um contêiner.
 7. O Azure DevOps envia a imagem por push para o repositório de imagens privado no Registro de Contêiner do Azure

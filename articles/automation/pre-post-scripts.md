@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956603"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584603"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerenciar pré-scripts e pós-scripts (versão prévia)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Problemas conhecidos
 
 * Não é permitido passar objetos ou matrizes aos parâmetros ao usar pré-scripts e pós-scripts. Ocorrerá uma falha no runbook.
-* Os runbooks não publicados são exibidos como selecionáveis ao escolher um pré-script ou um pós-script. Somente runbooks publicados devem ser escolhidos, pois os runbooks não publicados não podem ser invocados e falharão.
-* Os computadores adicionados a uma implantação usando [Grupos dinâmicos (versão prévia)](automation-update-management.md#using-dynamic-groups) não fazem parte, no momento, do parâmetro **SoftwareUpdateConfigurationRunContext** que é passado para pré-scripts e pós-scripts.
 
 ## <a name="next-steps"></a>Próximas etapas
 

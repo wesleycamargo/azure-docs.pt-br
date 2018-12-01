@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113970"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976717"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o tempo de execução de integração do Azure-SSIS em um agendamento
 Este artigo descreve como agendar o início e a parada de um IR (tempo de execução de integração) do Azure-SSIS usando a Automação do Azure e o Azure Data Factory. A execução de um IR (tempo de execução de integração) do Azure-SSIS (SQL Server Integration Services) tem um custo associado a ele. Portanto, normalmente, você executa o IR somente quando precisar executar pacotes SSIS no Azure e para o IR quando não for mais necessário. Você poderá usar a interface do usuário do Data Factory ou do Azure PowerShell para [iniciar ou parar manualmente um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md)).
@@ -347,7 +347,7 @@ Após criar e testar o pipeline, você cria um gatilho de agendamento e associa-
     6. Clique com o botão direito do mouse no pacote SSIS e selecione **Relatórios** -> **Relatórios Padrão** -> **Todas as Execuções**. 
     7. Verifique se o pacote do SSIS executou. 
 
-        ![Verificar a execução do pacote SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![Verificar a execução do pacote SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>Agendamento do pipeline 
 Como agora o pipeline está funcionando conforme o esperado, você poderá criar um gatilho para executar esse pipeline em uma cadência especificada. Para obter detalhes sobre como associar um gatilho de agendamento com um pipeline, consulte [Disparar o pipeline em um agendamento](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).

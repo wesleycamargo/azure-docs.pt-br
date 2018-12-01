@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952793"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498218"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Crie um ambiente Linux completo com a CLI Clássica do Azure
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e com um par de VMs úteis para desenvolvimento e computação simples. Percorreremos o processo, comando por comando, até que você tenha duas VMs do Linux funcionais e seguras às quais possa se conectar de qualquer lugar na Internet. Em seguida, você poderá passar para redes e ambientes mais complexos.
@@ -40,7 +40,7 @@ Para criar esse ambiente personalizado, você precisa da [Azure Classic CLI ](..
 Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
 - [CLI do Azure Classic](#quick-commands) - nossa CLI para os modelos de implantação de gerenciamento clássico e de recursos (este artigo)
-- [CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos
+- [CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos
 
 
 ## <a name="quick-commands"></a>Comandos rápidos

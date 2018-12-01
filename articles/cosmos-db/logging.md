@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408992"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423219"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -29,9 +29,9 @@ A imagem a seguir mostra os diferentes tipos de logs do Azure disponíveis:
 
 ![Diferentes tipos de logs do Azure](./media/logging/azurelogging.png)
 
-Na imagem, os **Recursos de computação** representam os recursos do Azure para os quais você pode acessar o sistema operacional convidado da Microsoft. Por exemplo, Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Serviço de Contêiner do Azure etc. são considerados recursos de computação. Recursos de computação geram Logs de atividades, Logs de diagnóstico e Logs de aplicativos. Para saber mais, consulte o artigo [Fontes de dados de monitoramento no Azure](../monitoring/monitoring-data-sources.md#).
+Na imagem, os **Recursos de computação** representam os recursos do Azure para os quais você pode acessar o sistema operacional convidado da Microsoft. Por exemplo, Máquinas Virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Serviço de Contêiner do Azure etc. são considerados recursos de computação. Recursos de computação geram Logs de atividades, Logs de diagnóstico e Logs de aplicativos. Para saber mais, consulte o artigo [Fontes de dados de monitoramento no Azure](../azure-monitor/platform/data-sources.md).
 
-Os **Recursos que não são de computação** são recursos nos quais você não pode acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos etc. Azure Cosmos DB é um recurso que não é de computação. Você pode exibir os logs dos recursos que não são de computação no Log de Atividades ou habilitar a opção Logs de Diagnóstico no portal. Para saber mais, consulte o artigo [Fontes de dados no Azure Monitor](../monitoring/monitoring-data-sources.md).
+Os **Recursos que não são de computação** são recursos nos quais você não pode acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, Grupos de Segurança de Rede, Aplicativos Lógicos etc. Azure Cosmos DB é um recurso que não é de computação. Você pode exibir os logs dos recursos que não são de computação no Log de Atividades ou habilitar a opção Logs de Diagnóstico no portal. Para saber mais, consulte o artigo [Fontes de dados no Azure Monitor](../azure-monitor/platform/data-sources.md).
 
 O Log de Atividades registra as operações em um nível de assinatura para o Azure Cosmos DB. Operações como ListKeys, Write DatabaseAccounts etc. são registradas. Os Logs de Diagnóstico fornecem um registro em log mais granular e permitem que você registre DataPlaneRequests (Criar, Ler, Consultar etc.) e MongoRequests.
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238855"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427056"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o Modelo de Solução do Cortana Intelligence para previsão de demanda em energia
 ## <a name="overview"></a>**Visão geral**
@@ -159,14 +159,14 @@ Depois que o Gerador de Dados é iniciado, o pipeline começa a obter os hidrata
 Esta seção descreve como configurar o painel do Power BI para visualizar os dados em tempo real do Azure Stream Analytics (afunilamento), bem como os resultados de previsão do aprendizado de máquina do Azure (caminho frio).
 
 ### <a name="setup-hot-path-dashboard"></a>Configurar o painel de afunilamento
-As etapas a seguir mostram como visualizar a saída de dados em tempo real dos trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](http://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
+As etapas a seguir mostram como visualizar a saída de dados em tempo real dos trabalhos do Stream Analytics gerados no momento da implantação da solução. Será necessária uma conta do [Power BI online](https://www.powerbi.com/) para executar as etapas a seguir. Se não tiver uma conta, você poderá [criar uma](https://powerbi.microsoft.com/pricing).
 
 1. Adicione a saída do Power BI ao Stream Analytics (ASA).
 
    * Você precisa seguir as instruções em [Azure Stream Analytics e Power BI: um painel de análise em tempo real para a visibilidade em tempo real dos dados de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída do seu trabalho do Azure Stream Analytics como seu painel do Power BI.
    * Localize o trabalho do Stream Analytics em seu [Portal do Azure](https://portal.azure.com). O nome do trabalho deve ser: NomeSolução+"trabalhostreaming"+número aleatório+"asapbi" (ou seja, demostreamingjob123456asapbi).
    * Adicione uma saída do Power BI para o trabalho do ASA. Defina o **Alias de Saída** como **‘PBIoutput’**. Defina o **Nome do Conjunto de Dados** e o **Nome da Tabela** como **‘EnergyStreamData’**. Depois de adicionar a saída, clique em **"Iniciar"** na parte inferior da página para iniciar o trabalho do Stream Analytics. Você deverá receber uma mensagem de confirmação (por exemplo, "Iniciando o trabalho do Stream Analytics myteststreamingjob12345asablob com êxito").
-2. Faça logon no [Power BI online](http://www.powerbi.com)
+2. Faça logon no [Power BI online](https://www.powerbi.com)
 
    * Na seção Conjuntos de Dados do painel esquerdo em Meu Workspace, você deverá ver um novo conjunto de dados no painel esquerdo do Power BI. Esses são os dados de streaming enviados do Stream Analytics do Azure na etapa anterior.
    * Verifique se o painel ***Visualizações*** está aberto e se é mostrado no lado direito da tela.
@@ -207,7 +207,7 @@ No pipeline de dados de caminho frio, o principal objetivo é obter a previsão 
    * Na janela aberta, substitua **"Servidor"** e **"Banco de Dados"** por seus próprios nomes do servidor e do banco de dados e clique em **"OK"**. Para o nome do servidor, especifique a porta 1433 (**NomeSolução.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem na tela.
    * Na próxima janela aberta, você verá duas opções no painel à esquerda (**Windows** e **Banco de Dados**). Clique em **"Banco de Dados"**, preencha o **"Nome de usuário"** e a **"Senha"** (são o nome de usuário e a senha inseridos quando você implantou pela primeira vez a solução e criou um Banco de Dados SQL do Azure). Em ***Selecione o nível no qual aplicar essas configurações***, marque a opção do nível do banco de dados. Clique em **"Conectar"**.
    * Depois de ser guiado de volta à página anterior, feche a janela. Uma mensagem é exibida – clique em **Aplicar**. Por fim, clique no botão **Salvar** para salvar as alterações. Seu arquivo do Power BI agora estabeleceu uma conexão com o servidor. Se suas visualizações estiverem vazias, limpe as seleções nas visualizações para visualizar todos os dados clicando no ícone de borracha no canto superior direito das legendas. Use o botão de atualização para refletir os novos dados nas visualizações. Inicialmente, você só vê os dados propagados em suas visualizações, já que a atualização do data factory está agendada para a cada três horas. Após três horas, você verá as novas previsões refletidas nas visualizações ao atualizar os dados.
-3. (Opcional) Publique o painel de caminho frio no [Power BI online](http://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
+3. (Opcional) Publique o painel de caminho frio no [Power BI online](https://www.powerbi.com/). Observe que esta etapa precisa de uma conta do Power BI (ou de uma conta do Office 365).
 
    * Clique em **"Publicar"** e, depois de alguns segundos, será exibida uma janela mostrando "Êxito ao publicar no Power BI!". com uma marca de seleção verde. Clique no link a seguir "Abrir demoprediction.pbix abrir no Power BI". Para obter instruções detalhadas, consulte [Publicar do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para criar um novo painel: clique no sinal **+** ao lado da seção **Painéis** no painel à esquerda. Insira o nome "Demonstração de previsão de demanda" para esse novo painel.

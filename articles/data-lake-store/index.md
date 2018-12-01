@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 442c232734cb6116b60236cdb885b403ec0eed90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14fde29a898eb42d57e67dc843c0c565c4c661c3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979379"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494866"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação do Armazenamento do Azure Data Lake Gen1
 
@@ -172,49 +172,49 @@ Se você estiver interessado em saber mais sobre a versão prévia do Armazename
 </ul>
 
 ---
- 
+ 
 <h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">CLI do Azure</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
-                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (Gerenciamento de Conta)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Gerenciamento do sistema de arquivos)</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linguagens</h3>
+                        <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (Gerenciamento de Conta)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Gerenciamento do sistema de arquivos)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">API REST</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datalakestore">API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

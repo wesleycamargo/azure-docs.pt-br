@@ -3,19 +3,19 @@ title: Usar marcadores de decoração para realçar texto – Pesquisa Personali
 titlesuffix: Azure Cognitive Services
 description: Mostra como habilitar decorações de texto nas respostas da pesquisa.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 848255418e7cc0f80d10006aa4b13e89121c8834
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1ab99a8a024103f4a15154ee5b76e7dc21da4ae6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466249"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162102"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usar marcadores de decoração para realçar texto
 

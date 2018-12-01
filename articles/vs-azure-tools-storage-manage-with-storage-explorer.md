@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 20aa1824656ee6eb861f3848d969d678b07e9378
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038413"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422721"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -41,7 +41,7 @@ Gerenciador de Armazenamento do Azure tem suporte nas seguintes versões do Wind
 
 Para todas as versões do Windows, .NET Framework 4.6.2 ou posterior é necessário.
 
-[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+[Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com)
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -49,7 +49,7 @@ Gerenciador de Armazenamento do Azure tem suporte nas seguintes versões do macO
 
 * macOS 10.12 “Sierra” e versões posteriores
 
-[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+[Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com)
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -70,7 +70,7 @@ Você também deve ter as seguintes dependências/bibliotecas instaladas para ex
 
 As [Notas de Versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) do Gerenciador de Armazenamento do Azure contém etapas específicas para algumas distribuições.
 
-[Baixe e instale o Gerenciador de Armazenamento](http://www.storageexplorer.com)
+[Baixe e instale o Gerenciador de Armazenamento](https://www.storageexplorer.com)
 
 ---
 

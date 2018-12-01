@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233354"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332996"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adicionar Kubernetes para o Azure Stack Marketplace
 
@@ -50,7 +50,7 @@ Crie um plano, uma oferta e uma assinatura para o item do Marketplace do Kuberne
 
 1. Selecione **+ criar um recurso** > **planos e oferece** > **assinatura** para criar uma nova assinatura.
 
-    a. Insira um **nome de exibição**.
+     a. Insira um **nome de exibição**.
 
     b. Insira um **usuário**. Use conta do Azure AD associada ao locatário.
 
@@ -120,7 +120,7 @@ Adicione o Kubernetes do Marketplace:
     > [!note]  
     > Ele pode levar cinco minutos para que o item do marketplace aparecer no Marketplace.
 
-    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Atualizar ou remover o Kubernetes 
 
@@ -136,7 +136,7 @@ Para remover o item de Kubernetes:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. Anote o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. Anote o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. Use o seguinte cmdlet do PowerShell para remover o item:
 

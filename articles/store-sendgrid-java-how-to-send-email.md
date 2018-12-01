@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427834"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422070"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar emails usando o SendGrid com Java
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas em Java. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas](#next-steps) .
@@ -34,13 +34,13 @@ SendGrid é um [serviço de email baseado em nuvem] que fornece uma [entrega de 
 * Encaminhamento de consultas dos clientes
 * Notificações de email de seu aplicativo
 
-Para obter mais informações, consulte <http://sendgrid.com>.
+Para obter mais informações, consulte <https://sendgrid.com>.
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta do SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="how-to-use-the-javaxmail-libraries"></a>Como usar as bibliotecas javax.mail
-Obtenha as bibliotecas javax.mail, por exemplo, a partir de <http://www.oracle.com/technetwork/java/javamail> e importe-as para o seu código. Em um alto nível, o processo de usar a biblioteca javax.mail para enviar emails usando SMTP é fazer o seguinte:
+Obtenha as bibliotecas javax.mail, por exemplo, a partir de <https://www.oracle.com/technetwork/java/javamail> e importe-as para o seu código. Em um alto nível, o processo de usar a biblioteca javax.mail para enviar emails usando SMTP é fazer o seguinte:
 
 1. Especificar os valores de SMTP, incluindo o servidor SMTP, que, para SendGrid, é smtp.sendgrid.net.
 
@@ -184,13 +184,13 @@ Agora que você já conhece as noções básicas do serviço de email SendGrid, 
 * Documentação da API do SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>
 
-[http://sendgrid.com]: https://sendgrid.com
-[http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+[https://sendgrid.com]: https://sendgrid.com
+[https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
-[http://sendgrid.com/features]: https://sendgrid.com/features
-[http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
+[https://sendgrid.com/features]: https://sendgrid.com/features
+[https://www.oracle.com/technetwork/java/javamail]: https://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
-[http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+[https://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de email transacional]: https://sendgrid.com/transactional-email

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507207"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852972"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Defina e configure o proxy reverso no Azure Service Fabric
 O proxy reverso é um serviço opcional no Azure Service Fabric que ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http. Para saber mais, confira [Proxy reverso no Azure Service Fabric](service-fabric-reverseproxy.md). Este artigo mostra como instalar e configurar o proxy reverso no cluster. 
@@ -231,7 +231,7 @@ As etapas a seguir mostram as configurações a serem usadas para habilitar o pr
 
    Para obter mais informações sobre como configurar e gerenciar certificados para um cluster autônomo, bem como para obter mais detalhes sobre como configurar certificados usados para proteger o proxy reverso, consulte [X509 segurança baseada em certificado](./service-fabric-windows-cluster-x509-security.md).
 
-Depois de modificar as configurações no arquivo ClusterConfig.json, siga as instruções em [Atualizar a configuração do cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) para aplicar as alterações ao seu cluster.
+Depois de modificar as configurações no arquivo ClusterConfig.json, siga as instruções em [Atualizar a configuração do cluster](service-fabric-cluster-config-upgrade-windows-server.md) para aplicar as alterações ao seu cluster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Expor um proxy reverso em uma porta pública por meio do Azure Load Balancer
@@ -332,7 +332,7 @@ Por exemplo, você pode definir o valor de **DefaultHttpRequestTimeout** para de
    }
    ``` 
 
-Para obter mais informações sobre como atualizar as configurações de malha para clusters do Azure, consulte [Personalizar as configurações de cluster usando modelos do Gerenciador de Recursos](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Para clusters autônomos, consulte [Personalizar configurações para clusters autônomos](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Para obter mais informações sobre como atualizar as configurações de malha para clusters do Azure, consulte [Personalizar as configurações de cluster usando modelos do Gerenciador de Recursos](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, consulte [Personalizar configurações para clusters autônomos](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Várias configurações de malha são usadas para ajudar a estabelecer uma comunicação segura entre o proxy reverso e serviços. Para obter informações detalhadas sobre essas configurações, consulte [Conectar-se a um serviço seguro com o proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125180"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316541"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na Central de Segurança do Azure (Visualizar)
  
@@ -86,7 +86,7 @@ Neste artigo, você aprendeu a definir uma política de Proteção de Informaç�
 Para obter mais informações sobre políticas de segurança e segurança de dados na Central de Segurança do Azure, consulte os seguintes artigos:
  
 - [Visão geral das políticas de segurança](security-center-policies-overview.md): obter uma visão geral das políticas de segurança na Central de segurança
-- [Configurando políticas de segurança na Central de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para suas assinaturas do Azure e grupos de recursos
+- [Configurando políticas de segurança na Central de segurança do Azure](security-center-azure-policy.md): Saiba como configurar políticas de segurança para suas assinaturas do Azure e grupos de recursos
 - [Segurança de dados da Central de segurança do Azure](security-center-data-security.md): Saiba como a Central de segurança gerencia e protege os dados
 
 

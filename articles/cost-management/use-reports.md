@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976770"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276016"
 ---
 # <a name="use-cloudyn-reports"></a>Usar relatórios do Cloudyn
 
 Este artigo descreve a finalidade dos relatórios Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para obter uma visão geral sobre como usar os relatórios da Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 
-O Azure Cost Management oferece funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução nativa de gerenciamento de custos do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](overview-cost-mgt.md).
+O Azure Cost Management oferece funcionalidade semelhante ao Cloudyn. O Gerenciamento de Custos do Azure é uma solução de gerenciamento de custos nativa do Azure. Ele ajuda você a analisar custos, criar e gerenciar orçamentos, exportar dados e rever e agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [gerenciamento de custos do Azure](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipos de relatório
 

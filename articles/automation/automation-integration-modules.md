@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444497"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276475"
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integração de automação do Azure
 O PowerShell é a tecnologia fundamental por trás da Automação do Azure. Como a Automação do Azure foi desenvolvida sobre o PowerShell, os módulos do PowerShell são fundamentais para a extensibilidade da Automação do Azure. Neste artigo, orientamos você pelas questões específicas da utilização de módulos do PowerShell pela Automação do Azure, chamados de “Módulos de Integração”, e as práticas recomendadas para a criação de seus próprios módulos do PowerShell para ter certeza de que eles funcionam como Módulos de Integração dentro da Automação do Azure. 
@@ -34,7 +34,7 @@ O formato no qual você importa um pacote do Módulo de Integração é um arqui
 
 Se o módulo precisar conter um tipo de conexão da Automação do Azure, também deverá conter um arquivo com o nome `<ModuleName>-Automation.json` que especifica as propriedades do tipo de conexão. Esse é um arquivo json colocando dentro da pasta do módulo de seu arquivo .zip compactado, e contém os campos de uma “conexão” necessária para conectar ao sistema ou serviço representado pelo módulo. Isso termina criando um tipo de conexão na Automação do Azure. Com esse arquivo você pode definir os nomes de campo, os tipos e se os campos devem ser criptografados e/ou opcionais, para o tipo de conexão do módulo. Veja a seguir um modelo no formato de arquivo json:
 
-```
+```json
 { 
    "ConnectionFields": [
    {
@@ -67,7 +67,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
 
 1. Incluem uma sinopse, uma descrição e um URI de ajuda para cada cmdlet no módulo. No PowerShell, você pode usar o cmdlet **Get-Help** para definir certas informações de ajuda com relação aos cmdlets para que o usuário receba ajuda sobre como usá-los. Por exemplo, veja como você pode definir uma sinopse e um URI de ajuda para um módulo do PowerShell escrito em um arquivo .psm1.<br>  
    
-    ```
+    ```powershell
     <#
         .SYNOPSIS
          Gets all outgoing phone numbers for this Twilio account 
@@ -104,12 +104,12 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
    <br> Fornecer essas informações não apenas mostrará esta Ajuda usando o cmdlet **Get-Help** no console do PowerShell, mas também exporá essa funcionalidade de ajuda na Automação do Azure.  Por exemplo, ao inserir atividades durante a criação de runbooks. Clicar em "Exibir ajuda detalhada" abrirá o URI de ajuda em outra guia do navegador da Web que você está usando para acessar a Automação do Azure.<br>![Ajuda do Módulo de Integração](media/automation-integration-modules/automation-integration-module-activitydesc.png)
 1. Se o módulo for executado em um sistema remoto,
 
-    a. Ele deverá conter um arquivo de metadados do Módulo de Integração que define as informações necessárias para se conectar a esse sistema remoto, ou seja, tipo de conexão.  
+     a. Ele deverá conter um arquivo de metadados do Módulo de Integração que define as informações necessárias para se conectar a esse sistema remoto, ou seja, tipo de conexão.  
     b. Cada cmdlet no módulo deve ser capaz de receber um objeto de conexão (uma instância desse tipo de conexão) como um parâmetro.  
 
     Fica mais fácil usar os cmdlets no módulo na Automação do Azure se você permitir a passagem de um objeto com os campos do tipo de conexão como um parâmetro para o cmdlet. Dessa forma, os usuários não precisam mapear parâmetros do ativo de conexão para os parâmetros correspondentes do cmdlet sempre que eles chamarem um cmdlet. Com base no exemplo de runbook acima, ele usa um ativo de conexão Twilio chamado CorpTwilio para acessar o Twilio e retornar todos os números de telefone na conta.  Você observou como ele está mapeando os campos da conexão para os parâmetros do cmdlet?<br>
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -120,9 +120,9 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     }
     ```
   
-    Uma maneira mais fácil e adequada de abordar isso é passando diretamente o objeto de conexão para o cmdlet -
+     Uma maneira mais fácil e adequada de abordar isso é passando diretamente o objeto de conexão para o cmdlet -
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -131,9 +131,9 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     }
     ```
    
-    Você pode habilitar um comportamento como esse para seus cmdlets permitindo que eles aceitem um objeto de conexão diretamente como um parâmetro, em vez de apenas campos de conexão para parâmetros. Normalmente, convém ter um conjunto de parâmetros para cada um, para que um usuário que não esteja usando a Automação do Azure possa chamar seus cmdlets sem construir uma tabela de hash para agir como o objeto de conexão. O conjunto de parâmetros **SpecifyConnectionFields** abaixo é usado para passar as propriedades do campo de conexão, individualmente. **UseConnectionObject** permite que você passe a conexão diretamente. Como você pode ver, o cmdlet Send-TwilioSMS no [módulo Twilio do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) permite a passagem de qualquer uma das formas: 
+     Você pode habilitar um comportamento como esse para seus cmdlets permitindo que eles aceitem um objeto de conexão diretamente como um parâmetro, em vez de apenas campos de conexão para parâmetros. Normalmente, convém ter um conjunto de parâmetros para cada um, para que um usuário que não esteja usando a Automação do Azure possa chamar seus cmdlets sem construir uma tabela de hash para agir como o objeto de conexão. O conjunto de parâmetros **SpecifyConnectionFields** abaixo é usado para passar as propriedades do campo de conexão, individualmente. **UseConnectionObject** permite que você passe a conexão diretamente. Como você pode ver, o cmdlet Send-TwilioSMS no [módulo Twilio do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) permite a passagem de qualquer uma das formas: 
    
-    ```
+    ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
@@ -160,7 +160,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
 1. Defina o tipo de saída para todos os cmdlets no módulo. A definição de um tipo de saída para um cmdlet permite o IntelliSense no tempo de criação para ajudar você a determinar as propriedades de saída do cmdlet, para uso durante a criação. É especialmente útil durante a criação gráfica do runbook da Automação, quando o conhecimento do tempo de criação é fundamental para uma experiência de usuário facilitada com o seu módulo.<br><br> ![Tipo de saída do runbook gráfico](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> Isso é semelhante à funcionalidade "preenchimento automático" da saída de um cmdlet no ISE do PowerShell sem precisar executá-lo.<br><br> ![IntelliSense POSH](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 1. Os cmdlets no módulo não devem usar tipos de objeto complexos como parâmetros. O Fluxo de Trabalho do PowerShell é diferente do PowerShell, pois armazena tipos complexos no formato desserializado. Os tipos primitivos permanecerão primitivos, mas tipos complexos serão convertidos em suas versões desserializadas, que são essencialmente pacotes de propriedade. Por exemplo, se você tiver usado o cmdlet **Get-Process** em um runbook (ou um Fluxo de Trabalho do PowerShell para esse fim), ele retornará um objeto do tipo [Deserialized.System.Diagnostic.Process] não o tipo [System.Diagnostic.Process] esperado. Esse tipo tem as mesmas propriedades que o tipo não desserializado, mas nenhum dos métodos. Se tentar passar esse valor como um parâmetro para um cmdlet, quando o cmdlet espera um valor [System.Diagnostic.Process] para esse parâmetro, você receberá o seguinte erro: *Não é possível processar a transformação do argumento no parâmetro 'process'. Erro: "Não é possível converter o valor "System.Diagnostics.Process (CcmExec)" do tipo "Deserialized.System.Diagnostics.Process" para o tipo "System.Diagnostics.Process".*   Isso ocorre porque há uma incompatibilidade de tipo entre o tipo [System.Diagnostic.Process] esperado e o tipo [Deserialized.System.Diagnostic.Process] fornecido. A solução alternativa a esse problema é garantir que os cmdlets de seu módulo não usem tipos complexos como parâmetros. Está é a maneira errada de fazer isso.
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [System.Diagnostic.Process] $process
@@ -169,9 +169,9 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     }
     ``` 
     <br>
-    Esta é a maneira certa, usando um primitivo que pode ser usado internamente pelo cmdlet para obter o objeto complexo e usá-lo. Como os cmdlets são executadas no contexto do PowerShell, não no Fluxo de Trabalho do PowerShell, dentro do cmdlet $process torna-se o tipo correto de [System.Diagnostic.Process].  
+     Esta é a maneira certa, usando um primitivo que pode ser usado internamente pelo cmdlet para obter o objeto complexo e usá-lo. Como os cmdlets são executadas no contexto do PowerShell, não no Fluxo de Trabalho do PowerShell, dentro do cmdlet $process torna-se o tipo correto de [System.Diagnostic.Process].  
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [String] $processName
@@ -185,7 +185,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
    Ativos de conexão em runbooks são tabelas de hash, que são um tipo complexo. Ainda assim, parece que essas tabelas de hash podem ser passadas para os cmdlets para seu parâmetro –Connection perfeitamente, sem qualquer exceção de conversão. Tecnicamente, alguns tipos de PowerShell podem ser convertidos apropriadamente de sua forma serializada para a forma desserializada e, assim, podem ser passados para os cmdlets para os parâmetros que aceitam o tipo não desserializado. A tabela de hash é um deles. É possível implementar os tipos definidos de um autor de módulo de uma forma que possam desserializar corretamente também, mas há algumas compensações a considerar. O tipo deve ter um construtor padrão, ter todas as suas propriedades públicas e ter um PSTypeConverter. No entanto, para os tipos já definidos que não são de propriedade do autor do módulo, não é possível "corrigi-los". Por esse motivo existe a recomendação para evitar tipos complexos para parâmetros. Dica de criação de runbook: se, por alguma razão, seus cmdlets precisarem aceitar um parâmetro de tipo complexo, ou se você estiver usando o módulo de outra pessoa que exige um parâmetro de tipo complexo, a solução nos runbooks de Fluxo de Trabalho do PowerShell, e em Fluxos de Trabalho do PowerShell no PowerShell local, é encapsular o cmdlet que gera o tipo complexo e o cmdlet que consome o tipo complexo na mesma atividade InlineScript. Como a InlineScript executa seu conteúdo como PowerShell e não como um Fluxo de Trabalho do PowerShell, o cmdlet que gera o tipo complexo produziria esse tipo correto, não o tipo complexo desserializado.
 1. Torne todos os cmdlets no módulo cmdlets sem estado. O Fluxo de Trabalho do PowerShell executa cada cmdlet chamado no fluxo de trabalho em uma sessão diferente. Isso significa que todos os cmdlets que dependem do estado da sessão criado/modificada por outros cmdlets no mesmo módulo não funcionarão em runbooks do Fluxo de Trabalho do PowerShell.  Veja um exemplo do que não fazer:
    
-    ```
+    ```powershell
     $globalNum = 0
     function Set-GlobalNum {
        param(

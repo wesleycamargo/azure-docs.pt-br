@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 882ea116e609b3085f93a082f5aff4415a9e546f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 74bd3d1bfaa2ae5048eb4eef213b2840e7990c9f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723598"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424692"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma API 
 
@@ -31,5 +31,5 @@ ms.locfileid: "44723598"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[StackOverflow do AzureAD](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[StackOverflow do AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
 

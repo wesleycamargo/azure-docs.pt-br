@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685932"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633462"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de Monitoramento de contêiner no Log Analytics
 
@@ -36,7 +36,7 @@ A solução mostra quais contêineres estão em execução, qual imagem de cont�
 - Service Fabric
 - Red Hat OpenShift
 
-Se você estiver interessado em monitorar o desempenho de suas cargas de trabalho implantadas em ambientes do Kubernetes hospedados no Azure Kubernetes Service (AKS), consulte [Monitorar o Serviço do Azure Kubernetes](../monitoring/monitoring-container-insights-overview.md). A solução de monitoramento de contêiner não inclui suporte para monitorar essa plataforma.  
+Se você estiver interessado em monitorar o desempenho de suas cargas de trabalho implantadas em ambientes do Kubernetes hospedados no Azure Kubernetes Service (AKS), consulte [Monitorar o Serviço do Azure Kubernetes](../azure-monitor/insights/container-insights-overview.md). A solução de monitoramento de contêiner não inclui suporte para monitorar essa plataforma.  
 
 O diagrama a seguir mostra as relações entre os vários hosts e agentes de contêiner com o Log Analytics.
 
@@ -97,7 +97,7 @@ A tabela a seguir descreve a orquestração do Docker e o suporte de monitoramen
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-1. Adicione a solução de monitoramento de contêiner ao seu workspace do Log Analytics do [marketplace do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../monitoring/monitoring-solutions.md).
+1. Adicione a solução de monitoramento de contêiner ao seu workspace do Log Analytics do [marketplace do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../azure-monitor/insights/solutions.md).
 
 2. Instale e use o Docker com um agente do Log Analytics. Com base em seu sistema operacional e no orquestrador do Docker, você pode usar os métodos a seguir para configurar o agente.
   - Para hosts autônomos:
@@ -126,7 +126,7 @@ Depois de instalar o Docker, use as seguintes definições para o host do contê
 
 **Para todos os hosts de contêiner do Linux, exceto CoreOS:**
 
-- Para obter mais informações e etapas sobre como instalar o agente do Log Analytics para Linux, consulte [Visão geral do agente de Log Analytics](log-analytics-agent-overview.md).
+- Para obter mais informações e etapas sobre como instalar o agente do Log Analytics para Linux, consulte [Visão geral do agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 **Para todos os hosts de contêiner do Linux, incluindo o CoreOS:**
 
@@ -524,9 +524,9 @@ Para obter mais informações sobre a configuração do daemon do Docker usada c
 
 #### <a name="install-windows-agents"></a>Instalar agentes do Windows
 
-Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o MMA (Microsoft Monitoring Agent) em computadores com Windows que sejam hosts do contêiner. Para computadores que executam o Windows no seu ambiente local, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-agent-windows.md). Para máquinas virtuais em execução no Azure, conecte-as ao Log Analytics usando a [extensão da máquina virtual](log-analytics-quick-collect-azurevm.md).
+Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o MMA (Microsoft Monitoring Agent) em computadores com Windows que sejam hosts do contêiner. Para computadores que executam o Windows no seu ambiente local, consulte [Conectar computadores Windows ao Log Analytics](../azure-monitor/platform/agent-windows.md). Para máquinas virtuais em execução no Azure, conecte-as ao Log Analytics usando a [extensão da máquina virtual](log-analytics-quick-collect-azurevm.md).
 
-Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-quick-collect-azurevm.md) e [computadores executando o Windows no seu ambiente local](log-analytics-agent-windows.md) têm suporte atualmente para o Service Fabric.
+Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-quick-collect-azurevm.md) e [computadores executando o Windows no seu ambiente local](../azure-monitor/platform/agent-windows.md) têm suporte atualmente para o Service Fabric.
 
 Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx*. Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
@@ -543,7 +543,7 @@ A solução de Monitoramento de contêineres coleta vários dados de log e métr
 Os dados são coletados a cada três minutos pelos tipos de agente a seguir.
 
 - [Agente do Log Analytics para Linux](log-analytics-quick-collect-linux-computer.md)
-- [Agente do Windows](log-analytics-agent-windows.md)
+- [Agente do Windows](../azure-monitor/platform/agent-windows.md)
 - [Extensão de VM do Log Analytics](log-analytics-quick-collect-azurevm.md)
 
 

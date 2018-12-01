@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040033"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335616"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio predefinido
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -27,27 +27,27 @@ LUIS oferece 20 domínios predefinidos.
 
 | Domínio predefinido | DESCRIÇÃO | Idiomas com suporte |
 | ---------------- |-----------------------|:------:|
-| Calendário | O domínio de calendário fornece a intenção e entidades para adicionar, excluir, ou editar um compromisso, verificando a disponibilidade de participantes e localizar informações sobre um evento de calendário.| pt-BR<br/> zh-CN |
-| Câmera | O domínio de câmera fornece entidades e tentativas para tirar fotos, vídeos de gravação e transmitindo vídeo para um aplicativo.| pt-BR |
-| Comunicação | Envio de mensagens e chamadas telefônicas.| pt-BR <br/> zh-CN |
-| Entretenimento  | Tratamento de consultas relacionadas a música, filmes e TV.| pt-BR |
-| Eventos | Reserva de tíquetes de concertos, festivais, esportes e comédia mostra.| pt-BR |
-| Adequação | Tratar as solicitações relacionadas ao controle de atividades de adequação.| pt-BR |
-| Jogos | Tratar as solicitações relacionadas a uma parte de jogo em um jogo.| pt-BR |
-| HomeAutomation | Controlando dispositivos inteligentes de base como luzes e dispositivos.| pt-BR<br/> zh-CN |
-| MovieTickets | Permissões para filmes em um cinema de reserva.| pt-BR |
-| Música | Reproduzir música em um player de música.| pt-BR<br/> zh-CN |
-| Observação | O domínio de Observação fornece entidades relacionadas à criação, edição e localizar anotações e tentativas.| pt-BR<br/> zh-CN |
-| OnDevice | O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do dispositivo.| pt-BR<br/> zh-CN |
-| Locais  | Manipulação de consultas relacionadas aos locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| pt-BR<br/> zh-CN |
-| Reminder | Tratar as solicitações relacionadas à criação, edição e localizar lembretes.| pt-BR<br/> zh-CN |
-| RestaurantReservation | Tratamento de solicitações para gerenciar reservas restaurante.| pt-BR<br/> zh-CN |
-| táxi | Reservas de tratamento para um táxi.| pt-BR<br/> zh-CN |
-| Translate | Convertendo texto para um idioma de destino.| pt-BR<br/> zh-CN |
-| TV | Controlando TVs.| pt-BR |
-| Utilidades  | Solicitações de manipulação que são comuns em vários domínios, como "Ajuda", "Repetir", "recomeçar".| pt-BR |
-| Clima | Obtendo boletins meteorológicos e previsões.| pt-BR<br/> zh-CN |
-| Web | Navegar para um site.| pt-BR<br/> zh-CN |
+| Calendário | O domínio de calendário fornece a intenção e entidades para adicionar, excluir, ou editar um compromisso, verificando a disponibilidade de participantes e localizar informações sobre um evento de calendário.| en-US<br/> zh-CN |
+| Câmera | O domínio de câmera fornece entidades e tentativas para tirar fotos, vídeos de gravação e transmitindo vídeo para um aplicativo.| en-US |
+| Comunicação | Envio de mensagens e chamadas telefônicas.| en-US <br/> zh-CN |
+| Entretenimento  | Tratamento de consultas relacionadas a música, filmes e TV.| en-US |
+| Eventos | Reserva de tíquetes de concertos, festivais, esportes e comédia mostra.| en-US |
+| Adequação | Tratar as solicitações relacionadas ao controle de atividades de adequação.| en-US |
+| Jogos | Tratar as solicitações relacionadas a uma parte de jogo em um jogo.| en-US |
+| HomeAutomation | Controlando dispositivos inteligentes de base como luzes e dispositivos.| en-US<br/> zh-CN |
+| MovieTickets | Permissões para filmes em um cinema de reserva.| en-US |
+| Música | Reproduzir música em um player de música.| en-US<br/> zh-CN |
+| Observação | O domínio de Observação fornece entidades relacionadas à criação, edição e localizar anotações e tentativas.| en-US<br/> zh-CN |
+| OnDevice | O domínio OnDevice fornece tentativas e entidades relacionadas ao controle do dispositivo.| en-US<br/> zh-CN |
+| Locais  | Manipulação de consultas relacionadas aos locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| en-US<br/> zh-CN |
+| Reminder | Tratar as solicitações relacionadas à criação, edição e localizar lembretes.| en-US<br/> zh-CN |
+| RestaurantReservation | Tratamento de solicitações para gerenciar reservas restaurante.| en-US<br/> zh-CN |
+| táxi | Reservas de tratamento para um táxi.| en-US<br/> zh-CN |
+| Translate | Convertendo texto para um idioma de destino.| en-US<br/> zh-CN |
+| TV | Controlando TVs.| en-US |
+| Utilidades  | Solicitações de manipulação que são comuns em vários domínios, como "Ajuda", "Repetir", "recomeçar".| en-US |
+| Clima | Obtendo boletins meteorológicos e previsões.| en-US<br/> zh-CN |
+| Web | Navegar para um site.| en-US<br/> zh-CN |
 
 Para obter mais detalhes sobre cada domínio, consulte as seções a seguir.
 
