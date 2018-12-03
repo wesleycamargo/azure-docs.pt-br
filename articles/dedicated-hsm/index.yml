@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9fac565922a6dd36608455456c66ff2fe940557a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318003"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680405"
 documentType: LandingData
 title: Documentação de HSM dedicado do Azure
 metadata:
@@ -22,7 +22,7 @@ metadata:
   ms.date: 11/21/2018
   ms.author: barclayn
 abstract:
-  description: Saiba mais sobre a funcionalidade de HSM dedicado e se ele se aplica ao seu ambiente.
+  description: Saiba mais sobre a funcionalidade de HSM Dedicado e se ele se aplica ao seu ambiente.
 sections:
 - items:
   - type: list
@@ -31,15 +31,15 @@ sections:
     columns: 3
     items:
     - href: /azure/dedicated-hsm/overview
-      html: <p>Saiba tudo sobre os HSM dedicados do Azure.</p>
+      html: <p>Saiba tudo sobre os HSM Dedicados do Azure.</p>
       image:
-        src: media/index/i_article.svg
-      title: Visão geral de HSM dedicado
+        src: media/index/hsm.svg
+      title: Visão geral do HSM Dedicado do Azure
     - href: /azure/dedicated-hsm/faq
-      html: <p>Perguntas frequentes.</p>
+      html: <p>Considerações de design ao usar um HSM Dedicado</p>
       image:
         src: media/index/guide.svg
-      title: Perguntas frequentes
+      title: Decidir a arquitetura de implantação
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -62,4 +62,4 @@ sections:
     className: cardsD
     items:
     - title: Perguntas frequentes
-      html: <p><a href="/dedicated-hsm/faq/">Perguntas frequentes</a></p>
+      html: <p><a href="/azure/dedicated-hsm/faq/">Perguntas frequentes</a></p>
