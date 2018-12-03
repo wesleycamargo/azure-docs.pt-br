@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712408"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583271"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight 
 
-Saiba como usar o Microsoft Power BI para visualizar dados em um cluster do Apache Spark no Azure HDInsight.
+Saiba como usar o [Microsoft Power BI](https://powerbi.microsoft.com/) para visualizar dados em um cluster do [Apache Spark](https://spark.apache.org/) no [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="verify-the-data"></a>Verificar os dados
 
-O bloco de anotações do Jupyter que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Essa tabela é baseada no arquivo CSV disponível em todos os clusters HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use o procedimento a seguir para verificar os dados.
+O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Essa tabela é baseada no arquivo CSV disponível em todos os clusters HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Use o procedimento a seguir para verificar os dados.
 
 1. A partir do notebook Jupyter, cole o código a seguir e pressione **SHIFT+ENTER**. O código verifica a existência das tabelas.
 
@@ -164,7 +164,7 @@ O serviço do Power BI permite que você compartilhe os relatórios e painéis p
 
 10. No relatório, clique em **Ir para o painel**. 
 
-O visual é fixado no painel – você pode adicionar outros elementos visuais no relatório e fixá-los no mesmo painel. Para obter mais informações sobre relatórios e painéis, consulte [Relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [Painéis no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
+O visual é fixado no painel – você pode adicionar outros elementos visuais no relatório e fixá-los no mesmo painel. Para saber mais sobre relatórios e painéis, confira [Relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) e [Painéis no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 <!--
 ## <a name="tableau"></a>Use Tableau Desktop 
@@ -214,9 +214,9 @@ O visual é fixado no painel – você pode adicionar outros elementos visuais n
 
 Neste tutorial, você aprendeu como:
 
-- Visualizar dados de Spark usando o Power BI.
+- Visualizar dados do Apache Spark usando o Power BI.
 
 Avance para o próximo artigo para ver como os dados que você registrou no Spark podem ser removidos em uma ferramenta de análise de BI, assim como Power BI. 
 > [!div class="nextstepaction"]
-> [Executar trabalho de streaming Spark](apache-spark-eventhub-streaming.md)
+> [Executar um trabalho de streaming do Apache Spark](apache-spark-eventhub-streaming.md)
 

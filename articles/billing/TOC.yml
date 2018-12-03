@@ -5,6 +5,8 @@ items:
   items:
   - name: Entenda sua fatura
     href: billing-understand-your-bill.md
+  - name: Entenda sua cobrança - Somente EA
+    href: billing-understand-your-bill-ea.md
   - name: Obter fatura e dados de uso
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: Encargos de serviço de terceiros
@@ -18,6 +20,8 @@ items:
   items:
   - name: Evitar custos inesperados
     href: billing-getting-started.md
+  - name: Exibir o preço de EA
+    href: billing-ea-pricing.md
   - name: Usar marcações de recursos
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Começar a analisar os custos - EA somente
@@ -82,6 +86,8 @@ items:
     href: billing-how-to-change-azure-account-profile.md
   - name: Conceder acesso à cobrança
     href: billing-manage-access.md
+  - name: Funções de EA no Azure
+    href: billing-understand-ea-roles.md
   - name: Vincular ID do parceiro
     href: billing-partner-admin-link-started.md
   - name: Exibir contas de cobrança
@@ -112,7 +118,9 @@ items:
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: Mover recursos do Azure
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: Criar assinaturas do Enterprise
+  - name: Criar assinaturas adicionais
+    href: billing-create-subscription.md
+  - name: Criar programaticamente as assinaturas do Enterprise
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Exportar informações da assinatura
     href: billing-export-subscriptions.md
@@ -180,9 +188,9 @@ items:
     items:
     - name: API REST dos relatórios do Enterprise
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 88e6864df13312c1963e39ff2c23eb63fde50bc2
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5de05f7b1426a959c046b1e651f09c2f8e584b8a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268133"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497841"

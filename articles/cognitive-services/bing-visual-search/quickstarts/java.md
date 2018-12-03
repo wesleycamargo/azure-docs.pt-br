@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416436"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445167"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Início Rápido: sua primeira consulta da Pesquisa Visual do Bing em Java
 
@@ -36,10 +36,17 @@ Este artigo inclui um aplicativo de console simples que envia uma solicitação 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+Para este início rápido, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
 
-É necessário ter o [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você poderá usar um Java IDE, se tiver um favorito, mas um editor de texto é suficiente.
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
 
-Para este guia de início rápido, você pode usar uma chave de assinatura de [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de assinatura paga.
+É necessário ter o [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar esse código. Você poderá usar um Java IDE se tiver um favorito, mas um editor de texto é suficiente.
 
 ## <a name="running-the-application"></a>Executando o aplicativo
 

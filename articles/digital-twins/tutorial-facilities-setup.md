@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bd1b53acb619130a84400c49aba0cb2b710ad7e3
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616105"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582291"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -170,7 +170,11 @@ Salve e feche o arquivo provisionSample.yaml. No próximo tutorial, você adicio
 Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fique à vontade para excluir recursos criados neste tutorial:
 
 1. No menu à esquerda no [portal do Azure](http://portal.azure.com), escolha **Todos os recursos**, marque o grupo de recursos dos Gêmeos Digitais e a opção **Excluir**.
-2. Se necessário, exclua o aplicativo de exemplo em seu computador de trabalho. 
+   
+    > [!TIP]
+    > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
+
+1. Se necessário, exclua o aplicativo de exemplo em seu computador de trabalho. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

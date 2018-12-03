@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615748"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334203"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager
 
@@ -93,7 +93,7 @@ Para criar um Key Vault:
     * **Nome do Key Vault**: atribua um nome exclusivo. 
     * **Id do locatário**: a função de modelo recupera automaticamente sua ID de locatário.  Não altere o valor padrão
     * **ID de Usuário do AD**: insira sua ID de objeto de usuário do Azure AD que você recuperou do último procedimento.
-    * **Nome do Segredo**: o nome padrão é **mAdminPassword**. Se você alterar o nome do segredo aqui, precisará atualizar o nome do segredo ao implantar a máquina virtual.
+    * **Nome do Segredo**: o nome padrão é **vmAdminPassword**. Se você alterar o nome do segredo aqui, precisará atualizar o nome do segredo ao implantar a máquina virtual.
     * **Valor do Segredo**: insira seu segredo.  O segredo é a senha usada para entrar na máquina virtual. É recomendável usar a senha gerada que você criou no último procedimento.
     * **Concordo com os termos e condições declarados acima**: selecione.
 3. Selecione **Editar parâmetros** na parte superior para dar uma olhada do modelo.

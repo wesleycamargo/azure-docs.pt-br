@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c28a3097e8b0733db229fc10778d0ac77a3b0a7a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283273"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306363"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Início Rápido: Usar o SDK de Pesquisa na Web do Bing para Python
 
@@ -25,8 +25,9 @@ Deseja ver o código agora mesmo? Os [exemplos de SDK de Pesquisa na Web do Bing
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Pré-requisitos
 O SDK de Pesquisa na Web do Bing é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6. É recomendável usar um ambiente virtual para este início rápido.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6

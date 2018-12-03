@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 51f3bcee3a2e5bab8f3592d97f0caa91e8002dd4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615973"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582013"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos de espaços dos Gêmeos Digitais do Azure usando o Time Series Insights
 
@@ -160,6 +160,10 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 Se quiser parar de explorar os Gêmeos Digitais do Azure além desse ponto, você poderá excluir os recursos criados neste tutorial:
 
 1. No menu à esquerda no [portal do Azure](http://portal.azure.com), selecione **Todos os recursos**, selecione o grupo de recursos dos Gêmeos Digitais e selecione **Excluir**.
+
+    > [!TIP]
+    > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
+
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho. 
 
 

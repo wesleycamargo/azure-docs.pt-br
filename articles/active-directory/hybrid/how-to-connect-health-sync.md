@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277130"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499079"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
@@ -62,7 +62,7 @@ Esse recurso oferece uma tendência gráfica do número de alterações que est�
 
 ![Latência de Sincronização](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>Relatório de erros de sincronização no nível do objeto (Visualização)
+## <a name="object-level-synchronization-error-report"></a>Relatório de erros de sincronização no nível do objeto
 Esse recurso fornece um relatório sobre os erros de sincronização que podem ocorrer quando os dados de identidade são sincronizados entre o Windows Server AD e o Azure AD usando o Azure AD Connect.
 
 * O relatório abrange erros registrados pelo cliente de sincronização (Azure AD Connect versão 1.1.281.0 ou superior)
@@ -74,7 +74,7 @@ Esse recurso fornece um relatório sobre os erros de sincronização que podem o
   * Lista de objetos com erro por categoria
   * Todos os dados sobre os erros em um só lugar
   * Comparação lado a lado de objetos com erro devido a um conflito
-  * Baixar o relatório de erros como um CVS (em breve)
+  * Baixar o relatório de erros como um CSV
 
 ### <a name="categorization-of-errors"></a>Categorização de erros
 O relatório categoriza os erros de sincronização existentes nas seguintes categorias:

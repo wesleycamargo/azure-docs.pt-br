@@ -29,12 +29,12 @@ items:
     - name: Usando o Azure Data Lake Store
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
-  - name: Usar Hadoop para consultas interativas
+  - name: Usar Apache Hadoop para consultas interativas
     items:
-    - name: Hive com Hadoop
+    - name: Apache Hive com Hadoop
       href: ../hadoop/hdinsight-use-hive.md
       items:
-      - name: Usar Zeppelin
+      - name: Usar Apache Zeppelin
         href: ../hdinsight-connect-hive-zeppelin.md
         maintainContext: true
       - name: Ferramentas para Visual Studio
@@ -46,7 +46,7 @@ items:
       - name: Ferramentas do Data Lake com Área Restrita do Hortonworks
         href: ../hdinsight-hadoop-emulator-visual-studio.md
         maintainContext: true
-      - name: Usar a Exibição do Hive
+      - name: Usar a Exibição do Apache Hive
         href: ../hadoop/apache-hadoop-use-hive-ambari-view.md
         maintainContext: true
       - name: Use Beeline
@@ -74,7 +74,7 @@ items:
     - name: Usar um UDF Java com Hive
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
-    - name: Enviar trabalhos do Hadoop
+    - name: Enviar trabalhos do Apache Hadoop
       href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
       maintainContext: true
   - name: Desenvolver
@@ -91,7 +91,7 @@ items:
     - name: Usar funções definidas pelo usuário C#
       href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       maintainContext: true
-    - name: Usar o Python com o Hive e Pig
+    - name: Usar o Python com o Apache Hive e Apache Pig
       href: ../hadoop/python-udf-hdinsight.md
       maintainContext: true
     - name: Criar aplicativos .NET HDInsight de autenticação não interativa
@@ -104,13 +104,13 @@ items:
       maintainContext: true
     - name: Conectar o Power BI à Consulta Interativa
       href: ./apache-hadoop-connect-hive-power-bi-directquery.md
-    - name: Conectar Power BI ao Hadoop
+    - name: Conectar o Power BI ao Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
       maintainContext: true
-    - name: Conectar o Excel ao Hadoop
+    - name: Conectar o Excel ao Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
       maintainContext: true
-    - name: Conectar-se usando o driver JDBC do Hive
+    - name: Conectar usando o driver JDBC do Apache Hive
       href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
       maintainContext: true
     - name: Analisar dados de sensor armazenados
@@ -122,7 +122,7 @@ items:
     - name: Analisar dados de atraso de voo
       href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
-    - name: Analisar logs de sites com o Hive
+    - name: Analisar logs de sites com o Apache Hive
       href: ../hadoop/apache-hive-analyze-website-log.md
       maintainContext: true
   - name: Estender clusters
@@ -136,10 +136,10 @@ items:
     - name: Desenvolver ações de script
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Adicionar bibliotecas do Hive
+    - name: Adicionar bibliotecas do Apache Hive
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Usar Zeppelin
+    - name: Usar Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
     - name: Usar o Grafana
@@ -180,7 +180,7 @@ items:
     - name: Restringir o acesso a dados
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: Autorizar usuários para o Ambari Views
+    - name: Autorizar usuários para Exibições do Apache Ambari
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: Gerenciar
@@ -210,7 +210,7 @@ items:
     - name: Criar clusters sob demanda
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Gerenciar clusters do Hadoop
+    - name: Gerenciar clusters do Apache Hadoop
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: Usar o SDK do .NET
@@ -223,13 +223,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Gerenciar clusters usando a interface do usuário da Web do Ambari
+    - name: Gerenciar clusters usando a interface do usuário da Web do Apache Ambari
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Otimize os clusters com a IU web do Ambari
+      - name: Otimizar os clusters com a interface do usuário da Web do Apache Ambari
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Usar API REST do Ambari
+      - name: Usar a API REST do Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -245,7 +245,7 @@ items:
     - name: Adicionar contas de armazenamento
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Carregar dados para trabalhos Hadoop
+    - name: Carregar dados para trabalhos do Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Vários clusters HDInsight com Data Lake Store
@@ -272,13 +272,13 @@ items:
     - name: Solucionar problemas de um cluster HDInsight lento ou falhando
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Solução de problemas do HDFS
+    - name: Solução de problemas de HDFS do Apache Hadoop
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Solução de problemas do HIVE
+    - name: Solução de problemas do Apache HIVE
       href: ../hdinsight-troubleshoot-hive.md
       maintainContext: true
-    - name: Solução de problemas do YARN
+    - name: Solução de problemas de YARN do Apache Hadoop
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Recursos
@@ -286,25 +286,25 @@ items:
       - name: Informações sobre o uso do HDInsight no Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Memória e desempenho do Hadoop
+      - name: Memória e desempenho do Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Acessar logs de aplicativo YARN do Hadoop no Linux
+      - name: Acessar logs de aplicativo YARN do Apache Hadoop no Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Habilitar despejos de heap para serviços Hadoop
+      - name: Habilitar despejos de heap para serviços do Apache Hadoop
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: Entender e resolver erros do WebHCat
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Configurações do Hive corrigem erro de Memória Insuficiente
+      - name: Configurações do Apache Hive corrigem o erro de Memória Insuficiente
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Usar Exibições do Ambari para depurar Trabalhos do Tez
+      - name: Usar o Apache Ambari Views para depurar os trabalhos do Apache Tez
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Otimizar consultas do Hive
+      - name: Otimizar consultas do Apache Hive
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -324,7 +324,7 @@ items:
     - name: Configurar segurança da empresa no HDInsight usando o Azure AD DS
       href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
       maintainContext: true
-    - name: Configurar políticas de Hive
+    - name: Configurar políticas do Apache Hive
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
     - name: Gerenciar clusters com segurança da empresa
@@ -366,13 +366,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: SDK do Go
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Recursos
   items:
@@ -396,9 +396,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3f3dbea40ea402d5fc6670931ddc8fc8f85d1ca4
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5dd6517a42a906db7297cbfe5bbded3299b0834a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364312"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308400"

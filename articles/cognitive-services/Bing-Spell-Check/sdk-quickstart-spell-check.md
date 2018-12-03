@@ -10,18 +10,19 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: ad09c1d6f9e7cea1150ce1638c723c5c35d66a32
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3050bc06c30c29efe7ba5294cbbee2aea1a6055b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284431"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311595"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Início Rápido: SDK de Verificação Ortográfica do Bing com C#
 
 O SDK de Verificação Ortográfica do Bing contém a funcionalidade da API REST para verificação ortográfica.
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para configurar um aplicativo de console usando o SDK de Verificação Ortográfica do Bing, navegue até a opção `Manage NuGet Packages` do Gerenciador de Soluções no Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Language.SpellCheck`.
 

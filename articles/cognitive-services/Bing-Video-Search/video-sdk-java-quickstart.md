@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
-ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a50771fddc15ab0ec284fa7f42539f1f8dcce40d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223400"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308640"
 ---
 # <a name="quickstart-bing-video-search-sdk-java"></a>Início Rápido: SDK da Pesquisa de Vídeo do Bing, Java
 
@@ -24,7 +24,9 @@ O SDK de Pesquisa de Vídeo do Bing fornece a funcionalidade de API REST para co
 O código-fonte [para exemplos do SDK de Pesquisa de Vídeo do Bing do Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) está disponível no GitHub.
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**. Instale as dependências do SDK de Pesquisa de Vídeo do Bing usando Maven, Gradle ou outro sistema de gerenciamento de dependência. O arquivo POM Maven requer a declaração:
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+Instale as dependências do SDK de Pesquisa de Vídeo do Bing usando Maven, Gradle ou outro sistema de gerenciamento de dependência. O arquivo POM Maven requer a declaração:
 ```
   <dependencies>
     <dependency>

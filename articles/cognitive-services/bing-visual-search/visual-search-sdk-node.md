@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685966"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444444"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Início Rápido: SDK da Pesquisa Visual do Bing, Node 
 
@@ -28,7 +28,15 @@ Cenários de código são documentados sob os seguintes cabeçalhos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é boa para sete dias com uma chamada por segundo. Para cenários de produção, [comprar uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Para este início rápido, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 

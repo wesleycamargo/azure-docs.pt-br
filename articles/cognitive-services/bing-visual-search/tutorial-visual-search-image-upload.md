@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888332"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443450"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: Descrever upload da Pesquisa Visual do Bing
 
@@ -23,6 +23,15 @@ Este tutorial descreve o processo de upload de uma imagem para o Bing e recupera
 
 Este tutorial é fornecido para o desenvolvedor que quer explorar o conteúdo da resposta da Pesquisa Visual do Bing. Não aplica-se a todos os requisitos de uso e exibição (por exemplo, não fornece um link para a política de privacidade da Microsoft). Para todos os requisitos de uso, consulte [Requisitos de uso e exibição do Bing](./use-and-display-requirements.md).
 
+Para este tutorial, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
 
 ## <a name="where-to-start"></a>Por onde começar?
 

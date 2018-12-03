@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636247"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582387"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
@@ -150,6 +150,10 @@ Para continuar nos tutoriais, não limpe os recursos criados neste início rápi
 
 1. Exclua a pasta que foi criada quando você baixou o repositório de exemplo.
 1. No menu à esquerda no [portal do Azure](http://portal.azure.com), marque **Todos os recursos**. Em seguida, escolha o recurso dos Gêmeos Digitais. Na parte superior do painel **Todos os recursos**, marque **Excluir**.
+   
+    > [!TIP]
+    > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

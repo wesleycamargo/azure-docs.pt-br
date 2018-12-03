@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457979"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442839"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Início Rápido: SDK da Pesquisa Visual do Bing, C#
 
@@ -33,7 +33,16 @@ Cenários de código são documentados sob os seguintes cabeçalhos:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Visual Studio 2017. Se necessário, você pode baixar versão gratuita da comunidade aqui: https://www.visualstudio.com/vs/community/.
-* Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é boa para sete dias com uma chamada por segundo. Para cenário de produção, [compre chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Para este início rápido, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
+
 * A habilidade de executar .NET núcleo SDK, aplicativos .net núcleo 1.1. Você consegue pegar CORE, Framework e Runtime aqui: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo

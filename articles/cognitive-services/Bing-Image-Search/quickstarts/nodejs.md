@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 189533e496e90dc072f33c9560275323ba5e62c4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294587"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312039"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Início Rápido: enviar consultas de pesquisa usando a API REST de Pesquisa de Imagem do Bing e Node.js
 
@@ -32,6 +32,8 @@ O código-fonte para esse exemplo está disponível [no GitHub](https://github.c
 
 * A [Biblioteca de Solicitação do JavaScript](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 

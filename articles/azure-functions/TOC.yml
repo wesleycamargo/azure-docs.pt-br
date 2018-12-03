@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: Visão geral
   items:
-  - name: Sobre o Functions
+  - name: Sobre o Azure Functions
     href: functions-overview.md
+  - name: Funções duráveis
+    href: durable/durable-functions-overview.md
   - name: Comparação sem servidor
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guia de início rápido
@@ -94,44 +96,6 @@ items:
     href: ip-addresses.md
   - name: Funções locais
     href: functions-runtime-overview.md
-  - name: Funções duráveis
-    items:
-    - name: Visão geral
-      href: durable-functions-overview.md
-    - name: Recursos e tipos de função
-      href: durable-functions-types-features-overview.md
-    - name: Associações
-      href: durable-functions-bindings.md
-    - name: Ponto de verificação e reprodução
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Status de orquestração personalizado
-      href: durable-functions-custom-orchestration-status.md
-    - name: Gerenciamento de instância
-      href: durable-functions-instance-management.md
-    - name: API HTTP
-      href: durable-functions-http-api.md
-    - name: Tratamento de erros
-      href: durable-functions-error-handling.md
-    - name: Diagnósticos
-      href: durable-functions-diagnostics.md
-    - name: Temporizadores
-      href: durable-functions-timers.md
-    - name: Eventos externos
-      href: durable-functions-external-events.md
-    - name: Orquestrações eternas
-      href: durable-functions-eternal-orchestrations.md
-    - name: Orquestrações Singleton
-      href: durable-functions-singletons.md
-    - name: Subtipo de orquestrações
-      href: durable-functions-sub-orchestrations.md
-    - name: Hubs de tarefa
-      href: durable-functions-task-hubs.md
-    - name: Controle de versão
-      href: durable-functions-versioning.md
-    - name: Desempenho e escala
-      href: durable-functions-perf-and-scale.md
-    - name: Recuperação de desastres e distribuição geográfica
-      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guias de instruções
   items:
   - name: Desenvolver
@@ -180,6 +144,30 @@ items:
       href: disable-function.md
   - name: Monitoramento
     href: functions-monitoring.md
+  - name: Segurança
+    items:
+    - name: Comprar certificado SSL
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Autenticar usuários
+      items:
+      - name: Autenticar com o Azure AD
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Autenticar com o Facebook
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Autenticar com o Google
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Autenticar com a conta da Microsoft
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Autenticar com o Twitter
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Autenticação avançada
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Restringir IPs
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Usar uma identidade gerenciada
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Referenciar segredos do Key Vault
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Integração
     items:
     - name: Conectar-se ao Banco de Dados SQL
@@ -194,24 +182,6 @@ items:
       href: functions-flow-scenario.md
     - name: Usar uma identidade gerenciada
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Funções duráveis
-    items:
-    - name: Instalar
-      href: durable-functions-install.md
-    - name: Encadeamento
-      href: durable-functions-sequence.md
-    - name: Fan-out/fan-in
-      href: durable-functions-cloud-backup.md
-    - name: Monitores
-      href: durable-functions-monitor.md
-    - name: Interação humana
-      href: durable-functions-phone-verification.md
-    - name: Teste de unidade
-      href: durable-functions-unit-testing.md
-    - name: Publicação de evento
-      href: durable-functions-event-publishing.md
-    - name: Usar o SDK do WebJobs
-      href: durable-functions-webjobs-sdk.md
   - name: Solucionar problemas
     items:
     - name: Solucionar problemas de armazenamento
@@ -288,13 +258,15 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: Fornecer comentários sobre o produto
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Repositório de GitHub do Azure Functions
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: eb408491ee9ed4994324a5fd425e87da6e4c59a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632289"

@@ -1,5 +1,5 @@
 ---
-title: Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
+title: Criar uma atribuição de política para identificar recursos sem conformidade no Azure
 description: Este artigo orienta você quanto às etapas para criar uma definição de política para identificar recursos sem conformidade.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954255"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584682"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
 
@@ -61,7 +61,7 @@ Neste guia de início rápido, você cria uma atribuição de política e atribu
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Neste exemplo, deixe *Auditar VMs que não usam discos gerenciados*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política. **Atribuído por** preencherá automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
 
-1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Ela _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este início rápido, deixe essa opção em branco. Para obter mais informações, consulte [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Ela _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este início rápido, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Clique em **Atribuir**.
 

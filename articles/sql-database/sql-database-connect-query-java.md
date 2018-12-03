@@ -1,65 +1,66 @@
 ---
 title: Como usar o Java para consultar o banco de dados SQL do Azure| Microsoft Docs
-description: Este tópico mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-los usando instruções do Transact-SQL.
+description: Mostra como usar o Java para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-los usando instruções do T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: java
 ms.topic: quickstart
 author: ajlam
 ms.author: andrela
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2e8e47e8f2b61105a720c36d5b91a04df094c5d6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/20/2018
+ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912349"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332605"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Início Rápido: Como usar o Java para consultar um banco de dados SQL do Azure
 
-Este guia de início rápido demonstra como usar o [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para conectar um banco de dados SQL do Azure e, em seguida, usar instruções Transact-SQL para consultar dados.
+Este artigo demonstra como usar o [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) para se conectar a um Banco de dados SQL do Azure. Depois você pode usar as instruções T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, você precisa atender aos seguinte pré-requisitos:
+Para concluir este modelo, é necessário atender aos seguintes pré-requisitos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido.
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador sendo usado
 
-- O Java e o software relacionado para seu sistema operacional instalados:
+- O software relacionado ao Java foi instalado no seu sistema operacional:
 
-    - **MacOS**: instale o Homebrew e o Java e, em seguida, instale o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
-    - **Ubuntu**: instale o Kit de desenvolvimento Java e instale o Maven. Confira as [etapas 1.2, 1.3 e 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
-    - **Windows**: instale o Kit de desenvolvimento Java e o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).    
+  - **MacOS**, instale o Homebrew e o Java, depois instale o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
+  - **Ubuntu**, instale o Java, o Kit de desenvolvimento Java e depois o Maven. Confira as [etapas 1.2, 1.3 e 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+
+  - **Windows**, instale o Java e depois o Maven. Confira as [etapas 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+
+## <a name="get-database-connection"></a>Obter a conexão de banco de dados
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-maven-project-and-dependencies"></a>**Como criar dependências e projeto Maven**
-1. A partir do terminal, crie um novo projeto Maven chamado **sqltest**. 
+## <a name="create-the-project"></a>Criar o projeto
 
-   ```bash
-   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-   ```
+1. A partir do terminal, crie um novo projeto Maven chamado *sqltest*.
 
-2. Digite **Y** quando solicitado.
-3. Altere o diretório para **sqltest** e abra ***pom.xml*** com seu editor de texto preferido.  Adicione o **Microsoft JDBC Driver para SQL Server** às suas dependências do projeto usando o seguinte código:
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
 
-   ```xml
-   <dependency>
-       <groupId>com.microsoft.sqlserver</groupId>
-       <artifactId>mssql-jdbc</artifactId>
-       <version>6.4.0.jre8</version>
-   </dependency>
-   ```
+1. Altere o diretório para *sqltest* e abra *pom.xml* com seu editor de texto preferido. Adicione o **Microsoft JDBC Driver para SQL Server** às suas dependências do projeto usando o código a seguir.
 
-4. Também no ***pom.xml***, adicione as seguintes propriedades ao seu projeto.  Se não tiver uma seção de propriedades, você pode adicioná-lo depois das dependências.
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
+
+1. Também no *pom.xml*, adicione as seguintes propriedades ao seu projeto. Se não tiver uma seção de propriedades, você pode adicioná-lo depois das dependências.
 
    ```xml
    <properties>
@@ -68,82 +69,89 @@ Para concluir este início rápido, você precisa atender aos seguinte pré-requ
    </properties>
    ```
 
-5. Salve e feche o ***pom.xml***.
+1. Salve e feche o *pom.xml*.
 
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
+## <a name="add-code-to-query-database"></a>Adicionar código ao banco de dados de consulta
 
-1. Você já deve ter um arquivo chamado ***App.java*** no seu projeto Maven localizado em:  ..\sqltest\src\main\java\com\sqlsamples\App.java
+1. Você já deve ter um arquivo chamado *App.java* no seu projeto Maven localizado em:
 
-2. Abra o arquivo e substitua o conteúdo dele pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
-   ```java
-   package com.sqldbsamples;
+1. Abra o arquivo e substitua o conteúdo pelo código a seguir. Depois adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
 
-   import java.sql.Connection;
-   import java.sql.Statement;
-   import java.sql.PreparedStatement;
-   import java.sql.ResultSet;
-   import java.sql.DriverManager;
+    ```java
+    package com.sqldbsamples;
 
-   public class App {
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-           String hostName = "your_server.database.windows.net";
-           String dbName = "your_database";
-           String user = "your_username";
-           String password = "your_password";
-           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-           Connection connection = null;
+    public class App {
 
-           try {
-                   connection = DriverManager.getConnection(url);
-                   String schema = connection.getSchema();
-                   System.out.println("Successful connection - Schema: " + schema);
+        public static void main(String[] args) {
 
-                   System.out.println("Query data example:");
-                   System.out.println("=========================================");
+            // Connect to database
+            String hostName = "your_server.database.windows.net";
+            String dbName = "your_database";
+            String user = "your_username";
+            String password = "your_password";
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
 
-                   // Create and execute a SELECT SQL statement.
-                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                       + "FROM [SalesLT].[ProductCategory] pc "  
-                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
-                   try (Statement statement = connection.createStatement();
-                       ResultSet resultSet = statement.executeQuery(selectSql)) {
+            try {
+                connection = DriverManager.getConnection(url);
+                String schema = connection.getSchema();
+                System.out.println("Successful connection - Schema: " + schema);
 
-                           // Print results from select statement
-                           System.out.println("Top 20 categories:");
-                           while (resultSet.next())
-                           {
-                               System.out.println(resultSet.getString(1) + " "
-                                   + resultSet.getString(2));
-                           }
+                System.out.println("Query data example:");
+                System.out.println("=========================================");
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+                    + "FROM [SalesLT].[ProductCategory] pc "  
+                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+                try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
                     connection.close();
-                   }                   
-           }
-           catch (Exception e) {
-                   e.printStackTrace();
-           }
-       }
-   }
-   ```
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+
+   > [!NOTE]
+   > O exemplo de código usa o banco de dados de modelo **AdventureWorksLT** para o SQL Azure.
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. No prompt de comando, execute estes comandos:
+1. No prompt de comando, execute o programa.
 
-   ```bash
-   mvn package
-   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   ```
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
-
+1. Verifique se as 20 linhas superiores são retornadas, depois feche a janela do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)
-- [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)
-- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)
 
+- [Projetar seu primeiro banco de dados SQL do Azure](sql-database-design-first-database.md)  
+
+- [Microsoft JDBC Driver para SQL Server](https://github.com/microsoft/mssql-jdbc)  
+
+- [Relatar problemas/fazer perguntas](https://github.com/microsoft/mssql-jdbc/issues)  

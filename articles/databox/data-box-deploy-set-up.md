@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393823"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427515"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: cabear e conectar-se ao Azure Data Box
 
@@ -30,7 +30,9 @@ Neste tutorial, você aprenderá como:
 Antes de começar, verifique se:
 
 1. Você concluiu o [Tutorial: solicitar o Azure Data Box](data-box-deploy-ordered.md).
-2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
+2. Você recebeu seu Data Box e o status do pedido no portal está como **Entregue**. 
+    - Há uma etiqueta de remessa na bolsa transparente afixada ao dispositivo sob o rótulo atual. Mantenha essa etiqueta segura, pois você a usará para remessa de devolução.
+    - Algumas regiões da Europa podem receber o dispositivo empacotado em uma caixa. Retire o dispositivo do pacote e guarde a caixa para devolução da remessa.
 3. Você analisou as [diretrizes de segurança do Data Box](data-box-safety.md).
 4. Você recebeu um cabo de alimentação com aterramento para usar com seu dispositivo de armazenamento de 100 TB.
 5. Você tem um computador host que tem os dados que você deseja copiar para o Data Box. O computador host deve

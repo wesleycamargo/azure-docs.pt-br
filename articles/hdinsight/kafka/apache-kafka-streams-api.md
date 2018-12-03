@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278694"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495137"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
-Saiba como criar um aplicativo que usa a API de Streams do Kafka e executá-lo com o Kafka no HDInsight. 
+Saiba como criar um aplicativo que usa a API de Streams do Apache Kafka e executá-lo com o Kafka no HDInsight. 
 
 O aplicativo usado neste tutorial é uma contagem de palavras de streaming. Ele lê dados de texto de um tópico Kafka, extrai palavras individuais e, em seguida, armazena a palavra e a contagem em outro tópico Kafka.
 
 > [!NOTE]
-> O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Storm. A versão Kafka 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
+> O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 0.10.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
 >
 > Para obter mais informações sobre Streams do Kafka, consulte a documentação[Introdução a Streams](https://kafka.apache.org/10/documentation/streams/) em Apache.org.
 
@@ -38,9 +38,9 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no Cluster HDInsight, consulte o documento [Iniciar com Kafka no HDInsight](apache-kafka-get-started.md).
+* Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no cluster HDInsight, consulte o documento [Iniciar com Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-* Conclua as etapas no documento [API de produtor e consumidor do Kafka](apache-kafka-producer-consumer-api.md). As etapas neste documento usam o aplicativo de exemplo e os tópicos criados neste tutorial.
+* Conclua as etapas no documento [API de Produtor e Consumidor do Apache Kafka](apache-kafka-producer-consumer-api.md). As etapas neste documento usam o aplicativo de exemplo e os tópicos criados neste tutorial.
 
 ## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
 
@@ -158,7 +158,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
    
     Substitua `sshuser` pelo usuário do SSH do cluster e substitua `clustername` pelo nome do cluster. Se solicitado, insira a senha para a conta de usuário SSH. Para saber mais sobre como usar o `scp` com HDInsight, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-kafka-topics"></a>Criar tópicos Kafka
+## <a name="create-apache-kafka-topics"></a>Criar tópicos do Apache Kafka
 
 1. Para abrir uma conexão SSH para o cluster, use o seguinte comando:
 
@@ -175,7 +175,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. Para obter os hosts de broker Kafka e os hosts Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin). Você receberá uma solicitação de senha duas vezes.
+3. Para obter os hosts de broker Kafka e os hosts Apache Zookeeper, use os comandos a seguir. Quando solicitado, insira a senha para a conta de logon do cluster (admin). Você receberá uma solicitação de senha duas vezes.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a usar a API de Streams do Kafka com Kafka no HDInsight. Confira o seguinte para obter mais informações sobre como trabalhar com o Kafka:
+Neste documento, você aprendeu a usar a API de Streams do Apache Kafka com Kafka no HDInsight. Confira o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
-* [Analisar logs do Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Replicar dados entre clusters de Kafka](apache-kafka-mirroring.md)
+* [Analisar logs do Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replicar dados entre clusters do Apache Kafka](apache-kafka-mirroring.md)

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458098"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445677"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>Início Rápido: SDK da Pesquisa Visual do Bing, Python
 
@@ -30,8 +30,17 @@ Cenários de código são documentados sob os seguintes cabeçalhos:
 * [Marcas, ações e actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
-* Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A avaliação gratuita para sete dias com 1 chamada por segundo. Para cenário de produção, [compre chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Se você não tiver, instale o Python. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
+* Para este início rápido, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
+ 
+* Se o Python ainda não estiver instalado, instale-o. O SDK é compatível com Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 * A recomendação geral para o desenvolvimento em Python é usar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para o Python 2.7.
 ```
 python -m venv mytestenv

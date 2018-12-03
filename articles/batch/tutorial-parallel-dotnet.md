@@ -2,21 +2,21 @@
 title: Executar uma carga de trabalho paralela - .NET do Lote do Azure
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/07/2018
-ms.author: danlep
+ms.date: 11/20/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815504"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423602"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -41,7 +41,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 * Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-* [Versão de 64 bits do Windows do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (. zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente. 
+* [Versão de 64 bits do Windows do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (. zip). Baixe o arquivo zip em seu computador local. Para este tutorial, você só precisa do arquivo zip. Não é necessário descompactar o arquivo ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Navegue até o diretório que contém o arquivo da solução Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `program.cs` com os valores obtidos para suas contas. Por exemplo: 
+Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo: 
 
 ```csharp
 // Batch account credentials
@@ -104,7 +104,7 @@ Compile e execute o aplicativo no Visual Studio ou na linha de comando com os co
 Em seguida, execute-o. Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. 
 
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/19/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -120,17 +120,15 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]...
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-
 
 Vá para sua conta do Lote no portal do Azure para monitorar o pool, os nós de computação, os trabalhos e as tarefas. Por exemplo, para ver um mapa de calor dos nós de computação em seu pool, clique em **Pools** > *WinFFmpegPool*.
 
 Quando as tarefas são executadas, o mapa de calor fica mais ou menos assim:
 
 ![Mapa de calor de pool](./media/tutorial-parallel-dotnet/pool.png)
-
 
 O tempo de execução típico é de aproximadamente **10 minutos** ao executar o aplicativo em sua configuração padrão. A criação de pool leva mais tempo.
 
@@ -178,7 +176,7 @@ Em seguida, os arquivos são carregados para o contêiner de entrada na pasta `I
 Dois métodos no `Program.cs` são envolvidos no carregamento de arquivos:
 
 * `UploadResourceFilesToContainerAsync`: retorna uma coleção de objetos ResourceFile e internamente chama `UploadResourceFileToContainerAsync` para carregar cada arquivo passado no parâmetro `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: carrega cada arquivo como um blob no contêiner de entrada. Depois de carregar o arquivo, ele obtém uma assinatura de acesso compartilhado (SAS) para o blob e retorna um objeto ResourceFile para representá-la. 
+* `UploadResourceFileToContainerAsync`: carrega cada arquivo como um blob no contêiner de entrada. Depois de carregar o arquivo, ele obtém uma assinatura de acesso compartilhado (SAS) para o blob e retorna um objeto ResourceFile para representá-la.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -198,9 +196,9 @@ Para obter detalhes de como carregar arquivos como blobs em uma conta de armazen
 
 Em seguida, o exemplo cria um pool de nós de computação na conta do Lote com uma chamada para `CreatePoolIfNotExistAsync`. Esse método definido usa o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de pool. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Lote dá suporte a uma ampla gama de imagens de VM no Azure Marketplace, bem como imagens de VM personalizadas.
 
-O número de nós e o tamanho da VM são definidos usando constantes definidas. O Lote dá suporte a nós dedicados e a [nós de baixa prioridade](batch-low-pri-vms.md), e você pode usar um ou ambos em seus pools. Nós dedicados são reservados para o pool. Nós de baixa prioridade são oferecidos a um preço menor do excedente de capacidade da VM no Azure. Nós de baixa prioridade ficam indisponíveis quando o Azure não tem capacidade suficiente. O exemplo, por padrão, cria um pool que contém apenas cinco nós de baixa prioridade em tamanho *Standard_A1_v2*. 
+O número de nós e o tamanho da VM são definidos usando constantes definidas. O Lote dá suporte a nós dedicados e a [nós de baixa prioridade](batch-low-pri-vms.md), e você pode usar um ou ambos em seus pools. Nós dedicados são reservados para o pool. Nós de baixa prioridade são oferecidos a um preço menor do excedente de capacidade da VM no Azure. Nós de baixa prioridade ficam indisponíveis quando o Azure não tem capacidade suficiente. O exemplo, por padrão, cria um pool que contém apenas cinco nós de baixa prioridade em tamanho *Standard_A1_v2*.
 
-O aplicativo ffmpeg for implantado para os nós de computação adicionando um [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à configuração do pool. 
+O aplicativo ffmpeg for implantado para os nós de computação adicionando um [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à configuração do pool.
 
 O método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) envia o pool para o serviço Lote.
 
@@ -208,7 +206,7 @@ O método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync)
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -220,7 +218,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: DedicatedNodeCount,
     targetLowPriorityComputeNodes: LowPriorityNodeCount,
-    virtualMachineSize: PoolVMSize,                                                
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -234,7 +232,7 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>Criar um trabalho
 
-Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobAsync`. Esse método definido usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool. 
+Um trabalho do Lote especifica um pool onde executar tarefas, e configurações opcionais, como uma prioridade e uma agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobAsync`. Esse método definido usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool.
 
 O método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) envia o trabalho para o serviço Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
 
@@ -252,7 +250,7 @@ O exemplo cria tarefas no trabalho com uma chamada para o método `AddTasksAsync
 
 O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o arquivo MP3 depois de executar a linha de comando. Os arquivos de saída de cada tarefa (um, neste caso) são carregados em um contêiner na conta de armazenamento vinculada, usando a propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa.
 
-Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que os enfileira para execução nos nós de computação. 
+Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), que os enfileira para execução nos nós de computação.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -289,7 +287,7 @@ return tasks
 
 ### <a name="monitor-tasks"></a>Monitorar tarefas
 
-Quando o Lote adiciona tarefas a um trabalho, o serviço as enfileira e agenda para execução em nós de computação no pool associado automaticamente. Com base nas configurações especificadas, o Lote manipula o enfileiramento, o agendamento, a repetição de todas as tarefas e outras obrigações de administração de tarefas. 
+Quando o Lote adiciona tarefas a um trabalho, o serviço as enfileira e agenda para execução em nós de computação no pool associado automaticamente. Com base nas configurações especificadas, o Lote manipula o enfileiramento, o agendamento, a repetição de todas as tarefas e outras obrigações de administração de tarefas.
 
 Há muitas abordagens para o monitoramento da execução da tarefa. Esse exemplo define um método `MonitorTasks` para relatar apenas sobre estados de falha ou sucesso de tarefas e sua conclusão. O código `MonitorTasks` especifica um [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel) para selecionar com eficiência apenas algumas informações sobre as tarefas. Em seguida, ele cria um [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor), que fornece utilitários auxiliares para monitorar os estados de tarefa. Em `MonitorTasks`, o exemplo aguarda até que todas as tarefas alcancem `TaskState.Completed` dentro de um limite de tempo. Em seguida, ele conclui o trabalho e relata as tarefas concluídas, mas com falhas de código de saída diferente de zero.
 

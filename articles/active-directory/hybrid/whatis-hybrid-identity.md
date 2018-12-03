@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979464"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311527"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Identidade híbrida e soluções de identidade da Microsoft
 As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar identidades gerenciadas ou a identidade federada. 
@@ -42,7 +42,7 @@ Embora a identidade gerenciada seja o método mais rápido e fácil, os usuário
 Para a maioria das organizações que precisam apenas habilitar seus usuários para fazer logon no Office 365, aplicativos SaaS e outros recursos baseados no Azure AD, a opção de sincronização de hash de senha padrão é recomendável. Se isso não funcionar para você, será necessário decidir entre a autenticação de passagem e o AD FS.
 
 > [!TIP]
-> As senhas de usuário são armazenadas Windows Server Active Directory local na forma de um valor de hash que representa a senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o algoritmo de hash). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local. Quando você opta por sincronizar senhas, o Azure AD Connect extrai os hashes de senha do Active Directory local e aplica o processamento de segurança extra ao hash de senha antes de ele ser sincronizado com o Azure AD. A sincronização de hash de senha também pode ser usada em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD. Além disso, você pode habilitar o SSO (Logon único) para usuários em computadores ingressados no domínio que estejam conectados à rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para acessar com segurança os recursos de nuvem. 
+> As senhas de usuário são armazenadas Windows Server Active Directory local na forma de um valor de hash que representa a senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o algoritmo de hash). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local. Quando você opta por sincronizar hashes de senhas, o Azure AD Connect extrai os hashes de senha do Active Directory local e aplica o processamento de segurança extra ao hash de senha antes de ele ser sincronizado com o Azure AD. A sincronização de hash de senha também pode ser usada em conjunto com write-back de senha para habilitar a redefinição de senha de autoatendimento no Azure AD. Além disso, você pode habilitar o SSO (Logon único) para usuários em computadores ingressados no domínio que estejam conectados à rede corporativa. Com o logon único, os usuários habilitados só precisarão inserir um nome de usuário para acessar com segurança os recursos de nuvem. 
 >
 
 ## <a name="pass-through-authentication"></a>Autenticação de passagem

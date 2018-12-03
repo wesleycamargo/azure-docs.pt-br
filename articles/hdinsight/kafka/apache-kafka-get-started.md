@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014509"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315947"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka no cluster HDInsight
 
@@ -127,7 +127,7 @@ Para criar um Apache Kafka no cluster do HDInsight, use as seguintes etapas:
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
-1. Para conectar-se ao nó principal do cluster Apache Kafka, use o comando a seguir. Substitua `sshuser` pelo nome de usuário SSH. Substitua `mykafka` pelo nome do cluster Apache Kafka
+1. Para conectar-se ao nó principal do cluster do Apache Kafka, use o comando a seguir. Substitua `sshuser` pelo nome de usuário SSH. Substitua `mykafka` pelo nome do seu cluster do Apache Kafka
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -161,11 +161,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Obter as informações de host do Zookeeper e Broker
+## <a id="getkafkainfo"></a>Obter as informações de host do Apache Zookeeper e do Broker
 
-Ao trabalhar com Kafka, você deve conhecer os hosts *Zookeeper* e *Broker*. Esses hosts são usados com a API do Apache Kafka e muitos dos utilitários fornecidos com o Kafka.
+Ao trabalhar com Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *Broker*. Esses hosts são usados com a API do Apache Kafka e muitos dos utilitários fornecidos com o Kafka.
 
-Nesta seção, você obtém as informações do host da API REST Ambari no cluster.
+Nesta seção, você obtém as informações do host da API REST do Apache Ambari no cluster.
 
 1. Na conexão SSH com cluster, use o comando a seguir para instalar o utilitário `jq`. Esse utilitário é usado para analisar documentos JSON e é útil para recuperar as informações do host:
    
@@ -249,7 +249,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Você pode usar o utilitário `k
         > [!IMPORTANT] 
         > O Apache Kafka não reconhece os domínios de falha do Azure. Durante a criação de réplicas da partição para tópicos, ele não poderá distribuir réplicas corretamente para alta disponibilidade.
 
-        Para garantir a alta disponibilidade, use a [ferramenta de rebalanceio de partição Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do seu cluster Apache Kafka.
+        Para garantir a alta disponibilidade, use a [Ferramenta de redistribuição de partição do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Essa ferramenta deve ser executada em uma sessão SSH para o nó principal do seu cluster Apache Kafka.
 
         Para ter a mais alta disponibilidade de seus dados do Apache Kafka, balanceie novamente as réplicas de partição do tópico quando:
 
@@ -311,7 +311,7 @@ Para armazenar registros no tópico teste criado anteriormente e lê-los usando 
 
 4. Use __Ctrl + C__ para interromper o consumidor.
 
-Você também pode criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, consulte o documento [API do Produtor e Consumidor Kafka com HDInsight](apache-kafka-producer-consumer-api.md).
+Você também pode criar programaticamente produtores e consumidores. Para obter um exemplo de como usar essa API, confira o documento [API do Produtor e Consumidor do Apache Kafka com HDInsight](apache-kafka-producer-consumer-api.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -331,5 +331,5 @@ Para remover o grupo de recursos usando o portal do Azure:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Usar o Apache Spark com o Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Usar o Apache Spark com o Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

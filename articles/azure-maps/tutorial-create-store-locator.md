@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820256"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317901"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de lojas usando o Azure Mapas
 
@@ -81,7 +81,7 @@ Observando a captura de tela dos dados, podemos fazer as seguintes observações
 * Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, colunas de Boolianos de pontos de acesso Wi-Fi e acessibilidade de cadeira de rodas e horários de abertura e fechamento em formato de 24 horas. Você pode criar suas próprias colunas com metadados que sejam mais relevantes para seus dados de localização.
 
 > [!Note]
-> Os mapas do Azure usam uma projeção Mercato esférica (EPSG:3857).
+> O Azure Mapas processa dados na projeção Mercator esférica "EPSG:3857", mas lê os dados em "EPSG:4325" que usam a datum WGS84. 
 
 Há muitas maneiras de expor o conjunto de dados ao aplicativo. Uma das abordagens é carregar os dados em um banco de dados e expor um serviço Web que consulta os dados e envia os resultados para o navegador do usuário. Essa opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados com frequência. No entanto, essa opção exige significativamente mais trabalho de desenvolvimento e tem um custo mais alto. 
 

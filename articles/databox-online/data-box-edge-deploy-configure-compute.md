@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: e970f7cc0d4c4620f2da69286be36d0c22e0d747
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77a2b8d2b5d3ac42dcbbe2db2b05d38657290073
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260356"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443765"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: transformar dados com o Azure Data Box Edge (Versão Prévia)
 
@@ -163,7 +163,7 @@ Este procedimento usa um exemplo em que o módulo personalizado usado pega arqui
  
 6.  Em **Especificar rotas**, defina rotas entre módulos. Neste caso, forneça o nome do compartilhamento do local que efetuará o push de dados para o compartilhamento de nuvem. Clique em **Próximo**.
 
-    Você pode substituir a rota com a seguinte cadeia de caracteres de rota:       "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
+    Você pode substituir a rota pela seguinte cadeia de caracteres de rota:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

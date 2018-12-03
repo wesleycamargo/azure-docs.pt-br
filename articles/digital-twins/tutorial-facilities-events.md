@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614898"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583254"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando o Aplicativo Lógico
 
@@ -191,9 +191,13 @@ Para interromper o recebimento desses emails, vá para o recurso do Aplicativo L
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser parar de explorar os Gêmeos Digitais do Azure por aqui, você poderá excluir os recursos criados neste tutorial:
+Se você quiser parar de explorar os Gêmeos Digitais do Azure neste momento, fique à vontade para excluir recursos criados neste tutorial:
 
-1. No menu à esquerda no [portal do Azure](http://portal.azure.com), selecione **Todos os recursos**, selecione o grupo de recursos dos Gêmeos Digitais e a opção **Excluir**.
+1. No menu à esquerda no [portal do Azure](http://portal.azure.com), escolha **Todos os recursos**, marque o grupo de recursos dos Gêmeos Digitais e a opção **Excluir**.
+
+    > [!TIP]
+    > Se você teve problemas para excluir sua instância de Gêmeos Digitais, lançamos uma atualização de serviço com a correção. Tente novamente excluir a instância.
+
 2. Se necessário, exclua os aplicativos de exemplo em seu computador de trabalho. 
 
 

@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/26/2018
+ms.date: 11/28/2018
 ms.author: victorh
-ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b90496b0ccc6c8243c2d1b3ead1e7c4faa4801ec
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241405"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582030"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -67,7 +67,6 @@ O Firewall do Azure tem os seguintes problemas conhecidos:
 |Conflito com o recurso JIT (Just-in-Time) da Central de Segurança do Azure (ASC)|Se uma máquina virtual for acessada usando JIT, e estiver em uma sub-rede com uma rota definida pelo usuário que aponta para o Firewall do Azure como gateway padrão, o ASC JIT não funcionará. Esse é o resultado do roteamento assimétrico – um pacote chega via IP público da máquina virtual (JIT abriu o acesso), mas o caminho de retorno ocorre por meio do firewall, que descarta o pacote porque nenhuma sessão é estabelecida no firewall.|Para contornar esse problema, coloque as máquinas virtuais JIT em uma sub-rede separada que não tem uma rota definida pelo usuário para o firewall.|
 |O hub e spoke com o emparelhamento global não tem suporte|Usando o modelo hub e spoke, no qual o hub e o firewall são implantados em uma região do Azure, e os spokes em outra região do Azure. As conexões ao hub via Emparelhamento de VNet Global não têm suporte.|Esse comportamento é intencional. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](../azure-subscription-service-limits.md#azure-firewall-limits)|
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com o SNAT para seu endereço IP público. Protocolos não TCP/UDP têm suporte entre VNets e sub-redes spoke.|O Firewall do Azure usa o Standard Load Balancer [que não dá suporte a SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos explorando as opções para dar suporte a esse cenário em uma versão futura.|
-|DNAT (NAT de destino) não funciona para a porta 80 e 22.|O campo de porta de destino na coleção de regras NAT não pode incluir a porta 80 nem a porta 22.|Estamos trabalhando para corrigir esse problema no futuro próximo. Enquanto isso, use qualquer outra porta como a porta de destino em regras de NAT. A porta 80 ou 22 ainda pode ser usada como a porta convertida (por exemplo, você pode mapear ip:81 público para ip:80 privado).|
 |Suporte do PowerShell e da CLI ausente para ICMP|O Azure PowerShell e a CLI do Azure não dão suporte ao ICMP como um protocolo válido nas regras de rede.|Ainda é possível usar o ICMP como protocolo por meio do portal e da API REST. Estamos trabalhando para adicionar o ICMP no PowerShell e na CLI em breve.|
 |As marcas de FQDN requerem que um protocolo:porta seja definido|As regras de aplicativo com marcas de FQDN exigem a definição de um protocolo:porta.|Você pode usar **HTTPS** como o valor de porta:protocolo. Estamos trabalhando para tornar esse campo opcional quando marcas de FQDN são usadas.|
 |Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso roteiro. Para mover um firewall para um grupo de recursos ou uma assinatura diferente, você precisa excluir a instância atual e recriá-la no novo grupo de recursos ou na nova assinatura.|

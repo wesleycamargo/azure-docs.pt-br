@@ -5,22 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/27/2018
+ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405964"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582234"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: filtrar tráfego de entrada com o DNAT do Firewall do Azure usando o portal do Azure
 
-Você pode configurar a Conversão de Endereço de Rede de Destino (DNAT) do Firewall do Azure para converter e filtrar o tráfego de entrada para suas sub-redes. Quando você configura o modo DNAT, a ação da coleção de regras da NAT é definida como **Conversão de Endereço de Rede de Destino (DNAT)**. Assim, cada regra na coleção de regras NAT pode ser usada para converter o IP e a porta públicos em um IP e porta privados do firewall. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra de Firewall do Azure, confira [Lógica de processamento de regra de firewall do Azure](rule-processing.md).
-
-> [!NOTE]
-> O DNAT não funciona para a porta 80 e 22. Estamos trabalhando para corrigir esse problema no futuro próximo. Enquanto isso, use qualquer outra porta como a porta de destino em regras de NAT. A porta 80 ou 22 ainda pode ser usada como a porta convertida. Por exemplo, você pode mapear o ip:81 público para o ip:80 privado.
+Você pode configurar a Conversão de Endereço de Rede de Destino (DNAT) do Firewall do Azure para converter e filtrar o tráfego de entrada para suas sub-redes. Quando você configura o modo DNAT, a ação da coleção de regras da NAT é definida como **Dnat**. Assim, cada regra na coleção de regras NAT pode ser usada para converter o IP e a porta públicos em um IP e porta privados do firewall. As regras DNAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego convertido. Você pode substituir esse comportamento adicionando explicitamente uma coleção de regras de rede com regras de negação que correspondem ao tráfego convertido. Para saber mais sobre a lógica de processamento de regra do Firewall do Azure, confira [Lógica de processamento de regra do Firewall no Azure](rule-processing.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -34,36 +31,40 @@ Neste tutorial, você aprenderá como:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Neste tutorial, você criará duas redes virtuais emparelhadas:
+
 - **VN-Hub** - o firewall está nessa rede virtual.
 - **VN-Spoke** - o servidor de carga de trabalho está nessa rede virtual.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
 1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
-1. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
-2. Em **Nome do grupo de recursos**, digite **RG-DNAT-Test**.
-3. Em **Assinatura**, selecione sua assinatura.
-4. Em **Local do grupo de recursos**, selecione um local. Todos os recursos criados depois disso devem estar no mesmo local.
-5. Clique em **Criar**.
+2. Na página inicial do portal do Azure, clique em **Grupos de recursos** e clique em **Adicionar**.
+3. Em **Nome do grupo de recursos**, digite **RG-DNAT-Test**.
+4. Em **Assinatura**, selecione sua assinatura.
+5. Em **Local do grupo de recursos**, selecione um local. Todos os recursos criados depois disso devem estar no mesmo local.
+6. Clique em **Criar**.
 
 ## <a name="set-up-the-network-environment"></a>Configurar o ambiente de rede
+
 Primeiro, crie as redes virtuais e, em seguida, emparelhe-as.
 
 ### <a name="create-the-hub-vnet"></a>Criar a rede virtual do hub
+
 1. Na página inicial do portal do Azure, clique em **Todos os serviços**.
 2. Em **Rede**, clique em **Redes virtuais**.
 3. Clique em **Adicionar**.
 4. Em **Nome**, digite **VN-Hub**.
 5. Em **Espaço de endereço**, digite **10.0.0.0/16**.
-7. Em **Assinatura**, selecione sua assinatura.
-8. Em **Grupo de recursos**, escolha **Usar existente** e **RG-DNAT-Test**.
-9. Em **local**, selecione o mesmo local usado anteriormente.
-10. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**.
+6. Em **Assinatura**, selecione sua assinatura.
+7. Em **Grupo de recursos**, escolha **Usar existente** e **RG-DNAT-Test**.
+8. Em **local**, selecione o mesmo local usado anteriormente.
+9. Em **Sub-rede**, digite **AzureFirewallSubnet** em **Nome**.
 
      O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
      > [!NOTE]
-     > O tamanho mínimo da sub-rede AzureFirewallSubnet é /25.
-11. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
-12. Use as outras configurações padrão e clique em **Criar**.
+     > O tamanho mínimo da sub-rede AzureFirewallSubnet é /26.
+10. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
+11. Use as outras configurações padrão e clique em **Criar**.
 
 ### <a name="create-a-spoke-vnet"></a>Criar uma rede virtual do spoke
 
@@ -72,14 +73,14 @@ Primeiro, crie as redes virtuais e, em seguida, emparelhe-as.
 3. Clique em **Adicionar**.
 4. Em **Nome**, digite **VN-Spoke**.
 5. Em **Espaço de endereço**, digite **192.168.0.0/16**.
-7. Em **Assinatura**, selecione sua assinatura.
-8. Em **Grupo de recursos**, escolha **Usar existente** e **RG-DNAT-Test**.
-9. Em **local**, selecione o mesmo local usado anteriormente.
-10. Em **Sub-rede**, em **Nome**, digite **SN-Workload**.
+6. Em **Assinatura**, selecione sua assinatura.
+7. Em **Grupo de recursos**, escolha **Usar existente** e **RG-DNAT-Test**.
+8. Em **local**, selecione o mesmo local usado anteriormente.
+9. Em **Sub-rede**, em **Nome**, digite **SN-Workload**.
 
     O servidor estará nessa sub-rede.
-1. Em **Intervalo de endereços**, digite **192.168.1.0/24**.
-2. Use as outras configurações padrão e clique em **Criar**.
+10. Em **Intervalo de endereços**, digite **192.168.1.0/24**.
+11. Use as outras configurações padrão e clique em **Criar**.
 
 ### <a name="peer-the-vnets"></a>Emparelhar as redes virtuais
 
@@ -92,7 +93,7 @@ Agora, emparelhe as duas redes virtuais.
 3. Clique em **Adicionar**.
 4. Digite **Peer-HubSpoke** para o nome.
 5. Escolha **VN-Spoke** para a rede virtual.
-7. Clique em **OK**.
+6. Clique em **OK**.
 
 #### <a name="spoke-to-hub"></a>Do spoke para o hub
 
@@ -140,14 +141,13 @@ Revise o resumo e clique em **Criar**. Isso levará alguns minutos para ser conc
 
 Após a conclusão da implantação, observe o endereço IP privado da máquina virtual. Ele será usado mais tarde ao configurar o firewall. Clique no nome da máquina virtual e, em **Configurações**, clique em **Rede** para localizar o endereço IP privado.
 
-
 ## <a name="deploy-the-firewall"></a>Implantar o firewall
 
 1. Na página inicial do portal, clique em **Criar um recurso**.
 2. Clique em **Rede**e, após **Em destaque**, clique em **Ver todos**.
 3. Clique em **Firewall**e clique em **Criar**. 
 4. Na página **Criar um Firewall**, use a tabela abaixo para configurar o firewall:
-   
+
    |Configuração  |Valor  |
    |---------|---------|
    |NOME     |FW-DNAT-test|
@@ -157,13 +157,12 @@ Após a conclusão da implantação, observe o endereço IP privado da máquina 
    |Escolher uma rede virtual     |**Usar existente**: VN-Hub|
    |Endereço IP público     |**Criar novo**. O endereço IP público deve ser do tipo SKU Standard.|
 
-2. Clique em **Revisar + Criar**.
-3. Reveja o resumo e clique em **Criar** para criar o firewall.
+5. Clique em **Revisar + Criar**.
+6. Reveja o resumo e clique em **Criar** para criar o firewall.
 
    Isso levará alguns minutos para ser implantado.
-4. Após a implantação ser concluída, vá para o grupo de recursos **RG-DNAT-Test** e clique no firewall **FW-DNAT-test**.
-6. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
-
+7. Após a implantação ser concluída, vá para o grupo de recursos **RG-DNAT-Test** e clique no firewall **FW-DNAT-test**.
+8. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
 
@@ -188,31 +187,29 @@ Para a sub-rede **SN-Workload**, configure a rota de saída padrão para atraves
 17. Em **Tipo do próximo salto**, selecione **Solução de virtualização** .
 
     O Firewall do Azure é, na verdade, um serviço gerenciado, mas a solução de virtualização funciona nessa situação.
-1. Em **endereço do próximo salto**, digite o endereço IP privado do firewall anotado anteriormente.
-2. Clique em **OK**.
+18. Em **endereço do próximo salto**, digite o endereço IP privado do firewall anotado anteriormente.
+19. Clique em **OK**.
 
-
-## <a name="configure-a-dnat-rule"></a>Configurar uma regra de DNAT
+## <a name="configure-a-nat-rule"></a>Configurar uma regra NAT
 
 1. Abra o **RG-DNAT-Test** e clique no firewall **FW-DNAT-test**. 
-1. Na página **FW-DNAT-test**, em **Configurações**, clique em **Regras**. 
-2. Clique em **Adicionar coleção de regras do DNAT**. 
-3. Para **Nome**, digite **RC-DNAT-01**. 
-1. Digite **200** em **Prioridade**. 
-6. Em **Regras**, para **Nome**, digite **RL-01**. 
-7. Para **Endereços de Origem**, digite *. 
-8. Para **Endereços de Destino** digite o endereço IP público do firewall. 
-9. Para **Portas de Destino**, digite **3389**. 
-10. Para **Endereço Convertido** digite o endereço IP privado da máquina virtual Srv-Workload. 
-11. Para **Porta traduzida**, digite **3389**. 
-12. Clique em **Adicionar**. 
+2. Na página **FW-DNAT-test**, em **Configurações**, clique em **Regras**. 
+3. Clique em **Adicionar coleção de regras do NAT**. 
+4. Para **Nome**, digite **RC-DNAT-01**. 
+5. Digite **200** em **Prioridade**. 
+6. Em **Regras**, para **Nome**, digite **RL-01**.
+7. Em **Protocolo**, selecione **TCP**.
+8. Para **Endereços de Origem**, digite *. 
+9. Para **Endereços de Destino** digite o endereço IP público do firewall. 
+10. Para **Portas de Destino**, digite **3389**. 
+11. Para **Endereço Convertido** digite o endereço IP privado da máquina virtual Srv-Workload. 
+12. Para **Porta traduzida**, digite **3389**. 
+13. Clique em **Adicionar**. 
 
 ## <a name="test-the-firewall"></a>Testar o firewall
 
 1. Conecte uma área de trabalho remota ao endereço IP público do firewall. Você deve estar conectado à máquina virtual **Srv-Workload**.
-3. Feche a área de trabalho remota.
-4. Altere a ação da coleção de regras de rede **RC-Net-01** para **Negar**.
-5. Tente se reconectar ao endereço IP público do firewall. Desta vez, ele não deve funcionar devido à regra **Negar**.
+2. Feche a área de trabalho remota.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

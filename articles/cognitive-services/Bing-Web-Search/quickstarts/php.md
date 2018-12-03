@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bee9cf2a6ddc385ddf0cb04c58edacaa2da6ec5d
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163327"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314585"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: Usar PHP para chamar a API de Pesquisa na Web do Bing  
 
@@ -23,8 +23,9 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa na W
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
 * [PHP 5.6.x](http://php.net/downloads.php) ou posterior

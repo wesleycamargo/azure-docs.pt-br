@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161847"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443876"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: Aplicativo Web de uma página Pesquisa Visual Única
 
 A API de Pesquisa Visual do Bing fornece uma experiência semelhante aos detalhes da imagem mostrados em Bing.com/images. Com a Pesquisa Visual, você pode especificar uma imagem e obter informações sobre a imagem, como imagens visualmente semelhantes, fontes de compras, páginas da Web que incluem a imagem e muito mais. 
+
+Para este tutorial, você precisará iniciar uma assinatura na faixa de preço S9, conforme mostra [Preços dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma assinatura no portal do Azure:
+1. Insira "BingSearchV7" na caixa de texto na parte superior do portal do Azure que mostra `Search resources, services, and docs`.  
+2. Em Marketplace, na lista suspensa, selecione `Bing Search v7`.
+3. Insira `Name` para o novo recurso.
+4. Selecionar assinatura `Pay-As-You-Go`.
+5. Selecione o tipo de preço `S9`.
+6. Clique em `Enable` para iniciar a assinatura.
 
 Este tutorial estende o aplicativo Web de única página do tutorial de da Pesquisa de Imagem do Bing (veja [Aplicativo Web de página única](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Para obter o código-fonte completo para começar este tutorial, veja [Aplicativo Web de página única (código-fonte)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Para o código-fonte final deste tutorial, veja [Aplicativo Web de página única da Pesquisa Visual](tutorial-bing-visual-search-single-page-app-source.md).
 

@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239552"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580548"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Criar aplicativo de aprendizado de máquina no HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Compilar um aplicativo de aprendizado de máquina do Apache Spark no HDInsight 
 
-Neste tutorial, você aprenderá como usar o bloco de anotações do Jupyter para criar um aplicativo de aprendizado de máquina do Apache Spark para o Azure HDInsight. 
+Neste tutorial, você aprenderá a usar o [Jupyter Notebook](https://jupyter.org/) para compilar um aplicativo de aprendizado de máquina do [Apache Spark](https://spark.apache.org/) para o Azure HDInsight. 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html): A biblioteca de Machine Learning escalável do Spark que consiste em algoritmos e utilitários de aprendizado comuns, incluindo classificação, regressão, clustering, filtragem colaborativa, redução de dimensionalidade, bem como primitivos de otimização subjacente.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> * Desenvolver um aplicativo de aprendizado de máquina do Spark
+> * Desenvolver um aplicativo de aprendizado de máquina do Apache Spark
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -190,7 +190,7 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Também incl
 
 Neste tutorial, você aprendeu como:
 
-* Desenvolver um aplicativo de aprendizado de máquina do Spark
+* Desenvolver um aplicativo de aprendizado de máquina do Apache Spark
 
 Vá para o próximo tutorial para saber como usar IntelliJ IDEA para trabalhos do Spark. 
 

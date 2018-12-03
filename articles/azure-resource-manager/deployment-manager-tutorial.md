@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345565"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424996"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Use o Gerenciador de Implantação do Azure com modelos do Resource Manager (Versão prévia privada)
 
@@ -41,6 +41,8 @@ Este tutorial cobre as seguintes tarefas:
 > * Implantar a versão mais recente
 > * Limpar recursos
 
+A referência à API REST do Gerenciador de Implantação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,12 +52,12 @@ Para concluir este artigo, você precisa do seguinte:
 * Alguma experiência com o desenvolvimento de [modelos do Azure Resource Manager](./resource-group-overview.md).
 * O Gerenciador de Implantação do Azure está em versão prévia privada. Para se inscrever usando o Gerenciador de Implantação do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
 * PowerShell do Azure. Para obter mais informações, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela do PowerShell e use o seguinte comando:
+* Cmdlets do Gerenciador de Implantação. Para instalar esses cmdlets de pré-lançamento, você precisa ter a versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Instalação do PowerShellGet](/powershell/gallery/installing-psget). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma nova janela elevada do PowerShell e use o seguinte comando:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Gerenciador do Armazenamento do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). O Gerenciador de Armazenamento do Azure não é necessário, mas facilita.
+* [Gerenciador do Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/). O Gerenciador de Armazenamento do Azure não é necessário, mas facilita.
 
 ## <a name="understand-the-scenario"></a>Compreender o cenário
 
@@ -145,10 +147,10 @@ Posteriormente no tutorial, você implantará uma distribuição. Uma identidade
 Você precisa criar uma identidade gerenciada atribuída pelo usuário e configurar o controle de acesso para sua assinatura.
 
 > [!IMPORTANT]
-> A identidade gerenciada atribuída pelo usuário deve estar no mesmo local que a [distribuição](#create-the-rollout-template). Atualmente, os recursos do Gerenciador de Implantação, incluindo a distribuição, só podem ser criados no Centro dos EUA ou no Leste dos EUA 2.
+> A identidade gerenciada atribuída pelo usuário deve estar no mesmo local que a [distribuição](#create-the-rollout-template). Atualmente, os recursos do Gerenciador de Implantação, incluindo a distribuição, só podem ser criados no Centro dos EUA ou no Leste dos EUA 2. No entanto, isso vale apenas para os recursos do Gerenciador de Implantação (como a topologia de serviço, serviços, unidades de serviço, distribuição e etapas). Seus recursos de destino podem ser implantados em qualquer região do Azure com suporte. Neste tutorial, por exemplo, os recursos do Gerenciador de Implantação são implantados no Centro dos EUA, mas os serviços são implantados no Leste dos EUA e no Oeste dos EUA. Essa restrição será eliminada futuramente.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Crie uma [identidade gerenciada atribuída ao usuário](../active-directory/managed-identities-azure-resources/overview.md).
+2. Crie uma [identidade gerenciada atribuída ao usuário](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Assinaturas** no menu à esquerda e, em seguida, selecione sua assinatura.
 4. Selecione **Controle de Acesso (IAM)** e, em seguida, selecione **Adicionar**
 5. Digite ou selecione os valores a seguir:
@@ -200,6 +202,9 @@ A captura de tela a seguir mostra apenas algumas partes da topologia de serviço
 - **dependsOn**: todos os recursos de topologia de serviço dependem do recurso de origem do artefato.
 - **artefatos** apontam para os artefatos de modelo.  Caminhos relativos são usados aqui. O caminho completo é construído concatenando artifactSourceSASLocation (definido na fonte de artefato), artifactRoot (definido na fonte de artefato) e templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
 
+> [!NOTE]
+> Os nomes de unidade de serviço devem conter 31 caracteres ou menos. 
+
 ### <a name="topology-parameters-file"></a>Arquivo de parâmetros de topologia
 
 Você cria um arquivo de parâmetros usado com o modelo de topologia.
@@ -211,7 +216,7 @@ Você cria um arquivo de parâmetros usado com o modelo de topologia.
     - **azureResourceLocation**: se você não estiver familiarizado com os locais do Azure, use **centralus** neste tutorial.
     - **artifactSourceSASLocation**: insira o URI de SAS para o diretório raiz (o contêiner de blobs) em que os arquivos de modelo e parâmetros de serviço de unidade são armazenados para implantação.  Ver [Preparar os artefatos](#prepare-the-artifacts).
     - **templateArtifactRoot**: a menos que você altera a estrutura de pasta de artefatos, use **template/1.0.0.0** neste tutorial.
-    - **tragetScriptionID**: insira sua ID de assinatura do Azure.
+    - **targetScriptionID**: insira sua ID de assinatura do Azure.
 
 > [!IMPORTANT]
 > O modelo de topologia e o modelo de distribuição compartilham alguns parâmetros em comum. Esses parâmetros devem ter os mesmos valores. Esses parâmetros são: **namePrefix**, **azureResourceLocation** e **artifactSourceSASLocation** (ambas as fontes de artefato compartilham a mesma conta de armazenamento neste tutorial).
@@ -242,7 +247,7 @@ A seção de variáveis define os nomes dos recursos. Verifique se o nome da top
 
 Há três recursos definidos no nível raiz: uma fonte de artefato, uma etapa e uma distribuição.
 
-A definição de fonte do artefato é idêntica àquela definida no modelo de topologia.  Veja [Criar o modelo de topologia de serviço](#create-the-service-topology-tempate) para obter mais informações.
+A definição de fonte do artefato é idêntica àquela definida no modelo de topologia.  Veja [Criar o modelo de topologia de serviço](#create-the-service-topology-template) para obter mais informações.
 
 A captura de tela a seguir mostra a definição de etapa de espera:
 
@@ -310,7 +315,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
     **Mostrar tipos ocultos** deve ser selecionado para ver os recursos.
 
-3. Implante o modelo de distribuição:
+3. <a id="deploy-the-rollout-template"></a>Implante o modelo de distribuição:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ O Azure PowerShell pode ser usado para implantar os modelos.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Quando você tem uma nova versão (1.0.0.1) para o aplicativo Web. Você pode us
 
 1. Abra CreateADMRollout.Parameters.json.
 2. Atualize **binaryArtifactRoot** para **binaries/1.0.0.1**.
-3. Reimplante a distribuição conforme as instruções em [Implantar os modelos](#deploy-the-templates).
+3. Reimplante a distribuição conforme as instruções em [Implantar os modelos](#deploy-the-rollout-template).
 4. Verifique a implantação conforme as instruções em [Verificar a implantação](#verify-the-deployment). A página da Web deverá mostrar a versão 1.0.0.1.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

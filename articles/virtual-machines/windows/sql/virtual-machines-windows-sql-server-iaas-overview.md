@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 905caa7d0de514ae9fd13cb058b2b7826b8b6abf
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 141a65032d3d97a7977bb3e725edb47b6f25d55c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003664"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496660"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -67,8 +67,13 @@ A tabela a seguir fornece uma matriz de imagens do SQL Server pré-pagas.
 
 Para ver as imagens de máquina virtual do SQL Server do Linux disponíveis, confira [Visão geral do SQL Server em máquinas virtuais do Azure (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
+> [!NOTE]
+> Agora, é possível alterar o modelo de licenciamento de uma VM do SQL Server paga por uso para usar sua própria licença. Para saber mais, confira [Como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
+
 ### <a id="BYOL"></a> Traga sua própria licença
 Também é possível usar sua própria licença (BYOL). Nesse cenário, você paga apenas pela VM sem encargos adicionais para o licenciamento do SQL Server.  Colocar sua própria licença pode economizar dinheiro ao longo do tempo para cargas de trabalho de produção contínua. Para obter os requisitos para usar essa opção, veja [Diretrizes de preços para VMs do SQL Server do Azure](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
+
+Para usar sua própria licença, converta uma VM existente do SQL de pagamento por uso, ou implante uma imagem com **{BYOL}** prefixado. Para saber mais sobre como alternar seu modelo de licenciamento entre o pagamento por uso e BYOL, confira [Como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Versão | Sistema operacional | Edição |
 | --- | --- | --- |
@@ -77,7 +82,6 @@ Também é possível usar sua própria licença (BYOL). Nesse cenário, você pa
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-No portal, os nomes dessas imagens são prefixados com **{BYOL}**.
 
 ### <a name="connect-to-the-vm"></a>Conectar-se à VM
 Depois de criar sua VM do SQL Server, conecte-se a ela de aplicativos ou ferramentas, como o SQL Server Management Studio (SSMS). Para obter instruções, veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure](virtual-machines-windows-sql-connect.md).

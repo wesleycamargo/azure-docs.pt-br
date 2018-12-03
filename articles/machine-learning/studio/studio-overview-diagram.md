@@ -1,5 +1,5 @@
 ---
-title: Diagrama de visão geral dos recursos do Estúdio do Machine Learning | Microsoft Docs
+title: Diagrama de visão geral dos recursos do Estúdio do Machine Learning - Azure | Microsoft Docs
 description: Um diagrama imprimível dos recursos do Azure Machine Learning Studio, demonstrando como usar o Estúdio para desenvolver um experimento de análise preditiva e operação na nuvem do Azure.
 keywords: estúdio de aprendizado de máquina, digrama de visão geral, download
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 283a37cd708dfd41a7840cef2f4236fd887130bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262628"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312456"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de visão geral dos recursos do Estúdio do Azure Machine Learning
 O diagrama **Visão geral dos recursos do Microsoft Azure Machine Learning Studio** fornece uma visão geral de alto nível sobre como você pode usar o Machine Learning para desenvolver o modelo da análise preditiva na nuvem do Azure.

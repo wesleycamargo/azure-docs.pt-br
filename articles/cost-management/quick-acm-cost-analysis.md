@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515719"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445687"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: explore e analise custos com análise de custos
 
@@ -84,17 +84,17 @@ Há também a visualização **diária** mostrando os custos para cada dia. O mo
 
 ![Exibição diária](./media/quick-acm-cost-analysis/daily-view.png)
 
-Você pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados exibidos no gráfico da área total superior. Agrupamento permite ver rapidamente como seus gastos estão categorizados por tipo de recurso. Aqui está uma exibição dos custos de serviço do Azure para uma exibição do último mês.
+Você pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados exibidos no gráfico da área total superior. Agrupamentos permitem que você veja rapidamente como seus gastos estão categorizados por propriedades comuns de uso e recursos, como grupo de recursos ou marcas de recurso. Para agrupar por marcas, selecione a chave da marca que será a base do agrupamento e você verá os custos divididos por cada valor dessa marca, com um segmento extra para recursos que não contam com essa marca aplicada. Observe que o Gerenciamento de Custos só dá suporte a marcas de recurso a partir da data em que as marcas são aplicadas diretamente ao recurso. Atualmente, não há suporte para marcas do grupo de recursos. Aqui está uma exibição dos custos de serviço do Azure para uma exibição do último mês.
 
 ![Vista acumulada diária agrupada](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Gráficos dinâmicos sob a visualização Total total mostram exibições para diferentes categorias de agrupamento e filtragem. Quando você seleciona qualquer categoria de grupo, o conjunto completo de dados para a visualização total fica na parte inferior da exibição. Aqui está um exemplo de grupos de recursos.
+Gráficos dinâmicos sob os gráficos principais exibem diferentes agrupamentos para dar uma visão mais ampla dos custos gerais para o período de tempo e filtros selecionados. Selecione uma propriedade ou uma marca para exibir os custos agregados em qualquer dimensão. O conjunto completo de dados para exibição total está na parte inferior da tela, expandindo a gaveta de **Dados** ou selecionando **Exportar > Baixar CSV** na parte superior da tela. Eis um exemplo da gaveta de dados para grupos de recursos.
 
 ![Dados completos para o modo de exibição atual](./media/quick-acm-cost-analysis/full-data-set.png)
 
-A imagem anterior mostra nomes de grupos de recursos. As tags de visualização de recursos não estão disponíveis em nenhuma das visualizações de análise de custos, filtros ou agrupamentos.
+A imagem anterior mostra nomes de grupos de recursos. Embora você possa agrupar por marca para exibir os custos totais por marca, a exibição de todas as marcas por recurso ou grupo de recursos não está disponível nenhum dos modos de exibição de análise de custo.
 
-Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores de custo serão mostrados, bem como um grupo **Outros**, que abrange todos os grupos restantes juntos.
+Ao agrupar os custos segundo um atributo específico, os dez principais colaboradores de custo são mostrados, do mais alto para o mais baixo. Se houver mais de dez grupos, os nove principais colaboradores de custo serão mostrados, bem como um grupo **Outros**, que abrange todos os grupos restantes juntos. Ao agrupar por marcas, você também poderá ver um grupo **Sem marca** para os custos que não têm a chave de marca aplicada. Os custos **Sem marca** aparecem sempre por último, mesmo que haja mais custos sem marca que com marca. Se houver 10 ou mais valores de marca, os custos sem marca farão parte da categoria **Outros**.
 
 Máquinas virtuais *clássicas* (Gerenciamento de Serviços do Azure ou ASM), redes e recursos de armazenamento não compartilham dados detalhados de cobrança. Eles são mesclados como **Serviços clássicos** ao agrupar os custos.
 

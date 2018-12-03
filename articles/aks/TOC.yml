@@ -57,6 +57,22 @@ items:
     href: concepts-storage.md
   - name: Escala
     href: concepts-scale.md
+  - name: Práticas recomendadas
+    items:
+    - name: Para operadores do cluster
+      items:
+      - name: Isolamento de multilocação e cluster
+        href: operator-best-practices-cluster-isolation.md
+      - name: Recursos básicos do agendador
+        href: operator-best-practices-scheduler.md
+      - name: Recursos avançados do agendador
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Autenticação e autorização
+        href: operator-best-practices-identity.md
+    - name: Para desenvolvedores de aplicativos
+      items:
+      - name: Gerenciamento de recursos
+        href: developer-best-practices-resource-management.md
   - name: Cotas e limites regionais
     href: container-service-quotas.md
   - name: Migrar do ACS para AKS
@@ -188,6 +204,9 @@ items:
       href: spark-job.md
     - name: Usar GPUs
       href: gpu-cluster.md
+    - name: Usar o Banco de Dados do Azure para PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
   - name: DevOps
     items:
     - name: Usar Ansible para criar clusters do AKS
@@ -246,9 +265,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: 1bb1c6689831eb2057771c22aced1c8567bd22b0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc7f58330bf5ca0819cf0da494e521324fd2a6ea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611515"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441665"

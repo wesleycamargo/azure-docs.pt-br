@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445014"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445422"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
@@ -175,6 +175,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 ```
 
 Você pode definir mais de uma URL de cliente `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Você também pode habilitar todas as URLs de cliente com `"['*']"`.
+
+> [!NOTE]
+> Se o seu aplicativo exigir credenciais, como o envio de cookies ou tokens de autenticação, o navegador poderá exigir o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para habilitar isso no Serviço de Aplicativo, defina `properties.cors.supportCredentials` como `true` em sua configuração de CORS. Isso não pode ser habilitado quando `allowedOrigins` inclui `'*'`.
 
 ### <a name="test-cors-again"></a>Testar CORS novamente
 

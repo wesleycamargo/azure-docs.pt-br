@@ -1,6 +1,7 @@
 # Visão geral
 ## [Sobre VMs do SQL Server do Windows](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [Notas de versão](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # Guia de início rápido
 ## [Criar VM do SQL - Portal](quickstart-sql-vm-create-portal.md)
 ## [Criar VM do SQL - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -40,6 +41,7 @@
 #### [Várias regiões](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Instância do Cluster de Failover
 #### [Configurar](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [Alterar o modelo de licenciamento para VM do SQL](virtual-machines-windows-sql-ahb.md)
 
 # Referência
 ## [PowerShell do Azure](/powershell/azure/overview)

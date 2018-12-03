@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311850"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Início Rápido: enviar consultas de pesquisa usando a API REST de Pesquisa de Imagem do Bing e PHP
 
@@ -31,6 +31,8 @@ O código-fonte deste exemplo está disponível [no GitHub](https://github.com/A
 * [PHP 5.6.x ou posterior](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
