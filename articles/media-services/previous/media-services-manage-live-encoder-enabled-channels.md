@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222056"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262611"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
@@ -126,7 +126,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 ### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
 Se o **Tipo de codificador** está definido como **Standard**, as opções válidas são:
 
-* **RTMP**
+*  **RTMP**
 * **MP4 fragmentado** de taxa de bits única (Smooth Streaming)
 
 #### <a id="single_bitrate_RTMP"></a>RTMP de taxa de bits única
@@ -268,8 +268,8 @@ Quando definida como true, essa configuração configura o codificador ao vivo p
 Opcional. Especifica a ID do ativo de Serviços de Mídia que contém a imagem do slate. O padrão é nulo. 
 
 
->[!NOTE] 
->Antes de criar o Canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). Essa imagem é usada somente quando o codificador dinâmico estiver inserindo uma imagem fixa devido a um intervalo de anúncio, ou tiver sido assinalado explicitamente para inserir uma imagem fixa. O codificador dinâmico também pode entrar em um modo de imagem fixa durante determinadas condições de erro – por exemplo, se o sinal de entrada for perdido. Atualmente, não há opção para usar uma imagem personalizada quando o codificador dinâmico entrar em um estado 'sinal de entrada perdido'. Você pode votar para esse recurso [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Antes de criar o Canal, a imagem fixa com as restrições a seguir deverá ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). Essa imagem é usada somente quando o codificador dinâmico estiver inserindo uma imagem fixa devido a um intervalo de anúncio, ou tiver sido assinalado explicitamente para inserir uma imagem fixa. Atualmente, não há opção para usar uma imagem personalizada quando o codificador dinâmico entrar em um estado 'sinal de entrada perdido'. Você pode votar para esse recurso [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * No máximo 1920x1080 na resolução.

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: c3627cdbabb38c2236a8a433e9d82d78fe502e4c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ee338e2011a7b86a069bd42a028d65b23a123037
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "49311076"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427090"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Como usar serviço de email SendGrid do PHP
 
@@ -174,7 +174,7 @@ O envio de um anexo usando a API do SMTP envolve uma linha adicional de código 
   * Create the body of the message (a plain-text and an HTML version).
   * $text is your plain-text email
   * $html is your html version of the email
-  * If the reciever is able to view html emails then only the html
+  * If the receiver is able to view html emails then only the html
   * email will be displayed
   */
  $text = "Hi!\nHow are you?\n";
@@ -418,9 +418,9 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](https://azur
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
 [special offer]: https://www.sendgrid.com/windowsazure.html
-[Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+[Packaging and Deploying PHP Applications for Azure]: https://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
-[curl function]: http://php.net/curl
+[curl function]: https://php.net/curl
 [serviço de email baseado em nuvem]: https://sendgrid.com/email-solutions
 [entrega de email transacional]: https://sendgrid.com/transactional-email
 [biblioteca de sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1

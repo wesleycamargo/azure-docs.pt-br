@@ -1,26 +1,22 @@
 ---
 title: Teste de código de ciência de dados no Azure com o conjunto de dados de previsão de receita de adulto UCI – Processo de Ciência de Dados de Equipe e o Azure DevOps Services
 description: Teste de código de ciência de dados com dados de previsão de receita de adulto UCI
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: weig
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
-ms.author: weig
-ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=weig, ms.author=weig)
+ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294682"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443943"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Teste de código de ciência de dados com o conjunto de dados de previsão de receita de adulto UCI
 Este artigo oferece diretrizes preliminares para testar o código em um fluxo de trabalho de ciência de dados. Esse teste fornece aos cientistas de dados uma maneira sistemática e eficiente de verificar a qualidade e o resultado esperado de seu código. Usamos um projeto [TDSP (Processo de Ciência de Dados de Equipe) que usa o conjunto de dados Renda de Adulto UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome), o qual publicamos anteriormente para mostrar como o teste de código pode ser feito. 
@@ -116,7 +112,7 @@ Use estas etapas para configurar e executar o teste de código e um build automa
 
 1. Configurar build e teste automáticos no Azure DevOps:
 
-    a. No repositório do projeto, selecione **Build e Versão** e, em seguida, selecione **+Novo** para criar um novo processo de build.
+     a. No repositório do projeto, selecione **Build e Versão** e, em seguida, selecione **+Novo** para criar um novo processo de build.
 
        ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 

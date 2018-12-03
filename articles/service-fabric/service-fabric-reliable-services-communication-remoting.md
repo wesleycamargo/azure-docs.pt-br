@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ddd78e2fad401add35bc246a64236e2679c33cbc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023538"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620516"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em C# com Reliable Services
 
@@ -98,7 +98,7 @@ Criar o proxy do serviço é uma operação simples, de modo que os usuários po
 
 ### <a name="service-proxy-factory-lifetime"></a>Tempo de vida do alocador de proxy do serviço
 
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é um alocador que cria instâncias de proxy para interfaces remotas diferentes. Se você usar a API `ServiceProxy.Create` para criar um proxy, a estrutura criará um proxy do serviço de singleton.
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é um alocador que cria instâncias de proxy para interfaces remotas diferentes. Se você usar a API `ServiceProxyFactory.CreateServiceProxy` para criar um proxy, a estrutura criará um proxy do serviço de singleton.
 É útil para criá-lo manualmente quando você precisa substituir propriedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory).
 A criação do alocador é uma operação cara. Um alocador de proxy do serviço mantém um cache interno do cliente de comunicação.
 Uma prática recomendada é armazenar em cache a fábrica de proxy de serviço pelo maior tempo possível.
@@ -202,7 +202,7 @@ Para atualizar da V1 para a V2, atualizações em duas etapas são necessárias.
 1. Atualize o serviço V1 para o serviço V2 usando este atributo.
 Essa alteração garante que o serviço escute nos ouvintes V1 e V2.
 
-    a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2" no manifesto do serviço.
+     a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2" no manifesto do serviço.
       ```xml
       <Resources>
         <Endpoints>
@@ -324,7 +324,7 @@ Para atualizar da V1 para a V2 (compatível com interface, conhecida como V2_1),
 1. Atualize do serviço V1 para o serviço V2_1 usando o atributo a seguir.
 Essa alteração garante que o serviço esteja escutando nos ouvintes V1 e V2_1.
 
-    a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
+     a. Adicione um recurso de ponto de extremidade com o nome "ServiceEndpointV2_1" no manifesto do serviço.
       ```xml
       <Resources>
         <Endpoints>

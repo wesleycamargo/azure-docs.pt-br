@@ -2,25 +2,21 @@
 title: Identificar cenários de análise avançada para Azure Machine Learning | Microsoft Docs
 description: Escolha os cenários apropriados para realizar a análise preditiva avançada com o Processo de Ciência de Dados de Equipe.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: bf5ee52c98c173dbdde0a00c5657b8694b363279
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144782"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444827"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Azure Machine Learning
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
@@ -39,7 +35,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 > 
 > * [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
-> * [Criar um espaço de trabalho de Azure Machine Learning](../studio/create-workspace.md)
+> * [Criar um workspace de Azure Machine Learning](../studio/create-workspace.md)
 > 
 > 
 
@@ -117,7 +113,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Carregue dados para um contêiner de armazenamento do Azure.
 1. (Opcional) Pré-processe e limpe os dados.
    
-   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
+    a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
        blobs.
    
@@ -126,7 +122,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
    c.  Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 1. Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
    
-   a.  Faça logon na VM do SQL Server.
+    a.  Faça logon na VM do SQL Server.
    
    b.  Se os dados já não estiverem salvos, baixe arquivos de dados do Azure
    
@@ -164,7 +160,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Carregue os arquivos de despejo no contêiner de armazenamento do Azure.
 1. Carregue os dados para um banco de dados do SQL Server em execução em uma Máquina Virtual do Azure.
    
-   a.  Faça logon na VM do SQL Server.
+    a.  Faça logon na VM do SQL Server.
    
    b.  Baixe os arquivos de dados de um contêiner de armazenamento do Azure para a pasta da VM local.
    
@@ -206,7 +202,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 1. Personalize um cluster Hadoop do Azure HDInsight.
 1. (Opcional) Pré-processe e limpe os dados.
    
-   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
+    a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
        blobs.
    
@@ -216,7 +212,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
 1. Carregue dados no contêiner padrão do cluster Hadoop selecionado na etapa 2.
 1. Carregue dados para o banco de dados Hive no cluster Hadoop do Azure HDInsight.
    
-   a.  Faça logon no nó principal do cluster Hadoop
+    a.  Faça logon no nó principal do cluster Hadoop
    
    b.  Abra a linha de comando do Hadoop.
    
@@ -230,7 +226,7 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
    > 
 1. Explore dados e crie recursos conforme necessário na linha de comando do Hadoop. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
    
-   a.  Faça logon no nó principal do cluster Hadoop
+    a.  Faça logon no nó principal do cluster Hadoop
    
    b.  Abra a linha de comando do Hadoop.
    

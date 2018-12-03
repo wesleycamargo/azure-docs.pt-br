@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237886"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425115"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicativos de web do Active Directory do Azure usando o fluxo de concessão de código do OAuth 2.0
 
@@ -60,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |obrigatório |Deve incluir `code` para o fluxo do código de autorização. |
 | redirect_uri |recomendável |O redirect_uri do seu aplicativo, onde as respostas de autenticação podem ser enviadas e recebidas pelo aplicativo. Ele deve corresponder exatamente a um dos redirect_uris que você registrou no portal, com exceção de que ele deve ser codificado por url. Para aplicativos nativos e móveis, você deve usar o valor padrão de `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |opcional |Especifica o método que deve ser usado para enviar o token resultante de volta ao aplicativo. Pode ser `query`, `fragment` ou `form_post`. `query` fornece o código como um parâmetro da cadeia de caracteres de consulta no URI de redirecionamento. Se você estiver solicitando um token de ID usando o fluxo implícito, não será possível usar `query` como definido na [especificação OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se você estiver solicitando apenas o código, será possível usar `query`, `fragment` ou `form_post`. `form_post` executa um POST contendo o código para o URI de redirecionamento. O padrão é `query` para um fluxo de código.  |
-| state |recomendável |Um valor incluído na solicitação que também retorna na resposta do token. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| state |recomendável |Um valor incluído na solicitação que também retorna na resposta do token. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 | recurso | recomendável |O URI do ID do aplicativo da API da web de destino (recurso protegido). Para localizar o URI do ID do aplicativo, no Portal do Azure, clique em **Active Directory do Azure**, clique em **Registros do aplicativo**, abra a página **Configurações** do aplicativo e clique em **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isso é necessário em um dos autorização ou solicitações de token. Para garantir a autenticação menos prompts colocá-lo na solicitação de autorização para garantir que é recebido consentimento do usuário. |
 | scope | **ignored** | Para aplicativos do Azure AD v1, escopos devem ser configurados estaticamente no Portal do Azure em aplicativos da **configurações**, **permissões necessárias**. |
 | prompt |opcional |Indique o tipo de interação do usuário necessária.<p> Os valores válidos são: <p> *logon*: o usuário deve ser solicitado a autenticar novamente. <p> *select_account*: é solicitado que o usuário selecione uma conta, interrompendo o logon único. O usuário pode selecionar uma conta existente conectada, inserir as credenciais de uma conta memorizada ou optar por usar uma conta diferente. <p> *consentimento*: consentimento do usuário foi concedido, mas precisa ser atualizado. O usuário deve ser solicitado a consentir. <p> *admin_consent*: o administrador deve ser solicitado a consentir em nome de todos os usuários em sua organização |
@@ -102,7 +102,7 @@ error=access_denied
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](http://tools.ietf.org/html/rfc6749). A tabela a seguir descreve os códigos de erro retornados pelo Azure AD. |
+| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). A tabela a seguir descreve os códigos de erro retornados pelo Azure AD. |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável para o usuário final. |
 | state |O valor de estado é um valor não reutilizado gerado aleatoriamente que é enviado na solicitação e retornado na resposta para evitar ataques de CSRF (solicitação intersite forjada). |
 
@@ -175,7 +175,7 @@ Uma resposta bem-sucedida se parece com esta:
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | access_token |O [token de acesso](access-tokens.md) solicitado como um JWT (Token Web JSON) assinado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como uma API Web. |
-| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, confira [Estrutura de autorização do OAuth 2.0: uso do token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |Por quanto tempo o token de acesso é válido (em segundos). |
 | expires_on |A hora de expiração do token de acesso. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Esse valor é usado para determinar o tempo de vida de tokens em cache. |
 | recurso |O URI de ID do Aplicativo da API Web (recurso seguro). |
@@ -208,7 +208,7 @@ Uma resposta de erro de exemplo se parece com esta:
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 | error_codes |Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico. |
-| timestamp |A hora na qual o erro ocorreu. |
+|  timestamp |A hora na qual o erro ocorreu. |
 | trace_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 
@@ -235,7 +235,7 @@ A tabela a seguir lista os códigos de status HTTP que o ponto de extremidade de
 | temporarily_unavailable |O servidor está temporariamente muito ocupado para tratar da solicitação. |Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Usar o token de acesso para acessar o recurso
-Agora que você já adquiriu com êxito um `access_token`, você pode usar o token em solicitações para APIs Web incluindo-o no cabeçalho `Authorization`. A especificação [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) explica como usar os tokens de portador em solicitações HTTP para acessar recursos protegidos.
+Agora que você já adquiriu com êxito um `access_token`, você pode usar o token em solicitações para APIs Web incluindo-o no cabeçalho `Authorization`. A especificação [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) explica como usar os tokens de portador em solicitações HTTP para acessar recursos protegidos.
 
 ### <a name="sample-request"></a>Solicitação de exemplo
 ```
@@ -257,8 +257,8 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Parâmetros de erro
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| authorization_uri |O URI (ponto de extremidade físico) do servidor de autorização. Esse valor também é usado como uma chave de pesquisa para obter mais informações sobre o servidor de um ponto de extremidade de descoberta. <p><p> O cliente deve validar que o servidor de autorização é confiável. Quando o recurso é protegido pelo Azure Active Directory, é suficiente verificar se a URL começa com https://login.microsoftonline.com ou outro nome do host ao qual o Azure Active Directory dá suporte. Um recurso específico de locatário sempre deve retornar um URI de autorização específico de locatário. |
-| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
+| authorization_uri |O URI (ponto de extremidade físico) do servidor de autorização. Esse valor também é usado como uma chave de pesquisa para obter mais informações sobre o servidor de um ponto de extremidade de descoberta. <p><p>  O cliente deve validar que o servidor de autorização é confiável. Quando o recurso é protegido pelo Azure Active Directory, é suficiente verificar se a URL começa com https://login.microsoftonline.com ou outro nome do host ao qual o Azure Active Directory dá suporte. Um recurso específico de locatário sempre deve retornar um URI de autorização específico de locatário. |
+| error |Um valor de código de erro definido na Seção 5.2 da [Estrutura de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável para o usuário final. |
 | resource_id |Retorna o identificador exclusivo do recurso. O aplicativo cliente pode usar esse identificador como o valor do parâmetro `resource` ao solicitar um token para o recurso. <p><p> É importante para o aplicativo cliente verificar esse valor, caso contrário, um serviço mal-intencionado poderá induzir um ataque de **elevação de privilégios** <p><p> A estratégia recomendada para evitar um ataque é verificar se `resource_id` corresponde à base da URL da API Web que está sendo acessada. Por exemplo, se https://service.contoso.com/data estiver sendo acessado, o `resource_id` pode ser htttps://service.contoso.com/. O aplicativo cliente deverá rejeitar um `resource_id` que não comece com a URL base, a menos que haja uma maneira alternativa confiável para verificar a ID. |
 
@@ -340,7 +340,7 @@ Uma resposta de erro de exemplo se parece com esta:
 | error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 | error_codes |Uma lista de códigos de erro específicos do STS que pode ajudar no diagnóstico. |
-| timestamp |A hora na qual o erro ocorreu. |
+|  timestamp |A hora na qual o erro ocorreu. |
 | trace_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico. |
 | correlation_id |Um identificador exclusivo para a solicitação que pode ajudar no diagnóstico entre os componentes. |
 

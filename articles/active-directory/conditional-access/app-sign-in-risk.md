@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604358"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705915"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guia de início rápido: bloquear acesso quando um risco de sessão é detectado com acesso condicional do Active Directory do Azure  
 
@@ -107,7 +107,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
     ![Acesso condicional](./media/app-sign-in-risk/107.png)
 
-    a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
+     a. Clique em **Selecionar usuários e grupos** e selecione **Usuários e grupos**.
 
     b. Clique em **Selecionar**.
 
@@ -123,7 +123,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
     ![Acesso condicional](./media/app-sign-in-risk/109.png)
 
-    a. Clique em **todos os aplicativos em nuvem**.
+     a. Clique em **todos os aplicativos em nuvem**.
 
     b. Clique em **Concluído**.
 
@@ -135,7 +135,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
     ![Nível de risco de entrada](./media/app-sign-in-risk/21.png)
 
-    a. Clique em **Risco de entrada**.
+     a. Clique em **Risco de entrada**.
  
     b. Em **Configurar**, clique em **Sim**.
 
@@ -155,7 +155,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
     ![Acesso condicional](./media/app-sign-in-risk/105.png)
 
-    a. Seleione **Bloquear acesso**.
+     a. Seleione **Bloquear acesso**.
 
     b. Clique em **Selecionar**.
 
@@ -212,7 +212,7 @@ Quando não for mais necessário, exclua o usuário de teste, o Tor Browser e a 
 
     ![Autenticação multifator](./media/app-sign-in-risk/33.png)
 
-- Para obter instruções remover o Tor Browser, consulte [Desinstalando](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Para obter instruções remover o Tor Browser, consulte [Desinstalando](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

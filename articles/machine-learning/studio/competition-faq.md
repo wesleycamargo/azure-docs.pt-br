@@ -3,8 +3,9 @@ title: Perguntas frequentes sobre as Competições do Cortana Intelligence | Mic
 description: Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256435"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265093"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
@@ -55,7 +56,7 @@ Os participantes da competição usam o Azure Machine Learning Studio, um servi�
 
 **É necessário ser um cientista de dados para participar?**
 
-Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados a participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. O público-alvo é:
+ Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados a participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. O público-alvo é:
 
 * **Desenvolvedores de Dados**, **Cientistas de Dados**, profissionais de **BI** e de **Análise**: aqueles responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem
 * **Administradores de Dados**: aqueles que têm conhecimento sobre os dados, o que eles significam, como eles devem ser usados e para qual finalidade
@@ -106,7 +107,7 @@ A hora de envio fará o desempate. A entrada enviada mais cedo prevalecerá sobr
 
 **Posso participar usando um workspace convidado?**
 
-Não. Você deve usar um workspace Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um workspace Convidado, mas você não poderá criar uma entrada válida para envio nesse workspace. 
+ Não. Você deve usar um workspace Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um workspace Convidado, mas você não poderá criar uma entrada válida para envio nesse workspace. 
 
 **Posso participar usando um workspace em qualquer região do Azure?**
 
