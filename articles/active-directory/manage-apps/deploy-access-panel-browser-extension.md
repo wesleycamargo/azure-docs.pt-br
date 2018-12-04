@@ -40,7 +40,7 @@ Primeiro, você deve colocar o pacote do instalador em um local de rede que poss
 2. Na janela **Gerenciador do Servidor**, vá para **Arquivos e Serviços de Armazenamento**.
    
     ![Abrir Serviços de Arquivo e Armazenamento](./media/deploy-access-panel-browser-extension/files-services.png)
-3. Vá para a guia **Compartilhamentos** . Em seguida, clique em Tarefas****Novo Compartilhamento...**
+3. Vá para a guia **Compartilhamentos** . Em seguida, clique em **Tarefas** > **Novo Compartilhamento...**
    
     ![Abrir Serviços de Arquivo e Armazenamento](./media/deploy-access-panel-browser-extension/shares.png)
 4. Conclua o **Assistente de Novo Compartilhamento** e defina permissões para garantir que ele possa ser acessado dos computadores dos usuários. [Saiba mais sobre compartilhamentos.](https://technet.microsoft.com/library/cc753175.aspx)
