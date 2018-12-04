@@ -1,0 +1,55 @@
+items:
+- name: Documentação do Azure Notebooks
+  href: index.yml
+- name: Visão geral
+  items:
+  - name: O que é o Azure Notebooks?
+    href: azure-notebooks-overview.md
+- name: Guia de início rápido
+  items:
+  - name: Entrar e definir uma ID de usuário
+    href: quickstart-sign-in-azure-notebooks.md
+  - name: Criar e compartilhar um notebook
+    href: quickstart-create-share-jupyter-notebook.md
+  - name: Clonar um notebook
+    href: quickstart-clone-jupyter-notebook.md
+  - name: Migrar um notebook local do Jupyter
+    href: quickstart-migrate-local-jupyter-notebook.md
+  - name: Usar um ambiente personalizado
+    href: quickstart-create-jupyter-notebook-project-environment.md
+- name: Tutoriais
+  items:
+  - name: Criar e executar um notebook
+    href: tutorial-create-run-jupyter-notebook.md
+- name: Exemplos
+  items:
+  - name: Notebooks de exemplo
+    href: azure-notebooks-samples.md
+- name: Conceitos
+  items:
+  - name: Contas
+    href: azure-notebooks-user-account.md
+  - name: Perfis
+    href: azure-notebooks-user-profile.md
+- name: Guias de instruções
+  items:
+  - name: Criar e clonar projetos
+    href: create-clone-jupyter-notebooks.md
+  - name: Gerenciar e configurar projetos
+    href: configure-manage-azure-notebooks-projects.md
+  - name: Instalar pacotes em um notebook
+    href: install-packages-jupyter-notebook.md
+  - name: Exibir uma apresentação de slides
+    href: present-jupyter-notebooks-slideshow.md
+  - name: Trabalhar com arquivos de dados
+    href: work-with-project-data-files.md
+  - name: Acessar recursos de dados
+    href: access-data-resources-jupyter-notebooks.md
+  - name: Usar os serviços do Azure Machine Learning
+    href: use-machine-learning-services-jupyter-notebooks.md
+ms.openlocfilehash: 95122e9ec45fb606e07a29e474e411d6e49278c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852379"
