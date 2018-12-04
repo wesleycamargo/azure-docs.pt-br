@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e86ff4ebf91d0c0b691caf429d9489bf769f16af
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c84c15e1e0edcf65f956ed1ed4fd148d1206b65b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975185"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848571"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar sua instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Registro é recomendado porque ele permite que você teste funcionalidades importantes da pilha do Azure, como o relatório de uso e distribuição de mercado. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure. Você pode vê-lo sob a assinatura que você usou para o registro. No entanto, os usuários ASDK não são cobrados por qualquer uso que eles relatam.
@@ -55,10 +55,10 @@ Siga estas etapas para registrar o ASDK com o Azure.
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
-    #Import the registration module that was downloaded with the GitHub tools
+    # Import the registration module that was downloaded with the GitHub tools
     Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-    #Register Azure Stack
+    # Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
@@ -84,9 +84,13 @@ Se você estiver registrando o Azure Stack em um ambiente desconectado (sem cone
 No computador host ASDK, inicie o PowerShell como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixar as ferramentas do Azure Stack. Use os seguintes comandos do PowerShell para importar os **RegisterWithAzure.psm1** módulo e, em seguida, use o **Get-AzsRegistrationToken** para obter o token de registro:  
 
    ```PowerShell  
-   Import-Module .\RegisterWithAzure.psm1
+   # Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+   # Create registration token
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
    -UsageReportingEnabled:$false `
    -PrivilegedEndpoint AzS-ERCS01 `
@@ -94,16 +98,30 @@ No computador host ASDK, inicie o PowerShell como administrador e navegue até a
    -MarketplaceSyndicationEnabled:$false `
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-Por padrão, o token de registro é salvo no arquivo especificado para *$FilePathForRegistrationToken* parâmetro. Você pode alterar o caminho do arquivo ou nome de arquivo a seu critério.
 
-Salve esse token de registro para uso no computador conectado à internet. Você pode copiar o arquivo ou o texto de $FilePathForRegistrationToken.
+Salve esse token de registro para uso no computador conectado à internet. Você pode copiar o arquivo ou o texto do arquivo criado pelo parâmetro $FilePathForRegistrationToken.
 
 ### <a name="connect-to-azure-and-register"></a>Conectar-se ao Azure e ao registro
-No computador conectado à internet, inicie o PowerShell como administrador e navegue até a **registro** pasta o **AzureStack-Tools-master** diretório criado quando você baixou do Azure Ferramentas de pilha. Use os seguintes comandos do PowerShell para importar os **RegisterWithAzure.psm1** módulo e, em seguida, use o **Register AzsEnvironment** cmdlet para se registrar com o Azure, fornecendo o registro de token acabou de criar e um nome exclusivo de registro:  
+Na internet computador conectado, use os seguintes comandos do PowerShell para importar os **RegisterWithAzure.psm1** módulo e, em seguida, use o **Register AzsEnvironment** cmdlet para se registrar com o uso do Azure o token de registro que você acabou de criar e um nome exclusivo do registro:  
 
   ```PowerShell  
-  $registrationToken = "<your registration token>"
-  $RegistrationName = "<unique registration name>"
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+  Add-AzureRmAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+  # Register with Azure
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationName = "<unique-registration-name>"
   Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
@@ -111,33 +129,54 @@ No computador conectado à internet, inicie o PowerShell como administrador e na
 Como alternativa, você pode usar o **Get-Content** cmdlet para apontar para um arquivo que contém seu token de registro:
 
   ```PowerShell  
-  $registrationToken = Get-Content -Path '<path>\<registration token file>'
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+  Add-AzureRmAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+  # Register with Azure 
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
   Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
+
+Quando o registro é concluído, você verá uma mensagem semelhante à **ambiente Your Azure Stack agora está registrado com o Azure.**
+
+> [!IMPORTANT]
+> Não feche a janela do PowerShell. 
 
 Salve o token de registro e o nome do recurso de registro para referência futura.
 
 ### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>Recuperar uma chave de ativação do recurso de registro do Azure
 
-Ainda usando o computador conectado à internet, recupere uma chave de ativação do recurso do registro criado quando você registrou com o Azure.
+Usando o computador conectado à internet, ainda **e a mesma janela de console do PowerShell**, recuperar uma chave de ativação do recurso do registro criado quando você registrou com o Azure.
 
 Para obter a chave de ativação, execute os seguintes comandos do PowerShell, use o mesmo valor de nome exclusivo de registro que você forneceu quando registrou com o Azure na etapa anterior:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
+  # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
-
-A chave de ativação é salvo no arquivo especificado para *$KeyOutputFilePath*. Você pode alterar o caminho do arquivo ou nome de arquivo a seu critério.
-
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Criar um recurso de ativação no Azure Stack
 
 Retornar para o ambiente do Azure Stack com o arquivo ou o texto da chave de ativação criado a partir **Get-AzsActivationKey**. Execute os seguintes comandos do PowerShell para criar um recurso de ativação no Azure Stack usando essa chave de ativação:   
 
   ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
   New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
@@ -148,15 +187,21 @@ Retornar para o ambiente do Azure Stack com o arquivo ou o texto da chave de ati
 Como alternativa, você pode usar o **Get-Content** cmdlet para apontar para um arquivo que contém seu token de registro:
 
   ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  $ActivationKey = Get-Content -Path '<path>\<Activation Key File>'
+  # This example uses the C:\ActivationKey.txt file.
+  $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
   New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
   -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
+Quando a ativação é concluída, você deverá ver uma mensagem semelhante à **seu ambiente tiver terminado o processo de registro e ativação.**
+
 ## <a name="verify-the-registration-was-successful"></a>Verifique se que o registro foi bem-sucedido
-Siga estas etapas para verificar se o registro ASDK com o Azure foi bem-sucedida.
+Siga estas etapas para verificar se o registro ASDK no Azure **em ambientes conectados** foi bem-sucedida.
 
 1. Entrar para o [portal de administração do Azure Stack](https://adminportal.local.azurestack.external).
 

@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094748"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847517"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre o uso de máquinas virtuais no Azure Stack
 
@@ -40,7 +40,7 @@ As máquinas virtuais de pilha do Azure fornecem recursos de computação sob de
 | Desempenho de discos de máquina virtual | Depende do tamanho e tipo de disco. | Depende do tamanho VM da VM que os discos estão anexados para referir-se a [tamanhos de máquina Virtual com suporte no Azure Stack](azure-stack-vm-sizes.md) artigo.
 | Versões de API | O Azure sempre tem as últimas versões de API para todos os recursos de máquina virtual. | O Azure Stack dá suporte a serviços específicos do Azure e as versões de API específicas para esses serviços. Para exibir a lista de versões de API com suporte, consulte o [as versões de API](#api-versions) seção deste artigo. |
 |Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a discos gerenciados|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)<br>Não há suporte de disco gerenciado|
-|conjuntos de escala de máquina virtual|Suporte para dimensionamento automático|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento usando o portal, modelos do Resource Manager ou PowerShell.
+|conjuntos de escala de máquina virtual|Dimensionamento automático com suporte|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento usando o portal, modelos do Resource Manager ou PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual
 
