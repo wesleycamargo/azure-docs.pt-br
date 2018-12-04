@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237885"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837334"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
@@ -81,7 +81,7 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
 3.  Use as seguintes informações para a conta:
 
-    a.  Nome: **sua escolha**
+     a.  Nome: **sua escolha**
 
     b.  Modelo de implantação: **do Resource Manager**
 
@@ -137,7 +137,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
     | Assinatura | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. |
     | **Grupo de recursos** |  |  |
     | myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |  |
-    | SO | Windows | A hospedagem sem servidor no momento só está disponível quando executada no Windows. |
+    | SO |  Windows | A hospedagem sem servidor no momento só está disponível quando executada no Windows. |
     | **Plano de hospedagem** |  |  |
     | Plano de consumo | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. O padrão de plano de consumo, os recursos são adicionados dinamicamente conforme exigido por suas funções. Essa hospedagem sem servidor, você só paga por na execução de suas funções. |  |
     | Local padrão | Região mais próximo de você | Escolha uma região perto de você ou perto de outros serviços do access de funções. |
@@ -252,7 +252,7 @@ Use as etapas e as configurações descritas acima para criar outro contêiner d
 
 ## <a name="test-the-queue-triggered-function"></a>Função disparada por fila de teste
 
-1.  No portal do Azure, vá para a função. Expanda o **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
+1.  No portal do Azure Stack, vá para a função. Expanda o **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
 2.  Abra o Gerenciador de armazenamento e conecte-se à conta de armazenamento criada no início desta seção.
 

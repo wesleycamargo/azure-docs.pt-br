@@ -156,7 +156,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
           </response>
       ```
       
-   2. Na sessão remota, navegue até {HOME_DO_SOLR}\{\{Coleção}\data. Para o cluster criado por meio do script de exemplo, isso deverá ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Neste local, você deve ver uma pasta de instantâneos criada com um nome semelhante ao **snapshot.* timestamp***.
+   2. Na sessão remota, navegue até {HOME_DO_SOLR}\{\{Coleção}\data. Para o cluster criado por meio do script de exemplo, isso deverá ser `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Neste local, você deve ver uma pasta de instantâneos criada com um nome semelhante ao **snapshot.\*timestamp**\*.
    
    3. Compacte a pasta de capturas de tela e carregue-la no armazenamento de Blob do Azure. Na linha de comando do Hadoop, navegue até o local da pasta de capturas de tela usando o seguinte comando:
 

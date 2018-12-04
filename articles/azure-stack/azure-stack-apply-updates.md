@@ -6,40 +6,42 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.reviewer: wfayed
+ms.openlocfilehash: 2a835e7cd9d4c45c1c39c3c135705cb4dff0e6fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091893"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842179"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicar atualizações no Azure Stack
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Como um operador do Azure Stack, você pode aplicar a Microsoft ou pacotes de atualização de OEM para o Azure Stack usando a atualização lado a lado no portal do administrador. Você deve baixar o pacote de atualização, importe os arquivos de pacote para o Azure Stack e, em seguida, instale o pacote de atualização. 
+Você pode usar o **atualizar** lado a lado no portal de administração para aplicar os pacotes de atualização da Microsoft ou OEM para o Azure Stack. Você deve baixar o pacote de atualização, importe os arquivos de pacote para o Azure Stack e, em seguida, instale o pacote de atualização.
 
 ## <a name="download-the-update-package"></a>Baixe o pacote de atualização
 
 Quando um pacote de atualização da Microsoft ou OEM para o Azure Stack está disponível, baixe o pacote para um local que seja acessível a partir do Azure Stack e examine o conteúdo do pacote. Um pacote de atualização normalmente consiste dos seguintes arquivos:
 
-- Um autoextraível *PackageName*.exe arquivo. Esse arquivo contém a carga para a atualização, por exemplo a atualização cumulativa mais recente para o Windows Server.   
-- Correspondente *PackageName*arquivos. bin. Esses arquivos fornecem compactação para a carga que está associada com o *PackageName*.exe arquivo. 
-- Um arquivo Metadata XML. Esse arquivo contém informações essenciais sobre a atualização, por exemplo o Editor, nome, pré-requisito, tamanho e URL do caminho de suporte.
+- Um autoextraível `<PackageName>.exe` arquivo. Esse arquivo contém a carga para a atualização, por exemplo a atualização cumulativa mais recente para o Windows Server.
+
+- Correspondente `<PackageName>.bin` arquivos. Esses arquivos fornecem compactação para a carga que está associada com o *PackageName*.exe arquivo.
+
+- Um `Metadata.xml` arquivo. Esse arquivo contém informações essenciais sobre a atualização, por exemplo o Editor, nome, pré-requisito, tamanho e URL do caminho de suporte.
 
 ## <a name="import-and-install-updates"></a>Importar e instalar atualizações
 
 O procedimento a seguir mostra como importar e instalar pacotes de atualização no portal do administrador.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > É altamente recomendável que você notifica os usuários de qualquer operação de manutenção e agendar as janelas de manutenção normal durante o horário comercial tanto quanto possível. Operações de manutenção podem afetar as cargas de trabalho do usuário e operações do portal.
 
 1. No portal do administrador, selecione **todos os serviços**. Em seguida, sob o **dados + armazenamento** categoria, selecione **contas de armazenamento**. (Ou, na caixa de filtro, comece a digitar **contas de armazenamento**e selecioná-lo.)
@@ -53,7 +55,7 @@ O procedimento a seguir mostra como importar e instalar pacotes de atualização
 3. No armazenamento de detalhes da conta, sob **Services**, selecione **Blobs**.
  
     ![Mostra como obter a Blobs da conta de armazenamento](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
+ 
 4. Sob **serviço Blob**, selecione **+ contêiner** para criar um contêiner. Insira um nome (por exemplo *atualização 1709*) e, em seguida, selecione **Okey**.
  
      ![Mostra como adicionar um contêiner na conta de armazenamento](media/azure-stack-apply-updates/ApplyUpdates4.png)
@@ -64,12 +66,12 @@ O procedimento a seguir mostra como importar e instalar pacotes de atualização
 
 6. Sob **carregar blob**, clique no ícone de pasta, navegue até arquivo de .exe do pacote de atualização e, em seguida, clique em **abrir** na janela do Gerenciador de arquivo.
   
-7. Sob **carregar blob**, clique em **carregar**. 
+7. Sob **carregar blob**, clique em **carregar**. 
   
     ![Mostra onde carregar cada arquivo de pacote](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repita as etapas 6 e 7 para o *PackageName*. bin e arquivos de Metadata. XML. Não importe o arquivo NOTICE complementares se for incluído.
-9. Quando terminar, você pode examinar as notificações (ícone de sino no canto superior direito do portal). As notificações devem indicar que o upload for concluído. 
+8. Repita as etapas 6 e 7 para o *PackageName*. bin e arquivos de Metadata. XML. Não importe o arquivo NOTICE complementares se for incluído.
+9. Quando terminar, você pode examinar as notificações (ícone de sino no canto superior direito do portal). As notificações devem indicar que o upload for concluído. 
 10. Navegue de volta para o bloco de atualização no painel. O bloco deve indicar que uma atualização está disponível. Clique no bloco para examinar o pacote de atualização recém-adicionado.
 11. Para instalar a atualização, selecione o pacote que está marcado como **pronto** e o pacote com o botão direito e selecione **atualizar agora**, ou clique os **atualizar agora** ação na parte superior .
 12. Quando você clica em instalar o pacote de atualização, você pode exibir o status na **detalhes de execução de atualização** área. A partir daqui, você também pode clicar **baixar logs completos** para baixar os arquivos de log.
