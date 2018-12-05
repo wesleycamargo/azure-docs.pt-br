@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/16/2018
+ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679912"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início rápido: executar o primeiro trabalho do Lote do Azure com a API do .NET
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Navegue até o diretório que contém o arquivo da solução Visual Studio `BatchDotNetQuickstart.sln`.
 
-Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `program.cs` com os valores obtidos para suas contas. Por exemplo: 
+Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo: 
 
 ```csharp
 // Batch account credentials
@@ -143,7 +143,7 @@ O aplicativo cria um objeto [BatchClient](/dotnet/api/microsoft.azure.batch.batc
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
 
 using (BatchClient batchClient = BatchClient.Open(cred))
-...    
+...
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um pool de nós de computação
@@ -155,33 +155,42 @@ O número de nós (`PoolNodeCount`) e o tamanho da VM (`PoolVMSize`) são consta
 O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) envia o pool para o serviço Lote.
 
 ```csharp
-ImageReference imageReference = new ImageReference(
-    publisher: "MicrosoftWindowsServer",
-    offer: "WindowsServer",
-    sku: "2016-Datacenter-smalldisk",
-    version: "latest");
 
-VirtualMachineConfiguration virtualMachineConfiguration =
-new VirtualMachineConfiguration(
-   imageReference: imageReference,
-   nodeAgentSkuId: "batch.node.windows amd64");
-
-try
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
 {
-    CloudPool pool = batchClient.PoolOperations.CreatePool(
-    poolId: PoolId,
-    targetDedicatedComputeNodes: PoolNodeCount,
-    virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration);
-
-    pool.Commit();
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
 }
+
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        publisher: "MicrosoftWindowsServer",
+        offer: "WindowsServer",
+        sku: "2016-datacenter-smalldisk",
+        version: "latest");
+}
+
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
 ...
 
 ```
+
 ### <a name="create-a-batch-job"></a>Criar um trabalho do Lote
 
-Um trabalho do Lote é um agrupamento lógico de uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. O aplicativo usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool. 
+Um trabalho do Lote é um agrupamento lógico de uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. O aplicativo usa o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho em seu pool.
 
 O método [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) envia o trabalho para o serviço Lote. Inicialmente, o trabalho não tem nenhuma tarefa.
 
@@ -192,15 +201,16 @@ try
     job.Id = JobId;
     job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-    job.Commit(); 
+    job.Commit();
 }
 ...
 ```
 
 ### <a name="create-tasks"></a>Criar tarefas
+
 O aplicativo cria uma lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Cada tarefa processa um objeto `ResourceFile` de entrada usando uma propriedade [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). No exemplo, a linha de comando executa o comando Windows `type` para exibir o arquivo de entrada. Esse comando é um exemplo simples para fins de demonstração. Quando você usa o Lote, a linha de comando é onde você especifica seu aplicativo ou script. O Lote fornece várias maneiras para implantar aplicativos e scripts em nós de computação.
 
-Em seguida, o aplicativo adiciona tarefas ao trabalho com o método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), que os enfileira para execução nos nós de computação. 
+Em seguida, o aplicativo adiciona tarefas ao trabalho com o método [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), que os enfileira para execução nos nós de computação.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -216,7 +226,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
- 
+
 ### <a name="view-task-output"></a>Exibir saída da tarefa
 
 O aplicativo cria um [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) para monitorar as tarefas e fazer com que sejam concluídas. Em seguida, o aplicativo usa a propriedade [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) para exibir o arquivo `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, a saída do comando de tarefa é gravada em `stdout.txt`:

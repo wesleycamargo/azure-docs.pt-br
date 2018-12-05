@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b77113378803b3d40e3612c668a5048a936edbe2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334526"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679317"
 ---
 # <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>Início Rápido: Localizar traduções alternativas com a API REST de Tradução de Texto (C#)
 
@@ -28,7 +28,7 @@ Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https:
 * [SDK .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote NuGet do Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para o serviço de Fala
+* Uma chave de assinatura do Azure para a Tradução de Texto
 
 ## <a name="create-a-net-core-project"></a>Criar projeto do .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
-E pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
+E, pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
 
 ```console
 dotnet run

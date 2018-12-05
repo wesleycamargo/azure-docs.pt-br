@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: 657eefcd5b7793f2f181d074084a272e65943681
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17fb8a82709e7c0c7353b70f7731895889167a79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246439"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873947"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Use perfis de versão de API com o Python no Azure Stack
 
@@ -92,7 +92,7 @@ Os exemplos não são necessariamente na ordem mostrada na lista acima.
     Este exemplo (e o SDK) são compatível com o Python 2.7, 3.4, 3.5 e 3.6.
 
 2.  A recomendação geral para o desenvolvimento do Python é usar um ambiente Virtual. 
-    Para obter mais informações, consulte https://docs.python.org/3/tutorial/venv.html
+    Para mais informações, consulte https://docs.python.org/3/tutorial/venv.html
     
     Instalar e inicializar o ambiente virtual com o módulo de "venv" no Python 3 (você deve instalar [virtualenv](https://pypi.python.org/pypi/virtualenv) para Python 2.7):
 
@@ -153,5 +153,5 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 
 - [Centro de desenvolvimento do Python do Azure](https://azure.microsoft.com/develop/python/)
 - [Documentação de máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/)
-- [Roteiro de aprendizagem para máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- [Roteiro de aprendizagem para máquinas virtuais](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Se você não tiver uma assinatura do Microsoft Azure, você pode obter uma conta de avaliação gratuita [aqui](https://go.microsoft.com/fwlink/?LinkId=330212).

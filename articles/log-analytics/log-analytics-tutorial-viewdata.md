@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043049"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876757"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics
 
@@ -32,7 +31,7 @@ No Log Analytics, você pode aproveitar as pesquisas de logs construindo consult
 
 Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao workspace do Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-Criar e editar consultas, além de trabalhar interativamente com dados retornados, pode ser realizado de duas maneiras.  Para consultas básicas, use a página de pesquisa de logs no portal do Azure, ou para consultas avançadas, você pode usar o portal de análise avançada. Para saber mais sobre as diferenças na funcionalidade entre os dois portais, consulte [Portais para criar e editar consultas de log no Log Analytics do Azure](log-analytics-log-search-portals.md)
+Criar e editar consultas, além de trabalhar interativamente com dados retornados, pode ser realizado de duas maneiras.  Para consultas básicas, use a página de pesquisa de logs no portal do Azure, ou para consultas avançadas, você pode usar o portal de análise avançada. Para saber mais sobre as diferenças na funcionalidade entre os dois portais, consulte [Portais para criar e editar consultas de log no Log Analytics do Azure](../azure-monitor/log-query/portals.md)
 
 Neste tutorial, trabalhararemos com pesquisa de logs no portal do Azure. 
 

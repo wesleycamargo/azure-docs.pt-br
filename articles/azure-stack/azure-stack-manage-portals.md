@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085762"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872179"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Usando o portal de administrador no Azure Stack
 
@@ -86,6 +86,10 @@ Se você selecionar o ícone de Ajuda e suporte (ponto de interrogação) no can
 
 - Se você estiver usando um sistema integrado, essa ação abrirá um site onde você pode abrir diretamente um tíquete de suporte com serviços de suporte de cliente do Microsoft (CSS). Consulte a [onde obter suporte](azure-stack-manage-basics.md#where-to-get-support) para entender quando você deve entrar por meio do suporte da Microsoft ou por meio de suporte do fornecedor de hardware seu fabricante de equipamento original (OEM).
 - Se você estiver usando o kit de desenvolvimento, essa ação abre o site dos fóruns do Azure Stack diretamente. Esses fóruns são monitorados regularmente. Como o kit de desenvolvimento é um ambiente de avaliação, não há nenhum suporte oficial oferecida por meio do Microsoft CSS.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Acesso rápido para o roteiro do Azure
+
+Se você selecionar **ajuda e suporte** (o ponto de interrogação) no canto superior direito do administrador do portal e, em seguida, selecione **roteiro do Azure**, uma nova guia do navegador é aberta e leva você até o roteiro do Azure. Digitando **do Azure Stack** na **produtos** caixa de pesquisa, você pode ver todas as atualizações de roteiro do Azure Stack.
 
 ## <a name="next-steps"></a>Próximas etapas
 

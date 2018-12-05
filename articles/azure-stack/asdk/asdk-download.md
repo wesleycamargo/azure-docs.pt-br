@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139481"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871193"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Baixe e extraia o Azure Stack desenvolvimento ASDK (Kit de)
 Depois de garantir que seu computador de host do kit de desenvolvimento atende aos requisitos básicos para instalar o ASDK, a próxima etapa é baixar e extrair o pacote de implantação para obter o Cloudbuilder.vhdx ASDK.
@@ -29,7 +29,7 @@ Depois de garantir que seu computador de host do kit de desenvolvimento atende a
 1. Antes de iniciar o download, certifique-se de que seu computador atende aos seguintes pré-requisitos:
 
   - O computador deve ter pelo menos 60 GB de espaço livre em disco disponível em quatro separados, idêntico discos rígidos lógicos além para o disco do sistema operacional.
-  - [.NET framework 4.6 (ou uma versão posterior)](https://aka.ms/r6mkiy) deve ser instalado.
+  - [.NET framework 4.6 (ou uma versão posterior)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) deve ser instalado.
 
 2. [Vá para a página de Introdução](https://azure.microsoft.com/overview/azure-stack/try/?v=try) onde você pode baixar o Kit de desenvolvimento do Azure Stack, fornecer seus detalhes e, em seguida, clique em **enviar**.
 3. Baixe e execute o [Verificador de implantação do Kit de desenvolvimento do Azure Stack](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) script Verificador de pré-requisitos. Esse script autônomo percorre as verificações de pré-requisitos feitas pela instalação para o Kit de desenvolvimento do Azure Stack. Ele fornece uma maneira para confirmar que você está atendendo aos requisitos de hardware e software, antes de baixar o pacote maior para o Kit de desenvolvimento do Azure Stack.

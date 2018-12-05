@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 8f98c4cbca87fd77e3c09c1028bfcb3181907412
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335689"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682054"
 ---
 # <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Início Rápido: Detectar o idioma do texto com a API REST de Tradução de Texto (C#)
 
@@ -28,7 +28,7 @@ Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https:
 * [SDK .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote NuGet do Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para o Serviço de Fala
+* Uma chave de assinatura do Azure para a Tradução de Texto
 
 ## <a name="create-a-net-core-project"></a>Criar projeto do .NET Core
 
@@ -39,7 +39,7 @@ dotnet new console -o detect-sample
 cd detect-sample
 ```
 
-O primeiro comando faz duas coisas. Ele cria um novo aplicativo de console .NET e cria um diretório chamado `detect-sample`. O segundo comando faz a mudança para o diretório do seu projeto.
+O primeiro comando faz duas coisas. Ele cria um novo aplicativo de console .NET e cria um diretório chamado `detect-sample`. O segundo comando é alterado para o diretório do seu projeto.
 
 Em seguida, você precisará instalar o Json.Net. No diretório do projeto, execute:
 
@@ -47,9 +47,9 @@ Em seguida, você precisará instalar o Json.Net. No diretório do projeto, exec
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="add-required-namespaces-to-your-project"></a>Adicionar namespaces obrigatórios ao projeto
+## <a name="add-required-namespaces-to-your-project"></a>Adicionar namespaces necessários ao seu projeto
 
-O comando `dotnet new console` que você executou anteriormente criou um projeto, incluindo `Program.cs`. Esse arquivo é onde você colocará o código do aplicativo. Abra `Program.cs` e substitua as instruções using existentes. Essas instruções garantem que você tenha acesso a todos os tipos necessários para compilar e executar o aplicativo de exemplo.
+O comando `dotnet new console` que você executou anteriormente criou um projeto, incluindo `Program.cs`. Esse arquivo é onde você colocará o código do aplicativo. Abra `Program.cs` e substitua o existente usando as instruções existentes. Essas instruções garantem que você tenha acesso a todos os tipos necessários para compilar e executar o aplicativo de exemplo.
 
 ```csharp
 using System;
@@ -108,7 +108,7 @@ Dentro de `HttpRequestMessage`, você vai:
 * Declarar o método HTTP
 * Construir o URI de solicitação
 * Inserir o corpo da solicitação (objeto JSON serializado)
-* Adicionar os cabeçalhos obrigatórios
+* Adicionar os cabeçalhos necessários
 * Fazer uma solicitação assíncrona
 * Imprima a resposta
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
-E, pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do seu projeto e execute:
+E, pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
 
 ```console
 dotnet run

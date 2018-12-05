@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427242"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869952"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK  
 Este artigo fornece informações sobre problemas conhecidos no Azure Stack desenvolvimento ASDK (Kit), correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,32 +46,11 @@ Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack
 <!-- TBD - IS ASDK --> 
 - Corrigido um problema em que você criou as máquinas virtuais no portal do usuário do Azure Stack e portal exibido um número incorreto de discos de dados que podem anexar a uma VM da série DS. As VMs da série DS podem acomodar a tantos discos de dados como a configuração do Azure.
 
-- Os seguintes problemas de disco gerenciado são corrigidos em 1809 e também são corrigidos no 1808 [do Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
-
-   <!--  2966665 – IS, ASDK --> 
-   - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium: *Falha ao atualizar discos para a máquina virtual 'vmname' erro: operação solicitada não pode ser executada porque tipo de conta de armazenamento 'Premium_LRS' não há suporte para o tamanho da VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
-   
-   - Criando uma VM de disco gerenciado usando **createOption**: **Attach** falha com o seguinte erro: *operação de execução longa falhou com status 'Failed'. Informações adicionais: 'Ocorreu um erro de execução interna'.*
-   Código de erro: InternalExecutionError ErrorMessage: Ocorreu um erro de execução interna.
-   
-   Esse problema foi corrigido.
-
 - <!-- 2702741 -  IS, ASDK --> Corrigido um problema no qual IPs públicos que foram implantados usando a alocação dinâmica o método não eram garantia de ser preservada após a emissão de uma interrupção da desalocação. Agora são preservados.
 
 - <!-- 3078022 - IS, ASDK --> Se uma máquina virtual foi interrompida e desalocada antes 1808 pode não ser realocada após a atualização 1808.  Esse problema foi corrigido no 1809. Instâncias que foram nesse estado e não pôde ser iniciadas podem ser iniciadas no 1809 com essa correção. A correção também impede que esse problema ocorra.
 
-<!-- 3090289 – IS, ASDK --> 
-- Corrigido um problema em que depois de aplicar a atualização 1808, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
-
-   1. Se a assinatura foi criada antes da atualização 1808, implantação de VM com discos gerenciados podem falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
-      1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
-      2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
-   2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
-      2. Siga as etapas em [deste artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
-
 - **Várias correções de** para desempenho, estabilidade, segurança e o sistema operacional que é usado pelo Azure Stack
-
 
 ### <a name="changes"></a>Alterações
 
