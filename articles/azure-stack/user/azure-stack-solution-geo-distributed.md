@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961528"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877659"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -81,7 +81,7 @@ Nesta parte, você criará um aplicativo web.
 
 > [!div class="checklist"]
 > - Criar aplicativos web e publicar
-> - Adicione código ao projeto do VSTS
+> - Adicione código para repositórios do Azure
 > - Aponte o build do aplicativo para vários destinos de nuvem.
 > - Gerenciar e configurar o processo de CD
 
@@ -108,9 +108,9 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 > [!Note]  
 > O Azure Stack com imagens adequados seja distribuído para execução (Windows Server e SQL) e a implantação do serviço de aplicativo são necessárias. Leia a documentação do serviço de aplicativo "[antes de começar com o serviço de aplicativo no Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" seção para o operador de pilha do Azure.
 
-#### <a name="add-code-to-vsts-project"></a>Adicione código ao projeto do VSTS
+#### <a name="add-code-to-azure-repos"></a>Adicione código para repositórios do Azure
 
-1. Entrar no Visual Studio com uma **conta que tenha direitos de criação do projeto** no VSTS.
+1. Entrar no Visual Studio com uma **conta que tenha direitos de criação do projeto** em repositórios do Azure.
 
     Entrega de contínua/integração contínua (CI/CD) do híbrido pode aplicar a código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/) para ambos os desenvolvimento em nuvem privada e hospedado.
 
@@ -126,13 +126,13 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
     ![Alt text](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Fazer check-in de código para o VSTS** usando o Team Explorer.
+1.  **Fazer check-in de código para repositórios do Azure** usando o Team Explorer.
 
-2.  Confirme se o **código do aplicativo** foi verificada no Visual Studio Team Services.
+2.  Confirme se o **código do aplicativo** foi verificada em repositórios do Azure.
 
 ### <a name="create-the-build-definition"></a>Criar a definição de compilação
 
-1. **Faça logon no VSTS** para confirmar a capacidade de criar definições de compilação.
+1. **Faça logon no Azure Pipelines** para confirmar a capacidade de criar definições de compilação.
 
 2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 
@@ -142,11 +142,11 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
 **Usando um agente hospedado do Azure**
 
-Usando um agente hospedado no VSTS é uma opção conveniente para criar e implantar aplicativos web. Manutenção e atualizações são executadas automaticamente pelo Microsoft Azure, permitindo a implantação, teste e desenvolvimento contínuo e sem interrupções.
+Usando um agente hospedado em Pipelines do Azure é uma opção conveniente para criar e implantar aplicativos web. Manutenção e atualizações são executadas automaticamente pelo Microsoft Azure, permitindo a implantação, teste e desenvolvimento contínuo e sem interrupções.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Gerenciar e configurar o processo de CD
 
-Visual Studio Team Services (VSTS) e o Team Foundation Server (TFS) fornecem um pipeline totalmente configurável e gerenciável para as versões em vários ambientes, como desenvolvimento, preparo, QA e ambientes de produção; incluindo a necessidade de aprovações em estágios específicos.
+DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente configurável e gerenciável para as versões em vários ambientes, como desenvolvimento, preparo, QA e ambientes de produção; incluindo a necessidade de aprovações em estágios específicos.
 
 #### <a name="create-release-definition"></a>Criar definição de versão
 
@@ -326,7 +326,7 @@ Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo 
 
 3.  Se indicado, adicionar registros adicionais de outros tipos (`A` ou `TXT`) para os registros DNS de registradores de nome de domínio. Azure fornecerá os valores e tipos desses registros:
 
-    a.  Um registro **A** a ser mapeado para o endereço IP do aplicativo.
+     a.  Um registro **A** a ser mapeado para o endereço IP do aplicativo.
 
     b.  Um **TXT** registro para mapear para o nome do host do aplicativo padrão < nome_do_aplicativo >. azurewebsites. O serviço de aplicativo usa esse registro somente em tempo de configuração, para verificar a propriedade de domínio personalizado. Após a verificação, exclua o registro TXT.
 
