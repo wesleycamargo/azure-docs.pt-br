@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985685"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422503"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
@@ -42,7 +42,7 @@ Use esses backups para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo são backups mantidos
 
-Cada backup de Banco de Dados SQL tem um período de retenção padrão baseado na camada de serviço do banco de dados e difere entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Você pode atualizar o período de retenção de backup de um banco de dados. Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
+Cada Banco de Dados SQL do Microsoft Azure tem um período de retenção de backup padrão entre 7 e 35 dias que depende de [modelo de compra e peça de serviço](#pitr-retention-period). Você pode atualizar o período de retenção de backup para um banco de dados no servidor lógico do Azure (esse recurso será habilitado em breve na Instância Gerenciada). Veja [Alterar o período de retenção de backup](#how-to-change-backup-retention-period) para obter mais detalhes.
 
 Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que em um banco de dados online. Por exemplo, se você excluir um banco de dados Básico que tenha um período de retenção de sete dias, um backup de quatro dias será salvo por mais três dias.
 

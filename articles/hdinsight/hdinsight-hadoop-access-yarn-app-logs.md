@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035638"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495856"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Acessar logs do aplicativo Apache YARN no HDInsight baseado em Windows
-Este documento explica como acessar os logs de aplicativos do Apache YARN que foram concluídos em um cluster do Hadoop baseado no Windows no Azure HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Acesse os logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Windows
+Este documento explica como acessar os logs de aplicativos do [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) que foram concluídos em um cluster do Hadoop baseado no Windows no Azure HDInsight
 
 > [!IMPORTANT]
-> As informações contidas neste documento são aplicadas apenas aos clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obter informações sobre como acessar logs do YARN em clusters HDInsight baseados em Linux, consulte [Acessar logs do aplicativo Apache YARN no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> As informações contidas neste documento são aplicadas apenas aos clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obter informações sobre como acessar logs do YARN em clusters HDInsight baseados em Linux, consulte [Acessar logs do aplicativo Apache Hadoop YARN no Apache Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-* Um cluster HDInsight baseado no Windows.  Confira [Crie clusters Hadoop baseados no Windows no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Um cluster HDInsight baseado no Windows.  Confira [Crie clusters Apache Hadoop baseados no Windows no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de linha do tempo do YARN
-O <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Servidor de linha do tempo do YARN</a> fornece informações genéricas sobre aplicativos concluídos, bem como informações de aplicativo específicas da estrutura, por meio de duas interfaces diferentes. Especificamente:
+O <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Servidor de linha do tempo do Apache Hadoop YARN</a> fornece informações genéricas sobre aplicativos concluídos, bem como informações de aplicativo específicas da estrutura, por meio de duas interfaces diferentes. Especificamente:
 
 * O armazenamento e a recuperação de informações do aplicativo genérico em clusters HDInsight estão habilitados na versão 3.1.1.374 ou superior.
 * O componente de informações específicas do framework de aplicativo do servidor do cronograma não está atualmente disponível em clusters HDInsight.
@@ -53,7 +53,7 @@ O YARN dá suporte a vários modelos de programação, desacoplando o gerenciame
 * Um contêiner fornece o contexto para uma unidade básica de trabalho. 
 * O trabalho realizado no contexto de um contêiner é executado no único nó de trabalho ao qual o contêiner foi alocado. 
 
-Para obter mais informações, consulte [Conceitos YARN][YARN-concepts].
+Para obter mais informações, consulte [Conceitos Apache Hadoop YARN][YARN-concepts].
 
 Os logs de aplicativos (e os logs de contêiner associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma ótima estrutura para coletar, agregar e armazenar logs de aplicativos com o recurso [Agregação de Logs][log-aggregation]. O recurso Agregação de Logs torna o acesso aos logs de aplicativos mais determinista, uma vez que agrega os logs de todos os contêineres em um nó de trabalho e os armazena como um arquivo de log agregado por nó de trabalho no sistema de arquivos padrão após o encerramento de um aplicativo. O aplicativo pode usar centenas ou milhares de contêineres, mas os logs de todos os contêineres que executam em um único nó de trabalhador são agregados em um único arquivo, resultando em um arquivo por nó de trabalho usado pelo aplicativo. A Agregação de Logs está habilitada por padrão nos clusters HDInsight (versão 3.0 ou superior) e os logs agregados se encontram no contêiner padrão de seu cluster no seguinte local:
 

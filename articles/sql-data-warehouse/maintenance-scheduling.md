@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427855"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498022"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use agendas de manutenção para gerenciar atualizações e manutenção de serviços
 
-O agendamento de manutenção do SQL Data Warehouse do Azure está agora na visualização. Esse recurso integra as Notificações de Manutenção Planejada de Integridade do Serviço, o Monitor de Verificação de Funcionamento do Recurso e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
+As agendas de manutenção agora estão disponíveis em todas as regiões do SQL Data Warehouse do Microsoft Azure. Esse recurso integra as Notificações de Manutenção Planejada de Integridade do Serviço, o Monitor de Verificação de Funcionamento do Recurso e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
 
 Você usa o agendamento de manutenção para escolher uma janela de horário quando for conveniente receber novos recursos, atualizações e patches. Você escolhe uma janela de manutenção primária e secundária dentro de um período de sete dias. Um exemplo é uma janela principal de sábado, das 22:00 h às 01:00 h, e uma segunda janela, das 19:00 h às 22:00 h. Se o SQL Data Warehouse não puder executar manutenção durante a janela de manutenção principal, ele tentará a manutenção novamente durante a janela de manutenção secundária.
 
@@ -27,7 +27,7 @@ Todas as instâncias recém-criados do SQL Data Warehouse do Azure terão um age
 
 Cada janela de manutenção pode ser de três a oito horas. A manutenção pode ocorrer a qualquer momento dentro da janela. Você deve esperar uma breve perda de conectividade à medida que o serviço implanta novo código em seu data warehouse. 
 
-Durante a visualização do recurso, você identifica as janelas principal e secundária em intervalos de dias separados. Todas as operações de manutenção devem terminar dentro das janelas de manutenção programadas. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia. Se o data warehouse estiver em pausa durante a manutenção agendada, ele será atualizado durante a operação de retomada.  
+Para usar esse recurso, você precisará identificar uma janela primária e secundária dentro de intervalos de dia separado. Todas as operações de manutenção devem terminar dentro das janelas de manutenção programadas. Nenhuma manutenção ocorrerá fora das janelas de manutenção especificadas sem notificação prévia. Se o data warehouse estiver em pausa durante a manutenção agendada, ele será atualizado durante a operação de retomada.  
 
 
 ## <a name="alerts-and-monitoring"></a>Alertas e monitoramento
@@ -51,7 +51,8 @@ Mesmo que o agendamento de manutenção não esteja disponível em sua região s
 - [Saiba mais](changing-maintenance-schedule.md) sobre como alterar um agendamento de manutenção.
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre como criar, exibir e gerenciar alertas usando o Azure Monitor.
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre ações de webhook para regras de alerta do log.
-- [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a integridade do serviço do Azure.
+- [Saiba mais](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) Criando e Gerenciar Grupo de ações.
+- [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a Integridade do Serviço do Azure.
 
 
 

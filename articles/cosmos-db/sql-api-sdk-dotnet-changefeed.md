@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685439"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632476"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET: download e notas de versão
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685439"
 
 ### <a name="v2-builds"></a>v2 builds
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Adicionada nova propriedade ChangeFeedProcessorOptions.StartContinuation para dar suporte ao feed de alterações do token de continuação da solicitação. Isso é usado apenas quando a coleção de concessão estiver vazia ou uma concessão não tiver ContinuationToken definido. Para concessões na coleção de concessão que têm o ContinuationToken definido, o ContinuationToken é usado e ChangeFeedProcessorOptions.StartContinuation será ignorado.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Adicionado suporte para o uso de armazenamento personalizado para manter os tokens de continuação por partição.
+  * Por exemplo, um armazenamento personalizado de concessão pode ser a coleção de concessão do Azure Cosmos DB particionada de qualquer forma personalizada.
+  * Os armazenamentos de concessão personalizados podem usar o novo ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) de ponto de extensibilidade e interface pública ILeaseStoreManager.
+  * Refatorada a interface ILeaseManager em várias interfaces de função.
+* Pequena alteração significativa: ponto de extensibilidade removido ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager)no lugar.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Corrigido um problema que pode ocorrer durante o processamento da divisão quando a coleta de concessão é particionada. O problema pode levar a que as concessões de partições perdidas não sejam excluídas da coleta de locação. O problema é corrigido com esta versão.
+* Esta versão corrige um problema que ocorre durante o processamento de uma divisão na coleção monitorada e usa uma coleção de concessão particionada. Ao processar uma concessão de partição de divisão, a concessão correspondente a essa partição não pode ser excluída. Esse problema foi corrigido nesta versão.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Correção de cálculo do Estimador para contas Multimestre e novo formato do Token de Sessão.

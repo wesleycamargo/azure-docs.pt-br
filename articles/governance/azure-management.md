@@ -1,5 +1,5 @@
 ---
-title: Gerenciamento do Azure
+title: Visão geral de gerenciamento
 description: Visão geral das áreas de gerenciamento de aplicativos do Azure e recursos com links para conteúdo sobre ferramentas de gerenciamento do Azure.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978209"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582263"
 ---
 # <a name="management-in-azure"></a>Gerenciamento no Azure
 
@@ -43,7 +43,7 @@ Governança no Azure é implementada principalmente com dois serviços. O [Azure
 
 ## <a name="secure"></a>Segurança
 
-Gerenciar segurança de aplicativos, recursos e dados envolve uma combinação de avaliação de ameaças, coletando e analisando dados de segurança e garantindo que seus aplicativos e recursos sejam criados e configurados de forma segura. A [Central de Segurança do Azure](../security-center/security-center-intro.md) fornece monitoramento de segurança e análise de ameaças, que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Leia também a [Introdução à segurança do Azure](../security/azure-security.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar com segurança os recursos do Azure.
+Gerenciar segurança de aplicativos, recursos e dados envolve uma combinação de avaliação de ameaças, coletando e analisando dados de segurança e garantindo que seus aplicativos e recursos sejam criados e configurados de forma segura. A Central de Segurança do Azure fornece monitoramento de segurança e análise de ameaças, que inclui o gerenciamento unificado de segurança e proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida. Leia também a [Introdução à segurança do Azure](../security/azure-security.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar com segurança os recursos do Azure.
 
 ## <a name="protect"></a>Proteger
 

@@ -2,25 +2,21 @@
 title: Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Active Directory | Microsoft Docs
 description: Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037967"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711303"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
@@ -32,7 +28,7 @@ Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá te
 > Para aplicativos da Microsoft (como aplicativos do Office 365), use o PowerShell para atribuir usuários a um aplicativo empresarial.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para atribuir acesso de usuário a um aplicativo empresarial no portal do Azure?
+## <a name="assign-a-user-to-an-app---portal"></a>Atribuir um usuário a um aplicativo - portal
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **Todos os serviços**, insira Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
 3. Selecione **Aplicativos empresariais**.
@@ -51,7 +47,25 @@ Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá te
 10. Na folha **Adicionar Atribuição**, selecione **Função**. Então, na folha **Selecionar Função**, escolha uma função para aplicar nos usuários ou grupos selecionados, em seguida, selecione o botão **OK** na parte inferior da folha.
 11. Na folha **Adicionar Atribuição**, selecione o botão **Atribuir** na parte inferior da folha. Os usuários ou os grupos atribuídos têm as permissões definidas pela função selecionada para esse aplicativo empresarial.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Como atribuir um usuário a um aplicativo empresarial usando o PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir que todos os usuários acessem um aplicativo - portal
+Permitir que todos os usuários acessem um aplicativo:
+
+1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+2. Selecione **Todos os serviços**, insira Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
+3. Selecione **Aplicativos empresariais**.
+4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Lista os aplicativos que você pode gerenciar.
+5. Na folha **Aplicativos empresariais – Todos os aplicativos** , escolha um aplicativo.
+6. Na folha ***appname***, selecione **Propriedades**.
+7. Em  ***appname* - folha Propriedades**, defina o **Atribuição de usuário necessária?** definindo como **não**. 
+
+**Atribuição de usuário obrigatória?** opção:
+
+- Não afeta se um aplicativo é exibido ou não no painel de acesso do aplicativo. Para mostrar o aplicativo no painel de acesso, você precisará atribuir um grupo ou usuário apropriado para o aplicativo.
+- Funciona apenas com os aplicativos de nuvem que estão configurados para logon único SAML e aplicativos locais configurados com o Proxy do Aplicativo. Consulte [logon único para aplicativos](what-is-single-sign-on.md).
+- Requer os usuários de consentimento para um aplicativo. Um administrador pode conceder consentimento para todos os usuários.  Consulte [Configurar a forma com que os usuários finais concedem um aplicativo](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Atribuir um usuário a um aplicativo - PowerShell
 
 1. Abra um prompt elevado do Windows PowerShell.
 

@@ -2,16 +2,17 @@
 title: Gerenciar um servidor de processo para recuperação de desastre de VMs e servidores físicos do VMware no Azure usando o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como gerenciar um servidor de processo configurado para recuperação de desastre de VMs e servidor físico do VMware no Azure usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568845"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974181"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 
@@ -31,7 +32,41 @@ Atualize um servidor em processo executado localmente ou no Azure (para fins de 
 > [!NOTE]
   Normalmente, quando você usa a Imagem da Galeria do Azure para criar um servidor em processo no Azure para fins de failback, ele executa a última versão disponível. As equipes do Site Recovery liberam correções e melhorias regularmente, e recomendamos que você mantenha os servidores em processo atualizados.
 
+## <a name="balance-the-load-on-process-server"></a>Balancear a carga no servidor de processo
 
+Para balancear a carga entre dois servidores de processo,
+
+1. Navegue até **Cofre dos Serviços de Recuperação** > **Gerenciar** > **Infraestrutura do Site Recovery** > **Para VMware e máquinas físicas** > **Servidores de Configuração**.
+2. Clique no servidor de configuração para o qual os servidores de processo são registrados.
+3. A lista de servidores de processo registrados aos servidores de configuração estão disponíveis na página.
+4. Clique no servidor de processo no qual você deseja modificar a carga de trabalho.
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Você pode usaras opções **Balancear carga** ou **Alternar**, conforme explicado abaixo, de acordo com o requisito.
+
+### <a name="load-balance"></a>Balancear carga
+
+Por meio dessa opção, você pode selecionar uma ou mais máquinas virtuais e transferi-las para outro servidor de processo.
+
+1. Clique em **Balancear a carga**, selecione o servidor de processo de destino na lista suspensa. Clique em **OK**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Clique em **Selecionar máquinas**, escolha as máquinas virtuais que você deseja mover do servidor de processo atual para o servidor de processo de destino. Detalhes de alteração de dados médio são exibidos em cada máquina virtual.
+3. Clique em **OK**. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
+4. Leva 15 minutos para que as alterações reflitam a conclusão desta operação bem-sucedida ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
+
+### <a name="switch"></a>Switch
+
+Por meio dessa opção, toda carga de trabalho protegida em um servidor de processo é movida para outro servidor de processo.
+
+1. Clique em **Alternar**, selecione o Servidor de processo de destino, clique em **OK**.
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
+3. Leva 15 minutos para que as alterações reflitam a conclusão desta operação bem-sucedida ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
 
 ## <a name="reregister-a-process-server"></a>Registrar um servidor em processo novamente
 

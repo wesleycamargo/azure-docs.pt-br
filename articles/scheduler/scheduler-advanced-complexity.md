@@ -9,13 +9,13 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980933"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712051"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendamentos avançados e recorrências para trabalhos no Agendador do Azure
 
@@ -32,7 +32,7 @@ Dentro de um trabalho do [Agendador do Azure](../scheduler/scheduler-intro.md), 
 
 * **Processar imagens**: crie um trabalho de dia da semana que é executado fora dos horários de pico e usa a computação em nuvem para a compactação de imagens carregadas durante o dia.
 
-Este artigo descreve trabalhos de exemplo que você pode criar usando o Agendador e a [API REST do Agendador do Azure](https://docs.microsoft.com/rest/api/schedule) e inclui a definição do JSON (JavaScript Object Notation) para cada agendamento. 
+Este artigo descreve trabalhos de exemplo que você pode criar usando o Agendador e a [API REST do Agendador do Azure](/rest/api/scheduler) e inclui a definição do JSON (JavaScript Object Notation) para cada agendamento. 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
@@ -43,7 +43,7 @@ Estes exemplos mostram a variedade de cenários compatíveis com o Agendador do 
 * Executar imediatamente e repetir.
 * Executar e repetir a cada *n* minutos, horas, dias, semanas ou meses, iniciando em um horário específico.
 * Executar e repetir semanalmente ou mensalmente, mas apenas em dias específicos da semana ou em dias específicos do mês.
-* Executar e repetir várias vezes por um período específico. Por exemplo, todos os meses, na última sexta-feira e última segunda-feira, ou diariamente às 5:15 e às 17:15.
+* Executar e repetir mais de uma vez por um período específico. Por exemplo, todos os meses, na última sexta-feira e última segunda-feira, ou diariamente às 5:15 e às 17:15.
 
 Mais tarde este artigo descreve esses cenários mais detalhadamente.
 
@@ -51,7 +51,7 @@ Mais tarde este artigo descreve esses cenários mais detalhadamente.
 
 ## <a name="create-schedule-with-rest-api"></a>Criar o agendamento com a API REST
 
-Para criar um agendamento básico com a [API REST do Agendador do Azure](https://docs.microsoft.com/rest/api/schedule), siga estas etapas:
+Para criar um agendamento básico com a [API REST do Agendador do Azure](/rest/api/scheduler), siga estas etapas:
 
 1. Registre sua assinatura do Azure com um provedor de recursos usando a [Operação de registro – API REST do Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). O nome do provedor do serviço do Agendador do Azure é **Microsoft.Scheduler**. 
 
@@ -68,7 +68,7 @@ Esta tabela fornece uma visão geral de alto nível para os principais elementos
 | **startTime** | Não  | Um valor de cadeia de caracteres de DateTime em [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho é iniciado em um cronograma básico. <p>Para agendas complexas, o trabalho não inicia antes do **startTime**. | 
 | **recurrence** | Não  | As regras de recorrência para quando o trabalho é executado. O objeto de **recorrência** tem suporte para estes elementos: **frequency**, **interval**, **schedule**, **count** e **endTime**. <p>Se você usar o elemento **recurrence**, também deverá usar o **frequency**, enquanto outros elementos **recurrence** são opcionais. |
 | **frequency** | Sim, quando você usa **recurrence** | A unidade de tempo entre ocorrências e a compatibilidade desses valores: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
-| **interval** | Não  | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o número máximo de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
+| **interval** | Não  | Um inteiro positivo que determina o número de unidades de tempo entre ocorrências com base em **frequency**. <p>Por exemplo, se **interval** for 10 e **frequency** for "Week", o trabalho se repetirá a cada 10 semanas. <p>Aqui estão o maior número de intervalos para cada frequência: <p>– 18 meses <br>– 78 semanas <br>– 548 dias <br>– Para horas e minutos, o intervalo é 1 <= <*interval*> <= 1000. | 
 | **schedule** | Não  | Defina as alterações para a recorrência com base nas marcas de minuto, marcas de hora, dias da semana e dias do mês especificados | 
 | **count** | Não  | Um número inteiro positivo que especifica o número de vezes que o trabalho é executado antes de ser concluído. <p>Por exemplo, quando um trabalho diário tem **count** definido como 7 e a data de início é Monday, o trabalho conclui a execução em um domingo. Se a data de início já tiver passado, a primeira execução será calculada do momento da criação. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. | 
 | **endTime** | Não  | Um valor de cadeia de caracteres de Date ou DateTime no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando o trabalho para de ser executado. Você pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **count**, o trabalho será executado de maneira infinita. Não é possível usar **count** e **endTime** no mesmo trabalho, mas a regra que termina primeiro é respeitada. |
@@ -125,16 +125,16 @@ Suponha que esse exemplo com estas condições: uma hora de início no passado c
 }
 ```
 
-* A data e a hora atuais são "2015-04-08 13:00".
+* A data e a hora atuais são 08 de abril de 2015 às 13h.
 
-* A data e a hora de início são "2015-04-07 14:00", que são antes da data e hora atuais.
+* A data e a hora de início são 07 de abril de 2015 às 14h, que é antes da data e hora atuais.
 
 * A recorrência é a cada dois dias.
 
-1. Sob essas condições, a primeira execução será em 09/04/2015 às 14h. 
+1. Nessas condições, a primeira execução é em 09 de abril de 2015 às 14h. 
 
    O Agendador calcula as ocorrências de execução com base na hora de início, descarta todas as instâncias no passado e usa a próxima instância no futuro. 
-   Nesse caso, **startTime** é 07/04/2015 às 14h, portanto, a próxima instância será dois dias a partir dessa hora, que será em 09/04/2015 às 14h.
+   Nesse caso, **startTime** é em 07 de abril de 2015 às 14h, portanto, a próxima instância será dois dias a partir dessa hora, que será em 09 de abril de 2015 às 14h.
 
    A primeira execução é igual quer **startTime** seja 2015-04-05 14:00 quer seja 2015-04-01 14:00. Após a primeira execução, as execuções seguintes são calculadas com base no agendamento. 
    
@@ -151,11 +151,11 @@ Suponha que esse exemplo com estas condições: uma hora de início no passado c
 
 ## <a name="details-schedule"></a>Detalhes: agendamento
 
-Você pode usar **schedule** para *limitar* o número de execuções de trabalho. Por exemplo, se um trabalho com uma **frequência** de "month" tiver uma agenda que executa somente no dia 31, o trabalho será executado apenas em meses que tenham um trigésimo primeiro dia.
+Você pode usar **schedule** para *limitar* o número de execuções de trabalho. Por exemplo, se um trabalho com uma **frequência** de "month" tiver uma agenda que executa somente no dia 31, o trabalho será executado apenas em meses que tenham um dia 31.
 
 Também é possível usar **schedule** para *expandir* o número de execuções de trabalho. Por exemplo, se um trabalho com uma **frequência** de "month" tiver uma agenda para ser executado nos dias 1 e 2 do mês, o trabalho será executado no primeiro e segundo dias do mês, em vez de apenas uma vez por mês.
 
-Se você especificar vários elementos de agenda, a ordem de avaliação será do maior para o menor: número da semana, dia do mês, dia da semana, hora e minuto.
+Se você especificar mais de um elemento de agenda, a ordem de avaliação será do maior para o menor: número da semana, dia do mês, dia da semana, hora e minuto.
 
 A tabela a seguir descreve elementos schedule em detalhes:
 
@@ -180,8 +180,8 @@ Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos
 | `{"minutes":[15], "hours":[5,17]}` |Executar às 5h15 e 17h15 todos os dias. |
 | `{"minutes":[15,45], "hours":[5,17]}` |Executar às 5h15, 5h45, 17h15 e 17h45 todos os dias. |
 | `{"minutes":[0,15,30,45]}` |Executar a cada 15 minutos. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Executar a cada hora.<br /><br />Esse trabalho é executado a cada hora. O minuto é controlado pelo valor de **startTime**, se especificado. Se nenhuma valor **startTime** for especificado, o minuto será controlado pelo tempo de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 00:25, o trabalho é executado às 00:25, 01:25, 02:25, …, 23:25.<br /><br />O agendamento é equivalente a um trabalho com **frequency** de "hour", **interval** de 1 e sem valor **schedule**. A diferença é que você pode usar essa agenda com diferentes **frequency** e **interval** para criar outros trabalhos. Por exemplo, se **frequency** for "month", a agenda executa somente uma vez por mês em vez de todos os dias (se **frequency** fosse "day"). |
-| `{minutes:[0]}` |Executar a cada hora na hora.<br /><br />Esse trabalho também executa a cada hora, mas na hora exata (00:00, 1:00, 2:00, e assim por diante). Isso equivale a um trabalho com uma **frequência** de "hour", um valor **startTime** se zero minutos e sem **agenda**, se a frequência for "day". No entanto, se valor de **frequência** for "week" ou "month", a agenda executa somente um dia da semana ou um dia do mês, respectivamente. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Executar a cada hora.<br /><br />Esse trabalho é executado a cada hora. O minuto é controlado pelo valor de **startTime**, se especificado. Se nenhuma valor **startTime** for especificado, o minuto será controlado pelo tempo de criação. Por exemplo, se a hora de início ou a hora de criação (o que for aplicável) for 00:25, o trabalho é executado às 00:25, 01:25, 02:25, …, 23:25.<br /><br />O agendamento é o mesmo que um trabalho com **frequency** de "hour", **interval** de 1 e sem valor **schedule**. A diferença é que você pode usar essa agenda com diferentes **frequency** e **interval** para criar outros trabalhos. Por exemplo, se **frequency** for "month", a agenda executa somente uma vez por mês em vez de todos os dias (se **frequency** fosse "day"). |
+| `{minutes:[0]}` |Executar a cada hora na hora.<br /><br />Esse trabalho também executa a cada hora, mas na hora exata (00:00, 1:00, 2:00, e assim por diante). Essa agenda é a mesma que um trabalho com uma **frequência** de "hour", um valor **startTime** se zero minutos e sem **agenda**, se a frequência for "day". No entanto, se valor de **frequência** for "week" ou "month", a agenda executa somente um dia da semana ou um dia do mês, respectivamente. |
 | `{"minutes":[15]}` |Executar 15 minutos após a hora exata a cada hora.<br /><br />Executa a cada hora, iniciando em 00:15, 1:15, 2:15, e assim por diante. Termina às 23:15. |
 | `{"hours":[17], "weekDays":["saturday"]}` |Executar às 17:00 aos sábados todas as semanas. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Executar às 17:00 nas segundas-feiras, quartas-feiras e sextas-feiras todas as semanas. |
@@ -192,11 +192,11 @@ Esses agendamentos assumem que **intervalo** está definido para 1\. Os exemplos
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Executar a cada 15 minutos nos dias da semana, entre às 9:00 e às 16:45. |
 | `{"weekDays":["sunday"]}` |Executar aos domingos na hora de início. |
 | `{"weekDays":["tuesday", "thursday"]}` |Executar às terças-feiras e quintas-feiras na hora de início. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Executar às 6:00 no vigésimo oitavo dia de cada mês (assumindo uma **frequência** de "month"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Executar às 6h no 28º dia de cada mês (supondo um valor de **frequency** igual a “month”). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Executar às 6:00 no último dia do mês.<br /><br />Se você quiser executar um trabalho no último dia de um mês, use -1 em vez de dia 28, 29, 30 ou 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Executar às 6:00 no primeiro e no último dia de cada mês. |
 | `{monthDays":[1,-1]}` |Executar no primeiro e no último dia de cada mês na hora de início. |
-| `{monthDays":[1,14]}` |Executar no primeiro e no décimo quarto dia de cada mês na hora de início. |
+| `{monthDays":[1,14]}` |Executar no primeiro e 14º dia de cada mês na hora de início. |
 | `{monthDays":[2]}` |Executar no segundo dia do mês na hora de início. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Executar na primeira sexta-feira de cada mês às 5:00. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Executar na primeira sexta-feira de cada mês na hora de início. |

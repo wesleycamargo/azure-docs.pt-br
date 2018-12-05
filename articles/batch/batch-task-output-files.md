@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126305"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706119"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Começando com a versão de 01/05/2017, a API de serviço de Lote fornece suporte para manter dados de saída para o Armazenamento do Azure para tarefas e tarefas do gerenciador de trabalho, que são executadas em pools com a configuração de máquina virtual. Quando você adiciona uma tarefa, pode especificar um contêiner no Armazenamento do Azure como o destino para a saída da tarefa. O serviço de lote grava os dados de saída nesse contêiner quando a tarefa é concluída.
+A API de serviço do Lote fornece suporte para manter dados de saída para o Armazenamento do Microsoft Azure para tarefas e tarefas do gerenciador de trabalho, que são executadas em pools com a configuração de máquina virtual. Quando você adiciona uma tarefa, pode especificar um contêiner no Armazenamento do Azure como o destino para a saída da tarefa. O serviço de lote grava os dados de saída nesse contêiner quando a tarefa é concluída.
 
-Uma vantagem de usar a API do serviço de lote para manter a saída da tarefa é que você não precisa modificar o aplicativo que a tarefa está sendo executada. Em vez disso, com algumas modificações simples no seu aplicativo cliente, você pode manter a saída da tarefa de dentro do código que cria a tarefa.   
+Uma vantagem de usar a API do serviço de lote para manter a saída da tarefa é que você não precisa modificar o aplicativo que a tarefa está sendo executada. Em vez disso, com algumas modificações no seu aplicativo cliente, você pode manter a saída da tarefa de dentro do mesmo código que cria a tarefa.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quando uso a API do serviço de Lote para manter a saída da tarefa?
 
@@ -36,7 +36,10 @@ O Lote do Azure fornece mais de uma maneira de manter a saída da tarefa. Usar a
 - Você deseja manter a saída a um contêiner de Armazenamento do Azure com um nome arbitrário.
 - Você deseja manter a saída a um contêiner de Armazenamento do Azure nomeado de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Se seu cenário for diferente daqueles listados acima, poderá ser necessário considerar uma abordagem diferente. Por exemplo, a API de serviço de lote atualmente não suporta saída de transmissão para o armazenamento do Azure durante a execução da tarefa. Para a saída de fluxo, considere usar a biblioteca de Convenções de Arquivo em Lotes, disponível para .NET. Para outros idiomas, você precisará implantar sua própria solução. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md). 
+> [!NOTE]
+> A API do serviço de Lote não dá suporte a manter dados de tarefas em execução em pools criados com a configuração de serviço de nuvem. Para obter informações sobre manter a saída de tarefas de pools que estejam executando a configuração de serviços de nuvem, consulte [Manter dados de trabalhos e tarefas no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET para manter ](batch-task-output-file-conventions.md)
+
+Se seu cenário for diferente daqueles listados acima, poderá ser necessário considerar uma abordagem diferente. Por exemplo, a API de serviço de lote atualmente não suporta saída de transmissão para o armazenamento do Azure durante a execução da tarefa. Para a saída de fluxo, considere usar a biblioteca de Convenções de Arquivo em Lotes, disponível para .NET. Para outros idiomas, você precisará implantar sua própria solução. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Criar um contêiner no Armazenamento do Azure
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Especificar arquivos de saída para a saída da tarefa
 
-Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa. 
+Para especificar os arquivos de saída para uma tarefa, crie uma coleção de objetos [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) e a atribua para a propriedade de [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) ao criar a tarefa.
 
-O exemplo de código .NET a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para os arquivos de log que correspondem ao padrão de arquivo `std*.txt` (_, por exemplo,_, `stdout.txt` e `stderr.txt`). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner: 
+O exemplo de código C# a seguir cria uma tarefa que grava números aleatórios para um arquivo chamado `output.txt`. O exemplo cria um arquivo de saída para `output.txt` a ser gravado para o contêiner. O exemplo também cria arquivos de saída para os arquivos de log que correspondem ao padrão de arquivo `std*.txt` (_, por exemplo,_, `stdout.txt` e `stderr.txt`). A URL do contêiner requer o SAS que foi criado anteriormente para o contêiner. O serviço de lote usa as SAS para autenticar o acesso ao contêiner:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quando você especifica um arquivo de saída, você pode usar a propriedade [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar um padrão de arquivo para correspondência. O padrão de arquivo pode corresponder a zero arquivos, um único arquivo ou um conjunto de arquivos que são criados pela tarefa.
 
-A propriedade **FilePattern** oferece suporte a caracteres curinga do sistema de arquivos padrão como `*` (para não-recursivo corresponde) e `**` (para corresponde recursivo). Por exemplo, o exemplo de código acima especifica o padrão de arquivo para corresponder `std*.txt` não recursiva: 
+A propriedade **FilePattern** oferece suporte a caracteres curinga do sistema de arquivos padrão como `*` (para não-recursivo corresponde) e `**` (para corresponde recursivo). Por exemplo, o exemplo de código acima especifica o padrão de arquivo para corresponder `std*.txt` não recursiva:
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Para carregar um único arquivo, especifique um padrão de arquivo sem curingas.
 
 A propriedade [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) permite o upload condicional de arquivos de saída. Um cenário comum é carregar um conjunto de arquivos se a tarefa for bem-sucedida, e um conjunto diferente de arquivos se ele falhar. Por exemplo, você talvez queira carregar arquivos de log detalhados somente quando a tarefa falhar e for encerrada com um código de saída diferente de zero. Da mesma forma, você talvez queira carregar arquivos de resultado somente se a tarefa for bem-sucedida, pois esses arquivos podem estar ausentes ou incompletos se a tarefa falhar.
 
-O exemplo de código acima define a propriedade **UploadCondition** para **TaskCompletion**. Essa configuração especifica que o arquivo será carregado após a conclusão de tarefas, independentemente do valor do código de saída. 
+O exemplo de código acima define a propriedade **UploadCondition** para **TaskCompletion**. Essa configuração especifica que o arquivo será carregado após a conclusão de tarefas, independentemente do valor do código de saída.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Para obter mais informações sobre diretórios virtuais no Armazenamento do Azure, consulte [Listar os blobs em um contêiner](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticar erros de carregamento de arquivo
 
-Se o carregamento de arquivos de saída no Armazenamento do Azure falhar, então a tarefa será movida para o estado **concluído** e a propriedade [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) é definida. Analise a propriedade **FailureInformation** para determinar o erro. Por exemplo, aqui está um erro que ocorre no upload do arquivo se o contêiner não pode ser encontrado: 
+Se o carregamento de arquivos de saída no Armazenamento do Azure falhar, então a tarefa será movida para o estado **concluído** e a propriedade [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) é definida. Analise a propriedade **FailureInformation** para determinar o erro. Por exemplo, aqui está um erro que ocorre no upload do arquivo se o contêiner não pode ser encontrado:
 
 ```
 Category: UserError

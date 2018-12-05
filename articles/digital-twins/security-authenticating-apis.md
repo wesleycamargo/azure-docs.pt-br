@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016209"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711048"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Conecte e autentique as APIs
 
@@ -35,39 +35,18 @@ A biblioteca de autenticação do Microsoft Azure oferece várias maneiras para 
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Chame os Gêmeos Digitais do Azure de uma API da web de camada intermediária
 
-Quando os desenvolvedores arquitetam os Gêmeos Digitais do Azure, eles geralmente criam um aplicativo ou API de camada intermediária. O aplicativo ou API chama o downstream dos Gêmeos Digitais do Azure. Os usuários primeiro se autenticam no aplicativo de camada intermediária e, em seguida, um fluxo de token em nome é usado para chamar downstream. Para obter instruções sobre como orquestrar o fluxo do serviço, consulte [esta página](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [nesta página](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Quando os desenvolvedores arquitetam os Gêmeos Digitais do Azure, eles geralmente criam um aplicativo ou API de camada intermediária. O aplicativo ou API chama o downstream dos Gêmeos Digitais do Azure. Para dar suporte a essa arquitetura da solução da web padrão, certifique-se de que os usuários primeiro:
 
+1. Autentiquem com o aplicativo de camada intermediária
 
-## <a name="test-with-the-postman-client"></a>Testar com o cliente do Postman
+1. Um token em nome do OAuth 2.0 é adquirido durante a autenticação
 
-Para começar a usar as APIs dos Gêmeos Digitais do Azure, você pode usar um cliente como o Postman como um ambiente de API. O Postman ajuda a criar solicitações HTTP complexas rapidamente. As etapas a seguir mostram como obter um token do Azure Active Directory necessário para chamar Digital Twins na interface do usuário do Postman.
+1. O token adquirido é então usado para autenticar com ou chamar as APIs que são downstream ainda mais usando o fluxo Em nome de
 
-
-1. Vá para https://www.getpostman.com/ para fazer o download do aplicativo.
-1. Siga as etapas em [este início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar um aplicativo do Azure Active Directory. Ou você pode reutilizar um registro existente. 
-1. Em **Permissões necessárias**, digite "Gêmeos Digitais do Azure" e selecione **Permissões delegadas**. Em seguida, selecione **conceder permissões**.
-1. Abra o manifesto do aplicativo e defina **oauth2AllowImplicitFlow** como verdade.
-1. Configurar uma URL de resposta para [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
-1. Selecione a guia **Autorização**, selecione **OAuth 2.0** e, em seguida, selecione **Obter novo token de acesso**.
-
-    |**Campo**  |**Valor** |
-    |---------|---------|
-    | Tipo de concessão | Implícito |
-    | URL de retorno de chamada | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | URL de autenticação | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
-    | ID do cliente | Use o ID do aplicativo para o aplicativo do Azure Active Directory que foi criado ou redefinido da Etapa 2. |
-    | Escopo | Deixe em branco. |
-    | Estado | Deixe em branco. |
-    | Autenticação de cliente | Enviar como cabeçalho de autenticação de Sites do plano Básico. |
-
-1. Selecione **Solicitação de Token**.
-
-    >[!NOTE]
-    >Se você receber a mensagem de erro "OAuth 2 não pôde ser concluído", tente o seguinte:
-    > * Feche o Postman e reabra-o e tente novamente.
-   
-1. Role para baixo e selecione **uso Token**.
+Para obter instruções sobre como orquestrar o fluxo [Em nome de OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código em [chamar uma API da web downstream](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## <a name="next-steps"></a>Próximas etapas
+
+Para configurar e testar os Gêmeos Digitais do Azure usando o fluxo de concessão implícita do OAuth 2.0, leia [Configurar o Postman](./how-to-configure-postman.md).
 
 Para saber mais sobre a segurança dos Gêmeos Digitais do Azure, leia [Criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).

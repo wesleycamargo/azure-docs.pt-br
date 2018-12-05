@@ -2,26 +2,25 @@
 title: Entender as saídas do Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis no Azure Stream Analytics, incluindo o Power BI para resultados da análise.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257792"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310025"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
 
 Quando você criar sua consulta do Stream Analytics, consulte o nome de saída usando a [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Você pode usar uma única saída por trabalho ou várias saídas por trabalho de streaming se você precisar fornecer várias cláusulas INTO na consulta.
 
-Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-job-output), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [tamanhos de lote de saída](#output-batch-size) variam para otimizar a taxa de transferência.
 
@@ -70,8 +69,8 @@ Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Dat
 | Alias de saída |Um nome amigável utilizado em consultas para direcionar a saída da consulta para esse banco de dados. |
 | Banco de dados | O nome do banco de dados para o qual você está enviando a saída. |
 | Nome do servidor | Nome do servidor de Banco de Dados SQL do Azure. |
-| Nome de Usuário | O nome de usuário, que tem acesso para gravar no banco de dados. |
-| Senha | A senha para se conectar ao banco de dados |
+| Nome de Usuário | O nome de usuário, que tem acesso para gravar no banco de dados. O Stream Analytics dá suporte apenas a autenticação do SQL. |
+| Senha | A senha para se conectar ao banco de dados. |
 | Tabela | O nome da tabela em que a saída é gravada. O nome da tabela diferencia maiúsculas de minúsculas e o esquema da tabela deve corresponder exatamente ao número de campos e seus tipos sendo gerados por sua saída de trabalho. |
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915918"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976241"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
@@ -60,10 +60,9 @@ Se você está usando regras de NSG ou de proxy de firewall baseadas em IP para 
 - Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
     - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
-- Todos os intervalos de endereços IP que correspondam aos [pontos de extremidade de IP V4 de identidade e de autenticação](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) do Office 365.
-    - Se novos endereços forem adicionados aos intervalos de IP do Office 365 no futuro, crie novas regras de NSG.
+- Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+    - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
 - Endereços IP de ponto de extremidade do Site Recovery - disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem de seu local de destino.
--  Você pode [baixar e usar esse script](https://aka.ms/nsg-rule-script) para criar automaticamente as regras necessárias no NSG.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
 
 

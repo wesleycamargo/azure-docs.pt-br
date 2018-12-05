@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014311"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495376"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
 É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md) (Publicar uma oferta no Azure Marketplace).
@@ -102,6 +102,6 @@ Para publicar um aplicativo do HDInsight:
 * Saiba como [instalar aplicativos HDInsight](hdinsight-apps-install-applications.md) em seus clusters.
 * Saiba como [instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md) e implantar um aplicativo do HDInsight não publicado no HDInsight.
 * Saiba como [usar a ação de script para personalizar clusters HDInsight baseados em Linux](hdinsight-hadoop-customize-cluster-linux.md) e adicionar mais aplicativos. 
-* Saiba como [criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+* Saiba como [criar clusters Apache Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 * Saiba como [usar nós de borda vazios no HDInsight](hdinsight-apps-use-edge-node.md) para acessar clusters HDInsight, testar e hospedar aplicativos HDInsight.
 

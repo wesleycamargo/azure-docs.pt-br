@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: b1ae61b5372fa1061448c02e7b5c589a167888c9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6ea0037611c1712e341bab601bdf14c2d742d1f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237196"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311578"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -127,22 +127,10 @@ Se você tem acesso ao código-fonte do aplicativo Web, o Diagnóstico de Aplica
 
 Para obter instruções detalhadas sobre como configurar seu aplicativo para registro em log, consulte [Habilitar o log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-enable-diagnostic-log.md).
 
-#### <a name="use-the-azure-app-service-support-portal"></a>Usar o portal de suporte do Serviço de Aplicativo do Azure
-Os Aplicativos Web fornecem a capacidade de solucionar problemas relacionados ao seu aplicativo Web examinando logs de HTTP, logs de eventos, despejos de processo e muito mais. Você pode acessar todas essas informações usando nosso portal de Suporte em **http://&lt;nome do aplicativo>.scm.azurewebsites.net/Support**
+#### <a name="use-the-diagnostics-tool"></a>Usar a ferramenta de diagnóstico
+O Serviço de Aplicativo é uma experiência interativa e inteligente para ajudá-lo a solucionar problemas de seu aplicativo web sem configuração necessária. Quando você tiver problemas com seu aplicativo Web, a ferramenta de diagnóstico apontará para o que está errado para guiá-lo para as informações certas para facilitar a solução de problemas de forma mais rápida e fácil e resolver o problema.
 
-O portal de suporte do Serviço de Aplicativo do Azure fornece três guias separadas para dar suporte às três etapas de um cenário de solução de problemas comum:
-
-1. Observar o comportamento atual
-2. Analisar por meio da coleta das informações de diagnóstico e da execução dos analisadores internos
-3. Atenuar
-
-Se o problema estiver ocorrendo no momento, clique em **Analisar** > **Diagnóstico** > **Diagnosticar Agora** para criar uma sessão de diagnóstico para você, a qual coletará logs de HTTP, logs do visualizador de eventos, despejos de memória, logs de erros de PHP e relatórios de processo de PHP.
-
-Depois que os dados forem coletados, ela também executará uma análise dos dados e fornecerá um relatório HTML.
-
-Caso queira baixar os dados, por padrão, estariam armazenados na pasta D:\home\data\DaaS.
-
-Para saber mais sobre o portal de suporte do Serviço de Aplicativo do Azure, consulte [Novas atualizações para suporte de extensão de sites para sites do Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo no [Portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 #### <a name="use-the-kudu-debug-console"></a>Usar o Console de Depuração Kudu
 Aplicativos Web vêm com um console de depuração que você pode usar para depuração, exploração, carregamento de arquivos, bem como para pontos de extremidade JSON para obter informações sobre seu ambiente. Este console chama-se *Console Kudu* ou *Painel SCM* de seu aplicativo Web.

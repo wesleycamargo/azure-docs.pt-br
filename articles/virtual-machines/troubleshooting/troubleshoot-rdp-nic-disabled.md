@@ -1,5 +1,5 @@
 ---
-title: Não é possível conectar área de trabalho remota em máquinas virtuais do Azure porque o NIC está desabilitado | Microsoft Docs
+title: Não é possível conectar as Máquinas Virtuais do Microsoft Azure porque o NIC foi desabilitado | Microsoft Docs
 description: Saiba como solucionar um problema no qual o RDP falha porque o NIC está desabilitado na VM do Azure | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634805"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314517"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível conectar área de trabalho remota em uma VM porque o adaptador de rede está desabilitado
 
-Este artigo mostra como resolver um problema em que não é possível acessar área de trabalho remota em VMs (Máquinas Virtuais do Windows) do Azure porque o adaptador de rede está desabilitado.
+Este artigo explica como resolver um problema em que não é possível fazer uma conexão de Área de Trabalho Remota a Máquinas Virtuais do Windows (VMs), se a interface de rede for desabilitada.
 
 > [!NOTE] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo cobre o uso do modelo de implantação do Gerenciador de Recursos, quais recomendamos usar para novas implantações em vez do modelo de implantação clássico. 
@@ -66,4 +66,4 @@ Para habilitar o adaptador de rede da VM, use o Controle serial ou [redefina o a
 
 ## <a name="reset-network-interface"></a>Redefinir o adaptador de rede
 
-Para redefinir o adaptador de rede, altere o endereço IP para outro endereço IP que esteja disponível na sub-rede, usando o portal do Azure ou o Azure PowerShell. Para obter mais informações, consulte [redefinir adaptador de rede](reset-network-interface.md). 
+Para reiniciar a interface de rede, altere o endereço IP para outro endereço IP que está disponível na Sub-rede. Para fazer isso, use o portal do Azure ou Azure PowerShell. Para obter mais informações, consulte [Redefinir Adaptador de Rede](reset-network-interface.md). 

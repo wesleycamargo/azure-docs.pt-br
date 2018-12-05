@@ -9,16 +9,52 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261552"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291333"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão do serviço de aprendizado de máquina do Azure
 
 Neste artigo, conheça os lançamentos de serviços do Aprendizado de Máquina do Azure. 
+
+## <a name="2018-11-20"></a>20-11-2018
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>SDK do Azure Machine Learning para Python v0.1.80
+
++ **Alterações da falha** 
+  * Namespace *azureml.Train.widgets* foi movido para *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* substitui as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. A última classe será removida nas versões subsequentes. A classe AmlCompute tem agora uma definição mais fácil e simplesmente precisa de um vm_size e do max_nodes e dimensionará automaticamente a seu cluster de 0 para o max_nodes quando um trabalho for enviado. Nosso [notebooks de amostra] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) foram atualizados com essas informações e devem fornecer exemplos sobre como usá-lo. Esperamos que você goste dessa simplificação e dos muitos dos recursos mais interessantes para ficar em uma versão posterior!
+
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>SDK de preparação de dados do AML v0.5.1 
+
+Saiba mais sobre o SDK de preparação de dados lendo [docs de referência](https://aka.ms/data-prep-sdk).
++ **Novos recursos**
+   * Criada uma nova CLI DataPrep para executar pacotes DataPrep e exibir o perfil de dados para um conjunto de dados ou o fluxo de dados
+   * API de SetColumnType reprojetado para melhorar a usabilidade
+   * Smart_read_file renomeado para auto_read_file
+   * Agora inclui distorção e curtose no Perfil de Dados
+   * Pode criar amostra com amostragem estratificada
+   * Pode ler de arquivos zip que contenham arquivos CSV
+   * Pode dividir conjuntos de dados por linha com a divisão aleatória (por exemplo, nos conjuntos de teste-treinamento)
+   * Pode obter os tipos de dados de coluna de um fluxo de dados ou um perfil de dados chamando .dtypes
+   * Pode obter a contagem de linhas de um fluxo de dados ou um perfil de dados chamando .row_count
+
++ **Correções de bug**
+   * Corrigidos para conversão dupla 
+   * Ativo corrigido após qualquer adição de coluna 
+   * Corrigido um problema com FuzzyGrouping, onde ele não detectaria grupos em alguns casos
+   * Função de classificação corrigida para respeitar a ordem de classificação de várias colunas
+   * Fixos e/ou expressões para ser semelhante a como Pandas lida com isso
+   * Leitura corrigida do caminho dbfs
+   * Mensagens de erro tornadas mais compreensíveis 
+   * Agora não há mais falhar durante a leitura no destino de computação remota usando o token do AML
+   * Agora não falhará na DSVM do Linux
+   * Agora não falha quando os valores de cadeia de caracteres não são em predicados de cadeia de caracteres
+   * Agora manipula erros de asserção ao fluxo de dados deve falhar corretamente
+   * Agora dá suporte a locais de armazenamento dbutils montados no Azure Databricks
 
 ## <a name="2018-11-05"></a>05-11-2018
 

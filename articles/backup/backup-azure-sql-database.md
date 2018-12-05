@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6091a3b3506adf87418b529c3cca6b96e9bb2af9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211495"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317680"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -54,31 +54,31 @@ Consulte a [Seção de Perguntas Frequentes](https://docs.microsoft.com/azure/ba
 
 Há suporte para o Backup do Azure nas áreas geográficas a seguir:
 
-- Sudeste da Austrália (ASE) 
+- Sudeste da Austrália (ASE)
 - Sul do Brasil (BRS)
 - Canadá Central (CNC)
 - Leste do Canadá (CE)
 - Central dos EUA (CUS)
 - Ásia Oriental (EA)
-- Leste da Austrália (AE) 
+- Leste da Austrália (AE)
 - Leste dos EUA (EUS)
 - Leste dos EUA 2 (EUS2)
-- Índia Central (INC) 
+- Índia Central (INC)
 - Sul da Índia (INS)
 - Leste do Japão (JPE)
 - Oeste do Japão (JPW)
 - Coreia Central (KRC)
 - Sul da Coreia (KRS)
-- Centro-Norte dos EUA (NCUS) 
-- Europa Setentrional (NE) 
-- Centro-Sul dos EUA (SCUS) 
+- Centro-Norte dos EUA (NCUS)
+- Europa Setentrional (NE)
+- Centro-Sul dos EUA (SCUS)
 - Sudeste Asiático (SEA)
-- Sul do Reino Unido (UKS) 
-- Oeste do Reino Unido (UKW) 
+- Sul do Reino Unido (UKS)
+- Oeste do Reino Unido (UKW)
 - Centro-Oeste dos EUA (WCUS)
-- Europa Ocidental (WE) 
+- Europa Ocidental (WE)
 - Oeste dos EUA (WUS)
-- Oeste dos EUA 2 (WUS 2) 
+- Oeste dos EUA 2 (WUS 2)
 
 ## <a name="support-for-operating-systems-and-sql-server-versions"></a>Suporte para sistemas operacionais e versões do SQL Server
 
@@ -118,7 +118,7 @@ Se essas condições existirem em seu ambiente, vá para [Configurar o backup pa
 
 Para todas as operações, a máquina virtual SQL precisa de conectividade para os endereços IP públicos do Azure. As operações de máquina virtual SQL (como descoberta de banco de dados, configuração de backup, agendamento de backups, restauração de pontos de recuperação e assim por diante) falharão sem conectividade com os endereços IP públicos. Use uma das opções a seguir para fornecer um caminho claro para o tráfego de backup:
 
-- Colocar os intervalos IP do datacenter do Azure na lista de permissões: para colocar os intervalos IP do datacenter do Azure na lista de permissões, use a [página do Centro de Download para obter detalhes sobre os intervalos IP e as instruções](https://www.microsoft.com/download/details.aspx?id=41653). 
+- Colocar os intervalos IP do datacenter do Azure na lista de permissões: para colocar os intervalos IP do datacenter do Azure na lista de permissões, use a [página do Centro de Download para obter detalhes sobre os intervalos IP e as instruções](https://www.microsoft.com/download/details.aspx?id=41653).
 - Implantar um servidor proxy HTTP para rotear o tráfego: quando você fizer o backup de um banco de dados SQL em uma VM, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento para o Backup do Azure e dados para o Armazenamento do Azure. A extensão de backup também usa o Azure AD (Azure Active Directory) para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. A extensão é o único componente que está configurado para acesso à Internet pública.
 
 As compensações entre as opções são capacidade de gerenciamento, controle granular e custo.
@@ -157,10 +157,8 @@ Para configurar permissões:
 5. Em **Descobrir BDs em VMs**, selecione **Iniciar Descoberta** para pesquisar máquinas virtuais desprotegidas na assinatura. Pode levar um tempo para pesquisar todas as máquinas virtuais. O tempo de pesquisa depende do número de máquinas virtuais desprotegidas na assinatura.
 
     ![O backup está pendente durante a pesquisa por BDs em VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
- 
-    Depois que uma máquina virtual não protegida é descoberta, ela aparece na lista. As máquinas virtuais desprotegidas são listadas por seu nome da máquina virtual e grupo de recursos. É possível que várias máquinas virtuais tenham o mesmo nome. No entanto, as máquinas virtuais com o mesmo nome pertencem a diferentes grupos de recursos. Se uma máquina virtual esperada não estiver listada, veja se essa máquina virtual já está protegida em um cofre.
 
-6. Na lista de máquinas virtuais, selecione a VM que tem o banco de dados SQL para fazer backup e, em seguida, selecione **Descobrir BDs**. 
+6. Na lista de máquinas virtuais, selecione a VM que tem o banco de dados SQL para fazer backup e, em seguida, selecione **Descobrir BDs**.
 
     O processo de descoberta instala a extensão **AzureBackupWindowsWorkload** na máquina virtual. A extensão permite que o serviço de Backup do Azure se comunique com a máquina virtual para que ela possa fazer backup dos bancos de dados SQL. Depois que a extensão for instalada, o Backup do Azure criará a conta de serviço virtual do Windows, **NT Service\AzureWLBackupPluginSvc**, na máquina virtual. A conta de serviço virtual requer a permissão de sysadmin do SQL. Durante o processo de instalação da conta de serviço virtual, se você receber o erro `UserErrorSQLNoSysadminMembership`, veja [Corrigir permissões de sysadmin do SQL](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
@@ -182,7 +180,7 @@ Durante o processo de instalação, caso receba o erro `UserErrorSQLNoSysadminMe
 
     ![Na caixa de diálogo Logon – Novo, selecione Pesquisar](./media/backup-azure-sql-database/new-login-search.png)
 
-3. A conta de serviço virtual do Windows **Service\AzureWLBackupPluginSvc NT** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta conforme mostrado na caixa **Inserir o nome do objeto a selecionar**. Selecione **Verificar Nomes** para resolver o nome. 
+3. A conta de serviço virtual do Windows **Service\AzureWLBackupPluginSvc NT** foi criada durante a fase de descoberta do SQL e do registro da máquina virtual. Insira o nome da conta conforme mostrado na caixa **Inserir o nome do objeto a selecionar**. Selecione **Verificar Nomes** para resolver o nome.
 
     ![Selecione Verificar Nomes para resolver o nome de serviço desconhecido](./media/backup-azure-sql-database/check-name.png)
 
@@ -220,7 +218,7 @@ O Backup do Azure descobre todos os bancos de dados em uma instância do SQL Ser
 
     ![Insira e escolha os cofres dos Serviços de Recuperação](./media/backup-azure-sql-database/all-services.png) <br/>
 
-    A lista de cofres de Serviços de Recuperação na assinatura aparecerá. 
+    A lista de cofres de Serviços de Recuperação na assinatura aparecerá.
 
 4. Na lista de cofre de Serviços de Recuperação, selecione o cofre que você deseja usar para proteger bancos de dados SQL.
 
@@ -235,13 +233,13 @@ O Backup do Azure descobre todos os bancos de dados em uma instância do SQL Ser
     ![Selecione o SQL Server na VM do Azure para o backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
     O menu **Meta de Backup** exibe duas novas etapas: **Descobrir Bancos de Dados em VMs** e **Configurar Backup**.
-    
+
     ![Examine as duas etapas de Meta de Backup](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
 8. Em **Descobrir BDs em VMs**, selecione **Iniciar Descoberta** para pesquisar máquinas virtuais desprotegidas na assinatura. Pode levar um tempo para pesquisar em todas as máquinas virtuais. O tempo de pesquisa depende do número de máquinas virtuais desprotegidas na assinatura.
 
     ![O backup está pendente durante a pesquisa por BDs em VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
- 
+
     Depois que uma máquina virtual não protegida é descoberta, ela aparece na lista. Várias máquinas virtuais podem ter o mesmo nome. No entanto, as máquinas virtuais com o mesmo nome pertencem a diferentes grupos de recursos. As máquinas virtuais desprotegidas são listadas por seu nome da máquina virtual e grupo de recursos. Se uma máquina virtual esperada não estiver listada, veja se ela já está protegida em um cofre.
 
 9. Na lista de máquinas virtuais, selecione a VM que tem o banco de dados SQL para fazer backup e, em seguida, selecione **Descobrir BDs**.
@@ -252,7 +250,7 @@ O Backup do Azure descobre todos os bancos de dados em uma instância do SQL Ser
 
 Quando você usa a ferramenta **Descobrir Bancos de Dados**, o Backup do Azure executa as seguintes operações em segundo plano:
 
-- Registra a máquina virtual com o cofre dos Serviços de Recuperação para o backup de cargas de trabalho. O backup de todos os bancos de dados na máquina virtual registrada pode ser feito somente para este cofre dos Serviços de Recuperação. 
+- Registra a máquina virtual com o cofre dos Serviços de Recuperação para o backup de cargas de trabalho. O backup de todos os bancos de dados na máquina virtual registrada pode ser feito somente para este cofre dos Serviços de Recuperação.
 
 - Instale a extensão **AzureBackupWindowsWorkload** na máquina virtual. Fazer o backup de um banco de dados SQL é uma solução sem agente. A extensão é instalada na máquina virtual e nenhum agente é instalado no banco de dados SQL.
 
@@ -262,7 +260,7 @@ Quando você usa a ferramenta **Descobrir Bancos de Dados**, o Backup do Azure e
 
 ## <a name="configure-backup-for-sql-server-databases"></a>Configurar backup para o banco de dados do SQL Server
 
-O Backup do Azure fornece serviços de gerenciamento para proteger seus bancos de dados do SQL Server e gerenciar trabalhos de backup. As funções de gerenciamento e monitoramentos dependem de seu cofre de Serviços de Recuperação. 
+O Backup do Azure fornece serviços de gerenciamento para proteger seus bancos de dados do SQL Server e gerenciar trabalhos de backup. As funções de gerenciamento e monitoramentos dependem de seu cofre de Serviços de Recuperação.
 
 > [!NOTE]
 > Você pode ter apenas uma solução de backup de cada vez para fazer o backup de bancos de dados do SQL Server. Desabilite todos os outros backups SQL antes de usar esse recurso; caso contrário, os backups causarão interferência e falharão. Você pode habilitar um Backup do Azure para VM de IaaS junto com o backup do SQL sem qualquer conflito.
@@ -283,51 +281,53 @@ Para configurar a proteção para o banco de dados SQL:
     ![Selecione o SQL Server na VM do Azure para o backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
     O menu **Meta de Backup** exibe duas novas etapas: **Descobrir Bancos de Dados em VMs** e **Configurar Backup**.
-    
+
     Se você concluiu as etapas neste artigo na ordem, descobriu as máquinas virtuais desprotegidas e o cofre está registrado com uma máquina virtual. Agora você está pronto para configurar a proteção para os bancos de dados SQL.
-    
+
 5. No menu **Meta de Backup**, selecione **Configurar o Backup**.
 
     ![Selecione Configurar Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    O serviço de Backup do Azure exibe todas as instâncias do SQL Server com bancos de dados autônomos e grupos de disponibilidade Always On do SQL Server. Para exibir os bancos de dados autônomos na instância do SQL Server, selecione a divisa à esquerda do nome da instância. As imagens a seguir mostram exemplos de uma instância autônoma e um grupo de disponibilidade AlwaysOn.
+    O serviço de Backup do Azure exibe todas as instâncias do SQL Server com bancos de dados autônomos e grupos de disponibilidade Always On do SQL Server. Para exibir os bancos de dados autônomos na instância do SQL Server, selecione a divisa à esquerda do nome da instância. Da mesma forma, selecione a divisa à esquerda do grupo de disponibilidade Always On para exibir a lista de bancos de dados. A imagem a seguir mostra exemplos de uma instância autônoma e um grupo de disponibilidade Always On.
 
-    > [!NOTE]
-    > Para um grupo de disponibilidade Always On do SQL Server, a preferência de backup do SQL é respeitada. Mas, devido a uma limitação da plataforma SQL, os backups completos e diferenciais precisam ocorrer no nó primário. O backup de log ocorre conforme a sua preferência de backup. Devido a essa limitação, o nó primário precisa sempre ser registrado para grupos de disponibilidade.
-    >
+      ![Exibindo todas as Instâncias do SQL Server com bancos de dados autônomos](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
-    ![Lista de bancos de dados na instância do SQL](./media/backup-azure-sql-database/discovered-databases.png)
+6. Na lista de bancos de dados, selecione todos os banco de dados o que você deseja proteger e clique em **OK**.
 
-    Selecione a divisa à esquerda do grupo de disponibilidade Always On para exibir a lista de bancos de dados.
+    ![Proteção do banco de dados](./media/backup-azure-sql-database/select-database-to-protect.png)
 
-    ![Lista de bancos de dados no grupo de disponibilidade Always On](./media/backup-azure-sql-database/discovered-database-availability-group.png)
+    Você pode selecionar até 50 bancos de dados ao mesmo tempo de uma vez. Para proteger mais de 50 bancos de dados, faça várias passagens. Depois que você protege os primeiros 50 bancos de dados, repita essa etapa para proteger o próximo conjunto de bancos de dados.
 
-6. Na lista de bancos de dados, selecione todos os bancos de dados para proteger e, em seguida, selecione **OK**.
-
-    ![Selecione vários bancos de dados para proteger](./media/backup-azure-sql-database/select-multiple-database-protection.png)
-
-    Selecione até 50 bancos de dados por vez. Para proteger mais de 50 bancos de dados, faça várias passagens. Depois que você protege os primeiros 50 bancos de dados, repita essa etapa para proteger o próximo conjunto de bancos de dados.
-
-    > [!Note] 
+    > [!Note]
     > Para otimizar cargas de backup, o Backup do Azure divide grandes trabalhos de backup em vários lotes. O número máximo de bancos de dados em um trabalho de backup é 50.
     >
-    >
+
+    Como alternativa, você pode habilitar a proteção automática no grupo instância inteira ou grupo de disponibilidade Always On selecionando a opção **ON** na lista suspensa correspondente na coluna **AUTOPROTECT**. O recurso de proteção automática não só permite a proteção em todos os bancos de dados existentes de uma só vez, mas protege automaticamente quaisquer novos bancos de dados que serão adicionados no futuro para essa instância ou o grupo de disponibilidade.  
+
+      ![Habilite a proteção automática no grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+      No caso de uma instância ou se um grupo de disponibilidade já tiver alguns de seus bancos de dados protegidos, você ainda pode **ATIVAR** a opção de proteção automática. Nesse caso, a política de backup definida na próxima etapa agora só será aplicável aos bancos de dados desprotegidos enquanto os bancos de dados já protegidos continuarão a ser protegidos com suas respectivas políticas.
+
+      Não há nenhum limite no número de bancos de dados que foi selecionado de uma só vez usando o recurso de proteção automática (o maior número de banco de dados que puder ser selecionado no cofre).  
+
+      Recomenda-se que você ative a proteção automática para todas as instâncias e os grupos de disponibilidade Always On se você quiser que qualquer banco de dados adicionados no futuro seja automaticamente configurado para proteção.
+
 
 7. Para criar ou escolher uma política de backup, no menu **Backup**, selecione **Política de backup**. O menu **Política de Backup** é aberto.
 
     ![Selecionar a Política de backup](./media/backup-azure-sql-database/select-backup-policy.png)
 
-8. Na caixa de listagem suspensa **Escolher política de backup**, escolha uma política de backup e, em seguida, selecione **OK**. Para obter informações sobre como criar uma política de backup, veja [Definir uma política de backup](backup-azure-sql-database.md#define-a-backup-policy).
+8. Na lista suspensa **Escolher política de backup**, escolha uma política de backup selecione **OK**. Para obter informações sobre como criar uma política de backup, veja [Definir uma política de backup](backup-azure-sql-database.md#define-a-backup-policy).
 
    > [!NOTE]
    > Durante a visualização, é possível editar políticas de Backup. Se você quiser uma política diferente do que está disponível na lista, você deve criar essa política. Para saber mais sobre como criar uma nova política de backup, veja a seção [Definir uma política de backup](backup-azure-sql-database.md#define-a-backup-policy).
 
     ![Escolha uma política de backup na lista](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
-    No menu **Política de backup**, na caixa de listagem suspensa **Escolher política de backup**, você pode: 
+    No menu **Política de backup**, na caixa de listagem suspensa **Escolher política de backup**, você pode:
     - Selecionar a política padrão: **HourlyLogBackup**.
     - Escolher uma política de backup existente criada anteriormente para SQL.
-    - [Definir uma nova política](backup-azure-sql-database.md#define-a-backup-policy) baseada no seu período de retenção e o RPO. 
+    - [Definir uma nova política](backup-azure-sql-database.md#define-a-backup-policy) baseada no seu período de retenção e o RPO.
 
     > [!Note]
     > O Backup do Azure dá suporte para retenção de longo prazo com base no esquema de backup avô-pai-filho. O esquema otimiza o consumo de armazenamento de back-end enquanto cumpre as necessidades de conformidade.
@@ -346,18 +346,18 @@ Para configurar a proteção para o banco de dados SQL:
 
 Uma política de backup define uma matriz de quando os backups são obtidos e por quanto tempo eles são mantidos. Use o Backup do Azure para agendar três tipos de backup para bancos de dados SQL:
 
-* Backup completo: um backup completo do banco de dados faz backup do banco de dados inteiro. Um backup completo contém todos os dados em um banco de dados específico ou um conjunto de arquivos ou grupos de arquivos e log suficiente para recuperar esses dados. No máximo, você pode acionar um backup completo por dia. Você pode optar por fazer um backup completo em um intervalo diário ou semanal. 
+* Backup completo: um backup completo do banco de dados faz backup do banco de dados inteiro. Um backup completo contém todos os dados em um banco de dados específico ou um conjunto de arquivos ou grupos de arquivos e log suficiente para recuperar esses dados. No máximo, você pode acionar um backup completo por dia. Você pode optar por fazer um backup completo em um intervalo diário ou semanal.
 * Backup diferencial: um backup diferencial é baseado no backup de dados completo anterior mais recente. Um backup diferencial captura apenas os dados que foram alterados desde o backup completo. No máximo, você pode acionar um backup diferencial por dia. Você não pode configurar um backup completo e um backup diferencial no mesmo dia.
 * Backup de log de transações: um backup de log permite a restauração pontual até um determinado segundo. No máximo, você pode configurar backups de log de transações a cada 15 minutos.
 
-A política é criada no nível do cofre de Serviços de Recuperação. Vários cofres podem usar a mesma política de backup, mas você deve aplicar a política de backup a cada cofre. Ao criar uma política de backup, o backup completo diário é o padrão. Você poderá adicionar um backup diferencial, mas somente se configurar backups completos para que ocorram semanalmente. O procedimento a seguir explica como criar uma política de backup para uma instância do SQL Server em uma máquina virtual do Azure. 
+A política é criada no nível do cofre de Serviços de Recuperação. Vários cofres podem usar a mesma política de backup, mas você deve aplicar a política de backup a cada cofre. Ao criar uma política de backup, o backup completo diário é o padrão. Você poderá adicionar um backup diferencial, mas somente se configurar backups completos para que ocorram semanalmente. O procedimento a seguir explica como criar uma política de backup para uma instância do SQL Server em uma máquina virtual do Azure.
 
 > [!NOTE]
 > Na versão prévia, é possível editar políticas de Backup. Em vez disso, você deve criar uma nova política com os detalhes desejados.  
- 
+
 Para criar uma política de backup:
 
-1. No cofre de Serviços de Recuperação do Microsoft Azure que protege o banco de dados SQL, clique em **Políticas de Backup**e, em seguida, clique em **Adicionar**. 
+1. No cofre de Serviços de Recuperação do Microsoft Azure que protege o banco de dados SQL, clique em **Políticas de Backup**e, em seguida, clique em **Adicionar**.
 
    ![Abra a caixa de diálogo Criar nova política de backup](./media/backup-azure-sql-database/new-policy-workflow.png)
 
@@ -389,13 +389,13 @@ Para criar uma política de backup:
 
     Os pontos de recuperação são marcados para retenção com base em seu intervalo de retenção. Por exemplo, se você selecionar um backup completo diário, apenas um backup completo será disparado a cada dia. O backup para um dia específico é marcado e mantido com base no intervalo de retenção semanal e sua configuração de retenção semanal. Os intervalos de retenção mensal e anual comportam-se de maneira semelhante.
 
-6. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**. O menu **Política de Backup Diferencial** é aberto. 
+6. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**. O menu **Política de Backup Diferencial** é aberto.
 
    ![Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
     No menu **Política Backup Diferencial**, selecione **Habilitar** para abrir os controles de retenção e frequência. No máximo, você pode acionar um backup diferencial por dia.
-    
-    > [!Important] 
+
+    > [!Important]
     > Backups diferenciais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
     >
 
@@ -413,7 +413,7 @@ Para criar uma política de backup:
 
     No back-end, o Backup do Azure usa compactação de backup nativo do SQL.
 
-9. Depois de concluir as edições à política de backup, selecione **OK**. 
+9. Depois de concluir as edições à política de backup, selecione **OK**.
 
    ![Aceitar a nova política de backup](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -436,11 +436,11 @@ Você também pode selecionar um backup completo ou diferencial específico para
 
     ![Abrir o menu Itens de Backup](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-3. No menu **Itens de Backup**, em **Tipo de Gerenciamento de Backup**, selecione o **SQL na VM do Azure**. 
+3. No menu **Itens de Backup**, em **Tipo de Gerenciamento de Backup**, selecione o **SQL na VM do Azure**.
 
     ![Selecionar SQL na VM do Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-    O menu **Itens de Backup** mostra a lista de bancos de dados SQL. 
+    O menu **Itens de Backup** mostra a lista de bancos de dados SQL.
 
 4. Na lista de bancos de dados SQL, selecione o banco de dados a restaurar.
 
@@ -470,7 +470,7 @@ Você também pode selecionar um backup completo ou diferencial específico para
 Esse procedimento o conduz pela restauração dos dados para um local alternativo. Para substituir o banco de dados durante a restauração, continue para [Restaurar e substituir o banco de dados](backup-azure-sql-database.md#restore-and-overwrite-the-database). Neste estágio, o cofre de Serviços de Recuperação é aberto e o menu **Configuração de Restauração** está visível. Se você não estiver neste estágio, comece [restaurando um banco de dados SQL](backup-azure-sql-database.md#restore-a-sql-database).
 
 > [!NOTE]
-> Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure. O servidor de destino precisa ser registrado no cofre dos Serviços de Recuperação. 
+> Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure. O servidor de destino precisa ser registrado no cofre dos Serviços de Recuperação.
 >
 
 No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** mostra somente as instâncias do SQL Server registradas com o cofre dos Serviços de Recuperação. Se o servidor que você quiser não estiver na lista, veja [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de descoberta, novos servidores são registrados no cofre dos Serviços de Recuperação.
@@ -503,7 +503,7 @@ No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** 
         Depois de você selecionar uma data, o gráfico de linha do tempo exibirá os pontos de recuperação disponíveis em um intervalo contínuo.
 
     3. Use o gráfico de linha do tempo ou a caixa de diálogo **Tempo** para especificar um horário específico para o ponto de recuperação. Selecione **OK** para concluir a etapa de ponto de restauração.
-    
+
        ![Abrir o Calendário](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         O menu **Selecionar ponto de restauração** é fechado e o menu **Configuração Avançada** é aberto.
@@ -530,7 +530,7 @@ No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** 
 
         O menu mostra a lista de pontos de recuperação disponíveis.
 
-    2. Selecione um ponto de recuperação da lista e selecione **OK** para concluir o procedimento de ponto de restauração. 
+    2. Selecione um ponto de recuperação da lista e selecione **OK** para concluir o procedimento de ponto de restauração.
 
         ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
@@ -556,7 +556,7 @@ Esse procedimento o conduz pela restauração dos dados e substituição de um b
 
 No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** mostra somente as instâncias do SQL Server registradas com o cofre dos Serviços de Recuperação. Se o servidor que você quiser não estiver na lista, veja [Descobrir bancos de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases) para localizar o servidor. Durante o processo de descoberta, novos servidores são registrados no cofre dos Serviços de Recuperação.
 
-1. No menu **Configuração da Restauração**, selecione **Substituir Banco de Dados** e, em seguida, selecione **OK** para concluir a configuração do destino. 
+1. No menu **Configuração da Restauração**, selecione **Substituir Banco de Dados** e, em seguida, selecione **OK** para concluir a configuração do destino.
 
    ![Selecione Substituir Banco de Dados](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -579,7 +579,7 @@ No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** 
         Depois de você selecionar uma data, o gráfico de linha do tempo exibirá os pontos de recuperação disponíveis.
 
     3. Use o gráfico de linha do tempo ou a caixa de diálogo **Tempo** para especificar um horário específico para o ponto de recuperação. Selecione **OK** para concluir a etapa de ponto de restauração.
-    
+
        ![Abrir o Calendário](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         O menu **Selecionar ponto de restauração** é fechado e o menu **Configuração Avançada** é aberto.
@@ -606,7 +606,7 @@ No menu **Restaurar Configuração**, a caixa de listagem suspensa **Servidor** 
 
         O menu mostra a lista de pontos de recuperação disponíveis.
 
-    2. Selecione um ponto de recuperação da lista e selecione **OK** para concluir o procedimento de ponto de restauração. 
+    2. Selecione um ponto de recuperação da lista e selecione **OK** para concluir o procedimento de ponto de restauração.
 
         ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
@@ -644,7 +644,7 @@ O Backup do Azure mostra todos os trabalhos disparados manualmente ou ad hoc no 
 - Operações de backup disparadas manualmente.
 - Operações de restauração.
 - Operações de registro e descoberta de banco de dados.
-- Operações de interromper backup. 
+- Operações de interromper backup.
 
 ![Portal de trabalhos de backup](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -675,12 +675,12 @@ backup_finish_date,
 DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
 backup_size AS BackupSizeInBytes
   from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
- 
+
 ```
 
 ### <a name="view-backup-alerts"></a>Exibir alertas de backup
 
-Uma vez que os backups de log ocorrem a cada 15 minutos, às vezes monitorar os trabalhos de backup pode ser entediante. O Backup do Azure fornece ajuda nessa situação. Alertas por email são disparados para todas as falhas de backup. Os alertas são consolidados no nível do banco de dados por código de erro. Um alerta por email é enviado somente para a primeira falha de backup para um banco de dados. Entre no portal do Azure para monitorar todas as falhas para um banco de dados. 
+Uma vez que os backups de log ocorrem a cada 15 minutos, às vezes monitorar os trabalhos de backup pode ser entediante. O Backup do Azure fornece ajuda nessa situação. Alertas por email são disparados para todas as falhas de backup. Os alertas são consolidados no nível do banco de dados por código de erro. Um alerta por email é enviado somente para a primeira falha de backup para um banco de dados. Entre no portal do Azure para monitorar todas as falhas para um banco de dados.
 
 Para monitorar os alertas de backup:
 
@@ -688,7 +688,7 @@ Para monitorar os alertas de backup:
 
 2. Abra o cofre de Serviços de Recuperação registrado com a máquina virtual SQL.
 
-3. No painel **cofre dos Serviços de Recuperação**, selecione **Alertas e Eventos**. 
+3. No painel **cofre dos Serviços de Recuperação**, selecione **Alertas e Eventos**.
 
    ![Selecionar Alertas e Eventos](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
@@ -703,7 +703,7 @@ Quando você interrompe a proteção para um banco de dados do SQL Server, o Bac
 * Interromper todos os trabalhos de backup futuros e excluir todos os pontos de recuperação.
 * Interromper todos os trabalhos de backup futuros, mas deixar os pontos de recuperação.
 
-Se você optar por Parar o backup com retenção de dados, pontos de recuperação serão removidos de acordo com a política de backup. Você incorrerá em encargo de preço de instância protegida SQL, além do armazenamento consumido, até que todos os pontos de recuperação sejam removidos. Para saber mais sobre os preços de Backup do Azure para SQL, veja a [página de preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/). 
+Se você optar por Parar o backup com retenção de dados, pontos de recuperação serão removidos de acordo com a política de backup. Você incorrerá em encargo de preço de instância protegida SQL, além do armazenamento consumido, até que todos os pontos de recuperação sejam removidos. Para saber mais sobre os preços de Backup do Azure para SQL, veja a [página de preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 
 Para interromper a proteção para um banco de dados:
 
@@ -713,11 +713,11 @@ Para interromper a proteção para um banco de dados:
 
     ![Abrir o menu Itens de Backup](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-3. No menu **Itens de Backup**, em **Tipo de Gerenciamento de Backup**, selecione o **SQL na VM do Azure**. 
+3. No menu **Itens de Backup**, em **Tipo de Gerenciamento de Backup**, selecione o **SQL na VM do Azure**.
 
     ![Selecionar SQL na VM do Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-    O menu **Itens de Backup** mostra a lista de bancos de dados SQL. 
+    O menu **Itens de Backup** mostra a lista de bancos de dados SQL.
 
 4. Na lista de bancos de dados SQL, selecione o banco de dados para interromper a proteção.
 
@@ -725,7 +725,7 @@ Para interromper a proteção para um banco de dados:
 
     Quando você seleciona o banco de dados, o menu é aberto.
 
-5. No menu para o banco de dados selecionado, selecione **Interromper backup**. 
+5. No menu para o banco de dados selecionado, selecione **Interromper backup**.
 
     ![Selecionar Parar Backup](./media/backup-azure-sql-database/stop-db-button.png)
 
@@ -735,11 +735,21 @@ Para interromper a proteção para um banco de dados:
 
     ![Interromper o menu de Backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Selecione **Interromper backup** para interromper a proteção no banco de dados. 
+7. Selecione **Interromper backup** para interromper a proteção no banco de dados.
+
+  Observe que a opção **Parar Backup** opção não funcionará para um banco de dados em uma instância protegida automaticamente. A única maneira de interromper a proteção deste banco de dados é desabilitar a proteção automática na instância por enquanto e, em seguida, escolha a opção **Parar Backup** em **Itens de Backup** desse banco de dados.  
+
+  Você pode desabilitar a proteção automática em uma instância ou um grupo de disponibilidade Always On em **Configurar Backup**. Clique no nome da instância para abrir o painel de informações no lado direito que tem **Desabilitar Proteção Automática** na parte superior. Clique em **Desabilitar Proteção automática** para desabilitar a proteção automática nessa instância.
+
+    ![Desabilite a proteção automática nessa instância](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+Todos os bancos de dados nessa instância continuarão a ser protegidos. No entanto, essa ação vai desabilitar a proteção automática em qualquer banco de dados que serão adicionados no futuro.
+
+Depois que você tiver desabilitado a proteção automática, você pode **Parar Backup** para o banco de dados em **itens de Backup**. A instância pode ser habilitada novamente para proteção automática agora.
 
 ### <a name="resume-protection-for-a-sql-database"></a>Retomar a proteção para um banco de dados SQL
 
-Se a opção **Reter Dados de Backup** tiver sido selecionada quando a proteção para o banco de dados SQL foi interrompida, você poderá retomar a proteção. Se os dados de backup não tiverem sido mantidos, não será possível retomar a proteção. 
+Se a opção **Reter Dados de Backup** tiver sido selecionada quando a proteção para o banco de dados SQL foi interrompida, você poderá retomar a proteção. Se os dados de backup não tiverem sido mantidos, não será possível retomar a proteção.
 
 1. Para retomar a proteção para o banco de dados SQL, abra o item de backup e selecione **Retomar backup**.
 
@@ -774,11 +784,11 @@ Para cancelar o registro de uma instância do SQL Server depois de remover a pro
 
    ![Selecionar Servidores Protegidos](./media/backup-azure-sql-database/protected-servers.png)
 
-    O menu **Servidores Protegidos** é aberto. 
+    O menu **Servidores Protegidos** é aberto.
 
 4. No menu **Servidores Protegidos**, selecione o servidor para cancelar o registro. Para excluir o cofre, você deve cancelar o registro de todos os servidores.
 
-5. No menu **Servidores Protegidos**, clique com o botão direito do mouse no servidor protegido e selecione **Excluir**. 
+5. No menu **Servidores Protegidos**, clique com o botão direito do mouse no servidor protegido e selecione **Excluir**.
 
    ![Selecione Excluir](./media/backup-azure-sql-database/delete-protected-server.png)
 
@@ -802,30 +812,52 @@ Para alterar a configuração:
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso executar um backup completo usando uma réplica secundária?
 
-Não. Não há suporte para esse recurso.
+ Não. Não há suporte para esse recurso.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Trabalhos de backup bem-sucedidos criam alertas?
 
-Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha.
+ Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha.
 
 ### <a name="can-i-see-details-for-scheduled-backup-jobs-in-the-jobs-menu"></a>Posso ver os detalhes de trabalhos de backup agendados no menu Trabalhos?
 
-Não. O menu **Trabalhos de Backup** mostra detalhes do trabalho ad hoc, mas não trabalhos de backup agendados. Se algum trabalho de backup agendado falhar, os detalhes estarão disponíveis nos alertas de trabalho com falha. Para monitorar todos os trabalhos de backup ad hoc e agendados, use o [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+ Não. O menu **Trabalhos de Backup** mostra detalhes do trabalho ad hoc, mas não trabalhos de backup agendados. Se algum trabalho de backup agendado falhar, os detalhes estarão disponíveis nos alertas de trabalho com falha. Para monitorar todos os trabalhos de backup ad hoc e agendados, use o [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
 
 ### <a name="when-i-select-a-sql-server-instance-are-future-databases-automatically-added"></a>Quando eu seleciono uma instância do SQL Server, bancos de dados futuros são adicionados automaticamente?
 
-Não. Quando você configura a proteção para uma instância do SQL Server, se você seleciona a opção de nível de servidor, todos os bancos de dados são adicionados. Se você adiciona bancos de dados a uma instância do SQL Server depois de configurar a proteção, deve adicionar manualmente novos bancos de dados para protegê-los. Os bancos de dados não são incluídos automaticamente na proteção configurada.
+ Não. Quando você configura a proteção para uma instância do SQL Server, se você seleciona a opção de nível de servidor, todos os bancos de dados são adicionados. Se você adiciona bancos de dados a uma instância do SQL Server depois de configurar a proteção, deve adicionar manualmente novos bancos de dados para protegê-los. Os bancos de dados não são incluídos automaticamente na proteção configurada.
 
 ### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>Se eu alterar o modelo de recuperação, como faço para reiniciar a proteção?
 
 Dispare um backup completo. Os backups de log começam conforme o esperado.
 
-### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Posso proteger Grupos de Disponibilidade Always On do SQL quando a réplica primária está localmente
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Posso proteger os Grupos de Disponibilidade Always On do SQL quando a réplica primária for local?
 
-Não. O Backup do Azure protege os SQL Servers em execução no Azure. Se um AG (Grupo de Disponibilidade) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Backup do Azure protege apenas os nós em execução na mesma região do Azure que o cofre de Serviços de Recuperação.
+ Não. O Backup do Azure protege os SQL Servers em execução no Azure. Se um AG (Grupo de Disponibilidade) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Backup do Azure protege apenas os nós em execução na mesma região do Azure que o cofre de Serviços de Recuperação.
 
-### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Posso proteger Grupos de Disponibilidade AlwaysOn do SQL que são distribuídos entre regiões do Azure
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Posso proteger Grupos de Disponibilidade AlwaysOn do SQL que são distribuídos entre regiões do Azure?
+
 O Cofre dos Serviços de Recuperação do Backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o Cofre dos Serviços de Recuperação. Se tiver um Grupo de Disponibilidade Always On do SQL que abranja várias regiões do Azure, você precisará configurar o backup da região que tem o nó primário. O Backup do Azure será capaz de detectar e proteger todos os bancos de dados no grupo de disponibilidade, de acordo com a preferência de backup. Se a preferência de backup não for atendida, os backups falharão e você receberá o alerta de falha.
+
+### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>Enquanto eu quiser proteger a maior parte dos bancos de dados em uma instância, eu gostaria de excluir alguns. É possível ainda usar o recurso de proteção automática?
+
+Não, a proteção automática aplica-se à instância inteira. Você seletivamente não pode proteger os bancos de dados de uma instância usando a proteção automática.
+
+### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>Posso ter diferentes políticas para diferentes bancos de dados em uma instância protegida automaticamente?
+
+Se você já tiver alguns bancos de dados protegidos em uma instância, continuarão a ser protegido com suas respectivas políticas mesmo depois que você **ative** a opção de proteção automática. No entanto, todos os bancos de dados desprotegidos junto com aqueles que você adicionaria futuramente, terão apenas uma única política que você define em **Configurar Backup** depois que o banco de dados for selecionado. Na verdade, ao contrário de outros bancos de dados protegidos, é possível até mesmo alterar a política para um banco de dados em uma instância protegida automaticamente.
+Se você quiser fazer isso, a única maneira é desabilitar a proteção automática na instância por enquanto e, em seguida, alterar a política para esse banco de dados. Agora você pode reabilitar a proteção automática para esta instância.
+
+### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>Se eu excluir um banco de dados de uma instância protegida automaticamente, os backups do banco de dados também serão interrompidos?
+
+Não, se um banco de dados for descartado de uma instância protegida automaticamente, os backups de banco de dados ainda serão tentados. Isso implica que o banco de dados excluído começa a ser exibido como não íntegro em **Itens de Backup** e ainda é tratado como protegido.
+
+A única maneira de interromper a proteção deste banco de dados é desabilitar a proteção automática na instância por enquanto e, em seguida, escolha a opção **Parar Backup** em **Itens de Backup** desse banco de dados. Agora você pode reabilitar a proteção automática para esta instância.
+
+###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>Por que não consigo ver o banco de dados recém adicionado a uma instância protegida automaticamente em itens protegidos?
+
+Você não poderá ver um banco de dados recém adicionado a uma instância protegida automaticamente protegido instantaneamente. Isso ocorre porque a descoberta normalmente é executada a cada 8 horas. No entanto, o usuário pode executar uma descoberta manual usando a opção **Recuperar bancos de dados** para descobrir e proteger novos bancos de dados imediatamente, conforme mostrado na imagem abaixo:
+
+  ![Exibir banco de dados adicionado recentemente](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628272"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161865"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia do Java Enterprise para o Serviço de Aplicativo no Linux
 
@@ -27,15 +27,16 @@ Este guia fornece os principais conceitos e instruções para desenvolvedores de
 
 ## <a name="scale-with-app-service"></a>Escalonar com o Serviço de Aplicativo 
 
-O servidor de aplicativos WildFly em execução no Serviço de Aplicativo no Linux é executado em modo autônomo, não em uma configuração de domínio. 
+O servidor de aplicativos WildFly em execução no Serviço de Aplicativo no Linux é executado em modo autônomo, não em uma configuração de domínio. Quando você escala horizontalmente o Plano do Serviço de Aplicativo, cada instância de WildFly é configurada como um servidor autônomo.
 
- Dimensione seu aplicativo vertical ou horizontalmente com [regras de dimensionamento](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e [aumentando sua contagem de instâncias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Dimensione seu aplicativo vertical ou horizontalmente com [regras de dimensionamento](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e [aumentando sua contagem de instâncias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Personalizar a configuração do servidor de aplicativos
 
-Os desenvolvedores podem escrever um script Bash de inicialização para executar uma configuração adicional necessária para seu aplicativo como:
+Instâncias do aplicativo Web são sem monitoração de estado, portanto, cada nova instância iniciada deve ser configurada na inicialização para suportar a configuração de Wildfly exigida pelo aplicativo.
+Você pode escrever uma script Bash para chamar a CLI WildFly para inicialização:
 
-- Configurar fontes de dados
+- Principais fontes de dados
 - Configurar provedores de mensagens
 - Adicionar outros módulos e dependências à configuração do servidor Wildfly.
 
@@ -51,7 +52,7 @@ Faça upload do script de inicialização para `/home/site/deployments/tools` na
 
 Defina o campo **Script de inicialização** no portal do Azure como a localização do seu script de shell de inicialização, por exemplo `/home/site/deployments/tools/your-startup-script.sh`.
 
-Use as [configurações de aplicativo](/azure/app-service/web-sites-configure#application-settings) para definir as variáveis de ambiente para uso no script. Essas configurações são disponibilizadas para o ambiente de script de inicialização e mantêm as cadeias de conexão e outros segredos fora do controle de versão.
+Fornecer [configurações do aplicativo](/azure/app-service/web-sites-configure#application-settings) na configuração do aplicativo para passar as variáveis de ambiente para usar no script. As configurações de aplicativo mantém cadeias de caracteres de conexão e outros segredos necessários para configurar seu aplicativo fora do controle de versão.
 
 ## <a name="modules-and-dependencies"></a>Módulos e dependências
 

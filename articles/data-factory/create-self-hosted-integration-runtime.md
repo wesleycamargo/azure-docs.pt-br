@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038461"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284822"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -101,7 +101,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
     ```
 11. Na página **Registrar Integration Runtime (auto-hospedado)** do Configuration Manager do Microsoft Integration Runtime em seu computador, realize as seguintes etapas:
 
-    a. Cole a chave de autenticação na área de texto.
+     a. Cole a chave de autenticação na área de texto.
 
     b. Opcionalmente, selecione **Mostrar chave de autenticação** para ver o texto da chave.
 
@@ -198,7 +198,9 @@ Para uma introdução de doze minutos e demonstração desse recurso, assista ao
 
 * A versão do Azure PowerShell que dá suporte a esse recurso é a 6.6.0 ou posterior (AzureRM.DataFactoryV2, 0.5.7 ou posterior).
 
-* Para conceder permissão, o usuário precisa da função Proprietário ou da função Proprietário herdada na Data Factory em que o tempo de execução de integração compartilhado existe. 
+* Para conceder permissão, o usuário precisa da função Proprietário ou da função Proprietário herdada na Data Factory em que o tempo de execução de integração compartilhado existe.
+
+* O recurso de compartilhamento só funciona para Fábricas de dados no mesmo locatário do Microsoft Azure Active Directory.
 
 * Para [usuários convidados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) do Active Directory, a funcionalidade de pesquisa (que lista todos os data factories usando uma palavra-chave de pesquisa) na interface do usuário [não funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). No entanto, desde que o usuário convidado seja o Proprietário do data factory, pode compartilhar o tempo de execução de integração sem a funcionalidade de pesquisa, digitando diretamente a MSI do data factory com que o tempo de execução de integração precisa ser compartilhado na caixa de texto **Atribuir permissão** e selecionando **Adicionar** na interface do usuário do Azure Data Factory. 
 

@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227783"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311221"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
 
 > [!NOTE]
-> Para habilitar as detecções avançadas, atualize para o Padrão da Central de Segurança do Azure. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione a Camada de Preços na [Política de Segurança](security-center-policies.md). Consulte [Preços da Central de Segurança do Azure](security-center-pricing.md) para saber mais.
+> Para habilitar as detecções avançadas, atualize para o Padrão da Central de Segurança do Azure. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione a Camada de Preços na [Política de Segurança](security-center-azure-policy.md). Consulte [Preços da Central de Segurança do Azure](security-center-pricing.md) para saber mais.
 >
 >
 
@@ -63,6 +63,20 @@ Na parte inferior dessa página estão os detalhes de cada alerta. Para classifi
 > [!NOTE]
 > Os alertas de segurança gerados pela Central de Segurança também serão exibida no Log de Atividades do Azure. Para saber mais sobre como acessar o Log de Atividades do Azure, leia [Exibir logs de atividades para auditar ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 >
+
+
+### <a name="alert-severity"></a>Severidade do alerta
+
+> [!NOTE]
+> A severidade do alerta é exibida diferente no portal e a API REST, as diferenças são indicadas na lista abaixo.
+
+-   **Alta**: há uma grande probabilidade de que o recurso seja comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais. 
+-   **Médio (baixa na API REST)**: isso provavelmente é uma atividade suspeita que pode indicar que um recurso seja comprometido.
+Confiança da Central de Segurança na análise ou localizar é médio e a confiança de más intenções é médio a alto. Normalmente, esses seriam machine learning ou detecções baseadas em anomalia. Por exemplo, uma tentativa de conexão de um local anômalo.
+-   **Baixa (informações na API REST)**: isso pode ser um positivo benigno ou um ataque bloqueado. 
+    - A Central de Segurança não está confiante o suficiente para que a intenção seja mal-intencionada e a atividade possa ser inocente. Por exemplo, limpar log é uma ação que pode acontecer quando um invasor tenta ocultar seus rastros, mas em muitos casos é uma operação de rotina executada por administradores.
+    - A Central de Segurança geralmente não informa quando ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
+-   **Informativo (silencioso na API REST)**: você só verá alertas informativos ao fazer uma busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada. 
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Você pode filtrar com base na data, no estado e na gravidade dos alertas. A filtragem de alertas pode ser útil para cenários em que é necessário restringir o escopo da exibição de alertas de segurança. Por exemplo, convém lidar com os alertas de segurança que ocorreram nas últimas 24 horas, pois você está investigando uma possível falha no sistema.

@@ -4,28 +4,27 @@ description: Visão geral sobre a integração contínua e a implantação cont�
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 11/12/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16dac996f871241b8c9b5e4c1b797d07d79aeb79
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633726"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632555"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
-Você pode facilmente adotar o DevOps com seus aplicativos do Azure IoT Edge com o [Azure IoT Edge para Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) ou [Plug-in do Azure IoT Edge para Jenkins](https://plugins.jenkins.io/azure-iot-edge). Este artigo descreve como é possível usar os recursos de integração contínua e de implantação contínua do Azure Pipelines e do TFS (Microsoft Team Foundation Server) para compilar, testar e implantar aplicativos de forma rápida e eficiente no Azure IoT Edge. 
+Você pode facilmente adotar o DevOps com seus aplicativos do Azure IoT Edge com as tarefas internas do Azure IoT Edge em Pipelines do Azure ou [plug-in do Azure IoT Edge para Jenkins](https://plugins.jenkins.io/azure-iot-edge) no seu servidor Jenkins. Este artigo demonstra como você pode usar a integração contínua e recursos de implantação contínua de Pipelines do Azure e o servidor do Azure DevOps Server e para compilar, testar e implantar aplicativos de forma rápida e eficiente para o Azure IoT Edge. 
 
 Neste artigo, você aprenderá a:
 * Criar e fazer check-in de uma solução do IoT Edge de exemplo.
-* Instale a extensão do Azure IoT Edge para o Azure DevOps.
 * Configure a CI (integração contínua) para criar a solução.
 * Configure a CD (implantação contínua) para implantar a solução e exibir as respostas.
 
-O tempo para concluir as etapas deste artigo é de 30 minutos.
+O tempo para concluir as etapas deste artigo é de 20 minutos.
 
 ![CI e CD](./media/how-to-ci-cd/cd.png)
 
@@ -34,7 +33,7 @@ O tempo para concluir as etapas deste artigo é de 30 minutos.
 
 Nesta seção, você criará uma solução de exemplo do IoT Edge contendo testes de unidade que podem ser executados como parte do processo de build. Antes de seguir as diretrizes nesta seção, conclua as etapas em [Desenvolver uma solução do IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. Na paleta de comandos do VS Code, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Em seguida, selecione a pasta do workspace, forneça um nome para a solução (o nome padrão é **EdgeSolution**) e crie um módulo C# (**FilterModule**) como o primeiro módulo de usuário nesta solução. Você também precisa especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se em um registro de Docker local (`localhost:5000/filtermodule`). Você precisa alterá-lo para o Registro de Contêiner do Azure (`<your container registry address>/filtermodule`) ou o Docker Hub para obter mais integração contínua.
+1. Na paleta de comandos do VS Code, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Em seguida, selecione a pasta do workspace, forneça um nome para a solução (o nome padrão é **EdgeSolution**) e crie um módulo C# (**FilterModule**) como o primeiro módulo de usuário nesta solução. Você também precisa especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se em um registro de Docker local (`localhost:5000/filtermodule`). Altere-o para o Registro de Contêiner do Azure (`<your container registry address>/filtermodule`) ou o Docker Hub para obter mais integração contínua.
 
     ![Configurar o ACR](./media/how-to-ci-cd/acr.png)
 
@@ -42,7 +41,7 @@ Nesta seção, você criará uma solução de exemplo do IoT Edge contendo teste
 
 3. Agora, sua solução do IoT Edge está pronta. O módulo C# padrão atua como um módulo de mensagem do pipe. No `deployment.template.json`, você verá que esta solução contém dois módulos. A mensagem será gerada pelo módulo `tempSensor`, será enviada diretamente pelo pipe por meio de `FilterModule` e, em seguida, será enviada para o Hub IoT.
 
-4. Salve esses projetos e faça o check-in deles no repositório do Azure Repos ou do TFS.
+4. Salve esses projetos e faça o check-in deles no repositório Azure Repos ou Azure DevOps Server.
     
 > [!NOTE]
 > Para obter mais informações de como usar o Azure Repos, confira [Compartilhar seu código com o GIT do Visual Studio e do Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -55,15 +54,11 @@ Nesta seção, você criará um pipeline de build configurado para ser executado
 
     ![Fazer check-in do código](./media/how-to-ci-cd/init-project.png)
 
-1. Visite o [Azure IoT Edge para Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) no Azure DevOps Marketplace. Clique em **Obter gratuitamente** e siga o assistente para instalar esta extensão em sua organização do Azure DevOps ou baixe para o TFS.
-
-    ![Instalar a extensão](./media/how-to-ci-cd/install-extension.png)
-
-1. No Azure Pipelines, abra o hub **Build e Versão** e, na guia **Builds**, escolha **+ Novo pipeline**. Ou, se você já tiver pipelines de build, escolha o botão **+ Novo**.
+1. Em seus Azure Pipelines, abra a guia **Compilações**, escolha **+ Novo pipeline**. Ou, se você já tiver pipelines de build, escolha o botão **+ Novo**. Em seguida, selecione **Novo pipeline de build**.
 
     ![Novo pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. Se solicitado, selecione o tipo de origem **Git**. Em seguida, selecione o projeto, o repositório e o branch no qual o código está localizado. Escolha **Continuar**.
+1. Se solicitado, selecione o tipo de origem **Azure DevOps Git**. Em seguida, selecione o projeto, o repositório e o branch no qual o código está localizado. Escolha **Continuar**.
 
     ![Selecionar git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -79,15 +74,19 @@ Nesta seção, você criará um pipeline de build configurado para ser executado
     
     ![Configurar o agente de build](./media/how-to-ci-cd/configure-env.png)
 
-1. No Trabalho de agente, clique em "+" para adicionar duas tarefas no pipeline de build. O primeiro deles é do **Azure IoT Edge**. E a segunda é do **Publish Build Artifacts**
+1. No Trabalho de agente, clique em "+" para adicionar duas tarefas no pipeline de build. O primeiro deles é de **Azure IoT Edge**. E a terceira é do **Publish Build Artifacts**
     
     ![Adicionar tarefas](./media/how-to-ci-cd/add-tasks.png)
 
-1. Na primeira tarefa do **Azure IoT Edge**, atualize o **Nome de exibição** para **Build e Push do Módulo** e na lista suspensa **Ação**, selecione **Compilar e Enviar por Push**. Na caixa de texto **Arquivo Module.json**, adicione o caminho abaixo. Em seguida, escolha **Tipo de Registro de Contêiner**. Configure e selecione o mesmo Registro em seu código (module.json). Essa tarefa compilará e enviará por push todos os módulos da solução e publicará o registro de contêiner especificado. Se efetuar push de módulos para diferentes registros, você poderá ter várias tarefas de **Compilar módulo e efetuar push**. No caso em que a solução do IoT Edge não está sob a raiz do seu repositório de código, você pode especificar o **Caminho da raiz da solução do Edge** na definição de build.
+1. Na primeira tarefa do **Azure IoT Edge**, atualize o **Nome de exibição** para **Azure IoT Edge - imagens de módulo de compilação**e, na lista suspensa **Ação**, selecione **Compilar imagens de módulo**. No controle **arquivo .template.json**, selecione o **deployment.template.json**, que descreve a solução IoT Edge. Em seguida, escolha **Plataforma padrão**, verifique se você selecionar a mesma plataforma como o dispositivo IoT Edge. Essa tarefa irá compilar todos os módulos na solução com a plataforma de destino especificado. E também gerará um arquivo **deployment.json**, você pode encontrar o caminho do arquivo em Variáveis de Saída. Defina o alias como `edge` para essa variável.
     
     ![Compilar e efetuar push](./media/how-to-ci-cd/build-and-push.png)
 
-1. Na tarefa **Publish Build Artifacts**, você especifica o arquivo de implantação gerado pela tarefa de build. Defina as **Caminho para publicar** para "config/deployment.json". Se você definir a **Caminho da raiz da solução do Edge** na última tarefa, precisará ingressar no caminho raiz aqui. Por exemplo, se o caminho da raiz da solução Edge for "./edgesolution", o **Caminho para publicar** deverá ser "./edgesolution/config/deployment.json". O arquivo `deployment.json` é gerado durante o tempo de build, portanto é seguro ignorar as linhas de erro em vermelho na caixa de texto. 
+1. Na segunda tarefa do **Azure IoT Edge**, atualize o **Nome de exibição** para **Azure IoT Edge - imagens de módulo de push**e, na lista suspensa **Ação**, selecione **Compilar imagens de módulo**. Em seguida, escolha Tipo de Registro de Contêiner, configure e selecione o mesmo registro em seu código (module.json). No controle **arquivo .template.json**, selecione o **deployment.template.json**, que descreve a solução IoT Edge. Em seguida, escolha **Plataforma padrão**, verifique se você seleciona a mesma plataforma para as suas imagens do módulo de compilação. Essa tarefa enviará por push a todas as imagens de módulo para o registro de contêiner que você selecionou. E também credenciais de registro de contêiner no arquivo **deployment.json**, você pode encontrar o caminho do arquivo em Variáveis de Saída. Defina o alias como `edge` para essa variável. Se você tiver vários registros de contêiner para hospedar suas imagens de módulo, você precisará duplicar essa tarefa, selecione o registro de contêiner diferente e usar **Ignorar módulos** nas configurações avançadas para ignorar as imagens que não são para esse registro específico.
+
+    ![Empurrar](./media/how-to-ci-cd/push.png)
+
+1. Na tarefa **Publish Build Artifacts**, você especifica o arquivo de implantação gerado pela tarefa de build. Defina o **Caminho para publicar** para `$(edge.DEPLOYMENT_FILE_PATH)`.
 
     ![Publicar o artefato](./media/how-to-ci-cd/publish-build-artifacts.png)
 
@@ -133,7 +132,7 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
 
     ![Adicionar tarefas para Garantia de Qualidade](./media/how-to-ci-cd/add-task-qa.png)
 
-5. Na tarefa do Azure IoT Edge, navegue até a lista suspensa **Ação**, selecione **Implantar no dispositivo do IoT Edge**. Selecione sua **assinatura do Azure** e insira seu **nome do Hub IoT**. Você pode especificar uma **ID de implantação** do IoT Edge e a **prioridade** de implantação. Você também pode escolher implantar em um único dispositivo ou em vários. Se você estiver implantando em **vários dispositivos**, será necessário especificar a **condição de destino** do dispositivo. A condição de destino é um filtro para corresponder a um conjunto de dispositivos do Edge no Hub IoT. Se você quiser usar Marcas de Dispositivo como a condição, será necessário atualizar as Marcas de dispositivos correspondentes com o dispositivo gêmeo do Hub IoT. Considere que você tem vários dispositivos do IoT Edge que foram marcados como “garantia de qualidade”, a configuração da tarefa deve ser como na captura de tela a seguir. 
+5. Na tarefa do Azure IoT Edge, navegue até a lista suspensa **Ação**, selecione **Implantar no dispositivo do IoT Edge**. Selecione sua **assinatura do Azure** e insira seu **nome do Hub IoT**. Você pode escolher implantar em um único dispositivo ou em vários. Se você estiver implantando em **vários dispositivos**, será necessário especificar a **condição de destino** do dispositivo. A condição de destino é um filtro para corresponder a um conjunto de dispositivos do Edge no Hub IoT. Se você quiser usar Marcas de Dispositivo como a condição, será necessário atualizar as Marcas de dispositivos correspondentes com o dispositivo gêmeo do Hub IoT. Atualize a **ID de implantação do IoT Edge** para "deploy-qa" em configurações avançadas. Considere que você tem vários dispositivos do IoT Edge que foram marcados como “garantia de qualidade”, a configuração da tarefa deve ser como na captura de tela a seguir. 
 
     ![Implantar na garantia de qualidade](./media/how-to-ci-cd/deploy-to-qa.png)
 
@@ -143,11 +142,11 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
 
     ![Clonar estágio](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure as tarefas para seu ambiente de produção. Considere que você tem vários dispositivos IoT Edge que foram marcados como “prod”, nas configurações da tarefa, atualize a Condição de Destino para “prod” e defina a ID de implantação como “deploy-prod”. Clique no botão **Salvar** . E, em seguida, clique em **Pipeline** para voltar para o pipeline.
+7. Configure as tarefas para seu ambiente de produção. Considere que você tem vários dispositivos IoT Edge que foram marcados como “prod”, nas configurações da tarefa, atualize a Condição de Destino para “prod” e defina a ID de implantação como “deploy-prod” nas configurações avançadas. Clique no botão **Salvar** . E, em seguida, clique em **Pipeline** para voltar para o pipeline.
     
     ![Implantar na produção](./media/how-to-ci-cd/deploy-to-prod.png)
 
-7. Atualmente, nosso artefato de build será disparado continuamente no estágio **Garantia de Qualidade** e, em seguida, no estágio **PROD**. Mas na maioria das vezes você precisa integrar alguns casos de teste nos dispositivos de garantia de qualidade e aprovar manualmente os bits. Posteriormente, os bits serão implantados no ambiente PROD. Configure uma aprovação no estágio PROD da seguinte maneira.
+7. Atualmente, nosso artefato de build será disparado continuamente no estágio **Garantia de Qualidade** e, em seguida, no estágio **PROD**. Mas na maioria das vezes você precisa integrar alguns casos de teste nos dispositivos de garantia de qualidade e aprovar manualmente os bits. Posteriormente, os bits serão implantados no ambiente PROD. Configure uma aprovação no estágio PROD como a captura de tela a seguir.
 
     1. Abra o painel de configuração **Condições de pré-implantação**.
 
@@ -158,7 +157,7 @@ Nesta seção, você criará um pipeline de lançamento configurado para ser exe
         ![Definir condições](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
 
-8. Agora seu pipeline de lançamento foi configurado da seguinte maneira.
+8. Agora seu pipeline de lançamento foi configurado conforme a captura de tela.
 
     ![Pipeline de lançamento](./media/how-to-ci-cd/release-pipeline.png)
 
@@ -171,11 +170,11 @@ Nesta seção, você vai disparar um build para fazer com que o pipeline de CI/C
 
     ![Gatilho manual](./media/how-to-ci-cd/manual-trigger.png)
 
-2. Se o pipeline de build for concluído com êxito, ele disparará uma versão o estágio **Garantia de Qualidade**. Navegue até os logs do pipeline de build e você deverá ver o seguinte.
+2. Se o pipeline de build for concluído com êxito, ele disparará uma versão o estágio **Garantia de Qualidade**. Navegue até os logs do pipeline de build e você deverá ver a seguinte captura de tela.
 
     ![Logs de build](./media/how-to-ci-cd/build-logs.png)
 
-3. A implantação com êxito para o estágio **Garantia de Qualidade** dispararia uma notificação para o aprovador. Navegue até o pipeline de lançamento, você pode ver o seguinte. 
+3. A implantação com êxito para o estágio **Garantia de Qualidade** dispararia uma notificação para o aprovador. Navegue até o pipeline de lançamento, você pode ver a seguinte captura de tela. 
 
     ![Aprovação pendente](./media/how-to-ci-cd/pending-approval.png)
 

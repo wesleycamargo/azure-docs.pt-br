@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205154"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423636"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric com visão geral de Gerenciamento de API do Azure
 
@@ -27,7 +27,13 @@ Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornece
 
 Este artigo é uma introdução ao uso de Gerenciamento de API do Azure como um gateway para aplicativos do Service Fabric. O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric . 
 
+## <a name="availability"></a>Disponibilidade
+
+> [!IMPORTANT]
+> Esse recurso está disponível nas camadas **Premium** e **Desenvolvedor** do Gerenciamento de API devido ao suporte de rede virtual necessário.
+
 ## <a name="architecture"></a>Arquitetura
+
 Uma arquitetura comum do Serviço Fabric utiliza um aplicativo Web de página única que realiza chamadas HTTP para serviços de back-end que expõem APIs de HTTP. O [aplicativo de exemplo de introdução do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra um exemplo dessa arquitetura.
 
 Nesse cenário, um serviço Web sem estado serve como o gateway no aplicativo do Serviço Fabric. Essa abordagem exige que você grave um serviço Web que pode usar um proxy nas solicitações HTTP para serviços de back-end, conforme mostrado no diagrama a seguir:

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c48f0d8f7ad34db585f4deae566641b6453357e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 72d1676613de699abda2136a7743a974b2b17c01
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670053"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162850"
 ---
 # <a name="access-the-vfxt-cluster"></a>Acessar o cluster do vFXT
 
@@ -20,18 +20,18 @@ Para alterar as configurações e monitorar o cluster do Avere vFXT, use o paine
 Como o cluster do vFXT fica dentro de uma rede virtual privada, você precisa criar um túnel SSH ou usar outro método para alcançar o endereço IP de gerenciamento do cluster. Há duas etapas básicas: 
 
 1. Criar uma conexão entre sua estação de trabalho e a rede virtual privada 
-1. Usar o endereço IP de gerenciamento do cluster para carregar o painel de controle em um navegador da Web 
+1. Carregar o painel de controle do cluster em um navegador da Web 
 
 > [!NOTE] 
-> Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Se você estiver usando uma VPN ou o ExpressRoute para acessar a rede virtual, vá para [Conectar-se ao painel de controle do Avere](#connect-to-the-avere-control-panel-in-a-browser).
+> Este artigo pressupõe que você definiu um endereço IP público no controlador do cluster ou em outra VM na rede virtual de seu cluster. Este artigo descreve como usar essa VM como um host para acessar o cluster. Se você estiver usando uma VPN ou o ExpressRoute para acessar a rede virtual, vá para [Conectar-se ao painel de controle do Avere](#connect-to-the-avere-control-panel-in-a-browser).
 
-Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) ou para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) se precisar de ajuda.  
+Antes de se conectar, certifique-se de que o par de chaves pública/privada SSH que você usou ao criar o controlador do cluster esteja instalado no computador local. Leia a documentação das chaves SSH para [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) ou para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) se você precisar de ajuda.  
 
-## <a name="access-with-a-linux-host"></a>Acesso com um host do Linux
+## <a name="ssh-tunnel-with-a-linux-host"></a>Túnel Secure Shell com um host do Linux
 
-com este formulário: 
+Se usar um cliente baseado em Linux, use um comando de túnel Secure Shell com esse formulário: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP* 
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
 
 Este comando estabelece a conexão com o endereço IP de gerenciamento do cluster por meio do endereço IP do controlador do cluster.
 
@@ -43,10 +43,11 @@ ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 
 A autenticação será automática se você tiver usado sua chave pública SSH para criar o cluster e a chave correspondente estiver instalada no sistema cliente.
 
+## <a name="ssh-tunnel-with-a-windows-host"></a>Túnel SSH com um host do Windows
 
-## <a name="access-with-a-windows-host"></a>Acesso com um host do Windows
+Este exemplo usa o utilitário terminal baseado no Windows comum, PuTTY.
 
-Se estiver usando PuTTY, preencha o campo **nome do host** com o nome de usuário do controlador do cluster e seu endereço IP: *your_username*@*controller_public_IP*.
+Preencha o campo **nome do host** no PuTTY com o nome de usuário do controlador do cluster e seu endereço IP: *your_username*@*controller_public_IP*.
 
 Exemplo: ``azureuser@203.0.113.51``
 
@@ -68,7 +69,11 @@ A autenticação será automática se você tiver usado sua chave pública SSH p
 
 Esta etapa usa um navegador da Web para se conectar ao utilitário de configuração em execução no cluster do vFXT.
 
-Abra o navegador da Web e navegue até https://127.0.0.1:8443. 
+* Para uma conexão de túnel SSH, abra seu navegador da Web e navegue até https://127.0.0.1:8443. 
+
+  Você conectou ao cluster do endereço IP ao criar o túnel, portanto, você só precisa usar o endereço IP do host local no navegador. Se você tiver usado uma porta local diferente de 8443, use seu número de porta.
+
+* Se você estiver usando uma VPN ou ExpressRoute para acessar o cluster, navegue até o endereço IP de gerenciamento de cluster em seu navegador. Exemplo: ``https://203.0.113.51``
 
 Dependendo de seu navegador, talvez seja necessário clicar em **Avançado** e verificar se é seguro prosseguir para a página.
 

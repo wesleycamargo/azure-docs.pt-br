@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721082"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712969"
 ---
 # <a name="azure-security-white-papers"></a>White papers de segurança do Azure
 | | |
 |-|-|
 |[Introdução&nbsp;à&nbsp;Segurança do&nbsp;Azure](azure-security.md)|Explica a coleção de controles de segurança implementados no Azure nas perspectivas do cliente e das operações da Microsoft. Fornece uma visão completa dos controles de segurança voltados ao cliente disponíveis com o Azure.|
 |[Práticas recomendadas de segurança para as soluções do Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Uma coleção das melhores práticas de segurança a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem com o Azure.|
+|[Desenvolvendo aplicativos seguros no Azure](abstract-develop-secure-apps.md)|Um guia geral para as perguntas de segurança e controles que são necessários considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.|
 |[Detecção avançada de ameaças](azure-threat-detection.md)|Orienta sobre as abordagens do Azure em relação a análises, diagnósticos e avaliações de vulnerabilidade de ameaça. Explica como a Microsoft usa mecanismos de detecção avançada de ameaças para proteger a plataforma. Também explica como a Microsoft inclui esses mecanismos em serviços e recursos voltados ao público.|
 |[Criptografia de dados em repouso no Azure](azure-security-encryption-atrest.md)|Se concentra em como os dados são protegidos em repouso no Azure e os vários componentes que fazem parte da implementação de proteção de dados. Revisa os prós e contras das diferentes abordagens de proteção de gerenciamento de chaves.|
 |[Log e auditoria do Azure](azure-log-audit.md)|Oferece uma introdução à geração, coleta e análise de logs de segurança de serviços hospedados no Azure. Esses logs podem ajudá-lo a obter informações de segurança para as implantações do Azure. |

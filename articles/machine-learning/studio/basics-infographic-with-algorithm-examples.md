@@ -1,11 +1,12 @@
 ---
-title: 'Infográfico: conceitos básicos do Machine Learning - exemplos do algoritmo | Microsoft Docs'
+title: 'Infográfico: conceitos básicos do Machine Learning - exemplos do algoritmo - Azure Machine Learning Studio | Microsoft Docs'
 description: Uma visão geral fácil de compreender dos conceitos básicos de aprendizado de máquina inclui exemplos de algoritmo. O infográfico baixável aborda a maioria das perguntas sobre o aprendizado de máquina.
 keywords: conceitos básicos de aprendizado de máquina, exemplos de algoritmo, aprendizado de máquina para iniciantes, perguntas sobre aprendizado de máquina, algoritmos populares, infográfico de algoritmo
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253849"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307995"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico baixável: Conceitos básicos de aprendizado de máquina com exemplos de algoritmo
 Baixe esta visão geral de fácil compreensão com um infográfico de noções básicas de aprendizado de máquina para saber mais sobre algoritmos populares usados para responder a perguntas comuns sobre aprendizado de máquina. Exemplos de algoritmo ajudam o iniciante no aprendizado de máquina a compreender quais algoritmos usar e para que eles são usados.

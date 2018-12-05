@@ -1,25 +1,18 @@
 ---
 title: Movendo os circuitos da ExpressRoute do clássico para o Gerenciador de Recursos | Microsoft Docs
 description: Esta página fornece uma visão geral do que você precisa saber ao fazer uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710058"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977022"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos
 Este artigo fornece uma visão geral do que significa mover um circuito do ExpressRoute do clássico para o modelo de implantação do Azure Resource Manager.
@@ -64,7 +57,7 @@ As seguintes operações clássicas têm suporte em um circuito do ExpressRoute 
 * Criar/atualizar/get/excluir links da rede virtual para as redes virtuais clássicas
 * Criar/atualizar/obter/excluir autorizações de link da rede virtual para a conectividade entre as assinaturas
 
-Não é possível executar as seguintes operações clássicas quando **allowClassicOperations** está definido para TRUE:
+No entanto, quando **allowClassicOperations** estiver definido para TRUE, não será possível executar as seguintes operações clássicas:
 
 * Criar/atualizar/obter/excluir emparelhamentos BGP (Border Gateway Protocol ) para os emparelhamentos dos Azures privado e público, e da Microsoft
 * Excluir circuitos do ExpressRoute

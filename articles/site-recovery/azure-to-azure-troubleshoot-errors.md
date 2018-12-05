@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945732"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308113"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -150,28 +150,36 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151195) </br>
 - **Possível causa** </br>
-  - Você está usando o NSG para controlar o acesso de saída na VM e os intervalos requeridos de IP não estão na lista de permissões para acesso de saída.
-  - Você está usando ferramentas de firewall de terceiros e os intervalos de IP necessário/URLs não estão na lista de permissões.
+  - Não é possível estabelecer conexão com pontos de extremidade do local devido à falha na resolução DNS.
+  - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
+  
+- **Resolução**
+   - Se você estiver usando o DNS personalizado, certifique-se de que o servidor DNS está acessível da região de recuperação de desastres. Para verificar se você tem um DNS personalizado vá para a VM > rede de Recuperação de Desastres > servidores DNS. Tente acessar o servidor DNS da máquina virtual. Se não estiver acessível, em seguida, disponibilize-o failover do servidor DNS ou crie a linha de site entre a rede de recuperação de Desastre e DNS.
+  
+    ![com-erro](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
+- **Possível causa** </br>
+  - Não é possível estabelecer a Conexão para pontos de extremidade de IP4 de identidade e autenticação do Office 365.
 
 - **Resolução**
-   - Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](azure-to-azure-about-networking.md).
-   - Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](azure-to-azure-about-networking.md).
+  - O Azure Site Recovery precisa de acesso aos intervalos de IPs do Office 365 para autenticação.
+    Se você estiver usando o proxy de regras de firewall NSG (grupo) de segurança de rede do Azure para controlar a conectividade de rede de saída na VM, verifique se você permitiu a comunicação com intervalos de IP do O365. Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+        - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problema 2: falha na configuração do Site Recovery (151072)
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
-  - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.onectar
-
+  - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.
 
 - **Resolução**
-   - Se você estiver usando o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter informações, consulte [orientação de proxy do firewall](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Se você estiver usando o NSG para controlar a conectividade de rede de saída na VM, certifique-se de que as URLs de pré-requisito ou intervalos de IP de datacenter estão na lista de permissões. Para obter mais informações, veja [Grupo de Segurança de Rede](https://aka.ms/a2a-nsg-guidance).
-   - Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
+  - O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) dependendo da região. Certifique-se de que necessários intervalos os de IP são acessíveis a partir da máquina virtual.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 3: a replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy no local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 4: a replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy no local (151072)
  - **Possível causa** </br>
    - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
 

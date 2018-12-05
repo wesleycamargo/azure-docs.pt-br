@@ -1,10 +1,11 @@
 ---
-title: Interpretar resultados de modelo no Machine Learning | Microsoft Azure
+title: Interpretar resultados de modelo no Machine Learning Studio| Microsoft Docs
 description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836997"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310262"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Interpretar os resultados do modelo no Azure Machine Learning
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de previsão no Azure Machine Learning Studio. Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -116,7 +117,7 @@ Visualize os resultados do módulo [Modelo de Pontuação][score-model] clicando
 
 ![Resultados do modelo de pontuação](./media/interpret-model-results/7.png)
 
-Figura 7. Visualizar os resultados do modelo de pontuação na classificação multiclasses
+ Figura 7. Visualizar os resultados do modelo de pontuação na classificação multiclasses
 
 **Interpretação de resultado**
 

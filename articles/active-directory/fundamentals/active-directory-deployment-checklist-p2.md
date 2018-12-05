@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310405"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705644"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Lista de verificação do recurso de licenciamento do Azure Active Directory Premium P2
 
-Pode parecer desanimador implantar o Azure AD (Azure Active Directory) para sua organização e mantê-lo seguro. Este artigo identifica algumas tarefas comuns que os clientes consideram úteis concluir ao longo de 30 dias, 90 dias ou mais para melhorar sua postura de segurança. Mesmo as organizações que já implantaram o Azure AD podem usar essa lista de verificação para garantir que estejam obtendo o máximo do investimento.
+Pode parecer desanimador implantar o Azure Active Directory (Azure AD) para sua organização e mantê-lo seguro. Este artigo identifica algumas tarefas comuns que os clientes acham úteis. Os clientes normalmente concluem essas tarefas durante o período de 30 dias, 90 dias, ou além para aprimorar sua postura de segurança. Mesmo as organizações que já implantaram o Microsoft Azure Active Directory podem usar essa lista de verificação para garantir que estejam obtendo o máximo do investimento.
 
 Uma infraestrutura de identidade bem planejada e executada abre o caminho para um acesso mais seguro às suas cargas de trabalho de produtividade e dados apenas por usuários e dispositivos autenticados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia pressupõe que você tenha licenças do Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 ou um pacote de licenças equivalente.
+Este guia pressupõe que você tenha licenças do Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 ou um pacote de licenças semelhante.
 
 [Licenciamento do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planejar e implantar: dia 1-30
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241252"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261659"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -33,15 +33,15 @@ Os dados do servidor que você deseja recuperar juntos devem usar a mesma frase 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover meu cofre entre assinaturas?
 
-Não. O cofre é criado em um nível de assinatura e não pode ser transferido para outra assinatura.
+ Não. O cofre é criado em um nível de assinatura e não pode ser transferido para outra assinatura.
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de backup para outro cofre?
 
-Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
+ Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso alterar de GRS para LRS depois de um backup?
 
-Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
+ Não. Um cofre do Recovery Services só pode alterar as opções de armazenamento antes que os backups sejam armazenados.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
 Não, não há suporte para ILR.
@@ -79,7 +79,7 @@ As versões compatíveis do DPM estão resumidas na [matriz de suporte](backup-a
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registrar o servidor em vários cofres?
 
-Não. Um servidor do DPM ou do Backup do Azure pode ser registrado em apenas um cofre.
+ Não. Um servidor do DPM ou do Backup do Azure pode ser registrado em apenas um cofre.
 
 
 
@@ -88,7 +88,7 @@ Sim.
 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode usar o DPM para fazer backup de aplicativos na pilha do Azure?
-Não. Você pode usar o Backup do Azure para proteger o Azure Stack, o Backup do Azure não oferece suporte ao uso do DPM para fazer backup de aplicativos no Azure Stack.
+ Não. Você pode usar o Backup do Azure para proteger o Azure Stack, o Backup do Azure não oferece suporte ao uso do DPM para fazer backup de aplicativos no Azure Stack.
 
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se eu instalei o agente do Backup do Azure para proteger meus arquivos e pastas, posso instalar o System Center DPM para fazer backup de cargas de trabalho locais no Azure?
@@ -125,7 +125,7 @@ Windows Storage Server 2012 de 64 bits | Standard, Workgroup | Com os service pa
 Windows Server 2008 R2 SP1 de 64 bits | Standard, Enterprise, Datacenter, Foundation | Com as atualizações mais recentes.
 Windows Server 2008 de 64 bits | Standard, Enterprise, Datacenter | Com as atualizações mais recentes.
 
-Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para [a lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), exceto o principal sistema operacional Linux.  Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na VM e exista suporte para Python.
+Para backups do Linux na VM do Azure, o Backup do Azure oferece suporte para [a lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), exceto o principal sistema operacional Linux e sistema operacional de 32 bits. Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na VM e exista suporte para Python.
 
 
 ## <a name="are-there-size-limits-for-data-backup"></a>Há limites de tamanho para o backup de dados?
@@ -159,7 +159,7 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 Não há nenhum limite para a quantidade de dados das quais você pode fazer backup usando um cofre dos Serviços de Recuperação.
 
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
-Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
+ Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
@@ -173,7 +173,7 @@ Não, o Backup do Microsoft Azure não dá suporte a exclusão ou limpeza de ite
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos?
 
-Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre.
+ Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre.
 - O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup.
 - Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos.
 - O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
@@ -190,7 +190,7 @@ Sim, ambos têm políticas de retenção diárias, semanais, mensais e anuais.
 Sim, você pode personalizar políticas. Por exemplo, você pode configurar os requisitos de retenção semanais e diários, mas não anuais e mensais.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso usar períodos diferentes para agendamento de backup e políticas de retenção?
-Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Por exemplo, essas imagens mostram uma política de retenção para backups feitos às 12h e às 18h.
+ Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Por exemplo, essas imagens mostram uma política de retenção para backups feitos às 12h e às 18h.
 
 ![Retenção e agendamento de Backup](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -217,7 +217,7 @@ Você pode criar até 9999 pontos de recuperação por instância protegida. Uma
 Não há limite para o número de recuperações do Backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Ao restaurar dados, eu pago pelo tráfego de saída do Azure?
-Não. A recuperação é gratuita e você não é cobrado pelo tráfego de saída.
+ Não. A recuperação é gratuita e você não é cobrado pelo tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero minha política de backup?
 

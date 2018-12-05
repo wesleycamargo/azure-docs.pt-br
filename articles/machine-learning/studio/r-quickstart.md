@@ -1,11 +1,12 @@
 ---
-title: Tutorial de início rápido para a linguagem R para Machine Learning | Microsoft Docs
+title: Tutorial de Início Rápido para a linguagem R para Machine Learning Studio - Azure | Microsoft Docs
 description: Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Azure Machine Learning para criar uma solução de previsão.
 keywords: guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227229"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317663"
 ---
-# <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Azure Machine Learning
+# <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutorial de Início Rápido para a linguagem de programação R para o Azure Machine Learning Studio
 
 <!-- Stephen F Elston, Ph.D. -->
 

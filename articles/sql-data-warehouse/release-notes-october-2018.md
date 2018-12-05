@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579260"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705371"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Outubro de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em outubro de 2018.
@@ -49,11 +49,8 @@ O SQL Data Warehouse (SQL DW) agora permite insights aprimorados em cargas de tr
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>Movimentação Instantânea de Dados 
-Além do Shuffle, a movimentação instantânea de dados agora se estende para a transmissão e particionamento.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>Aumentar o armazenamento de coluna: Gerenciamento de memória de metadados do Columnstore (SQL Server)
-Gerenciamento de memória otimizada para armazenar metadados de coluna 
+## <a name="columnstore-memory-management"></a>Gerenciamento de memória Columnstore
+À medida que aumenta o número de grupos de linhas de repositório de coluna compactados, aumenta a memória necessária para gerenciar os metadados de segmento de coluna interna para os rowgroups.  Como resultado, podem degradar o desempenho de consulta e consultas executadas em relação a algumas exibições de Gerenciamento Dinâmico Columnstore (DMVs).  Foram feitos aperfeiçoamentos nesta versão para otimizar o tamanho dos metadados internos para esses casos, levando a experiência aprimorada e desempenho para essas consultas. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Integração Azure Data Lake Storage Gen2 (GA)
 O SQL Data Warehouse do Azure (SQL DW) agora tem integração nativa com o Azure Data Lake Storage Gen2. Os clientes agora podem carregar dados usando tabelas externas do ABFS no SQL DW. Essa funcionalidade permite aos clientes integrar Lagos seus dados no Azure Data Lake Storage Gen2. 

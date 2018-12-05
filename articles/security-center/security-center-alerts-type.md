@@ -3,7 +3,7 @@ title: Alertas de segurança por tipo na Central de Segurança do Azure | Micros
 description: Este artigo descreve os diferentes tipos de alertas de segurança disponíveis na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262107"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633258"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
-Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](security-center-policies.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Para configurar as detecções avançadas, atualize para a Central de Segurança do Azure Standard. Há uma avaliação gratuita de 60 dias disponível. Para atualizar, selecione **Tipo de Preço** na [política de segurança](security-center-azure-policy.md). Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > A Central de Segurança foi lançada para visualização limitada de um novo conjunto de detecções que aproveitam os registros de auditoria, uma estrutura de auditoria comum, para detectar comportamentos mal-intencionados em máquinas Linux. Envie um email com suas IDs de assinatura para [nós](mailto:ASC_linuxdetections@microsoft.com) para ingressar na visualização.
@@ -57,7 +57,7 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
     * Um processo com uma extensão suspeita foi executado.
     * Um processo com uma extensão dupla suspeita foi executado.
     * Um processo com um caractere suspeito da direita para esquerda (RLO) em seu nome de arquivo foi executado.
-    * Um processo cujo nome é muito semelhante, mas é diferente de um processo de execução muito comum foi executado.
+    * Um processo cujo nome é semelhante, mas é diferente de um processo de execução muito comum foi executado
     * Um processo cujo nome corresponde a uma ferramenta de invasão conhecida foi executado.
     * Um processo com um nome aleatório foi executado.
     * Um processo com uma extensão suspeita foi executado.
@@ -82,7 +82,7 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Atividade suspeita de recurso RDP**: o alvo dos invasores geralmente são portas de gerenciamento abertas como RDP com ataques de força bruta. Esses alertas indicam atividade de logon suspeita em Área de Trabalho Remota apontando que:
     * Houve tentativas de logon em Área de Trabalho Remota.
     * Houve tentativas de logon em Área de Trabalho Remota usando contas inválidas.
-    * Houve tentativas de logon em Área de Trabalho Remota, e algumas conseguiram fazer logon no computador.
+    * Houve tentativas de logon em Área de Trabalho Remota e algumas conseguiram fazer logon no computador.
 * **Atividade suspeita de recurso SSH**: o alvo dos invasores geralmente são portas de gerenciamento abertas como SSH com ataques de força bruta. Esses alertas indicam atividade de logon suspeita em SSH apontando que:
     * Houve tentativas de logon com falha no SSH.
     * Houve tentativas de logon no SSH, e algumas tiveram êxito.
@@ -192,7 +192,7 @@ Se houver informações adicionais disponíveis, elas serão mostradas no Incide
 - Dispositivo PNP conectado de dispositivo desconhecido
 - Alertas que não são acionáveis
 - Nova criação de conta
-- Arquivo decodificado usando a ferramenta certutil 
+- Arquivo decodificado usando a ferramenta certutil
 
 ![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

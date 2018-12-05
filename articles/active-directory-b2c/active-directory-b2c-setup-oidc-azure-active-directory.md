@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242850"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312775"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurar contas do Azure Active Directory de entrada como uma política interna no Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Este artigo mostra como habilitar a entrada de usuários de uma organização do
 
 ## <a name="create-an-azure-ad-app"></a>Criar um aplicativo Azure AD
 
-Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD, que não é o mesmo que o seu locatário do B2C do Azure AD.
+Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD, que não é o mesmo que o seu locatário do Azure Active Directory B2C.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Verifique se você está usando o diretório que contém seu locatário do Azure AD clicando nos filtros de pastas e de assinatura no menu superior e, então, escolhendo o diretório que contém o locatário do Azure AD.

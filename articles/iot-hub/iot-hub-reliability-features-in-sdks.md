@@ -1,5 +1,5 @@
 ---
-title: Como gerenciar conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT
+title: Como gerenciar a conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT do Azure
 description: Saiba como melhorar a conectividade do dispositivo e as mensagens ao usar SDKs do dispositivo do Hub IoT
 services: iot-hub
 keywords: ''
@@ -12,63 +12,65 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 64bd250f324bed53a9f33aa72f6b1daa48e0dc86
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227415"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424639"
 ---
-# <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Como gerenciar conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT
+# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gerenciar a conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT do Azure
 
-Este guia fornece diretrizes de alto nível para o design de aplicativos de dispositivos resilientes, aproveitando os recursos de conectividade e mensagens confiáveis dos SDKs do dispositivo IoT do Azure. O objetivo deste artigo é ajudar a responder às perguntas e lidar com estes cenários:
+Este artigo fornece diretrizes de alto nível para ajudar a projetar aplicativos de dispositivo que são mais resilientes. Mostra como tirar proveito dos recursos de sistema de mensagens confiáveis e conectividade em SDKs do dispositivo IoT do Azure. O objetivo deste guia é ajudar você a gerenciar os seguintes cenários:
 
-- Gerenciar uma conexão de rede removida
-- Gerenciar a comutação entre diferentes conexões de rede
-- Gerenciar a reconexão devido a erros transitórios de conexão do serviço
+- Correção de uma conexão de rede removida
+- Alternar entre as conexões de rede diferentes
+- Reconexão devido a erros de conexão transitórios de serviço
 
-Os detalhes da implementação podem variar de acordo com a linguagem; consulte a documentação da API vinculada ou o SDK específico para obter mais detalhes.
+Detalhes de implementação podem variar por idioma. Para obter mais informações, consulte a documentação API ou SDK específico:
 
 - [SDK do C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
 - [SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [SDK do Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-
 ## <a name="designing-for-resiliency"></a>Design para resiliência
 
-Os dispositivos do IoT geralmente dependem de conexões de rede não contínuas e/ou instáveis, como GSM ou satélite. Além disso, ao interagir com serviços baseados em nuvem, podem ocorrer erros devido a condições temporárias, como disponibilidade intermitente do serviço e falhas no nível da infraestrutura (comumente chamadas de falhas transitórias). Um aplicativo em execução em um dispositivo precisa gerenciar os mecanismos de conexão e reconexão, bem como a lógica de nova tentativa de envio/recebimento de mensagens. Além disso, os requisitos de estratégia de repetição dependem muito do cenário de IoT do qual o dispositivo participa e do contexto e dos recursos do dispositivo.
+Os dispositivos IoT geralmente dependem de conexões de rede não contínuas instáveis (por exemplo, GSM ou satélite). Erros podem ocorrer quando os dispositivos interagem com serviços baseados em nuvem devido por causa da disponibilidade do serviço intermitente e nível de infraestrutura ou falhas transitórias. Um aplicativo em execução em um dispositivo precisa gerenciar os mecanismos de conexão, reconexão, bem como a lógica de nova tentativa para enviar e receber mensagens. Além disso, os requisitos da estratégia de repetição dependem consideravelmente o do cenário de IoT do dispositivo, contexto, recursos.
 
-Os SDKs do dispositivo do Hub IoT visam simplificar a conexão e a comunicação de nuvem para dispositivo e dispositivo para nuvem, fornecendo uma maneira robusta e abrangente de conectar e enviar/receber mensagens para e do Hub IoT. Os desenvolvedores também podem modificar a implementação existente para desenvolver a estratégia correta de novas tentativas para um determinado cenário.
+Os SDKs do dispositivo Hub IoT do Azure têm como objetivo simplificar a conexão e comunicação da nuvem para o dispositivo e o dispositivo para a nuvem. Esses SDKs fornecem uma maneira robusta para se conectar ao Hub IoT do Azure e um conjunto abrangente de opções para enviar e receber mensagens. Os desenvolvedores também podem modificar a implementação existente para personalizar uma estratégia de tentativa melhor para um determinado cenário.
 
 Os recursos relevantes do SDK que dão suporte para conectividade e mensagens confiáveis são abordados nas seções a seguir.
 
 ## <a name="connection-and-retry"></a>Conexão e repetição
 
-Esta seção fornece uma visão geral dos padrões de repetição e reconexão disponíveis ao gerenciar conexões, diretrizes de implementação para usar uma política de repetição diferente no aplicativo do dispositivo e APIs relevantes para os SDKs do dispositivo.
+Esta seção fornece uma visão geral da reconexão e tentar novamente padrões disponíveis ao gerenciar conexões. Ela fornece detalhes sobre diretrizes de implementação para usar uma política de repetição diferente em seu aplicativo de dispositivo e lista as APIs relevantes de SDKs do dispositivo.
 
 ### <a name="error-patterns"></a>Padrões de erros
 Falhas de conexão podem acontecer em vários níveis:
 
--  Erros de rede, como um soquete desconectado e erros de resolução de nome
-- Erros no nível de protocolo para transporte MQTT, AMQP e HTTP como links desconectados ou sessões expiradas
-- Erros no nível de aplicativo que resultam de erros locais, como credenciais inválidas ou comportamento de serviço, como exceder cota ou limitação
+- Erros de rede: soquete desconectado e erros de resolução de nome
+- Erros no nível de protocolo para HTTP, AMQP e MQTT transport: links desanexados ou sessões expiradas
+- Erros no nível de aplicativo que resultam de erros locais, como credenciais inválidas ou comportamento de serviço (por exemplo, excedendo a cota ou limitação)
 
-Os SDKs do dispositivo detectam erros nos três níveis.  Erros relacionados a SO e erros de hardware não são detectados e manipulados pelos SDKs do dispositivo.  O design é baseado nas [Diretrizes de Tratamento de Falhas Transitórias](/azure/architecture/best-practices/transient-faults#general-guidelines) do Azure Architecture Center.
+Os SDKs do dispositivo detectam erros nos três níveis. Erros relacionados a SO e erros de hardware não são detectados e manipulados pelos SDKs do dispositivo. O design SDK é baseado nas [Diretrizes de Tratamento de Falhas Transitórias](/azure/architecture/best-practices/transient-faults#general-guidelines) do Centro de Arquitetura do Azure.
 
 ### <a name="retry-patterns"></a>Padrões de repetição
 
-O processo geral para repetir quando erros de conexão são detectados é: 
-1. O SDK detecta o erro e o erro associado na rede, protocolo ou aplicativo.
-2. Com base no tipo de erro, o SDK usa o filtro de erros para decidir se a nova repetição precisa ser executada.  Se um **erro irrecuperável** for identificado pelo SDK, as operações (conexão e envio/recebimento) serão interrompidas e o SDK notificará o usuário. Um erro irrecuperável é um erro que o SDK pode identificar e determinar que não pode ser recuperado, por exemplo, uma autenticação ou erro de ponto de extremidade incorreto.
-3. Se um **erro irrecuperável** for identificado, o SDK começará a repetir usando a política de repetição especificada até que um tempo limite definido expire.
-4. Quando o tempo limite definido expira, o SDK para de tentar conectar ou enviar, e notifica o usuário.
-5.  O SDK permite ao usuário anexar um retorno de chamada para receber alterações no status da conexão. 
+As etapas a seguir descrevem o processo de repetição quando forem detectados erros de conexão:
 
-Três políticas de repetição são fornecidas:
-- **Retirada exponencial com tremulação**: essa é a política de repetição padrão aplicada.  Ela tende a ser agressiva no início, desacelera e, em seguida, atinge um atraso máximo que não é excedido.  O design é baseado nas [Diretrizes de repetição do Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Repetição personalizada**: você pode implementar uma política de repetição personalizada e injetá-la no RetryPolicy, dependendo da linguagem escolhida. É possível criar uma política de repetição adequada ao seu cenário.  Isso não está disponível no C do SDK.
-- **Sem repetição**: há uma opção para definir a política de repetição para "sem repetição", o que desabilita a lógica de repetição.  O SDK tenta conectar uma vez e enviar uma mensagem uma vez, assumindo que a conexão foi estabelecida. Essa política normalmente seria usada em casos em que há preocupações de largura de banda ou custo.   Se essa opção for escolhida, as mensagens que não forem enviadas serão perdidas e não poderão ser recuperadas. 
+1. O SDK detecta o erro e o erro associado na rede, protocolo ou aplicativo.
+1. O SDK usa o filtro de erro para determinar o tipo de erro e decidir se uma nova tentativa é necessária.
+1. Se o SDK identifica um **erro irrecuperável**, operações, como a conexão, enviar e receber são interrompidos. O SDK notificará o usuário. Exemplos de erros irrecuperáveis incluem um erro de autenticação e um erro de ponto de extremidade ruim.
+1. Se o SDK identifica um **erro recuperável**, ele tentará novamente de acordo com a política de repetição especificado até que tenha decorrido o tempo limite definido.
+1. Quando o tempo limite definido expira, o SDK para de tentar conectar ou enviar. Notifica o usuário.
+1. O SDK permite ao usuário anexar um retorno de chamada para receber alterações no status da conexão.
+
+Os SDKs fornecem três políticas de repetição:
+
+- **Retirada exponencial com tremulação**: essa política de repetição padrão tende a ser agressiva no início e lenta para baixo ao longo do tempo até atingir um atraso máximo. O design é baseado nas [Diretrizes de repetição do Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Repetição personalizada**: para alguns idiomas do SDK, você pode criar uma política de repetição personalizada que é mais adequada para seu cenário e, em seguida, injetar RetryPolicy. Repetição personalizada não está disponível no SDK do C.
+- **Sem repetição**: você pode definir a política de repetição para "Nenhuma repetição," que desabilita a lógica de repetição. O SDK tenta conectar uma vez e enviar uma mensagem uma vez, assumindo que a conexão foi estabelecida. Essa política é normalmente usada em cenários com questões de largura de banda ou custo. Se você escolher essa opção, as mensagens que não forem enviadas serão perdidas e não poderão ser recuperadas.
 
 ### <a name="retry-policy-apis"></a>APIs da política de repetição
 
@@ -78,9 +80,8 @@ Três políticas de repetição são fornecidas:
    | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._device_client_config.setretrypolicy?view=azure-java-stable)        | **Padrão**: [classe ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Personalizado:** implementa [interface RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Sem repetição:** [classe NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Implementação Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |[SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
    | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_SetRetryPolicy_Microsoft_Azure_Devices_Client_IRetryPolicy) | **Padrão**: [classe ExponentialBackoff](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Personalizado:** implementa [interface IRetryPolicy](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Sem repetição:** [classe NoRetry](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [Implementação C#](https://github.com/Azure/azure-iot-sdk-csharp) |
    | Nó| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest#azure_iot_device_Client_setRetryPolicy) | **Padrão**: [classe ExponentialBackoffWithJitter](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Personalizado:** implementa [interface RetryPolicy](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Sem repetição:** [classe NoRetry](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Implementação Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
-   
 
-Abaixo estão exemplos de código que ilustram esse fluxo. 
+Os exemplos de código a seguir ilustram esse fluxo:
 
 #### <a name="net-implementation-guidance"></a>Diretrizes de implementação .NET
 
@@ -92,7 +93,7 @@ O exemplo de código abaixo mostra como definir e definir a política de repeti�
    SetRetryPolicy(retryPolicy);
    ```
 
-Para evitar o alto uso da CPU, as repetições serão aceleradas se o código falhar imediatamente (por exemplo, quando não houver rede nem rota para o destino), de forma que o tempo mínimo para executar a próxima repetição seja de 1 segundo. 
+Para evitar o alto uso da CPU, as novas tentativas são limitadas se o código falhar imediatamente. Por exemplo, quando não há nenhuma rede ou rota para o destino. O tempo mínimo para executar a próxima repetição é de 1 segundo.
 
 Se o serviço estiver respondendo com um erro de limitação, a política de repetição será diferente e não poderá ser alterada por meio da API pública:
 
@@ -102,16 +103,19 @@ Se o serviço estiver respondendo com um erro de limitação, a política de rep
    SetRetryPolicy(retryPolicy);
    ```
 
-O mecanismo de repetição será interrompido após `DefaultOperationTimeoutInMilliseconds`, que atualmente é definido como 4 minutos.
+O mecanismo de repetição será interrompido após `DefaultOperationTimeoutInMilliseconds`, que atualmente é definido em 4 minutos.
 
 #### <a name="other-languages-implementation-guidance"></a>Outras diretrizes de implementação de linguagens
-Para outras linguagens, revise a documentação de implementação a seguir.  Os exemplos que demonstram o uso das APIs de política de repetição são fornecidos no repositório.
+
+Para obter exemplos de código em outros idiomas, revise os seguintes documentos de implementação. O repositório contém exemplos que demonstram o uso de APIs de política de repetição.
+
 - [SDK do C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
 - [SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [SDK do Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - [Usar SDKs de serviço e dispositivo](.\iot-hub-devguide-sdks.md)
 - [Usar o dispositivo IoT SDK para C](.\iot-hub-device-sdk-c-intro.md)
 - [Desenvolver para dispositivos restritos](.\iot-hub-devguide-develop-for-constrained-devices.md)

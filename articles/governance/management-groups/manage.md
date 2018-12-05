@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991197"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582404"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -207,7 +207,7 @@ Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em s
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover assinaturas no PowerShell
 
-Para mover uma assinatura no PowerShell, use o comando Add-AzureRmManagementGroupSubscription.  
+Para mover uma assinatura no PowerShell, use o comando New-AzureRmManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -272,12 +272,26 @@ Use o comando update para mover um grupo de gerenciamento com a CLI do Azure.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Auditar grupos de gerenciamento usando logs de atividades
+
+Para controlar os grupos de gerenciamento por meio desta API, use a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs). No momento não é possível usar o PowerShell, a CLI ou o portal do Azure para controlar a atividade de grupos de gerenciamento.
+
+1. Como um administrador de locatários do locatário do AD do Azure, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md), em seguida, atribua uma função de leitor para o usuário de auditoria sobre o escopo `/providers/microsoft.insights/eventtypes/management`.
+1. Como o usuário de auditoria, chame a [API de Locatário do Log de Atividade](/rest/api/monitor/tenantactivitylogs) para ver as atividades do grupo de gerenciamento. Convém filtrar pelo Provedor de Recursos **Microsoft.Management** para todas as atividades do grupo de gerenciamento.  Exemplo:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Para chamar convenientemente esta API da linha de comando, tente [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre grupos de gerenciamento, consulte:
 
-- [Organizar seus recursos com grupos de gerenciamento do Azure](overview.md)
 - [Criar grupos de gerenciamento para organizar recursos do Azure](create.md)
-- [Instalar o módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Revisar as Especificações de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalar a Extensão CLI do Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Como alterar, excluir ou gerenciar seus grupos de gerenciamento](manage.md)
+- [Analisar grupos de gerenciamento no Módulo de Recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Revisar grupos de gerenciamento na API REST](https://aka.ms/mgAPIdocs)
+- [Revisar grupos de gerenciamento na CLI do Azure](https://aka.ms/mgclidoc)

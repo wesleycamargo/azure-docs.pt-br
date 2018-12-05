@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115515"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443501"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
 
@@ -78,6 +78,8 @@ Esta seção contém pares de nome/valor que seu aplicativo Web carregará na in
 
 As configurações do aplicativo são sempre criptografadas quando armazenadas (criptografadas em repouso).
 
+As configurações do aplicativo podem ser resolvidas do Key Vault usando [Referências de Key Vault](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Cadeias de conexão
 Cadeia de conexão para recursos vinculados. 
 
@@ -93,6 +95,8 @@ Para aplicativos PHP, Python, Java e Nó essas configurações estarão disponí
 Por exemplo, se uma cadeia de conexão MySql fosse nomeado `connectionstring1`, ela seria acessada pela variável de ambiente `MYSQLCONNSTR_connectionString1`.
 
 As cadeias de conexão são sempre criptografadas quando armazenadas (criptografadas em repouso).
+
+As cadeias de conexão podem ser resolvidas a partir do Key Vault usando as [Referências de Key Vault](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Documentos padrão
 O documento padrão é a página da Web exibida na URL raiz de um site.  O primeiro arquivo correspondente na lista é usado. 

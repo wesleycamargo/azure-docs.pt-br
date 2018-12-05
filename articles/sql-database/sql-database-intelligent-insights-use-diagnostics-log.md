@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166887"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977090"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
@@ -39,9 +39,7 @@ O cabeçalho do log é comum e consiste no carimbo de data e hora (TimeGenerated
 
 ## <a name="issue-id-and-database-affected"></a>ID do problema e o banco de dados afetado
 
-A propriedade de identificação do problema (issueId_d) fornece uma maneira de acompanhar de maneira exclusiva os problemas de desempenho até a solução. Insights inteligentes observa o ciclo de vida de cada problema como: “Ativo”, “Verificando” ou “Concluído”. Em cada uma dessas fases de status, Intelligent Insights podem registrar vários registros de eventos no log. Para cada uma dessas entradas, o número de ID do problema permanece exclusivo. O Intelligent Insights controlam o problema em seu ciclo de vida e gera um insight no log de diagnóstico a cada 15 minutos.
-
-Quando um problema de desempenho é detectado e enquanto ele dura, é reportado como "Ativo" na propriedade status (status_s). Depois que um problema detectado é mitigado, ele é verificado e relatado como "Verificando" na propriedade de status (status_s). Se o problema não estiver mais presente, a propriedade status (status_s) o relatará como "Concluído".
+A propriedade de identificação do problema (issueId_d) fornece uma maneira de rastrear de forma exclusiva os problemas de desempenho até a solução. Vários registros de eventos no status de relatórios de log do mesmo problema compartilharão a mesma ID do problema.
 
 Juntamente com a ID do problema, o log de diagnóstico relata os carimbos de data/hora do início (intervalStartTime_t) e do término (intervalEndTme_t) do evento específico relacionado a um erro informado no log de diagnóstico.
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669953"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163164"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -48,15 +48,20 @@ As etapas a seguir adicionam um arquivista central do NAS:
 
 1. No Painel de Controle do Avere, clique na guia **Configurações** na parte superior.
 
-2. Clique em **Arquivista Central** > **Gerenciar Arquivistas Centrais** à esquerda.
+1. Clique em **Arquivista Central** > **Gerenciar Arquivistas Centrais** à esquerda.
 
-3. Clique em **Criar**.
+1. Clique em **Criar**.
 
-   ![Captura de tela da página Adicionar novo arquivista central com o nome do arquivista central e seu nome de domínio totalmente qualificado](media/avere-vfxt-add-core-filer.png)
+   ![Captura de tela da página Adicionar novo arquivador principal com um cursor sobre o botão Criar](media/avere-vfxt-add-core-filer-start.png)
+
+1. Preencha as informações obrigatórias no assistente: 
 
    * Dar um nome ao arquivista central.
    * Forneça um FQDN (nome de domínio totalmente qualificado) se disponível. Caso contrário, forneça um endereço IP ou nome de host que seja resolvido para seu arquivista central.
    * Escolha sua classe de arquivista na lista. Se não tiver certeza, escolha **Outro**.
+
+     ![Captura de tela da página Adicionar novo arquivista central com o nome do arquivista central e seu nome de domínio totalmente qualificado](media/avere-vfxt-add-core-filer.png)
+  
    * Clique em **Avançar** e escolha uma política de cache. 
    * Clique em **Adicionar Arquivista**.
    * Para obter mais informações, veja [Como adicionar um novo arquivista central NAS](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) no guia de configurações de cluster do Avere.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42311952"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275679"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ As propriedades a seguir têm suporte para o serviço vinculado do Oracle.
 >[!TIP]
 >Se aparecer o erro "ORA-01025: parâmetro UPI fora do intervalo" e o Oracle for versão 8i, adicione `WireProtocolMode=1` à cadeia de conexão e tente novamente.
 
-Para habilitar a criptografia na conexão do Oracle, há duas opções:
+**Para habilitar a criptografia na conexão do Oracle**, há duas opções:
 
-1.  No lado do servidor Oracle, acesse OAS (Oracle Advanced Security) e defina as configurações de criptografia, que dão suporte para 3DES (Triple-DES Encryption) e AES (criptografia AES), consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). O conector ADF Oracle negocia automaticamente o método de criptografia para usar aquele que você configura no OAS ao estabelecer a conexão com o Oracle.
+1.  Para usar **criptografia DES triplo (3DES) e criptografia AES** , no lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e defina as configurações de criptografia, consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). O conector ADF Oracle negocia automaticamente o método de criptografia para usar aquele que você configura no OAS ao estabelecer a conexão com o Oracle.
 
-2.  No lado do cliente, você pode adicionar `EncryptionMethod=1` na cadeia de conexão. Essa opção usará SSL/TLS como o método de criptografia. Para usar essa, é necessário desabilitar as configurações de criptografia não SSL no OAS no lado do servidor Oracle para evitar conflitos de criptografia.
+2.  Para usar **SSL**, siga as etapas abaixo:
+
+    1.  Obter informações do certificado SSL. Obter as informações de certificado codificado em DER do seu certificado SSL e salvar a saída (---Begin Certificate... End Certificate---) como um arquivo de texto.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Exemplo:** extrair informações de certificado de DERcert.cer; em seguida, salvar a saída em cert.tx
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  Crie o repositório de chaves ou truststore. O comando a seguir cria o arquivo truststore com ou sem uma senha no formato PKCS 12.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Exemplo:** cria um arquivo de trustsotre PKCS12 denominado MyTrustStoreFile com uma senha
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  Coloque o arquivo truststore no computador do IR auto-hospedado, por exemplo, no C:\MyTrustStoreFile.
+    4.  Em ADF, configure a cadeia de conexão do Oracle com `EncryptionMethod=1` e o correspondente `TrustStore` / `TrustStorePassword`valor, por exemplo, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exemplo:**
 

@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515345"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273792"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar seu investimento na nuvem com o Gerenciamento de Custos do Azure
 
@@ -26,7 +26,7 @@ O Gerenciamento de Custos do Azure fornece as ferramentas para planejar, analisa
 O gerenciamento de custos é um problema organizacional e deve ser uma prática contínua que começa antes de você investir dinheiro em recursos de nuvem. Para implementar o gerenciamento de custos e otimizar os custos com êxito, sua organização precisa:
 
 - Preparar-se com as ferramentas adequadas para o sucesso
-- Responsabilizar pelos custos
+- Responsabilizar-se pelos custos
 - Tomar as devidas providências para otimizar os gastos
 
 Os três grupos principais, descritos abaixo, precisam estar alinhados na organização para garantir o sucesso do gerenciamento de custos.
@@ -62,7 +62,7 @@ Execute ações para reduzir seus gastos. Aproveite-a ao máximo com base nas de
 
 #### <a name="iteration"></a>Iteração
 
-Todos em sua organização precisam participar do ciclo de vida do gerenciamento de custos. Eles precisam permanecer envolvidos continuamente na otimização de custos. Seja rigoroso quanto a esse processo iterativo e faça com que ele seja um locatário fundamental da governança de nuvem responsável em sua organização.
+Todos em sua organização precisam participar do ciclo de vida do gerenciamento de custos. Eles precisam permanecer envolvidos continuamente para otimizar os custos. Seja rigoroso quanto a esse processo iterativo e faça com que ele seja um locatário fundamental da governança de nuvem responsável em sua organização.
 
 ![Principais princípios](./media/cost-mgt-best-practices/principles.png)
 
@@ -125,7 +125,7 @@ Mantenha-se informado sobre como os custos da sua organização evoluem ao longo
 
 ### <a name="organize-and-tag-your-resources"></a>Organizar e marcar seus recursos
 
-Organize seus recursos com o custo em mente. Ao criar assinaturas e grupos de recursos, pense em quais são equipes responsáveis pelos custos associados. Faça com que os relatórios mantenham a organização em mente. As assinaturas e os grupos de recursos fornecem bons buckets para organizar e atribuir gastos em sua organização. As marcas fornecem uma boa maneira atribuir custos. Você pode usar as marcas como um filtro. E você pode usá-las para agrupar ao analisar dados e investigar custos. Os clientes do Contrato Enterprise também podem criar departamentos e colocar assinaturas neles. A organização baseada em custos no Azure ajuda a responsabilizar as pessoas relevantes na organização pelos custos para reduzir os gastos da equipe.
+Organize seus recursos com o custo em mente. Ao criar assinaturas e grupos de recursos, pense em quais são equipes responsáveis pelos custos associados. Faça com que os relatórios mantenham a organização em mente. As assinaturas e os grupos de recursos fornecem bons buckets para organizar e atribuir gastos em sua organização. As marcas fornecem uma boa maneira atribuir custos. Você pode usar as marcas como um filtro. E você pode usá-las para agrupar ao analisar dados e investigar custos. Os clientes do Enterprise Agreement também podem criar departamentos e colocar assinaturas neles. A organização baseada em custos no Azure ajuda a responsabilizar as pessoas relevantes na organização pelos custos para reduzir os gastos da equipe.
 
 ### <a name="use-cost-analysis"></a>Usar análise de custo
 

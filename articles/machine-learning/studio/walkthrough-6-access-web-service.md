@@ -1,10 +1,11 @@
 ---
-title: 'Etapa 6: Acessar o serviço Web do Machine Learning | Microsoft Docs'
-description: 'Etapa 6 do desenvolvimento de um passo a passo de solução de previsão: acessar um serviço Web do Azure Machine Learning ativo.'
+title: 'Etapa 6: acessar o serviço Web do Machine Learning Studio | Microsoft Docs'
+description: 'Etapa 6: desenvolver um passo a passo de solução de previsão: acessar um serviço Web do Azure Machine Learning Studio ativo.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -15,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: be63a04d0fe71039b19eb6bc0678a319f622a811
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836697"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306447"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Azure Machine Learning
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Azure Machine Learning Studio
 
 Esta é a última etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um novo teste](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)

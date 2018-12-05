@@ -1,9 +1,9 @@
 ---
-title: Como implantar um serviço Web em várias regiões | Microsoft Docs
+title: Como implantar um serviço Web em várias regiões - Azure Machine Learning Studio | Microsoft Docs
 description: Etapas para implantar (copiar) um novo serviço Web para outras regiões.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
+author: ericlicoding
 manager: hjerez
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.custom: (previous ms.author=aashishb, author=aashishb)
+ms.author: amlstudiodocs
+ms.openlocfilehash: ab28cce0f973c4798bfd6995cc275c4724b7bcc9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835127"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308012"
 ---
-# <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implantar um serviço Web em várias regiões
+# <a name="azure-machine-learning-studio-deploy-a-web-service-to-multiple-regions"></a>Azure Machine Learning Studio: implantar um serviço Web em várias regiões
 Os novos serviços Web do Azure permitem que você facilmente implante um serviço Web em várias regiões, sem a necessidade de várias assinaturas ou workspaces. 
 
 O preço é específico de cada região; portanto, você deverá definir um plano de faturamento para cada região na qual implantará o serviço Web.

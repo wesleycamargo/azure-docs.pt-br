@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087739"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425992"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 
@@ -101,7 +101,7 @@ Para habilitar o streaming de telemetria de diagnóstico para o **Banco de Dados
    ![Configura o diagnóstico para o Banco de Dados SQL do Microsoft Azure](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> O log de auditoria não pode ser habilitado nas configurações de diagnóstico do banco de dados. Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria do banco de dados](sql-database-auditing.md#subheading-2)e também ver [logs de auditoria do SQL no Azure Log Analytics e Hubs de Eventos do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Os logs de auditoria de segurança não podem ser habilitados nas configurações de diagnóstico do banco de dados. Para habilitar o streaming de log de auditoria, consulte [Configurar a auditoria do banco de dados](sql-database-auditing.md#subheading-2)e também ver [logs de auditoria do SQL no Azure Log Analytics e Hubs de Eventos do Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Para habilitar o streaming de telemetria de diagnóstico para **Recurso de Inst�
 2. Selecione **configurações de Diagnóstico**
 3. Selecione **Ativar diagnóstico** se nenhuma configuração anterior existir, ou selecione **Editar configuração** para editar uma configuração anterior
 
-   ![Habilitar o diagnóstico para a Instância Gerenciada do Banco de Dados SQL do Azure](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Habilitar o diagnóstico para a Instância Gerenciada do Banco de Dados SQL do Azure](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. Digite o nome para a configuração – para sua própria referência
 5. Selecione a qual recurso transmitir dados de diagnóstico do pool Elástico: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **Enviar para o Log Analytics**
@@ -190,7 +190,7 @@ Para habilitar o streaming de telemetria de diagnóstico para **Recurso de Inst�
 7. Marque a caixa de seleção por exemplo telemetria de diagnóstico **ResourceUsageStats**
 8. Clique em **Salvar**
 
-   ![Configurar o diagnóstico para Instância Gerenciada do Banco de Dados SQL do Azure](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurar o diagnóstico para Instância Gerenciada do Banco de Dados SQL do Azure](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > Repita as etapas acima para cada Instância Gerenciada do Banco de Dados SQL do Azure que você deseja monitorar.

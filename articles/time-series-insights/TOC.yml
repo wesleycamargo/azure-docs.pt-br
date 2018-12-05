@@ -5,7 +5,7 @@ items:
   href: index.yml
 - name: Visão geral
   items:
-  - name: Sobre o Time Series Insights (versão prévia)
+  - name: Sobre o Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Guia de início rápido
   items:
@@ -29,7 +29,7 @@ items:
       href: tutorial-create-populate-tsi-environment.md
   - name: Azure Time Series Insights (versão prévia)
     items:
-    - name: Criar um ambiente TSI
+    - name: Tutorial do Azure TSI (versão prévia)
       href: time-series-insights-update-create-environment.md
 - name: Conceitos
   items:
@@ -51,11 +51,11 @@ items:
       href: time-series-insights-update-storage-ingress.md
     - name: Casos de uso
       href: time-series-insights-update-use-cases.md
-    - name: Modelo do Time Series
+    - name: Modelagem de dados
       href: time-series-insights-update-tsm.md
-    - name: Consulta do Time Series
+    - name: Consultas de dados
       href: time-series-insights-update-tsq.md
-    - name: Visualizar os dados na atualização do Explorer
+    - name: Visualizar os dados na atualização do explorador
       href: time-series-insights-update-explorer.md
   - name: Desenvolver
     items:
@@ -109,25 +109,29 @@ items:
   items:
   - name: Time Series Insights
     items:
-    - name: Time Series Insights GA
+    - name: Azure Time Series Insights (GA)
+      href: /rest/api/time-series-insights/ga
       items:
       - name: Consultar
+        href: /rest/api/time-series-insights/ga-query
         items:
         - name: API
-          href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+          href: /rest/api/time-series-insights/ga-query-api
         - name: Sintaxe
-          href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+          href: /rest/api/time-series-insights/ga-query-syntax
       - name: API de Dados de Referência
+        href: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure Time Series Insights (versão prévia)
+      href: /rest/api/time-series-insights/preview
       items:
       - name: Consulta do Time Series
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsq
+        href: /rest/api/time-series-insights/preview-query
       - name: Modelo do Time Series
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsm
+        href: /rest/api/time-series-insights/preview-model
       - name: API do ambiente do Time Series
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-env
+        href: /rest/api/time-series-insights/preview-env
       - name: Sintaxe e expressão do Time Series
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsx
+        href: /rest/api/time-series-insights/preview-tsx
 - name: Relacionados
   items:
   - name: Soluções
@@ -176,9 +180,9 @@ items:
     href: https://azure.microsoft.com/support/options/
   - name: vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-ms.openlocfilehash: d30b4b2b19a4f055647b4723c91a15a1a977de6d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c75c034e0f54b33e28aa7f0ef5d0c18ad0004e55
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849506"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889984"

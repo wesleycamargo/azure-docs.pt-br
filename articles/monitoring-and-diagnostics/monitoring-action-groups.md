@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016039"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311799"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -49,7 +49,7 @@ Para saber mais sobre como usar modelos do Azure Resource Manager para configura
 
 1. Defina uma lista de ações fornecendo estas ações:
 
-    a. **Nome**: insira um identificador exclusivo para esta ação.
+     a. **Nome**: insira um identificador exclusivo para esta ação.
 
     b. **Action Type**: selecione Email/SMS/Push/Voz, Aplicativo Lógico, Webhook, ITSM ou Runbook de Automação.
 
@@ -76,6 +76,8 @@ Você pode ter até 1000 ações de e-mail em um grupo de ação. Consulte o art
 **ITSM** - você pode ter até 10 ações de ITSM em uma ação de ITSM do grupo de ação que requer uma conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Aplicativo Lógico**: você pode ter até 10 ações do Aplicativo Lógico em um Grupo de Ação
+
+**Aplicativo de funções** -as teclas de função para o Aplicativo de funções configurado como ações são lidos por meio da API de funções, que atualmente requer os aplicativos de função do v2 para configurar a configuração "AzureWebJobsSecretStorageType" para "arquivos" do aplicativo, consulte [Altera para o gerenciamento de chaves no Functions V2]( https://aka.ms/funcsecrets) para obter mais informações.
 
 **Runbook** - Você pode ter até 10 ações do Runbook em um Grupo de Ação Consulte os [limites do serviço de assinatura do Azure](../azure-subscription-service-limits.md) para obter limites para cargas úteis do Runbook
 

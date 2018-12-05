@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0dc4019d2b3f33bfc92d73aeadadc0c64ecaab3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158509"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446851"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
@@ -42,6 +42,22 @@ O assistente cria automaticamente o grupo administrativo em seu diretório do Az
 
 3. Quando terminar, clique em **OK** para ir para a página **Resumo** do assistente.
 
+## <a name="configure-synchronization"></a>Configurar sincronização
+
+Os Serviços de Domínio do Azure AD Domain Services permitem a sincronização completa de todos os usuários e grupos disponíveis no Azure AD, ou você pode selecionar a sincronização com escopo para sincronizar apenas os grupos específicos. Se você escolher a sincronização completa, você **não** poderá escolher a sincronização com escopo em um momento posterior. Para saber mais sobre a sincronização com escopo, visite o [artigo de sincronização com do Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+
+### <a name="full-synchronization"></a>Sincronização total
+
+1. Para a sincronização completa, basta clicar em "OK" na parte inferior da tela, como completo é já escolhido.
+    ![Sincronização completa](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>Sincronização com escopo
+
+1. Alternar o botão de sincronização para “Com escopo” e uma página de grupos selecionados aparecerá. A partir disso, você pode ver quais grupos já estão selecionados para serem sincronizados com seu domínio gerenciado.
+    ![Sincronização com escopo](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. Clique em **Selecionar grupos** na barra de navegação superior. A partir daqui, um seletor de grupo será exibido no lado. Use isso para selecionar todos os grupos adicionais para sincronizar com o Azure AD Domain Services. Quando terminar, clique em **Selecionar** para fechar o seletor de grupo e adicionar esses grupos à lista selecionada.
+    ![Grupos selecionados de sincronização com escopo](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. Clique em **OK** para mover para a página de resumo.
 
 ## <a name="deploy-your-managed-domain"></a>Implantar o domínio gerenciado
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068311"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316983"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção Avançada contra Ameaças do Windows Defender com a Central de Segurança do Azure
 
@@ -99,12 +99,12 @@ Para gerar um alerta de teste benigno do Windows Defender ATP:
 
 3. Se o comando for bem-sucedido, você verá um novo alerta no painel da Central de Segurança do Azure e no portal do Windows Defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para examinar o alerta na Central de Segurança, acesse **Alertas de segurança** >  **Linha de Comando do PowerShell Suspeita**.
+4. Para examinar o alerta na Central de Segurança, acesse **Alertas de segurança** >  **Linha de Comando do PowerShell Suspeita**.
 
 5. Na janela de investigação, selecione o link para ir para o portal do Windows Defender ATP.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como configurar políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+- [Como configurar políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 - [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
 - [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.

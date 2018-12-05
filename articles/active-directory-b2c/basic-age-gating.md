@@ -1,5 +1,5 @@
 ---
-title: Usando a restrição de idade no Azure Active Directory B2C | Microsoft Docs
+title: Habilitar a restrição etária no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre como identificar menores de idade usando seu aplicativo.
 services: active-directory-b2c
 author: davidmu1
@@ -7,52 +7,104 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1020dfcb6c8d312001fbdb1c170987e1216c5d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318853"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291089"
 ---
-# <a name="using-age-gating-in-azure-ad-b2c"></a>Usando restrição de idade no Azure AD B2C
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitar a restrição etária no Azure Active Directory B2C
 
 >[!IMPORTANT]
->Este recurso está em versão prévia privada.  Confira nosso [blog de serviço](https://blogs.msdn.microsoft.com/azureadb2c/) para obter detalhes quando ele ficar disponível ou entre em contato com AADB2CPreview@microsoft.com.  NÃO use em diretórios de produção, pois o uso desses novos recursos pode causar perda de dados e mudanças de comportamento inesperadas até que eles estejam com disponibilidade geral.  
+>Esse recurso está em uma versão prévia. Não use o recurso para aplicativos de produção. 
 >
 
-## <a name="age-gating"></a>Restrição de idade
-A restrição de idade permite que você use o Azure AD B2C para identificar menores em seu aplicativo.  Você pode optar por impedir o usuário de se conectar ao aplicativo ou permitir que voltem ao aplicativo com declarações adicionais que identificam a faixa etária do usuário e o status de consentimento dos pais.  
+A restrição etária no Azure Active Directory (Azure AD) B2C permite que você identifique os menores que deseja usar seu aplicativo. Você pode optar por bloquear o menor da conexão ao aplicativo. Os usuários também podem voltar para o aplicativo e identificar seus grupos de idade e seu status de consentimento dos pais. O Active Directory B2C pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode configurar para permitir que o aplicativo decida o que fazer com os menores.
 
->[!NOTE]
->O consentimento dos pais é rastreado em um atributo do usuário chamado `consentProvidedForMinor`.  É possível atualizar esta propriedade por meio da API do Graph e ela usará esse campo ao atualizar `legalAgeGroupClassification`.
->
+Depois de habilitar a restrição etária em seu [fluxo de usuário](active-directory-b2c-reference-policies.md), os usuários são solicitados quando foram gerados e qual país residem. Se um usuário que não inseriu as informações anterior entrar, será necessário inserir a próxima vez que entrar. As regras são aplicadas sempre que um usuário entrar.
 
-## <a name="setting-up-your-directory-for-age-gating"></a>Configurando seu diretório para restrição de idade
-Para usar a restrição de idade em um fluxo do usuário, você precisa configurar seu diretório para ter propriedades adicionais. Essa operação pode ser feita usando `Properties` no menu (que estará disponível somente se você fizer parte da versão prévia privada).  
-1. Na extensão do Azure AD B2C, clique nas **Propriedades** de seu locatário no menu à esquerda.
-2. Na seção **Restrição de idade**, clique no botão **Configurar**.
-3. Aguarde a conclusão da operação e seu diretório estará configurado para a restrição de idade.
+O Azure AD B2C usa as informações que o usuário insere para identificar se são um menor. O campo **Grupoetário**, em seguida, é atualizado na sua conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult` ou `NotAdult`.  Os campos **Grupoetário** e **consentProvidedForMinor**, em seguida, são usados para calcular o valor de **legalAgeGroupClassification**.
 
-## <a name="enabling-age-gating-in-your-user-flow"></a>Habilitando a restrição de idade em seu fluxo de usuário
-Depois que o diretório estiver configurado para usar a restrição de idade, você poderá usar esse recurso nos fluxos de usuário da versão prévia.  O recurso requer alterações que o tornam incompatível com tipos de fluxos de usuário existentes.  Habilite a restrição de idade seguindo estas etapas:
-1. Crie um fluxo de usuário na versão prévia.
-2. Após criá-lo, acesse o menu **Propriedades**.
-3. Na seção **Restrição de idade**, pressione o botão de alternância para habilitar o recurso.
-4. Você pode, então, escolher como deseja gerenciar os usuários identificados como menores.
+A restrição etária envolve dois valores de idade: a idade que alguém não é mais considerado menor e a idade em que um menor deve ter consentimento dos pais. A tabela a seguir lista as regras de idade que são usadas para definir um menor e um consentimento de autorização de menor.
 
-## <a name="what-does-enabling-age-gating-do"></a>O que acontece quando a restrição de idade é habilitada?
-Depois que a restrição de idade é habilitada em seu fluxo de usuário, a experiência do usuário muda.  Na inscrição, passarão a ser solicitados a data de nascimento e o país de residência dos usuários, bem como os atributos do usuário configurados no fluxo de usuário.  Ao se conectarem, os usuários que não tiverem fornecido a data de nascimento e o país de residência anteriormente precisarão fornecer essas informações na próxima vez em que entrarem.  Usando esses dois valores, o Azure AD B2C identificará se o usuário é menor de idade e atualizará o campo `ageGroup`; o valor pode ser `null`, `Undefined`, `Minor`, `Adult` e `NotAdult`.  Em seguida, os campos `ageGroup` e `consentProvidedForMinor` são usados para calcular `legalAgeGroupClassification`. 
+| País | Nome do país | Idade de consentimento de menor | Idade menor |
+| ------- | ------------ | ----------------- | --------- |
+| Padrão | Nenhum | Nenhum | 18 |
+| AE | Emirados Árabes Unidos | Nenhum | 21 |
+| AT | Áustria | 14 | 18 |
+| BE | Bélgica | 14 | 18 |
+| BG | Bulgária | 16 | 18 |
+| BH | Bahrein | Nenhum | 21 |
+| CM | Camarões | Nenhum | 21 |
+| CY | Chipre | 16 | 18 |
+| CZ | República Tcheca | 16 | 18 |
+| DE | Alemanha | 16 | 18 |
+| DK | Dinamarca | 16 | 18 |
+| EE | Estônia | 16 | 18 |
+| EG | Egito | Nenhum | 21 |
+| ES | Espanha | 13 | 18 |
+| FR | França | 16 | 18 |
+| GB | Reino Unido | 13 | 18 |
+| GR | Grécia | 16 | 18 |
+| HR | Croácia | 16 | 18 |
+| HU | Hungria | 16 | 18 |
+| IE | Irlanda | 13 | 18 |
+| IT | Itália | 16 | 18 |
+| KR | Coreia, República da | 14 | 18 |
+| LT | Lituânia | 16 | 18 |
+| LU | Luxemburgo | 16 | 18 |
+| LV | Letônia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| ND | Namíbia | Nenhum | 21 |
+| NL | Países Baixos | 16 | 18 |
+| PL | Polônia | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Romênia | 16 | 18 |
+| SE | Suécia | 13 | 18 |
+| SG | Singapura | Nenhum | 21 |
+| SI | Eslovênia | 16 | 18 |
+| SK | Eslováquia | 16 | 18 |
+| TD | Chad | Nenhum | 21 |
+| TH | Tailândia | Nenhum | 20 |
+| TW | Taiwan | Nenhum | 20 | 
+| EUA | Estados Unidos | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Opções de restrição de idade
-Você pode optar por fazer com que o Active Directory AD B2C bloqueie menores que não tiverem consentimento dos pais ou permitir seu acesso e deixar que o aplicativo decida o que fazer com eles.  
-
+ 
 ### <a name="allowing-minors-without-parental-consent"></a>Permitindo menores sem consentimento dos pais
-Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por permitir a entrada de menores sem consentimento dos pais em seu aplicativo.  Para menores sem o consentimento dos pais, eles têm permissão para entrar ou se inscrever normalmente, e o Active Directory B2C emite um token de ID com a declaração `legalAgeGroupClassification`.  Usando essa declaração, você pode escolher a experiência desses usuários, como uma experiência com coleta do consentimento dos pais (e atualização do campo `consentProvidedForMinor`).
+
+Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por permitir a entrada de menores sem consentimento dos pais em seu aplicativo. Para menores sem o consentimento dos pais, eles têm permissão para entrar ou se inscrever normalmente, e o Active Directory B2C emite um token com a declaração **legalAgeGroupClassification**. Essa declaração define a experiência que os usuários têm, como o consentimento dos pais para coletar e atualizar o campo **consentProvidedForMinor**.
 
 ### <a name="blocking-minors-without-parental-consent"></a>Bloqueando menores sem consentimento dos pais
-Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por bloquear a entrada de menores sem consentimento dos pais no aplicativo.  Há duas opções para lidar com usuários bloqueados no Azure AD B2C:
-* Enviar um JSON de volta ao aplicativo – esta opção enviará uma resposta de volta para o aplicativo informando que um foi bloqueado.
-* Mostrar uma página de erro – o usuário verá uma página informando que ele não pode acessar o aplicativo
+
+Para fluxos de usuário que permitem inscrição, entrada ou ambas, você pode optar por bloquear a entrada de menores sem consentimento dos pais no aplicativo. As seguintes opções estão disponíveis para lidar com os usuários bloqueados no Azure Active Directory B2C:
+
+- Enviar um JSON de volta ao aplicativo – esta opção enviará uma resposta de volta para o aplicativo informando que um foi bloqueado.
+- Mostrar uma página de erro – o usuário verá uma página informando que ele não pode acessar o aplicativo.
+
+## <a name="set-up-your-tenant-for-age-gating"></a>Configurar seu locatário para restrição etária
+
+Para usar a restrição etária em um fluxo do usuário, você precisa configurar seu locatário para ter propriedades adicionais.
+
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior. Selecione o diretório que contém seu locatário. 
+2. Selecione **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
+3. Selecione **Propriedades** para seu locatário no menu à esquerda.
+2. Na seção **Restrição etária**, clique no botão **Configurar**.
+3. Aguarde a conclusão da operação e seu diretório estará configurado para a restrição etária.
+
+## <a name="enable-age-gating-in-your-user-flow"></a>Habilitando a restrição etária em seu fluxo de usuário
+
+Depois que seu locatário estiver configurado para usar a restrição etária, você pode usar esse recurso nos [fluxos de usuário](user-flow-versions.md) onde ele está habilitado. Habilite a restrição de idade seguindo estas etapas:
+
+1. Crie um fluxo de usuário que tenha a restrição etária habilitada.
+2. Depois de criar o fluxo de usuário, selecione **Propriedades** no menu.
+3. Na seção **Restrição etária**, selecione **Habilitado**.
+4. Você pode, então, decidir como deseja gerenciar os usuários identificados como menores. Para **Inscrever-se ou entrar**, selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se os menores de bloqueio for selecionado, selecione `Send a JSON bcak to the application` ou `Show an error message`. 
+
+
+
+

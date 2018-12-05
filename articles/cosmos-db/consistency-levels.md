@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624820"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162306"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Os SLAs abrangentes fornecidos pelo Azure Cosmos DB garantem que 100% das solici
 
   A desatualização limitada oferece ordem global total, exceto na "janela de desatualização". Há garantias de leitura monotônica em uma região tanto dentro quanto fora da "janela de desatualização." A consistência forte tem a mesma semântica que as oferecidas pelo staleness limitado e com uma “janela de staleness” igual a zero. O staleness limitado também é referido como **linearização retardada no tempo**. Quando um cliente executa operações de leitura em uma região que aceita gravações, as garantias fornecidas pela consistência de staleness limitada são idênticas àquelas com consistência forte.
 
-- **Nível de consistência = "sessão"**: As leituras têm a garantia de honrar o prefixo consistente, as leituras monotônicas, as gravações monótonas, as leituras de suas gravações, as garantias de gravação de seguidas leituras. A coerência de sessão engloba uma sessão de cliente.
+- **Nível de consistência = "sessão"**: as leituras têm a garantia de honrar o prefixo consistente (assumindo uma seção de “gravador” única), leituras monotônicas, gravações monótonas, leituras de suas gravações, garantias de gravação de seguidas leituras. A coerência de sessão engloba uma sessão de cliente.
 
 - **Nível de consistência = "prefixo consistente"**: as atualizações retornadas contêm algum prefixo de todas as atualizações, sem intervalos. Garantia de prefixo consistente que lê nunca vê gravações fora de ordem.
 

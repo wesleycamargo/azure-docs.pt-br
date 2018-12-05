@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263927"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620754"
 ---
 > [!div class="op_single_selector"]
 > * [C em Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -56,7 +56,7 @@ Quando o processo de implantação para a solução de Monitoramento Remoto for 
 > [!NOTE]
 > Se você já adicionou um dispositivo em sua solução, poderá ignorar esta etapa. No entanto, a próxima etapa exige a cadeia de conexão do dispositivo. É possível recuperar a cadeia de conexão de um dispositivo a partir do [Portal do Azure](https://portal.azure.com) ou usando uma ferramente da CLI [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest).
 
-Para que um dispositivo se conecte ao acelerador de solução, ele precisa se identificar para o Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adiciona o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
+Para que um dispositivo se conecte ao acelerador de solução, ele precisa se identificar para o Hub IoT usando credenciais válidas. É possível salvar a cadeia de conexão do dispositivo contendo essas credenciais, quando você adicionar o dispositivo à solução. Você incluirá a cadeia de conexão de dispositivo no seu aplicativo cliente, mais adiante neste tutorial.
 
 Para adicionar um dispositivo à sua solução de Monitoramento Remoto, conclua as seguintes etapas na página **Dispositivos** na solução:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: b180e62804b875ca4547a9d09f19efff32ae0cd9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207216"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853703"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Você pode integrar seu cluster do Azure Service Fabric a outros recursos de rede do Azure. Neste artigo, mostramos como criar clusters que usam os seguintes recursos:
@@ -106,15 +106,20 @@ Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode 
             },*/
     ```
 
+2. Comente `nicPrefixOverride` atributo do `Microsoft.Compute/virtualMachineScaleSets`, porque você está usando a sub-rede existente e você desabilitou essa variável na etapa 1.
 
-2. Altere a variável `vnetID` para que ela aponte para a rede virtual existente:
+    ```
+            /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. Altere a variável `vnetID` para que ela aponte para a rede virtual existente:
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. Remova `Microsoft.Network/virtualNetworks` de seus recursos de modo que o Azure não crie uma nova rede virtual:
+4. Remova `Microsoft.Network/virtualNetworks` de seus recursos de modo que o Azure não crie uma nova rede virtual:
 
     ```
     /*{
@@ -144,7 +149,7 @@ Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode 
     },*/
     ```
 
-4. Comente a rede virtual com base no atributo `dependsOn` de `Microsoft.Compute/virtualMachineScaleSets`, de modo que você não dependa da criação de uma nova rede virtual:
+5. Comente a rede virtual com base no atributo `dependsOn` de `Microsoft.Compute/virtualMachineScaleSets`, de modo que você não dependa da criação de uma nova rede virtual:
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -158,7 +163,7 @@ Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode 
 
     ```
 
-5. Implantar o modelo:
+6. Implantar o modelo:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: b46fa5eb9772a19a5613fc276071167d884f6057
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 04046b4c7c36418b9024a690ad5279f9e34578a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008752"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583628"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
-Saiba como criar uma topologia Apache Storm que usa componentes de Python. O Apache Storm dá suporte a várias linguagens, permitindo até a combinação de componentes de várias linguagens em uma topologia. A estrutura de fluxo (introduzida com o Storm 0.10.0) permite que você crie facilmente soluções que usam componentes do Python.
+Saiba como criar uma topologia [Apache Storm](http://storm.apache.org/) que usa componentes de Python. O Apache Storm dá suporte a várias linguagens, permitindo até a combinação de componentes de várias linguagens em uma topologia. A estrutura de [Fluxo](http://storm.apache.org/releases/current/flux.html) (introduzida com o Storm 0.10.0) permite que você crie facilmente soluções que usam componentes do Python.
 
 > [!IMPORTANT]
 > As informações neste documento foram testadas usando o Storm no HDInsight 3.6. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -32,7 +32,7 @@ O código para esse projeto está disponível em [https://github.com/Azure-Sampl
 
 * Java JDK 1.8 ou superior
 
-* Maven 3
+* [Apache Maven 3](https://maven.apache.org/download.cgi)
 
 * (Opcional) Um ambiente de desenvolvimento local do Storm. Um ambiente local do Storm só será necessário se você quiser executar a topologia localmente. Para obter mais informações, consulte [Configurar um ambiente de desenvolvimento](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html).
 
@@ -148,5 +148,5 @@ Para interromper a topologia, use __Ctrl+C__.
 
 Consulte os seguintes documentos para conhecer outras maneiras de usar o Python com o HDInsight:
 
-* [Como usar o Python para trabalhos de MapReduce de streaming](../hadoop/apache-hadoop-streaming-python.md)
-* [Como usar UDF (Funções Definidas pelo Usuário) do Python no Pig e Hive](../hadoop/python-udf-hdinsight.md)
+* [Como usar o Python para trabalhos de Apache Hadoop MapReduce de streaming](../hadoop/apache-hadoop-streaming-python.md)
+* [Como usar as Funções Definidas pelo Usuário Python (UDF) no Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md)

@@ -7,14 +7,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960949"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162400"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Escolher o nível certo de coerência para o seu aplicativo
 
@@ -52,7 +52,7 @@ Você pode obter garantias de consistência mais fortes na prática. Garantias d
 
 * Para os três níveis de coerência restantes, a janela de desatualização limitada depende muito da carga de trabalho. Por exemplo, se não houver operações de gravação no banco de dados, é provável que uma operação de leitura com **eventuais**, **sessão** ou **consistência consistente prefira** resultados como uma operação de leitura com um nível de consistência forte.
 
-Se a sua conta do Cosmos DB estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de seus clientes obterem leituras fortes e consistentes para suas cargas de trabalho observando a métrica Probabilistic Bounded Staleness (PBS). Essa métrica é exposta no portal do Azure, para obter mais informações, consulte o artigo [como usar a métrica PBS](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Se a sua conta do Cosmos DB estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de seus clientes obterem leituras fortes e consistentes para suas cargas de trabalho observando a métrica Probabilistic Bounded Staleness (PBS). Essa métrica é exposta no portal do Azure, para obter mais informações, consulte [métrica Monitor Probabilistic Bounded Staleness (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 A desatualização limitada probabilística mostra o quão eventual é a sua coerência eventual. Essa métrica fornece uma visão de quantas vezes você pode obter uma consistência mais forte do que o nível de consistência que você configurou atualmente na sua conta do Cosmos DB. Em outras palavras, você pode ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de gravação e leitura.
 
@@ -63,4 +63,4 @@ Leia mais sobre os níveis de coerência nos seguintes artigos:
 * [Mapeamento dos níveis de coerência entre as APIs do Cosmos DB](consistency-levels-across-apis.md)
 * [Equilíbrio entre disponibilidade e desempenho para vários níveis de coerência](consistency-levels-tradeoffs.md)
 * [Como gerenciar o token de sessão para o seu aplicativo](how-to-manage-consistency.md#utilize-session-tokens)
-* [Como monitorar a métrica de PBS (Desatualização Limitada Probabilística)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Monitorar métrica PBS (Desatualização Limitada Probabilística)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

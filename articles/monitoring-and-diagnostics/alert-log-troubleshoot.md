@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616479"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264872"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 ## <a name="overview"></a>Visão geral
@@ -61,7 +61,7 @@ Como o comando incluiu *resumir … por* e forneceu duas variáveis (carimbo de 
 
 ![Execução de consulta de medição métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Como "Aggregate Upon" é $table – os dados são classificados na coluna $table (como em VERMELHO); em seguida, agrupamos e procuramos por tipos de campo de "Aggregate Upon" (ou seja) $table – por exemplo: valores para availabilityResults serão considerados como uma plotagem/entidade (conforme realçado em Laranja). Nessa plotagem/entidade de valor – o serviço de alerta procura três violações consecutivas (como mostrado em Verde), para as quais o alerta será disparado para o valor de tabela 'availabilityResults'. Da mesma forma, se para qualquer outro valor de $table três violações consecutivas forem vistas - outra notificação de alerta será disparada para o mesmo; com o serviço de alerta classificando automaticamente os valores em uma plotagem/entidade (como em Laranja) por vez.
+Como "Aggregate Upon" é $table – os dados são classificados na coluna $table (como em VERMELHO); em seguida, agrupamos e procuramos por tipos de campo de "Aggregate Upon" (ou seja) $table – por exemplo: valores para availabilityResults serão considerados como uma plotagem/entidade (conforme realçado em Laranja). Nessa plotagem/entidade de valor – o serviço de alerta procura três violações consecutivas (como mostrado em Verde), para as quais o alerta será disparado para o valor de tabela 'availabilityResults'. Da mesma forma, se para qualquer outro valor de $table três violações consecutivas forem vistas - outra notificação de alerta será disparada para a mesma coisa; com o serviço de alerta classificando automaticamente os valores em uma plotagem/entidade (como em Laranja) por vez.
 
 Agora suponha que a regra de alerta de log de medição métrica tenha sido modificada e a consulta fosse `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` com o restante da configuração igual à anterior, incluindo a lógica de alerta para três violações consecutivas. A opção "Aggregate Upon" nesse caso será por padrão: carimbo de hora. Já que apenas um valor é fornecido na consulta para summarize... by (ou seja) timestamp; semelhante ao exemplo anterior, no final da execução, a saída seria igual à ilustrada abaixo. 
 

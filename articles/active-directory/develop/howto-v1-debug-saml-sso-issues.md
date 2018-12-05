@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347776"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422246"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
@@ -75,7 +75,7 @@ Para resolver o erro sem instalar a MyApps Secure Sign-in Extension:
     - Uma instrução que identifica a causa raiz do problema.
 2.  Volte para o Azure AD e encontre a folha **Testar logon único**.
 3.  Na caixa de texto acima de **Obter diretrizes de resolução**, cole a mensagem de erro.
-3.  Clique em **Obter diretrizes de resolução** para exibir as etapas para resolver o problema. As diretrizes podem exigir informações da solicitação SAML ou da resposta SAML. Se você não estiver usando a MyApps Secure Sign-in Extension, talvez seja necessário usar uma ferramenta como a [Fiddler](http://www.telerik.com/fiddler) para recuperar a resposta e a solicitação SAML.
+3.  Clique em **Obter diretrizes de resolução** para exibir as etapas para resolver o problema. As diretrizes podem exigir informações da solicitação SAML ou da resposta SAML. Se você não estiver usando a MyApps Secure Sign-in Extension, talvez seja necessário usar uma ferramenta como a [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta e a solicitação SAML.
 4.  Verifique se o destino na solicitação SAML corresponde à URL do Serviço de Logon Único de SAML obtida no Azure Active Directory
 5.  Verifique se o emissor na solicitação SAML é o mesmo identificador que você configurou para o aplicativo no Azure Active Directory. O Azure AD usa o emissor para localizar um aplicativo no diretório.
 6.  Verifique se AssertionConsumerServiceURL é onde o aplicativo espera receber o token SAML do Azure Active Directory. Você pode configurar esse valor no Azure Active Directory, mas isso não será obrigatório se ele fizer parte da solicitação SAML.
@@ -90,7 +90,7 @@ Para resolver o erro:
 1. Se o aplicativo estiver na Galeria do Azure AD, verifique se você seguiu todas as etapas para integrar o aplicativo com o Azure AD. Para obter as instruções de integração do aplicativo, confira a [lista de tutoriais de integração de aplicativos SaaS](../saas-apps/tutorial-list.md).
 2. Recupere a resposta de SAML.
     - Se a My Apps Secure Sign-in Extension estiver instalada, na folha **Testar logon único**, clique em **Baixar resposta SAML**.
-    - Se a extensão não estiver instalada, use uma ferramenta como a [Fiddler](http://www.telerik.com/fiddler) para recuperar a resposta SAML. 
+    - Se a extensão não estiver instalada, use uma ferramenta como a [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML. 
 3. Observe estes elementos no token da resposta SAML:
     - Identificador exclusivo do usuário do valor e do formato de NameID
     - Declarações emitidas no token

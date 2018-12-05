@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282774"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263583"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -56,7 +56,7 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 | Nós dedicados | 2000 |
 | Nós de baixa prioridade | 1000 |
 
-<sup>1</sup> Para pools habilitados para comunicação entre nós de observação.
+<sup>1</sup> Para pools que não têm comunicação entre nós ativada.
 
 ## <a name="other-limits"></a>Outros limites
 
@@ -91,7 +91,7 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
 1. Selecione **Nova solicitação de suporte** > **Fundamentos**.
 1. Em **Noções básicas**:
    
-    a. **Tipo de Problema** > **Cota**
+     a. **Tipo de Problema** > **Cota**
    
     b. Selecione sua assinatura.
    
@@ -102,14 +102,14 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
     Clique em **Próximo**.
 1. Em **Problema**:
    
-    a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
+     a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
     Clique em **Próximo**.
 1. Em **Informações de contato**:
    
-    a. Selecione um **método de contato preferencial**.
+     a. Selecione um **método de contato preferencial**.
    
     b. Verifique e insira os detalhes de contato necessários.
    

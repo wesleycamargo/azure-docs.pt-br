@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402753"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582489"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -30,7 +30,7 @@ A análise de tráfego requer os seguintes pré-requisitos:
 
 - Uma assinatura ativada do Watcher de Rede.
 - Os logs de fluxo do Network Security Group (NSG) habilitados para os NSGs que você deseja monitorar.
-- Uma conta de Armazenamento do Azure, para armazenar logs de flog brutos.
+- Uma conta de Armazenamento do Microsoft Azure, para armazenar logs de fluxo brutos.
 - Um workspace do Azure Log Analytics, com acesso de leitura e gravação.
 
 Sua conta deve atender a uma das seguintes opções para ativar a análise de tráfego:
@@ -63,7 +63,38 @@ Se você não estiver vendo nenhuma saída, entre em contato com o administrador
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Em quais regiões do Azure estão disponíveis análises de tráfego?
 
-Você pode usar análises de tráfego para NSGs em qualquer uma das seguintes regiões suportadas: centro-oeste dos EUA, leste dos EUA, leste dos EUA 2, centro-norte dos EUA, centro-sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Europa Ocidental, norte da Europa Reino Unido Oeste, Reino Unido Sul, Austrália Leste, Austrália Sudeste e Sudeste Asiático. O workspace do Log Analytics deve existir na região Oeste Central dos EUA, Leste dos EUA, Europa Ocidental, Sul do Reino Unido, Sudeste da Austrália ou região do Sudeste Asiático.
+Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
+- Canadá Central
+- Centro-Oeste dos EUA
+- Leste dos EUA
+- Leste dos EUA 2
+- Centro-Norte dos EUA
+- Centro-Sul dos Estados Unidos
+- Centro dos EUA
+- Oeste dos EUA
+- Oeste dos EUA 2
+- Europa Ocidental
+- Norte da Europa
+- Sul do Brasil
+- Oeste do Reino Unido
+- Sul do Reino Unido
+- Leste da Austrália
+- Sudeste da Austrália 
+- Sudeste Asiático
+- Índia Central
+- Sul da Índia
+- Leste do Japão
+
+O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
+- Canadá Central
+- Centro-Oeste dos EUA
+- Leste dos EUA
+- Europa Ocidental
+- Sul do Reino Unido
+- Sudeste da Austrália
+- Sudeste Asiático 
+- Índia Central
+- Leste do Japão
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Os NSGs para os quais eu habilito logs de fluxo podem estar em regiões diferentes do meu workspace?
 
@@ -83,7 +114,7 @@ Sim, sua conta de Armazenamento do Microsoft Azure pode estar em uma assinatura 
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar logs brutos em uma assinatura diferente?
 
-Não. Você pode armazenar logs brutos em qualquer conta de armazenamento em que um NSG está habilitado para logs de fluxo. No entanto, a conta de armazenamento e os logs brutos devem estar na mesma assinatura e região.
+ Não. Você pode armazenar logs brutos em qualquer conta de armazenamento em que um NSG está habilitado para logs de fluxo. No entanto, a conta de armazenamento e os logs brutos devem estar na mesma assinatura e região.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro "Não encontrado"?
 
@@ -94,8 +125,8 @@ Selecione uma região suportada. Se você selecionar uma região sem suporte, re
 O provedor Microsoft.Insights deve estar registrado para que o log de fluxo funcione corretamente. Se você não tiver certeza se o provedor Microsoft.Insights está registrado para sua assinatura, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no seguinte comando e execute os seguintes comandos do PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não visualizo nada no painel?

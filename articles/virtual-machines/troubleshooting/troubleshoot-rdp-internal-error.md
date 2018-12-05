@@ -1,5 +1,5 @@
 ---
-title: Ocorre um erro interno ao tornar a área de trabalho remota para máquinas virtuais do Azure | Microsoft Docs
+title: Ocorre um erro interno fazer uma conexão RDP nas Máquinas Virtuais do Microsoft Azure | Microsoft Docs
 description: Saiba como solucionar problemas de erros internos de RDP no Microsoft Azure | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 0576d241b3412697ac0d46e77cdfb416921781cb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7d0d4a34a31f15c23638eba1f14794838780f2b0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215874"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307153"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ocorre um erro interno ao tentar se conectar a uma VM do Azure por meio da área de trabalho remota 
 
@@ -47,7 +47,7 @@ Esse problema pode ocorrer pelos seguintes motivos:
 
 Antes de seguir essas etapas, tire um instantâneo do disco do SO da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
-Para solucionar esse problema, use o Console Serial ou [repare a VM offline](#repair-the-vm-offline) anexando o disco do SO da VM a uma VM de recuperação.
+Para solucionar esse problema, use o Console serial ou [repare a VM off-line](#repair-the-vm-offline) anexando o disco do SO da VM a uma VM de recuperação.
 
 
 ### <a name="use-serial-control"></a>Usar o Controle serial
@@ -149,8 +149,8 @@ O cliente RDP usa o TLS 1.0 como o protocolo padrão. No entanto, ele pode ser a
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco de SO a uma VM de recuperação
 
 1. [Anexar o disco de SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
-2. Depois que o disco de SO estiver anexado à VM de recuperação, verifique se ele está sinalizado como **Online** no console de Gerenciamento de Disco. Observe a letra da unidade atribuída ao disco de SO anexado.
-3. Inicie uma conexão de Área de Trabalho Remota à VM de recuperação.
+2. Depois que o disco do sistema operacional é anexado à VM de recuperação, verifique se o disco está sinalizado como **on-line** no console de gerenciamento de disco. Observe a letra da unidade atribuída ao disco de SO anexado.
+3. Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
 #### <a name="enable-dump-log-and-serial-console"></a>Habilitar o log de despejo e o Console Serial
 

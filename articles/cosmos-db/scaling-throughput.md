@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282366"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160657"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Dimensionar a taxa de transferência no Azure Cosmos DB
 
@@ -23,9 +23,9 @@ No Azure Cosmos DB, a taxa de transferência provisionada é representada como u
 
 Você pode provisionar RUs em um contêiner ou em um banco de dados do Cosmos. RUs provisionadas em um contêiner ficam disponíveis exclusivamente para operações executadas no contêiner. RUs provisionadas em um banco de dados são compartilhadas entre todos os contêineres do banco de dados (exceto por contêineres com RUs atribuídas de maneira exclusiva).
 
-Para dimensionar a taxa de transferência de maneira elástica, você pode aumentar ou diminuir as RU/s provisionadas a qualquer momento. Para saber mais, confira [Como provisionar a taxa de transferência](set-throughput.md) e dimensionar elasticamente bancos de dados e contêineres do Cosmos. Para dimensionar a taxa de transferência globalmente, você pode adicionar ou remover regiões de sua conta do Cosmos a qualquer momento. Para saber mais, confira [Como adicionar ou remover regiões de sua conta do Cosmos](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Em muitos cenários, é importante associar várias regiões a uma conta do Cosmos para conseguir baixa latência e [alta disponibilidade](high-availability.md) no mundo inteiro.
+Para dimensionar a taxa de transferência de maneira elástica, você pode aumentar ou diminuir as RU/s provisionadas a qualquer momento. Para saber mais, confira [Como provisionar a taxa de transferência](set-throughput.md) e dimensionar elasticamente bancos de dados e contêineres do Cosmos. Para dimensionar a taxa de transferência globalmente, você pode adicionar ou remover regiões de sua conta do Cosmos a qualquer momento. Para obter mais informações, consulte [Adicionar ou remover regiões de sua conta de banco de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Em muitos cenários, é importante associar várias regiões a uma conta do Cosmos para conseguir baixa latência e [alta disponibilidade](high-availability.md) no mundo inteiro.
 
-## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>como a taxa de transferência provisionada é distribuída entre regiões
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Como a taxa de transferência provisionada é distribuída entre regiões
 
 Se você provisionar RUs de ‘R’ em um contêiner (ou banco de dados) do Cosmos, o Cosmos DB garantirá que as RUs de R estejam disponíveis em *cada* região associada à sua conta do Cosmos. Sempre que você adicionar uma nova região à sua conta, o Cosmos DB provisionará automaticamente RUs de ‘R’ na região recém-adicionada. As operações executadas em seu contêiner do Cosmos são garantidas para obter o RUs 'R' em cada região. Você não pode atribuir seletivamente RUs a uma região específica. As RUs provisionadas para um contêiner (ou banco de dados) do Cosmos são provisionadas para todas as regiões associadas à sua conta do Cosmos.
 

@@ -12,36 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141659"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498881"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
 ## <a name="overview"></a>Visão geral
 
-Essa extensão instala drivers de GPU NVIDIA em VMs série N do Linux. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instala o NVIDIA drivers usando essa extensão, você está aceitando e concordando com os termos do contrato de licença de usuário final NVIDIA. Durante o processo de instalação, sua máquina virtual pode reinicializar para concluir a instalação do driver.
+Essa extensão instala drivers de GPU NVIDIA em VMs série N do Linux. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instala o NVIDIA drivers usando essa extensão, você está aceitando e concordando com os termos do contrato de [licença de usuário final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a máquina virtual pode reinicializar para concluir a instalação do driver.
 
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
-
-Termos do contrato de licença de usuário final NVIDIA estão localizados aqui- https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A Extensão suporta os seguintes OS:
+Esta extensão é compartível com as seguintes distribuições do sistema operacional, dependendo do suporte do driver para uma versão específica do sistema operacional.
 
 | Distribuição | Versão |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4 |
-| Linux: CentOS | 7.3, 7.4 |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
+| Linux: CentOS | 7.3, 7.4, 7.5 |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -63,7 +61,7 @@ O JSON a seguir mostra o esquema para a extensão.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,14 +69,24 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="properties"></a>propriedades
 
 | NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | data |
 | publicador | Microsoft.HpcCompute | string |
 | Tipo | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1,1 | int |
+| typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>Configurações
+
+Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instale o driver mais recente com suporte e o CUDA toolkit (conforme aplicável).
+
+| NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
+| ---- | ---- | ---- | ---- | ---- |
+| updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | falso | verdadeiro, falso | booleano |
+| driverVersion | NV: Versão do driver GRADE<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRADE: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | verdadeiro, falso | booleano |
 
 
 ## <a name="deployment"></a>Implantação
@@ -104,7 +112,7 @@ O exemplo a seguir pressupõe que a extensão está aninhada dentro do recurso d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,12 +130,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
+
+O exemplo a seguir espelha os exemplos do Azure Resource Manager e do PowerShell acima e também adiciona as configurações personalizadas como exemplo para a instalação do driver não padrão. Especificamente, atualiza o kernel do sistema operacional e instala um driver de versão específico do kit de ferramentas CUDA.
 
 ```azurecli
 az vm extension set `
@@ -135,8 +145,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.1 `
+  --version 1.2 `
   --settings '{ `
+    "updateOS": true, `
+    "driverVersion": "9.1.85", `
   }'
 ```
 
@@ -165,13 +177,12 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | Código de Saída | Significado | Ação possível |
 | :---: | --- | --- |
 | 0 | Operação concluída com êxito |
-| 1 | Uso incorreto de extensão. | Contate o suporte com o log de saída de execução. |
-| 10 | Serviços de integração do Linux para Hyper-V e o Azure não disponível ou instalado. | Verificação de saída de Ispci. |
-| 11 | GPU NVIDIA não encontrado nesse tamanho de VM. | Use um [tamanho da VM e sistema operacional com suporte](../linux/n-series-driver-setup.md). |
+| 1 | Uso incorreto de extensão | Verifique o log de saída de execução |
+| 10 | Serviços de integração do Linux para Hyper-V e o Azure não disponível ou instalado | Verificação de saída de Ispci |
+| 11 | GPU NVIDIA não encontrado nesse tamanho de VM | Use um [tamanho da VM e sistema operacional com suporte](../linux/n-series-driver-setup.md) |
 | 12 | Oferta de imagem não suportada |
 | 13 | Tamanho de VM não suportado | Usar uma VM da série N para implantar |
-| 14 | Operação falhou | |
-| 21 | Atualização falhou no Ubuntu | Seleção de saída do "sudo apt-get atualização" |
+| 14 | Operação falhou | Verifique o log de saída de execução |
 
 
 ### <a name="support"></a>Suporte
