@@ -1,10 +1,11 @@
 ---
-title: Gerenciar um workspace do Machine Learning | Microsoft Docs
+title: Gerenciar um espaço de trabalho Aprendizado de Máquina - Azure Machine Learning Studio|Microsoft Docs
 description: Gerencie o acesso aos workspace de Azure Machine Learning e implante e gerencie serviços Web da API ML
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095439"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314097"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerenciar um workspace do Azure Machine Learning
 
@@ -44,7 +45,7 @@ Para gerenciar um workspace no portal do Azure:
 Além das informações de gerenciamento de recursos padrão e das opções disponíveis, você pode:
 
 - Exibir **Propriedades** - essa página exibe as informações do workspace e dos recursos e você pode alterar o assinatura e o grupo de recursos aos quais esse workspace está conectado.
-- **Ressincronizar as Chaves de Armazenamento** - o espaço de trabalho mantém chaves para a conta de armazenamento. Se a conta de armazenamento alterar as chaves, clique em **Ressincronizar chaves** para sincronizar as chaves com o workspace.
+- **Ressincronizar as Chaves de Armazenamento** - o workspace mantém chaves para a conta de armazenamento. Se a conta de armazenamento alterar as chaves, clique em **Ressincronizar chaves** para sincronizar as chaves com o workspace.
 
 Para gerenciar os serviços Web associados a esse workspace, use o Portal de Serviços Web do Machine Learning. Consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md) para obter informações completas.
 

@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155588"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262424"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -25,7 +25,7 @@ Você deve estar familiarizado com os conceitos de contêiner e como criar um po
 
 ## <a name="why-use-containers"></a>Por que usar contêineres?
 
-O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, você pode criar e testar um contêiner localmente e carregar a imagem do contêiner em um registro no Azure ou em outro lugar. O modelo de implantação do contêiner garante que o ambiente de tempo de execução do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
+O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote sem a necessidade de gerenciar um ambiente e as dependências para executar aplicativos. Os contêineres implantam aplicativos como unidades leves, portáteis e autossuficientes que podem ser executadas em vários ambientes diferentes. Por exemplo, crie e teste um contêiner localmente e, em seguida, carregue a imagem do contêiner em um registro no Azure ou em outro local. O modelo de implantação do contêiner garante que o ambiente de tempo de execução do aplicativo sempre seja instalado e configurado corretamente, independente de onde você hospeda o aplicativo. As tarefas baseadas em contêiner no Lote também podem aproveitar os recursos de tarefas que não são de contêiner, incluindo pacotes de aplicativos e o gerenciamento de arquivos de recurso e arquivos de saída. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +74,7 @@ Há suporte para essas imagens apenas para uso em pools do Lote do Azure. Elas a
 
 * Drivers de GPU NVIDIA pré-instalados, para agilizar a implantação em VMs da série N do Azure
 
-* Imagens com ou sem drivers RDMA pré-instalados. Esses drivers permitem que os nós do pool acessem a rede RDMA do Azure quando implantados em tamanhos de VM compatíveis com RDMA  
+* Sua escolha de imagens com ou sem os drivers RDMA pré-instalados. Esses drivers permitem que os nós do pool acessem a rede RDMA do Azure quando implantados em tamanhos de VM compatíveis com RDMA. 
 
 Também é possível criar imagens personalizadas de VMs executando Docker em uma das distribuições do Linux compatíveis com Lote. Se você optar por fornecer sua própria imagem personalizada do Linux, confira as instruções em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>Configurações de contêiner para a tarefa
 
-Para executar as tarefas de contêiner nos nós de computação, é necessário definir configurações específicas ao contêiner, como opções de execução de contêiner, imagens a serem usadas e registro.
+Para executar uma tarefa de contêiner em um pool habilitado para contêiner, especifique as configurações específicas do contêiner. As configurações incluem a imagem a ser usada, o registro e as opções de execução do contêiner.
 
-Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
 
-Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
+* Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
 
-As [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos adicionais para o comando `docker create` executado pela tarefa para criar o contêiner.
+### <a name="container-task-command-line"></a>Linha de Comando da Tarefa do Contêiner
+
+Quando você faz a execução de uma tarefa de contêiner, o Batch usa automaticamente o comando [docker create](https://docs.docker.com/engine/reference/commandline/create/) para criar um contêiner usando a imagem especificada na tarefa. Em seguida, o lote controla a execução da tarefa no contêiner. 
+
+Assim como ocorre com as tarefas em lotes que não são contêineres, você define uma linha de comando para uma tarefa de contêiner. Como o Batch cria automaticamente o contêiner, a linha de comando apenas especifica o comando ou comandos que serão executados no contêiner.
+
+Se a imagem de contêiner para uma tarefa em lote estiver configurada com um script [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example), você poderá definir sua linha de comando para usar o ENTRYPOINT padrão ou substituí-la: 
+
+* Para usar o ENTRYPOINT padrão da imagem de contêiner, configure a linha de comandos da tarefa para a sequência vazia `""`.
+
+* Para substituir o ENTRYPOINT padrão ou se a imagem não tiver um ENTRYPOINT, defina uma linha de comando apropriada para o contêiner, por exemplo, `/app/myapp` ou `/bin/sh -c python myscript.py`.
+
+As [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) opcionais são argumentos adicionais fornecidos ao comando `docker create` que o Batch usa para criar e executar o contêiner. Por exemplo, para definir um diretório de trabalho para o contêiner, defina a opção `--workdir <directory>`. Veja a referência [docker create](https://docs.docker.com/engine/reference/commandline/create/) para opções adicionais.
 
 ### <a name="container-task-working-directory"></a>Diretório de trabalho da tarefa do contêiner
 
-A linha de comando para uma tarefa de contêiner do Azure Batch é executada em um diretório de trabalho no contêiner que é muito semelhante ao ambiente que o Batch configura para uma tarefa regular (sem contêiner):
+Uma tarefa de contêiner em lote é executada em um diretório de trabalho no contêiner que é muito semelhante ao diretório que o Batch configura para uma tarefa regular (não contêiner). Observe que esse diretório de trabalho é diferente do [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir), se configurado na imagem, ou do diretório de trabalho do contêiner padrão (`C:\` em um contêiner do Windows ou `/` em um contêiner do Linux). 
 
-* Todos os diretórios recursivamente abaixo de `AZ_BATCH_NODE_ROOT_DIR`(a raiz dos diretórios do Azure Batch no nó) são mapeados para o contêiner
+Uma tarefa de lote contêiner:
+
+* Todos os diretórios recursivamente abaixo do `AZ_BATCH_NODE_ROOT_DIR` no nó do host (a raiz dos diretórios do Lote do Microsoft Azure) são mapeados para o contêiner
 * Todas as variáveis de ambiente de tarefas são mapeadas no contêiner
-* O diretório de trabalho do aplicativo é definido da mesma forma que para uma tarefa normal, para que você possa usar recursos como pacotes de aplicativos e arquivos de recursos
+* O diretório de trabalho da tarefa `AZ_BATCH_TASK_WORKING_DIR` no nó é definido da mesma forma que para uma tarefa regular e mapeado para o contêiner. 
 
-Como o Lote altera o diretório de trabalho padrão em seu contêiner, a tarefa é executada em um local diferente do diretório de trabalho do contêiner típico (por exemplo, `c:\` por padrão em um contêiner do Windows ou `/` no Linux, ou outro diretório, se configurado na imagem de contêiner). Para certificar-se de que seus aplicativos de contêiner sejam executados corretamente no contexto do Lote, siga um destes procedimentos: 
+Esses mapeamentos permitem trabalhar com tarefas de contêiner da mesma maneira que as tarefas que não são contêineres. Por exemplo, instale aplicativos usando pacotes de aplicativos, acesse arquivos de recursos do Armazenamento do Microsoft Azure, use configurações de ambiente de tarefas e persista arquivos de saída de tarefas depois que o contêiner for interrompido.
 
-* A linha de comando da tarefa (ou o diretório de trabalho do contêiner) deve especificar um caminho absoluto, caso ainda não esteja configurada dessa maneira.
+### <a name="troubleshoot-container-tasks"></a>Solucionar problemas de tarefas de contêiner
 
-* No ContainerSettings da tarefa, defina um diretório de trabalho nas opções de execução do contêiner. Por exemplo, `--workdir /app`.
+Se a tarefa do contêiner não for executada conforme o esperado, talvez seja necessário obter informações sobre a configuração WORKDIR ou ENTRYPOINT da imagem de contêiner. Para ver a configuração, execute o comando [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/). 
 
-O snippet de código do Python a seguir mostra uma linha de comando básica em execução em um contêiner do Ubuntu obtido do Hub do Docker. Aqui, a opção de execução do contêiner `--rm` remove o contêiner após a conclusão da tarefa.
+Se necessário, ajuste as configurações da tarefa do contêiner com base na imagem:
+
+* Especifique um caminho absoluto na linha de comando da tarefa. Se o ENTRYPOINT padrão da imagem for usado para a linha de comando da tarefa, assegure-se de que um caminho absoluto esteja configurado.
+
+* Nas opções de execução do contêiner da tarefa, altere o diretório de trabalho para corresponder ao WORKDIR na imagem. Por exemplo, definir `--workdir /app`.
+
+## <a name="container-task-examples"></a>Exemplos de tarefas de contêiner
+
+O fragmento Python a seguir mostra uma linha de comando básica em execução em um contêiner criado a partir de uma imagem fictícia extraída do Docker Hub. Aqui, a opção de contêiner `--rm` remove o contêiner após a conclusão da tarefa, e a opção `--workdir` define um diretório de trabalho. A linha de comando substitui o contêiner ENTRYPOINT por um comando shell simples que grava um arquivo pequeno no diretório de trabalho da tarefa no host. 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ O exemplo C# a seguir mostra as configurações básicas do contêiner para uma 
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
@@ -287,6 +308,6 @@ CloudTask containerTask = new CloudTask (
 
 * Para saber mais sobre como instalar e usar o Docker CE no Linux, confira a documentação do [Docker](https://docs.docker.com/engine/installation/).
 
-* Para saber mais sobre como usar imagens personalizadas, confira [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
+* Para obter mais informações sobre o uso de imagens personalizadas, consulte [Use uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
 * Saiba mais sobre o [projeto Moby](https://mobyproject.org/), uma estrutura para criar sistemas baseados em contêiner.

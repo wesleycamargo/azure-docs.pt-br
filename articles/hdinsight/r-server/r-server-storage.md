@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011197"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498147"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluções de Armazenamento do Microsoft Azure para ML Services no Azure HDInsight
 
@@ -26,7 +26,7 @@ O ML Services no HDInsight poder usar uma variedade de soluções de armazenamen
 
 Você também tem a opção de acessar várias contas de armazenamento ou contêineres do Azure com o cluster HDInsight. O Armazenamento de Arquivos do Azure é uma opção de armazenamento de dados conveniente para uso no nó de borda, que permite a você montar um compartilhamento de arquivos do Armazenamento do Azure para, por exemplo, o sistema de arquivos do Linux. Mas os compartilhamentos de arquivos do Azure podem ser montados e usados por qualquer sistema que tenha um sistema operacional com suporte, como Windows ou Linux. 
 
-Ao criar um cluster Hadoop no HDInsight, você especifica uma conta de **armazenamento do Azure** ou um **Data Lake Store**. Um contêiner de armazenamento específico dessa conta mantém o sistema de arquivos do cluster que você cria (por exemplo, o Sistema de Arquivos Distribuído Hadoop). Para obter mais informações e diretrizes, consulte:
+Quando você cria um cluster do Apache Hadoop no HDInsight, especifica uma **Conta do armazenamento do Azure** ou um **armazenamento do Data Lake**. Um contêiner de armazenamento específico dessa conta mantém o sistema de arquivos do cluster que você cria (por exemplo, o Sistema de Arquivos Distribuído Hadoop). Para obter mais informações e diretrizes, consulte:
 
 - [Usar o Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Usar o Data Lake Store com clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Uma grande vantagem dos Arquivos do Azure é que os compartilhamentos de arquivo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do cluster do ML Services no HDInsight](r-server-overview.md)
-* [Introdução ao cluster do ML Services no Hadoop](r-server-get-started.md)
+* [Introdução ao cluster de serviços de ML no Apache Hadoop](r-server-get-started.md)
 * [Opções de contexto de computação para cluster do ML Services no HDInsight](r-server-compute-contexts.md)
 

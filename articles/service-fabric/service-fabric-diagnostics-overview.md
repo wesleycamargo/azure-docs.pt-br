@@ -12,75 +12,87 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/18/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457826"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291106"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoramento e diagnóstico no Azure Service Fabric
 
-Este artigo fornece uma visão geral de monitoramento e diagnóstico do Azure Service Fabric. O monitoramento e o diagnóstico são essenciais para o desenvolvimento, os testes e a implantação de cargas de trabalho em qualquer ambiente. O monitoramento permite controlar como os aplicativos são usados, a utilização de recursos e a integridade geral do seu cluster. Você pode usar essas informações para diagnosticar, corrigir quaisquer problemas e impedir problemas no futuro. 
+Este artigo fornece uma visão geral de monitoramento e diagnóstico do Azure Service Fabric. O monitoramento e o diagnóstico são essenciais para o desenvolvimento, os testes e a implantação de cargas de trabalho em qualquer ambiente. Por exemplo, você pode controlar como seus aplicativos são usados, as ações realizadas pela plataforma do Service Fabric, a utilização de recursos com contadores de desempenho e a integridade geral do seu cluster. Você pode usar essas informações para diagnosticar e corrigir problemas e evitar que eles ocorram no futuro. As próximas seções explicarão brevemente cada área do monitoramento do Service Fabric a ser considerada para as cargas de trabalho de produção. 
 
 ## <a name="application-monitoring"></a>Monitoramento de aplicativo
-O monitoramento de aplicativo controla como os recursos e componentes de um aplicativo estão sendo usados. Você deseja monitorar seus aplicativos para garantir que os problemas que impactam os usuários são capturados. Monitorar os seus aplicativos pode ser útil nos seguintes cenários:
-* Determinar a carga do aplicativo e usuário de tráfego - você precisa dimensionar seus serviços para atender às demandas de usuário ou solucionar um gargalo potencial em seu aplicativo?
-* Identificar problemas com a comunicação remota do serviço em seu cluster
-* Descobrir o que seus usuários estão fazendo com que seu aplicativo - a coleta de telemetria em seus aplicativos pode ajudar a orientar o desenvolvimento futuro de recursos e melhorar diagnósticos para erros de aplicativo
-* Monitorar o que acontece dentro de seus contêineres em execução
+O monitoramento de aplicativo controla como os recursos e componentes de um aplicativo estão sendo usados. Você deseja monitorar seus aplicativos para garantir que os problemas que impactam os usuários são capturados. A responsabilidade do monitoramento de aplicativos é dos usuários que desenvolvem um aplicativo e seus serviços, pois depende exclusivamente da lógica de negócios do aplicativo. Monitorar os seus aplicativos pode ser útil nos seguintes cenários:
+* A quantidade de tráfego está enfrentando com o meu aplicativo? - Você precisa dimensionar seus serviços para atender às demandas dos usuários ou resolver um possível gargalo em seu aplicativo?
+* São minhas chamadas de serviço a serviço com êxito e controladas?
+* Quais ações são executadas pelos usuários do meu aplicativo? -Coleta de telemetria pode guiar o desenvolvimento futuro de recursos e melhorar diagnósticos para erros de aplicativo
+* Meu aplicativo está lançando exceções não tratadas? 
+* O que está acontecendo dentro dos serviços em execução dentro de Meus contêineres?
 
-O Service Fabric oferece suporte a muitas opções para instrumentar seu código de aplicativo com telemetria e rastreamentos adequados. É recomendável que você use o Application Insights (AI). A integração do AI com o Service Fabric inclui experiências de ferramentas para Visual Studio e Portal do Azure, bem como métricas específicas do Service Fabric, fornecendo uma experiência de logs abrangente e de pronto uso. Embora muitos logs são automaticamente criados e coletados para você com o AI, é recomendável que você adicione também o log personalizado para seus aplicativos para criar uma experiência mais rica de diagnóstico. Saiba mais sobre como começar a usar o Application Insights com o Service Fabric na [Análise de Eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+A grande novidade sobre monitoramento de aplicativos é que os desenvolvedores podem usar qualquer estrutura que gostariam de uma vez que ele reside dentro do contexto de seu aplicativo e as ferramentas! Você pode aprender mais sobre a solução do Azure para o monitoramento de aplicativos com o Azure Monitor - Application Insights no [análise de eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+Também temos um tutorial com a maneira [configurar isso para aplicativos .NET](service-fabric-tutorial-monitoring-aspnet.md). Este tutorial aborda como instalar as ferramentas corretas, um exemplo para gravar a telemetria personalizada em seu aplicativo e visualizar o diagnóstico e a telemetria do aplicativo no portal do Azure. 
+
 
 ## <a name="platform-cluster-monitoring"></a>Monitoramento da plataforma (cluster)
-Monitorar o cluster do Service Fabric é essencial para garantir que a plataforma e todas as cargas de trabalho estejam em execução conforme esperado. Uma das metas do Service Fabric é manter os aplicativos resilientes a falhas de hardware. Esse objetivo é conseguido por meio da capacidade de serviços de sistema da plataforma para detectar problemas de infraestrutura e rápidas failover de cargas de trabalho para outros nós no cluster. Mas, neste caso específico, e se os próprios serviços do sistema tiverem problemas? Ou, se na tentativa de mover uma carga de trabalho, as regras para o posicionamento dos serviços forem violadas? O monitoramento do cluster permite que você se mantenha informado sobre a atividade ocorrendo em seu cluster, o que ajuda a diagnosticar problemas e corrigi-los com eficiência. Alguns conceitos importantes que você deseja procurar são:
-* O Service Fabric está se comportando da maneira esperada, em termos de colocação de seus aplicativos e solução de balanceamento de cluster? 
-* As ações do usuário são executadas em seu cluster reconhecido e conforme o esperado? Isso é especialmente relevante ao dimensionar um cluster.
-* O Service Fabric está tratando os dados e a comunicação de serviço dentro do cluster corretamente?
+Um usuário está no controle sobre qual telemetria é proveniente de seus aplicativos, pois um usuário escreve o código em si, mas o que sobre o diagnóstico da plataforma do Service Fabric? Uma das metas do Service Fabric é manter os aplicativos resilientes a falhas de hardware. Esse objetivo é conseguido por meio da capacidade de serviços de sistema da plataforma para detectar problemas de infraestrutura e rápidas failover de cargas de trabalho para outros nós no cluster. Mas, neste caso específico, e se os próprios serviços do sistema tiverem problemas? Ou se, ao tentar implantar ou mover uma carga de trabalho, as regras para a veiculação de serviços forem violadas? O Service Fabric fornece diagnósticos para esses e mais para garantir que você seja informado sobre a atividade que ocorre em seu cluster. Alguns cenários de amostra para monitoramento de cluster incluem:
 
-O Service Fabric fornece um conjunto abrangente de eventos fora da caixa. Esses [eventos do Service Fabric](service-fabric-diagnostics-events.md) podem ser acessados por meio de APIs do EventStore ou do canal operacional (canal de eventos exposto pela plataforma). 
-* EventStore - o EventStore (disponível no Windows em versões 6.2 e posteriores, Linux em andamento a partir da data da última atualização deste artigo) expõe esses eventos por meio de um conjunto de APIs (acessível por meio de pontos de extremidade REST ou da biblioteca de clientes). Leia mais sobre o EventStore na [Visão geral do EventStore](service-fabric-diagnostics-eventstore.md).
-* Canais de eventos do Service Fabric - No Windows, eventos do Service Fabric estão disponíveis a partir de um único provedor ETW com um conjunto de `logLevelKeywordFilters` relevante usado para escolher entre os canais Operacional e Dados e Mensagens - é assim que separamos eventos do Service Fabric de saída para serem filtrados conforme necessário. No Linux, todos os eventos do Service Fabric são fornecidos por meio de LTTng e são colocados em uma tabela de Armazenamento, de onde eles podem ser filtrados conforme necessário. Esses canais contém eventos curados e estruturados que podem ser usados para entender melhor o estado do cluster. O Diagnóstico é habilitado por padrão no momento da criação do cluster, que cria uma tabela de Armazenamento do Azure onde os eventos desses canais são enviados para a consulta no futuro. 
+* O Service Fabric está se comportando da maneira esperada, em termos de colocar seus aplicativos e balanceamento de trabalho no cluster? 
+* As ações do usuário são executadas em seu cluster reconhecido e conforme o esperado? Por exemplo Dimensionamento, Failover, Implantações
+* O Service Fabric está monitorando quais nós fazem parte do cluster e informando quando há um problema em um deles?
 
-Recomendamos usar o EventStore para análise rápida e para obter uma ideia de instantâneo de como o cluster está funcionando e se as coisas estão acontecendo como esperado. Para coletar os logs e eventos que estão sendo gerados pelo seu cluster, geralmente recomendamos o uso da [extensão de Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md). Isso se integra bem com a solução específica da Análise do Service Fabric, do Log Analytics, que fornece um painel personalizado para monitorar clusters do Service Fabric e permite que você consulte eventos do cluster e configure alertas. Leia mais sobre isso em [Análise de eventos com o Log Analytics](service-fabric-diagnostics-event-analysis-oms.md). 
+Os diagnósticos fornecidos estão na forma de um conjunto abrangente de eventos prontos para uso. Esses [eventos do Service Fabric](service-fabric-diagnostics-events.md) ilustram as ações feitas pela plataforma em entidades diferentes, como Nós, Aplicativos, Serviços, Partições, etc. No último cenário acima, se um nó fosse desativado, a plataforma emitiria um evento `NodeDown` e você poderia ser notificado imediatamente por sua ferramenta de monitoramento preferida. Outros exemplos comuns incluem `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` durante um failover. **Os mesmos eventos estão disponíveis nos clusters Windows e Linux.**
 
- Você pode saber mais sobre como monitorar o seu cluster em [Geração de log e eventos de nível de plataforma](service-fabric-diagnostics-event-generation-infra.md).
+Os eventos são enviados através de canais padrão no Windows e no Linux e podem ser lidos por qualquer ferramenta de monitoramento que os suporte. A solução do Monitor do Azure é Log Analytics. Sinta-se à vontade para ler mais sobre nossa [integração do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md), que inclui um painel operacional personalizado para seu cluster e algumas consultas de amostra a partir das quais você pode criar alertas. Mais conceitos de monitoramento de cluster estão disponíveis em [evento de nível de plataforma e geração de log](service-fabric-diagnostics-event-generation-infra.md).
 
-## <a name="performance-monitoring"></a>Monitoramento de desempenho
-Monitoramento de sua infraestrutura subjacente é uma parte importante para compreender o estado do seu cluster e a utilização de recursos. Medir o desempenho do sistema depende de vários fatores, normalmente, cada um deles é medido por meio de um indicador chave de desempenho (KPIs). KPIs relevantes do Service Fabric podem ser mapeados para as métricas que podem ser coletadas de nós no cluster, como contadores de desempenho.
-Esses KPIs podem ajudar com:
-* Compreender a utilização de recursos e carga - com a finalidade de dimensionar o cluster ou otimizar os processos de serviço.
-* Prever problemas de infraestrutura - muitos problemas são precedidos por alterações repentinas (quedas) no desempenho, então você pode usar KPIs, como utilização de CPU e I/O de rede para prever e diagnosticar problemas de infraestrutura.
+### <a name="health-monitoring"></a>Monitoramento da integridade
+A plataforma do Service Fabric inclui um modelo de integridade, que fornece o relatório de integridade extensível para o status de entidades em um cluster. Cada nó, aplicativo, serviço, partição, réplicas ou instância, tem um status de integridade continuamente atualizável. O status de integridade pode ser "OK", "Aviso" ou "Erro". Pense em eventos do Service Fabric como verbos feitos pelo cluster para várias entidades e health como um adjetivo para cada entidade. Cada vez que a integridade de uma determinada entidade transita, um evento também será emitido. Dessa forma, você pode configurar consultas e alertas para eventos de integridade em sua ferramenta de monitoramento escolhida, assim como qualquer outro evento. 
 
-Uma lista de contadores de desempenho que devem ser coletados no nível de infraestrutura pode ser encontrada em [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md). 
-
-O Service Fabric fornece um conjunto de contadores de desempenho para os modelos de programação de Atores e Reliable Services. Se você estiver usando qualquer um desses modelos, esses contadores de desempenho podem fornecer KPIs que ajudam a garantir que seus atores estão subindo e descendo corretamente ou se suas solicitações de Reliable Services estão sendo tratadas rápido o suficiente. Para obter mais informações, consulte [Monitoramento para comunicação remota do Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [Monitoramento de desempenho para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). Além disso, o Application Insights também tem um conjunto de métricas de desempenho que irá coletar, se configurado com seu aplicativo.
-
-Use o [agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para coletar os contadores de desempenho apropriados e exibir esses KPIs no Log Analytics do Azure.
-
-![Gráfico de visão geral do diagnóstico](media/service-fabric-diagnostics-overview/diagnostics-overview.png)
-
-## <a name="health-monitoring"></a>Monitoramento da integridade
-A plataforma do Service Fabric inclui um modelo de integridade, que fornece o relatório de integridade extensível para o status de entidades em um cluster. Cada nó, aplicativo, serviço, partição, réplicas ou instância, tem um status de integridade continuamente atualizável. O status de integridade pode ser "OK", "Aviso" ou "Erro". O status de integridade é alterado por meio de relatórios de integridade que são emitidos para cada entidade, com base em problemas no cluster. O status de integridade de suas entidades pode ser verificado a qualquer momento no Service Fabric Explorer (SFX), conforme mostrado abaixo, ou pode ser consultado por meio da API de integridade das plataformas. Você também pode personalizar relatórios de integridade e modificar o status de integridade de uma entidade adicionando seus próprios relatórios de integridade ou usando a API de integridade. Mais detalhes sobre o modelo de integridade podem ser encontrados no [Introdução ao monitoramento de integridade do Service Fabric](service-fabric-health-introduction.md).
+Além disso, até permitimos que os usuários substituam a integridade de entidades. Se o seu aplicativo estiver passando por uma atualização e você tiver testes de validação com falha, poderá gravar no Service Fabric Health usando a Health API para indicar que seu aplicativo não está mais íntegro e o Service Fabric reverterá automaticamente a atualização! Para obter mais informações sobre o modelo de integridade, confira a introdução [ao monitoramento de integridade do Service Fabric](service-fabric-health-introduction.md)
 
 ![Painel de integridade SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Além de ver os relatórios de integridade mais recentes no SFX, cada relatório também está disponível como um evento. Eventos de integridade podem ser coletados por meio do canal operacional (consulte [Agregação de eventos com o Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) e armazenados no Log Analytics para alertas e consultas no futuro. Isso ajuda a detectar problemas que podem afetar a disponibilidade do seu aplicativo, portanto, é recomendável que você configure alertas para cenários de falha apropriados (alertas personalizados por meio do Log Analytics).
+
+### <a name="watchdogs"></a>Watchdogs
+Um watchdog é um serviço separado que pode inspecionar a integridade e a carga entre serviços, executar ping de endpoints e informar a integridade de qualquer coisa no cluster. Isso pode ajudar a evitar erros que não seriam detectados com base no modo de exibição de um único serviço. Os watchdogs também são um bom local para hospedar código que executa ações corretivas sem interação do usuário (por exemplo, limpar arquivos de log no armazenamento em determinados intervalos de tempo). Você pode encontrar uma implementação de serviço de watchdog de exemplo [aqui](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+
+## <a name="infrastructure-performance-monitoring"></a>Monitoramento de infraestrutura (desempenho)
+Agora que abordamos os diagnósticos em seu aplicativo e na plataforma, como sabemos se o hardware está funcionando conforme o esperado? Monitoramento de sua infraestrutura subjacente é uma parte importante para compreender o estado do seu cluster e a utilização de recursos. O desempenho do sistema de medição depende de muitos fatores que podem ser subjetivos, dependendo de suas cargas de trabalho. Esses fatores geralmente são medidos por meio de contadores de desempenho. Esses contadores de desempenho podem vir de uma variedade de fontes, incluindo o sistema operacional, o .NET framework ou a própria plataforma do Service Fabric. Alguns cenários em que eles seriam úteis são
+
+* Eu estou utilizando o meu hardware com eficiência? Você quer usar seu hardware com 90% da CPU ou 10% da CPU. Isso é útil ao dimensionar seu cluster ou otimizar os processos do seu aplicativo.
+* Posso prever problemas de infraestrutura proativamente? - muitos problemas são precedidos por alterações bruscas no desempenho, para que você possa usar contadores de desempenho, como I / O de rede e utilização da CPU, para prever e diagnosticar os problemas de maneira proativa.
+
+Uma lista de contadores de desempenho que devem ser coletados no nível de infraestrutura pode ser encontrada em [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md). 
+
+O Service Fabric alsp fornece um conjunto de contadores de desempenho para os modelos de programação Reliable Services e Actors. Se você estiver usando um desses modelos, esses contadores de desempenho poderão fornecer informações para garantir que seus atores estejam girando corretamente, ou que suas solicitações de serviço confiáveis sejam tratadas com rapidez suficiente. Para obter mais informações, consulte [Monitoramento para comunicação remota do Reliable Service](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [Monitoramento de desempenho para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+
+A solução de Monitor do Azure para coletar essas é o Log Analytics assim como o monitoramento de nível de plataforma. Você deve usar o [agente Log Analytics](service-fabric-diagnostics-oms-agent.md) para coletar os contadores de desempenho apropriados e visualizá-los no Log Analytics.
+
+## <a name="recommended-setup"></a>Configuração recomendada
+Agora que passamos sobre cada área de cenários de monitoramento e exemplo, aqui está um resumo do Azure, ferramentas de monitoramento e configurar necessários para monitorar todas as áreas acima. 
+
+* Monitoramento de aplicativos com [Application Insights](service-fabric-tutorial-monitoring-aspnet.md)
+* Monitoramento de cluster com [agente de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md) e [do Log Analytics](service-fabric-diagnostics-oms-setup.md)
+* Monitoramento de infraestrutura com [do Log Analytics](service-fabric-diagnostics-oms-agent.md)
+
+Você também pode usar e modificar o modelo de ARM de exemplo localizado [aqui](service-fabric-diagnostics-oms-setup.md#deploy-log-analytics-with-azure-resource-manager) para automatizar a implantação de todos os recursos necessários e os agentes. 
 
 ## <a name="other-logging-solutions"></a>Outras soluções de registro em log
 
 Embora as duas soluções que recomendamos, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) tenham criado na integração com o Service Fabric, muitos eventos que são gravados por meio de provedores de ETW e são extensíveis com outras soluções de registro em log. Você também deve examinar o [Elastic Stack](https://www.elastic.co/products) (especialmente se estiver considerando a execução de um cluster em um ambiente offline), [Dynatrace](https://www.dynatrace.com/), ou qualquer outra plataforma de sua preferência. Temos uma lista de parceiros integrados disponíveis [aqui](service-fabric-diagnostics-partners.md).
 
-Os principais pontos para qualquer plataforma que você escolher devem incluir seu grau de experiência com a interface do usuário e as opções de consulta, a capacidade de visualizar dados e criar painéis facilmente legíveis e as ferramentas adicionais que eles oferecem para aprimorar o monitoramento, como alertas automatizados.
+Os pontos-chave para qualquer plataforma que você escolher devem incluir o quanto você está confortável com a interface do usuário, os recursos de consulta, as visualizações e painéis personalizados disponíveis e as ferramentas adicionais que eles fornecem para aprimorar sua experiência de monitoramento. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a instrumentar seus aplicativos, consulte [Geração de log e evento de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md).
+* Siga as etapas para configurar o Application Insights para seu aplicativo com [Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Saiba mais sobre como monitorar a plataforma e os eventos que o Service Fabric fornece para você em [Geração de log e evento nível de plataforma](service-fabric-diagnostics-event-generation-infra.md).
-* Siga as etapas para configurar o AI para seu aplicativo com [Monitorar e diagnosticar um aplicativo do ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
-* Saiba como configurar o Log Analytics do OMS para monitoramento de Contêineres - [Monitoramento e diagnóstico para contêineres do Windows no Service Fabric do Azure](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configurar a integração do Log Analytics com o Service Fabric em [configurar o Log Analytics para um cluster](service-fabric-diagnostics-oms-setup.md)
+* Aprenda como configurar o Log Analytics para monitorar contêineres - [Monitoramento e diagnóstico para contêineres do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Consulte os problemas de diagnóstico de exemplo e soluções com o Service Fabric no [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md)
 * Check-out de outros produtos de diagnóstico que se integram ao Service Fabric no [parceiros de diagnóstico do Service Fabric](service-fabric-diagnostics-partners.md)
 * Saiba mais sobre as recomendações gerais de monitoramentos para recursos do Azure - [Práticas Recomendadas - Monitoramento e Diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

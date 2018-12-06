@@ -2,19 +2,18 @@
 title: Como direcionar para versões de tempo de execução do Azure Functions
 description: O Azure Functions é compatível com várias versões do tempo de execução. Saiba como especificar a versão de tempo de execução de um aplicativo de funções hospedado no Azure.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886800"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498388"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões de tempo de execução do Azure Functions
 
@@ -37,23 +36,13 @@ Os valores que você pode definir na configuração de aplicativo `FUNCTIONS_EXT
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de tempo de execução atual
 
-Use o procedimento a seguir para exibir a versão de tempo de execução usada no momento por um aplicativo de funções.
+Você pode alterar a versão de tempo de execução usada por você aplicativo de funções. Por causa do potencial de alterações significativas, você deve alterar apenas a versão de tempo de execução antes de criar todas as funções no aplicativo de função. Embora a versão de tempo de execução é determinada pelo `FUNCTIONS_EXTENSION_VERSION` configuração, você deve fazer essa alteração no portal do Azure e não, alterando a configuração diretamente. Isso ocorre porque o portal valida as alterações e faz outras alterações relacionadas, conforme necessário.
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo de funções.
+### <a name="from-the-azure-portal"></a>No portal do Azure
 
-1. Em **Recursos Configurados**, escolha **Configurações do aplicativo de funções**.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![Selecionar as configurações do aplicativo de funções](./media/set-runtime-version/add-update-app-setting.png)
-
-1. Na guia **Configurações do aplicativo de funções**, localize a **Versão de tempo de execução**. Observe a versão de tempo de execução específica e a versão principal solicitada. No exemplo a seguir, a versão é definida como `~2`.
-
-   ![Selecionar as configurações do aplicativo de funções](./media/set-runtime-version/function-app-view-version.png)
-
-1. Para fixar o aplicativo de funções no tempo de execução de versão 1.x, escolha **~1** em **Versão de tempo de execução**. Essa opção estará desabilitada quando houver funções no aplicativo.
-
-1. Se você alterou a versão de tempo de execução, retorne à guia de **Visão geral** e escolha **Restart** para reiniciar o aplicativo.  O aplicativo de funções reinicia a execução no tempo de execução de versão 1.x e os modelos de versão 1.x são usados quando você cria funções.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Exibir e atualizar a versão de tempo de execução usando CLI do Azure
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Na CLI do Azure
 
 Também é possível exibir e definir o `FUNCTIONS_EXTENSION_VERSION` da CLI do Azure.
 
@@ -102,7 +91,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Substitua `<function_app>` pelo nome do aplicativo de funções. Além disso, substitua `<my_resource_group>` pelo nome do grupo de recursos para seu aplicativo de funções. Substitua também `<version>` por uma versão de tempo de execução 1.x válida ou `~2` para a versão 2.x.
+Substitua `<function_app>` pelo nome do aplicativo de funções. Substitua também `<my_resource_group>` pelo nome do grupo de recursos para seu aplicativo de funções. Substitua também `<version>` por uma versão de tempo de execução 1.x válida ou `~2` para a versão 2.x.
 
 Execute esse comando a partir do [Azure Cloud Shell](../cloud-shell/overview.md) escolhendo **Experimentar** no exemplo de código anterior. Você também pode usar a [CLI do Azure localmente](/cli/azure/install-azure-cli) para executar esse comando após a execução de [az login](/cli/azure/reference-index#az-login) para entrar.
 

@@ -1,10 +1,11 @@
 ---
-title: Solução de Problemas de readaptação de um serviço Web clássico do Azure Machine Learning | Microsoft Docs
-description: Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Azure Machine Learning.
+title: Solucionar problemas de reciclagem de um serviço da Web clássico do Machine Learning Studio - Azure | Microsoft Docs
+description: Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço web de Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835766"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307195"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Solução de problemas de readaptação de um serviço Web Clássico de Azure Machine Learning
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Solucionando problemas do novo treinamento de um serviço da web clássico do Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Visão geral da readaptação
 Quando você implanta um experimento de previsão como um serviço Web de pontuação, ele é um modelo estático. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. 
 

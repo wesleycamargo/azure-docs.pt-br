@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035944"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495588"
 ---
-# <a name="use-batch-transcription"></a>Use a transcrição em lote
+# <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
-A transcrição em lote é ideal se você tiver grandes quantidades de áudio no armazenamento. Usando a API REST, você pode apontar para arquivos de áudio por URI de assinatura de acesso compartilhado (SAS) e receber transcrições de maneira assíncrona.
+A transcrição em lote é ideal se você tiver grandes quantidades de áudio no armazenamento. Usando a API REST dedicado, você pode apontar para arquivos de áudio por uma assinatura de acesso compartilhado (SAS) URI e transcrições de recebimento de forma assíncrona.
 
 ## <a name="the-batch-transcription-api"></a>A API de transcrição em lote
 
@@ -36,16 +36,16 @@ A API de Transcrição em Lote oferece transcrição de fala para texto assíncr
 
 A API de transcrição de lote dá suporte aos seguintes formatos:
 
-NOME| Canal  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Estéreo  | 
-WAV |   Mono   |
-WAV |  Estéreo  |
-opus|   Mono   |
-opus|  Estéreo  |
+| Formatar | Codec | Bitrate | Taxa de amostragem |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 8 ou 16 kHz, mono, estéreo |
+| MP3 | PCM | 16-bit | 8 ou 16 kHz, mono, estéreo |
+| OGG | OPUS | 16-bit | 8 ou 16 kHz, mono, estéreo |
 
-Para transmissões de áudio estéreo, a transcrição em lote divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A saída de um canal, inclusive propriedades para configurar o filtro de profanidade e o modelo de pontuação, é mostrada no exemplo JSON a seguir:
+> [!NOTE]
+> A API de Transcrição em Lote requer uma chave S0 (camada pagadora). Ele não funciona com uma chave gratuita (f0).
+
+Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra a saída de um canal, incluindo as propriedades para configurar o filtro de profanação e o modelo de pontuação.
 
 ```json
 {
@@ -62,6 +62,16 @@ Para transmissões de áudio estéreo, a transcrição em lote divide os canais 
 
 > [!NOTE]
 > A API de Transcrição em Lote usa um serviço REST para solicitar transcrições, seus status e resultados associados. É possível usar a API de qualquer linguagem. A próxima seção descreve como a API é usada.
+
+### <a name="query-parameters"></a>Parâmetros de consulta
+
+Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
+
+| Parâmetro | DESCRIÇÃO | Obrigatório / opcional |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Especifica como lidar com conteúdo ofensivo nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. | Opcional |
+| `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. | Opcional |
+
 
 ## <a name="authorization-token"></a>Token de autorização
 

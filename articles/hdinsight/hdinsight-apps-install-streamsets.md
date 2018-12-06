@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034550"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497373"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Instalar aplicativo publicado - Coletor de dados dos conjuntos de fluxos
 
-Este artigo descreve como instalar e executar o aplicativo Apache Hadoop [publicado do StreamSets Data Collector para HDInsight](https://streamsets.com/) no Azure HDInsight. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o aplicativo do [StreamSets Data Collector para HDInsight](https://streamsets.com/) do [Apache Hadoop](https://hadoop.apache.org/) publicado no Azure HDInsight. Para obter uma visão geral da plataforma de aplicativos do HDInsight e uma lista de aplicativos publicados disponíveis do Independent Software Vendor (ISV), consulte [Instalar aplicativos do Apache Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-streamsets-data-collector"></a>Sobre o coletor de dados dos Conjuntos de Fluxos
 
 O StreamSets Data Collector é implantado de um aplicativo HDInsight do Azure. O coletor de dados de conjuntos de fluxos fornece um ambiente de desenvolvimento integrado (IDE) de recursos completos que permite que você projete, teste, implante e gerencie qualquer-para-qualquer pipelines de ingestão. Esses pipelines podem mesclar dados de lote e fluxo, e incluir uma variedade de transformações no fluxo, tudo sem a necessidade de gravar código personalizado.
 
-O coletor de dados de conjuntos de fluxos permite compilar fluxos de dados usando vários componentes Big Data, como HDFS, Kafka, Solr, Hive, HBASE e Kudu. Depois que o coletor de dados de conjuntos de fluxos estiver sendo executado em um servidor de borda ou em seu cluster de Hadoop, você obtém o monitoramento em tempo real de anomalia de dados e operações de fluxo de dados. Esse monitoramento inclui alertas baseados em limites, detecção de anomalias e a correção automática dos registros de erro.
+O coletor de dados StreamSets permite criar fluxos de dados usando vários componentes de Big Data, como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Apache Kafka](https://kafka.apache.org/), [Apache Solr](https://lucene.apache.org/solr/), [Apache Hive](https://hive.apache.org/), [Apache HBase](https://hbase.apache.org/) e [Apache Kudu](https://kudu.apache.org/). Depois que o coletor de dados de conjuntos de fluxos estiver sendo executado em um servidor de borda ou em seu cluster de Hadoop, você obtém o monitoramento em tempo real de anomalia de dados e operações de fluxo de dados. Esse monitoramento inclui alertas baseados em limites, detecção de anomalias e a correção automática dos registros de erro.
 
 O coletor de dados de conjuntos de fluxos foi criado para isolar logicamente cada estágio em um pipeline, para que você possa atender aos novos requisitos de negócios, soltando em novos processadores e conectores sem codificar e com tempo de inatividade mínimo.
 
@@ -46,7 +46,7 @@ Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster e
 
 ## <a name="install-the-streamsets-data-collector-published-application"></a>Instale o aplicativo publicado do coletor de dados dos conjuntos de fluxos
 
-Para obter instruções passo a passo sobre como instalar esse e outros aplicativos ISV disponíveis, leia [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md).
+Para obter instruções passo a passo sobre como instalar este e outros aplicativos ISV disponíveis, leia [Instalar aplicativos Apache Hadoop de terceiros](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-streamsets-data-collector"></a>Inicializar o coletor de dados dos Conjuntos de Fluxos
 

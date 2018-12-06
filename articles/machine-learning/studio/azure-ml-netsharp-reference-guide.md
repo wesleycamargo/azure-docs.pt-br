@@ -1,10 +1,11 @@
 ---
-title: Guia de linguagem de especificação de rede neural Net# - Azure Machine Learning | Microsoft Docs
-description: Sintaxe para a linguagem de especificação de redes neurais Net#, junto com exemplos de como criar um modelo de rede neural personalizado usando Net#
+title: Redes Neurais de Net# - Estúdio de Aprendizagem de Azure Machine Learning Studio| Microsoft Docs
+description: Sintaxe para a linguagem de especificação de redes neurais Net#, junto com exemplos de como criar um modelo de rede neural personalizado usando o Net# com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258470"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315300"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guia de linguagem de especificação de rede neural Net# para Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação de rede neural Net # para o Microsoft Azure Machine Learning Studio
 
 Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas de rede neural. Usar Net# para definir a estrutura de uma rede neural torna possível definir estruturas complexas como redes neurais profundas ou convoluções de dimensões arbitrárias, que são conhecidas por aprimorar o aprendizado sobre dados como imagens, áudio ou vídeo.
 

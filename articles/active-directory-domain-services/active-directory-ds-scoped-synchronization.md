@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242187"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442974"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização no escopo do Microsoft Azure Active Directory para seu domínio gerenciado
 Este artigo mostra como configurar apenas contas de usuários específicos para serem sincronizadas entre seu diretório do Azure AD e o domínio gerenciado do Azure AD Domain Services.
@@ -47,7 +47,12 @@ A tabela a seguir ajuda a determinar como usar a sincronização no escopo:
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>Criar um novo domínio gerenciado e habilitar a sincronização no escopo baseada em grupo
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Criar um novo domínio gerenciado e habilitar a sincronização com escopo baseada em grupo usando o portal do Azure
+
+1. Siga a [Guia Primeiros passos](active-directory-ds-getting-started.md) para criar um domínio gerenciado.
+2. Escolha com **escopo** durante a seleção do estilo de sincronização no assistente de criação dos Serviços de Domínio do Azure AD.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Criar um novo domínio gerenciado e habilitar a sincronização com escopo baseada em grupo usando o PowerShell
 Use o PowerShell para concluir esse conjunto de etapas. Confira as instruções para [Habilitar o Azure Active Directory Domain Services usando o PowerShell](active-directory-ds-enable-using-powershell.md). Algumas das etapas neste artigo foram ligeiramente modificadas para configurar a sincronização no escopo.
 
 Conclua as seguintes etapas para configurar a sincronização de escopo com base em grupo para seu domínio gerenciado:

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041578"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582202"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Visão geral do Spark Structured Streaming
+# <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do streaming estruturado do Apache Spark
 
-O Spark Structured Streaming permite que você implemente aplicativos escalonáveis, taxa de transferência alta e tolerantes a falhas para processar fluxos de dados. O Structured Streaming baseia-se no mecanismo do Spark SQL e aprimora as construções de quadros de dados e conjuntos de dados do Spark SQL, para que você possa gravar consultas de streaming da mesma forma que gravaria consultas de lote.  
+O [Apache Spark](https://spark.apache.org/) Structured Streaming permite que você implemente aplicativos dimensionáveis, tolerantes a falhas e de alto rendimento para o processamento de fluxos de dados. O Structured Streaming baseia-se no mecanismo do Spark SQL e aprimora as construções de quadros de dados e conjuntos de dados do Spark SQL, para que você possa gravar consultas de streaming da mesma forma que gravaria consultas de lote.  
 
-Aplicativos de Structured Streaming são executados em clusters de HDInsight Spark e conectam-se ao fluxo de dados do Kafka, um soquete TCP (para fins de depuração), Armazenamento do Microsoft Azure ou Azure Data Lake Store. As duas últimas opções, que contam com serviços de armazenamento externos, permitem detectar novos arquivos adicionados no armazenamento e processar seu conteúdo, como se fossem transmitidos. 
+Aplicativos de Fluxo Estruturado são executados em clusters do HDInsight Spark e se conectam a dados de fluxo contínuo do [Apache Kafka](https://kafka.apache.org/), um soquete TCP (para fins de depuração), Armazenamento do Microsoft Azure ou Armazenamento do Azure Data Lake. As duas últimas opções, que contam com serviços de armazenamento externos, permitem detectar novos arquivos adicionados no armazenamento e processar seu conteúdo, como se fossem transmitidos. 
 
 O Structured Streaming cria uma consulta de longa execução durante a qual você aplica operações aos dados de entrada, como seleção, projeção, agregação, janelas e união de DataFrame de streaming com referência de DataFrames. Em seguida, você gera os resultados para o armazenamento de arquivo (Azure Storage Blobs ou Data Lake Store) ou para qualquer repositório de dados usando código personalizado (como banco de dados SQL ou Power BI). Structured Streaming também fornece a saída para o console para depuração local e para uma tabela na memória para que você possa ver os dados gerados para depuração no HDInsight. 
 
@@ -124,7 +124,7 @@ Esta consulta gera resultados semelhantes a:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Para obter mais detalhes sobre a API Spark Structured Stream, bem como sobre fontes de dados de entrada, operações e coletores de saída, consulte o [Guia de Programação do Spark Structured Streaming](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Para obter detalhes sobre a API do Spark Structured Stream, junto com as fontes de dados de entrada, operações e coletores de saída que ele suporta, consulte [Guia de programação de streaming estruturado do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Pontos de verificação e logs write-ahead
 
@@ -132,14 +132,14 @@ Para fornecer resiliência e tolerância a falhas, o Structured Streaming conta 
 
 ## <a name="deploying-spark-streaming-applications"></a>Implantar aplicativos Spark Streaming
 
-Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo JAR e, em seguida, implanta-o no Spark no HDInsight copiando o arquivo JAR para o armazenamento padrão anexado ao cluster HDInsight. Você pode iniciar o aplicativo usando as APIs REST do LIVY disponíveis no cluster usando uma operação POST. O corpo do POST inclui um documento JSON que fornece o caminho para o JAR, o nome da classe cujo método principal define e executa o aplicativo de streaming e, opcionalmente, os requisitos de recursos do trabalho (como a quantidade de executores, memória e núcleos) e as definições de configuração exigidas pelo código do aplicativo.
+Normalmente, você cria um aplicativo Spark Streaming localmente em um arquivo JAR e, em seguida, implanta-o no Spark no HDInsight copiando o arquivo JAR para o armazenamento padrão anexado ao cluster HDInsight. Você pode iniciar seu aplicativo com as APIs REST do [Apache Livy](https://livy.incubator.apache.org/) disponíveis em seu cluster usando uma operação POST. O corpo do POST inclui um documento JSON que fornece o caminho para o JAR, o nome da classe cujo método principal define e executa o aplicativo de streaming e, opcionalmente, os requisitos de recursos do trabalho (como a quantidade de executores, memória e núcleos) e as definições de configuração exigidas pelo código do aplicativo.
 
 ![Implantando um aplicativo Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para obter mais detalhes sobre a API LIVY, consulte [Trabalhos remotos com LIVY](apache-spark-livy-rest-interface.md)
+O status de todos os aplicativos também pode ser verificado com uma solicitação GET em um ponto de extremidade LIVY. Por fim, encerre um aplicativo em execução emitindo uma solicitação DELETE no ponto de extremidade do LIVY. Para detalhes sobre a API LIVY, veja [Trabalhos remotos com o Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um cluster Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guia de Programação do Spark Structured Streaming](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [Iniciar trabalhos do Spark remotamente com LIVY](apache-spark-livy-rest-interface.md)
+* [Guia de programação de streaming estruturado do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Iniciar trabalhos do Apache Spark remotamente com LIVY Apache](apache-spark-livy-rest-interface.md)

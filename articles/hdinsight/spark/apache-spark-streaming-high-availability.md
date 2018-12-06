@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013642"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581894"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Criar trabalhos de streaming do Spark de alta disponibilidade com YARN
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Crie tarefas do Apache Spark Streaming de alta disponibilidade com o YARN
 
-O streaming do Spark permite que você implemente aplicativos escalonáveis, taxa de transferência alta e tolerantes a falhas para processamento de fluxos de dados. Você pode conectar aplicativos de streaming do Spark em um cluster do Azure HDInsight Spark a uma variedade de fontes de dados, como Hubs de Eventos do Azure, Hub IoT do Azure, Kafka, Flume, Twitter, ZeroMQ, soquetes TCP brutos ou monitorando o sistema de arquivos HDFS para alterações. O streaming do Spark fornece suporte para tolerância a falhas com a garantia de que um determinado evento seja processado exatamente uma vez, mesmo com uma falha de nó.
+[O Fluxo do Apache Spark](https://spark.apache.org/) permite que você implemente aplicativos dimensionáveis, tolerantes a falhas e alto rendimento para o processamento de fluxos de dados. Você pode conectar os aplicativos Spark Streaming em um cluster do HDInsight Spark a uma variedade de fontes de dados, como Hubs de Eventos do Azure, Hub IoT do Azure, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), soquetes TCP brutos ou monitorando o [Sistema de arquivos do Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) para mudanças. O streaming do Spark fornece suporte para tolerância a falhas com a garantia de que um determinado evento seja processado exatamente uma vez, mesmo com uma falha de nó.
 
 O streaming do Spark cria trabalhos de execução longa, em que você pode aplicar transformações para os dados e, em seguida, efetuar push dos resultados para sistemas de arquivos, bancos de dados, painéis e console. O streaming do Spark processa microlotes de dados, coletando primeiro um lote de eventos ao longo de um intervalo de tempo definido. Em seguida, esse lote é enviado para processamento e saída. Os intervalos de tempo do lote geralmente são definidos em frações de um segundo.
 
@@ -54,7 +54,7 @@ Os RDDs têm várias propriedades que auxiliam trabalhos de streaming do Spark a
 
 Para criar um aplicativo que processe cada evento uma vez (e apenas uma vez), considere como todos os pontos de falha do sistema são reiniciados depois de ter um problema e como é possível evitar a perda de dados. As semânticas exatamente uma vez exigem que nenhum dado seja perdido em nenhum ponto e que o processamento de mensagens seja reiniciado, independentemente de onde a falha ocorrer. Consulte [Criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Streaming do Spark e YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Streaming do Spark e Apache Hadoop YARN
 
 No HDInsight, o trabalho em cluster é coordenado por *YARN* (Another Resource Negotiator). Projetar alta disponibilidade para streaming do Spark inclui técnicas para o streaming do Spark e também para componentes YARN.  Um exemplo de configuração usando YARN é mostrado a seguir. 
 
@@ -120,8 +120,8 @@ Para resumir, usando o ponto de verificação + WAL + receptores confiáveis, vo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral do streaming do Spark](apache-spark-streaming-overview.md)
-* [Criar trabalhos de streaming do Spark com processamento de eventos exatamente uma vez](apache-spark-streaming-exactly-once.md)
-* [Trabalhos de streaming do Spark de execução longa no YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Visão geral do Streaming do Apache Spark](apache-spark-streaming-overview.md)
+* [Criar trabalhos de Streaming do Apache Spark com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md)
+* [Trabalhos de Streaming do Apache de longa execução Spark no YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Streaming estruturado: semântica de tolerância a falhas](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Streams discretizado: um modelo de tolerância a falhas para processamento de fluxo escalonável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

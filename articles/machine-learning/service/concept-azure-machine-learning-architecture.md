@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210679"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706799"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço do Azure Machine Learning: arquitetura e conceitos
 
@@ -156,9 +156,9 @@ Um experimento é um agrupamento de diversas execuções de um determinado scrip
 
 Para um exemplo de como usar um experimento, consulte o documento [Início rápido: Introdução ao serviço de Azure Machine Learning](quickstart-get-started.md).
 
-## <a name="pipelines"></a>Pipelines
+## <a name="pipeline"></a>Pipeline
 
-Pipelines são usados para criar e gerenciar fluxos de trabalho que reúnem fases de aprendizado de máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento do modelo, implantação de modelo e fases de inferência. Cada fase pode incluir várias etapas, cada uma delas pode ser executada de modo autônomo em vários destinos de computação.
+Os pipelines de aprendizado de máquina são usados para criar e gerenciar fluxos de trabalho que unem as fases de aprendizado da máquina. Por exemplo, um pipeline pode incluir preparação de dados, treinamento do modelo, implantação de modelo e fases de inferência. Cada fase pode incluir várias etapas, cada uma delas pode ser executada de modo autônomo em vários destinos de computação.
 
 Para obter mais informações sobre os pipelines de aprendizado de máquina com esse serviço, consulte o artigo [Pipelines e Azure Machine Learning](concept-ml-pipelines.md).
 

@@ -1,10 +1,11 @@
 ---
-title: Criar vários modelos baseados em um teste | Microsoft Docs
+title: Crie vários modelos a partir de uma experiência - Azure Machine Learning Studio | Microsoft Docs
 description: Use o PowerShell para criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com o mesmo algoritmo, mas com conjuntos de dados de treinamento diferentes.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469819"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316558"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Criar vários modelos do Machine Learning e pontos de extremidade de serviço Web com base em um teste usando o PowerShell
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Microsoft Azure Machine Learning Studio: use o PowerShell para criar muitos modelos e pontos de extremidade de serviços da Web a partir de um experimento
+
 Este é um problema comum do aprendizado de máquina: você quer criar vários modelos que têm o mesmo fluxo de trabalho de treinamento e que usam o mesmo algoritmo. Mas quer que eles tenham conjuntos de dados de treinamento diferentes como entrada. Este artigo mostra como fazer isso em escala no Azure Machine Learning Studio usando apenas um único teste.
 
 Por exemplo, digamos que você tenha um negócio de franquia mundial de aluguel de bicicletas. Você deseja criar um modelo de regressão para prever a demanda de aluguel com base em dados históricos. Você tem 1.000 locais para locação no mundo todo e coletou um conjunto de dados para cada local. Eles incluem recursos importantes, como data, hora, clima e tráfego, que são específicos a cada local.

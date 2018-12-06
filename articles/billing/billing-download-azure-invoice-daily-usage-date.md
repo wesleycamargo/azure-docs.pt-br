@@ -5,7 +5,7 @@ keywords: fatura de cobrança, download de fatura, fatura do Azure, uso do Azure
 services: billing
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.service: billing
@@ -13,29 +13,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395008"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583101"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
-É possível baixar sua fatura no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou recebê-la por email. Para baixar o uso diário, acesse o [Centro de Contas do Azure](https://account.azure.com/Subscriptions). Somente certas funções como o administrador da conta têm permissão para obter as informações de uso e a fatura de cobrança. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
-Este artigo não se aplica aos clientes do EA (Enterprise Agreement). Se você for um cliente do EA, suas faturas serão enviadas diretamente para os Administradores de Registro.
+Para a maioria das assinaturas, você pode fazer o download da sua fatura no [portal do Microsoft Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou enviá-la por e-mail. Se você for um cliente do Azure com um Contrato Enterprise (cliente da EA), não poderá fazer o download das faturas da sua organização. As faturas são enviadas para quem está configurado para receber as faturas da inscrição.
+
+Se você quiser fazer o download do uso como um cliente da EA, ele estará disponível no [portal do  Microsoft Azure](https://portal.azure.com/) > **Gerenciamento de Custos + Faturamento** > **Uso + cobrança**. Para outras assinaturas, vá para o [Centro de Contas do Azure](https://account.azure.com/Subscriptions).
+
+Apenas determinadas funções têm permissão para receber informações de fatura e uso de faturamento, como o administrador da conta ou o administrador corporativo. Para saber mais sobre como obter acesso a informações de cobrança, consulte [Gerenciar o acesso à cobrança do Azure usando funções](billing-manage-access.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-> [!div class="nextstepaction"]
-> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+## <a name="download-or-view-your-invoice"></a>Faça o download ou visualize sua fatura
 
-## <a name="get-your-invoice-in-email-pdf"></a>Obter sua fatura por email (.pdf)
+ Se você é um cliente da EA, não pode fazer o download das faturas da sua organização. As faturas são enviadas para quem está configurado para receber as faturas da inscrição. Para outras assinaturas, você pode receber sua fatura por e-mail ou fazer o download no portal do Azure.
+
+### <a name="get-your-invoice-in-email-pdf"></a>Obter sua fatura por email (.pdf)
 Você pode aceitar e configurar destinatários adicionais para receber sua fatura do Azure em um email. Esse recurso pode não estar disponível para determinadas assinaturas, como ofertas de suporte, Enterprise Agreements ou Azure via Open.
 
-1. Selecione sua assinatura na [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Aceitação para todas as assinaturas que você possui. Clique em **Faturas** e em **Enviar minha fatura por email**. 
+1. Selecione sua assinatura na [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Aceitar para cada assinatura que você possui. Clique em **Faturas** e em **Enviar minha fatura por email**. 
 
     ![Captura de tela que mostra o fluxo de aceitação](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -50,11 +54,11 @@ Você pode aceitar e configurar destinatários adicionais para receber sua fatur
 Se você não receber um email depois de seguir as etapas, verifique se seu endereço de email está correto nas [opções de comunicação de seu perfil](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-from-getting-your-invoice-in-email"></a>Recusar obtenção da sua fatura no email
-Se você não quiser obter sua fatura no email, clique em Recusar faturas por email. Isso remove os endereços de email configurados para receber faturas no email. Se você optar por receber novamente você precisará reconfigurar os destinatários.
+Se você não quiser receber sua fatura por e-mail, clique em **Desativar faturas enviadas por e-mail**. Essa opção remove todos os endereços de e-mail configurados para receber faturas por e-mail. Se você optar por voltar, terá que reconfigurar os destinatários.
 
  ![Captura de tela que mostra o fluxo para recusar](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
-## <a name="download-invoice-from-azure-portal-pdf"></a>Baixar fatura no Portal do Azure (.pdf)
+### <a name="download-invoice-from-azure-portal-pdf"></a>Baixar fatura no Portal do Azure (.pdf)
 
 1. Selecione sua assinatura da [página Assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no Portal do Azure como [um usuário com acesso a faturas](billing-manage-access.md).
 
@@ -70,7 +74,23 @@ Se você não quiser obter sua fatura no email, clique em Recusar faturas por em
 
 Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
 
-## <a name="download-usage-from-the-account-center-csv"></a>Baixar uso do Centro de Contas (.csv)
+### <a name="noinvoice"></a> Por que não encontro uma fatura do último período de cobrança?
+
+Pode haver vários motivos pelos quais você não vê uma fatura:
+
+- Você tem um valor de crédito mensal com sua assinatura que não foi ultrapassado ou você tem uma Avaliação Gratuita. Uma fatura é gerada somente quando você é um devedor.
+
+- Faz menos de 30 dias que você se inscreveu no Azure.
+
+- A fatura não foi gerada ainda. Aguarde até o final do período de cobrança.
+
+- Se você não é o Administrador da Conta, faturas anteriores talvez não estejam disponíveis para você.
+
+## <a name="download-usage"></a>Fazer o download de uso
+
+ Para a maioria das assinaturas, encontre seu arquivo de uso diário no [ Centro de Contas do Azure ](https://account.azure.com/Subscriptions). Se você quiser fazer o download do uso como um cliente da EA, ele estará disponível no [portal do  Microsoft Azure](https://portal.azure.com/) > **Gerenciamento de Custos + Faturamento** > **Uso + cobrança**. 
+
+### <a name="download-usage-from-the-account-center-csv"></a>Baixar uso do Centro de Contas (.csv)
 
 1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) como o Administrador da Conta.
 
@@ -98,18 +118,18 @@ Somente o Administrador da Conta pode acessar o Centro de Contas do Azure. Outro
 
 Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
 
-## <a name="noinvoice"></a> Por que não encontro uma fatura do último período de cobrança?
+### <a name="download-usage-for-ea-customers"></a>Faça o download uso para clientes do EA
 
-Pode haver vários motivos pelos quais você não vê uma fatura:
+Para visualizar e fazer o download dos dados de uso como um cliente da EA, você deve ser um Administrador Corporativo ou um Proprietário da Conta ou Administrador do Departamento com a política de cobranças de visualização ativada.
 
-- Você tem um valor de crédito mensal com sua assinatura que não foi ultrapassado ou você tem uma Avaliação Gratuita. Uma fatura é gerada somente quando você é um devedor.
+1. Entre no [Portal do Azure]( http://portal.azure.com).
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
-- Faz menos de 30 dias que você se inscreveu no Azure.
+    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
-- A fatura não foi gerada ainda. Aguarde até o final do período de cobrança.
+1. Selecione **uso + encargos**.
+1. No mês que você deseja fazer o download, selecione **fazer o download**.
 
-- Se você não é o Administrador da Conta, faturas anteriores talvez não estejam disponíveis para você.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

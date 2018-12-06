@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241609"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495150"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ Para seguir as instruções neste artigo, você precisará de:
 ### <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 Um modelo do Resource Manager torna mais fácil criar os seguintes recursos para o seu aplicativo em uma única operação coordenada:
 * Clusters HDInsight e seus recursos dependentes (tais como a conta de armazenamento padrão)
-* Outros recursos (tais como o Banco de Dados SQL do Azure para usar o Apache Sqoop)
+* Outros recursos (como o Banco de Dados SQL do Microsoft Azure para usar o [Apache Sqoop](http://sqoop.apache.org/))
 
 No modelo, você deve definir os recursos que são necessários para o aplicativo. Você também pode especificar parâmetros de implantação para inserir valores para ambientes diferentes. O modelo consiste em JSON e expressões que você pode usar para criar valores para sua implantação.
 

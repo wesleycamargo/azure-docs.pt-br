@@ -14,22 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 003335aad0452e7a2dbfff49ed29a6b99b5d54d2
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089622"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819110"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurar logs de fluxo do Grupo de segurança de rede usando a API REST
 
 > [!div class="op_single_selector"]
-> - [portal do Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
+
+> [!NOTE] 
+> A versão 2 dos Logs do Flow está disponível na região Centro-oeste dos EUA. A configuração está disponível por meio do portal do Azure e da API REST. Habilitar Logs de versão 2 em uma região sem suporte salvará Logs de versão 1 produzido para sua conta de armazenamento.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -46,7 +49,7 @@ O cenário abordado neste artigo mostra como habilitar, desabilitar e consultar 
 
 Neste cenário, você:
 
-* Habilitar logs de fluxo
+* Habilitar logs de fluxo (versão 2)
 * Desabilitar logs de fluxo
 * Consultar status dos logs de fluxo
 
@@ -69,7 +72,7 @@ armclient post "https://management.azure.com//subscriptions/${subscriptionId}/pr
 
 ## <a name="enable-network-security-group-flow-logs"></a>Habilitar os logs do fluxo de Grupo de segurança de rede
 
-O comando para habilitar os logs de fluxo é mostrado no exemplo a seguir:
+O comando para habilitar a versão 2 do fluxo de logs é mostrado no exemplo a seguir. Para a versão 1, substitua o campo 'version' com '1':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -86,7 +89,11 @@ $requestBody = @"
     'retentionPolicy' : {
             days: 5,
             enabled: true
-        }
+        },
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
     }
 }
 "@
@@ -105,6 +112,10 @@ A resposta retornada do exemplo anterior é a seguinte:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -129,7 +140,11 @@ $requestBody = @"
     'retentionPolicy' : {
             days: 5,
             enabled: true
-        }
+        },
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
     }
 }
 "@
@@ -148,6 +163,10 @@ A resposta retornada do exemplo anterior é a seguinte:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -182,6 +201,10 @@ Veja a exemplo um exemplo de resposta retornada:
    "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346687"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853822"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -323,9 +323,10 @@ Todos os aplicativos lógicos em uma região usam os mesmos intervalos de endere
 
 ### <a name="managed-connectors"></a>Conectores gerenciados
 
-Para suportar as chamadas que [conectores gerenciados pela Microsoft](../connectors/apis-list.md) criam, configure suas configurações de firewall para que elas incluam esses endereços IP de saída, com base nas regiões onde seus aplicativos lógicos existem.
+Para suportar as chamadas que [conectores gerenciados pela Microsoft](../connectors/apis-list.md) criam, configure suas configurações de firewall para que elas incluam todos os endereços IP de saída especificados para as regiões onde existem seus aplicativos lógicos. Para o [Azure Governamental](/azure-government/documentation-government-welcome) e [Azure China 21Vianet](/azure/china/china-welcome), os endereços IP reservados para conectores não estão disponíveis no momento.
 
 > [!IMPORTANT]
+> 
 > Se você tiver configurações existentes, atualize-as **assim que possível antes de 1º de setembro de 2018** para que elas incluam e correspondam aos endereços IP nessa lista para as regiões em que os aplicativos lógicos existem. 
 > 
 > Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazenamento do Azure por meio de firewalls. Para acessar essas contas de armazenamento, use uma das opções aqui: 

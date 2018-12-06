@@ -1,11 +1,12 @@
 ---
-title: Uma solução preditiva para o risco de crédito com o Machine Learning | Microsoft Docs
+title: Solução preditiva para risco de crédito - Azure Machine Learning Studio | Microsoft Docs
 description: Um passo a passo detalhado mostrando como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245827"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311935"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Demonstra Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio
 
 Neste passo a passo, vamos conferir de forma aprofundada o processo de desenvolvimento de uma solução de análise preditiva no Machine Learning Studio. Vamos desenvolver um modelo simples no Machine Learning Studio e implantá-lo como um serviço Web do Machine Learning do Azure, em que o modelo pode fazer previsões usando novos dados. 
 

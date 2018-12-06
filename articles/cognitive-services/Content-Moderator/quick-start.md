@@ -10,23 +10,23 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259999"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852683"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Início rápido: familiarize-se com o Content Moderator
 
-Neste início rápido, você usará a Ferramenta de Revisão de Moderadores de Conteúdo on-line para testar a funcionalidade básica do Moderador de Conteúdo sem precisar escrever nenhum código. Se você deseja integrar esse serviço ao seu aplicativo mais rapidamente, consulte as outras iniciações rápidas na seção [Próximas etapas](#next-steps).
+Neste início rápido, você usará a ferramenta de revisão online Content Moderator para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código. Se você deseja integrar esse serviço ao seu aplicativo mais rapidamente, consulte as outras iniciações rápidas na seção [Próximas etapas](#next-steps).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador da Web
 
 ## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de revisão
-A Ferramenta de Revisão de Moderadores de Conteúdo é uma ferramenta baseada na Web que permite que revisores humanos auxiliem o serviço cognitivo na tomada de decisões. Neste guia, você passará pelo curto processo de configuração da ferramenta de revisão para poder ver como o serviço Moderador de Conteúdo funciona. Vá para o [ferramenta de revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) do site e se inscrever.
+A Ferramenta de Revisão do Content Moderator é uma ferramenta baseada na Web que permite que revisores humanos auxiliem o serviço cognitivo na tomada de decisões. Neste guia, você passará pelo curto processo de configuração da ferramenta de revisão para poder ver como o serviço Moderador de Conteúdo funciona. Vá para o site da [Ferramenta de Revisão do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e inscreva-se.
 
 ![Home Page do Content Moderator](images/homepage.PNG)
 
@@ -54,11 +54,11 @@ Revise as tags de moderação aplicadas. Você pode ver quais tags foram aplicad
 
 Em um projeto, você ou sua equipe de revisão podem alterar essas tags ou adicionar mais tags, conforme necessário. Você enviará essas alterações com o botão **Próximo**. À medida que seu aplicativo de negócios chama as APIs do moderador, o conteúdo marcado ficará na fila aqui, pronto para ser analisado pelas equipes de revisão humanas. Você pode revisar rapidamente grandes volumes de conteúdo usando essa abordagem.
 
-Neste ponto, você usou a Ferramenta de revisão do moderador de conteúdo para ver exemplos do que o serviço Moderador de conteúdo pode fazer. Em seguida, você pode aprender mais sobre a ferramenta de revisão e como integrá-la em um projeto de software usando as APIs de revisão ou pular para a seção [Próximas etapas](#next-steps) para aprender a usar as próprias APIs de moderação seu aplicativo.
+Neste ponto, você usou a Ferramenta de Revisão do Content Moderator para ver exemplos do que o serviço Content Moderator pode fazer. Em seguida, você pode aprender mais sobre a ferramenta de revisão e como integrá-la em um projeto de software usando as APIs de revisão ou pular para a seção [Próximas etapas](#next-steps) para aprender a usar as próprias APIs de moderação seu aplicativo.
 
 ## <a name="learn-more-about-the-review-tool"></a>Saiba mais sobre a ferramenta de revisão
 
-Para saber mais sobre como usar a Ferramenta de revisão do moderador de conteúdo, consulte o guia [Human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) e veja as APIs da Ferramenta de revisão para saber como ajustar a experiência de revisão humana :
+Para saber mais sobre como usar a Ferramenta Revisão do Content Moderator, consulte o guia [Ferramenta de revisão](Review-Tool-User-Guide/human-in-the-loop.md) e veja as APIs da ferramenta de revisão para saber como ajustar a experiência de revisão humana:
 - A [API de Trabalho](try-review-api-job.md) examina o conteúdo por meio de APIs de moderação e gera análises na ferramenta de análise. 
 - A [API de Revisão](try-review-api-review.md) cria diretamente análises de imagem, texto ou vídeo para moderadores humanos sem primeiro examinar o conteúdo. 
 - A [API do Fluxo de Trabalho](try-review-api-workflow.md) cria, atualiza e obtém detalhes sobre os fluxos de trabalho personalizados que sua equipe cria.

@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983630"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634278"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
 > [!NOTE] 
-> O Serviço de Aplicativo no Linux e o Aplicativo Web para Contêineres não dão suporte no momento para identidades gerenciadas.
+> O suporte à identidade gerenciada para o Serviço de Aplicativo Web para Contêineres e o Linux estão atualmente na visualização.
 
 > [!Important] 
 > Identidades gerenciadas para Serviço de Aplicativo e Azure Functions não se comportarão conforme o esperado se seu aplicativo for migrado entre assinaturas/locatários. O aplicativo precisará obter uma nova identidade, que pode ser feita ao desabilitar e reabilitar o recurso. Consulte [removendo uma identidade](#remove) abaixo. Recursos de downstream também precisará ter políticas de acesso atualizadas para usar a nova identidade.
 
 Este tópico mostra como criar uma identidade gerenciada para aplicativos do Serviço de Aplicativo e do Azure Functions e como usá-la para acessar outros recursos. Uma identidade gerenciada do Azure Active Directory permite que o aplicativo acesse facilmente os outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade é gerenciada pela plataforma do Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre identidades gerenciadas no AAD, veja [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="creating-an-app-with-an-identity"></a>Criar um aplicativo com uma identidade
+Seu aplicativo pode receber dois tipos de identidades: 
+- Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se o seu aplicativo for excluído. Um aplicativo só pode ter uma identidade atribuída pelo sistema. O suporte de identidade atribuído pelo sistema geralmente está disponível para aplicativos do Windows. 
+- Uma **identidade atribuída pelo usuário** é um recurso do Azure independente que pode ser atribuído ao seu aplicativo. Um aplicativo pode ter várias identidades atribuídas pelo usuário. O suporte de identidade atribuído pelo usuário está em pré-visualização para todos os tipos de aplicativos.
 
-Criar um aplicativo com uma identidade exige que uma propriedade adicional seja definida no aplicativo.
+## <a name="adding-a-system-assigned-identity"></a>Adicionando uma identidade designada pelo sistema
+
+Criar um aplicativo com uma identidade designada pelo sistema requer uma propriedade adicional a ser definida no aplicativo.
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
@@ -42,9 +46,9 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 3. Selecione **Identidade gerenciada**.
 
-4. Defina **Registrar com o Azure Active Directory** como **Ativado**. Clique em **Salvar**.
+4. Na guia **Sistema atribuído**, alterne o **Status** para **Ligado**. Clique em **Salvar**.
 
-![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/msi-blade.png)
+![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
@@ -94,7 +98,7 @@ As etapas a seguir guiarão você pela criação de um aplicativo da Web e pela 
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. Execute o comando `identity assign` para criar a identidade para este aplicativo:
+3. Execute o comando `Set-AzureRmWebApp -AssignIdentity` para criar a identidade para este aplicativo:
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidad
 }    
 ```
 
-Isso faz com que o Azure crie e gerencie a identidade do aplicativo.
+> [!NOTE] 
+> Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
+
+Adicionar o tipo atribuído pelo sistema diz ao Azure para criar e gerenciar a identidade do seu aplicativo.
 
 Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
 ```json
@@ -139,12 +146,100 @@ Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
 Quando o site é criado, ele tem as seguintes propriedades adicionais:
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 No qual `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedade tenantId identifica a qual locatário do AAD a identidade pertence. O principalId é um identificador exclusivo para a nova identidade do aplicativo. No AAD, a entidade de serviço tem o mesmo nome que você deu à sua instância do Serviço de Aplicativo ou das Funções do Azure.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>Adicionando uma identidade atribuída pelo usuário (visualização)
+
+> [!NOTE] 
+> As identidades atribuídas pelo usuário estão atualmente em pré-visualização. Nuvens soberanas ainda não são suportadas.
+
+Criar um aplicativo com uma identidade atribuída pelo usuário exige que você crie a identidade e, em seguida, adicione seu identificador de recursos à configuração do aplicativo.
+
+### <a name="using-the-azure-portal"></a>Usando o portal do Azure
+
+> [!NOTE] 
+> Essa experiência do portal está sendo implantada e pode ainda não estar disponível em todas as regiões.
+
+Primeiro, você precisará criar um recurso de identidade atribuído pelo usuário.
+
+1. Crie um recurso de identidade gerenciado atribuído pelo usuário de acordo com [estas instruções](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+2. Crie um aplicativo no portal, como você faria normalmente. Navegue até ele no portal.
+
+3. Se você estiver usando um aplicativo de funções, navegue até os **recursos da Plataforma**. Para outros tipos de aplicativo, role para baixo até o grupo **Configurações** no painel de navegação à esquerda.
+
+4. Selecione **Identidade gerenciada**.
+
+5. Dentro de **usuário atribuído (versão prévia)**, clique em **Add**.
+
+6. Procure a identidade que você criou anteriormente e selecione-a. Clique em **Adicionar**.
+
+![Identidade gerenciada no Serviço de Aplicativo](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Usando um modelo do Azure Resource Manager
+
+Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Serviço de Aplicativo e do Azure Functions, consulte [Automatizar a implantação de recursos no Serviço de Aplicativo](../app-service/app-service-deploy-complex-application-predictably.md) e [Automatizar a implantação de recursos no Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+
+Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidade incluindo o seguinte bloco na definição do recurso, substituindo `<RESOURCEID>` pelo ID do recurso da identidade desejada:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
+
+Adicionando o tipo atribuído pelo usuário e um cotells do Azure para criar e gerenciar a identidade do seu aplicativo.
+
+Por exemplo, um aplicativo Web pode ser semelhante ao seguinte:
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+Quando o site é criado, ele tem as seguintes propriedades adicionais:
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+No qual `<PRINCIPALID>` e `<CLIENTID>` são substituídos por GUIDs. O principalId é um identificador exclusivo para a identidade que é usada para a administração do AAD. O clientId é um identificador exclusivo para a nova identidade do aplicativo que é usado para especificar qual identidade usar durante as chamadas de tempo de execução.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obter tokens para recursos do Azure
 
@@ -189,6 +284,7 @@ A **MSI_ENDPOINT** é uma URL local da qual o aplicativo pode solicitar tokens. 
 > |recurso|Consultar|O URI do recurso do AAD do recurso para o qual um token deve ser obtido.|
 > |api-version|Consultar|A versão da API do token a ser usada. Atualmente, a única versão com suporte é 2017-09-01.|
 > |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET.|
+> |clientid|Consultar|(Opcional) O ID da identidade atribuída pelo usuário a ser usada. Se omitido, a identidade atribuída pelo sistema é usada.|
 
 
 Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>No Node. js:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Removendo uma identidade
 
-Uma identidade pode ser removida, desativando o recurso usando o portal, PowerShell ou CLI da mesma forma que ele foi criado. No protocolo REST/ARM modelo, isso é feito definindo o tipo para "None":
+Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso usando o portal, PowerShell ou CLI da mesma forma que foi criado. As identidades atribuídas pelo usuário podem ser removidas individualmente. Para remover todas as identidades, no protocolo de modelo REST / ARM, isso é feito definindo o tipo como "Nenhum":
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ Uma identidade pode ser removida, desativando o recurso usando o portal, PowerSh
 }    
 ```
 
-Remover a identidade dessa forma também excluirá a entidade de segurança do AAD. As identidades atribuídas pelo sistema são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
+Remover uma identidade atribuída pelo sistema dessa maneira também a excluirá do AAD. As identidades atribuídas pelo sistema também são automaticamente removidas do AAD quando o recurso do aplicativo é excluído.
 
 > [!NOTE] 
 > Há também uma configuração de aplicativo que pode ser definida, WEBSITE_DISABLE_MSI, que apenas desativa o serviço de token local. No entanto, ele deixa a identidade no local e ferramentas ainda mostrará a identidade gerenciada como "ligada" ou "habilitada". Como resultado, o uso dessa configuração não é recomendado.

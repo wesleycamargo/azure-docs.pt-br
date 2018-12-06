@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622509"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284754"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
@@ -36,7 +36,7 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  en-GB | Inglês (Reino Unido) | Não  | sim | SIM
  en-IN | Inglês (Índia) | SIM | sim | SIM
  en-NZ | Inglês (Nova Zelândia) | Não  | sim | SIM  
- pt-BR | Inglês (Estados Unidos) | SIM | sim | SIM
+ en-US | Inglês (Estados Unidos) | SIM | sim | SIM
  es-ES | Espanhol (Espanha) | Não  | Sim | Não 
  es-MX | Espanhol (México) | Não  | Sim | Não 
  fi-FI | Finlandês (Finlândia) | Não  | Não | Não 
@@ -70,7 +70,6 @@ ar-SA | Árabe (Arábia Saudita) | Masculino | “Voz da Conversão de Texto em 
 bg-BG | Búlgaro | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (bg-BG, Ivan)”
 ca-ES | Catalão (Espanha) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ca-ES, HerenaRUS)”
 cs-CZ | Tcheco | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (cs-CZ, Jakub)”
-cs-CZ | Tcheco | Masculino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (cs-CZ, Vit)"
 da-DK | Dinamarquês | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (da-DK, HelleRUS)”
 de-AT | Alemão (Áustria) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-AT, Michael)”
 de-CH | Alemão (Suíça) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-CH, Karsten)”
@@ -86,7 +85,6 @@ en-GB | Inglês (Reino Unido) | Feminino | “Voz da Conversão de Texto em Fala
 | | |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-GB, HazelRUS)”
 | | |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-GB, George, Apollo)”
 en-IE | Inglês (Irlanda) |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IE, Sean)”
-en-IE | Inglês (Irlanda) |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IE, Shaun)”
 en-IN | Inglês (Índia) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Heera, Apollo)”
 | | |Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, PriyaRUS)”
 | | |Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-IN, Ravi, Apollo)”
@@ -153,10 +151,10 @@ zh-TW | Chinês (Taiwan)|Feminino | “Voz da Conversão de Texto em Fala do Mic
 
 ### <a name="customization"></a>Personalização
 
-A personalização de voz está disponível para inglês dos EUA (en-US), chinês do continente (zh-CN) e italiano (it-IT).
+A personalização de voz está disponível para inglês dos EUA (en-US), chinês continental (zh-CN), francês (fr-FR), alemão (de-DE) e italiano (it-IT).
 
 > [!NOTE]
-> O treinamento de voz em italiano começa com um conjunto de dados de mais de 2 mil enunciados. Os modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2 mil enunciados.
+> O treinamento de voz em francês, alemão e italiano começa com um conjunto de dados com mais de 2.000 enunciados. Os modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2 mil enunciados.
 
 ## <a name="speech-translation"></a>Tradução de Fala
 

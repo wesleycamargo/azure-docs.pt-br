@@ -10,14 +10,14 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 23cf02e8cc33b3a66a04ae0472b1e5a6baa59cc2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 61001d4926dcce68872a368afb5b28f2d3a8e2c0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418986"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51818993"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como redefinir o adaptador de rede de uma VM Windows do Azure 
 
@@ -32,6 +32,8 @@ Você não consegue se conectar à VM (Máquina Virtual) Windows do Microsoft Az
 
 Para redefinir o adaptador de rede, siga estas etapas:
 
+#### <a name="use-azure-portal"></a>Usar o portal do Azure
+
 1.  Vá para o [Portal do Azure]( https://ms.portal.azure.com).
 2.  Selecione **Máquinas Virtuais (Clássicas)**.
 3.  Selecione a Máquina Virtual afetada.
@@ -41,6 +43,31 @@ Para redefinir o adaptador de rede, siga estas etapas:
 7.  Selecione Salvar.
 8.  A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 9.  Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
+
+#### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
+
+1. Certifique-se de que você tenha o [Azure PowerShell mais recente](https://docs.microsoft.com/powershell/azure/overview) instalado.
+2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $CloudService = "<Cloud Service>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureAccount
+    Select-AzureSubscription -SubscriptionId $SubscriptionId 
+
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+    
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    ```
+3. Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Para as VMs implantadas no modelo de Grupo de recursos
 
@@ -54,6 +81,31 @@ Para redefinir o adaptador de rede, siga estas etapas:
 8.  Altere o **endereço IP** para outro endereço IP que está disponível na Sub-rede.
 9. A máquina virtual será reiniciada para inicializar a nova NIC no sistema.
 10. Tente executar o RDP no computador. Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
+
+#### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
+
+1. Verifique se você tem [o mais recente Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) instalado
+2. Abra uma sessão privilegiada do Azure PowerShell (Executar como administrador). Execute os seguintes comandos:
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $ResourceGroup = "<Resource Group>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    ```
+3. Tente executar o RDP no computador.  Se for bem-sucedido, você poderá alterar o endereço IP Privado novamente para o original, se desejar. Caso contrário, você poderá mantê-lo. 
 
 ## <a name="delete-the-unavailable-nics"></a>Excluir as NICs não disponíveis
 Depois que você conseguir conectar a área de trabalho remota ao computador, deverá excluir as NICs antigas para evitar o problema potencial:

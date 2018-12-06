@@ -1,5 +1,5 @@
 ---
-title: Controle de acesso de Monitoramento Remoto – Azure | Microsoft Docs
+title: Controle de acesso de monitoramento remoto – Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como configurar os controles de acesso baseados em função (RBAC) no acelerador da solução de Monitoramento Remoto
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364288"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820215"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
 
@@ -23,29 +23,33 @@ Este artigo fornece informações sobre como configurar os controles de acesso b
 
 Quando você implantar a solução de monitoramento remoto, há duas funções: **Admin** e **Somente Leitura**.
 
-Qualquer usuário na função **Admin** tem acesso completo à solução. Um usuário na função **Somente Leitura** não pode fazer qualquer uma das seguintes tarefas:
+Qualquer usuário na função **Admin** tem acesso total à solução, incluindo as seguintes permissões abaixo. Um usuário na função **Somente leitura** só terá acesso para visualizar a solução.
 
-- Atualizar alarmes
-- Excluir alarmes
-- Criar dispositivos
-- Atualizar dispositivos
-- Excluir dispositivos
-- Criar grupos de dispositivos
-- Atualizar grupos de dispositivos
-- Excluir grupos de dispositivos
-- Criar regras
-- Atualizar regras
-- Excluir regras
-- Criar trabalhos
-- Atualizar gerenciamento de SIM
+| Permissão            | Administrador | Somente leitura |
+|----------------       |-------|-----------|
+| Solução de modo de exibição         | SIM   | SIM       |
+| Atualizar alarmes         | SIM   | Não         |
+| Excluir alarmes         | SIM   | Não         |
+| Criar dispositivos        | SIM   | Não         |
+| Atualizar dispositivos        | SIM   | Não         |
+| Excluir dispositivos        | SIM   | Não         |
+| Criar grupos de dispositivos  | SIM   | Não         |
+| Atualizar grupos de dispositivos  | SIM   | Não         |
+| Excluir grupos de dispositivos  | SIM   | Não         |
+| Criar regras          | SIM   | Não         |
+| Atualizar regras          | SIM   | Não         |
+| Excluir regras          | SIM   | Não         |
+| Criar trabalhos           | SIM   | Não         |
+| Atualizar gerenciamento de SIM | SIM   | Não         |
 
-A pessoa que implanta a solução de monitoramento remoto é atribuída automaticamente para a função **Admin** e é um proprietário de aplicativo do Microsoft Azure Active Directory. Como um proprietário de aplicativo, você pode atribuir funções a outros usuários no portal do Azure.
+Por padrão, o usuário que implantou a solução recebe automaticamente a função **Admin** e é um proprietário do aplicativo Active Directory Domain Services. Como proprietário de um aplicativo, você pode atribuir funções a outros usuários por meio do portal do Azure. Se desejar que outro usuário atribua s funções na solução, também devem ser definido como um proprietário de aplicativo no portal do Azure.
 
-Se desejar que outro usuário atribua s funções na solução, também devem ser definido como um proprietário de aplicativo no portal do Azure.
+> [!NOTE]
+> O usuário que implantou a solução é a **Única pessoa** que pode visualizá-la imediatamente após sua criação. Para conceder acesso a outros usuários para exibir o aplicativo como uma função somente leitura, administrativa ou personalizada, consulte as instruções a seguir abaixo para adicionar ou remover usuários.
 
 ## <a name="add-or-remove-users"></a>Adicionar ou remover usuários
 
-Use o portal do Azure para adicionar ou remover um usuário da solução de monitoramento remoto. As seguintes etapas usam o [Aplicativo do Microsoft Azure Active Directory corporativo](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criado para você quando você implantou a solução de monitoramento remoto.
+Como um proprietário de aplicativo do Azure Active Directory Domain Services, você pode usar o portal do Azure para adicionar ou remover um usuário de uma função da solução de monitoramento remoto. As etapas a seguir usam o [Aplicativo corporativo do Azure Active Directory Domain Services](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criado quando você implantou a solução de monitoramento remoto.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 

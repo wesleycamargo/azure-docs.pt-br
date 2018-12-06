@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633104"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162307"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Executar consultas do Apache Hive usando o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -59,7 +59,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
         .\hivejob.ps1
 
-    Quando o script for executado, você deverá inserir o nome do cluster e as credenciais da conta do Administrador/HTTPS do cluster. Você também deverá fazer logon em sua assinatura do Azure.
+    Quando o script é executado, você é solicitado a inserir o nome do cluster e as credenciais da conta de administrador de HTTPS/Cluster. Você também deverá fazer logon em sua assinatura do Azure.
 
 3. Quando o trabalho for concluído, ele deverá retornar informações semelhantes ao seguinte texto:
 

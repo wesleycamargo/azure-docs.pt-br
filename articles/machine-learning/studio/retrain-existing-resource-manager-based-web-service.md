@@ -1,10 +1,11 @@
 ---
-title: Readaptar um serviço Web de previsão existente | Microsoft Docs
-description: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
+title: Treinar novamente um serviço da Web preditivo existente - Azure Machine Learning Studio | Microsoft Docs
+description: Saiba como treinar novamente um modelo e atualizar o serviço da Web para usar o modelo recém-treinado no Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 1a30f9166c81c4757267c95b13b08f3202748467
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684625"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311289"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
 Este documento descreve o processo de readaptação do cenário a seguir:
@@ -29,7 +30,7 @@ Este documento descreve o processo de readaptação do cenário a seguir:
 * Você tem novos dados os quais deseja usar em seu serviço Web de previsão para executar sua pontuação.
 
 > [!NOTE]
-> Para implantar um novo serviço Web, você precisa ter permissões suficientes na assinatura na qual o serviço Web está sendo implantado. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md).
+> Para implantar um novo serviço da Web, você deve ter permissões suficientes na assinatura na qual você está implantando o serviço da Web. Para obter mais informações, consulte [Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning](manage-new-webservice.md).
 
 Começando com o Serviço web e experimentos existentes, você precisa executar estas etapas:
 

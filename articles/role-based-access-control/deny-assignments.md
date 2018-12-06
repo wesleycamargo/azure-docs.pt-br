@@ -11,20 +11,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8ef3a2ec44c5eff80d3a50a6c56805667e164ba8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fa1a979c01999bd79c45d24e4c7771edaf346dd8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980161"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632408"
 ---
 # <a name="understand-deny-assignments"></a>Compreender atribuições de negação
 
-Semelhante a uma atribuição de função, uma *atribuição de negação* associa um conjunto de ações de negação a um usuário, grupo ou entidade de serviço em um escopo específico com a finalidade de negar acesso. Uma atribuição de negação também pode excluir entidades de segurança e impedir a herança para escopos filho, o que é diferente do que ocorre com as atribuições de função. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure. Este artigo descreve como as atribuições de negação são definidas.
+Semelhante a uma atribuição de função, uma *negação de atribuição* anexa um conjunto de ações de negação a um usuário, grupo ou entidade de serviço em um escopo específico com o objetivo de negar acesso. As designações de negação impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda a eles acesso. Alguns provedores de recursos no Azure agora incluem designações de negação. Atualmente as atribuições de negação são **somente leitura** e só podem ser definidas pelo Azure.
+
+De certa forma, as designações de negação são diferentes das designações de função. Negar atribuições pode excluir entidades e impedir a herança para escopos filho. Negar atribuições também se aplicam a [atribuições do administrador de assinatura clássico](rbac-and-directory-admin-roles.md).
+
+Este artigo descreve como as atribuições de negação são definidas.
 
 ## <a name="deny-assignment-properties"></a>Propriedades de atribuição de negação
 
@@ -41,18 +45,18 @@ Semelhante a uma atribuição de função, uma *atribuição de negação* assoc
 > | `Permissions.NotDataActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados a excluir da atribuição de negação. |
 > | `Scope` | Não  | Cadeia de caracteres | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
 > | `DoNotApplyToChildScopes` | Não  | BOOLEAN | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
-> | `Principals[i].Id` | SIM | String[] | Uma matriz de IDs de objeto de entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) ao qual a atribuição de negação se aplica. Definido como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todas as pessoas. |
-> | `Principals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por Principals[i].Id. Definido como `Everyone` para representar todas as pessoas. |
-> | `ExcludePrincipals[i].Id` | Não  | String[] | Uma matriz de IDs de objeto de entidade de segurança do Azure AD (usuário, grupo ou entidade de serviço) ao qual a atribuição de negação não se aplica. |
+> | `Principals[i].Id` | SIM | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
+> | `Principals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por Principals[i].Id. Defina como `SystemDefined` para representar todos os principais. |
+> | `ExcludePrincipals[i].Id` | Não  | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por ExcludePrincipals[i].Id. |
 > | `IsSystemProtected` | Não  | BOOLEAN | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
 
-## <a name="everyone-principal"></a>Entidade de segurança everyone
+## <a name="system-defined-principal"></a>Entidade definida pelo sistema
 
-Para negar o suporte a atribuições, a entidade de segurança everyone foi introduzida. A entidade de segurança everyone representa todos os usuários, grupos e entidades de serviço em um diretório do Azure AD. Se a ID da entidade de segurança é um GUID de zeros (`00000000-0000-0000-0000-000000000000`) e o tipo de entidade de segurança é `Everyone`, a entidade de segurança representa todas as pessoas. A entidade de segurança everyone pode ser combinada com `ExcludePrincipals` para negar todos, exceto alguns usuários. A entidade de segurança everyone tem as seguintes restrições:
+Para suportar negar atribuições, o **Principal definido pelo sistema** foi introduzido. Essa entidade representa todos os usuários, grupos, entidades de serviço e identidades gerenciadas em um diretório do Microsoft Azure Active Directory. Se o ID principal for um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo principal for `SystemDefined`, o principal representará todos os principais. `SystemDefined` pode ser combinado com `ExcludePrincipals` para negar todos os principais, exceto alguns usuários. `SystemDefined` tem as seguintes restrições:
 
 - Pode ser usada apenas em `Principals` e não pode ser usada em `ExcludePrincipals`.
-- `Principals[i].Type` deve ser definido como `Everyone`.
+- `Principals[i].Type` deve ser definido como `SystemDefined`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

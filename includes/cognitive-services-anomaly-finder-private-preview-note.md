@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/15/2018
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: 984190176b75c932dcced2c846832428213df32c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973677"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716119"
 ---
 > [!NOTE]
-> O Localizador de Anomalia agora está em Visualização Privada. Confira a [documentação da Visualização Privada do Localizador de Anomalia](https://aka.ms/AnomalyFinderPrivatePreview) para ver mais informações. Para ingressar na visualização privada de localizador de anomalia, [entre em contato conosco](mailto:kenshoteam@microsoft.com).
+> O Anomaly Finder está em Pré-visualização Privada. Para ingressar na visualização privada de localizador de anomalia, [entre em contato conosco](mailto:kenshoteam@microsoft.com). Depois que você receber acesso, consulte a documentação de [Visualização privada do Anomaly Finder com controle de acesso](https://aka.ms/AnomalyFinderPrivatePreview) para obter mais informações.

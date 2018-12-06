@@ -1,10 +1,11 @@
 ---
-title: Readaptar os modelos de Machine Learning de forma programática | Microsoft Docs
+title: Modelos de Machine Learning Studio por meio de programação - Azure | Microsoft Docs
 description: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835497"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313378"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>Readaptar os modelos do Machine Learning de forma programática
-Neste passo a passo, você aprenderá como programaticamente readaptar um serviço Web do Machine Learning do Azure usando C# e o serviço de Execução de Lote do Machine Learning.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>Treinar novamente os modelos do Machine Learning Studio programaticamente
+Neste tutorial, você aprenderá a treinar de maneira programática um serviço da web do Azure Machine Learning Studio usando C# e o serviço de Execução em Lote de Aprendizado da Máquina.
 
 Depois de você ter readaptado o modelo, as instruções a seguir mostram como atualizar o modelo no seu serviço Web preditivo:
 

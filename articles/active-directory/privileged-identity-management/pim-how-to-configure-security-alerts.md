@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011690"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291208"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções do diretório do Azure AD no PIM
 
@@ -34,6 +34,47 @@ Esta seção lista todos os alertas de segurança para funções de diretório, 
 * **Média**: não exige ação imediata, mas sinaliza uma possível violação da política.
 * **Baixa**: não requer ação imediata, mas sugere uma alteração de política preferencial.
 
+### <a name="administrators-arent-using-their-privileged-roles"></a>Os administradores não estão usando suas funções privilegiadas
+
+| | |
+| --- | --- |
+| **Severidade** | Baixo |
+| **Por que recebo este alerta?** | Os usuários que receberam papéis privilegiados que não precisam aumentam a chance de um ataque. Também é mais fácil para os invasores permanecerem despercebidos nas contas que não estão sendo ativamente usadas. |
+| **Como corrigir?** | Revise os usuários na lista e remova-os das funções privilegiadas de que eles não precisam. |
+| **Prevenção** | Somente atribua funções privilegiadas a usuários com justificativa comercial. </br>Agende revisões de [acesso regulares](pim-how-to-start-security-review.md) para verificar se os usuários ainda precisam de acesso. |
+| **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
+| **Gatilho** | Acionado se um usuário passar um certo tempo sem ativar uma função. |
+| **Número de dias** | Essa configuração especifica o número de dias, de 0 a 100, que um usuário pode acessar sem ativar uma função.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Funções não exigem autenticação multifator para ativação
+
+| | |
+| --- | --- |
+| **Severidade** | Baixo |
+| **Por que recebo este alerta?** | Sem o MFA, os usuários comprometidos podem ativar funções privilegiadas. |
+| **Como corrigir?** | Revise a lista de funções e [exija o MFA](pim-how-to-change-default-settings.md) para cada função. |
+| **Prevenção** | [Exigir MFA](pim-how-to-change-default-settings.md) para cada função.  |
+| **Ação de mitigação no portal** | Torna o MFA necessário para a ativação da função privilegiada. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>O locatário não tem o Microsoft Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Severidade** | Baixo |
+| **Por que recebo este alerta?** | O locatário atual não tem o Microsoft Azure AD Premium P2. |
+| **Como corrigir?** | Revise informações sobre [edições do Microsoft Azure Active Directory](../fundamentals/active-directory-whatis.md). Atualizar para o Microsoft Azure Active Directory Premium P2. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas possíveis em uma função com privilégios
+
+| | |
+| --- | --- |
+| **Severidade** | Média |
+| **Por que recebo este alerta?** | As contas que não alteraram sua senha recentemente podem ser contas de serviço ou compartilhadas que não estão sendo atualizadas. Essas contas em funções privilegiadas são vulneráveis a invasores. |
+| **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
+| **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Revise regularmente as contas com funções privilegiadas usando [ revisões de acesso ](pim-how-to-start-security-review.md) e remova as atribuições de funções que não são mais necessárias. |
+| **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
+| **práticas recomendadas** | Contas de acesso compartilhadas, de serviço e de emergência que autenticam usando uma senha e são atribuídas a funções administrativas altamente privilegiadas, como Administrador Global ou Administrador de Segurança, devem ter suas senhas giradas nos seguintes casos:<ul><li>Após um incidente de segurança envolvendo uso indevido ou comprometimento de direitos de acesso administrativo</li><li>Depois que os privilégios de qualquer usuário são alterados para que eles não sejam mais administradores (por exemplo, depois que um funcionário que era administrador deixa a TI ou deixa a organização)</li><li>Em intervalos regulares (por exemplo, trimestral ou anual), mesmo que não haja nenhuma violação ou alteração conhecida na equipe de TI</li></ul>Como várias pessoas têm acesso às credenciais dessas contas, as credenciais devem ser rotacionadas para garantir que as pessoas que deixaram suas funções não possam mais acessar as contas. [Saiba mais](https://aka.ms/breakglass) |
+
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>As funções estão sendo atribuídas fora do PIM
 
 | | |
@@ -43,28 +84,6 @@ Esta seção lista todos os alertas de segurança para funções de diretório, 
 | **Como corrigir?** | Revise os usuários na lista e remova-os das funções privilegiadas designadas fora do PIM. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do PIM e proíba atribuições futuras de lá. |
 | **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
-
-### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas possíveis em uma função com privilégios
-
-| | |
-| --- | --- |
-| **Severidade** | Média |
-| **Por que recebo este alerta?** | As contas que não alteraram sua senha recentemente podem ser contas de serviço ou compartilhadas que não estão sendo atualizadas. Essas contas em funções privilegiadas são vulneráveis a invasores. |
-| **Como corrigir?** | Examine as contas na lista. Se eles não precisarem mais de acesso, remova-os de suas funções privilegiadas. |
-| **Prevenção** | Certifique-se de que as contas compartilhadas estejam girando senhas fortes quando houver uma alteração nos usuários que conhecem a senha. </br>Revise regularmente as contas com funções privilegiadas usando revisões de acesso e remova as atribuições de funções que não são mais necessárias. |
-| **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
-
-### <a name="users-arent-using-their-privileged-roles"></a>Os usuários não estão utilizando suas funções privilegiadas
-
-| | |
-| --- | --- |
-| **Severidade** | Baixo |
-| **Por que recebo este alerta?** | Os usuários que receberam papéis privilegiados que não precisam aumentam a chance de um ataque. Também é mais fácil para os invasores permanecerem despercebidos nas contas que não estão sendo ativamente usadas. |
-| **Como corrigir?** | Revise os usuários na lista e remova-os das funções privilegiadas de que eles não precisam. |
-| **Prevenção** | Somente atribua funções privilegiadas a usuários com justificativa comercial. </br>Agende revisões de acesso regulares para verificar se os usuários ainda precisam de acesso. |
-| **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
-| **Gatilho** | Acionado se um usuário passar um certo tempo sem ativar uma função. |
-| **Número de dias** | Essa configuração especifica o número de dias, de 0 a 100, que um usuário pode acessar sem ativar uma função.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Há muitos administradores globais
 
@@ -91,16 +110,6 @@ Esta seção lista todos os alertas de segurança para funções de diretório, 
 | **Gatilho** | Disparado se um usuário ativar a mesma função privilegiada várias vezes dentro de um período especificado. Você pode configurar o período e o número de ativações. |
 | **Período de tempo de renovação de ativação** | Essa configuração especifica em dias, horas, minutos e segundos o período de tempo que você deseja usar para rastrear renovações suspeitas. |
 | **Número de renovações de ativação** | Esta configuração especifica o número de ativações, de 2 a 100, que você considera merecedor de alerta, dentro do período de tempo escolhido. Você pode mudar essa configuração movendo o controle deslizante ou digitando um número na caixa de texto. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>Funções de não exigem MFA para ativação
-
-| | |
-| --- | --- |
-| **Severidade** | Baixo |
-| **Por que recebo este alerta?** | Sem o MFA, os usuários comprometidos podem ativar funções privilegiadas. |
-| **Como corrigir?** | Revise a lista de funções e [exija o MFA](pim-how-to-change-default-settings.md) para cada função. |
-| **Prevenção** | [Exigir MFA](pim-how-to-change-default-settings.md) para cada função.  |
-| **Ação de mitigação no portal** | Torna o MFA necessário para a ativação da função privilegiada. |
 
 ## <a name="configure-security-alert-settings"></a>Definir configurações de alerta de segurança
 

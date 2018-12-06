@@ -1,31 +1,33 @@
 ---
-title: 'Início rápido: carregar, baixar e listar blobs usando Node.js – Armazenamento do Azure'
-description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Node.js a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
+title: Como criar um blob no Armazenamento do Microsoft Azure usando o SDK Node.js SDK v2
+description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure para o Node.js v2 para carregar um blob no Armazenamento do Microsoft Azure, fazer o download de um blob e listar os blobs em um contêiner.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/20/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140580"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260760"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Início rápido: Carregar, baixar e listar blobs usando Node.js
+# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Como fazer upload, download e listar blobs usando o SDK v2 do Node.js
 
-Neste início rápido, você aprenderá a usar o Node.js para carregar, baixar e listar blobs e gerenciar contêineres com o Armazenamento de Blobs do Azure.
+Neste guia prático, você aprende como usar o Node.js para fazer upload, download e listar blobs e gerenciar contêineres com o armazenamento do Azure Blob.
 
-Para concluir este início rápido, você precisa de uma [assinatura do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Crie uma conta de armazenamento do Azure no [portal do Microsoft Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda sobre como criar a conta, confira [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
-O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) deste início rápido é um aplicativo de console Node.js básico. Para começar, clone o repositório para seu computador usando o comando a seguir:
+O [Aplicativo de amostra](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) é um aplicativo de console Node.js simples. Para começar, clone o repositório para seu computador usando o comando a seguir:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -72,7 +74,7 @@ Container "demo" is deleted
 Done
 ```
 
-Observe que, se você estiver usando uma nova conta de armazenamento para este início rápido, poderá não ver os nomes de contêiner listados sob o rótulo "*Contêineres*".
+Se você estiver usando uma nova conta de armazenamento para este exemplo, talvez não veja nenhum nome de contêiner listado sob o rótulo "*Contêineres*".
 
 ## <a name="understanding-the-code"></a>Compreender o código
 A primeira expressão é usada para carregar valores em variáveis de ambiente.
@@ -122,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-O tamanho dos grupos é configurável por meio de [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar *listContainersSegmented* retorna metadados de blob como uma matriz de instâncias de [ContainerResult](/nodejs/api/azure-storage/blobresult). Os resultados são retornados em 5.000 lotes de incremento (segmentos). Se houver mais de 5.000 blobs em um contêiner, os resultados incluirão um valor para *continuationToken*. Para listar segmentos subsequentes do contêiner de blob, você pode passar o token de continuação de volta para *listContainersSegment* como o segundo argumento.
+O tamanho dos grupos é configurável por meio de [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar *listContainersSegmented* retorna metadados de blob como uma matriz de instâncias de [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest). Os resultados são retornados em 5.000 lotes de incremento (segmentos). Se houver mais de 5.000 blobs em um contêiner, os resultados incluirão um valor para *continuationToken*. Para listar segmentos subsequentes do contêiner de blob, você pode passar o token de continuação de volta para *listContainersSegment* como o segundo argumento.
 
 ### <a name="create-a-container"></a>Criar um contêiner
 
@@ -165,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>Carregar um arquivo local
 
-A função *uploadLocalFile* usa [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) para carregar e gravar (ou substituir) um arquivo do sistema de arquivos no armazenamento de blobs. 
+A função *uploadLocalFile* usa [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) para carregar e gravar (ou substituir) um arquivo do sistema de arquivos no armazenamento de blobs. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -182,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Outras abordagens disponíveis para carregar conteúdo em blobs incluem trabalhar com [textos](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) e [transmissões](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream). Para verificar se o arquivo foi carregado ao seu armazenamento de blobs, você pode usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para exibir os dados em sua conta.
+Outras abordagens disponíveis para carregar conteúdo em blobs incluem trabalhar com [textos](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) e [transmissões](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Para verificar se o arquivo foi carregado ao seu armazenamento de blobs, você pode usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para exibir os dados em sua conta.
 
 ### <a name="list-the-blobs"></a>Listar os blobs
 
-A função *listBlobs* chama o método [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) para retornar uma lista de metadados de blob em um contêiner. 
+A função *listBlobs* chama o método [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) para retornar uma lista de metadados de blob em um contêiner. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -226,7 +228,7 @@ A implementação mostrada aqui altera a origem e retorna o conteúdo do blob co
 
 ### <a name="delete-a-blob"></a>Excluir um blob
 
-A função *deleteBlob* chama a função [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Como o nome implica, essa função não retorna um erro se o blob já tiver sido excluído.
+A função *deleteBlob* chama a função [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--). Como o nome implica, essa função não retorna um erro se o blob já tiver sido excluído.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {
@@ -353,7 +355,7 @@ Confira estes recursos adicionais para o desenvolvimento em Node.js com armazena
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este início rápido demonstra como carregar um arquivo entre um disco local e o Armazenamento de Blobs do Azure usando o Node.js. Para saber mais sobre como trabalhar com o armazenamento de Blobs, prossiga para o repositório do GitHub.
+Este artigo demonstra como carregar um arquivo entre um disco local e o armazenamento de Blob do Azure usando o Node.js. Para saber mais sobre como trabalhar com o armazenamento de Blobs, prossiga para o repositório do GitHub.
 
 > [!div class="nextstepaction"]
 > [SDK de Armazenamento do Azure para o repositório JavaScript](https://github.com/Azure/azure-storage-node)

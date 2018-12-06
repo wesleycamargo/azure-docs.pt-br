@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686136"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582591"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados do Gerenciamento de Custos
 
@@ -42,7 +42,7 @@ Para exibir dados de custo, um usuário precisa ter acesso de leitura a pelo men
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Habilitar o acesso aos custos no portal do EA
 
-O escopo da conta de cobrança requer a opção **Encargos de exibição do administrador de departamento** **Habilitada** no portal do EA. Todos os outros escopos requerem a opção **Encargos de exibição do proprietário da conta** **Habilitada** no portal do EA.
+O escopo do departamento requer as **Cobranças da visualização DA** opção **Habilitada** no portal da EA. Todos os outros escopos requerem a opção **Encargos de exibição do proprietário da conta** **Habilitada** no portal do EA.
 
 Para habilitar uma opção:
 
@@ -51,7 +51,7 @@ Para habilitar uma opção:
 3. Para os escopos do Gerenciamento de Custos aos quais você deseja permitir acesso, habilite a opção de cobrança **Encargos de exibição do administrador de departamento** e/ou **Encargos de exibição do proprietário da conta**.  
     ![Guia Registro, mostrando as opções de encargos de exibição do administrador de departamento e do proprietário da conta](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Depois que as opções de cobrança de exibição são habilitadas, a maioria dos escopos também exige a configuração de permissão de RBAC (controle de acesso baseado em função) no portal do Azure.
+Depois que as opções de cobrança de exibição estiverem ativadas, a maioria dos escopos também exigirá configuração de permissão de controle de acesso baseado em função (RBAC) no portal do Microsoft Azure.
 
 ## <a name="enterprise-administrator-role"></a>Função de administrador corporativo
 
@@ -75,7 +75,7 @@ Pode levar até 30 minutos antes que o novo usuário possa acessar dados no Gere
 
 ### <a name="assign-department-scope-access"></a>Atribuir acesso ao escopo do departamento
 
-O acesso ao escopo de departamento requer acesso de administrador de departamento (encargos de exibição do administrador de departamento) no portal do EA. O administrador de departamento tem acesso para exibir os dados de custos e de uso associados com um departamento ou com vários departamentos.  Os dados para o departamento incluem todas as assinaturas que pertencem a uma conta de registro vinculada ao departamento. Nenhuma ação é necessária no portal do Azure.
+O acesso ao escopo de departamento requer acesso de administrador de departamento (encargos de exibição do administrador de departamento) no portal do EA. O administrador de departamento tem acesso para exibir os dados de custos e de uso associados com um departamento ou com vários departamentos. Os dados para o departamento incluem todas as assinaturas que pertencem a uma conta de registro vinculada ao departamento. Nenhuma ação é necessária no portal do Azure.
 
 1. Entrar no portal do EA em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador corporativo.
 2. No painel esquerdo, selecione **Gerenciar**.
@@ -89,7 +89,7 @@ O acesso ao escopo de departamento requer acesso de administrador de departament
 
 ## <a name="assign-enrollment-account-scope-access"></a>Atribuir acesso ao escopo da conta de registro
 
-O acesso ao escopo da conta de registro requer acesso de proprietário da conta (encargos de exibição de proprietário da conta) no portal do EA. O proprietário da conta pode exibir dados de uso e de custos associados com uma conta de registro. Dados na conta de registro incluem todas as assinaturas do Azure associadas ao registro. Nenhuma ação é necessária no portal do Azure.
+O acesso ao escopo da conta de registro requer acesso de proprietário da conta (encargos de exibição de proprietário da conta) no portal do EA. O proprietário da conta pode visualizar os custos e os dados de uso associados às assinaturas criadas a partir dessa conta de inscrição. Nenhuma ação é necessária no portal do Azure.
 
 1. Entrar no portal do EA em [https://ea.azure.com](https://ea.azure.com) com uma conta de administrador corporativo.
 2. No painel esquerdo, selecione **Gerenciar**.
@@ -101,9 +101,11 @@ O acesso ao escopo da conta de registro requer acesso de proprietário da conta 
 8. Clique em **Adicionar** para criar a conta.  
     ![Caixa Adicionar conta](./media/assign-access-acm-data/add-account.png)
 
+Depois de concluir as etapas acima, a conta de usuário se torna uma conta de inscrição no portal da empresa e pode criar inscrições. O usuário pode acessar dados de custo e uso para assinaturas que eles criam.
+
 ## <a name="assign-management-group-scope-access"></a>Atribuir acesso ao escopo do grupo de gerenciamento
 
-O acesso ao escopo do grupo de gerenciamento requer pelo menos permissão ao Leitor de Gerenciamento de Custos (ou Leitor). Você configura a permissão ao grupo de gerenciamento no portal do Azure. Você deve ter pelo menos permissão de colaborador ao grupo de gerenciamento para habilitar o acesso para outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
+O acesso a um escopo de grupo de gerenciamento requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para um grupo de gerenciamento no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de gerenciamento para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
 1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _Grupos de gerenciamento_ e, em seguida, selecione **Grupos de gerenciamento**.
@@ -119,7 +121,7 @@ O acesso ao escopo do grupo de gerenciamento requer pelo menos permissão ao Lei
 
 ## <a name="assign-subscription-scope-access"></a>Atribuir acesso ao escopo de assinatura
 
-O acesso a uma assinatura requer pelo menos permissão ao Leitor de Gerenciamento de Custos (ou Leitor). Você configura a permissão a uma assinatura no portal do Azure. Você precisa ter pelo menos permissão de colaborador à assinatura para habilitar o acesso para outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
+O acesso a uma assinatura requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para uma inscrição no portal do Azure. Você deve ter pelo menos a permissão de Administrador de Acesso do Usuário (ou Proprietário) para a assinatura para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
 1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _assinaturas_ e, em seguida, selecione **Assinaturas**.
@@ -133,7 +135,7 @@ O acesso a uma assinatura requer pelo menos permissão ao Leitor de Gerenciament
 
 ## <a name="assign-resource-group-scope-access"></a>Atribuir acesso ao escopo do grupo de recursos
 
-O acesso a um grupo de recursos requer pelo menos permissão ao Leitor de Gerenciamento de Custos (ou Leitor). Você configura a permissão ao grupo de recursos no portal do Azure. Você deve ter pelo menos permissão de colaborador ao grupo de recursos para habilitar o acesso para outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
+O acesso a um grupo de recursos requer pelo menos a permissão do Leitor de Gerenciamento de Custos (ou Leitor). Você pode configurar permissões para um grupo de recursos no portal do Azure. Você deve ter pelo menos a permissão Administrador de Acesso do Usuário (ou Proprietário) para o grupo de recursos para permitir o acesso de outras pessoas. E você deve habilitar também a configuração **encargos de exibição do sol** no portal do EA.
 
 1. Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Na barra lateral, selecione **Todos os serviços**, pesquise _Grupos de recursos_ e, em seguida, selecione **Grupos de recursos**.

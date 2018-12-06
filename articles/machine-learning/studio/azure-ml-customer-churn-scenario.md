@@ -1,10 +1,11 @@
 ---
-title: Analisando a Variação do Cliente usando o Machine Learning | Microsoft Docs
-description: Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a insatisfação do cliente
+title: Analisando a rotatividade de clientes com o Azure Machine Learning Studio | Microsoft Docs
+description: Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a rotatividade de clientes usando o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835110"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314977"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analisando a Variação do Cliente usando o Machine Learning do Microsoft Azure
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisando a rotatividade de clientes usando o Azure Machine Learning Studio
 ## <a name="overview"></a>Visão geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de variação de cliente que é criado usando-se o Azure Machine Learning. Discutimos aqui modelos genéricos associados para resolver holisticamente o problema de variação do cliente industrial. Medimos também a precisão dos modelos criados usando o Machine Learning e avaliamos o trajeto para maior desenvolvimento.  
 

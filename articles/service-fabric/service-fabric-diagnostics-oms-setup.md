@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/11/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408074"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632765"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
@@ -72,7 +72,7 @@ A conta agora aparece como parte dos seus logs de conta de armazenamento nas fon
 Você adicionou a solução Análise do Service Fabric em um workspace do Log Analytics que agora está conectado corretamente à plataforma do cluster e à tabela de log do aplicativo. Você pode adicionar outras fontes ao workspace dessa mesma forma.
 
 
-## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Implantar o Log Analytics usando um modelo do Gerenciador de Recursos
+## <a name="deploy-log-analytics-with-azure-resource-manager"></a>Implantar o Log Analytics com o Azure Resource Manager
 
 Ao implantar um cluster usando um modelo do Gerenciador de Recursos, o modelo cria um novo workspace de Log Analytics, adiciona a Solução Service Fabric a ele e o configura para ler dados das tabelas de armazenamento apropriadas.
 
@@ -93,7 +93,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "<resourceGroupName>" -Tem
 
 O Azure Resource Manager detecta que esse comando é uma atualização de um recurso existente. Ele processa somente as alterações entre o modelo que gera a implantação existente e o novo modelo fornecido.
 
-## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Implantar o Log Analytics no Azure PowerShell
+## <a name="deploy-log-analytics-with-azure-powershell"></a>Implantar o Log Analytics com o Azure PowerShell
 
 Você também pode implantar o recurso Log Analytics por meio do PowerShell usando o comando `New-AzureRmOperationalInsightsWorkspace`. Para usar esse método, verifique se o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1) está instalado. Use esse script para criar um novo workspace do Log Analytics e adicionar a solução do Service Fabric a ele: 
 
@@ -128,4 +128,4 @@ Também é possível adicionar outras soluções ou fazer outras modificações 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar o Agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para os nós para coletar os contadores de desempenho e coletar logs e estatísticas do docker para seus contêineres
 * Familiarize-se com os recursos de [pesquisa e consulta de logs](../log-analytics/log-analytics-log-searches.md) oferecidos como parte do Log Analytics
-* [Use o Designer de Exibição para criar exibições personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Use o Designer de Exibição para criar exibições personalizadas no Log Analytics](../azure-monitor/platform/view-designer.md)

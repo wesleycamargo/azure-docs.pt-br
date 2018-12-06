@@ -1,11 +1,12 @@
 ---
-title: Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API | Microsoft Docs
+title: Gerenciar serviços da web do Machine Learning Studio usando o Gerenciamento de API - Azure | Microsoft Docs
 description: Um guia mostrando como gerenciar os serviços Web do AzureML usando o Gerenciamento de API.
 keywords: aprendizado de máquina, gerenciamento de api
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566373"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308232"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerenciar serviços da web do Azure Machine Learning Studio usando o Gerenciamento de API
 ## <a name="overview"></a>Visão geral
-Este guia mostra como começar a usar rapidamente o Gerenciamento de API para gerenciar seus serviços Web do AzureML.
+Este guia mostra como começar rapidamente a usar o Gerenciamento de API para gerenciar os serviços da Web do Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>O que é o Gerenciamento de API do Azure?
 O Gerenciamento de API do Azure é um serviço do Azure que permite que você gerencie seus pontos de extremidade da API REST, definindo o acesso do usuário, a limitação de uso e o monitoramento por painel. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre o Gerenciamento de API do Azure. Clique em [aqui](../../api-management/api-management-get-started.md) para obter um guia sobre como começar a usar o Gerenciamento de API do Azure. Essa outra guia, na qual este guia se baseia, aborda mais tópicos, incluindo configurações de notificação, faixa de preços, manipulação de resposta, autenticação do usuário, criação de produtos, assinaturas de desenvolvedor e dashboarding de uso.

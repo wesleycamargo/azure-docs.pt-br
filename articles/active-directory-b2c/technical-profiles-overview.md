@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0f36cd798faac275e0f6dcb8a81bd37e14ab6d8d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578477"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275812"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError*
 </TechnicalProfile>
 ```
 
-Um perfil técnico pode incluir ou herdar outro perfil técnico, que pode incluir outro perfil técnico. Não há nenhum limite ao número de níveis. Dependendo dos requisitos de negócios, a jornada do usuário poderá chamar **AAD-UserReadUsingAlternativeSecurityId**, que gerará um erro se uma conta social do usuário não existir, ou **AAD-UserReadUsingAlternativeSecurityId-NoError**, que não gera um erro.
+Um perfil técnico pode incluir ou herdar outro perfil técnico, que pode incluir outro perfil técnico. Não há nenhum limite ao número de níveis. Dependendo dos requisitos de negócios, a jornada do usuário pode chamar **AAD-UserReadUsingAlternativeSecurityId** que gera um erro se uma conta social do usuário não existir ou **AAD-UserReadUsingAlternativeSecurityId-NoError**, o que não ocorre Levante um erro.
 
 
 

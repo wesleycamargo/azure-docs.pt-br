@@ -1,317 +1,63 @@
 ---
-title: APIs REST de serviço de fala
-description: Referência de APIs REST para o serviço de fala.
+title: APIs REST de serviço de fala - serviço de Fala
+titleSuffix: Azure Cognitive Services
+description: Aprenda a usar as APIs REST de fala para texto e text-to-speech. Neste artigo, você aprenderá sobre opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566611"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584852"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST de serviço de fala
 
-As APIs REST do serviço de Fala dos Serviços Cognitivos do Azure são semelhantes às APIs fornecidas pela [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). Os pontos de extremidade diferenciam-se daqueles usados pelo serviço de Fala do Bing. Pontos de extremidade regionais estão disponíveis, e será preciso usar uma chave de assinatura correspondente ao ponto de extremidade que você está usando.
-
-## <a name="speech-to-text"></a>Conversão de Fala em Texto
-
-Os pontos de extremidade para a API REST de Conversão de Fala em Texto são mostrados na tabela a seguir. Use um que corresponda com sua região de assinatura.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-> [!NOTE]
-> Se você personalizou o modelo acústico ou o modelo de linguagem ou pronúncia, use seu ponto de extremidade personalizado no lugar disso.
-
-Essa API é compatível apenas com declarações curtas. As solicitações podem conter até 10 segundos de áudio e durar no máximo 14 segundos no total. A API REST retorna apenas resultados finais, não resultados parciais ou provisórios. O serviço de Fala também conta com uma API de [transcrição em lote](batch-transcription.md) que pode transcrever áudios mais longos.
-
-
-### <a name="query-parameters"></a>Parâmetros de consulta
-
-Os seguintes parâmetros podem ser incluídos na cadeia de caracteres de consulta da solicitação REST.
-
-|Nome do parâmetro|Obrigatório/opcional|Significado|
-|-|-|-|
-|`language`|Obrigatório|O identificador do idioma a ser reconhecido. Confira os [Idiomas compatíveis](language-support.md#speech-to-text).|
-|`format`|Opcional<br>padrão: `simple`|Formato do resultado, `simple` ou `detailed`. Os resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e a duração. Os resultados detalhados incluem vários candidatos com valores de confiança e quatro representações diferentes.|
-|`profanity`|Opcional<br>padrão: `masked`|Como tratar conteúdo ofensivo nos resultados de reconhecimento. Pode ser `masked` (substitui o conteúdo ofensivo por asteriscos), `removed` (remove todo o conteúdo ofensivo) ou `raw` (inclui o conteúdo ofensivo).
-
-### <a name="request-headers"></a>Cabeçalhos da solicitação
-
-Os campos a seguir são enviados no cabeçalho da solicitação HTTP.
-
-|Cabeçalho|Significado|
-|------|-------|
-|`Ocp-Apim-Subscription-Key`|Sua chave de assinatura do serviço de Fala. É preciso fornecer esse cabeçalho ou `Authorization`.|
-|`Authorization`|Um token de autorização precedido pela palavra `Bearer`. É preciso fornecer esse cabeçalho ou `Ocp-Apim-Subscription-Key`. Consulte [Autenticação](#authentication).|
-|`Content-type`|Descreve o formato e o codec dos dados de áudio. Atualmente, esse valor precisa ser `audio/wav; codec=audio/pcm; samplerate=16000`.|
-|`Transfer-Encoding`|Opcional. Se fornecido, precisa ser `chunked` para permitir que os dados de áudio sejam enviados em várias partes pequenas, em vez de um único arquivo.|
-|`Expect`|Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.|
-|`Accept`|Opcional. Se fornecido, é preciso incluir `application/json`, já que o serviço de Fala fornece resultados no formato JSON. (Algumas estruturas de solicitação da Web fornecerão um valor padrão incompatível se você não especificar um, portanto, é recomendável sempre incluir `Accept`.)|
-
-### <a name="audio-format"></a>Formato de áudio
-
-O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um dos formatos nesta tabela:
-
-| Formatar | Codec | Bitrate | Taxa de amostragem |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 16 kHz, mono |
-| OGG | OPUS | 16-bit | 16 kHz, mono |
-
->[!NOTE]
->Os formatos acima têm suporte por meio da API REST e WebSocket no serviço de fala. O [Speech SDK](/index.yml) atualmente dá suporte a apenas o WAV de formato com o codec PCM.
-
-### <a name="chunked-transfer"></a>Transferência em partes
-
-A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento porque ela permite que o serviço de Fala comece a processar o arquivo de áudio enquanto ele está sendo transmitido. A API REST não fornece resultados parciais ou provisórios. Essa opção destina-se somente a melhorar a capacidade de resposta.
-
-O código a seguir ilustra como enviar áudio em partes. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um objeto HTTPWebRequest conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
-
-```csharp
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
-
-        // Flush
-        requestStream.Flush();
-    }
-}
-```
-
-### <a name="example-request"></a>Solicitação de exemplo
-
-Veja a seguir uma solicitação típica.
-
-```HTTP
-POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
-```
-
-### <a name="http-status"></a>Status HTTP
-
-O status HTTP da resposta indica o êxito ou as condições de erro comuns.
-
-Código HTTP|Significado|Possível motivo
--|-|-|
-100|Continue|A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em partes.)
-200|OK|A solicitação foi bem-sucedida. O corpo da resposta é um objeto JSON.
-400|Solicitação incorreta|O código de idioma não foi fornecido ou o idioma não tem suporte. Arquivo de áudio inválido.
-401|Não Autorizado|Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido.
-403|Proibido|Chave de assinatura ou token de autorização ausente.
-
-### <a name="json-response"></a>Resposta JSON
-
-Os resultados são retornados no formato JSON. Dependendo dos seus parâmetros de consulta, um formato `simple` ou `detailed` está sendo retornado.
-
-#### <a name="the-simple-format"></a>O formato `simple` 
-
-Este formato inclui os seguintes campos de nível superior.
-
-|Nome do campo|Conteúdo|
-|-|-|
-|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte esta [tabela](rest-apis.md#recognitionstatus).|
-|`DisplayText`|O texto reconhecido após o uso de maiúsculas, a pontuação, a normalização de texto inverso (conversão de texto falado em formas mais curtas, como 200 para “duzentos” ou “Dr. Rodrigues” para “doutor Rodrigues”) e o mascaramento de conteúdo ofensivo. Apresentar somente em caso de êxito.|
-|`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
-|`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
-
-#### <a name="the-detailed-format"></a>O formato `detailed` 
-
-Este formato inclui os seguintes campos de nível superior.
-
-|Nome do campo|Conteúdo|
-|-|-|
-|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte esta [tabela](rest-apis.md#recognition-status).|
-|`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
-|`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
-|`NBest`|Uma lista de interpretações alternativas do mesmo discurso foi classificada de mais provável a menos provável. Consulte a [descrição NBest](rest-apis.md#nbest).|
-
-#### <a name="nbest"></a>NBest
-
-O campo `NBest` é uma lista de interpretações alternativas de reconhecimento da mesma fala, classificadas da mais provável até a menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
-
-|Nome do campo|Conteúdo|
-|-|-|
-|`Confidence`|A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total)
-|`Lexical`|O formato lexical do texto reconhecido: as palavras reais reconhecidas.
-|`ITN`|O formato de texto inverso normalizado (“canônico”) do texto reconhecido, com números de telefone, números, abreviações (“doutor Rodrigues” para “dr Rodrigues”) e demais transformações aplicadas.
-|`MaskedITN`| O formato ITN com mascaramento de conteúdo ofensivo aplicado se solicitado.
-|`Display`| O formato de exibição do texto reconhecido, com a pontuação e uso de maiúsculas adicionados.
-
-#### <a name="recognitionstatus"></a>RecognitionStatus
-
-O campo `RecognitionStatus` pode conter os valores a seguir.
-
-|Valor de status|DESCRIÇÃO
-|-|-|
-| `Success` | O reconhecimento foi bem-sucedido e o campo DisplayText está presente. |
-| `NoMatch` | A fala foi detectada no fluxo de áudio, mas nenhuma palavra do idioma de destino foi combinada. Normalmente, isso significa que o idioma do reconhecimento é um idioma diferente daquele que o usuário está falando. |
-| `InitialSilenceTimeout` | O início do fluxo de áudio continha apenas silêncio e o serviço atingiu o tempo limite aguardando pela fala. |
-| `BabbleTimeout` | O início do fluxo de áudio continha apenas ruído e o serviço atingiu o tempo limite aguardando pela fala. |
-| `Error` | O serviço de reconhecimento encontrou um erro interno e não foi possível continuar. Tente novamente, se possível. |
-
-> [!NOTE]
-> Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
-
-### <a name="sample-responses"></a>Respostas de exemplo
-
-Veja a seguir uma resposta típica para reconhecimento de `simple`.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 pencils.",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289"
-}
-```
-
-Veja a seguir uma resposta típica para reconhecimento de `detailed`.
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289",
-  "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
-      }
-  ]
-}
-```
-
-## <a name="text-to-speech"></a>Texto em fala
-
-Veja a seguir os pontos de extremidades de REST para a API de Conversão de Texto em Fala do serviço de Fala. Use o ponto de extremidade que corresponda com sua região de assinatura.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-O serviço de Fala é compatível com saída de áudio de 24 kHz, além da saída de 16 kHz compatível com a Fala do Bing. Quatro formatos de saída 24 KHz estão disponíveis para uso no cabeçalho HTTP `X-Microsoft-OutputFormat`, bem como duas vozes de 24 KHz, `Jessa24kRUS` e `Guy24kRUS`.
-
-Local | Linguagem   | Gênero | Mapeamento do nome do serviço
--------|------------|--------|------------
-pt-BR  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)"
-pt-BR  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft Server (en-US, Guy24kRUS)"
-
-Uma lista completa das vozes disponíveis está disponível em [Idiomas compatíveis](language-support.md#text-to-speech).
-
-### <a name="request-headers"></a>Cabeçalhos da solicitação
-
-Os campos a seguir são enviados no cabeçalho da solicitação HTTP.
-
-|Cabeçalho|Significado|
-|------|-------|
-|`Authorization`|Um token de autorização precedido pela palavra `Bearer`. Obrigatório. Consulte [Autenticação](#authentication).|
-|`Content-Type`|O tipo do conteúdo de entrada: `application/ssml+xml`.|
-|`X-Microsoft-OutputFormat`|O formato de áudio de saída. Consulte a próxima tabela.|
-|`User-Agent`|Nome do aplicativo. Obrigatório. Precisa conter menos de 255 caracteres.|
-
-Os formatos de saída de áudio disponíveis (`X-Microsoft-OutputFormat`) incorporam uma taxa de bits e uma codificação.
-
-|||
-|-|-|
-`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
-`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
-`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
-`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
-`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
-`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
-
-> [!NOTE]
-> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Contudo, vozes de 24 kHz não são compatíveis com os formatos de saída `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
-
-### <a name="request-body"></a>Corpo da solicitação
-
-O texto a ser convertido em fala será enviado como o corpo de uma solicitação `POST` HTTP em texto sem formatação (ASCII ou UTF-8) ou no formato SSML [Speech Synthesis Markup Language](speech-synthesis-markup.md) (UTF-8). Solicitações de texto sem formatação usam a voz e o idioma padrão do serviço. Envie no formato SSML para usar uma voz diferente.
-
-### <a name="sample-request"></a>Solicitação de exemplo
-
-A solicitação HTTP a seguir usa um corpo SSML para escolher a voz. O corpo precisa ter menos de 1.000 caracteres.
-
-```xml
-POST /cognitiveservices/v1 HTTP/1.1
-
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
-Content-Type: application/ssml+xml
-Host: westus.tts.speech.microsoft.com
-Content-Length: 225
-Authorization: Bearer [Base64 access_token]
-
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
-        Microsoft Speech Service Text-to-Speech API
-</voice></speak>
-```
-
-### <a name="http-response"></a>Resposta HTTP
-
-O status HTTP da resposta indica o êxito ou as condições de erro comuns.
-
-Código HTTP|Significado|Possível motivo
--|-|-|
-200|OK|A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio.
-400 |Solicitação incorreta |Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo.
-401|Não Autorizado |A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta.
-413|Entidade de solicitação muito grande|A entrada de SSML tem mais de 1024 caracteres.
-429|Número Excessivo de Solicitações|Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura.
-502|Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos.
-
-Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio no formato solicitado. Esse arquivo pode ser reproduzido enquanto é transferido ou salvo em um buffer ou arquivo para reprodução posterior ou outros usos.
+Como uma alternativa para o [Speech SDK](speech-sdk.md), o Serviço de Fala permite que você converta fala para texto e texto para voz com um conjunto de APIs REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar.
+
+Antes de usar as APIs REST, entenda:
+* As solicitações de fala para texto que usam a API REST podem conter apenas 10 segundos de áudio gravado.
+* A API REST de fala para texto só retorna os resultados finais. Resultados parciais não são fornecidos.
+* A API REST de conversão de texto em voz requer um cabeçalho de autorização. Isso significa que você precisa concluir uma troca de tokens para acessar o serviço. Para obter mais informações, consulte [Autenticação](#authentication).
 
 ## <a name="authentication"></a>Autenticação
 
-Enviar uma solicitação à API REST do serviço de Fala requer uma chave de assinatura ou um token de acesso. Em geral, é mais fácil enviar a chave de assinatura diretamente. O serviço de Fala obtém o token de acesso para você. Para minimizar o tempo de resposta, pode ser útil usar um token de acesso.
+Cada solicitação para a API REST de fala para texto ou texto para voz requer um cabeçalho de autorização. Esta tabela ilustra quais cabeçalhos são suportados para cada serviço:
 
-Para obter um token, apresente sua chave de assinatura para um ponto de extremidade `issueToken` de serviço de Fala regional, conforme mostrado na tabela a seguir. Use o ponto de extremidade que corresponda com sua região de assinatura.
+| Cabeçalhos de autorização suportados | Conversão de fala em texto | Conversão de texto em fala |
+|------------------------|----------------|----------------|
+| Ocp-Apim-Subscription-Key | SIM | Não  |
+| Autorização: portador | SIM | SIM |
+
+Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo: 
+
+```
+'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
+```
+
+Ao usar o cabeçalho `Authorization: Bearer`, você precisa fazer uma solicitação ao `issueToken` endpoint. Nesta solicitação, você troca sua chave de assinatura por um token de acesso válido por 10 minutos. Nas próximas seções, você aprenderá como obter um token, usar um token e atualizar um token.
+
+### <a name="how-to-get-an-access-token"></a>Como obter um token de acesso
+
+Para obter um token de acesso, você precisará fazer uma solicitação para o endpoint `issueToken` usando a `Ocp-Apim-Subscription-Key` e sua chave de assinatura.
+
+Essas regiões e nós de extremidade são suportados:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-Cada token de acesso é válido por 10 minutos. É possível obter um novo token a qualquer momento. Se desejar, você poderá obter um token antes de cada solicitação de API REST de Fala. Para minimizar a latência e o tráfego de rede, é recomendável usar o mesmo token por nove minutos.
+Use essas amostras para criar sua solicitação de token de acesso.
 
-As seções a seguir mostram como obter um token e como usá-lo em uma solicitação.
+#### <a name="http-sample"></a>Exemplo de HTTP
 
-### <a name="get-a-token-http"></a>Obter um token: HTTP
+Este exemplo é uma solicitação HTTP simples para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Se sua assinatura não se encontra na região Oeste dos EUA, substitua o cabeçalho `Host` pelo nome de host da sua região.
 
-A seguir temos um exemplo de solicitação HTTP para obter um token. Substitua `YOUR_SUBSCRIPTION_KEY` por sua chave de assinatura do Serviço de Fala. Se sua assinatura não se encontra na região Oeste dos EUA, substitua o cabeçalho `Host` pelo nome de host da sua região.
-
-```
+```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.api.cognitive.microsoft.com
@@ -319,11 +65,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-O corpo da resposta para esta solicitação é o token de acesso no formato de Java Web Token (JWT).
+O corpo da resposta contém o token de acesso no formato Java Web Token (JWT).
 
-### <a name="get-a-token-powershell"></a>Obter um token: PowerShell
+#### <a name="powershell-sample"></a>Exemplo do PowerShell
 
-O script do Windows PowerShell a seguir ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` por sua chave de assinatura do Serviço de Fala. Se sua assinatura não se encontra na região Oeste dos EUA, altere o nome do host do URI especificado adequadamente.
+Este exemplo é um script simples do PowerShell para obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Certifique-se de usar o endpoint correto para a região que corresponde à sua assinatura. Este exemplo está atualmente definido para o oeste dos EUA.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -340,24 +86,21 @@ $OAuthToken
 
 ```
 
-### <a name="get-a-token-curl"></a>Obter um token: cURL
+#### <a name="curl-sample"></a>exemplo de cURL
 
-cURL é uma ferramenta de linha de comando no Linux (e no Subsistema do Windows para Linux). O comando cURL a seguir ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` por sua chave de assinatura do Serviço de Fala. Se sua assinatura não se encontra na região Oeste dos EUA, altere o nome do host do URI especificado adequadamente.
+cURL é uma ferramenta de linha de comando no Linux (e no Subsistema do Windows para Linux). Este comando cURL ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Certifique-se de usar o endpoint correto para a região que corresponde à sua assinatura. Este exemplo está atualmente definido para o oeste dos EUA.
 
-> [!NOTE]
-> O comando é mostrado em várias linhas para melhor legibilidade, mas é preciso inseri-lo em uma única linha em um prompt de shell.
-
-```
+```cli
 curl -v -X POST
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
- -H "Content-type: application/x-www-form-urlencoded"
- -H "Content-Length: 0"
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+ -H "Content-type: application/x-www-form-urlencoded" \
+ -H "Content-Length: 0" \
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-### <a name="get-a-token-c"></a>Obter um token: C#
+#### <a name="c-sample"></a>Exemplo de C#
 
-A classe C# a seguir ilustra como obter um token de acesso. Passe sua chave de assinatura do serviço de Fala ao instanciar a classe. Se sua assinatura não se encontra na região Oeste dos EUA, altere o nome do host de `FetchTokenUri` adequadamente.
+Esta classe C# ilustra como obter um token de acesso. Passar sua chave de assinatura do serviço de Fala quando você instanciar a classe. Se a sua assinatura não estiver na região Oeste dos EUA, altere o valor de `FetchTokenUri` para que corresponda à região da sua assinatura.
 
 ```cs
 /*
@@ -396,11 +139,13 @@ public class Authentication
 }
 ```
 
-### <a name="use-a-token"></a>Usar um token
+### <a name="how-to-use-an-access-token"></a>Como usar um token de acesso
 
-Para usar um token em uma solicitação de API REST, forneça-o no cabeçalho `Authorization`, após a palavra `Bearer`. Este é um exemplo de solicitação REST de Conversão de Texto em Fala que contém um token. Substitua `YOUR_ACCESS_TOKEN` pelo seu token real. Use o nome de host correto no cabeçalho `Host`.
+O token de acesso deve ser enviado para o serviço como o cabeçalho `Authorization: Bearer <TOKEN>`. Cada token de acesso é válido por 10 minutos. Você pode obter um novo token a qualquer momento, no entanto, para minimizar o tráfego de rede e a latência, recomendamos usar o mesmo token por nove minutos.
 
-```xml
+Aqui está um exemplo de solicitação HTTP para a API REST de conversão de texto em fala:
+
+```http
 POST /cognitiveservices/v1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
 Host: westus.tts.speech.microsoft.com
@@ -414,11 +159,9 @@ Connection: Keep-Alive
 </voice></speak>
 ```
 
-### <a name="renew-authorization"></a>Renovar autorização
+### <a name="how-to-renew-an-access-token-using-c"></a>Como renovar um token de acesso usando C#
 
-O token de autorização expira após 10 minutos. Renove sua autorização obtendo um novo token antes que ele expire. Por exemplo, você pode obter um novo token após nove minutos.
-
-O código C# a seguir é uma substituição imediata para a classe apresentada antes. A classe `Authentication` obtém automaticamente um novo token de acesso a cada minutos nove usando um temporizador. Essa abordagem garante que um token válido está sempre disponível enquanto o programa está em execução.
+Este código C# é um substituto para a classe apresentada anteriormente. A classe `Authentication` recebe automaticamente um novo token de acesso a cada nove minutos usando um timer. Essa abordagem garante que um token válido está sempre disponível enquanto o programa está em execução.
 
 > [!NOTE]
 > Em vez de usar um temporizador, você pode armazenar um carimbo de data/hora de quando o último token foi obtido. Dessa forma, você poderá solicitar um novo somente se o atual estiver prestes a expirar. Essa abordagem evita solicitar novos tokens desnecessariamente e pode ser mais adequada para programas que fazem solicitações de Fala ocasionais.
@@ -426,9 +169,6 @@ O código C# a seguir é uma substituição imediata para a classe apresentada a
 Como antes, certifique-se de que o valor `FetchTokenUri` corresponda com sua região de assinatura. Passe sua chave de assinatura ao instanciar a classe.
 
 ```cs
-/*
-    * This class demonstrates how to maintain a valid access token.
-    */
 public class Authentication
 {
     public static readonly string FetchTokenUri =
@@ -500,6 +240,268 @@ public class Authentication
     }
 }
 ```
+
+## <a name="speech-to-text-api"></a>API de Fala para Texto
+
+A API REST de fala para texto suporta apenas breves declarações. As solicitações podem conter até 10 segundos de áudio com duração total de 14 segundos. A API REST só retorna os resultados finais, não os resultados parciais ou intermediários.
+
+Se o envio de áudio mais longo é um requisito para o seu aplicativo, considere usar o [SDK de Fala](speech-sdk.md) ou [transcrição do lote](batch-transcription.md).
+
+### <a name="regions-and-endpoints"></a>Regiões e endpoints
+
+Essas regiões são suportadas para transcrição de fala para texto usando a API REST. Certifique-se de selecionar o terminal que corresponde à sua região de assinatura.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+
+### <a name="query-parameters"></a>Parâmetros de consulta
+
+Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
+
+| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
+|-----------|-------------|---------------------|
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Confira os [Idiomas compatíveis](language-support.md#speech-to-text). | Obrigatório |
+| `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem vários resultados com valores de confiança e quatro representações diferentes. A configuração padrão é `simple`. | Opcional |
+| `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, o que substitui a profanidade por asteriscos, `removed`, que remove todas as profanações do resultado, ou `raw`, o que inclui a profanidade no resultado. A configuração padrão é `masked`. | Opcional |
+
+### <a name="request-headers"></a>Cabeçalhos da solicitação
+
+Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
+
+|Cabeçalho| DESCRIÇÃO | Obrigatório/Opcional |
+|------|-------------|---------------------|
+| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codec=audio/pcm; samplerate=16000` e `audio/ogg; codec=audio/pcm; samplerate=16000`. | Obrigatório |
+| `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
+| `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda dados adicionais.| Necessário se enviar dados de áudio em partes. |
+| `Accept` | Se fornecido, deve ser `application/json`. O serviço de Fala fornece resultados em JSON. Algumas estruturas de solicitação da Web fornecem um valor padrão incompatível se você não especificar uma, portanto, é uma boa prática incluir sempre `Accept`. | Opcional, mas recomendado. |
+
+### <a name="audio-formats"></a>Formatos de áudio
+
+O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um dos formatos nesta tabela:
+
+| Formatar | Codec | Bitrate | Taxa de amostragem |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
+
+>[!NOTE]
+>Os formatos acima têm suporte por meio da API REST e WebSocket no serviço de fala. O [Speech SDK](speech-sdk.md) atualmente dá suporte a apenas o WAV de formato com o codec PCM.
+
+### <a name="sample-request"></a>Solicitação de exemplo
+
+Esta é uma solicitação HTTP típica. O exemplo abaixo inclui o nome do host e os cabeçalhos necessários. É importante observar que o serviço também espera dados de áudio, o que não está incluído nesta amostra. Como mencionado anteriormente, o chunking é recomendado, no entanto, não é obrigatório.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### <a name="http-status-codes"></a>Códigos de status HTTP
+
+O código de status HTTP para cada resposta indica sucesso ou erros comuns.
+
+| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+|------------------|-------------|-----------------|
+| 100 | Continue | A solicitação inicial foi aceita. Continue enviando o restante dos dados. (Usado com transferência em partes.) |
+| 200 | OK | A solicitação foi bem-sucedida. O corpo da resposta é um objeto JSON. |
+| 400 | Solicitação incorreta | O código de idioma não foi fornecido ou o idioma não tem suporte. Arquivo de áudio inválido. |
+| 401 | Não Autorizado | Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido. |
+| 403 | Proibido | Chave de assinatura ou token de autorização ausente. |
+
+### <a name="chunked-transfer"></a>Transferência em partes
+
+A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que o serviço de Fala inicie o processamento do arquivo de áudio enquanto está sendo transmitido. A API REST não fornece resultados parciais ou provisórios. Essa opção destina-se somente a melhorar a capacidade de resposta.
+
+Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um objeto HTTPWebRequest conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### <a name="response-parameters"></a>Parâmetros de resposta
+
+Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos de nível superior.
+
+| Parâmetro | DESCRIÇÃO  |
+|-----------|--------------|
+|`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte a próxima tabela.|
+|`DisplayText`|O texto reconhecido após o uso de maiúsculas, a pontuação, a normalização de texto inverso (conversão de texto falado em formas mais curtas, como 200 para “duzentos” ou “Dr. Rodrigues” para “doutor Rodrigues”) e o mascaramento de conteúdo ofensivo. Apresentar somente em caso de êxito.|
+|`Offset`|O tempo (em unidades de 100 nanossegundos) no qual a fala reconhecida começa no fluxo de áudio.|
+|`Duration`|A duração (em unidades de 100 nanossegundos) da fala reconhecida no fluxo de áudio.|
+
+O `RecognitionStatus` campo pode conter estes valores:
+
+| Status | DESCRIÇÃO |
+|--------|-------------|
+| `Success` | O reconhecimento foi bem-sucedido e o campo `DisplayText` está presente. |
+| `NoMatch` | A fala foi detectada no fluxo de áudio, mas nenhuma palavra do idioma de destino foi combinada. Normalmente, isso significa que o idioma do reconhecimento é um idioma diferente daquele que o usuário está falando. |
+| `InitialSilenceTimeout` | O início do fluxo de áudio continha apenas silêncio e o serviço atingiu o tempo limite aguardando pela fala. |
+| `BabbleTimeout` | O início do fluxo de áudio continha apenas ruído e o serviço atingiu o tempo limite aguardando pela fala. |
+| `Error` | O serviço de reconhecimento encontrou um erro interno e não foi possível continuar. Tente novamente, se possível. |
+
+> [!NOTE]
+> Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
+
+O formato `detailed` inclui os mesmos dados que o formato `simple`, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento de fala. Estes resultados são classificados de mais prováveis para menos prováveis A primeira entrada é a mesma que o resultado principal de reconhecimento.  Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cada resultado na lista `NBest`.
+
+Cada objeto no `NBest` lista inclui:
+
+| Parâmetro | DESCRIÇÃO |
+|-----------|-------------|
+| `Confidence` | A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total) |
+| `Lexical` | O formato lexical do texto reconhecido: as palavras reais reconhecidas. |
+| `ITN` | O formato de texto inverso normalizado (“canônico”) do texto reconhecido, com números de telefone, números, abreviações (“doutor Rodrigues” para “dr Rodrigues”) e demais transformações aplicadas. |
+| `MaskedITN` | O formato ITN com mascaramento de conteúdo ofensivo aplicado se solicitado. |
+| `Display` | O formato de exibição do texto reconhecido, com a pontuação e uso de maiúsculas adicionados. Este parâmetro é o mesmo que `DisplayText` fornecido quando o formato é definido como `simple`. |
+
+### <a name="sample-responses"></a>Respostas de exemplo
+
+Essa é uma resposta típica para o reconhecimento `simple`.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Essa é uma resposta típica para o reconhecimento`detailed`.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+## <a name="text-to-speech-api"></a>API de texto em fala
+
+Essas regiões são suportadas para text-to-speech usando a API REST. Certifique-se de selecionar o terminal que corresponde à sua região de assinatura.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+O serviço de fala oferece suporte a saída de áudio de 24 kHz, juntamente com as saídas de 16 Khz que foram suportadas pela Fala do Bing. Quatro formatos de saída de 24 kHz e duas vozes de 24 kHz são suportados.
+
+### <a name="voices"></a>Vozes
+
+| Local | Linguagem   | Gênero | Mapeamento |
+|--------|------------|--------|---------|
+| en-US  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)" |
+| en-US  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft Server (en-US, Guy24kRUS)" |
+
+Uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
+
+### <a name="request-headers"></a>Cabeçalhos da solicitação
+
+Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
+
+| Cabeçalho | DESCRIÇÃO | Obrigatório/Opcional |
+|--------|-------------|---------------------|
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter informações adicionais, consulte [Autenticação](#authentication). | Obrigatório |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
+| `User-Agent` | O nome do aplicativo. Deve ter menos de 255 caracteres. | Obrigatório |
+
+### <a name="audio-outputs"></a>Saídas de áudio
+
+Esta é uma lista de formatos de áudio suportados que são enviados em cada solicitação como o cabeçalho `X-Microsoft-OutputFormat`. Cada um incorpora um tipo de taxa de bits e codificação.
+
+|||
+|-|-|
+| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
+| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
+| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
+| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
+| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
+| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
+
+> [!NOTE]
+> Se sua voz selecionada e o formato de saída tiverem diferentes taxas de bits, o áudio é aumentado conforme necessário. Contudo, vozes de 24 kHz não são compatíveis com os formatos de saída `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
+
+### <a name="request-body"></a>Corpo da solicitação
+
+O texto é enviado como o corpo de uma solicitação HTTP `POST`. Ele pode ser um texto sem formatação (ASCII ou UTF-8) ou [linguagem de marcação de síntese de Fala](speech-synthesis-markup.md) formato (SSML) (UTF-8). Solicitações de texto sem formatação usam voz e idioma padrão do serviço de Fala. Com o SSML, você pode especificar a voz e o idioma.
+
+### <a name="sample-request"></a>Solicitação de exemplo
+
+Esta solicitação HTTP usa SSML para especificar a voz e o idioma. O corpo não pode exceder 1.000 caracteres.
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+### <a name="http-status-codes"></a>Códigos de status HTTP
+
+O código de status HTTP para cada resposta indica sucesso ou erros comuns.
+
+| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+|------------------|-------------|-----------------|
+| 200 | OK | A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio. |
+| 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
+| 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
+| 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
+| 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
+| 502 | Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
+
+Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio no formato solicitado. Este arquivo pode ser reproduzido enquanto é transferido, salvo em um buffer ou salvo em um arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

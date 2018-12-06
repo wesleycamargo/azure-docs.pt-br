@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: b66d6bc93f9d2df3eccabf0f0f9edb0384bab70f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 05a364cc66d18909c7833138d351dc02bace32c2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634870"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822102"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
-O suporte de contêiner nos Serviços Cognitivos do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure, mas com a flexibilidade que são fornecidas com os [contêineres do Docker](https://www.docker.com/what-container). O suporte de contêiner atualmente está disponível em versão prévia de um subconjunto de Serviços Cognitivos do Azure, incluindo partes de [Pesquisa Visual Computacional](Computer-vision/Home.md), [Detecção Facial](Face/Overview.md) e [Análise de Texto](text-analytics/overview.md).
+O suporte a contêiner nos Serviços Cognitivos do Azure permite que os desenvolvedores usem as mesmas APIs ricas disponíveis no Azure e permite a flexibilidade de onde implantar e hospedar os serviços que vêm com [contêineres do Docker](https://www.docker.com/what-container). O suporte de contêiner atualmente está disponível em versão prévia de um subconjunto de Serviços Cognitivos do Azure, incluindo partes de [Pesquisa Visual Computacional](Computer-vision/Home.md), [Detecção Facial](Face/Overview.md) e [Análise de Texto](text-analytics/overview.md).
 
 O uso de contêineres é uma abordagem para distribuição de software em que um aplicativo ou serviço, incluindo as dependências e configurações, é empacotado como uma imagem de contêiner. Com pouca ou nenhuma modificação, uma imagem de contêiner pode ser implantada em um host de contêiner. Os contêineres são isolados uns dos outros e do sistema operacional subjacente, com um espaço menor do que uma máquina virtual. Os contêineres poderão ser instanciados a partir de imagens de contêiner para tarefas de curto prazo e removidos, quando não forem mais necessários.
 

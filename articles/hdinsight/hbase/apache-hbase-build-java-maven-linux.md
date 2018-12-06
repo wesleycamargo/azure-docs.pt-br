@@ -3,24 +3,24 @@ title: Cliente HBase Java – Azure HDInsight
 description: Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HBase no HDInsight do Azure.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016073"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445644"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicativos Java para Apache HBase
 
 Saiba como criar um aplicativo [Apache HBase](http://hbase.apache.org/) em Java. Depois, use o aplicativo com o HBase no Azure HDInsight.
 
-As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java.
+As etapas deste documento usam o [Apache Maven](https://maven.apache.org/) para criar e construir o projeto. Maven é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java.
 
 > [!NOTE]
 > As etapas neste documento foram testadas mais recentemente com o HDInsight 3.6.
@@ -35,9 +35,9 @@ As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e c
     > [!NOTE]
     > O HDInsight 3.5 e posterior usa Java 8. Versões anteriores do HDInsight requerem Java 7.
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [Um cluster HDInsight do Azure baseado em Linux com HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [Um cluster baseado em Linux do Azure HDInsight com o Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -59,7 +59,7 @@ As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e c
    * **pom.xml**: o[POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(Modelo de Objeto de Projeto) contém informações e detalhes de configuração usados para compilar o projeto.
    * **src**: o diretório que contém **main\java\com\microsoft\examples**, no qual você criará seu aplicativo.
 
-3. Exclua o arquivo `src/test/java/com/microsoft/examples/apptest.java`. Ele não será usado neste exemplo.
+3. Exclua o arquivo `src/test/java/com/microsoft/examples/apptest.java`. Ele não é usado neste exemplo.
 
 ## <a name="update-the-project-object-model"></a>Atualize o modelo do objeto do projeto
 
@@ -81,9 +81,9 @@ As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e c
     Esta seção indica que o projeto precisa dos componentes **hbase-client** e **phoenix-core**. Em tempo de compilação, essa dependência será baixada do repositório padrão do Maven. Você pode usar a [Pesquisa de repositório central do Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre essa dependência.
 
    > [!IMPORTANT]
-   > O número da versão do cliente hbase deve corresponder à versão do HBase fornecida com o cluster HDInsight. Use a tabela a seguir para localizar o número da versão correta.
+   > O número da versão do hbase-client deve corresponder à versão do Apache HBase que é fornecida com o cluster do HDInsight. Use a tabela a seguir para localizar o número da versão correta.
 
-   | Versão do cluster HDInsight | Versão do HBase a ser usada |
+   | Versão do cluster HDInsight | Apache HBase versão a ser usada |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 e 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ As etapas deste documentam usam [Maven](http://maven.apache.org/) para criar e c
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Carregue o arquivo JAR e execute trabalhos (SSH)
 
-As etapas a seguir usam `scp` para copiar o arquivo JAR no nó principal de seu HBase no cluster HDInsight. Então, o comando `ssh` será utilizado para se conectar ao cluster e executar o exemplo diretamente no nó principal.
+As etapas a seguir usam `scp` para copiar o JAR para o nó principal primário de seu Apache HBase no cluster HDInsight. Então, o comando `ssh` será utilizado para se conectar ao cluster e executar o exemplo diretamente no nó principal.
 
 1. Use o comando a seguir para carregar o jar no cluster:
 
@@ -412,7 +412,7 @@ As etapas a seguir usam `scp` para copiar o arquivo JAR no nó principal de seu 
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Carregue o arquivo JAR e execute trabalhos (PowerShell)
 
-As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o armazenamento padrão do cluster HBase. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
+As etapas a seguir usam o Azure PowerShell para carregar o JAR no armazenamento padrão do cluster do Apache HBase. Os cmdlets do HDInsight serão usados para executar os exemplos remotamente.
 
 1. Após instalar e configurar o Azure PowerShell, crie um arquivo chamado `hbase-runner.psm1`. Use o seguinte texto como o conteúdo deste arquivo:
 
@@ -644,7 +644,7 @@ As etapas a seguir usam o Azure PowerShell para carregar o arquivo JAR para o ar
 
     Substitua `hdinsightclustername` pelo nome do cluster. Quando solicitado, insira o nome e a senha do logon do cluster (admin).
 
-    Esse comando cria uma tabela chamada **people** no HBase em seu cluster HDInsight. Esse comando não mostra nenhuma saída na janela do console.
+    Esse comando cria uma tabela chamada **people** no HBase em seu cluster HDInsight. Este comando não mostra nenhuma saída na janela do console.
 
 6. Para procurar por entradas na tabela, use o comando a seguir:
 
@@ -671,7 +671,7 @@ Utilize o parâmetro `-showErr` para exibir o erro padrão (STDERR) produzido du
 
 ## <a name="delete-the-table"></a>Excluir a tabela
 
-Após ter terminado o exemplo, use o seguinte para excluir a tabela **pessoas** utilizada neste exemplo:
+Quando terminar o exemplo, use o seguinte para excluir a tabela **people** usada neste exemplo:
 
 __De uma sessão `ssh`__:
 
@@ -683,4 +683,4 @@ __Do Azure PowerShell__:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba como usar o SQuirreL SQL com o HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Aprenda a usar o SQL SQuirreL com o Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

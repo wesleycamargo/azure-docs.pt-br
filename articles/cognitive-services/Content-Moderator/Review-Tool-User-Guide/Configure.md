@@ -1,5 +1,5 @@
 ---
-title: Definir as configurações de ferramenta de análise do Content Moderator | Microsoft Docs
+title: Configurar definição da Ferramenta de Revisão do Content Moderator | Microsoft Docs
 description: Configurar ou obter sua equipe, marcas, conectores, fluxos de trabalho e credenciais.
 services: cognitive-services
 author: sanjeev3
@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363393"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851529"
 ---
-# <a name="about-review-tool-settings"></a>Sobre as configurações da ferramenta de análise #
+# <a name="review-tool-settings"></a>Revisar configurações da ferramenta #
 
-Usando a guia Configurações no painel da Ferramenta de Análise, é fácil definir e alterar muitos componentes.
+Usando a guia Configurações no painel da ferramenta Revisar, é fácil definir e alterar muitos componentes.
 
 ![Configurações de análise do Content Moderator](images/settings-1.png)
 
@@ -36,7 +36,7 @@ Isso é onde você pode [definir marcas personalizadas](tags.md) digitando o có
 
 ## <a name="connectors"></a>Conectores ##
 
-Fluxos de trabalho adicionam a funcionalidade usando conectores para se comunicar com a Ferramenta de Análise. A Ferramenta de Análise chama as APIs do Content Moderator com o fluxo de trabalho padrão para moderar o conteúdo. Quando você se inscreve para a Ferramenta de Análise, ele provisiona automaticamente as credenciais de API do moderador para você. Ele também dá suporte à integração de APIs de outros conectores, desde que um conector esteja disponível. Disponibilizamos alguns conectores fora da caixa.
+Os fluxos de trabalho adicionam funcionalidade usando conectores para se comunicar com a ferramenta Revisar. A ferramenta de revisão chama as APIs do Content Moderator com o fluxo de trabalho padrão para moderar o conteúdo. Quando você se inscreve na ferramenta "Revisar", provisiona automaticamente as credenciais da API do Google Moderator para você. Ele também dá suporte à integração de APIs de outros conectores, desde que um conector esteja disponível. Disponibilizamos alguns conectores fora da caixa.
 
 A [guia Conectores](connectors.md) é onde você gerencia os conectores. Você pode adicionar ou excluir os conectores e encontrar sua chave de assinatura para um conector específico. Clique em Conectar para adicioná-los aos seus fluxos de trabalho personalizados. 
 

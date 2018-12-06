@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0dd7a5d5159144c6b1a050ff4c0443b181976738
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39124947"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705932"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>Como expandir a indexação no Azure Search
 
@@ -21,7 +21,7 @@ Com o crescimento dos volumes de dados ou as alterações nas necessidades de pr
 
 Como uma primeira etapa para atender ao aumento da demanda, é recomendável que você aumente a [escala e a capacidade](search-capacity-planning.md) dentro dos limites do serviço existente. 
 
-Uma segunda etapa, se você puder usar [indexadores](search-indexer-overview.md), adicionará mecanismos para uma indexação escalonável. Os indexadores vêm com um agendador interno que permite dividir a indexação em intervalos regulares ou estender o processamento para além da janela de 24 horas. Além disso, quando combinados com as definições de fonte de dados, os indexadores ajudam a obter uma forma de paralelismo por meio do particionamento de dados e do uso de agendas para executar em paralelo.
+Uma segunda etapa, se você puder usar [indexadores](search-indexer-overview.md), adicionará mecanismos para indexação escalonável. Os indexadores vêm com um agendador interno que permite dividir a indexação em intervalos regulares ou estender o processamento para além da janela de 24 horas. Além disso, quando combinados com as definições de fonte de dados, os indexadores ajudam a obter uma forma de paralelismo por meio do particionamento de dados e do uso de agendas para executar em paralelo.
 
 ### <a name="scheduled-indexing-for-large-data-sets"></a>Indexação agendada para conjuntos de dados grandes
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037746"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499205"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Isso também pode ser feito por meio do Portal. Consulte [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Atualizar credenciais de usuário HTTP
-É o mesmo procedimento para [acessar Conceder/Revogar HTTP](#grant/revoke-access). Se o cluster recebeu o acesso HTTP, você deverá revogá-lo.  E, em seguida, conceder acesso com novas credenciais de usuário HTTP.
+É o mesmo procedimento que [Conceder/revogar acesso HTTP](#grant/revoke-access).  Se o cluster recebeu o acesso HTTP, você deverá, primeiramente, revogá-lo.  E, em seguida, conceder acesso com novas credenciais de usuário HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Encontrar a conta de armazenamento padrão
 O snippet de código a seguir demonstra como obter o nome da conta de armazenamento padrão e a chave da conta de armazenamento padrão de um cluster.
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Enviar trabalhos
-**Enviar trabalhos MapReduce**
+**Para enviar trabalhos do Apache Hadoop MapReduce**
 
-Veja [Executar amostras de MapReduce do Hadoop no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Veja [Executar amostras do Apache Hadoop MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Para enviar trabalhos do Apache Hive** 
 
-Veja [Executar consultas do Hive usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+Consulte [Executar consultas do Apache Hive usando o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **Para enviar trabalhos do Pig do Apache**
 
-Veja [Executar trabalhos do Pig usando o SDK do .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Veja [Executar tarefas do Apache Pig usando o .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **Para enviar trabalhos do Apache Sqoop**
 
-Consulte [Usar o Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+Veja [Use o Apache Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **Para enviar trabalhos do Apache Oozie**
 
-Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
+Consulte [Use o Apache Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de Blob do Azure
 Veja [Carregar dados no HDInsight][hdinsight-upload-data].

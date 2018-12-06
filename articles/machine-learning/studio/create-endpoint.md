@@ -1,10 +1,11 @@
 ---
-title: Criando pontos de extremidade de serviço Web no Machine Learning | Microsoft Docs
+title: Criando endpoints de serviços da Web no Machine Learning - Azure Machine Learning Studio | Microsoft Docs
 description: Criando pontos de extremidade de serviço Web no Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833539"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314006"
 ---
-# <a name="creating-endpoints"></a>Criando pontos de extremidade
+# <a name="creating-endpoints"></a>Criando pontos de extremidade 
 > [!NOTE]
 >  Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning **clássico**.
 > 
@@ -30,7 +31,7 @@ ms.locfileid: "34833539"
 
 Quando você cria serviços Web que você vende antecipadamente aos seus clientes, você precisa fornecer modelos qualificados para cada cliente que ainda esteja vinculado ao experimento a partir do qual o serviço Web foi criado. Além disso, todas as atualizações do experimento devem ser aplicadas de forma seletiva a um ponto de extremidade sem substituir as personalizações.
 
-Para isso, o Azure Machine Learning permite criar vários pontos de extremidade para um serviço Web implantado. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente. Cada ponto de extremidade é uma única URL e chave de autorização que você pode distribuir aos seus clientes.
+Para isso, o Azure Machine Learning Studio permite que você crie vários pontos de extremidade para um serviço da Web implantado. Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente. Cada ponto de extremidade é uma única URL e chave de autorização que você pode distribuir aos seus clientes.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -54,7 +55,7 @@ Você pode adicionar um ponto de extremidade ao serviço Web programaticamente u
 1. No Estúdio de Machine Learning, clique em Serviços Web na coluna de navegação à esquerda.
 2. Na parte inferior do painel do serviço Web, clique em **Gerenciar pontos de extremidade**. O portal de serviços Web de Azure Machine Learning abre a página de pontos de extremidade do serviço Web.
 3. Clique em **Novo**.
-4. Digite um nome e uma descrição para o novo ponto de extremidade. Os nomes dos pontos de extremidade devem ter 24 caracteres ou menos e devem ser compostos de letras minúsculas ou números. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, veja [Habilitar o log de serviços Web de Machine Learning](web-services-logging.md).
+4. Digite um nome e uma descrição para o novo ponto de extremidade. Os nomes dos pontos de extremidade devem ter 24 caracteres ou menos e devem ser compostos de letras minúsculas ou números. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre Registro em Log, veja [Habilitar registro em log para serviços Web de Machine Learning](web-services-logging.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).

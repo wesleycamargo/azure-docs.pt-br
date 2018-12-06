@@ -11,15 +11,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fdcdbf838a0bc283db05f36b900641016211b7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121907"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705701"
 ---
 # <a name="persist-job-and-task-output"></a>Persistir saída de tarefa e de trabalho
 
@@ -28,85 +28,40 @@ ms.locfileid: "43121907"
 Alguns exemplos comuns de saída de tarefa incluem:
 
 - Arquivos criados quando a tarefa processa dados de entrada.
-- Arquivos de log associados à execução da tarefa. 
+- Arquivos de log associados à execução da tarefa.
 
-Este artigo descreve várias opções para persistir a saída da tarefa e os cenários para os quais cada opção é mais apropriada.   
-
-## <a name="about-the-batch-file-conventions-standard"></a>Sobre o padrão Convenções do Arquivo em Lotes
-
-Lote define um conjunto opcional de convenções de nomenclatura de arquivos de saída de tarefa no Armazenamento do Azure. O [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) descreve essas convenções. O padrão de Convenções de Arquivo determina os nomes do caminho de blob e do contêiner de destino no Armazenamento do Azure para um determinado arquivo de saída com base nos nomes do trabalho e da tarefa.
-
-Cabe a você decidir usar o padrão de Convenções de Arquivo para nomear seus arquivos de dados de saída. Você também pode nomear o contêiner de destino e o blob como desejar. Se você usar o padrão de Convenções de Arquivo para nomear arquivos de saída, os arquivos de saída estarão disponíveis para exibição no [portal do Azure][portal].
-
-Há algumas maneiras diferentes de usar o padrão de Convenções de Arquivo:
-
-- Se você estiver usando a API de serviço em Lote para manter os arquivos de saída, poderá optar por nomear contêineres e blobs de destino de acordo com o padrão de Convenções de Arquivo. A API do serviço de Lote permite manter os arquivos de saída no código do cliente sem modificar seu aplicativo de tarefa.
-- Se você estiver desenvolvendo com o .NET, poderá usar a [biblioteca Convenções de Arquivo em Lote do Azure para .NET][nuget_package]. Uma vantagem de usar essa biblioteca é que ela dá suporte a consultas de seus arquivos de saída de acordo com sua ID ou finalidade. A funcionalidade de consulta interna facilita o acesso a arquivos de saída de um aplicativo cliente ou de outras tarefas. No entanto, seu aplicativo de tarefa deve ser modificado para chamar a biblioteca de Convenções de Arquivo. Para obter mais informações, consulte a referência para a [biblioteca Convenções de Arquivo para .NET](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.aspx).
-- Se você estiver desenvolvendo com uma linguagem que não .NET, você mesmo poderá implementar o padrão de Convenções de Arquivo em seu aplicativo.
-
-## <a name="design-considerations-for-persisting-output"></a>Considerações de design para manter a saída 
-
-Ao projetar sua solução em Lote, considere os seguintes fatores relacionados às saídas de trabalho e tarefa.
-
-* **Tempo de vida de nó de computação**: os nós de computação geralmente são transitórios, especialmente em pools com dimensionamento automático habilitado. Saída de uma tarefa que é executada em um nó está disponível somente enquanto o nó existe e somente dentro do período de retenção de arquivo definido para a tarefa. Se uma tarefa produzir saída que possa ser necessária após a tarefa ter sido concluída, a tarefa deverá carregar seus arquivos de saída para um repositório durável, como o Armazenamento do Azure.
-
-* **Armazenamento de saída**: o Armazenamento do Azure é recomendado como um armazenamento de dados para a saída da tarefa, mas você pode usar qualquer armazenamento durável. A gravação da saída da tarefa no Armazenamento do Azure é integrada à API de serviço de Lote. Se você usar outra forma de armazenamento durável, precisará escrever a lógica do aplicativo para manter a saída da tarefa você mesmo.   
-
-* **Recuperação de saída**: você poderá recuperar a saída da tarefa diretamente dos nós de computação no seu pool ou do Armazenamento do Azure ou de outro armazenamento de dados, se tiver mantido a saída da tarefa. Para recuperar a saída da tarefa diretamente de um nó de computação, você precisa do nome do arquivo e do local de saída no nó. Se você mantiver a saída da tarefa no Armazenamento do Azure, precisará do caminho completo para o arquivo no Armazenamento do Azure para baixar os arquivos de saída com o SDK de Armazenamento do Azure.
-
-* **Exibição da saída**: quando você navegar para uma tarefa do Lote no portal do Azure e selecionar **Arquivos no nó**, verá todos os arquivos associados à tarefa, não apenas os arquivos de saída em que está interessado. Novamente, os arquivos em nós de computação estão disponíveis apenas enquanto o nó existe e apenas no tempo de retenção de arquivo definido para a tarefa. Para exibir a saída da tarefa mantida no Armazenamento do Azure, você pode usar o portal do Azure ou um aplicativo de cliente de Armazenamento do Azure, como o [Gerenciador de Armazenamento do Azure][storage_explorer]. Para exibir dados de saída no armazenamento do Azure com o portal ou outra ferramenta, você deve saber o local do arquivo e navegar diretamente até ele.
+Este artigo descreve várias opções para manter a saída da tarefa.
 
 ## <a name="options-for-persisting-output"></a>Opções para manter a saída
 
 Dependendo do seu cenário, há algumas abordagens diferentes que podem ser adotadas para manter a saída da tarefa:
 
-- Usar a API de serviço de Lote.  
-- Usar biblioteca Convenções de Arquivo em Lote para .NET.  
+- [Usar a API do serviço de lote](batch-task-output-files.md).  
+- [Usar a biblioteca de convenções de arquivo em lotes para .NET](batch-task-output-file-conventions.md).  
 - Implementar o padrão de Convenções de Arquivo em Lote em seu aplicativo.
 - Implementar uma solução de movimentação de arquivo personalizada.
 
-As seções a seguir descrevem cada abordagem mais detalhadamente.
+As seções a seguir descrevem brevemente cada abordagem, bem como considerações gerais de design para manter a saída.
 
 ### <a name="use-the-batch-service-api"></a>Usar a API de serviço de Lote
 
-Com a versão de 01/05/2017, o serviço de Lote adiciona suporte para especificar os arquivos de saída no Armazenamento do Azure para dados de tarefa quando você [adiciona uma tarefa a um trabalho](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou [adiciona uma coleção de tarefas a um trabalho](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+O serviço Batch oferece suporte à especificação de arquivos de saída no Armazenamento do Microsoft Azure para dados da tarefa quando você [adiciona uma tarefa a uma tarefa](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou [adiciona uma coleção de tarefas a uma tarefa](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-A API do serviço de Lote dá suporte a manter dados de tarefa para uma conta de Armazenamento do Azure de pools criados com a configuração de máquina virtual. Com a API de serviço de lote, você pode manter dados de tarefa sem modificar o aplicativo que sua tarefa executa. Opcionalmente, você pode cumprir o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) para nomear os arquivos que você mantém no Armazenamento do Azure. 
-
-Use a API do serviço de Lote para manter a saída da tarefa quando:
-
-- Você desejar manter os dados das tarefas em Lote e as tarefas do gerenciador de trabalho em pools criados com a configuração de máquina virtual.
-- Você desejar manter os dados a um contêiner de Armazenamento do Azure com um nome arbitrário.
-- Você desejar manter os dados em um contêiner de Armazenamento do Azure nomeado de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
-
-> [!NOTE]
-> A API do serviço de Lote não dá suporte a manter dados de tarefas em execução em pools criados com a configuração de serviço de nuvem. Para obter informações sobre manter a saída de tarefas de pools que estejam executando a configuração de serviços de nuvem, consulte [Manter dados de trabalhos e tarefas no Armazenamento do Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET para manter ](batch-task-output-file-conventions.md)
-> 
-> 
-
-Para obter mais informações sobre manter a saída da tarefa com a API de serviço de Lote, consulte [Manter dados de tarefa para o Armazenamento do Azure com a API de serviço de Lote](batch-task-output-files.md). Consulte também o projeto de exemplo [PersistOutputs][github_persistoutputs] no GitHub, que demonstra como usar a biblioteca de clientes do Lote para .NET para persistir a saída da tarefa em um armazenamento durável.
+Para obter mais informações sobre manter a saída da tarefa com a API de serviço de Lote, consulte [Manter dados de tarefa para o Armazenamento do Azure com a API de serviço de Lote](batch-task-output-files.md).
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Usar biblioteca Convenções de Arquivo em Lotes para .NET
 
+Lote define um conjunto opcional de convenções de nomenclatura de arquivos de saída de tarefa no Armazenamento do Azure. O [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) descreve essas convenções. O padrão de Convenções de Arquivo determina os nomes do caminho de blob e do contêiner de destino no Armazenamento do Azure para um determinado arquivo de saída com base nos nomes do trabalho e da tarefa.
+
+Cabe a você decidir usar o padrão de Convenções de Arquivo para nomear seus arquivos de dados de saída. Você também pode nomear o contêiner de destino e o blob como desejar. Se você usar o padrão de Convenções de Arquivo para nomear arquivos de saída, os arquivos de saída estarão disponíveis para exibição no [portal do Azure][portal].
+
 Os desenvolvedores que criam soluções de Lote com C# e .NET podem usar a [biblioteca Convenções de Arquivo para .NET][nuget_package] para manter dados de tarefa para uma conta de Armazenamento do Azure, de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). A biblioteca de convenções de arquivo trata a movimentação de arquivos de saída para o Armazenamento do Azure e nomear contêineres e blobs de destino de uma maneira bem conhecida.
 
-A biblioteca de convenções de arquivo dá suporte à consulta de arquivos de saída por ID ou finalidade, tornando fácil localizá-los sem necessidade de URIs de arquivo completos. 
-
-Use a biblioteca de Convenções de Arquivo em Lotes para .NET para manter a saída de tarefa quando:
-
-- Você desejar transmitir dados para o Armazenamento do Azure enquanto a tarefa ainda está em execução.
-- Você desejar manter os dados dos pools criados com a configuração do serviço de nuvem ou a configuração de máquina virtual.
-- O aplicativo cliente ou outras tarefas no trabalho precisar localizar e baixar arquivos de saída de tarefas por ID ou por finalidade. 
-- Você desejar executar a verificação de pontos ou o upload precoce dos resultados iniciais.
-- Você desejar exibir a saída da tarefa no portal do Azure.
-
-Para obter mais informações sobre manter a saída da tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Manter dados de trabalho e tarefa no Armazenamento do Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET para manter ](batch-task-output-file-conventions.md). Consulte também o projeto de exemplo [PersistOutputs][github_persistoutputs] que demonstra como usar a biblioteca de Convenções de Arquivo para .NET para persistir a saída da tarefa em um armazenamento durável.
-
-O projeto de exemplo [PersistOutputs][github_persistoutputs] no GitHub demonstra como usar a biblioteca de clientes do Lote para .NET para persistir a saída da tarefa em um armazenamento durável.
+Para obter mais informações sobre persistência de saída de tarefa com a biblioteca de Convenções de Arquivo para .NET, consulte [Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET](batch-task-output-file-conventions.md).
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implementar o padrão Convenções do Arquivo em Lotes
 
-Se você estiver usando uma linguagem diferente de .NET, poderá implementar o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) em seu próprio aplicativo. 
+Se você estiver usando uma linguagem diferente de .NET, poderá implementar o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) em seu próprio aplicativo.
 
 Talvez você mesmo queira implementar o padrão de nomenclatura de Convenções de Arquivo quando quiser um esquema de nomenclatura comprovado ou quando quiser exibir a saída da tarefa no portal do Azure.
 
@@ -116,7 +71,19 @@ Você também pode implementar sua própria solução de movimentação de arqui
 
 - Você desejar manter os dados de tarefa em um armazenamento de dados diferente do Armazenamento do Azure. Para carregar arquivos para um armazenamento de dados como o SQL Azure ou o Azure DataLake, crie um script personalizado ou um executável para carregar para esse local. Em seguida, você pode chamá-lo na linha de comando depois de executar o executável principal. Por exemplo, em um nó do Windows, você pode chamar estes dois comandos:`doMyWork.exe && uploadMyFilesToSql.exe`
 - Você desejar executar a verificação de pontos ou o upload precoce dos resultados iniciais.
-- Você deseja manter controle granular sobre o tratamento de erro. Por exemplo, talvez você queira implementar sua própria solução se quiser usar ações de dependência de tarefas para executar determinadas ações de upload com base em códigos de saída de tarefa específicos. Para obter mais informações sobre ações de dependência de tarefas, consulte [Criar dependências de tarefas para executar tarefas que dependem de outras tarefas](batch-task-dependencies.md). 
+- Você deseja manter controle granular sobre o tratamento de erro. Por exemplo, talvez você queira implementar sua própria solução se quiser usar ações de dependência de tarefas para executar determinadas ações de upload com base em códigos de saída de tarefa específicos. Para obter mais informações sobre ações de dependência de tarefas, consulte [Criar dependências de tarefas para executar tarefas que dependem de outras tarefas](batch-task-dependencies.md).
+
+## <a name="design-considerations-for-persisting-output"></a>Considerações de design para manter a saída
+
+Ao projetar sua solução em Lote, considere os seguintes fatores relacionados às saídas de trabalho e tarefa.
+
+- **Tempo de vida de nó de computação**: os nós de computação geralmente são transitórios, especialmente em pools com dimensionamento automático habilitado. Saída de uma tarefa que é executada em um nó está disponível somente enquanto o nó existe e somente dentro do período de retenção de arquivo definido para a tarefa. Se uma tarefa produzir saída que possa ser necessária após a tarefa ter sido concluída, a tarefa deverá carregar seus arquivos de saída para um repositório durável, como o Armazenamento do Azure.
+
+- **Armazenamento de saída**: o Armazenamento do Azure é recomendado como um armazenamento de dados para a saída da tarefa, mas você pode usar qualquer armazenamento durável. A gravação da saída da tarefa no Armazenamento do Azure é integrada à API de serviço de Lote. Se você usar outra forma de armazenamento durável, precisará escrever a lógica do aplicativo para manter a saída da tarefa você mesmo.
+
+- **Recuperação de saída**: você poderá recuperar a saída da tarefa diretamente dos nós de computação no seu pool ou do Armazenamento do Azure ou de outro armazenamento de dados, se tiver mantido a saída da tarefa. Para recuperar a saída da tarefa diretamente de um nó de computação, você precisa do nome do arquivo e do local de saída no nó. Se você mantiver a saída da tarefa no Armazenamento do Azure, precisará do caminho completo para o arquivo no Armazenamento do Azure para baixar os arquivos de saída com o SDK de Armazenamento do Azure.
+
+- **Exibição da saída**: quando você navegar para uma tarefa do Lote no portal do Azure e selecionar **Arquivos no nó**, verá todos os arquivos associados à tarefa, não apenas os arquivos de saída em que está interessado. Novamente, os arquivos em nós de computação estão disponíveis apenas enquanto o nó existe e apenas no tempo de retenção de arquivo definido para a tarefa. Para exibir a saída da tarefa mantida no Armazenamento do Azure, você pode usar o portal do Azure ou um aplicativo de cliente de Armazenamento do Azure, como o [Gerenciador de Armazenamento do Azure][storage_explorer]. Para exibir dados de saída no armazenamento do Azure com o portal ou outra ferramenta, você deve saber o local do arquivo e navegar diretamente até ele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

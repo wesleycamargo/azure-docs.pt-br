@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 9dab136795094350abe29e7d779a22ec1c94ef70
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986638"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161524"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ O Banco de Dados SQL do Azure é uma implementação do mais recente Mecanismo d
 - Um invasor mal-intencionado conseguiu excluir dados ou remover um banco de dados.
 - Terremoto causou uma interrupção de energia e datacenter temporário desabilitado.
 
-Esses casos não podem ser controlados pelo Banco de Dados SQL do Azure, portanto, você precisaria usar os recursos de continuidade de negócios no Banco de Dados SQL que permitem recuperar seus dados e manter os aplicativos em execução.
+Esses casos não podem ser controlados pelo Banco de Dados SQL do Azure, portanto, você precisaria usar os recursos de continuidade de negócios no Banco de Dados SQL que permite recuperar seus dados e manter seus aplicativos em execução.
 
 Esta visão geral descreve os recursos que o Banco de Dados SQL do Azure fornece para a continuidade dos negócios e a recuperação de desastre. Saiba mais sobre as opções, recomendações e tutoriais para recuperação de eventos com interrupção que poderiam causar a perda dos dados ou fazer com que o banco de dados e o aplicativo se tornassem indisponíveis. Aprenda o que fazer quando um erro de usuário ou de aplicativo afeta a integridade dos dados, quando uma região do Azure tem uma interrupção ou quando seu aplicativo necessita de manutenção.
 

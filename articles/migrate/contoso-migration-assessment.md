@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087598"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635009"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho do local para a migração para o Azure
 
@@ -125,8 +125,8 @@ A Contoso e outros usuários devem atender aos seguintes pré-requisitos para a 
 - Pelo menos duas VMs VMware locais, uma delas executando um banco de dados do SQL Server.
 - Permissões para instalar agentes de migrar do Azure em cada VM.
 - As VMs devem ter conectividade direta com a Internet.  
-        - Você pode restringir o acesso à internet para as [URLs necessárias](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        – Se as suas VMs não tiverem conectividade com a Internet, o [Gateway](../log-analytics/log-analytics-oms-gateway.md) do Azure Log Analytics deverá ser instalado nelas e o tráfego de agente deverá ser direcionado por meio dele.
+    - Você pode restringir o acesso à Internet aos [URLs obrigatórios](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+    - Se suas VMs não tiverem conectividade com a Internet, o [Gateway de Log Analytics do Azure](../azure-monitor/platform/gateway.md) deverá ser instalado nelas e o tráfego de agentes será direcionado por meio dela.
 - O FQDN da VM que está executando a instância do SQL Server, para a avaliação do banco de dados.
 - O Firewall do Windows em execução na VM do SQL Server deve permitir conexões externas na porta TCP 1433 (padrão). Esta configuração permite que o Assistente de Migração de Dados seja conectado.
 

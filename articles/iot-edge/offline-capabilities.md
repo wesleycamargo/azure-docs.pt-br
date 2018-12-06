@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567019"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284635"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge (versão prévia)
 
@@ -48,7 +48,7 @@ O exemplo a seguir mostra como um cenário de IoT Edge opera no modo offline:
 
 Os recursos off-line estendidos descritos neste artigo estão disponíveis no [IoT Edge versão 1.0.4 ou superior](https://github.com/Azure/azure-iotedge/releases). As versões anteriores têm um subconjunto de recursos offline. Os dispositivos do IoT Edge existentes que não têm recursos offline estendidos não podem ser atualizados alterando a versão de tempo de execução, mas devem ser reconfigurados com uma nova identidade do dispositivo do IoT Edge para obter esses recursos. 
 
-O suporte estendido offline está disponível em todas as regiões em que o Hub IoT está disponível, exceto no Leste dos EUA e na Europa Ocidental. 
+O suporte offline estendido está disponível em todas as regiões onde o Hub IoT está disponível, **exceto** leste dos EUA.
 
 Somente dispositivos que não são do IoT Edge podem ser adicionados como dispositivos filho. 
 
@@ -65,6 +65,19 @@ Dispositivos filho podem ser qualquer dispositivo que não é do Edge registrado
    ![Gerenciar dispositivos filho da página de detalhes do dispositivo do IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 Dispositivos pai podem ter vários dispositivos de filho, mas um dispositivo filho pode ter apenas um pai.
+
+### <a name="specifying-dns-servers"></a>Especificar servidores DNS 
+
+Para melhorar a robustez, é recomendável que você especificar os endereços de servidor DNS usados em seu ambiente. Por exemplo, no Linux, atualize **/etc/docker/daemon.json** (talvez seja necessário criar o arquivo) para incluir:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Se você estiver usando um servidor DNS local, substitua o 1.1.1.1 com o endereço IP do servidor DNS local. Reinicie o serviço de encaixe para que as alterações entrem em vigor.
+
 
 ## <a name="optional-offline-settings"></a>Configurações offline opcionais
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311168"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582180"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Pré-pagamento para planos de software SUSE das reservas do Azure
 
@@ -64,12 +64,12 @@ Para aprender a gerenciar uma reserva, confira [Gerenciar reservas do Azure](../
 
 Para saber mais, consulte os seguintes artigos:
 
-- [Quais são as reservas do Azure?](../../billing/billing-save-compute-costs-reservations.md)
+- [O que são Reservas do Azure?](../../billing/billing-save-compute-costs-reservations.md)
 - [Gerenciar reservas no Azure](../../billing/billing-manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva do SUSE é aplicado](../../billing/billing-understand-suse-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](../../billing/billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

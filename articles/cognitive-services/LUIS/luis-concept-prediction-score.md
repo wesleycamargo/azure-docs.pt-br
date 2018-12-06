@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637943"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264379"
 ---
 # <a name="prediction-score"></a>Pontuação de previsão
 Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão. 
@@ -62,7 +62,7 @@ Quando você treina o mesmo modelo em um aplicativo diferente, e as pontuações
 Se o chatbot requerer uma pontuação do LUIS específica para indicar confiança em uma intenção, você deverá usar a diferença de pontuação entre as duas principais intenções. Isso proporciona flexibilidade para variações no treinamento. 
 
 ## <a name="punctuation"></a>Pontuação
-Pontuação é um token separado no LUIS. Um enunciado que contém um período no final em comparação com um enunciado que não são dois enunciados separados e pode ter duas previsões diferentes. Certifique-se de que o modelo trate a pontuação nos [enunciados de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [patterns}(luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+Pontuação é um token separado no LUIS. Um enunciado que contém um período no final em comparação com um enunciado que não são dois enunciados separados e pode ter duas previsões diferentes. Certifique-se de que o modelo manipule pontuação nos [exemplos de expressões](luis-concept-utterance.md) (com e sem pontuação) ou nos [padrões](luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Próximas etapas
 
