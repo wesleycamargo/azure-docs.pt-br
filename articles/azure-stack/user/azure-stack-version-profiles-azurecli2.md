@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277266"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969950"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -36,7 +36,7 @@ Você deve ver a versão da CLI do Azure e outras bibliotecas dependentes instal
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz da autoridade de certificação do Azure Stack
 
-1. Obter o certificado de raiz da autoridade de certificação do Azure Stack da [seu operador do Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz da autoridade de certificação do Azure Stack, acrescente-o para o certificado existente do Python.
+1. Obter o certificado de raiz da autoridade de certificação do Azure Stack da [seu operador do Azure Stack](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz da autoridade de certificação do Azure Stack, acrescente-o para o certificado existente do Python.
 
 1. Localize o certificado em seu computador. O local pode variar, dependendo de onde você instalou o Python. Você precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Você pode usar o seguinte comando do Python a partir do prompt do bash:
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -118,7 +118,7 @@ Use as seguintes etapas para se conectar ao Azure Stack:
 
 1. Registre-se o seu ambiente de pilha do Azure executando o `az cloud register` comando.
    
-   a. Para registrar o *nuvem administrativa* ambiente, use:
+    a. Para registrar o *nuvem administrativa* ambiente, use:
 
       ```azurecli
       az cloud register \ 
@@ -154,7 +154,7 @@ Use as seguintes etapas para se conectar ao Azure Stack:
 
 1. Defina o ambiente ativo, usando os comandos a seguir.
 
-   a. Para o *nuvem administrativa* ambiente, use:
+    a. Para o *nuvem administrativa* ambiente, use:
 
       ```azurecli
       az cloud set \
@@ -242,6 +242,6 @@ Há alguns problemas conhecidos que você deve estar atento ao usar a CLI do Azu
 
 [Implantar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Habilitar a CLI do Azure para usuários do Azure Stack (operador)](..\azure-stack-cli-admin.md)
+[Habilitar a CLI do Azure para usuários do Azure Stack (operador)](../azure-stack-cli-admin.md)
 
 [Gerenciar permissões de usuário](azure-stack-manage-permissions.md)
