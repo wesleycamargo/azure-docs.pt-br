@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614031"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971497"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure Stack protegido pelo AD FS
 
@@ -200,7 +200,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, você deve 
 2. Em geral, em status, verificar se o **Status** exibe **todas as funções estão prontas**.
 
     ![Gerenciamento de serviço de aplicativo](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
 > * Fonte: qualquer
@@ -221,9 +221,9 @@ Depois de implantar e registrar o provedor de recursos do serviço de aplicativo
 > [!NOTE]
 > Você precisará criar uma oferta que tenha o namespace Microsoft. Web dentro do plano. Em seguida, você precisa ter uma assinatura de locatário assina essa oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
 >
-Você *deve* possui uma assinatura de locatário para criar aplicativos que usam o serviço de aplicativo no Azure Stack. Os recursos de somente um administrador de serviço pode ser concluída dentro do portal de administração são relacionados para a administração de provedor de recursos do serviço de aplicativo. Esses recursos incluem a adição de capacidade, configurando as fontes de implantação e adicionar SKUs e camadas de trabalhador.
+> Você *deve* possui uma assinatura de locatário para criar aplicativos que usam o serviço de aplicativo no Azure Stack. Os recursos de somente um administrador de serviço pode ser concluída dentro do portal de administração são relacionados para a administração de provedor de recursos do serviço de aplicativo. Esses recursos incluem a adição de capacidade, configurando as fontes de implantação e adicionar SKUs e camadas de trabalhador.
 >
-A partir do technical preview do terceiro criar a web, API e o Azure Functions aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
+> A partir do technical preview do terceiro criar a web, API e o Azure Functions aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
 
 1. No portal de locatário do Azure Stack, clique em **+ criar um recurso** > **Web + móvel** > **Web App**.
 

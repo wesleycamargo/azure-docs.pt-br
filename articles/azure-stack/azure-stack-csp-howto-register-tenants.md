@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498565"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963735"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicione o locatário para uso e cobrança para o Azure Stack
 
@@ -36,7 +36,7 @@ O diagrama a seguir mostra as etapas que um CSP precisa seguir para habilitar um
 
 **Etapas para adicionar um cliente final**
 
-![Configurar o provedor de serviços de nuvem para acompanhamento de uso e para gerenciar a conta do cliente final](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Configurar o provedor de serviços de nuvem para acompanhamento de uso e para gerenciar a conta do cliente final](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>Criar um novo cliente no Partner Center
 
@@ -50,7 +50,7 @@ Depois de criar um registro de seu cliente no Partner Center, você pode vendê-
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Criar um usuário convidado no diretório do cliente final
 
 Se o cliente final será gerenciar sua própria conta, criar um usuário convidado em seu diretório e envie as informações. O usuário final será, em seguida, adicionar o convidado e elevar a permissão de convidado para **proprietário** para a conta do Azure Stack CSP.
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Atualizar o registro com a assinatura do cliente final
 
 Atualize seu registro com a nova assinatura do cliente. Azure informa o uso do cliente usando a identidade do cliente do parceiro Central. Essa etapa garante que o uso de cada cliente é reportado na assinatura de CSP individual do cliente. Isso facilita acompanhar o uso de usuário e cobrança.
@@ -86,10 +86,10 @@ Configure o Azure Stack para oferecer suporte a usuários de vários locatários
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Criar um recurso local no locatário do cliente final no Azure Stack
 
-Depois que você adicionou o novo cliente para o Azure Stack ou Locatário do cliente final tiver habilitado sua conta de convidado com privilégios de proprietário, verifique se que você pode criar um recurso em seu locatário. Por exemplo, eles podem [criar uma máquina virtual do Windows com o portal do Azure Stack](user\azure-stack-quick-windows-portal.md).
+Depois que você adicionou o novo cliente para o Azure Stack ou Locatário do cliente final tiver habilitado sua conta de convidado com privilégios de proprietário, verifique se que você pode criar um recurso em seu locatário. Por exemplo, eles podem [criar uma máquina virtual do Windows com o portal do Azure Stack](user/azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
  - Para examinar as mensagens de erro se eles são disparados em seu processo de registro, consulte [mensagens de erro de registro de inquilinos](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
  - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](azure-stack-billing-and-chargeback.md).
- - Para examinar como um cliente final pode adicioná-lo, como o CSP, como o gerente de seus Azure Stack, locatário, consulte [permitem que um provedor de serviço de nuvem gerenciar sua assinatura do Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Para examinar como um cliente final pode adicioná-lo, como o CSP, como o gerente de seus Azure Stack, locatário, consulte [permitem que um provedor de serviço de nuvem gerenciar sua assinatura do Azure Stack](user/azure-stack-csp-enable-billing-usage-tracking.md).

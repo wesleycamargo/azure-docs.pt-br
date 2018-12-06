@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971820"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de dimensionamento de máquina Virtual no Azure Stack
 
@@ -97,7 +97,7 @@ Depois de criar um conjunto de dimensionamento de máquina virtual, os usuários
 
     Se você baixar uma imagem com uma versão mais recente (que altera a versão disponível), o conjunto de dimensionamento não é possível escalar verticalmente. Isso ocorre por design, como a versão da imagem especificada no modelo de conjunto de escala deve estar disponível.  
 
-Para obter mais informações, consulte [discos do sistema operacional e imagens](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Para obter mais informações, consulte [discos do sistema operacional e imagens](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Dimensionar um conjunto de dimensionamento de máquina virtual
 

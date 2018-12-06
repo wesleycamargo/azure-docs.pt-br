@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 4aa74aebfd9e0ef6c71913c76181a07045aa3ad7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231212"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959454"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implantar Kubernetes no Azure Stack
 
@@ -70,7 +70,7 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 
 1. Criar um aplicativo Azure AD.
 
-    a. Selecione **do Azure Active Directory** > **+ registros do aplicativo** > **novo registro de aplicativo**.
+     a. Selecione **do Azure Active Directory** > **+ registros do aplicativo** > **novo registro de aplicativo**.
 
     b. Insira um **nome** do aplicativo.
 
@@ -84,7 +84,7 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 
 1. Selecione **as configurações** > **chaves**.
 
-    a. Insira o **descrição**.
+     a. Insira o **descrição**.
 
     b. Selecione **nunca expira** para **Expires**.
 
@@ -117,7 +117,7 @@ Conceder acesso à entidade de serviço à sua assinatura para que a entidade de
 
     ![Modelo de Solução de Implementação](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-### <a name="1-basics"></a>1. Noções Básicas
+### <a name="1-basics"></a>1. Noções básicas
 
 1. Selecione **Noções básicas de** em criar Cluster Kubernetes.
 
@@ -179,6 +179,6 @@ Você também pode encontrar o **Helm** Gerenciador de pacotes úteis para insta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Adicionar um Kubernetes no Marketplace (para o operador do Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Adicionar um Kubernetes no Marketplace (para o operador do Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes no Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

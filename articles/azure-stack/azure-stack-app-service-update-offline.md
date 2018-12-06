@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614796"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968145"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicativo do Azure no Azure Stack
 
@@ -101,7 +101,7 @@ Para atualizar o serviço de aplicativo em um ambiente desconectado, você deve 
 
    1. Clique o **Connect** lado a **assinaturas do Azure Stack** caixa.
         * Se você estiver usando o Azure Active Directory (Azure AD), insira a conta de administrador do Azure AD e a senha que você forneceu quando você implantou o Azure Stack. Clique em **entrar**.
-        * Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Insira sua senha e clique em **Sign In**.
+        * Se você estiver usando os serviços de Federação do Active Directory (AD FS), forneça sua conta de administrador. Por exemplo _cloudadmin@azurestack.local_. Insira sua senha e clique em **Sign In**.
    2. No **assinaturas do Azure Stack** caixa, selecione a **assinatura do provedor padrão**.
    3. No **locais da pilha do Azure** , selecione o local que corresponde à região em que você está implantando. Por exemplo, selecione **local** se sua implantação para o Kit de desenvolvimento do Azure Stack.
    4. Se uma implantação de serviço de aplicativo existente for detectada, em seguida, a conta de armazenamento e grupo de recursos será preenchida e esmaecida.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852564"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960661"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
 
@@ -33,7 +33,7 @@ Use o provedor de recursos do SQL Server do Azure Stack para expor bancos de dad
 Existem vários pré-requisitos que precisam estar em vigor antes de implantar o provedor de recursos do SQL do Azure Stack. Para atender a esses requisitos, conclua as etapas a seguir em um computador que possa acessar o ponto de extremidade com privilégios VM:
 
 - Se você ainda não fez isso, [registrar o Azure Stack](azure-stack-registration.md) com o Azure para que você possa baixar itens do marketplace do Azure.
-- Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
+- Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](./azure-stack-powershell-install.md).
 - Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem.
 - Baixe o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
 
@@ -54,7 +54,7 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 
 ### <a name="certificates"></a>Certificados
 
-_Para instalações de sistemas integrados apenas_. Você deve fornecer o certificado de PKI de PaaS do SQL descrito na seção de certificados PaaS opcional [requisitos de PKI de implantação do Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Coloque o arquivo. pfx no local especificado o **DependencyFilesLocalPath** parâmetro. Não fornece um certificado para sistemas ASDK.
+_Para instalações de sistemas integrados apenas_. Você deve fornecer o certificado de PKI de PaaS do SQL descrito na seção de certificados PaaS opcional [requisitos de PKI de implantação do Azure Stack](./azure-stack-pki-certs.md#optional-paas-certificates). Coloque o arquivo. pfx no local especificado o **DependencyFilesLocalPath** parâmetro. Não fornece um certificado para sistemas ASDK.
 
 ## <a name="deploy-the-sql-resource-provider"></a>Implantar o provedor de recursos do SQL
 
@@ -111,7 +111,7 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

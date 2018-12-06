@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877659"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965386"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
@@ -114,17 +114,17 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
     Entrega de contínua/integração contínua (CI/CD) do híbrido pode aplicar a código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/) para ambos os desenvolvimento em nuvem privada e hospedado.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. **Clone o repositório** criando e abrindo o aplicativo da web padrão.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image2.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Criar implantação de aplicativo web em ambas as nuvens
 
 1.  Editar o **WebApplication.csproj** arquivo: selecione **Runtimeidentifier** e adicione **win10-x64**. (Consulte [contained implantação](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.)
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image3.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  **Fazer check-in de código para repositórios do Azure** usando o Team Explorer.
 
@@ -136,7 +136,7 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
 2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image4.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **Executar a compilação**. O [compilação de implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará os artefatos que podem ser executados no Azure e Azure Stack.
 
@@ -151,87 +151,87 @@ DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente con
 #### <a name="create-release-definition"></a>Criar definição de versão
 
 
-![Alt text](media\azure-stack-solution-geo-distributed\image5.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  Selecione o **plus** botão para adicionar uma nova versão sob o **guia Releases** na página de Build e versão do Visual Studio Online (VSO).
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image6.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Aplicar a **implantação de serviço de aplicativo do Azure** modelo.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image7.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. Em Adicionar menu suspenso artefato **adicionar o artefato** para o aplicativo de build de nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image8.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. Na guia Pipeline, selecione a **fase, a tarefa** vincular do ambiente e definir valores de ambiente de nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image9.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. Defina as **nome do ambiente** e selecione Azure **assinatura** para o ponto de extremidade de nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image10.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. Em nome do ambiente, defina exigida **nome do serviço de aplicativo do Azure**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image11.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. Insira **VS2017 hospedado** em fila do agente para o ambiente hospedado na nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image12.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. No menu de implantar o serviço de aplicativo do Azure, selecione válidos **pacote ou pasta** para o ambiente. Selecione Okey para **local da pasta**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image13.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image14.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. Salve todas as alterações e voltar para **pipeline de lançamento**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image15.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. Adicionar um **novo artefato** selecionando a compilação para o aplicativo do Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image16.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. Adicionar um ambiente de mais aplicando o **implantação de serviço de aplicativo do Azure.**
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image17.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. Nomeie o novo ambiente **Azure Stack.**
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image18.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. Encontre o ambiente do Azure Stack sob **tarefa** guia.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image19.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. Selecione o **assinatura** para o ponto de extremidade do Azure Stack.
 
-  ![Alt text](media\azure-stack-solution-geo-distributed\image20.png)
+  ![Alt text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Defina o nome do aplicativo web do Azure Stack como o **nome do serviço de aplicativo**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image21.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. Selecione o **agente do Azure Stack**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image22.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. Sob o serviço de aplicativo do Azure implantar seção Selecionar válidos **pacote ou pasta** para o ambiente. Selecione Okey para **local da pasta**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image23.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image24.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. Sob **variável** guia adicione uma variável denominada `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, defina seu valor como `true`e definir o escopo para `Azure Stack`.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image25.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. Selecione o **contínuo** ícone de gatilho de implantação em artefatos e habilite a **continua** gatilho de implantação.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image26.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. Selecione o **pré-implantação** ícone de condições no ambiente do Azure Stack e defina o gatilho como **após o lançamento.**
 
@@ -244,7 +244,7 @@ DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente con
 
 Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. 
 
-![Alt text](media\azure-stack-solution-geo-distributed\image27.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - Mapear um nome DNS personalizado existente para aplicativos Web do Azure
@@ -296,7 +296,7 @@ Página de registros DNS pode ser exibida no **Meus domínios**. Localize o link
 
 A captura de tela a seguir é um exemplo de uma página de registros DNS:
 
-![Exemplo de página de registros DNS](media\azure-stack-solution-geo-distributed\image28.png)
+![Exemplo de página de registros DNS](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  No registrador de nome de domínio, selecione **adicionar ou criar** para criar um registro. Alguns provedores têm links diferentes para adicionar tipos de registro diferentes. Consulte a documentação do provedor.
 
@@ -306,7 +306,7 @@ A captura de tela a seguir é um exemplo de uma página de registros DNS:
 
 Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo a seguir:
 
-![Navegação no Portal para o aplicativo do Azure](media\azure-stack-solution-geo-distributed\image29.png)
+![Navegação no Portal para o aplicativo do Azure](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Habilitar o mapeamento de registro CNAME no Azure
 
@@ -348,9 +348,9 @@ Depois de adicionar o CNAME, a página de registros DNS se parece com o exemplo 
 
   Pode levar algum tempo para que os novos nomes de host sejam refletidas no aplicativo do **domínios personalizados** página. Tente atualizar o navegador para atualizar os dados.
   
-  ![Alt text](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![Alt text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  No caso de um erro, uma notificação de erro de verificação aparecerá na parte inferior da página. ![Erro de verificação](media\azure-stack-solution-geo-distributed\image32.png)
+  No caso de um erro, uma notificação de erro de verificação aparecerá na parte inferior da página. ![Erro de verificação](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  As etapas acima podem ser repetidas para mapear um domínio curinga (\*. northwindcloud.com)... Isso permite a adição de todos os subdomínios adicionais para esse serviço de aplicativo sem precisar criar um registro CNAME separado para cada uma delas. Siga as instruções de registrador para definir essa configuração.
@@ -404,17 +404,17 @@ Para associar um certificado SSL personalizado para o aplicativo web, o [plano d
 
 2.  No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do aplicativo web.
 
-![Selecionar aplicativo Web](media\azure-stack-solution-geo-distributed\image33.png)
+![Selecionar aplicativo Web](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>Verifique o tipo de preço
 
 1.  No painel de navegação à esquerda da página de aplicativo da web, role até a **as configurações** seção e selecione **escalar verticalmente (plano do serviço de aplicativo)**.
 
-    ![Menu Escalar verticalmente](media\azure-stack-solution-geo-distributed\image34.png)
+    ![Menu Escalar verticalmente](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  Verifique se o aplicativo web não está no **livre** ou **compartilhado** camada. A camada do aplicativo web atual é realçada em uma caixa azul escuro.
 
-    ![Verificar tipo de preço](media\azure-stack-solution-geo-distributed\image35.png)
+    ![Verificar tipo de preço](media/azure-stack-solution-geo-distributed/image35.png)
 
 Não há suporte para SSL personalizado nas camadas **Gratuito** ou **Compartilhado**. Para aumentar, siga as etapas na próxima seção, ou **escolha o tipo de preço** página e vá para [carregar e associar o certificado SSL](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl).
 
@@ -424,11 +424,11 @@ Não há suporte para SSL personalizado nas camadas **Gratuito** ou **Compartilh
 
 2.  Selecione **Selecionar**.
 
-![Escolha um tipo de preço](media\azure-stack-solution-geo-distributed\image36.png)
+![Escolha um tipo de preço](media/azure-stack-solution-geo-distributed/image36.png)
 
 A operação de escala é concluída quando a notificação é exibida.
 
-![Escalar verticalmente a notificação](media\azure-stack-solution-geo-distributed\image37.png)
+![Escalar verticalmente a notificação](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>Associar o certificado SSL e certificados intermediários de mesclagem
 
@@ -491,11 +491,11 @@ Quando o IIS ou **Certreq.exe** são usados para gerar a solicitação de certif
 
 5.  Escolha **Carregar**.
 
-![Carregar um certificado](media\azure-stack-solution-geo-distributed\image38.png)
+![Carregar um certificado](media/azure-stack-solution-geo-distributed/image38.png)
 
 Quando o serviço de aplicativo terminar de carregar o certificado, ele aparece na **configurações de SSL** página.
 
-![Alt text](media\azure-stack-solution-geo-distributed\image39.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>Associar o certificado SSL
 
@@ -514,11 +514,11 @@ Quando o serviço de aplicativo terminar de carregar o certificado, ele aparece 
 
     1.  Selecione **Adicionar associação**.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image40.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image40.png)
 
 Quando o serviço de aplicativo terminar de carregar o certificado, ele aparece na **associações SSL** seções.
 
-![Alt text](media\azure-stack-solution-geo-distributed\image41.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>Remapeie o registro para IP SSL
 
@@ -534,7 +534,7 @@ O **domínio personalizado** página é atualizada com o novo endereço IP dedic
 
 Em vários navegadores, navegue até https://<your.custom.domain>to, certifique-se a web PA é atendido.
 
-![Alt text](media\azure-stack-solution-geo-distributed\image42.png)
+![Alt text](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > Se ocorrerem erros de validação de certificado, a causa pode ser um certificado autoassinado ou certificados intermediários podem ter ficados fora ao exportar para o arquivo PFX.
@@ -545,7 +545,7 @@ Por padrão, qualquer pessoa pode acessar o aplicativo web usando HTTP. todas as
 
 Na página de aplicativo da web, selecione **configurações SL**. Depois, em **HTTPS somente**, selecione **Ligado**.
 
-![Impor HTTPS](media\azure-stack-solution-geo-distributed\image43.png)
+![Impor HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
 
 Quando a operação for concluída, navegue até qualquer uma das URLs HTTP que apontam para o aplicativo. Por exemplo: 
 
@@ -561,7 +561,7 @@ O aplicativo permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 
 
 2.  Na **versão do TLS**, selecione a versão mínima do TLS.
 
-![Impor o TLS 1.1 ou 1.2](media\azure-stack-solution-geo-distributed\image44.png)
+![Impor o TLS 1.1 ou 1.2](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
@@ -583,7 +583,7 @@ O aplicativo permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 
 
     7.  Quando a implantação global do perfil do Traffic Manager for concluída, ele é listado no respectivo grupo de recursos como um dos recursos.
 
-    ![Alt text](media\azure-stack-solution-geo-distributed\image45.png)
+    ![Alt text](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 
@@ -632,7 +632,7 @@ O aplicativo permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 
 
 1.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos em **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
-  ![Alt text](media\azure-stack-solution-geo-distributed\image46.png)
+  ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Empresa global depende dos recursos do Azure a distribuição geográfica**
 

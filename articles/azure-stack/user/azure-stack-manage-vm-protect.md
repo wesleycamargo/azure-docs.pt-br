@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341830"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963906"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implantadas no Azure Stack
 
@@ -58,7 +58,7 @@ Planeje sua estratégia de recuperação de backup e recuperação de desastre p
 | **O Azure Stack implantados no datacenter do CSP e operados pelo CSP** | VMs do usuário são implantadas à pilha do Azure CSP operado. VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | CSP opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters. VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | CSP opera o Azure Stack no site primário. Datacenter do cliente é o destino de restauração ou failover. |
 | **O Azure Stack implantados no datacenter do cliente e operados por cliente** | VMs do usuário são implantadas para o cliente operado Azure Stack. VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | Cliente opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters. VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | Cliente opera o Azure Stack no site primário. Datacenter do CSP é o destino de restauração ou failover. |
 
-![Combinações de origem e destino](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinações de origem e destino](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Objetivos de recuperação do aplicativo
 
@@ -77,7 +77,7 @@ Outra métrica é **tempo médio de recuperação** (MTTR), que é o tempo médi
 
 O esquema de proteção mais comuns para aplicativos baseados em máquina virtual é usar o software de backup. Fazer backup de uma VM normalmente inclui o sistema operacional, configuração do sistema operacional, binários de aplicativo e dados de aplicativo. Os backups são criados por tirar um instantâneo de toda a VM, discos ou volumes. Com o Azure Stack, você tem a flexibilidade de fazer backup de dentro do contexto do sistema operacional convidado ou do armazenamento do Azure Stack e APIs de computação. O Azure Stack não dá suporte a fazer backups no nível do hipervisor.
  
-![Backup restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Recuperando o aplicativo requer a restauração de uma ou mais VMs na nuvem mesma ou para uma nova nuvem. Você pode direcionar uma nuvem em seu datacenter ou nuvem pública. A nuvem escolhida está completamente dentro de seu controle e baseia-se em seus requisitos de privacidade e Soberania de dados.
  
@@ -107,7 +107,7 @@ Uma abordagem alternativa para dar suporte a alta disponibilidade é replicar su
 
 Com essa abordagem, o aplicativo é implantado em uma nuvem e sua VM é replicado para outra nuvem. Se um failover for disparado, o secundário as VMs precisam ser ligado na nuvem segundo. Em alguns cenários, o failover cria os discos de máquinas virtuais e anexa a eles. Esse processo pode levar muito tempo para ser concluído, especialmente com um aplicativo de várias camadas que requer uma sequência de inicialização específica. Também pode haver etapas que devem ser executadas antes que o aplicativo está pronto para começar a atender às solicitações.
 
-![Failover manual de replicação](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Failover manual de replicação](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Medida de tempo de inatividade em minutos
  - RPO: Perda de dados da variável (dependendo da frequência de replicação)

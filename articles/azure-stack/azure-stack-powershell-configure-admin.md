@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 530b2a1909ec198ddff5abfe4fd5bb7c645f7582
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b961fac00ba43eb1b44acc46c6f60fa0f3a10877
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261572"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957071"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Conectar-se ao Azure Stack com o PowerShell como um operador
 
@@ -27,9 +27,9 @@ ms.locfileid: "52261572"
 
 Você pode configurar o Azure Stack para usar o PowerShell para gerenciar recursos como a criação de planos, ofertas, cotas e alertas. Este tópico ajuda você a configurar o ambiente de operador.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](.\asdk\asdk-connect.md#connect-with-rdp) ou de um cliente de externo com base no Windows se você estiver [conectado para o ASDK por meio de VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
+Execute os seguintes pré-requisitos a partir de [kit de desenvolvimento](./asdk/asdk-connect.md#connect-with-rdp) ou de um cliente de externo com base no Windows se você estiver [conectado para o ASDK por meio de VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Instale [módulos do Azure Stack-compatível com o Azure PowerShell](azure-stack-powershell-install.md).  
  - Baixe o [as ferramentas necessárias para trabalhar com o Azure Stack](azure-stack-powershell-download.md).  

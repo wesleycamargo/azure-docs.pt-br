@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028799"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961396"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Use o ASDK para validar um backup do Azure Stack
-Depois de implantar o Azure Stack e provisionamento de recursos do usuário, como ofertas, planos, cotas e assinaturas, você deve [habilitar o backup de infraestrutura do Azure Stack](..\azure-stack-backup-enable-backup-console.md). Agendamento e execução de backups regulares de infra-estrutura garantirá que os dados de gerenciamento de infraestrutura não seja perdidos se não houver um hardware catastrófico ou falha de serviço.
+Depois de implantar o Azure Stack e provisionamento de recursos do usuário, como ofertas, planos, cotas e assinaturas, você deve [habilitar o backup de infraestrutura do Azure Stack](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de backups regulares de infra-estrutura garantirá que os dados de gerenciamento de infraestrutura não seja perdidos se não houver um hardware catastrófico ou falha de serviço.
 
 > [!TIP]
-> É recomendável que você [executar um backup sob demanda](..\azure-stack-backup-back-up-azure-stack.md) antes de iniciar este procedimento para garantir que você tenha uma cópia dos dados infrastrcuture mais recente disponíveis. Certifique-se de capturar a ID de backup depois que o backup for concluído com êxito. Essa ID será necessária durante a recuperação de nuvem. 
+> É recomendável que você [executar um backup sob demanda](../azure-stack-backup-back-up-azure-stack.md) antes de iniciar este procedimento para garantir que você tenha uma cópia dos dados infrastrcuture mais recente disponíveis. Certifique-se de capturar a ID de backup depois que o backup for concluído com êxito. Essa ID será necessária durante a recuperação de nuvem. 
 
 Backups de infraestrutura do Azure Stack contêm dados importantes sobre sua nuvem que pode ser restaurado durante a reimplantação do Azure Stack. Você pode usar o ASDK para validar esses backups sem afetar sua nuvem de produção. 
 

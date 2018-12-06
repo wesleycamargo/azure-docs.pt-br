@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314654"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970834"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -57,7 +57,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 <!-- TBD - IS ASDK --> 
 - Corrigido um problema em que você criou as máquinas virtuais no portal do usuário do Azure Stack e portal exibido um número incorreto de discos de dados que podem anexar a uma VM da série DS. As VMs da série DS podem acomodar a tantos discos de dados como a configuração do Azure.
 
-- Os seguintes problemas de disco gerenciado são corrigidos em 1809 e também são corrigidos no 1808 [do Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Os seguintes problemas de disco gerenciado são corrigidos em 1809 e também são corrigidos no 1808 [do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium: *Falha ao atualizar discos para a máquina virtual 'vmname' erro: operação solicitada não pode ser executada porque tipo de conta de armazenamento 'Premium_LRS' não há suporte para o tamanho da VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -78,14 +78,14 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
       2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 
 ### <a name="changes"></a>Alterações
 
 <!-- 2635202 - IS, ASDK -->
-- Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
+- Move de serviço de backup de infraestrutura do [rede de infraestrutura pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes precisarão garantir que o serviço tem acesso a localização de armazenamento de backup da rede VIP pública.  
 
 > [!IMPORTANT]  
 > Se você tiver um firewall que não permite conexões de rede VIP pública para o servidor de arquivos, essa alteração fará com que os backups de infraestrutura para falhar com "Erro 53 o caminho de rede não foi encontrado." Isso é uma alteração significativa que não tenha nenhuma alternativa razoável. Com base nos comentários dos clientes, a Microsoft reverterá essa alteração em um hotfix. Examine os [postar a seção de etapas de atualização](#post-update-steps) para obter mais informações sobre hotfixes disponíveis para 1809. Depois que o hotfix está disponível, certifique-se para aplicá-la após a atualização para 1809 somente se suas políticas de rede não permitir a rede VIP público acessar recursos de infraestrutura. 1811, esta alteração será aplicada a todos os sistemas. Se você aplicou o hotfix em 1809, não há nenhuma ação adicional é necessária.  
@@ -143,7 +143,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Instale o Hotfix mais recente de pilha do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [4471992 KB – o Azure Stack Hotfix do Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
+- Instale o Hotfix mais recente de pilha do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [4481066 KB – o Azure Stack Hotfix do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/).
 
   > [!TIP]  
   > Inscrever-se ao seguinte *RRS* ou *Atom* feeds manter-se atualizado com Hotfixes de pilha do Azure:

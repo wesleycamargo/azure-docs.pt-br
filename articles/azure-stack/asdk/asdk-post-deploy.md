@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a343b01b89bfbe9bc047c0b8b703b975b21b6290
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901865"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969355"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação do ASDK tarefas de configuração
 
@@ -41,7 +41,7 @@ Você pode usar perfis de versão da API para especificar os módulos do AzureRM
 Você pode instalar o módulo mais recente do PowerShell do Azure Stack com ou sem conectividade com a Internet para o computador de host ASDK:
 
 > [!IMPORTANT]
-> Antes de instalar a versão necessária, certifique-se de que você [desinstalar todos os módulos do PowerShell do Azure existentes](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
+> Antes de instalar a versão necessária, certifique-se de que você [desinstalar todos os módulos do PowerShell do Azure existentes](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
 - **Com uma conexão de internet** do computador host ASDK. Execute o seguinte script do PowerShell para instalar esses módulos em sua instalação do kit de desenvolvimento:
 
@@ -173,7 +173,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>Habilitar multilocação
 
-Para implantações usando o Azure AD, você precisará [habilitar multilocação](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) para sua instalação ASDK.
+Para implantações usando o Azure AD, você precisará [habilitar multilocação](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) para sua instalação ASDK.
 
 > [!NOTE]  
 > Quando as contas de usuário ou administrador de domínios diferente daquela usada para registrar o Azure Stack são usadas para fazer logon em um portal do Azure Stack, o nome de domínio usado para registrar o Azure Stack deve ser acrescentado ao portal do url. Por exemplo, se o Azure Stack foi registrado com fabrikam.onmicrosoft.com e a conta de usuário, registro em log no está admin@contoso.com, a url a ser usada para fazer logon no portal do usuário seria: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.

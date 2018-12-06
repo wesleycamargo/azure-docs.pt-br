@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2fdd8a586c9c8dae0ab9cec1176b71a137893b17
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8243ee2e657f42959c9f0a71c7c50fc1a2dda737
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384946"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966394"
 documentType: LandingData
 title: Documentação do Banco de Dados do Azure Cosmos
 metadata:
@@ -13,13 +13,10 @@ metadata:
   description: Saiba como usar o Banco de Dados do Azure Cosmos para criar bancos de dados de vários modelos distribuídos globalmente. Os tutoriais mostram como criar e consultar documentos, chave/valor e bancos de dados do grafo.
   services: cosmos-db
   author: SnehaGunda
-  manager: kfile
+  ms.author: sngun
   ms.service: cosmos-db
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: sngun
 abstract:
   description: O Azure Cosmos DB é um serviço de banco de dados multimodelo globalmente distribuído que dá suporte a bancos de dados de documentos, valor-chave, coluna larga e grafo. Saiba como usar o Azure Cosmos DB com nossos guias de início rápido, tutoriais e exemplos.
   aside:
@@ -161,7 +158,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: " Criar um banco de dados do Azure Cosmos DB em escala"
+    - title: " Criar um banco de dados do Azure Cosmos DB em escala"
       href: /learn/modules/create-cosmos-db-for-scale/
       image:
         src: /learn/achievements/create-cosmos-db-for-scale.svg

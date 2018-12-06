@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038358"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962555"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
-Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
+Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
 
 No entanto, o serviço de Backup de infraestrutura não fazer backup de VMs de IaaS, configurações de rede e recursos de armazenamento, como contas de armazenamento, blobs, tabelas, e assim por diante, para que os usuários que fazem logon após a recuperação de nuvem for concluído não verão qualquer um dos seus previamente existente recursos. Plataforma como serviço (PaaS) recursos e dados também não passam por backup pelo serviço. 
 
@@ -58,31 +58,31 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
     ```
 10. Selecione **Okey** para salvar suas configurações de backup do controlador.
 
-    ![O Azure Stack - configurações de controlador de Backup](media\azure-stack-backup\backup-controller-settings.png)
+    ![O Azure Stack - configurações de controlador de Backup](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Iniciar o backup
 Para iniciar um backup, clique em **fazer Backup agora** para iniciar um backup sob demanda. Um backup sob demanda não modificará o tempo para o próximo backup agendado. Depois que a tarefa for concluída, você pode confirmar as configurações no **Essentials**:
 
-![O Azure Stack - backup sob demanda](media\azure-stack-backup\scheduled-backup.png)
+![O Azure Stack - backup sob demanda](media/azure-stack-backup/scheduled-backup.png)
 
 Você também pode executar o cmdlet do PowerShell **AzsBackup início** em seu computador de administração do Azure Stack. Para obter mais informações, consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Habilitar ou desabilitar backups automáticos
 Os backups são agendados automaticamente quando você habilita o backup. Você pode verificar o próximo horário de backup de agendamento **Essentials**. 
 
-![O Azure Stack - backup sob demanda](media\azure-stack-backup\on-demand-backup.png)
+![O Azure Stack - backup sob demanda](media/azure-stack-backup/on-demand-backup.png)
 
 Se você precisar desabilitar futuros backups agendados, clique em **desabilitar Backups automáticos**. Desabilitantes backups automáticos manterão as configurações de backup configuradas e manterão o agendamento de backup. Essa ação simplesmente informa ao Agendador para ignorar os backups futuros. 
 
-![O Azure Stack - desabilitar agendado backups](media\azure-stack-backup\disable-auto-backup.png)
+![O Azure Stack - desabilitar agendado backups](media/azure-stack-backup/disable-auto-backup.png)
 
 Confirme que os backups futuros agendados foram desabilitados no **Essentials**:
 
-![O Azure Stack - confirmar backups foram desabilitados](media\azure-stack-backup\confirm-disable.png)
+![O Azure Stack - confirmar backups foram desabilitados](media/azure-stack-backup/confirm-disable.png)
 
 Clique em **habilitar Backups automáticos** para informar o Agendador para iniciar backups futuros no horário agendado. 
 
-![O Azure Stack - ativar programada backups](media\azure-stack-backup\enable-auto-backup.png)
+![O Azure Stack - ativar programada backups](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

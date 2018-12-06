@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340912"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963582"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Iniciar e parar o Azure Stack desenvolvimento ASDK (Kit de)
 Não é recomendável simplesmente reiniciar o computador de host ASDK. Em vez disso, você deve seguir os procedimentos neste artigo para desligar e reiniciar serviços ASDK corretamente. 
@@ -62,7 +62,7 @@ Independentemente de como o ASDK tiver sido desligado, você deve usar as etapas
    ```
 6. Examine a saída para garantir que os serviços do Azure Stack foram reinicializados com êxito.
 
-Para saber mais sobre os procedimentos recomendados para desligar e reiniciar os serviços do Azure Stack corretamente, consulte [iniciar e parar o Azure Stack](.\.\azure-stack-start-and-stop.md). 
+Para saber mais sobre os procedimentos recomendados para desligar e reiniciar os serviços do Azure Stack corretamente, consulte [iniciar e parar o Azure Stack](../azure-stack-start-and-stop.md). 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>Solucionar problemas de inicialização e desligamento 
 Se os serviços do Azure Stack não iniciam com êxito dentro de duas horas após você ligar seu computador de host ASDK, execute estas etapas:
@@ -79,7 +79,7 @@ Se os serviços do Azure Stack não iniciam com êxito dentro de duas horas apó
    ```powershell
    Test-AzureStack
    ```
-5. Examine a saída e resolva quaisquer erros. Para obter mais informações, consulte [executar um teste de validação do Azure Stack](.\.\azure-stack-diagnostic-test.md).
+5. Examine a saída e resolva quaisquer erros. Para obter mais informações, consulte [executar um teste de validação do Azure Stack](../azure-stack-diagnostic-test.md).
 6. Reinicie os serviços do Azure Stack de dentro da sessão PEP executando o **AzureStack início** cmdlet:
 
    ```powershell
@@ -89,4 +89,4 @@ Se os serviços do Azure Stack não iniciam com êxito dentro de duas horas apó
 Se executando **Start-AzureStack** resulta em uma falha, visite o [Fórum de suporte do Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) obter ASDK Solucionando problemas de suporte. 
 
 ## <a name="next-steps"></a>Próximas etapas 
-Saiba mais sobre a ferramenta de diagnóstico do Azure Stack e emitir o registro em log, consulte [ferramentas de diagnóstico do Azure Stack](.\.\azure-stack-diagnostics.md).
+Saiba mais sobre a ferramenta de diagnóstico do Azure Stack e emitir o registro em log, consulte [ferramentas de diagnóstico do Azure Stack](../azure-stack-diagnostics.md).

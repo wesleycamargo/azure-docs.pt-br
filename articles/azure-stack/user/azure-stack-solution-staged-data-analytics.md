@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969525"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados preparados com o Azure e o Azure Stack 
 
@@ -103,7 +103,7 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
 4.  Selecione **criar para criar a conta de armazenamento**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  Depois de criado, selecione o nome da conta de armazenamento.
 
@@ -111,7 +111,7 @@ O contêiner de blob e a conta de armazenamento manterá todos os dados originai
 
 7.  Na parte superior da folha, selecione **+ contêiner.** e selecione **contêiner**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  Nome: **sua escolha**
 
@@ -146,31 +146,31 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
     **Exemplo:**
 
-    ![Definir novas configurações do aplicativo de funções](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![Definir novas configurações do aplicativo de funções](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  Selecione **Criar** para provisionar e implantar o aplicativo de funções.
 
 6.  Selecione o ícone da Notificação no canto superior direito do portal e veja se a mensagem **Implantação concluída com êxito** é exibida.
 
-    ![Definir novas configurações do aplicativo de funções](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![Definir novas configurações do aplicativo de funções](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  Selecione **ir para o recurso** para exibir o novo aplicativo de funções.
 
-![Aplicativo de funções criado com êxito.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![Aplicativo de funções criado com êxito.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Adicionar uma função ao aplicativo de funções do Azure Stack
 
 1.  Crie uma nova função clicando em **funções**, em seguida, a **+ nova função** botão.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  Selecione **gatilho de temporizador**.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  Selecione **C\#**  como o idioma e o nome da função: `upload-to-azure` definir o agendamento `0 0 * * * *`, que em CRON notação é de uma vez de uma hora.
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Criar uma função disparada pelo Armazenamento de Blobs
 
@@ -178,7 +178,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
 2.  No campo de pesquisa, digite `blob` e, em seguida, escolha a linguagem desejada para o **gatilho de Blob** modelo.
 
-  ![Escolha o modelo de gatilho de armazenamento de Blob.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Escolha o modelo de gatilho de armazenamento de Blob.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  Use as configurações conforme especificado na tabela a seguir:
 
@@ -190,7 +190,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
     **Exemplo:**
 
-    ![Crie a função disparada pelo Armazenamento de Blobs.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Crie a função disparada pelo Armazenamento de Blobs.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  Selecione **Criar** para criar a função.
 
@@ -202,7 +202,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
 3.  Expanda a conta de armazenamento **contêineres de Blob**, e o blob criado anteriormente. Selecione **carregue** e, em seguida **carregar arquivos**.
 
-    ![Carregue um arquivo para o contêiner de blob.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Carregue um arquivo para o contêiner de blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Na caixa de diálogo de Upload de arquivos, selecione o campo de arquivos. Navegue até um arquivo em um computador local, como um arquivo de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
 
@@ -210,7 +210,7 @@ Crie uma nova função do Azure Stack para mover limpar dados do Azure Stack par
 
     **Exemplo:**
 
-    ![Exiba a mensagem nos logs.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Exiba a mensagem nos logs.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Criar uma conta de armazenamento do Azure Stack
 
@@ -232,9 +232,9 @@ Use as etapas e as configurações descritas acima para criar outro contêiner d
 
 4.  Selecione **Okey.**
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![Alt text](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>Criar uma função disparada por filas
 
@@ -258,7 +258,7 @@ Use as etapas e as configurações descritas acima para criar outro contêiner d
 
 3.  Expanda a conta de armazenamento **contêineres de Blob**, e o blob criado anteriormente. Selecione **carregue** e, em seguida, **carregar arquivos.**
 
-    ![Carregue um arquivo para o contêiner de blob.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Carregue um arquivo para o contêiner de blob.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  Na caixa de diálogo de Upload de arquivos, selecione o campo de arquivos. Navegue até um arquivo em um computador local, como um arquivo de imagem, selecione-o e selecione **aberto** e, em seguida **carregar**.
 
@@ -266,7 +266,7 @@ Use as etapas e as configurações descritas acima para criar outro contêiner d
 
   **Exemplo:**
 
-    ![Exiba a mensagem nos logs.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![Exiba a mensagem nos logs.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Armazenados e acessados com segurança dados em conformidade
 

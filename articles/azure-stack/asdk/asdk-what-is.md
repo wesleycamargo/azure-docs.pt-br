@@ -16,15 +16,15 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138303"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961324"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>O que é o Kit de desenvolvimento do Azure Stack?
-[Sistemas integrados do Microsoft Azure Stack](.\.\azure-stack-poc.md) variam de tamanho de 4 a 16 nós e são compatíveis em conjunto com um parceiro de hardware e a Microsoft. Use sistemas integrados do Azure Stack para habilitar novos cenários para suas cargas de trabalho de produção. Se você for um operador do Azure Stack que gerencia a infra-estrutura de sistemas integrados e oferece serviços, consulte nosso [documentação do operador](https://docs.microsoft.com/azure/azure-stack).
+[Sistemas integrados do Microsoft Azure Stack](../azure-stack-poc.md) variam de tamanho de 4 a 16 nós e são compatíveis em conjunto com um parceiro de hardware e a Microsoft. Use sistemas integrados do Azure Stack para habilitar novos cenários para suas cargas de trabalho de produção. Se você for um operador do Azure Stack que gerencia a infra-estrutura de sistemas integrados e oferece serviços, consulte nosso [documentação do operador](https://docs.microsoft.com/azure/azure-stack).
 
 O Azure Stack desenvolvimento ASDK (Kit) é uma implantação de nó único do Azure Stack que você pode baixar e usar **gratuitamente**. Todos os componentes ASDK são instalados em máquinas virtuais em execução em um computador do servidor de host único que deve atender ou exceder a [requisitos mínimos de hardware](asdk-deploy-considerations.md#hardware). O ASDK visa fornecer um ambiente no qual você pode avaliar o Azure Stack e desenvolver aplicativos modernos usando APIs e ferramentas consistentes com o Azure em uma *não seja de produção* ambiente. 
 
@@ -48,9 +48,9 @@ Implantações de ASDK de nó único diferem de implantações do Azure Stack co
 |DESCRIÇÃO|ASDK|Vários nó do Azure Stack|
 |-----|-----|-----|
 |**Escala**|Todos os componentes são instalados em um computador do servidor de nó único.|Pode variar em tamanho de 4 a 16 nós.|
-|**Resiliência**|Configuração de nó único não oferece alta disponibilidade|[Obter alta disponibilidade](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) recursos têm suporte.|
-|**Rede**|O ASDK usa uma VM denominada AzS-BGPNAT01 para rotear todo o tráfego de rede ASDK. Não há requisitos adicionais de comutador.|A VM AzS-BGPNAT01 não existe em implantações de vários nós. Mais complexos [infraestrutura de roteamento de rede](.\.\azure-stack-network.md#network-infrastructure) é necessário incluindo Top-Of-Rack (TOR), Baseboard Management Controller (BMC) e comutadores de borda (rede de datacenter).|
-|**Processo de patch e atualização**|Para mover para uma nova versão do ASDK, você deve reimplantar o ASDK no computador de host do kit de desenvolvimento.|[Aplicar patch e atualização](.\.\azure-stack-updates.md) processo usado para atualizar a versão instalada do Azure Stack.|
+|**Resiliência**|Configuração de nó único não oferece alta disponibilidade|[Obter alta disponibilidade](../azure-stack-key-features.md#high-availability-for-azure-stack) recursos têm suporte.|
+|**Rede**|O ASDK usa uma VM denominada AzS-BGPNAT01 para rotear todo o tráfego de rede ASDK. Não há requisitos adicionais de comutador.|A VM AzS-BGPNAT01 não existe em implantações de vários nós. Mais complexos [infraestrutura de roteamento de rede](../azure-stack-network.md#network-infrastructure) é necessário incluindo Top-Of-Rack (TOR), Baseboard Management Controller (BMC) e comutadores de borda (rede de datacenter).|
+|**Processo de patch e atualização**|Para mover para uma nova versão do ASDK, você deve reimplantar o ASDK no computador de host do kit de desenvolvimento.|[Aplicar patch e atualização](../azure-stack-updates.md) processo usado para atualizar a versão instalada do Azure Stack.|
 |**Suporte**|Fórum do MSDN do Azure Stack. Suporte de atendimento ao cliente Microsoft e suporte (CSS) está *não* disponíveis para ambientes de não produção.|[Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) e dar suporte a CSS completas.|
 | | |
 

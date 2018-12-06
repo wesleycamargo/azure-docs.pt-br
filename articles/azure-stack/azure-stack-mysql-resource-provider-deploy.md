@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853890"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971990"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do MySQL no Azure Stack
 
@@ -32,8 +32,8 @@ Use o provedor de recursos do servidor MySQL para expor bancos de dados MySQL co
 
 Existem vários pré-requisitos que precisam estar em vigor antes de implantar o provedor de recursos MySQL do Azure Stack. Para atender a esses requisitos, conclua as etapas neste artigo em um computador que possa acessar o ponto de extremidade com privilégios VM.
 
-* Se você ainda não fez isso, [registrar o Azure Stack](.\azure-stack-registration.md) com o Azure para que você possa baixar itens do marketplace do Azure.
-* Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
+* Se você ainda não fez isso, [registrar o Azure Stack](./azure-stack-registration.md) com o Azure para que você possa baixar itens do marketplace do Azure.
+* Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](./azure-stack-powershell-install.md).
 * Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem.
 
 * Baixe o provedor de recursos MySQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
@@ -60,7 +60,7 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 
 ### <a name="certificates"></a>Certificados
 
-_Para instalações de sistemas integrados apenas_. Você deve fornecer o certificado de PKI de PaaS do SQL descrito na seção de certificados PaaS opcional [requisitos de PKI de implantação do Azure Stack](.\azure-stack-pki-certs.md#optional-paas-certificates). Coloque o arquivo. pfx no local especificado o **DependencyFilesLocalPath** parâmetro. Não fornece um certificado para sistemas ASDK.
+_Para instalações de sistemas integrados apenas_. Você deve fornecer o certificado de PKI de PaaS do SQL descrito na seção de certificados PaaS opcional [requisitos de PKI de implantação do Azure Stack](./azure-stack-pki-certs.md#optional-paas-certificates). Coloque o arquivo. pfx no local especificado o **DependencyFilesLocalPath** parâmetro. Não fornece um certificado para sistemas ASDK.
 
 ## <a name="deploy-the-resource-provider"></a>Implantar o provedor de recursos
 

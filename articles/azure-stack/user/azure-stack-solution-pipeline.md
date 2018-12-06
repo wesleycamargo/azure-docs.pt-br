@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280734"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967054"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implantar aplicativos no Azure e o Azure Stack
 
@@ -126,27 +126,27 @@ Uma entidade de serviço requer uma chave para autenticação. Use as etapas a s
 
 1. Em **Registros do Aplicativo** no Azure Active Directory, selecione seu aplicativo.
 
-    ![Selecione o aplicativo](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Selecione o aplicativo](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. Anote o valor de **ID do aplicativo**. Ao configurar o ponto de extremidade de serviço nos serviços de DevOps do Azure, você usará esse valor.
 
-    ![ID do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![ID do aplicativo](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. Para gerar uma chave de autenticação, selecione **Configurações**.
 
-    ![Editar configurações do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![Editar configurações do aplicativo](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. Para gerar uma chave de autenticação, selecione **Chaves**.
 
-    ![Definir configurações chave](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![Definir configurações chave](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. Forneça uma descrição para a chave e definir a duração da chave. Ao terminar, escolha **Salvar**.
 
-    ![Duração e a descrição da chave](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Duração e a descrição da chave](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     Depois de salvar a chave, a chave **valor** é exibida. Copie esse valor, porque você não pode obter esse valor posteriormente. Você fornece o **valor de chave** com a ID do aplicativo para entrar como o aplicativo. Armazene o valor da chave onde seu aplicativo possa recuperá-lo.
 
-    ![VALOR de chave](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![VALOR de chave](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>Obter a ID do locatário
 
@@ -154,15 +154,15 @@ Como parte da configuração do ponto de extremidade de serviço, serviços de D
 
 1. Selecione **Azure Active Directory**.
 
-    ![Azure Active Directory para o locatário](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory para o locatário](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. Para obter a ID de locatário, selecione **Propriedades** do seu locatário do Azure AD.
 
-    ![Exibir propriedades do inquilino](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![Exibir propriedades do inquilino](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. Copie a **ID de diretório**. Esse valor é a ID do locatário.
 
-    ![ID do Diretório](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![ID do Diretório](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Conceder os direitos de entidade de serviço para implantar recursos na assinatura do Azure Stack
 
@@ -172,27 +172,27 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
 1. Navegue até o nível do escopo ao qual quer atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, escolha **Assinaturas**.
 
-    ![Selecione assinaturas](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Selecione assinaturas](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. Na **assinatura**, selecione o Visual Studio Enterprise.
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. No Visual Studio Enterprise, selecione **controle de acesso (IAM)**.
 
-    ![IAM (Controle de Acesso)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![IAM (Controle de Acesso)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. Selecione **Adicionar**.
 
-    ![Adicionar](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Adicionar](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. Na **adicionar permissões**, selecione a função que você deseja atribuir ao aplicativo. Neste exemplo, o **proprietário** função.
 
-    ![Função de proprietário](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Função de proprietário](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. Por padrão, os aplicativos do Azure Active Directory não são exibidos nas opções disponíveis. Para localizar seu aplicativo, você deve fornecer seu nome na **selecionar** campo para procurá-lo. Selecione o aplicativo.
 
-    ![Resultado de pesquisa do aplicativo](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![Resultado de pesquisa do aplicativo](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. Selecione **Salvar** para finalizar a atribuição da função. Agora você vê o aplicativo na lista de usuários atribuídos a uma função para esse escopo.
 
@@ -212,37 +212,37 @@ Crie um Token de acesso pessoal para acessar os serviços de DevOps do Azure.
 
 2. Selecione **gerenciar segurança** a página de criação de token de acesso.
 
-    ![Entrada do usuário](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Entrada do usuário](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![Selecione um projeto](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selecione um projeto](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![Adicione o token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Adicione o token de acesso pessoal](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![Criar token](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Criar token](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. Copie o token.
 
     > [!Note]
     > Salve as informações de token. Essas informações não são armazenadas e não serão mostradas novamente quando você sair da página de web.
 
-    ![Token de acesso pessoal](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![Token de acesso pessoal](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalação do que agente de compilação de serviços de DevOps do Azure no Azure Stack hospedou o servidor de compilação
 
 1. Conecte-se ao seu servidor de compilação que você implantou no host do Azure Stack.
 2. Baixar e implantar o agente de compilação como um serviço usando sua conta pessoal (PAT) do token de acesso e executados como a conta de administrador de VM.
 
-    ![Baixe o agente de compilação](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![Baixe o agente de compilação](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. Navegue até a pasta para o agente de compilação extraídos. Execute o **cmd** arquivo em um prompt de comando elevado.
 
-    ![Agente de compilação extraídos](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Agente de compilação extraídos](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![Registrar o agente de compilação](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![Registrar o agente de compilação](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. Quando o cmd for concluída, a pasta do agente de compilação é atualizada com arquivos adicionais. A pasta com o conteúdo extraído deve ser semelhante ao seguinte:
 
-    ![Atualização de pasta do agente de compilação](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![Atualização de pasta do agente de compilação](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     Você pode ver o agente na pasta de serviços de DevOps do Azure.
 
@@ -250,23 +250,23 @@ Crie um Token de acesso pessoal para acessar os serviços de DevOps do Azure.
 
 Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) pode implantar aplicativos de serviço do Azure para o Azure Stack. Serviços de DevOps do Azure se conecta ao agente de compilação, que se conecta ao Azure Stack.
 
-![Aplicativo de exemplo NorthwindCloud no VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![Aplicativo de exemplo NorthwindCloud no VSTO](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. Entre no VSTO e navegue até a página de configurações do aplicativo.
 2. Em **Configurações**, selecione **Segurança**.
 3. Na **grupos de serviços do Azure DevOps**, selecione **criadores de ponto de extremidade**.
 
-    ![Criadores de ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![Criadores de ponto de extremidade NorthwindCloud](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. Sobre o **membros** guia, selecione **Add**.
 
-    ![Adicionar um membro](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Adicionar um membro](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. Na **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
 6. Selecione **Salvar alterações**.
 7. No **grupos de serviços do Azure DevOps** lista, selecione **administradores de ponto de extremidade**.
 
-    ![Administradores do ponto de extremidade NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![Administradores do ponto de extremidade NorthwindCloud](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. Sobre o **membros** guia, selecione **Add**.
 9. Na **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
@@ -297,13 +297,13 @@ Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
 Agora que o ponto de extremidade é criado, o DevOps para conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
 
-![Agente do Azure AD de compilação](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![Agente do Azure AD de compilação](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>Criar um ponto de extremidade para o AD FS
 
 A atualização mais recente para DevOps do Azure permite criar uma conexão de serviço usando uma entidade de serviço com um certificado para autenticação. Isso é necessário quando o Azure Stack é implantado com o AD FS como provedor de identidade. 
 
-![O AD FS do agente de compilação](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![O AD FS do agente de compilação](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 Você pode criar uma conexão de serviço usando o seguinte mapeamento:
 
@@ -342,17 +342,17 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 1. Entrar nos serviços de DevOps do Azure com uma organização que tem direitos de criação do projeto no Azure Stack. A próxima captura de tela mostra como conectar-se ao projeto HybridCICD.
 
-    ![Conectar a um projeto](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![Conectar a um projeto](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. **Clone o repositório** criando e abrindo o aplicativo da web padrão.
 
-    ![Clone o repositório](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![Clone o repositório](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar a implantação de aplicativo web independente para serviços de aplicativos em ambas as nuvens
 
 1. Editar o **WebApplication.csproj** arquivo: selecione **Runtimeidentifier** e, em seguida, adicione `win10-x64.` para obter mais informações, consulte [implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.
 
-    ![Configurar Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Configurar Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. Use o Team Explorer para verificar o código nos serviços de DevOps do Azure.
 
@@ -366,7 +366,7 @@ CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutu
 
 3. Na **argumentos**, adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 
-    ![Adicionar o pipeline de build do argumento](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Adicionar o pipeline de build do argumento](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. Execute a compilação. O [compilação de implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará os artefatos que podem ser executados no Azure e Azure Stack.
 
@@ -385,89 +385,89 @@ Criar um pipeline de lançamento é o processo de compilação a etapa final em 
 1. Entrar nos serviços de DevOps do Azure e navegue até **Pipelines do Azure** para seu projeto.
 2. Sobre o **versões** guia, selecione  **\[ +]** e, em seguida, escolha **criar definição de versão**.
 
-   ![Criar pipeline de lançamento](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Criar pipeline de lançamento](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. Na **selecione um modelo**, escolha **implantação de serviço de aplicativo do Azure**e, em seguida, selecione **aplicar**.
 
-    ![Aplicar modelo](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![Aplicar modelo](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. Na **adicionar artefato**, da **fonte (definição de compilação)** menu suspenso, selecione o aplicativo de build de nuvem do Azure.
 
-    ![Adicionar artefato](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Adicionar artefato](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. Sobre o **Pipeline** guia, selecione o **1 fase**, **1 tarefa** vincular ao **exibir tarefas do ambiente**.
 
-    ![Tarefas da exibição de pipeline](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![Tarefas da exibição de pipeline](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. No **tarefas** , insira Azure como o **nome do ambiente** e selecione AzureCloud Traders Web EP do **assinatura do Azure** lista suspensa.
 
-    ![Configurar variáveis de ambiente](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Configurar variáveis de ambiente](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. Insira o **nome do serviço de aplicativo do Azure**, que é "northwindtraders" na próxima captura de tela.
 
-    ![Nome do serviço de aplicativo](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![Nome do serviço de aplicativo](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. Para a fase de agente, selecione **VS2017 hospedado** da **fila de agentes** lista suspensa.
 
-    ![Agente hospedado](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![Agente hospedado](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. Na **implantar o serviço de aplicativo do Azure**, selecione válidos **pacote ou pasta** para o ambiente.
 
-    ![Selecione o pacote ou pasta](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Selecione o pacote ou pasta](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. Na **selecione o arquivo ou pasta**, selecione **Okey** para **local**.
 
-    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![Texto ALT](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. Salve todas as alterações e voltar para **Pipeline**.
 
-    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![Texto ALT](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. No **Pipeline** guia, selecione **adicionar um artefato**e escolha o **NorthwindCloud Traders-Vessel** do **fonte (definição de compilação)** lista suspensa.
 
-    ![Adicionar novo artefato](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Adicionar novo artefato](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. Na **selecione um modelo**, adicione outro ambiente. Escolher **implantação de serviço de aplicativo do Azure** e, em seguida, selecione **aplicar**.
 
-    ![Selecionar modelo](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Selecionar modelo](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. Insira "Azure Stack" como o **nome do ambiente**.
 
-    ![Nome do ambiente](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Nome do ambiente](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. Sobre o **tarefas** guia, localize e selecione o Azure Stack.
 
-    ![Ambiente de pilha do Azure](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Ambiente de pilha do Azure](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. Dos **assinatura do Azure** lista suspensa, selecione "AzureStack Vessel Traders EP" para o ponto de extremidade do Azure Stack.
 
-    ![Texto ALT](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![Texto ALT](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. Insira o nome do aplicativo web do Azure Stack como o **nome do serviço de aplicativo**.
 
-    ![Nome do serviço de aplicativo](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![Nome do serviço de aplicativo](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. Sob **seleção de agente**, escolha "AzureStack - bDouglas Fir" entre a **fila do agente** lista suspensa.
 
-    ![Escolher agente](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Escolher agente](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. Para **implantar o serviço de aplicativo do Azure**, selecione válidos **pacote ou pasta** para o ambiente. Na **Selecionar arquivo ou pasta**, selecione **Okey** para a pasta **local**.
 
-    ![Escolha o pacote ou pasta](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Escolha o pacote ou pasta](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![Aprovar local](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![Aprovar local](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. Sobre o **variável** guia, localize a variável nomeada **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Defina o valor da variável como **verdadeira**e defina seu escopo para **do Azure Stack**.
 
-    ![Definir variável](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Definir variável](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. No **Pipeline** guia, selecione o **gatilho de implantação contínua** ícone para o artefato NorthwindCloud Traders-Web e defina o **gatilho de implantação contínua** para **Habilitado**.  Fazer a mesma coisa para o artefato "NorthwindCloud Traders-Vessel".
 
-    ![Gatilho de implantação contínua de conjunto](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Gatilho de implantação contínua de conjunto](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Para o ambiente do Azure Stack, selecione a **condições de pré-implantação** ícone definido o gatilho para **após o lançamento**.
 
-    ![Gatilho do conjunto de condições de pré-implantação](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Gatilho do conjunto de condições de pré-implantação](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. Salve todas as alterações.
 
@@ -480,15 +480,15 @@ Agora que você tiver concluído as modificações no pipeline de lançamento, �
 
 1. No **Pipeline** guia, abra o **Release** lista suspensa lista e escolha **criar versão**.
 
-    ![Criar uma versão](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![Criar uma versão](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. Insira uma descrição para a versão, verifique se os artefatos corretos estão selecionados e, em seguida, escolha **criar**. Após alguns instantes, uma faixa será exibida indicando que a nova versão foi criada e o nome de versão é exibido como um link. Escolha o link para ver a página de resumo de versão.
 
-    ![Faixa de criação de versão](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![Faixa de criação de versão](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. A página de resumo de versão para mostra detalhes sobre a versão. Na captura de tela para "Release-2", o **ambientes** seção mostra as **status da implantação** para o Azure como "Em andamento" e o status para o Azure Stack é "êxito". Quando o status da implantação para o ambiente do Azure é alterado para "Êxito", uma faixa será exibida, indicando que a versão está pronta para aprovação. Quando uma implantação está pendente ou tiver falhado, um azul **(i)** ícone de informações é mostrada. Passe o mouse sobre o ícone para ver um pop-up que contém a razão para atraso ou a falha.
 
-    ![Página de resumo da versão](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Página de resumo da versão](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 Outros modos de exibição, como a lista de versões, também será exibido um ícone que indica a aprovação está pendente. O pop-up para esse ícone mostra o nome do ambiente e obter mais detalhes relacionados à implantação. É fácil para um administrador, consulte o progresso geral de versões e veja quais versões estão aguardando aprovação.
 
@@ -502,7 +502,7 @@ Esta seção mostra como você pode monitorar e acompanhar todas as suas implant
 
 2. Depois que a implantação for concluída, todo o arquivo de log é exibido no painel direito. Você pode selecionar qualquer **etapa** no painel esquerdo para ver o arquivo de log para uma única etapa, como "Inicializar o trabalho". A capacidade de ver logs individuais torna mais fácil rastrear e depurar partes da implantação geral. Você também pode **salve** o arquivo de log para uma etapa, ou **baixar todos os logs como zip**.
 
-    ![Registros de liberação](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![Registros de liberação](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. Abra o **resumo** guia para obter informações gerais sobre a versão. Essa exibição mostra detalhes sobre a compilação, os ambientes em que ele foi implantado, status da implantação e outras informações sobre a versão.
 

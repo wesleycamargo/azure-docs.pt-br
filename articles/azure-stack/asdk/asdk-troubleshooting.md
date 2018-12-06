@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970256"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Solução de problemas do Microsoft Azure Stack desenvolvimento ASDK (Kit)
 Este documento fornece informações de solução de problemas comuns para o ASDK. Se você estiver tendo um problema que não esteja documentado, certifique-se de verificar a [Fórum do MSDN do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) para obter assistência adicional e informações.  
@@ -64,7 +64,7 @@ Sim, esse é o comportamento esperado. Ele foi projetado dessa forma porque:
 
 Se você vir "órfãos" VHDs, é importante saber se eles fazem parte da pasta para uma conta de armazenamento que foi excluída. Se a conta de armazenamento não foi excluída, é normal que elas ainda estão lá.
 
-Você pode ler mais sobre como configurar a recuperação sob demanda e limite de retenção no [gerenciar contas de armazenamento](.\.\azure-stack-manage-storage-accounts.md).
+Você pode ler mais sobre como configurar a recuperação sob demanda e limite de retenção no [gerenciar contas de armazenamento](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Armazenamento
 ### <a name="storage-reclamation"></a>Recuperação de armazenamento
@@ -72,4 +72,3 @@ Pode levar até 14 horas para capacidade recuperada apareça no portal. Recupera
 
 ## <a name="next-steps"></a>Próximas etapas
 [Visite o fórum de suporte do Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-
