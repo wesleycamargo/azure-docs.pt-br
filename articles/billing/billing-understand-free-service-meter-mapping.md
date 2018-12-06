@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392101"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581572"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Entender o serviço gratuito para mapeamento de medidor
 
@@ -53,10 +53,6 @@ Cada serviço do Azure emite a utilização em relação a medidores, utilizados
 
 \** Medidores compartilhados podem ser consumidos por meio de vários serviços. Por exemplo, Máquinas virtuais e Armazenamento emitem uso em relação ao medidor Transferência de Dados de Saída (GB).
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos.
 
-
-
-
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
-
-Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
