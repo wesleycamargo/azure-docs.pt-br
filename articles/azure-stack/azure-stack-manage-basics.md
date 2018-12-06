@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254512"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972381"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que você precisa saber se você é novo para a administração do Azure Stack. Este guia fornece uma visão geral de sua função como um operador do Azure Stack, e o que é preciso dizer que os usuários para que eles se tornarem rapidamente produtivos.
@@ -32,9 +32,9 @@ Se você estiver usando um sistema integrado do Azure Stack, versões atualizada
  
 ### <a name="development-kit"></a>Kit de desenvolvimento
 
-Se você estiver usando o Kit de desenvolvimento do Azure Stack, examine os [o que é o Azure Stack?](.\asdk\asdk-what-is.md) artigo para verificar se você entender a finalidade do kit de desenvolvimento e suas limitações. Você deve usar o kit de desenvolvimento como uma "área restrita","onde você pode avaliar o Azure Stack e desenvolver e testar seus aplicativos em um ambiente de não produção. (Para obter informações de implantação, consulte o [implantação do Kit de desenvolvimento do Azure Stack](.\asdk\asdk-install.md) artigo.)
+Se você estiver usando o Kit de desenvolvimento do Azure Stack, examine os [o que é o Azure Stack?](./asdk/asdk-what-is.md) artigo para verificar se você entender a finalidade do kit de desenvolvimento e suas limitações. Você deve usar o kit de desenvolvimento como uma "área restrita","onde você pode avaliar o Azure Stack e desenvolver e testar seus aplicativos em um ambiente de não produção. (Para obter informações de implantação, consulte o [implantação do Kit de desenvolvimento do Azure Stack](./asdk/asdk-install.md) artigo.)
 
-Como o Azure, podemos inovar rapidamente. Regularmente, lançaremos novas compilações. Se você estiver executando o kit de desenvolvimento e você deseja mover para a compilação mais recente, você deve [reimplantar o Azure Stack](.\asdk\asdk-redeploy.md). É possível aplicar os pacotes de atualização. Esse processo leva tempo, mas a vantagem é que você pode experimentar os recursos mais recentes. A documentação do kit de desenvolvimento em nosso site reflete o build de versão mais recente.
+Como o Azure, podemos inovar rapidamente. Regularmente, lançaremos novas compilações. Se você estiver executando o kit de desenvolvimento e você deseja mover para a compilação mais recente, você deve [reimplantar o Azure Stack](./asdk/asdk-redeploy.md). É possível aplicar os pacotes de atualização. Esse processo leva tempo, mas a vantagem é que você pode experimentar os recursos mais recentes. A documentação do kit de desenvolvimento em nosso site reflete o build de versão mais recente.
 
 ## <a name="learn-about-available-services"></a>Saiba mais sobre os serviços disponíveis
 

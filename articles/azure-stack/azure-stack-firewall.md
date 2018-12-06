@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343634"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960644"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integração do firewall de pilha do Azure
 É recomendável que você use um dispositivo de firewall para ajudar a proteger o Azure Stack. Embora firewalls podem ajudar com coisas como ataques (DDOS) de negação de serviço distribuído, detecção de intrusão e inspeção de conteúdo, eles também podem se tornar um gargalo de produtividade para os serviços de armazenamento do Azure como blobs, tabelas e filas.
@@ -49,7 +49,7 @@ Em uma implantação de borda, o Azure Stack é implantado diretamente usando o 
 
 Normalmente, os endereços IP roteáveis públicos são especificados para o pool de VIP público da rede externa no momento da implantação. Em um cenário de borda, não é recomendável usar IPs roteáveis públicos em nenhuma outra rede para fins de segurança. Esse cenário permite que um usuário aproveitar a experiência completa na nuvem autogerenciado autocontrolado como em uma nuvem pública, como o Azure.  
 
-![Exemplo de firewall de borda de pilha do Azure](.\media\azure-stack-firewall\firewallScenarios.png)
+![Exemplo de firewall de borda de pilha do Azure](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Cenário de firewall de rede de perímetro ou de intranet de Enterprise
 Uma implantação corporativa de perímetro ou da intranet, Azure Stack é implantado em um firewall com várias zonas ou entre o firewall de borda e o firewall de rede corporativa interna. Em seguida, o seu tráfego é distribuído entre a rede de perímetro (ou DMZ) segura, e as zonas não seguras como descrito abaixo:
@@ -58,7 +58,7 @@ Uma implantação corporativa de perímetro ou da intranet, Azure Stack é impla
 - **Zona de perímetro**. A rede de perímetro é onde externos ou aplicativos, como servidores Web são normalmente implantados de internet. Geralmente, ele é monitorado por um firewall para evitar ataques, como DDoS e invasão (hacking) enquanto ainda permite que o tráfego de entrada especificado pela internet. Somente o rede externa pool de VIP público do Azure Stack deve residir na zona de rede de Perímetro.
 - **Zona não segura**. Isso é a rede externa, a internet. Ele **não é** recomendável implantar o Azure Stack na zona não segura.
 
-![Exemplo de rede de perímetro de pilha do Azure](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Exemplo de rede de perímetro de pilha do Azure](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>Saiba mais
 Saiba mais sobre [portas e protocolos usados pelos pontos de extremidade do Azure Stack](azure-stack-integrate-endpoints.md).

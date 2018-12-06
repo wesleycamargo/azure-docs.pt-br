@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007818"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956713"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implantação no Kubernetes no Azure Stack
 
@@ -114,7 +114,7 @@ Quando você implanta o cluster Kubernetes, você pode examinar o status da impl
     | Recurso | O nome do recurso. |
     | Tipo | O provedor de recursos e o tipo de recurso. |
     | Status | O status do item. |
-    | Carimbo de Data/hora | O carimbo de hora UTC do tempo. |
+    | TimeStamp | O carimbo de hora UTC do tempo. |
     | Detalhes da operação | Os detalhes da operação, como o provedor de recursos que estavam envolvidos na operação, o ponto de extremidade de recursos e o nome do recurso. |
 
     Cada item tem um ícone de status de verde ou vermelho.
@@ -178,6 +178,6 @@ Para obter logs, execute as seguintes etapas:
 
 [Implantar Kubernetes no Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Adicionar um cluster Kubernetes no Marketplace (para o operador do Azure Stack)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Adicionar um cluster Kubernetes no Marketplace (para o operador do Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Kubernetes no Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

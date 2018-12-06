@@ -16,22 +16,22 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: b98879483d35a91810c9e9ab5e0ac81151bde52f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368931"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962174"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planejamento de capacidade de computação do Azure Stack
-O [tamanhos VM com suporte no Azure Stack](.\user\azure-stack-vm-sizes.md) são um subconjunto daquelas com suporte no Azure. O Azure impõe limites de recursos ao longo de muitos vetores para evitar o excesso de consumo de recursos (servidor de local e o nível de serviço). Sem impor alguns limites no consumo de locatários, as experiências de locatário serão afetada quando outros locatários overconsume recursos. Para a saída de rede da VM, há limites de largura de banda em vigor no Azure Stack que correspondem à limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico excesso de consumo de recursos por locatários para acesso de armazenamento.  
+O [tamanhos VM com suporte no Azure Stack](./user/azure-stack-vm-sizes.md) são um subconjunto daquelas com suporte no Azure. O Azure impõe limites de recursos ao longo de muitos vetores para evitar o excesso de consumo de recursos (servidor de local e o nível de serviço). Sem impor alguns limites no consumo de locatários, as experiências de locatário serão afetada quando outros locatários overconsume recursos. Para a saída de rede da VM, há limites de largura de banda em vigor no Azure Stack que correspondem à limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico excesso de consumo de recursos por locatários para acesso de armazenamento.  
 
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Posicionamento de VM e excesso de provisionamento de núcleo virtual para física
 No Azure Stack, não há nenhuma maneira de usar para o posicionamento de VM para um locatário especificar um servidor específico. A única consideração ao colocar as VMs é se há memória suficiente no host para esse tipo VM. O Azure Stack não sobrecarregue a memória; No entanto, uma superconfirmação do número de núcleos é permitida. Uma vez que os algoritmos de posicionamento não observar existente virtual para a taxa de excesso de provisionamento de núcleo físico como um fator, cada host pode ter uma taxa diferente. 
 
 No Azure, para obter alta disponibilidade de um sistema de produção de várias VMs, as VMs são colocadas em um conjunto sejam distribuídas em vários domínios de falha. Isso significa que as VMs colocadas em um conjunto de disponibilidade são fisicamente isoladas uns dos outros em um rack para permitir a resiliência de falha conforme mostrado no diagrama a seguir:
 
-![Domínios de falha e atualização](media\azure-stack-capacity-planning\domains.png)
+![Domínios de falha e atualização](media/azure-stack-capacity-planning/domains.png)
 
 
 Enquanto a infraestrutura do Azure Stack é resistente a falhas, a tecnologia subjacente (clustering de failover) ainda incorrerá em algum tempo de inatividade para as VMs em um servidor físico afetado em caso de falha de hardware. Atualmente, Azure Stack oferece suporte a uma conjunto de disponibilidade com um máximo de três domínios de falha para ser consistente com o Azure. As VMs colocadas em um conjunto de disponibilidade será fisicamente isoladas uns dos outros, distribuindo-los de maneira mais uniforme possível em vários domínios de falha (nós do Azure Stack). Se houver uma falha de hardware, VMs a partir do domínio de falha com falha serão ser reiniciadas em outros nós, mas, se possível, mantidas em domínios de falha separados de outras VMs no mesmo conjunto de disponibilidade. Quando o hardware fica online novamente, as VMs serão redistribuídas para manter a alta disponibilidade.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 4881f992e5362efc7e4d7ac23898684966a066e0
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890986"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968196"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Tutorial: Criar soluções de colocação em escala de nuvem com o Azure
 
@@ -107,17 +107,17 @@ Azure Repos
 
     CI/CD híbrido pode aplicar ao código do aplicativo e o código de infraestrutura. Use [modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/) para ambos os desenvolvimento em nuvem privada e hospedado.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **Clone o repositório** criando e abrindo o aplicativo da web padrão.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image2.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Criar a implantação de aplicativo web independente para serviços de aplicativos em ambas as nuvens
 
 1.  Editar o **WebApplication.csproj** arquivo. Selecione **Runtimeidentifier** e adicione **win10-x64**. (Consulte [contained implantação](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.) 
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image3.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image3.png)
 
 2.  Verifique o código para repositórios do Azure usando o Team Explorer.
 
@@ -129,7 +129,7 @@ Azure Repos
 
 2. Adicione **- r win10-x64** código. Isso é necessário para disparar uma implantação autocontida com.Net Core.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image4.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. Execute a compilação. O [compilação de implantação autocontida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processo publicará os artefatos que podem ser executados no Azure e Azure Stack.
 
@@ -143,87 +143,87 @@ O servidor de DevOps do Azure e Pipelines do Azure fornecem um pipeline totalmen
 
 ## <a name="create-release-definition"></a>Criar definição de versão
 
-![Alt text](media\azure-stack-solution-cloud-burst\image5.png)
+![Alt text](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  Selecione o **plus** botão para adicionar uma nova versão sob o **guia Releases** na página de Build e versão do VSO.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image6.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Aplique o modelo de implantação de serviço de aplicativo do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image7.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. Em Adicionar um artefato, adicione o artefato para o aplicativo de compilação na nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image8.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. Na guia Pipeline, selecione a **fase, a tarefa** vincular do ambiente e definir valores de ambiente de nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image9.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. Defina as **nome do ambiente** e selecione Azure **assinatura** para o ponto de extremidade de nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image10.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. Em nome do ambiente, defina exigida **nome do serviço de aplicativo do Azure**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image11.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. Insira **VS2017 hospedado** em fila do agente para o ambiente hospedado na nuvem do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image12.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. No menu de implantar o serviço de aplicativo do Azure, selecione válidos **pacote ou pasta** para o ambiente. Selecione **Okey** à **local da pasta**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image13.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image14.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. Salve todas as alterações e voltar para **pipeline de lançamento**.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image15.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Adicione um novo artefato selecionando o build para o aplicativo do Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image16.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Adicione um ambiente mais aplicando a implantação do serviço de aplicativo do Azure.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image17.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. Nomeie o novo ambiente do Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image18.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Encontre o ambiente do Azure Stack sob **tarefa** guia.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image19.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Selecione a assinatura para o ponto de extremidade do Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image20.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Defina o nome do aplicativo web do Azure Stack como o nome do serviço de aplicativo.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image21.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Selecione o agente do Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image22.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. Sob o serviço de aplicativo do Azure implantar seção Selecionar válidos **pacote ou pasta** para o ambiente. Selecione **Okey** para o local da pasta.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image23.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image24.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. Na guia variável, adicione uma variável denominada `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, defina seu valor como **verdadeiro**e o escopo para o Azure Stack.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image25.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. Selecione o **contínuo** ícone de gatilho de implantação em artefatos e habilite a **continua** gatilho de implantação.
 
-    ![Alt text](media\azure-stack-solution-cloud-burst\image26.png)
+    ![Alt text](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. Selecione o **pré-implantação** ícone de condições no ambiente do Azure Stack e defina o gatilho como **após o lançamento.**
 
@@ -307,7 +307,7 @@ Criar uma definição de versão é o processo de compilação a etapa final no 
 
 3.  Na **selecione um modelo**, escolha **implantação de serviço de aplicativo do Azure**e, em seguida, selecione **aplicar**.
 
-4.  Na **adicionar um artefato**, da * * fonte (definição de compilação) selecione o aplicativo de compilação na nuvem do Azure.
+4.  Na **adicionar artefato**, da **fonte (definição de compilação)** selecione o aplicativo de build de nuvem do Azure.
 
 5.  Sobre o **Pipeline** guia, selecione o **1 fase**, **1 tarefa** vincular ao **exibir tarefas do ambiente**.
 
@@ -323,7 +323,7 @@ Criar uma definição de versão é o processo de compilação a etapa final no 
 
 11. Salve todas as alterações e voltar para **Pipeline**.
 
-12. No **Pipeline** guia, selecione **adicionar um artefato**e escolha o **NorthwindCloud Traders-Vessel** do * * fonte (definição de compilação) * * lista.
+12. No **Pipeline** guia, selecione **adicionar um artefato**e escolha o **NorthwindCloud Traders-Vessel** do **fonte (definição de compilação)** lista.
 
 13. Na **selecione um modelo**, adicione outro ambiente. Escolher **implantação de serviço de aplicativo do Azure** e, em seguida, selecione **aplicar**.
 

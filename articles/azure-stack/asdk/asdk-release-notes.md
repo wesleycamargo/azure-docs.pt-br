@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869952"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957650"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK  
-Este artigo fornece informações sobre problemas conhecidos no Azure Stack desenvolvimento ASDK (Kit), correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
+Este artigo fornece informações sobre problemas conhecidos no Azure Stack desenvolvimento ASDK (Kit), correções e aprimoramentos. Se você não tiver certeza de qual versão você está executando, você poderá [usar o portal para verificar](../azure-stack-updates.md#determine-the-current-version).
 
 > Mantenha-se atualizado com o que há de novo no ASDK assinando o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
@@ -180,13 +180,13 @@ Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack
 Esta compilação inclui os seguintes aprimoramentos e correções para o Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Iniciar backups em um agendamento previamente definido** -como um dispositivo do Azure Stack agora podem disparar automaticamente backups de infra-estrutura periodicamente para eliminar a intervenção humana. O Azure Stack limpará automaticamente o compartilhamento externo para backups mais antigos que o período de retenção definido. Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Iniciar backups em um agendamento previamente definido** -como um dispositivo do Azure Stack agora podem disparar automaticamente backups de infra-estrutura periodicamente para eliminar a intervenção humana. O Azure Stack limpará automaticamente o compartilhamento externo para backups mais antigos que o período de retenção definido. Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
-- **Hora em que o tempo de backup total de transferência de dados adicionados.** Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Hora em que o tempo de backup total de transferência de dados adicionados.** Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 1702130 | ASDK, IS --> 
-- **De capacidade de backup externa agora mostra a capacidade correta do compartilhamento externo.** (Isso era difícil de código até 10 GB.) Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **De capacidade de backup externa agora mostra a capacidade correta do compartilhamento externo.** (Isso era difícil de código até 10 GB.) Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Modelos do Gerenciador de recursos do Azure agora dão suporte ao elemento de condição** -agora você pode implantar um recurso em um modelo do Gerenciador de recursos do Azure usando uma condição. Você pode criar seu modelo para implantar um recurso com base em uma condição, como avaliar se um valor de parâmetro estiver presente. Para obter informações sobre como usar um modelo como uma condição, consulte [implantar condicionalmente um recurso](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) e [seção variáveis dos modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) na documentação do Azure. 
@@ -194,7 +194,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
    Você também pode usar modelos para [implantar recursos em mais de uma assinatura ou grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
-- **O suporte de versão do recurso Microsoft. Network API foi atualizado** para incluir suporte para a API versão 2017-10-01 de 2015-06-15 para recursos de rede do Azure Stack. Suporte para versões de recurso entre 2017-10-01 e 2015-06-15 não está incluído nesta versão. Consulte a [considerações sobre a rede do Azure Stack](.\.\user\azure-stack-network-differences.md) para diferenças de funcionalidade.
+- **O suporte de versão do recurso Microsoft. Network API foi atualizado** para incluir suporte para a API versão 2017-10-01 de 2015-06-15 para recursos de rede do Azure Stack. Suporte para versões de recurso entre 2017-10-01 e 2015-06-15 não está incluído nesta versão. Consulte a [considerações sobre a rede do Azure Stack](../user/azure-stack-network-differences.md) para diferenças de funcionalidade.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **O Azure Stack adicionou suporte para pesquisas inversas de DNS para pontos de extremidade de infraestrutura do Azure Stack com face externa** (que é para o portal, adminportal, gerenciamento e adminmanagement). Isso permite que os nomes de ponto de extremidade externo do Azure Stack ser resolvido a partir de um endereço IP.
@@ -222,7 +222,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 - **O Azure Resource Manager inclui o nome da região.** Com esta versão, os objetos recuperados do Azure Resource Manager agora incluirá o atributo de nome de região. Se um script PowerShell existente diretamente passa o objeto para outro cmdlet, o script pode produzir um erro e falha. Isso é o comportamento compatível com o Azure Resource Manager e exige que o cliente da chamada subtrair o atributo região. Para obter mais informações sobre o Azure Resource Manager, consulte [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
 <!-- TBD | IS, ASDK -->  
-- **Mova assinaturas entre provedores de delegado.** Agora você pode mover assinaturas entre as assinaturas de provedor delegada novas ou existentes que pertencem ao mesmo locatário do diretório. As assinaturas que pertencem à assinatura do provedor padrão também podem ser movidas para as assinaturas de provedor delegada no mesmo locatário de diretório. Para obter mais informações, consulte [delegar ofertas no Azure Stack](.\.\azure-stack-delegated-provider.md).
+- **Mova assinaturas entre provedores de delegado.** Agora você pode mover assinaturas entre as assinaturas de provedor delegada novas ou existentes que pertencem ao mesmo locatário do diretório. As assinaturas que pertencem à assinatura do provedor padrão também podem ser movidas para as assinaturas de provedor delegada no mesmo locatário de diretório. Para obter mais informações, consulte [delegar ofertas no Azure Stack](../azure-stack-delegated-provider.md).
  
 <!-- 2536808 IS ASDK --> 
 - **Aprimorada a hora de criação da VM** para VMs que são criadas com imagens, você pode baixar do marketplace do Azure.
@@ -246,7 +246,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 - A lista de backup agora é atualizada quando você excluir manualmente o backup do compartilhamento externo.
 
 <!-- 2360715 |  ASDK, IS -->  
-- Quando você configura a integração do datacenter, você não mais acessar o arquivo de metadados do AD FS de um compartilhamento. Para obter mais informações, consulte [configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- Quando você configura a integração do datacenter, você não mais acessar o arquivo de metadados do AD FS de um compartilhamento. Para obter mais informações, consulte [configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 <!-- 2388980 | ASDK, IS --> 
 - Corrigimos um problema que impedia os usuários de atribuído um endereço IP público existente que foi anteriormente atribuído a uma Interface de rede ou um balanceador de carga para uma nova Interface de rede ou balanceador de carga.  
@@ -269,7 +269,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 <!--  TBD ASDK --> 
 - A máquina virtual que hospeda o ponto de extremidade de privilégio (PEP) aumentou para 4GB. ASDK, essa máquina virtual é chamada AzS-ERCS01.
 
-- <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](.\.\azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo. 
+- <!--  TBD – IS, ASDK --> *Um básico* tamanhos de máquina virtual estão desativados para [criando conjuntos de dimensionamento de máquina virtual](../azure-stack-compute-add-scalesets.md) (VMSS) por meio do portal. Para criar um VMSS com esse tamanho, use o PowerShell ou um modelo. 
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
@@ -283,7 +283,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 - Os planos são adicionados a uma assinatura de usuário como um plano de complemento não podem ser excluídos, mesmo quando você remove o plano da assinatura do usuário. O plano permanecerá até que as assinaturas que o plano de complemento de referência também são excluídas. 
 
 <!--2760466 – IS  ASDK --> 
-- Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](.\.\azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace. 
+- Quando você instala um novo ambiente do Azure Stack que executa esta versão, o alerta indicar *ativação necessária* podem não ser exibidos. [Ativação](../azure-stack-registration.md) é necessária antes que você pode usar a distribuição do marketplace. 
 
 <!-- TBD - IS ASDK --> 
 - Os dois tipos de assinatura administrativos que foram introduzidos com a versão 1804 não devem ser usados. Os tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são **assinatura de medição**, e **assinatura de consumo**. Esses tipos de assinatura são visíveis em novos ambientes Azure Stack, começando com a versão 1804, mas ainda não estão prontos para uso. Você deve continuar a usar o **assinatura do provedor padrão** tipo.
@@ -417,17 +417,17 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 ### <a name="new-features"></a>Novos recursos
 Esta compilação inclui os seguintes aprimoramentos e correções para o Azure Stack.  
 
-- <!-- 1658937 | ASDK, IS --> **Iniciar backups em um agendamento previamente definido** -como um dispositivo do Azure Stack agora podem disparar automaticamente backups de infra-estrutura periodicamente para eliminar a intervenção humana. O Azure Stack limpará automaticamente o compartilhamento externo para backups mais antigos que o período de retenção definido. Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 1658937 | ASDK, IS --> **Iniciar backups em um agendamento previamente definido** -como um dispositivo do Azure Stack agora podem disparar automaticamente backups de infra-estrutura periodicamente para eliminar a intervenção humana. O Azure Stack limpará automaticamente o compartilhamento externo para backups mais antigos que o período de retenção definido. Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
-- <!-- 2496385 | ASDK, IS -->  **Hora em que o tempo de backup total de transferência de dados adicionados.** Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- <!-- 2496385 | ASDK, IS -->  **Hora em que o tempo de backup total de transferência de dados adicionados.** Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
 
--   <!-- 1702130 | ASDK, IS -->  **De capacidade de backup externa agora mostra a capacidade correta do compartilhamento externo.** (Isso era difícil de código até 10 GB.) Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+-   <!-- 1702130 | ASDK, IS -->  **De capacidade de backup externa agora mostra a capacidade correta do compartilhamento externo.** (Isso era difícil de código até 10 GB.) Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](../azure-stack-backup-enable-backup-powershell.md).
  
 - <!-- 2753130 |  IS, ASDK   -->  **Modelos do Gerenciador de recursos do Azure agora dão suporte ao elemento de condição** -agora você pode implantar um recurso em um modelo do Gerenciador de recursos do Azure usando uma condição. Você pode criar seu modelo para implantar um recurso com base em uma condição, como avaliar se um valor de parâmetro estiver presente. Para obter informações sobre como usar um modelo como uma condição, consulte [implantar condicionalmente um recurso](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) e [seção variáveis dos modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) na documentação do Azure. 
 
    Você também pode usar modelos para [implantar recursos em mais de uma assinatura ou grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
-- <!--2753073 | IS, ASDK -->  **O suporte de versão do recurso Microsoft. Network API foi atualizado** para incluir suporte para a API versão 2017-10-01 de 2015-06-15 para recursos de rede do Azure Stack.  Suporte para versões de recurso entre 2017-10-01 e 2015-06-15 não está incluído nesta versão, mas será incluído em uma versão futura.  Consulte a [considerações sobre a rede do Azure Stack](.\.\user\azure-stack-network-differences.md) para diferenças de funcionalidade.
+- <!--2753073 | IS, ASDK -->  **O suporte de versão do recurso Microsoft. Network API foi atualizado** para incluir suporte para a API versão 2017-10-01 de 2015-06-15 para recursos de rede do Azure Stack.  Suporte para versões de recurso entre 2017-10-01 e 2015-06-15 não está incluído nesta versão, mas será incluído em uma versão futura.  Consulte a [considerações sobre a rede do Azure Stack](../user/azure-stack-network-differences.md) para diferenças de funcionalidade.
 
 - <!-- 2272116 | IS, ASDK   -->  **O Azure Stack adicionou suporte para pesquisas inversas de DNS para pontos de extremidade de infraestrutura do Azure Stack com face externa** (que é para o portal, adminportal, gerenciamento e adminmanagement). Isso permite que os nomes de ponto de extremidade externo do Azure Stack ser resolvido a partir de um endereço IP.
 
@@ -444,11 +444,11 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 
   Porque esse recurso ainda está em visualização, você não confiar em ambientes de produção.
 
-  Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack](.\.\azure-stack-integrate-security.md).
+  Para obter mais informações, consulte [encaminhamento de syslog do Azure Stack](../azure-stack-integrate-security.md).
 
 - <!-- ####### | IS, ASDK -->  **O Azure Resource Manager inclui o nome da região.** Com esta versão, os objetos recuperados do Azure Resource Manager agora incluirá o atributo de nome de região. Se um script PowerShell existente diretamente passa o objeto para outro cmdlet, o script pode produzir um erro e falha. Isso é o comportamento compatível com o Azure Resource Manager e exige que o cliente da chamada subtrair o atributo região. Para obter mais informações sobre o Azure Resource Manager, consulte [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/).
 
-- <!-- TBD | IS, ASDK -->  **Mova assinaturas entre provedores de delegado.** Agora você pode mover assinaturas entre as assinaturas de provedor delegada novas ou existentes que pertencem ao mesmo locatário do diretório. As assinaturas que pertencem à assinatura do provedor padrão também podem ser movidas para as assinaturas de provedor delegada no mesmo locatário de diretório. Para obter mais informações, consulte [delegar ofertas no Azure Stack](.\.\azure-stack-delegated-provider.md).
+- <!-- TBD | IS, ASDK -->  **Mova assinaturas entre provedores de delegado.** Agora você pode mover assinaturas entre as assinaturas de provedor delegada novas ou existentes que pertencem ao mesmo locatário do diretório. As assinaturas que pertencem à assinatura do provedor padrão também podem ser movidas para as assinaturas de provedor delegada no mesmo locatário de diretório. Para obter mais informações, consulte [delegar ofertas no Azure Stack](../azure-stack-delegated-provider.md).
  
 - <!-- 2536808 IS ASDK --> **Aprimorada a hora de criação da VM** para VMs que são criadas com imagens, você pode baixar do marketplace do Azure.
 
@@ -464,7 +464,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 
 - <!-- 2215948 |  ASDK, IS --> A lista de backup agora é atualizada quando você excluir manualmente o backup do compartilhamento externo.
 
-- <!-- 2360715 |  ASDK, IS -->  Quando você configura a integração do datacenter, você não mais acessar o arquivo de metadados do AD FS de um compartilhamento. Para obter mais informações, consulte [configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
+- <!-- 2360715 |  ASDK, IS -->  Quando você configura a integração do datacenter, você não mais acessar o arquivo de metadados do AD FS de um compartilhamento. Para obter mais informações, consulte [configurar a integração do AD FS, fornecendo o arquivo de metadados de Federação](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
 
 - <!-- 2388980 | ASDK, IS --> Corrigimos um problema que impedia os usuários de atribuído um endereço IP público existente que foi anteriormente atribuído a uma Interface de rede ou um balanceador de carga para uma nova Interface de rede ou balanceador de carga.  
 
@@ -511,7 +511,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 - É possível aplicar as atualizações de driver por meio de um pacote de extensão de OEM com esta versão do Azure Stack.  Não há nenhuma solução alternativa para esse problema.
  
 <!-- TBD - IS ASDK --> 
-- A capacidade [para abrir uma nova solicitação de suporte na lista suspensa](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
+- A capacidade [para abrir uma nova solicitação de suporte na lista suspensa](../azure-stack-manage-portals.md#quick-access-to-help-and-support) de dentro do administrador do portal não está disponível. Em vez disso, use o seguinte link:     
     - Para o Kit de desenvolvimento do Azure Stack, use https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -605,7 +605,7 @@ Esta compilação inclui os seguintes aprimoramentos e correções para o Azure 
 <!-- 2292271 - IS ASDK --> 
 - Se você aumentar um limite de cota para um recurso de rede que faz parte de uma oferta e o plano que está associado uma assinatura de locatário, o novo limite não é aplicado a essa assinatura. No entanto, o novo limite se aplica às novas assinaturas que são criadas depois que a cota for aumentada.
 
-  Para contornar esse problema, use um plano de complemento para aumentar a cota de rede quando o plano já está associado uma assinatura. Para obter mais informações, consulte como [disponibilizar um plano de complemento](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Para contornar esse problema, use um plano de complemento para aumentar a cota de rede quando o plano já está associado uma assinatura. Para obter mais informações, consulte como [disponibilizar um plano de complemento](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 <!-- 2304134 IS ASDK --> 
 - Você não pode excluir uma assinatura que tem recursos de zona DNS ou recursos de tabela de rotas associados a ele. Para excluir com êxito a assinatura, primeiro você deve excluir os recursos de zona DNS e a tabela de rotas da assinatura do locatário.
