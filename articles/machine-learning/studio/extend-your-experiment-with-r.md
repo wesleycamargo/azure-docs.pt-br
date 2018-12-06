@@ -1,10 +1,11 @@
 ---
-title: Estender o teste com R | Microsoft Docs
+title: Estenda sua experiência com o R - Azure Machine Learning Studio | Microsoft Docs
 description: Como estender a funcionalidade do Azure Machine Learning Studio por meio da linguagem R usando o módulo Executar o Script R.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1f05119d94611df2e75afc3a56d9682d1149326c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834467"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311001"
 ---
-# <a name="extend-your-experiment-with-r"></a>Estender seu experimento com R
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Microsoft Azure Machine Learning Studio: estenda seu experimento com o R 
 Você pode estender a funcionalidade do Machine Learning Studio do Azure por meio da linguagem R, usando o módulo [Executar Script R][execute-r-script].
 
 Esse módulo aceita vários conjuntos de dados de entrada e produz um único conjunto de dados como saída. Você pode digitar um script R no parâmetro **Script R** do módulo [Executar Script R][execute-r-script].
@@ -32,7 +33,7 @@ Você pode acessar cada porta de entrada do módulo usando código semelhante ao
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Listando todos os pacotes instalados no momento
-A lista de pacotes instalados pode mudar. Uma lista de pacotes atualmente instalados pode ser encontrada em [Pacotes R com suporte pelo Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt741980.aspx).
+A lista de pacotes instalados pode mudar. Uma lista de pacotes instalados atualmente pode ser encontrada em [R Packages Suportados pelo Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
 Obtenha também uma lista completa e atual dos pacotes instalados, digitando o seguinte código no módulo [Executar Script R][execute-r-script]:
 

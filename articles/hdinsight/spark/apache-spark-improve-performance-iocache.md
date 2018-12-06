@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954497"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581928"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Melhorar o desempenho de cargas de trabalho do Apache Spark usando o Cache de E/S do Azure HDInsight (versão prévia)
 
-O Cache de E/S é um serviço de cache de dados para o Azure HDInsight que melhora o desempenho de trabalhos do Apache Spark. O Cache de E/S também funciona com cargas de trabalho do Tez e do Hive, que podem ser executadas em clusters do Spark. O Cache de E/S usa um componente de cache de software livre chamado RubiX. O RubiX é um cache de disco local para uso com mecanismos de análise de big data que acessam dados de sistemas de armazenamento de nuvem. O RubiX é exclusivo entre os sistemas de cache porque usa unidades de estado sólido (SSDs) em vez de reservar memória operacional para fins de cache. O serviço de Cache de E/S é iniciado e gerencia Servidores de Metadados do RubiX nó de trabalho do cluster. Ele também configura todos os serviços do cluster para uso transparente do cache do RubiX.
+O Cache de E/S é um serviço de cache de dados para o Azure HDInsight que melhora o desempenho de trabalhos do Apache Spark. O cache de E/S também funciona com [Apache TEZ](https://tez.apache.org/) e [Apache Hive](https://hive.apache.org/) cargas de trabalho, que podem ser executadas nos clusters [Apache Spark](https://spark.apache.org/). O Cache de E/S usa um componente de cache de software livre chamado RubiX. O RubiX é um cache de disco local para uso com mecanismos de análise de big data que acessam dados de sistemas de armazenamento de nuvem. O RubiX é exclusivo entre os sistemas de cache porque usa unidades de estado sólido (SSDs) em vez de reservar memória operacional para fins de cache. O serviço de Cache de E/S é iniciado e gerencia Servidores de Metadados do RubiX nó de trabalho do cluster. Ele também configura todos os serviços do cluster para uso transparente do cache do RubiX.
 
 A maioria dos SSDs fornece mais de 1 GB por segundo de largura de banda. Essa largura de banda, complementada pelo cache de arquivo na memória do sistema operacional, fornece largura de banda suficiente para carregar os mecanismos de processamento de computação de big data, como o Apache Spark. A memória operacional fica disponível para o Apache Spark processar tarefas altamente dependentes da memória, como as ordens aleatórias. Ter o uso exclusivo da memória operacional permite que o Apache Spark atinja o uso ideal de recursos.  
 
@@ -52,7 +52,7 @@ O Cache de E/S do Azure HDInsight está desativado por padrão na versão prévi
   
 Você pode receber erros de espaço em disco ao executar trabalhos do Spark depois de habilitar o Cache de E/S. Esses erros acontecem porque o Spark também usa o armazenamento de disco local para armazenar dados durante operações de embaralhamento. O Spark poderá ocupar todo o espaço do SSD, já que o Cache de E/S está habilitado e o espaço para armazenamento do Spark é reduzido. A quantidade de espaço padrão usado pelo Cache de E/S é de metade do espaço total do SSD. O uso de espaço em disco para o Cache de E/S é configurável no Ambari. Se você receber erros de espaço em disco, reduza a quantidade de espaço de SSD usada pelo Cache de E/S e reinicie o serviço. Para alterar o espaço definido para o Cache de E/S, execute as seguintes etapas:
 
-1. No Ambari, selecione o serviço **HDFS** à esquerda.
+1. No Apache Ambari, selecione o serviço **HDFS** à esquerda.
 
 1. Selecione as guias **Configurações** e **Avançado**.
 

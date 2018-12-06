@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441928"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Azure Active Directory com o Leapsome
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Leapsome da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -107,7 +107,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Leapsome](./media/leapsome-tutorial/tutorial_leapsome_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `https://www.leapsome.com`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://www.leapsome.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
@@ -134,9 +134,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     | picture | URL para a imagem do funcionário | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > O valor do atributo de imagem não é real. Atualize esse valor com a URL da imagem real. Contate a [equipe de suporte ao cliente do Leapsome](mailto:support@leapsome.com) para obter esse valor.
+    > O valor do atributo de imagem não é real. Atualize esse valor com a URL da imagem real. Para obter esse valor, entre em contato com a  [equipe de suporte do Cliente Leapsome](mailto:support@leapsome.com).
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/leapsome-tutorial/tutorial_attribute_04.png)
 
@@ -172,11 +172,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     ![saml de Leapsome](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
-    a. Selecione **Habilitar Logon único baseado em SAML**.
+     a. Selecione **Habilitar Logon único baseado em SAML**.
 
     b. Copie o **URL de logon (ponto de seus usuários aqui para iniciar o logon)** valor e cole-o no **URL de logon** textbox em **Leapsome domínio e URLs** seção no portal do Azure.
 
-    c. Copiar o **URL de resposta (recebe a resposta do seu provedor de identidade)** valor e cole-o no **URL de resposta** textbox em **Leapsome domínio e URLs** seção no portal do Azure.
+    c. Copie o **valor URL de resposta (recebe a resposta do seu provedor de identidade)** e cole-o na caixa de texto **URL de resposta** na seção **Domínio e URLs Leapsome** no portal do Azure.
 
     d. Na caixa de texto **URL de Logon SSO (fornecida pelo provedor de identidade)**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
 
@@ -218,7 +218,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-leapsome-test-user"></a>Criar um usuário de teste Leapsome
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Leapsome. Trabalhe com a [equipe de suporte do Leapsome](mailto:support@leapsome.com) para adicionar os usuários ou o domínio necessários para estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma Leapsome. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Leapsome. Trabalhe com a  [Equipe de suporte do Cliente Leapsome](mailto:support@leapsome.com) para adicionar os usuários ou o domínio, que precisa estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os usuários serão automaticamente provisionados à plataforma Leapsome. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -255,7 +255,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco Leapsome no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo Leapsome.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

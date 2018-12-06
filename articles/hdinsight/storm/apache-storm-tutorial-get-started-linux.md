@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006542"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498277"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight usando os exemplos do storm-starter
 
-Saiba como usar o Apache Storm no HDInsight usando os exemplos de storm-starter.
+Aprenda a usar o [Apache Storm](http://storm.apache.org/) no HDInsight usando os exemplos de início de tempestade.
 
 O Apache Storm é um sistema de computação escalável, tolerante a falhas, distribuído e em tempo real para o processamento de fluxos de dados. Com o Storm no Azure HDInsight, você pode criar um cluster Storm baseado em nuvem que execute análise de big data em tempo real.
 
@@ -34,7 +34,7 @@ O Apache Storm é um sistema de computação escalável, tolerante a falhas, dis
 
 * **Familiaridade com o SSH e o SCP**. Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="create-a-storm-cluster"></a>Criar um cluster Storm
+## <a name="create-an-apache-storm-cluster"></a>Crie um cluster do Apache Storm
 
 Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
@@ -139,7 +139,7 @@ Use as etapas a seguir para monitorar a topologia usando a interface do usuário
 
     * **Desativar** - pausa uma topologia em execução.
 
-    * **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. A redistribuição ajusta o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Reequilibrar** - ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. A redistribuição ajusta o paralelismo para compensar o aumento/diminuição do número de nós no cluster. Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Eliminar** - encerra uma topologia do Storm após o tempo limite especificado.
 
@@ -187,15 +187,15 @@ Se você tiver um problema com a criação de clusters HDInsight, consulte [requ
 
 ## <a id="next"></a>Próximas etapas
 
-Nesse tutorial do Apache Storm você aprendeu os fundamentos do trabalho com o Storm no HDInsight. A seguir, aprenda a [Desenvolver topologias baseadas em Java usando o Maven](apache-storm-develop-java-topology.md).
+Nesse tutorial do Apache Storm você aprendeu os fundamentos do trabalho com o Storm no HDInsight. Em seguida, aprenda como [Desenvolver topologias baseadas em Java usando o Apache Maven](apache-storm-develop-java-topology.md).
 
 Se você já está familiarizado com o desenvolvimento de topologias baseadas em Java, consulte o documento [Implantar e gerenciar topologias Apache Storm no HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
-Se você for um desenvolvedor .NET, poderá criar topologias em C# ou híbridas C#/Java usando o Visual Studio. Para obter mais informações, consulte [Desenvolver topologias C# para o Apache Storm no HDInsight usando ferramentas do Hadoop para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+Se você for um desenvolvedor .NET, poderá criar topologias em C# ou híbridas C#/Java usando o Visual Studio. Para obter mais informações, consulte [Desenvolva topologias C# para o Apache Storm no HDInsight usando as ferramentas Apache Hadoop para o Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Por exemplo, topologias que podem ser usadas com o Storm no HDInsight. Confira os exemplos abaixo:
 
-* [Topologias de exemplo para Storm no HDInsight](apache-storm-example-topology.md)
+* [Topologias de exemplo para Apache Storm no HDInsight](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

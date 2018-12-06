@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283879"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423340"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribuição global do Azure Cosmos DB – nos bastidores
 
@@ -72,7 +72,7 @@ Para os bancos de dados do Cosmos configurados com várias regiões de gravaçã
 
 Se você configurar seu banco de dados do Cosmos com uma ou várias regiões de gravação, poderá escolher entre cinco modelos de coerência bem definidos. Com o suporte adicionado recentemente para habilitar várias regiões de gravação, estes são alguns aspectos importantes dos níveis de coerência:  
 
-Como antes, a coerência de desatualização limitada garante que todas as leituras estejam dentro de prefixos k ou segundos t da gravação mais recente em qualquer uma das regiões. Além disso, leituras com coerência de desatualização limitada são asseguradamente monotônicas e têm garantias de prefixo coerente. O protocolo antientropia opera de maneira limitada por taxa e garante que os prefixos não se acumulam e a contrapressão sobre as gravações não precisem ser aplicadas. Como antes, a coerência de sessão assegura garantias de leitura monotônica, gravação monotônica, ler suas próprias gravações, gravação segue a leitura e prefixo coerente em todo o mundo. Para bancos de dados configurados com coerência forte, o sistema alterna de volta para uma única região de gravação ao designar um líder em cada um dos conjuntos de partições. 
+Como antes, a coerência de desatualização limitada garante que todas as leituras estejam dentro de prefixos k ou segundos t da gravação mais recente em qualquer uma das regiões. Além disso, leituras com coerência de desatualização limitada são asseguradamente monotônicas e têm garantias de prefixo coerente. O protocolo antientropia opera de maneira limitada por taxa e garante que os prefixos não se acumulam e a contrapressão sobre as gravações não precisem ser aplicadas. Como antes, a coerência de sessão assegura garantias de leitura monotônica, gravação monotônica, ler suas próprias gravações, gravação segue a leitura e prefixo coerente em todo o mundo. Para bancos de dados configurados com coerência forte, os benefícios de vários mestres (latência de gravação baixa, gravação de alta disponibilidade) não se aplica devido à replicação síncrona entre regiões.
 
 A semântica dos cinco modelos de coerência no Cosmos DB é descrita [aqui](consistency-levels.md) e matematicamente mostrada usando um especificações de alto nível de TLA+ [aqui](https://github.com/Azure/azure-cosmos-tla).
 
@@ -81,5 +81,5 @@ A semântica dos cinco modelos de coerência no Cosmos DB é descrita [aqui](con
 Em seguida, saiba como configurar a distribuição global usando os seguintes artigos:
 
 * [Como configurar clientes para multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Como adicionar/remover regiões do seu banco de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Adicionar ou remover regiões de sua conta de banco de dados](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Como criar uma política de resolução de conflitos personalizada para contas da API do SQL](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

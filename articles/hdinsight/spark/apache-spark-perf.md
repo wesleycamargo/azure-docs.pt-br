@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047435"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499137"
 ---
-# <a name="optimize-spark-jobs"></a>Otimizar trabalhos do Spark
+# <a name="optimize-apache-spark-jobs"></a>Otimizar trabalhos do Apache Spark
 
-Saiba como otimizar a configuração de cluster do Spark para a carga de trabalho específica.  O desafio mais comum é a demanda de memória, devido a configurações incorretas (particularmente, executores de tamanho errado), operações de execução longa e tarefas que resultam em operações Cartesianas. É possível acelerar os trabalhos com o armazenamento em cache apropriado e permitir [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e revise as execuções de trabalho do Spark de execução longa e consumo de recursos.
+Saiba como otimizar a configuração de cluster do [Apache Spark](https://spark.apache.org/) para a carga de trabalho específica.  O desafio mais comum é a demanda de memória, devido a configurações incorretas (particularmente, executores de tamanho errado), operações de execução longa e tarefas que resultam em operações Cartesianas. É possível acelerar os trabalhos com o armazenamento em cache apropriado e permitir [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitore e revise as execuções de trabalho do Spark de execução longa e consumo de recursos.
 
 As seções a seguir descrevem as recomendações e otimizações de trabalho do Spark comuns.
 
@@ -94,7 +94,7 @@ Para sua referência, a estrutura da memória do Spark e alguns parâmetros da m
 
 ### <a name="spark-memory-considerations"></a>Considerações de memória do Spark
 
-Se estiver utilizando YARN, então, o YARN controlará a soma máxima da memória usada por todos os contêineres em cada nó do Spark.  O diagrama a seguir mostra os objetos de chave e os respectivos relacionamentos.
+Se estiver utilizando [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), então, o YARN controlará a soma máxima da memória usada por todos os contêineres em cada nó do Spark.  O diagrama a seguir mostra os objetos de chave e os respectivos relacionamentos.
 
 ![Gerenciamento de memória YARN do Spark](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Depurar trabalhos do Spark em execução no Microsoft Azure HDInsight](apache-spark-job-debugging.md)
-* [Gerenciar recursos para um cluster Spark no HDInsight](apache-spark-resource-manager.md)
-* [Use a API REST do Spark para enviar trabalhos remotos para um cluster Spark](apache-spark-livy-rest-interface.md)
-* [Ajustar Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Como realmente ajustar o funcionamento dos trabalhos do Spark](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Depurar trabalhos do Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
+* [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
+* [Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do Apache Spark](apache-spark-livy-rest-interface.md)
+* [Ajuste do Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Como realmente ajustar o funcionamento dos trabalhos do Apache Spark](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Serialização Kryo](https://github.com/EsotericSoftware/kryo)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441644"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582880"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 
@@ -23,7 +23,7 @@ ms.locfileid: "37441644"
 
 Usando as políticas personalizadas do Azure AD B2C (Azure Active Directory B2C), é possível enviar um parâmetro em uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo se concentra em como personalizar a interface do usuário do Azure AD B2C com *conteúdo dinâmico* usando políticas personalizadas. Para começar, consulte [UI customization in a custom policy](active-directory-b2c-ui-customization-custom.md) (Personalização da interface do usuário em uma política personalizada). 
 
 >[!NOTE]
@@ -103,7 +103,7 @@ O modelo HTML5 personalizado baseia-se no modelo HTML5 interno do Azure AD B2C. 
 
 6. Se o arquivo *unified.cshtml* ainda não estiver aberto, clique duas vezes nele para abri-lo e apague o conteúdo do arquivo.
 
-7. Neste passo a passo, removemos a referência à página de layout. Adicione o seguinte trecho de código a _unified.cshtml_:
+7. Neste passo a passo, removemos a referência à página de layout. Adicione o seguinte snippet de código a _unified.cshtml_:
 
     ```csharp
     @{
@@ -178,7 +178,7 @@ Localize o `<img>` elemento que contém o `ID` valor *background_background_imag
 
 3. Na janela **CORS**, na caixa **Origens permitidas**, siga um destes procedimentos:
 
-    * Insira a URL ou URLs das quais você deseja que as chamadas JavaScript venham.
+    * Insira a URL ou URLs das quais você deseja que as chamadas JavaScript venham. Você precisa usar todas as letras minúsculas nas URLs que você inseriu.
     * Insira um asterisco ( * ) para especificar que todos os domínios de origem são aceitos.
 
 4. Clique em **Salvar**.
@@ -249,7 +249,7 @@ Adicione o elemento `ContentDefinitionParameters` fazendo o seguinte:
 
 2. Pesquise o nó `<DefaultUserJourney>`. 
 
-3. No nó `<DefaultUserJourney>`, adicione o seguinte trecho de código XML:  
+3. No nó `<DefaultUserJourney>`, adicione o seguinte snippet de código XML:  
 
     ```XML
     <UserJourneyBehaviors>
@@ -262,7 +262,7 @@ Adicione o elemento `ContentDefinitionParameters` fazendo o seguinte:
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Etapa 8.2: Alterar seu código para aceitar um parâmetro de cadeia de caracteres de consulta e substituir a imagem de tela de fundo
 Modifique o método `unified` do HomeController para aceitar o parâmetro campaignId. O método verifica, então, o valor do parâmetro e define a variável `ViewData["background"]` adequadamente.
 
-1. Abra o arquivo *Controllers\HomeController.cs* e, em seguida, altere o método `unified` adicionando o seguinte trecho de código:
+1. Abra o arquivo *Controllers\HomeController.cs* e, em seguida, altere o método `unified` adicionando o seguinte snippet de código:
 
     ```csharp
     public IActionResult unified(string campaignId)
@@ -319,7 +319,7 @@ Modifique o método `unified` do HomeController para aceitar o parâmetro campai
 Se você selecionar o link **Inscrever-se agora** na página de entrada, o navegador exibirá a imagem de tela de fundo padrão, não a imagem que você definiu. Esse comportamento ocorre porque você alterou apenas a página de inscrição ou de entrada. Para alterar o restante das definições de conteúdo autodeclarado:
 1. Volte para a “Etapa 2” e faça o seguinte:
 
-    a. Baixe o arquivo *selfasserted*.
+     a. Baixe o arquivo *selfasserted*.
 
     b. Copie o conteúdo do arquivo.
 
@@ -329,7 +329,7 @@ Se você selecionar o link **Inscrever-se agora** na página de entrada, o naveg
 
 2. Volte para a “Etapa 4” e faça o seguinte: 
 
-    a. Na política de extensão, localize o nó `<ContentDefinition>` que contém `Id="api.selfasserted"`, `Id="api.localaccountsignup"` e `Id="api.localaccountpasswordreset"`.
+     a. Na política de extensão, localize o nó `<ContentDefinition>` que contém `Id="api.selfasserted"`, `Id="api.localaccountsignup"` e `Id="api.localaccountpasswordreset"`.
 
     b. Defina o atributo `LoadUri` para seu URI *selfasserted*.
 

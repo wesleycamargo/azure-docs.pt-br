@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256265"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422789"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar-se para fazer backup de VMs do Azure
 
@@ -34,7 +34,7 @@ Se essas condições já existem em seu ambiente, prossiga para o artigo [Fazer 
 
 ## <a name="supported-operating-systems-for-backup"></a>Versões de sistema operacional compatíveis para backup
 
- * **Linux**: o Backup do Azure é compatível [uma lista de distribuições endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) exceto o CoreOS Linux. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: o Backup do Azure oferece suporte a [uma lista de distribuições que o Azure endossa](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto o CoreOS Linux e o sistema operacional de 32 bits. Para a lista de sistemas operacionais Linux que possuem suporte para restauração de arquivos, consulte [Recuperação de arquivos para backup de máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Outras distribuições personalizadas do Linux devem funcionar, contanto que o agente de VM esteja disponível na máquina virtual e exista suporte para Python. No entanto, não há suporte para essas distribuições.
@@ -49,13 +49,14 @@ Antes de preparar seu ambiente, note as seguintes limitações:
 * O backup de máquinas virtuais de Linux criptografadas por meio da criptografia LUKS (Linux Unified Key Setup) não é compatível.
 * Não é recomendável fazer backup de VMs que contêm a configuração CSV (Volume Compartilhado Clusterizado) ou Servidor de Arquivos de Escalabilidade Horizontal. Se tiver feito, será esperado que os gravadores CSV falhem. Elas exigem o envolvimento de todas as VMs incluídas na configuração do cluster durante a tarefa de instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs.
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
-* Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
+* **Substitua a opção existente**  na **Configuração de restauração** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. 
 * Não há suporte para backup e restauração entre regiões.
 * Ao configurar o backup, certifique-se de que as configurações de **Firewalls e redes virtuais** da conta de armazenamento permitem o acesso de Todas as redes.
 * Para redes selecionadas, depois de configurar as definições de firewall e rede virtual para sua conta de armazenamento, selecione **Permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento** como uma exceção para habilitar o serviço de Backup do Microsoft Azure para acessar a conta de armazenamento restrita de rede. Não há suporte para a recuperação de nível de item para contas de armazenamento restritas de rede.
 * Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Veja a [lista](https://azure.microsoft.com/regions/#services) das regiões com suporte.) Se o suporte ainda não estiver disponível para região que você procura, ela não aparecerá na lista suspensa durante a criação de cofre.
 * A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, consulte [Restaurando um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * O instantâneo no disco habilitado do Accelerator de Gravação não tem suporte. Essa restrição bloqueia a capacidade do serviço de Backup do Azure de executar um instantâneo consistente de todos os discos da máquina virtual.
+* O Backup do Azure não oferece suporte ao ajuste automático do relógio para alterações de horário de verão para backup da VM do Azure. Se necessário, modifique a política para levar em conta a mudança do horário de verão.
 * Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. As VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restauração de VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Máquinas virtuais sob configuração do balanceador de carga (interno e externo)
   * Máquinas virtuais com vários endereços IP reservados

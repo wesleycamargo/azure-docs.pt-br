@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005947"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496912"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -65,7 +65,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 1. Como opção, você pode executar verificações de diagnóstico com um teste de diagnóstico da seguinte forma:
 
-    a. No menu principal, selecione **6** para executar testes de diagnóstico.
+     a. No menu principal, selecione **6** para executar testes de diagnóstico.
 
     ![operações de uma caixa](./media/r-server-operationalize/diagnostic-1.png)
 
@@ -79,9 +79,9 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
     d. Nas opções de menu apresentadas, insira **E** para retornar ao menu principal e, em seguida, digite **8** para sair do utilitário de administração.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Atrasos longos ao consumir um serviço web no Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Atrasos longos ao consumir um serviço web no Apache Spark
 
-Se você tiver longos atrasos ao tentar consumir um serviço web criado com as funções mrsdeploy no contexto de computação do Spark, talvez seja necessário adicionar algumas pastas ausentes. O aplicativo Spark pertence a um usuário chamado '*rserve2*' sempre que ele é chamado de um serviço web usando as funções mrsdeploy. Para resolver o problema:
+Se você tiver longos atrasos ao tentar consumir um serviço web criado com as funções mrsdeploy no contexto de computação do Apache Spark, talvez seja necessário adicionar algumas pastas ausentes. O aplicativo Spark pertence a um usuário chamado '*rserve2*' sempre que ele é chamado de um serviço web usando as funções mrsdeploy. Para resolver o problema:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Para expandir os nós de computação, desativa os nós de trabalho e, em seguid
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Etapa 1: Desativar os nós de trabalho
 
-O cluster do ML Services não é gerenciado pelo YARN. Se os nós de trabalho não forem encerrados, o Gerenciador de Recursos YARN não funcionará como esperado porque não estará ciente dos recursos consumidos pelo servidor. Para evitar essa situação,recomendamos desativar os nós de trabalho antes de expandir os nós de computação.
+O cluster do ML Services não é gerenciado pelo [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se os nós de trabalho não forem encerrados, o Gerenciador de Recursos YARN não funcionará como esperado porque não estará ciente dos recursos consumidos pelo servidor. Para evitar essa situação,recomendamos desativar os nós de trabalho antes de expandir os nós de computação.
 
 Siga estas etapas para desativar os nós de trabalho:
 

@@ -1,10 +1,11 @@
 ---
-title: Usar os conjuntos de dados de exemplo no Machine Learning Studio | Microsoft Docs
+title: Use os conjuntos de dados de amostra - Azure Machine Learning Studio|Microsoft Docs
 description: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Machine Learning Studio. É possível usar esses conjuntos de dados de exemplo para seus testes.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398794"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308827"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usar os conjuntos de dados de amostra no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets

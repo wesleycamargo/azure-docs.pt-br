@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567121"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498252"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Gravar para HDFS do Apache Storm no HDInsight
+# <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escreva para o Apache Hadoop HDFS do Apache Storm no HDInsight
 
-Saiba como usar o Storm para gravar dados no armazenamento compatível com HDFS usado pelo Apache Storm no HDInsight. O HDInsight pode usar o Armazenamento do Azure e o Azure Data Lake Store como armazenamento compatível com HDFS. O Storm fornece um componente [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que grava dados no HDFS. Esse documento fornece informações sobre como gravar em qualquer um dos tipos de armazenamento do HdfsBolt. 
+Aprenda a usar o [Apache Storm](http://storm.apache.org/) para gravar dados no armazenamento compatível com HDFS usado pelo Apache Storm no HDInsight. O HDInsight pode usar o Armazenamento do Azure e o Azure Data Lake Store como armazenamento compatível com HDFS. O Storm fornece um componente [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) que grava dados no HDFS. Esse documento fornece informações sobre como gravar em qualquer um dos tipos de armazenamento do HdfsBolt. 
 
 > [!IMPORTANT]
 > A topologia de exemplo usada neste documento depende de componentes que estão incluídos com o Storm no HDInsight. Pode exigir modificações para funcionar com o Azure Data Lake Store quando usado com outros clusters do Apache Storm.
@@ -129,7 +129,7 @@ Esse YAML define os seguintes itens:
 * `rotationPolicy`: define quando girar arquivos. Neste exemplo, nenhuma rotação é executada.
 * `hdfs-bolt`: usa os componentes anteriores como parâmetros de configuração para a classe `HdfsBolt`.
 
-Para obter mais informações sobre a estrutura do Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Para obter mais informações sobre a estrutura do Flux, consulte [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurar o cluster
 
@@ -219,5 +219,5 @@ As topologias do Storm são executadas até serem interrompidas ou o cluster ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar o Storm para gravar no Armazenamento do Azure e no Azure Data Lake Store, descubra outros [exemplos do Storm para HDInsight](apache-storm-example-topology.md).
+Agora que você aprendeu a usar o Apache Storm para gravar no Armazenamento do Microsoft Azure e no Azure Data Lake Store, descubra outros [exemplos do Apache Storm para o HDInsight](apache-storm-example-topology.md).
 

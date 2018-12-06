@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805100"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974460"
 ---
 <a name="retrieve-operations"></a>Recuperar operações
 ===================
@@ -40,7 +40,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
+|  publisherId       |  Identificador do editor, por exemplo `Contoso`                                                                   |  Cadeia de caracteres       |
 |  offerId           |  Identificador da oferta                                                                                              |  Cadeia de caracteres       |
 |  operationId       |  GUID que identifica exclusivamente a operação na oferta. A operationId pode ser recuperada usando essa API e também é retornada no cabeçalho HTTP da resposta para qualquer operação longa, como a API [Publicar oferta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  filteredStatus    | Parâmetro de consulta opcional usado para filtrar por status (por exemplo, `running`) na coleção retornada por essa API.  |   Cadeia de caracteres |
@@ -189,7 +189,7 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  submissionType              | Identifica o tipo de operação que está sendo relatada para a oferta, por exemplo, `Publish/GGoLive`      |
 |  createdDateTime             | Data e hora em UTC quando a operação foi criada                                                       |
 |  lastActionDateTime          | Data e hora em UTC quando a última atualização foi feita na operação                                       |
-|  status                      | Status da operação, ou 'não iniciado | executando | falhou | concluído`. Only one operation can have status `executando` de cada vez. |
+|  status                      | Status da operação, qualquer um dos `not started` \| `running` \| `failed` \| `completed`. Apenas uma operação pode ter um status `running` por vez. |
 |  error                       | Mensagem de erro para operações com falha                                                               |
 |  |  |
 
@@ -201,5 +201,5 @@ Recuperar todas as operações na oferta ou obter uma operação específica par
 |  200      | `OK` - A solicitação foi processada com êxito e as operações solicitadas foram retornadas.        |
 |  400      | `Bad/Malformed request` - O corpo da resposta de erro pode conter mais informações.                    |
 |  403      | `Forbidden` - O cliente não tem acesso ao namespace especificado.                          |
-|  404      | `Not found` - A entidade especificada não existe.                                                 |
+|  404      | `Not found` – a entidade especificada não existe.                                                 |
 |  |  |

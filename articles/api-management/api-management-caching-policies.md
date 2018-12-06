@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246830"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620567"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -46,7 +46,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
+<cache-lookup vary-by-developer="true | false" vary-by-developer-groups="true | false" cache-preference="prefer-external | external | internal" downstream-caching-type="none | private | public" must-revalidate="true | false" allow-private-response-caching="@(expression to evaluate)">  
   <vary-by-header>Accept</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Accept-Charset</vary-by-header>  
@@ -68,7 +68,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 <policies>  
     <inbound>  
         <base />  
-        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true">  
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="none" must-revalidate="true" cache-preference="internal" >  
             <vary-by-query-parameter>version</vary-by-query-parameter>  
         </cache-lookup>           
     </inbound>  
@@ -112,14 +112,15 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="attributes"></a>Atributos  
   
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|  
-|----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Quando definido como `true`, permite armazenar em cache as solicitações que contêm um cabeçalho Authorization.|Não |falso|  
-|downstream-caching-type|Este atributo deve ser definido como um dos valores a seguir.<br /><br /> -   none: o cache downstream não é permitido.<br />-   private: o cache downstream privado é permitido.<br />-   public: o cache downstream privado e compartilhado é permitido.|Não |Nenhum|  
-|must-revalidate|Quando o cache downstream está habilitado, este atributo ativa ou desativa a diretiva de controle de cache `must-revalidate` em respostas do gateway.|Não |verdadeiro|  
-|vary-by-developer|Definido como `true` para respostas em cache por chave de desenvolvedor.|SIM||  
-|vary-by-developer-groups|Definido como `true` para respostas em cache por função de usuário.|SIM||  
-  
+| NOME                           | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão           |
+|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| allow-private-response-caching | Quando definido como `true`, permite armazenar em cache as solicitações que contêm um cabeçalho Authorization.                                                                                                                                                                                                                                                                        | Não        | falso             |
+| cache-preference               | Escolha entre os seguintes valores do atributo:<br />- `internal` para usar o cache interno do Gerenciamento de API,<br />- `external` para usar o cache externo, conforme descrito em [Usam um cache Redis externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` para usar cache externo se configurado ou cache interno. | Não        | `prefer-external` |
+| downstream-caching-type        | Este atributo deve ser definido como um dos valores a seguir.<br /><br /> -   none: o cache downstream não é permitido.<br />-   private: o cache downstream privado é permitido.<br />-   public: o cache downstream privado e compartilhado é permitido.                                                                                                          | Não        | Nenhum              |
+| must-revalidate                | Quando o cache downstream está habilitado, este atributo ativa ou desativa a diretiva de controle de cache `must-revalidate` em respostas do gateway.                                                                                                                                                                                                                      | Não        | verdadeiro              |
+| vary-by-developer              | Definido como `true` para respostas em cache por chave de desenvolvedor.                                                                                                                                                                                                                                                                                                         | SIM      |                   |
+| vary-by-developer-groups       | Definido como `true` para respostas em cache por função de usuário.                                                                                                                                                                                                                                                                                                             | SIM      |                   |  
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -188,10 +189,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="attributes"></a>Atributos  
   
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|  
-|----------|-----------------|--------------|-------------|  
-|duration|Vida útil das entradas armazenadas em cache, especificada em segundos.|SIM|N/D|  
-  
+| NOME             | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| duration         | Vida útil das entradas armazenadas em cache, especificada em segundos.                                                                                                                                                                                                                                                                                                   | SIM      | N/D               |  
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -209,7 +210,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ```xml  
 <cache-lookup-value key="cache key value"   
     default-value="value to use if cache lookup resulted in a miss"   
-    variable-name="name of a variable looked up value is assigned to" />  
+    variable-name="name of a variable looked up value is assigned to"  
+    cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Exemplo  
@@ -230,12 +232,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="attributes"></a>Atributos  
   
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|  
-|----------|-----------------|--------------|-------------|  
-|default-value|Um valor que será atribuído à variável se a pesquisa de chave em cache resultou em um erro. Se esse atributo não for especificado, `null` é atribuído.|Não |`null`|  
-|chave|Valor de chave de cache a usar na pesquisa.|SIM|N/D|  
-|variable-name|Nome da [variável de contexto](api-management-policy-expressions.md#ContextVariables) a atribuir para o valor pesquisado, se a pesquisa for bem-sucedida. Se a pesquisa resulta em um erro, a variável será atribuída o valor do atributo `default-value` ou `null`, se o atributo `default-value` for omitido.|SIM|N/D|  
-  
+| NOME             | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Escolha entre os seguintes valores do atributo:<br />- `internal` para usar o cache interno do Gerenciamento de API,<br />- `external` para usar o cache externo, conforme descrito em [Usam um cache Redis externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` para usar cache externo se configurado ou cache interno. | Não        | `prefer-external` |
+| default-value    | Um valor que será atribuído à variável se a pesquisa de chave em cache resultou em um erro. Se esse atributo não for especificado, `null` é atribuído.                                                                                                                                                                                                           | Não        | `null`            |
+| chave              | Valor de chave de cache a usar na pesquisa.                                                                                                                                                                                                                                                                                                                       | SIM      | N/D               |
+| variable-name    | Nome da [variável de contexto](api-management-policy-expressions.md#ContextVariables) a atribuir para o valor pesquisado, se a pesquisa for bem-sucedida. Se a pesquisa resulta em um erro, a variável será atribuída o valor do atributo `default-value` ou `null`, se o atributo `default-value` for omitido.                                       | SIM      | N/D               |  
+
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
@@ -251,7 +254,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
-<cache-store-value key="cache key value" value="value to cache" duration="seconds" />  
+<cache-store-value key="cache key value" value="value to cache" duration="seconds" cache-preference="prefer-external | external | internal" />  
 ```  
   
 ### <a name="example"></a>Exemplo  
@@ -272,11 +275,12 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ### <a name="attributes"></a>Atributos  
   
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|  
-|----------|-----------------|--------------|-------------|  
-|duration|Valor será armazenado em cache para o valor de duração fornecido, especificado em segundos.|SIM|N/D|  
-|chave|A chave em cache em que o valor será armazenado.|SIM|N/D|  
-|value|O valor a ser armazenado em cache.|SIM|N/D|  
+| NOME             | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Escolha entre os seguintes valores do atributo:<br />- `internal` para usar o cache interno do Gerenciamento de API,<br />- `external` para usar o cache externo, conforme descrito em [Usam um cache Redis externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` para usar cache externo se configurado ou cache interno. | Não        | `prefer-external` |
+| duration         | Valor será armazenado em cache para o valor de duração fornecido, especificado em segundos.                                                                                                                                                                                                                                                                                 | SIM      | N/D               |
+| chave              | A chave em cache em que o valor será armazenado.                                                                                                                                                                                                                                                                                                                   | SIM      | N/D               |
+| value            | O valor a ser armazenado em cache.                                                                                                                                                                                                                                                                                                                                     | SIM      | N/D               |
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
@@ -285,13 +289,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos de política:** global, API, operação, produto  
   
 ###  <a name="RemoveCacheByKey"></a> Remover valor do cache  
-`cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
+`cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política.  
   
 #### <a name="policy-statement"></a>Declaração de política  
   
 ```xml  
   
-<cache-remove-value key="cache key value"/>  
+<cache-remove-value key="cache key value" cache-preference="prefer-external | external | internal"  />  
   
 ```  
   
@@ -311,9 +315,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 #### <a name="attributes"></a>Atributos  
   
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|  
-|----------|-----------------|--------------|-------------|  
-|chave|A chave do valor anteriormente armazenado em cache a ser removido do cache.|SIM|N/D|  
+| NOME             | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                 | Obrigatório | Padrão           |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| cache-preference | Escolha entre os seguintes valores do atributo:<br />- `internal` para usar o cache interno do Gerenciamento de API,<br />- `external` para usar o cache externo, conforme descrito em [Usam um cache Redis externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` para usar cache externo se configurado ou cache interno. | Não        | `prefer-external` |
+| chave              | A chave do valor anteriormente armazenado em cache a ser removido do cache.                                                                                                                                                                                                                                                                                        | SIM      | N/D               |
   
 #### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  

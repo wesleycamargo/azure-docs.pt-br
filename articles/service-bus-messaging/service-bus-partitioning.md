@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423163"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285060"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -38,7 +38,7 @@ Para usar filas e tópicos particionados com o Barramento de Serviço do Azure, 
 
 ### <a name="standard"></a>Standard
 
-Na camada de mensagens Standard, é possível criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 cópias (16 partições) da entidade para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 \* 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal], na folha **Visão Geral** da entidade em questão.
+Na camada de mensagens Standard, é possível criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 4 cópias (4 partições) da entidade para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 4 partições, o tamanho máximo da fila será (5 \* 4) = 20 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Azure portal], na folha **Visão Geral** da entidade em questão.
 
 ### <a name="premium"></a>Premium
 

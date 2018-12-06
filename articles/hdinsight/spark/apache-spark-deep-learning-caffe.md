@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255909"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498167"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Use Caffe no Azure HDInsight Spark para aprendizado aprofundado distribuído
 
@@ -22,9 +22,9 @@ ms.locfileid: "51255909"
 
 O aprendizado aprofundado está afetando tudo, desde os serviços de saúde até os transportes e a fabricação e muito mais. As empresas estão recorrendo ao aprendizado aprofundado para resolver problemas de disco rígidos, como [classificação da imagem](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [reconhecimento de fala](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), reconhecimento de objeto e tradução automática. 
 
-Há [muitas estruturas populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), incluindo [MiMicrosoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano etc. O Caffe é uma das estruturas não simbólicas de rede neural mais famosas (obrigatória) e é amplamente usado em muitas áreas, incluindo a visão do computador. Além disso, o [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combina o Caffe com o Apache Spark; nesse caso, o aprendizado profundo pode ser facilmente usado em um cluster Hadoop existente. É possível usar o aprendizado profundo juntamente com pipelines ETL do Spark, reduzindo a complexidade do sistema e a latência para aprendizado de solução completo.
+Existem [muitos frameworks populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), incluindo [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe](http://caffe.berkeleyvision.org/) é um dos mais famosos frameworks de redes neurais não-simbólicas (imperativas) e amplamente utilizado em muitas áreas, incluindo visão computacional. Além disso, o [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combina o Caffe com o Apache Spark; nesse caso, o aprendizado profundo pode ser facilmente usado em um cluster Hadoop existente. É possível usar o aprendizado profundo juntamente com pipelines ETL do Spark, reduzindo a complexidade do sistema e a latência para aprendizado de solução completo.
 
-O [HDInsight](https://azure.microsoft.com/services/hdinsight/) é a única oferta de Hadoop de nuvem que oferece clusters de análise de software livre otimizados para Spark, Hive, Hadoop, HBase, Storm, Kafka e ML Services. O HDInsight é garantido por um SLA de 99,9%. Cada uma dessas tecnologias de Big Data e aplicativos de ISV é facilmente implantável como clusters gerenciados, com monitoramento e segurança para empresas.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) é uma oferta em nuvem do Apache Hadoop que fornece clusters analíticos de código aberto otimizados para o Apache Spark, o Apache Hive, o Apache Hadoop, o Apache HBase, o Apache Storm, o Apache Kafka e o ML Services. O HDInsight é garantido por um SLA de 99,9%. Cada uma dessas tecnologias de Big Data e aplicativos de ISV é facilmente implantável como clusters gerenciados, com monitoramento e segurança para empresas.
 
 Este artigo demonstra como instalar o [Caffe no Spark](https://github.com/yahoo/CaffeOnSpark) para um cluster HDInsight. Este artigo também usa a demonstração MNIST interna para mostrar como usar o Aprendizado profundo distribuído usando o Spark do HDInsight em CPUs.
 
@@ -69,7 +69,7 @@ Para começar, é possível executar esta ação de script em relação ao clust
 ![Ações de script para instalar dependências](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>Etapa 2: compilar o Caffe no Spark para HDInsight no nó principal
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Etapa 2: Crie o Caffe no Apache Spark para o HDInsight no nó principal
 
 A segunda etapa é compilar o Caffe no nó principal e distribuir as bibliotecas compiladas para todos os nós de trabalho. Nesta etapa, é necessário fazer [ssh em seu nó principal](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Depois disso, é necessário seguir o [processo de build do CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Veja abaixo o script que pode ser usado para criar o CaffeOnSpark com algumas etapas adicionais. 
 
@@ -294,8 +294,8 @@ Nesta documentação, você tentou instalar o CaffeOnSpark com a execução de u
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para analisar a temperatura do edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com aprendizado de máquina: use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)

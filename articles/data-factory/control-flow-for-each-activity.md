@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141402"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423721"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
 A atividade ForEach define um fluxo de controle repetitivo no seu pipeline. Essa atividade é usada para iterar em uma coleção e executa atividades especificadas em um loop. A implementação dessa atividade em loop é semelhante à estrutura em loop Foreach nas linguagens de programação.
@@ -74,8 +74,8 @@ Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 Nome | Nome da atividade for-each. | Cadeia de caracteres | SIM
 Tipo | Deve ser definido como **ForEach** | Cadeia de caracteres | SIM
-isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo. Por exemplo, se você tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e de coletor diferentes com **isSequential** definido como False, todas as cópias serão executadas ao mesmo tempo. O padrão é False. <br/><br/> Se "isSequential" for definido como False, certifique-se de que há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deverá ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [Execução paralela](#parallel-execution). | BOOLEAN | Não. O padrão é False.
-batchCount | Contagem de lotes a ser usada para controlar o número de execução paralela (quando isSequential estiver definido como false). | Inteiro (máximo de 50) | Não. O padrão é 20.
+isSequential | Especifica se o loop deve ser executado em sequência ou em paralelo.  O máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo. Por exemplo, se você tiver uma atividade ForEach iterando sobre uma atividade de cópia com 10 conjuntos de dados de origem e de coletor diferentes com **isSequential** definido como False, todas as cópias serão executadas ao mesmo tempo. O padrão é False. <br/><br/> Se "isSequential" for definido como False, certifique-se de que há uma configuração correta para executar vários executáveis. Caso contrário, essa propriedade deverá ser usada com cuidado para evitar incorrer em conflitos de gravação. Para obter mais informações, consulte a seção [Execução paralela](#parallel-execution). | BOOLEAN |  Não. O padrão é False.
+batchCount | Contagem de lotes a ser usada para controlar o número de execução paralela (quando isSequential estiver definido como false). | Inteiro (máximo de 50) |  Não. O padrão é 20.
 Itens | Uma expressão que retorna uma matriz JSON a ser iterada. | Expressão (que retorna uma matriz JSON) | SIM
 Atividades | As atividades a serem executadas. | Lista de atividades | SIM
 
@@ -572,6 +572,17 @@ A expressão para coletar a saída de todas as iterações de ForEach é `@activ
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitações e Soluções Alternativas
+
+Aqui estão algumas limitações da atividade ForEach e sugestões de soluções alternativas.
+
+| Limitações | Solução alternativa |
+|---|---|
+| Você não pode aninhar um loop ForEach dentro de outro loop ForEach (ou um loop Until). | Projete um pipeline de dois níveis em que o pipeline externo com o loop ForEach externo itera sobre um pipeline interno com o loop aninhado. |
+| A atividade ForEach tem um máximo `batchCount` de 50 para processamento paralelo e um máximo de 100.000 itens. | Projete um pipeline de dois níveis onde o pipeline externo com a atividade ForEach itera sobre um pipeline interno. |
+| | |
+
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 
 

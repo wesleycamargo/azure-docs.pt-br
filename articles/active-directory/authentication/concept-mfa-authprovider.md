@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 41edbc621baede92c548f43ad2730b73f59756c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094970"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496096"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usar um Provedor de Autenticação Multifator do Microsoft Azure
 
@@ -26,13 +26,11 @@ Um Provedor de Autenticação Multifator do Azure é usado para aproveitar os re
 Se você tiver licenças que abrangem todos os usuários em sua organização, em seguida, não será necessário um Provedor de Autenticação Multifator do Microsoft Azure. Crie um Provedor de Autenticação Multifator do Microsoft Azure apenas se também precisar fornecer verificação em duas etapas para alguns usuários que não tenham licenças.
 
 > [!NOTE]
-> A partir de 1º de setembro de 2018, novos provedores de autenticação não poderão mais ser criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A Autenticação Multifator continuará sendo um recurso disponível nas licenças do Azure AD Premium.
+> A partir de 1º de setembro de 2018, novos provedores de autenticação não poderão mais ser criados. Os provedores de autenticação existentes podem continuar sendo usados e atualizados. A autenticação multifator continuará disponível como um recurso nas licenças do Microsoft Azure Active Directory Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Limitações relacionadas ao SDK do Azure MFA
 
-Um provedor de Autenticação Multifator do Azure será requerido para baixar o SDK. Observe que o SDK foi preterido e não há suporte para novos clientes e continuará funcionando só até 14 de novembro de 2018. Após essa data, as chamadas para o SDK falharão.
-
-Para baixar o SDK, crie um Provedor de Autenticação Multifator do Microsoft Azure mesmo que você tenha as licenças MFA, AAD Premium ou outras licenças em pacote. Se você criar um Provedor de Autenticação Multifator do Azure para essa finalidade e já tiver licenças, crie o Provedor com o modelo **Por Usuário Habilitado**. Em seguida, vincule o Provedor ao diretório que contém as licenças MFA, Azure AD Premium ou outras licenças em pacote. Esta configuração garante que você não será cobrado, caso tenha mais usuários exclusivos executando a verificação em duas etapas do que o número de licenças possuídas.
+Observe que o SDK foi descontinuado e continuará funcionando até 14 de novembro de 2018. Após essa data, as chamadas para o SDK falharão.
 
 ## <a name="what-is-an-mfa-provider"></a>O que é um Provedor MFA?
 

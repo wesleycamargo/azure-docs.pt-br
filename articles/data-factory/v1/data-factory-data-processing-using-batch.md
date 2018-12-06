@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238515"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976852"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -41,7 +41,7 @@ Com o serviço em Lotes, você define os recursos de computação do Azure para 
 * [Conceitos básicos do Lote](../../batch/batch-technical-overview.md)
 * [Visão geral do recurso de Lote](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o Lote, consulte [Roteiro de aprendizagem do Lote](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Opcionalmente, para saber mais sobre o Batch, consulte [Documentação do lote](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Por que usar o Azure Data Factory?
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. Use o Data Factory para criar pipelines de dados gerenciados que movem dados dos armazenamentos de dados locais e na nuvem para um armazenamento de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Use o Data Factory para o processar/transformar dados usando serviços como o Azure HDInsight e Azure Machine Learning. Também agende pipelines de dados para serem executados de maneira agendada (por exemplo, por hora, diariamente e semanalmente). Monitore e gerencie rapidamente os pipelines de dados para identificar problemas e agir.
@@ -51,7 +51,7 @@ O Data Factory é um serviço de integração de dados baseado em nuvem que auto
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Criar seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md)   
 
-Opcionalmente, para saber mais sobre o Data Factory, consulte [Roteiro de aprendizagem do Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Opcionalmente, para saber mais sobre o Data Factory, consulte a [Documentação do Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e Lote juntos
 O Data Factory inclui atividades internas. Por exemplo, a atividade de Cópia é usada para copiar/mover dados de um armazenamento de dados de origem para um armazenamento de dados de destino. A atividade do Hive é usada para processar dados usando clusters Hadoop (HDInsight) no Azure. Para obter uma lista de atividades de transformação compatíveis, consulte [Atividades de transformação de dados](data-factory-data-transformation-activities.md).
@@ -109,7 +109,7 @@ Crie um pool do Lote com pelo menos dois nós de computação.
 
 1. Na folha **Pools**, selecione o botão **Adicionar** na barra de ferramentas para adicionar um pool.
 
-   a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
+    a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
 
    b. Especifique **Windows Server 2012 R2** para a configuração **Família de Sistemas Operacionais**.
 
@@ -178,7 +178,7 @@ O método tem alguns componentes principais que você precisa entender:
 #### <a name="procedure-create-the-custom-activity"></a>Procedimento: criar a atividade personalizada
 1. Crie um projeto de biblioteca de classes .NET no Visual Studio.
 
-   a. Inicie o Visual Studio 2012/2013/2015.
+    a. Inicie o Visual Studio 2012/2013/2015.
 
    b. Selecione **Arquivo** > **Novo** > **Projeto**.
 
@@ -526,7 +526,7 @@ A apresentação passo a passo a seguir dá os detalhes adicionais.
 #### <a name="step-1-create-the-data-factory"></a>Etapa 1: Criar o data factory
 1. Depois de entrar no [portal do Azure](https://portal.azure.com/), execute as seguintes etapas:
 
-   a. Selecione **NOVO** no menu à esquerda.
+    a. Selecione **NOVO** no menu à esquerda.
 
    b. Selecione **Dados + Análise** na folha **Novo**.
 
@@ -569,7 +569,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
 
 1. No script JSON:
 
-   a. Substitua **nome da conta** pelo nome de sua conta do Lote.
+    a. Substitua **nome da conta** pelo nome de sua conta do Lote.
 
    b. Substitua **chave de acesso** pela chave de acesso da conta do Lote.
 

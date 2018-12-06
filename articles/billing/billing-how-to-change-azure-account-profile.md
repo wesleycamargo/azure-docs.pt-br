@@ -4,7 +4,7 @@ description: Descreve como alterar o perfil de sua conta do Azure e responde a p
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422619"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580420"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Alterar as informações de perfil de conta do Azure, como email de contato, endereço e número de telefone
 
@@ -46,7 +46,7 @@ Sim. O administrador da conta é a pessoa que configura a conta do Azure e quem 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Atualizar meu email do perfil também atualiza meu endereço de email de logon?
 
-Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
+ Não. Atualizar o endereço de email do perfil não atualiza seu endereço de email de logon. Para alterar seu endereço de email de logon, você precisa transferir a propriedade da conta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Atualizar meu endereço do perfil também atualiza meu endereço de cobrança do cartão de crédito?
 
@@ -56,7 +56,7 @@ Para saber como atualizar suas informações de cobrança, consulte [Alterar o c
 
 Devido a restrições técnicas, não podemos alterar o país em uma conta existente. No entanto, você pode criar uma conta no país desejado e, em seguida, entrar em contato com o suporte do Azure para migrar os serviços para essa conta.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente. 
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

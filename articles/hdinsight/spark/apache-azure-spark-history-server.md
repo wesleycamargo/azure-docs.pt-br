@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042356"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497265"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Uso estendido de servidor de histórico do Spark para depurar e diagnosticar aplicativos Spark
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Use o Apache Spark History Server estendido para depurar e diagnosticar aplicativos do Apache Spark
 
-Este artigo fornece orientação sobre como usar o extended servidor de histórico do Spark para depurar e diagnosticar aplicativos do Spark concluídos e em execução. A extensão inclui as guias de dados, gráfico e diagnóstico. Na guia **Dados**, os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **Gráfico**, os usuários podem verificar o fluxo de dados e repetir o gráfico de trabalho. Na guia **Diagnóstico**, o usuário pode consultar **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor**.
+Este artigo fornece orientação sobre como usar o Apache Spark History Server estendido para depurar e diagnosticar aplicativos Spark concluídos e em execução. A extensão inclui as guias de dados, gráfico e diagnóstico. Na guia **Dados**, os usuários podem verificar os dados de entrada e saída do trabalho do Spark. Na guia **Gráfico**, os usuários podem verificar o fluxo de dados e repetir o gráfico de trabalho. Na guia **Diagnóstico**, o usuário pode consultar **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor**.
 
-## <a name="get-access-to-spark-history-server"></a>Obter acesso ao Servidor de Histórico do Spark
+## <a name="get-access-to-apache-spark-history-server"></a>Obtenha acesso ao Apache Spark History Server
 
-O Servidor de Histórico do Spark é a interface do usuário da Web para aplicativos Spark concluídos e em execução. 
+O Apache Spark History Server é a interface do usuário da web para aplicativos Spark concluídos e em execução. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Para abrir a Interface do Usuário da Web do Servidor de Histórico do Spark por URL no portal do Azure
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Abra a interface da Web do Apache Spark History Server no portal do Azure
 
 1. No [portal do Azure](https://portal.azure.com/), abra o cluster Spark. Para obter mais informações, consulte [Listar e mostrar clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Em **Links Rápidos**, clique em **Painel do Cluster** e, em seguida, em **Servidor de Histórico do Spark**. Quando solicitado, insira as credenciais de administrador para o cluster Spark. 
@@ -87,7 +87,7 @@ Selecione a ID do trabalho e clique em **dados** no menu de ferramenta para obte
     ![comentários de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Guia Gráfico no Servidor de Histórico do Spark
+## <a name="graph-tab-in-apache-spark-history-server"></a>Guia Graph no Apache Spark History Server
 Selecione o ID do trabalho e clique em **dados** no menu de ferramenta para obter a exibição de dados.
 
 + Verifique a visão geral do seu trabalho, o grafo de trabalho gerado. 
@@ -158,7 +158,7 @@ Selecione o ID do trabalho e clique em **dados** no menu de ferramenta para obte
     ![comentários de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Guia Diagnóstico no Servidor de Histórico do Spark
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Guia Diagnóstico no Apache Spark History Server
 Selecione a ID do trabalho e clique em **Diagnóstico** no menu de ferramenta para obter a exibição Diagnóstico do trabalho. A guia Diagnóstico inclui **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor**.
     
 + Verifique **Distorção de Dados**, **Distorção de Tempo** e **Análise de Uso do Executor** selecionando as guias, respectivamente.
@@ -326,8 +326,8 @@ Se você quiser atualizar com o hotfix, use o script a seguir, que atualizará e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar recursos para um cluster Spark no HDInsight](apache-spark-resource-manager.md)
-* [Definir configurações do Spark](apache-spark-settings.md)
+* [Gerenciar recursos para um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
+* [Definir as configurações do Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Fale conosco

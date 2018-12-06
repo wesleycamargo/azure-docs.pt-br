@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038256"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499133"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalar aplicativo publicado – Dataiku DDS
 
-Este artigo descreve como instalar e executar o aplicativo de Apache Hadoop publicado do [Dataiku DDS](https://www.dataiku.com/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o [Dataiku DDS](https://www.dataiku.com/) publicado do aplicativo [Apache Hadoop](https://hadoop.apache.org/) no Azure HDInsight. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>Sobre DSS do Dataiku
 
@@ -26,9 +26,9 @@ O [Studio de ciência de dados (DSS)](https://www.dataiku.com/dss/features/conne
 
 Você pode usar o DSS para implementar uma solução de análise completa, começando com a preparação, processamento e ingestão de dados. Uma solução DSS também pode incluir treinamento e aplicação de modelos de aprendizado de máquina, visualização e, em então, operacionalização.
 
-Você pode instalar p DSS no HDInsight usando clusters Hadoop ou Spark. Você pode instalar o DSS em clusters em execução existentes ou ao criar novos clusters. O DSS também oferece suporte ao uso de armazenamento de Blobs do Azure como um conector para leitura de dados.
+Você pode instalar p DSS no HDInsight usando clusters [Apache Hadoop](https://hadoop.apache.org/) ou [Apache Spark](https://spark.apache.org/). Você pode instalar o DSS em clusters em execução existentes ou ao criar novos clusters. O DSS também oferece suporte ao uso de armazenamento de Blobs do Azure como um conector para leitura de dados.
 
-Você pode usar o DSS para compilar projetos, que então podem gerar trabalhos do MapReduce ou Spark. Esses trabalhos são executados como trabalhos normais do MapReduce ou Spark no HDInsight, para que você possa dimensionar o cluster sob demanda.
+Você pode usar o DSS para compilar projetos, que então podem gerar trabalhos do [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  ou Spark. Esses trabalhos são executados como trabalhos normais do MapReduce ou Spark no HDInsight, para que você possa dimensionar o cluster sob demanda.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster e
 
 ## <a name="install-the-dataiku-dss-published-application"></a>Instalar o aplicativo publicado DSS do Dataiku
 
-Para obter instruções passo a passo sobre como instalar esse e outros aplicativos ISV disponíveis, leia [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md).
+Para obter instruções passo a passo sobre como instalar este e outros aplicativos ISV disponíveis, leia [Instalar aplicativos Apache Hadoop de terceiros](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-dataiku-dss"></a>Inicializar o DSS do Dataiku
 

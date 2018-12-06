@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235268"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824295"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solucionar problemas de ativação de máquina virtual do Windows Azure
 
@@ -29,7 +29,7 @@ Se você tiver problemas durante a ativação da máquina virtual do Windows Azu
 O Azure usa pontos de extremidade diferentes para ativação do KMS, dependendo da região de nuvem onde a VM reside. Ao usar este guia de solução de problemas, use o ponto de extremidade apropriado do KMS que se aplica à região.
 
 * Regiões de nuvem pública do Azure: kms.core.windows.net:1688
-* Regiões de nuvem nacional do Azure na China: kms.core.chinacloudapi.cn:1688
+* Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
 * Regiões de nuvem nacional do Azure na Alemanha: kms.core.cloudapi.de:1688
 * Regiões de nuvem nacional do Azure no Governo dos EUA: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Esta etapa não é aplicável ao Windows 2012 ou Windows 2008 R2. Ela usa o recu
 3. Certifique-se de que a VM está configurada para usar o servidor correto do KMS do Azure. Para fazer isso, execute o seguinte comando:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     O comando deve retornar: Nome da máquina do Serviço de Gerenciamento de Chaves definido como kms.core.windows.net:1688 com sucesso.
 
@@ -117,7 +116,7 @@ Uma ativação bem-sucedida retorna informações semelhantes à seguinte:
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Criei o Windows Server 2016 a partir do Azure Marketplace. É necessário configurar a chave KMS para ativação do Windows Server 2016? 
  
-Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
+ Não. A imagem no Azure Marketplace já possui a chave de instalação de cliente KMS adequada configurada. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>A ativação do Windows funciona da mesma maneira independentemente se a VM estiver usando o Benefício de Uso Híbrido do Azure (HUB) ou não? 
  

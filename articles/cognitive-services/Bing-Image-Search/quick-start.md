@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363431"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314857"
 ---
 # <a name="your-first-images-search-query"></a>Sua primeira consulta de pesquisa de imagens
 
-Antes que você possa fazer a primeira chamada, será necessário obter uma chave de assinatura dos Serviços Cognitivos da Pesquisa do Bing. Para obter uma chave, consulte [Experimentar Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+Antes que você possa fazer a primeira chamada, será necessário obter uma chave de assinatura dos Serviços Cognitivos da Pesquisa do Bing. Para obter uma chave, confira [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obter resultados de pesquisa de imagens, você envia uma solicitação GET ao ponto de extremidade a seguir:  
   
@@ -29,20 +29,20 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/search
   
 A solicitação deve usar o protocolo HTTPS.
 
-É recomendável que todas as solicitações sejam originadas de um servidor. Distribuir a chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente fornece mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de atualização para versões futuras da API.
 
-A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query), que contém o termo de pesquisa do usuário. Embora seja opcional, a solicitação deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt), que identifica o mercado de onde você deseja que venham os resultados. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `size`, consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Todos os valores do parâmetro de consulta devem ser URL codificada.  
+A solicitação precisa especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query), que contém o termo de pesquisa do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `size`, confira [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta precisam ser codificados em URL.  
   
-A solicitação deve especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey). Embora opcional, é recomendável especificar também os cabeçalhos a seguir:  
+A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
 
-Os cabeçalhos IP e o local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
+Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.  
 
-Para obter uma lista de todos os cabeçalhos de solicitação e resposta, consulte [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de solicitação e resposta, confira [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 ## <a name="the-request"></a>A solicitação
 

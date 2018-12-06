@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041475"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581418"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>Execute o Spark no Shell do Spark
+# <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark no Shell Spark
 
-Um Shell interativo do Spark fornece um ambiente REPL (loop de leitura/execução/impressão) para executar um comando do Spark de cada vez e ver os resultados. Esse processo é útil para desenvolvimento e depuração. O Spark fornece um shell para cada um dos idiomas com suporte: Scala, Python e R.
+Interativo [Apache Spark](https://spark.apache.org/) Shell fornece um ambiente de REPL (read-executar-print loop) para executar um comando Spark por vez e ver os resultados. Esse processo é útil para desenvolvimento e depuração. O Spark fornece um shell para cada um dos idiomas com suporte: Scala, Python e R.
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>Acessar um shell do Spark com o SSH
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Obter um Shell do Apache Spark com o SSH
 
-Acesse um shell do Spark no HDInsight ao se conectar ao nó principal do cluster usando o SSH:
+Acesse um Shell do Apache Spark no HDInsight conectando-se ao nó principal primário do cluster usando SSH:
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ Acesse um shell do Spark no HDInsight ao se conectar ao nó principal do cluster
 
 Para saber mais sobre como usar o SSH para se conectar ao HDInsight, confira [Usar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-a-spark-shell"></a>Executar um shell do Spark
+## <a name="run-an-apache-spark-shell"></a>Executar um Shell do Apache Spark
 
 O Spark oferece shells para as linguagens Scala (spark-shell), Python (pyspark) e R (sparkR). Na sessão do SSH no nó principal do cluster HDInsight, insira um dos comandos a seguir:
 
@@ -69,7 +69,7 @@ O comando shell do Spark (`spark-shell`, `pyspark` ou `sparkR`) dá suporte a v�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [Introdução ao Spark no Azure HDInsight](apache-spark-overview.md) para obter uma visão geral.
+- Ver [Introdução ao Apache Spark no Azure HDInsight](apache-spark-overview.md) para uma visão geral.
 - Consulte [Criar um cluster Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.
-- Consulte [O que é o Streaming Estruturado do Spark?](apache-spark-streaming-overview.md) para gravar aplicativos que processam dados de streaming com o Spark.
+- Ver [o que é o Streaming estruturado do Apache Spark?](apache-spark-streaming-overview.md) para gravar aplicativos que processam dados de streaming com o Spark.
 

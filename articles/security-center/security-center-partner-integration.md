@@ -3,7 +3,7 @@ title: Integrar soluções de segurança na Central de Segurança do Azure | Mic
 description: Saiba como a Central de Segurança do Azure se integra aos parceiros para aprimorar a segurança geral dos recursos do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 1abf9efb5c0bed205ce5b87b1f055c14a11ce9ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244995"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335429"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -47,14 +47,17 @@ Atualmente, as soluções de segurança integradas incluem:
 | Proteção do ponto de extremidade               | Plataformas                             | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | Não, Integrado no SO           | SIM                       |
-| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 | Via extensão                | SIM                       |
+| System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão                | SIM                       |
 | Trend Micro – Todas as versões         | Família Windows Server                 | Não                            | SIM                       |
 | Symantec v12.1.1100+              | Família Windows Server                 | Não                            | SIM                       |
 | McAfee v10+                       | Família Windows Server                 | Não                            | SIM                       |
 | Kaspersky                         | Família Windows Server                 | Não                            | Não                         |
 | Sophos                            | Família Windows Server                 | Não                            | Não                         |
 
-
+> [!NOTE]
+> A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas
 As soluções de segurança do Azure implantadas da Central de Segurança serão conectadas automaticamente. Você também pode se conectar a outras fontes de dados de segurança, incluindo:

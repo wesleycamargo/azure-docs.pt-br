@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 11/23/2018
 ms.author: jingwang
-ms.openlocfilehash: c67f6c14dc396367e0179fe5bdb4663fcb7725da
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045959"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309667"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados do ServiceNow usando o Azure Data Factory
 
@@ -42,11 +42,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do ServiceNow:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida para: **ServiceNow** | sim |
-| endpoint | O endpoint do servidor do ServiceNow (`http://<instance>.service-now.com`).  | sim |
-| authenticationType | O tipo de autenticação a ser usado. <br/>Os valores permitidos são: **Básica**, **OAuth2** | sim |
-| Nome de Usuário | O nome de usuário usado para se conectar ao servidor ServiceNow para autenticação básica e OAuth2.  | sim |
-| Senha | A senha correspondente ao nome de usuário para autenticação básica e OAuth2. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida para: **ServiceNow** | SIM |
+| endpoint | O endpoint do servidor do ServiceNow (`http://<instance>.service-now.com`).  | SIM |
+| authenticationType | O tipo de autenticação a ser usado. <br/>Os valores permitidos são: **Básica**, **OAuth2** | SIM |
+| Nome de Usuário | O nome de usuário usado para se conectar ao servidor ServiceNow para autenticação básica e OAuth2.  | SIM |
+| Senha | A senha correspondente ao nome de usuário para autenticação básica e OAuth2. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | clientId | A ID do cliente para autenticação OAuth2.  | Não  |
 | clientSecret | O segredo do cliente para autenticação OAuth2. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
@@ -104,16 +104,17 @@ Para copiar dados do ServiceNow, defina o tipo de origem na atividade de cópia 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ServiceNowSource** | sim |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ServiceNowSource** | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | SIM |
 
-Observe o seguinte ao especificar o esquema e a coluna para ServiceNow em consulta:
+Observe o seguinte ao especificar o esquema e a coluna para ServiceNow em consulta, e **consultem [dicas de desempenho](#performance-tips) em implicação de desempenho de cópia**.
 
-- **Esquema:** especifique o esquema como `Actual` ou `Display` na consulta ServiceNow, que você pode observar como o parâmetro de `sysparm_display_value` como verdadeiro ou falso ao chamar [APIs restful ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Esquema:** especifique o esquema como `Actual` ou `Display` na consulta do ServiceNow, que pode ser visto como o parâmetro `sysparm_display_value` como verdadeiro ou falso ao chamar [APIs restful do ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Coluna:** o nome da coluna para o valor real no esquema `Actual` é `[columne name]_value`, e para o valor de exibição no esquema `Display` é `[columne name]_display_value`. Observe que o nome da coluna precisa ser mapeado para o esquema que está sendo usado na consulta.
 
-**Consulta de exemplo:**
-`SELECT col_value FROM Actual.alm_asset` OU `SELECT col_display_value FROM Display.alm_asset`
+**Exemplo de consulta:** 
+ `SELECT col_value FROM Actual.alm_asset` ou 
+`SELECT col_display_value FROM Display.alm_asset`
 
 **Exemplo:**
 
@@ -146,6 +147,17 @@ Observe o seguinte ao especificar o esquema e a coluna para ServiceNow em consul
     }
 ]
 ```
+## <a name="performance-tips"></a>Dicas de desempenho
+
+### <a name="schema-to-use"></a>Esquema a ser usado
+
+O ServiceNow possui 2 esquemas diferentes, um é **"Real"** que retorna dados reais, o outro é **"Display"**, que retorna os valores de exibição dos dados. 
+
+Se você tiver um filtro em sua consulta, use o esquema "Real" que tenha melhor desempenho de cópia. Ao consultar o esquema "Real", o ServiceNow suporta de forma nativa o filtro ao buscar os dados para retornar apenas o conjunto de resultados filtrado, enquanto ao consultar o esquema "Exibir", o ADF recupera todos os dados e aplica o filtro internamente.
+
+### <a name="index"></a>Índice
+
+Índice da tabela de ServiceNow pode ajudar a melhorar o desempenho de consulta, consulte [criar um índice de tabela](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

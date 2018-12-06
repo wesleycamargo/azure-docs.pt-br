@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140001"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164941"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Criar o perfil de aplicativos Web dinâmicos do Azure com o Application Insights
 
@@ -31,18 +31,18 @@ Para ativar o Profiler para um aplicativo da Web, siga as instruções abaixo. S
 * [Máquinas virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-O Application Insights Profiler é instalado com a extensão de site do Application Insights. Você precisa instalar a extensão de site e configurá-la para obter perfis para os seus aplicativos da Web do Azure. Depois de implantar um Web App, mesmo que você tenha incluído o SDK do App Insights no código-fonte, siga as etapas abaixo para ativar o criador de perfil.
+O Application Insights Profiler é pré-instalado como parte do tempo de execução do Serviços de Aplicativos, mas é necessário ativá-lo para obter perfis para os seus aplicativos da Web do Azure. Depois de implantar um Web App, mesmo que você tenha incluído o SDK do App Insights no código-fonte, siga as etapas abaixo para ativar o criador de perfil.
 
 1. Vá ao painel **Serviços de Aplicativos** no portal do Azure.
 1. Navegue até o painel **Configurações > Monitoramento**.
 
    ![Habilitar Insights de Aplicativo no portal de Serviços de Aplicativos](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App Insights para monitorar seu aplicativo Web. Aceite todas as opções padrão. O **diagnóstico no nível do código** fica ativado por padrão e habilita o Profiler.
+1. Siga as instruções no painel para criar um novo recurso ou selecione um recurso existente do App Insights para monitorar seu aplicativo Web. Verifique também o Profiler está **On**.
 
    ![Adicione a extensão de site do App Insights][Enablement UI]
 
-1. Agora, o Profiler está instalado com a extensão de site do App Insights e é habilitado usando uma configuração de aplicativo dos Serviços de Aplicativos.
+1. O Profiler agora está ativado usando uma configuração de aplicativo do Serviço de Aplicativo.
 
     ![Configuração de aplicativo para o Profiler][profiler-app-setting]
 

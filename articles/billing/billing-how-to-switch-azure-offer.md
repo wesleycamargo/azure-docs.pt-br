@@ -4,7 +4,7 @@ description: Saiba mais sobre como alterar sua assinatura do Azure e mudar para 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 9cb415a84a61212b8c8e3840bdc85429b5d5308c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8332ab9bbe22dab71d0b75446b478c424df66fb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391867"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582104"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar sua assinatura Paga Conforme o Uso do Azure para uma oferta diferente
 
@@ -114,6 +114,6 @@ No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em
 * Você pode migrar os recursos diretamente para a nova assinatura. Confira [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 * Para transferir a propriedade de uma assinatura do Azure e todo o conteúdo para outra pessoa, confira [Transferring ownership of an Azure subscription](billing-subscription-transfer.md) (Transferindo a propriedade de uma assinatura do Azure)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
 
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009184"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496305"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
 Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure para o HDInsight. As etapas neste documento adicionam uma conta de armazenamento a um cluster HDInsight baseado em Linux existente.
 
 > [!IMPORTANT]
-> As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md).
+> As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -43,7 +43,7 @@ Durante o processamento, o script executa as ações a seguir:
 
 * Adiciona a conta de armazenamento ao arquivo core-site.xml.
 
-* Interrompe e reinicia os serviços do Oozie, YARN, MapReduce2 e HDFS. Interromper e iniciar esses serviços permite que eles usem a nova conta de armazenamento.
+* Pare e reinicie o [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), e [HDFS do Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) serviços. Interromper e iniciar esses serviços permite que eles usem a nova conta de armazenamento.
 
 > [!WARNING]
 > Não há suporte para o uso de uma conta de armazenamento em um local diferente do cluster HDInsight.

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420516"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422949"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -113,7 +113,7 @@ O portal fornece uma opção de **Criação Rápida** para a VM restaurada. Para
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Criar uma nova VM de um ponto de restauração
 1. Sobre o **restaurar configuração** folha mencionado na antes da seção, insira ou selecione valores para cada um dos seguintes campos:
 
-    a. **Tipo de Restauração**. Crie uma máquina virtual.
+     a. **Tipo de Restauração**. Crie uma máquina virtual.
 
     b. **Nome da máquina virtual**. Insira o nome da VM que não existe na assinatura.
 
@@ -151,13 +151,13 @@ Na folha **Configuração de restauração**, clique em **OK** para finalizar a 
 Em **Restauração do Local** está sendo feita através da guia **Replace Existing**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Substituir discos existentes de um ponto de restauração
-A opção **Substituir existente** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. Se ele foi excluído por qualquer motivo, essa operação não poderá ser executada; Como alternativa, recomendamos que você faça **Criar nova** VM ou discos para continuar com as operações de restauração. Durante a substituição das operações de disco (s) existentes, como medida de precaução, fazemos backup dos dados antes de iniciar as operações de substituição de discos. Se o ponto de restauração tiver discos mais / menos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM. No momento, não há suporte para a opção **Substituir existente** para Discos Não Gerenciados e VMs Criptografadas. Ela também não tem suporte em [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e VMs criadas usando [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
+A opção **Substituir existente** ajuda a substituir os discos existentes na VM atual pelo ponto de restauração selecionado. Esta operação só pode ser executada se a VM atual existir. Se ele foi excluído por qualquer motivo, essa operação não poderá ser executada; Como alternativa, recomendamos que você faça **Criar nova** VM ou discos para continuar com as operações de restauração. Durante esta operação, como medida de precaução, fazemos backup dos dados antes de iniciar as operações de substituição de discos. Isso cria um instantâneo e também um ponto de recuperação no vault com período de retenção, conforme programado na política de backup configurada. Se o ponto de restauração tiver discos mais / menos que a VM atual, o número de discos no ponto de restauração refletirá apenas na VM. No momento, não há suporte para a opção **Substituir existente** para Discos Não Gerenciados e VMs Criptografadas. Ela também não tem suporte em [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e VMs criadas usando [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  No blade **Restore Configuration**, a única entrada que precisa ser selecionada é **Staging Location**.
 
    ![Restaurar o Assistente de configuração de substituir existente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
- a. **Tipo de Restauração**. Substitua o (s) disco (s) que representam o ponto de restauração selecionado e substituirá o (s) disco (s) na VM existente.
+  a. **Tipo de Restauração**. Substitua o (s) disco (s) que representam o ponto de restauração selecionado e substituirá o (s) disco (s) na VM existente.
 
  b. **Local de preparo**. Contas de armazenamento são o local de preparo dos discos gerenciados. Este menu lista as contas de armazenamento no mesmo local que o cofre dos Serviços de Recuperação. Não há suporte para contas de armazenamento com redundância de zona. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre dos Serviços de Recuperação, você deverá criar uma antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é exibido entre parênteses.
 
@@ -236,7 +236,7 @@ Para recriar completamente as VMs após restaurar para o disco, siga estas etapa
 
 1. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs/ múltiplos IPs reservados usando os cmdlets do PowerShell. Use-a para criar a VM com a configuração desejada:
 
-   a. Criar uma VM no serviço de nuvem com um [balanceador de carga interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
+    a. Criar uma VM no serviço de nuvem com um [balanceador de carga interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
    b. Criar uma VM para se conectar a um [balanceador de carga voltado para a Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 

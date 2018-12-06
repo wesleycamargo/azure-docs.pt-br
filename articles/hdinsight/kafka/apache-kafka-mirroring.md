@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006763"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309031"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
@@ -25,11 +25,11 @@ Neste exemplo, o espelhamento é usado para replicar tópicos entre dois cluster
 > [!WARNING]
 > O espelhamento não deve ser considerado um meio de obter tolerância a falhas. O deslocamento para itens em um tópico é diferente entre os clusters de origem e de destino. Assim, os clientes não podem usar os dois intercambiavelmente.
 >
-> Se estiver preocupado com a tolerância a falhas, você deverá definir a replicação para os tópicos no cluster. Para obter mais informações, confira [Introdução ao Kafka no HDInsight](apache-kafka-get-started.md).
+> Se estiver preocupado com a tolerância a falhas, você deverá definir a replicação para os tópicos no cluster. Para saber mais, consulte [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-## <a name="how-kafka-mirroring-works"></a>Como funciona o espelhamento do Kafka
+## <a name="how-apache-kafka-mirroring-works"></a>Como funciona o espelhamento do Apache Kafka
 
-O espelhamento funciona usando a ferramenta MirrorMaker (parte do Apache Kafka) para consumir registros de tópicos no cluster de origem e criar uma cópia local no cluster de destino. O MirrorMaker usa um (ou mais) *consumidores* que leem do cluster de origem e um *produtor* que grava no cluster local (destino).
+O espelhamento funciona usando a ferramenta [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) (parte do Apache Kafka) para consumir registros de tópicos no cluster de origem e criar uma cópia local no cluster de destino. O MirrorMaker usa um (ou mais) *consumidores* que leem do cluster de origem e um *produtor* que grava no cluster local (destino).
 
 O seguinte diagrama ilustra o processo de espelhamento:
 
@@ -56,7 +56,7 @@ Se você precisa de espelhamento entre clusters Kafka em redes diferentes, há a
 
 Para obter mais informações sobre como conectar duas Redes Virtuais do Azure, confira [Configurar uma conexão de VNet para VNet](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-kafka-clusters"></a>Criar clusters Kafka
+## <a name="create-apache-kafka-clusters"></a>Criar clusters do Apache Kafka
 
 Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as etapas a seguir para implantar uma rede virtual do Azure e dois clusters Kafka para sua assinatura do Azure.
 
@@ -106,7 +106,7 @@ Embora você possa criar uma rede virtual do Azure e clusters Kafka manualmente,
 
     Para obter informações, consulte [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use os seguintes comandos para encontrar os hosts Zookeeper para o cluster de origem:
+2. Use os seguintes comandos para encontrar os hosts Apache Zookeeper para o cluster de origem:
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a usar o MirrorMaker para criar uma réplica de um cluster Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
+Neste documento, você aprendeu a usar o [MirrorMake](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)r para criar uma réplica de um cluster [Apache Kafka](https://kafka.apache.org/). Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
 * [Documentação do Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) em cwiki.apache.org.
 * [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md)
-* [Usar o Apache Spark com o Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Usar Apache Storm com Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Conectar-se ao Kafka por meio de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)
+* [Usar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Use o Apache Storm com o Apache Kafka no HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Conectar-se ao Apache Kafka por meio de uma Rede Virtual do Azure](apache-kafka-connect-vpn-gateway.md)

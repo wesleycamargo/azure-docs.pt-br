@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423864"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory com o Workplace by Facebook
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 > O Facebook tem dois produtos, o Workplace Standard (gratuito) e o Workplace Premium (pago). Qualquer locatário do Workplace Premium pode configurar a integração de SCIM e SSO sem outras implicações para o custo ou as licenças necessárias. O SSO e o SCIM não estão disponíveis nas instâncias do Workplace Standard.
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Workplace by Facebook da Galeria
 1. configurar e testar o logon único do AD do Azure
@@ -116,7 +116,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.facebook.com`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.facebook.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://www.facebook.com/company/<instanceID>`
 
@@ -140,7 +140,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    > [!NOTE] 
    > Como parte do processo de autenticação SAML, o Workplace poderá utilizar cadeias de consulta de até 2,5 quilobytes para passar parâmetros para o Azure AD.
 
-1. No **Painel da Empresa**, acesse a guia **Autenticação**.
+1. No **painel de administração**, vá para a guia **Security**, em seguida, **autenticação**.
 
 1. Em **Autenticação SAML**, selecione **Somente SSO** na lista suspensa.
 
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

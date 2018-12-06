@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830983"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580942"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usar listas de frases para melhorar o sinal da lista de palavras
 
 É possível adicionar recursos ao aplicativo de LUIS para melhorar a precisão. Os recursos ajudam o LUIS fornecendo dicas de que certas palavras e frases fazem parte de um vocabulário do domínio do aplicativo. 
+
+Uma [lista de frases](luis-concept-feature.md) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e devem ser tratadas de maneira semelhante (por exemplo, nomes de cidades ou produtos). O que o LUIS aprende sobre um deles é aplicado automaticamente aos outros também. Essa lista não é uma entidade de lista (correspondências exatas de texto) de palavras correspondentes.
+
+Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um segundo sinal ao LUIS sobre essas palavras.
 
 ## <a name="add-phrase-list"></a>Adicionar lista de frases
 
@@ -47,9 +51,6 @@ ms.locfileid: "48830983"
 
 > [!Note]
 > É possível excluir ou desativar uma lista de frases na barra de ferramentas contextual na página **Listas de frases**.
-
-## <a name="pattern-regular-expression-feature"></a>Recurso padrão (expressão regular) 
-**Esse recurso está preterido**. Novos recursos de padrão não podem ser adicionados ao LUIS. Todos os recursos de padrão existentes terão suporte até maio de 2018. Contribua para a expressão regular de LUIS padrão correspondente a um PR ao [repositório Github Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

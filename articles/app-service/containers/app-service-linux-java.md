@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037644"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497344"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -28,6 +28,10 @@ Este guia mostra os principais conceitos e instruções para desenvolvedores de 
 ## <a name="logging-and-debugging-apps"></a>Aplicativos de registro em log e depuração
 
 Relatórios de desempenho, visualizações de tráfego e verificações de integridade estão disponíveis para cada aplicativo por meio do portal do Azure. Confira a [Visão geral de diagnóstico do Serviço de Aplicativo do Azure](/azure/app-service/app-service-diagnostics) para saber mais sobre como acessar e usar essas ferramentas de diagnóstico.
+
+## <a name="application-performance-monitoring"></a>Monitoramento de desempenho de aplicativos
+
+Consulte [Ferramentas de monitoramento de desempenho de aplicativos com aplicativos Java no Serviço de Aplicativo do Azure no Linux](how-to-java-apm-monitoring.md) para obter instruções sobre como configurar o New Relic e o AppDynamics com aplicativos Java executados no Serviço de Aplicativo no Linux.
 
 ### <a name="ssh-console-access"></a>Acesso ao console SSH 
 
@@ -124,7 +128,7 @@ Como alternativa, é possível definir a configuração do aplicativo usando o p
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Proteger o aplicativo
+## <a name="secure-applications"></a>Aplicativos seguros
 
 Os aplicativos Java em execução no Serviço de Aplicativo para Linux têm o mesmo conjunto de [melhores práticas de segurança](/azure/security/security-paas-applications-using-app-services) que outros aplicativos. 
 
@@ -168,7 +172,7 @@ Para fontes de dados no nível do aplicativo:
 
 1. Adicione um arquivo `context.xml` se ele não existir no aplicativo Web e adicione-o ao diretório `META-INF` do arquivo WAR quanto o projeto estiver pronto.
 
-2. Nesse arquivo, adicione uma entrada do caminho `Context` para vincular a fonte de dados a um endereço JNDI. O
+2. Nesse arquivo, adicione uma entrada do caminho `Context` para vincular a fonte de dados a um endereço JNDI.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ Para fontes de dados no nível do aplicativo:
 
 Para os recursos compartilhados no nível do servidor:
 
-1. Copie o conteúdo de `/usr/local/tomcat/conf` para `/home/tomcat` na instância do Serviço de Aplicativo no Linux usando SSH se já não houver uma configuração.
+1. Copie o conteúdo de `/usr/local/tomcat/conf` para `/home/tomcat/conf` na instância do Serviço de Aplicativo no Linux usando SSH se já não houver uma configuração.
 
 2. Adicione o contexto ao `server.xml`
 
@@ -231,7 +235,7 @@ Para os recursos compartilhados no nível do servidor:
 
     3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta `/home/tomcat/lib`.
 
-5. Reinicie o aplicativo Serviço de Aplicativo no Linux. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat` e usará as classes e a configuração atualizadas.
+5. Reinicie o aplicativo Serviço de Aplicativo no Linux. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat/conf` e usará as classes e a configuração atualizadas.
 
 ## <a name="docker-containers"></a>Contêineres do Docker
 

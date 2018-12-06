@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: configurar o Netsuite para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Netsuite.
+title: 'Tutorial: Configurar o OneWorld da Netsuite para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346739"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823837"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: configurando o Netsuite para o provisionamento automático de usuário
 
-O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Netsuite e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Netsuite.
+O objetivo deste tutorial é mostrar as etapas que você precisa executar no Netsuite OneWorld e no Azure AD para provisionar e descontinuar automaticamente as contas de usuário do Azure AD para o Netsuite.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 *   Um locatário do Azure Active Directory.
-*   Uma assinatura habilitada para logon único do Netsuite.
-*   Uma conta de usuário no Netsuite com permissões de Administrador de Equipe.
+*   Uma assinatura do OneWorld da Netsuite. Observe que o provisionamento automático de usuários atualmente é suportado apenas com o NetSuite OneWorld.
+*   Uma conta de usuário no Netsuite com permissões de administrador.
 
-## <a name="assigning-users-to-netsuite"></a>Atribuindo usuários ao Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>Atribuindo usuários ao Netsuite OneWorld
 
 O Azure Active Directory usa um conceito chamado "atribuições" para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de conta de usuário, somente os usuários e os grupos que foram "atribuídos" a um aplicativo no Azure AD são sincronizados.
 
@@ -41,7 +41,7 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisa dec
 
 [Atribuir um usuário ou um grupo a um aplicativo empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Dicas importantes para atribuir usuários ao Netsuite
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Dicas importantes para atribuir usuários ao Netsuite OneWorld
 
 *   Recomendamos a atribuição de um único usuário do Azure AD ao Netsuite para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
@@ -70,7 +70,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
-    a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do Netsuite que tem o perfil **Administrador do Sistema** atribuído no Netsuite.com.
+     a. Na caixa de texto **Nome de Usuário Administrador**, digite um nome de conta do Netsuite que tem o perfil **Administrador do Sistema** atribuído no Netsuite.com.
    
     b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
       

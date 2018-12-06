@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6097c96c0211c1efac2c2652eb0ef7d668d6877
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414634"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427039"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure)
 
@@ -28,7 +28,9 @@ A CLI do Azure versão 2.0.46 ou posterior também precisa estar instalada e con
 
 ## <a name="create-a-static-ip-address"></a>Criar um endereço IP estático
 
-Quando você cria um endereço IP público estático para ser usado com o AKS, o recurso de endereço IP precisa ser criado no grupo de recursos do **nó**. Obtenha o nome do grupo de recursos com o comando [az aks show][az-aks-show] e adicione o parâmetro de consulta `--query nodeResourceGroup`. O exemplo a seguir obtém o grupo de recursos do nó do nome do cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Quando você cria um endereço IP público estático para uso com o AKS, o recurso de endereço IP deve ser criado no grupo de recursos **node**. Se você deseja separar os recursos, consulte [Use um endereço IP estático fora do grupo de recursos do nó](#use-a-static-ip-address-outside-of-the-node-resource-group).
+
+Obtenha o nome do grupo de recursos do nó com o comando [az aks show][az-aks-show] e adicione o parâmetro de consulta `--query nodeResourceGroup`. O exemplo a seguir obtém o grupo de recursos do nó do nome do cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

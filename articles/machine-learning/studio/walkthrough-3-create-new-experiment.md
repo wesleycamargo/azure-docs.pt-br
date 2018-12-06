@@ -1,10 +1,11 @@
 ---
-title: 'Etapa 3: Criar um novo teste de Machine Learning | Microsoft Docs'
+title: 'Etapa 3: criar um novo experimento do Machine Learning Studio - Azure | Microsoft Docs'
 description: 'Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835732"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317521"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Azure Machine Learning
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Azure Machine Learning Studio
 Esta é a terceira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. **Criar um novo teste**
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)

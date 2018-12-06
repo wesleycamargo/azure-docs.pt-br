@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624770"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976649"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados de suas VMs (máquinas virtuais) do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu workspace.
@@ -48,7 +48,7 @@ Quando o provisionamento automático está Ativado, a Central de Segurança prov
 
 Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 1. No menu principal da Central de segurança, selecione **Política de segurança**.
-2. Selecione a assinatura.
+2. Clique em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
 
   ![Escolha a assinatura][7]
 
@@ -135,7 +135,7 @@ Para selecionar um workspace existente do Log Analytics:
 
      a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
      
-    b.  Selecione o workspace desejado ao qual você pretende conectar o agente.
+    b.  Selecione o Espaço de Trabalho desejado no qual você pretende conectar o agente, clicando em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
         ![Selecione o workspace][8] c. Defina o tipo de preço.
         ![Selecione o tipo de preço][9] 
    

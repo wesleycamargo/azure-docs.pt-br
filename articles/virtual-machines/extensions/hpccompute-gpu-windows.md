@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140607"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495983"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
 ## <a name="overview"></a>Visão geral
 
-Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instala o NVIDIA drivers usando essa extensão, você está aceitando e concordando com os termos do contrato de licença de usuário final NVIDIA. Durante o processo de instalação, sua máquina virtual pode reinicializar para concluir a instalação do driver.
+Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Linux](hpccompute-gpu-linux.md).
-
-Termos do contrato de licença de usuário final NVIDIA estão localizados aqui- https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +43,7 @@ A Extensão suporta os seguintes OS:
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-A extensão do Microsoft Azure para os Drivers de GPU NVIDIA requer que a máquina virtual de destino está conectada à internet e têm acesso.
+A extensão do Microsoft Azure para drivers de GPU NVIDIA requer que a VM de destino esteja conectada à Internet e tenha acesso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -71,7 +69,7 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="properties"></a>propriedades
 
 | NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
@@ -80,6 +78,14 @@ O JSON a seguir mostra o esquema para a extensão.
 | Tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Configurações
+
+Todas as configurações são opcionais. O comportamento padrão é instalar o driver suportado mais recente, conforme aplicável.
+
+| NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: Versão do driver de grade<br> NC/ND: Versão do driver CUDA | mais recente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
+| installGridND | Instalar o driver de grade nas VMs da série ND | falso | verdadeiro, falso | booleano |
 
 ## <a name="deployment"></a>Implantação
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
+O exemplo a seguir espelha o exemplo acima do ARM e do PowerShell e também adiciona configurações personalizadas como um exemplo para instalação de driver não padrão. Especificamente, ele instala um driver GRID específico mesmo se uma VM da série ND estiver sendo provisionada.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

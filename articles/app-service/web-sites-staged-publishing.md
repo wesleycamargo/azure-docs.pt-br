@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636060"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317612"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ Quando você clona a configuração de outro slot de implantação, a configura�
 * Mapeamentos de manipulador
 * Configurações de monitoramento e diagnóstico
 * Conteúdo de Trabalhos Web
+* Conexões Híbridas
 
 **Configurações que não são permutadas**:
 
@@ -168,7 +169,7 @@ Se algum erro for identificado na produção após uma permuta de slot, reverta 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Aquecimento personalizado antes da permuta
-Alguns aplicativos podem exigir ações personalizadas de aquecimento. O elemento de configuração `applicationInitialization` no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de troca aguarda esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
+Ao usar o [Auto-Swap](#Auto-Swap), alguns aplicativos podem exigir ações de aquecimento personalizadas. O elemento de configuração `applicationInitialization` no web.config permite que você especifique ações de inicialização personalizadas a serem executadas antes de uma solicitação ser recebida. A operação de troca aguarda esse aquecimento personalizado ser concluído. Este é está um exemplo fragmento do web.config.
 
     <system.webServer>
         <applicationInitialization>

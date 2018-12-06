@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425947"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713258"
 ---
 # <a name="change-a-maintenance-schedule"></a>Alterar um agendamento de manutenção 
 
 ## <a name="portal"></a>Portal
 Um agendamento de manutenção pode ser atualizado ou alterado a qualquer momento. Se a instância selecionada estiver passando por um ciclo de manutenção ativa, as configurações serão salvas. Elas estarão ativas durante o próximo período de manutenção identificado. [Saiba mais](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre como monitorar seu data warehouse durante um evento de manutenção ativa. 
 
-Enquanto as agendas de manutenção do Azure estiverem em visualização, você seleciona duas janelas de manutenção durante um período de sete dias. Cada janela de manutenção pode ser de três a oito horas. A manutenção pode ocorrer a qualquer momento dentro de uma janela de manutenção, mas não ocorrerá fora das janelas de tempo sem notificação prévia. Você enfrentará também uma breve perda de conectividade que o serviço implante o novo código para o data warehouse. 
+Para usar programações de manutenção, você deve selecionar duas janelas de manutenção durante um período de sete dias. Cada janela de manutenção pode ser de três a oito horas. A manutenção pode ocorrer a qualquer momento dentro de uma janela de manutenção, mas não ocorrerá fora das janelas de tempo sem notificação prévia. Você enfrentará também uma breve perda de conectividade que o serviço implante o novo código para o data warehouse. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas principais e secundárias
 
@@ -53,7 +53,7 @@ Para alterar o agendamento de manutenção para seu data warehouse, conclua as s
    ![Mensagem sobre a disponibilidade de região](media/sql-data-warehouse-maintenance-scheduling/maintenance-notactive-toast.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre ações de webhook para regras de alerta de log.
+- [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre ações de webhook para regras de alerta do log.
 - [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre a Integridade do Serviço do Azure.
 
 

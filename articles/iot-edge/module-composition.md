@@ -4,26 +4,26 @@ description: Saiba como um manifesto de implantação declara quais módulos par
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3201e8509e7c63bb0d9b607d26292bd85e2b605d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 106ad5d4649b2845327eadd99972d56f1503b3e4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569226"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584801"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Aprenda a implantar módulos e estabelecer rotas no IoT Edge
 
-Cada dispositivo IoT Edge executa ao menos dois módulos: $edgeAgent e $edgeHub, que compõem o tempo de execução do IoT Edge. Além disso, qualquer dispositivo IoT Edge pode executar vários módulos para executar qualquer número de processos. Quando você implanta todos esses módulos em um dispositivo de uma vez, você precisa de uma maneira para declarar quais módulos são incluídos como eles interagem entre si. 
+Cada dispositivo IoT Edge executa ao menos dois módulos: $edgeAgent e $edgeHub, que fazem parte do tempo de execução do IoT Edge. Além disso, qualquer dispositivo IoT Edge pode executar vários módulos para executar qualquer número de processos. Você implanta todos esses módulos em um dispositivo ao mesmo tempo, portanto, o IoT Edge fornece uma maneira de declarar quais módulos instalar e como configurá-los para funcionar em conjunto. 
 
 O *manifesto de implantação* é um documento JSON que descreve:
 
-* A configuração do agente Edge, que inclui a imagem de contêiner para cada módulo, as credenciais para registros de contêiner privado de acesso e instruções sobre como cada módulo deve ser criado e gerenciado.
-* A configuração do hub do Edge, que inclui como as mensagens fluem entre os módulos e, eventualmente, para o Hub IoT.
-* Especifique, de forma opcional, as propriedades desejadas do gêmeo de módulo.
+* A configuração do agente **IoT Edge**, que inclui a imagem de contêiner para cada módulo, as credenciais para registros de contêiner privado de acesso e instruções sobre como cada módulo deve ser criado e gerenciado.
+* O módulo gêmeo do **hub do IoT Edge**, que inclui como as mensagens fluem entre os módulos e, eventualmente, o Hub IoT.
+* Especifique, as propriedades desejadas do módulo gêmeo.
 
 Todos os dispositivos IoT Edge precisam ser configurados com um manifesto de implantação. Um tempo de execução do IoT Edge recém-instalado relatará um código de erro até ser configurado com um manifesto válido. 
 
@@ -31,23 +31,27 @@ Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação 
 
 ## <a name="create-a-deployment-manifest"></a>Criar um manifesto de implantação
 
-De forma geral, o manifesto de implantação configura as propriedades desejadas de um módulo gêmeo para módulos do IoT Edge implantados em um dispositivo IoT Edge. Dois desses módulos sempre estão presentes: `$edgeAgent`, e `$edgeHub`.
+Em um alto nível, um manifesto de implantação é uma lista de módulos gêmeos que são configurados com suas propriedades desejadas. Um manifesto de implantação informa um dispositivo IoT Edge (ou um grupo de dispositivos), quais módulos instalar e como configurá-los. Manifestos de implantação incluem as *propriedades desejadas* para cada módulo gêmeo. Dispositivos do IoT Edge relatam de volta *as propriedades relatadas* para cada módulo. 
 
-Um manifesto de implantação que contém o tempo de execução do IoT Edge (hub e agente) é válido.
+Dois módulos são necessários em cada manifesto de implantação: `$edgeAgent`, e `$edgeHub`. Esses módulos são parte do tempo de execução do IoT Edge que gerencia o dispositivo IoT Edge e os módulos em execução nele. Para obter mais informações sobre esses módulos, consulte [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
 
-O manifesto segue esta estrutura:
+Além dos dois módulos de tempo de execução, você pode adicionar até 20 módulos de sua preferência para ser executado em um dispositivo IoT Edge. 
+
+Um manifesto de implantação que contém apenas o tempo de execução do IoT Edge (edgeAgent e edgeHub) é válido.
+
+Manifestos de implantação seguem essa estrutura:
 
 ```json
 {
     "modulesContent": {
-        "$edgeAgent": {
+        "$edgeAgent": { // required
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
                 // includes container registry credentials
             }
         },
-        "$edgeHub": {
+        "$edgeHub": { //required
             "properties.desired": {
                 // desired properties of the Edge hub
                 // includes the routing information between modules, and to IoT Hub
@@ -55,11 +59,13 @@ O manifesto segue esta estrutura:
         },
         "{module1}": {  // optional
             "properties.desired": {
-                // desired properties of module with id {module1}
+                // desired properties of {module1}
             }
         },
         "{module2}": {  // optional
-            ...
+            "properties.desired": {
+                // desired properties of {module2}
+            }
         },
         ...
     }
@@ -68,7 +74,7 @@ O manifesto segue esta estrutura:
 
 ## <a name="configure-modules"></a>Configurar módulos
 
-Você precisa dizer para o tempo de execução IoT Edge como instalar os módulos na sua implantação. As informações de configuração e gerenciamento para todos os módulos fica dentro das propriedades desejadas do **$edgeAgent**. Essas informações incluem os parâmetros de configuração para o próprio agente Edge. 
+Definir o tempo de execução IoT Edge como instalar os módulos na sua implantação. O agente do IoT Edge é o componente de tempo de execução que gerencia a instalação, atualizações e relatório de status para um dispositivo IoT Edge. Portanto, o módulo gêmeo $edgeAgent requer a configuração e informações de gerenciamento para todos os módulos. Essas informações incluem os parâmetros de configuração para o próprio agente Edge. 
 
 Para obter uma lista completa das propriedades que podem ou devem ser incluídos, consulte [Propriedades do agente Edge e hub do Edge](module-edgeagent-edgehub.md).
 
@@ -107,7 +113,7 @@ As propriedades de $edgeAgent seguem esta estrutura:
 
 ## <a name="declare-routes"></a>Declarar rotas
 
-O hub do Edge fornece uma maneira para rotear de modo declarativo as mensagens entre módulos e entre os módulos e o Hub IoT. O hub do Edge gerencia todas as comunicações, para que as informações de rota fica dentro das propriedades desejadas do **$edgeHub**. Você pode ter várias rotas dentro da mesma implantação.
+O hub do IoT Edge gerencia a comunicação entre módulos, o Hub IoT e todos os dispositivos de folha. Portanto, o módulo gêmeo $edgeHub contém propriedade desejada chamada *rotas* que declara como as mensagens são passadas em uma implantação. Você pode ter várias rotas dentro da mesma implantação.
 
 As rotas são declaradas nas propriedades desejadas do **$edgeHub** com a seguinte sintaxe:
 
@@ -126,19 +132,23 @@ Cada rota precisa de uma origem e um coletor, mas a condição é uma parte opci
 
 
 ### <a name="source"></a>Fonte
-A origem especifica de onde as mensagens são provenientes. Pode ser qualquer um dos seguintes valores:
+
+A origem especifica de onde as mensagens são provenientes. O IoT Edge pode rotear as mensagens de dispositivos de folha ou módulos.
+
+A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
 | Fonte | DESCRIÇÃO |
 | ------ | ----------- |
-| `/*` | Todas as mensagens de dispositivo para nuvem de qualquer dispositivo ou módulo |
-| `/messages/*` | Qualquer mensagem de dispositivo para nuvem enviada por um dispositivo ou por um módulo por meio de algumas ou nenhuma saída |
+| `/*` | Todas as mensagens do dispositivo para a nuvem ou gêmeo alteração as notificações de qualquer módulo ou dispositivo de folha |
+| `/twinChangeNotifications` | Qualquer alteração de gêmeo (propriedades relatadas) proveniente de qualquer dispositivo de módulo ou folha |
+| `/messages/*` | Qualquer mensagem de dispositivo para nuvem enviada por módulo ou dispositivo de folha por meio de algumas ou nenhuma saída |
 | `/messages/modules/*` | Qualquer mensagem de dispositivo para nuvem enviada por um módulo por meio de algumas ou nenhuma saída |
-| `/messages/modules/{moduleId}/*` | Qualquer mensagem de dispositivo para nuvem enviada por {Idmódulo} sem saída |
-| `/messages/modules/{moduleId}/outputs/*` | Qualquer mensagem de dispositivo para nuvem enviada por {IDmódulo} com algumas saídas |
-| `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para nuvem enviada por {IDmódulo} usando {saída} |
+| `/messages/modules/{moduleId}/*` | Qualquer mensagem de dispositivo para nuvem enviada por um módulo específico por meio de algumas ou nenhuma saída |
+| `/messages/modules/{moduleId}/outputs/*` | Qualquer mensagem de dispositivo para nuvem enviada por um módulo específico por meio de alguma saída |
+| `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para nuvem enviada por um módulo específico por meio de uma saída específica |
 
 ### <a name="condition"></a>Condição
-A condição é opcional em uma declaração de rota. Se você deseja passar todas as mensagens do coletor para a fonte, deixe-o inteiramente fora da cláusula **WHERE**. Ou você pode usar a [linguagem de consulta de Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar determinadas mensagens ou tipos de mensagem que satisfazem a condição.
+A condição é opcional em uma declaração de rota. Se você deseja passar todas as mensagens do coletor para a fonte, deixe-o inteiramente fora da cláusula **WHERE**. Ou você pode usar a [linguagem de consulta de Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar determinadas mensagens ou tipos de mensagem que satisfazem a condição. As rotas do IoT Edge não dão suporte a mensagens de filtragem com base em propriedades ou marcas do gêmeo. 
 
 As mensagens que passam entre módulos no IoT Edge são formatadas da mesma forma que as mensagens que passam entre seus dispositivos e o Hub IoT do Azure. Todas as mensagens são formatadas como JSON e têm os parâmetros **systemProperties**, **appProperties** e **body**. 
 
@@ -150,35 +160,37 @@ Você pode criar consultas baseadas nos três parâmetros com a seguinte sintaxe
 
 Para obter exemplos sobre como criar consultas para propriedades de mensagem, consulte [Expressões de consulta de rotas de mensagem do dispositivo para a nuvem](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-Um exemplo específico do IoT Edge é quando você deseja filtrar as mensagens que chegaram a um dispositivo de gateway vindo de um dispositivo de folha. Mensagens que chegam de módulos contêm uma propriedade do sistema chamada **connectionModuleId**. Então se você quiser rotear mensagens de dispositivos de folha diretamente ao Hub IoT, use a rota a seguir para excluir mensagens de módulo:
+Um exemplo específico do IoT Edge é quando você deseja filtrar as mensagens que chegaram a um dispositivo de gateway vindo de um dispositivo de folha. Mensagens que chegam de módulos incluem uma propriedade do sistema chamada **connectionModuleId**. Então se você quiser rotear mensagens de dispositivos de folha diretamente ao Hub IoT, use a rota a seguir para excluir mensagens de módulo:
 
-```sql
-FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+```query
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>Coletor
-O coletor define onde as mensagens são enviadas. Pode ser qualquer um dos seguintes valores:
+O coletor define onde as mensagens são enviadas. Somente os módulos e o Hub IoT podem receber mensagens. As mensagens não podem ser roteadas para outros dispositivos. Não há nenhuma opção de curinga na propriedade do coletor. 
+
+A propriedade da fonte pode ser qualquer um dos valores a seguir:
 
 | Coletor | DESCRIÇÃO |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem para o Hub IoT |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem para a entrada `{input}` do módulo`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem para uma entrada específica de um módulo específico |
 
-IoT Edge fornece garantias at-least-once. O hub Edge armazena mensagens localmente no caso de uma rota não é possível entregar a mensagem para o coletor. Por exemplo, se o hub Edge não pode se conectar ao IoT Hub ou o módulo de destino não está conectado.
+IoT Edge fornece garantias at-least-once. O hub do Edge armazena mensagens localmente no caso de uma rota não conseguir entregar a mensagem para seu coletor. Por exemplo, se o hub do Edge não puder se conectar ao Hub IoT ou o módulo de destino não estiver conectado.
 
 O hub do Edge armazena as mensagens até à hora especificada na propriedade `storeAndForwardConfiguration.timeToLiveSecs` das [propriedades desejadas do hub do Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Definir ou atualizar as propriedades desejadas 
 
-O manifesto de implantação pode especificar propriedades desejadas para o gêmeo do módulo de cada módulo implantado no dispositivo IoT Edge. Quando as propriedades desejadas são especificadas no manifesto de implantação, substituem qualquer propriedade desejada atualmente no gêmeo do módulo.
+O manifesto de implantação especifica as propriedades desejadas para cada módulo implantado ao dispositivo do IoT Edge. Quando as propriedades no manifesto de implantação substituem qualquer propriedade desejada atualmente no gêmeo do módulo.
 
-Se você não especificar as propriedades desejadas de um gêmeo de módulo no manifesto de implantação, o Hub IoT não modifica o gêmeo de módulo de qualquer forma, e você poderá definir as propriedades desejadas programaticamente.
+Se você não especificar as propriedades desejadas de um gêmeo de módulo no manifesto de implantação, o Hub IoT não modifica o gêmeo de módulo de qualquer forma e você poderá definir as propriedades desejadas programaticamente. Em vez disso, você pode definir as propriedades desejadas programaticamente.
 
 Os mesmos mecanismos que permitem que você modifique dispositivos gêmeos são usados para modificar módulos gêmeos. Para obter mais informações, consulte o [guia do desenvolvedor do módulo gêmeo](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Exemplo de manifesto de implantação
 
-Este é um exemplo de um documento JSON do manifesto de implantação.
+O exemplo a seguir mostra o que pode ser a aparência de um documento de manifesto de implantação válido.
 
 ```json
 {

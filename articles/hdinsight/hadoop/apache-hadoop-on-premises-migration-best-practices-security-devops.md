@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9489d6e8780a30c5c54ee307d6c45c4bc2eb0e5d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419275"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265280"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -24,7 +24,7 @@ Este artigo fornece recomendações de segurança e DevOps nos sistemas do Azure
 
 O ESP (Enterprise Security Package) é compatível com a autenticação baseada no Active Directory, suporte multiusuário e controle de acesso baseado em função. Com a opção ESP selecionada, o cluster do HDInsight ingressa no domínio do Active Directory. Dessa maneira, o admin corporativo pode configurar o RBAC (controle de acesso baseado em função) para a segurança do Hive usando o Apache Ranger. O administrador também poderá auditar o acesso a dados pelos funcionários e todas as alterações feitas nas políticas de controle de acesso.
 
-Os recursos do ESP estão em versão prévia no momento e estão disponíveis somente nestes tipos de cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Apache Interactive Query.
+O ESP está disponível nos seguintes tipos de cluster: Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka e Apache Interactive Query (Hive LLAP). 
 
 Use as seguintes etapas para implantar o cluster do HDInsight ingressado no domínio:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584159"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820291"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -54,21 +54,21 @@ Execute as etapas a seguir para preparar as unidades.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
     - **Para importar uma pasta**: todos os arquivos e pastas em *MyFolder2* são copiados para o compartilhamento de arquivos de forma recursiva. A estrutura de pastas é mantida.
 
         ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
         ```
     Várias entradas podem ser feitas no mesmo arquivo correspondente a pastas ou arquivos que são importados. 
 
         ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
+                        
         ```
     Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -139,7 +139,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     
     - Carregue os arquivos de diário que você criou durante a [Etapa 1: preparar as unidades](#step-1-prepare-the-drives) anterior. 
     - Selecione a conta de armazenamento na qual os dados serão importados. 
-    - O local de redistribuição será populado automaticamente com base na região da conta de armazenamento selecionada.
+    - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
    
        ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
@@ -150,7 +150,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
         > [!TIP] 
-        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
+        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Os dados dos logs para a versão de dados na versão de conteúdo.
 
        ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 

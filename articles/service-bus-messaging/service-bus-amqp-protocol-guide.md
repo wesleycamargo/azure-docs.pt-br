@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013319"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821541"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -258,7 +258,7 @@ As operações são agrupadas por um identificador `txn-id`.
 
 Para a interação transacional, o cliente age como um `transaction controller` que controla as operações que devem ser agrupadas. O Serviço de Barramento de Serviço age como um `transactional resource` e executa o trabalho conforme solicitado pelo `transaction controller`.
 
-O cliente e o serviço se comunicam por meio de um `control link` que é estabelecido pelo cliente. As mensagens `declare` e `discharge` são enviadas pelo controlador pelo link de controle para alocar e concluir as transações respectivamente (elas não representam a demarcação do trabalho transacional). O envio/recebimento reais não são executados nesse link. Cada operação transacional solicitada é identificada explicitamente com o `txn-id` desejado e, portanto, pode ocorrer em qualquer link da conexão. Se o link de controle for fechado enquanto houver transações não descarregadas criadas por ele, todas essas transações serão revertidas imediatamente, e a tentativa de realizar mais trabalho transacional nelas levará à falha. As mensagens no link de controle não podem ser pré-estabelecidas.
+O cliente e o serviço se comunicam por meio de um `control link` que é estabelecido pelo cliente. As mensagens `declare` e `discharge` são enviadas pelo controlador pelo link de controle para alocar e concluir as transações respectivamente (elas não representam a demarcação do trabalho transacional). O envio/recebimento real não é executado neste link. Cada operação transacional solicitada é identificada explicitamente com o `txn-id` desejado e, portanto, pode ocorrer em qualquer link da conexão. Se o link de controle for fechado enquanto houver transações não descarregadas criadas por ele, todas essas transações serão revertidas imediatamente, e a tentativa de realizar mais trabalho transacional nelas levará à falha. As mensagens no link de controle não podem ser pré-estabelecidas.
 
 Cada conexão tem que iniciar seu próprio link de controle para poder iniciar e terminar transações. O serviço define um destino especial que funciona como um `coordinator`. O cliente/controlador estabelece um link de controle com esse destino. O link de controle fica fora do limite de uma entidade, ou seja, o mesmo link de controle pode ser usado para iniciar e descarregar transações de várias entidades.
 
@@ -364,7 +364,7 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 | operation |Não  |string |**put-token** |
 | Tipo |Não  |string |O tipo do token colocado. |
 | Nome |Não  |string |O "público" ao qual o token se aplica. |
-| expiração |SIM |timestamp |A hora de expiração do token. |
+| expiração |SIM | timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 

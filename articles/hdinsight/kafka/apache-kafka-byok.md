@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041502"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314364"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key do Apache Kafka no Azure HDInsight (versão prévia)
 
@@ -83,7 +83,7 @@ Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com seg
 
    Durante a criação do cluster, forneça a URL completa, incluindo a versão da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Você também precisa atribuir a identidade gerenciada ao cluster e fornecer o URI da chave.
 
-## <a name="faq-for-byok-to-kafka"></a>Perguntas frequentes para BYOK para Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>Perguntas frequentes para BYOK para Apache Kafka
 
 **Como o cluster do Kafka acessa meu cofre de chaves?**
 
@@ -107,7 +107,7 @@ Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com seg
 
 **Os discos de recursos/discos de sistema operacional também são criptografados?**
 
-   Não. Os discos de sistema operacional e os discos de recursos não são criptografados.
+    Não. Os discos de sistema operacional e os discos de recursos não são criptografados.
 
 **Se um cluster for escalado verticalmente, os novos agentes darão suporte ao BYOK perfeitamente?**
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016277"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499459"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos Serviços ML e recursos R de código aberto no HDInsight
 
@@ -27,7 +27,7 @@ O Microsoft Machine Learning Server está disponível como uma opção de implan
 
 O ML Services no HDInsight fornece os recursos mais recentes para análise de R em conjuntos de dados de praticamente qualquer tamanho carregados no Blob do Azure ou no armazenamento do Data Lake. Uma vez que o cluster do Microsoft ML Services é criado no R de software livre, os aplicativos baseados em R que você compilar podem aproveitar qualquer um dos mais de 8000 pacotes de R de software livre. As rotinas do ScaleR, o pacote de análise de dados grandes da Microsoft, também estão disponíveis.
 
-O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-las em todos os nós do cluster usando o Hadoop Map Reduce do ScaleR ou os contextos de computação do Spark.
+O nó de borda de um cluster fornece um local conveniente para se conectar ao cluster e executar os scripts de R. Com um nó do borda, você tem a opção de executar funções distribuídas paralelizadas do ScaleR nos núcleos do servidor do nó de borda. Você também pode executá-los nos nós do cluster usando os contextos de cálculo Hadoop Map Reduce ou Apache Spark do ScaleR.
 
 Os modelos ou previsões que resultam de análises podem ser baixados para uso local. Elas também podem ser operacionalizadas em qualquer lugar no Azure, como por meio de um [serviço Web](../../machine-learning/studio/publish-a-machine-learning-web-service.md) no [Azure Machine Learning Studio](http://studio.azureml.net).
 
@@ -114,7 +114,7 @@ Se estiver usando apenas rotinas da biblioteca do ScaleR pelo cluster, você ger
 
 Nesses casos, os pacotes adicionais podem ser instalados com uma ação de script após a criação do cluster. Para obter mais informações, consulte [ Gerenciar serviços ML no cluster do HDInsight ](r-server-hdinsight-manage.md).
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Alterar as configurações de memória do Hadoop MapReduce
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Alterar as configurações de memória do Apache Hadoop MapReduce
 
 Um cluster pode ser modificado para alterar a quantidade de memória disponível para os Serviços ML quando estiver executando um trabalho MapReduce. Para modificar um cluster, use a interface de usuário do Apache Ambari que está disponível por meio da folha Portal do Azure do seu cluster. Para obter instruções sobre como acessar a interface de usuário do Ambari para seu cluster, confira [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](../hdinsight-hadoop-manage-ambari.md).
 

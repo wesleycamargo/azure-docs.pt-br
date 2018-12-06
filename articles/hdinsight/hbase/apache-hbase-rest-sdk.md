@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042114"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495406"
 ---
-# <a name="use-the-hbase-net-sdk"></a>Use o SDK .NET do HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Use o .Net SDK para o Apache HBase
 
 O [HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com seus dados: [consultas no Hive e chamadas à API RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Você pode trabalhar diretamente com a API REST usando o comando `curl` ou um utilitário semelhante.
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Substitua o NOMEDOCLUSTER pelo nome do seu cluster do HBase do HDInsight, e NOMEDOUSUÁRIO e SENHA pelas credenciais Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
+Substitua CLUSTERNAME pelo nome do cluster HDInsight HBase e por USERNAME e PASSWORD pelas credenciais do Apache Hadoop especificadas na criação do cluster. O nome de usuário Hadoop padrão é **admin**.
 
 ## <a name="create-a-new-table"></a>Criar uma nova tabela
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-O HBase implementa o BigTable, para que o formato de dados seja semelhante ao seguinte:
+O HBase implementa [Cloud BigTable](https://cloud.google.com/bigtable/), portanto, o formato de dados é semelhante ao seguinte:
 
 ![Usuário com função de Usuário de Cluster](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Introdução com um exemplo do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Crie um aplicativo de ponta a ponta com [Analisar sentimento do Twitter em tempo real com o HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Crie um aplicativo de ponta a ponta com [Analise o sentimento do Twitter em tempo real com o Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

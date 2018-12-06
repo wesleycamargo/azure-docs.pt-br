@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418170"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584699"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop locais para o Azure HDInsight – melhores práticas de migração de dados
 
@@ -25,20 +25,12 @@ Este artigo fornece recomendações para a migração de dados para o Azure HDIn
 Há duas opções principais para migrar dados do local para o ambiente do Azure:
 
 1.  Transferir dados pela rede com TLS
-    1.  Pela Internet
-    2.  ExpressRoute
-2.  Dados de envio
-    1.  Serviço de importação/exportação
-        - Apenas HDs ou SDDs SATA internos
-        - Criptografado em REST (AES-128/AES-256)
-        - O trabalho de importação pode ter até 10 discos
-        - Disponível em todas as regiões públicas e GA
-    1.  Data Box
-        - Até 80 TB de dados por Data Box
-        - Criptografado em REST (AES-256)
-        - Usa os protocolos NAS e é compatível com ferramentas de cópia de dados comuns
-        - Hardware reforçado
-        - Disponível apenas nos EUA e em versão prévia pública
+    1. Pela Internet - Você pode transferir dados para o armazenamento do Azure em uma conexão de Internet normal usando qualquer uma das várias ferramentas, como: o Azure Storage Explorer, o AzCopy, o Azure Powershell e o CLI do Azure.  Consulte [Mover dados de e para o Armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
+    2. Express Route - ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os datacenters e a infraestrutura da Microsoft em suas instalações ou em uma instalação de colocação. As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet. Para obter mais informações, consulte [Criar e modificar um circuito da Rota Expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    1. Transferência de dados on-line do Data Box - Data Box Edge e Data Box Gateway são produtos de transferência de dados on-line que funcionam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada por inteligência artificial (AI) para processar dados. Gateway de caixa de dados é uma solução de virtualização com recursos de gateway de armazenamento. Para obter mais informações, consulte [Documentação do Azure Data Box - Transferência on-line](https://docs.microsoft.com/azure/databox-online/).
+1.  Envio de dados Offline
+    1. Serviço de Importação/Exportação - você pode enviar discos físicos para o Azure e eles serão enviados para você. Para saber mais, confira [O que é o serviço de Importação/Exportação do Azure?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+    1. Transferência de dados offline da Caixa de Dados - Os dispositivos Data Box, Data Box Disk e Data Box Heavy ajudam a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Esses dispositivos de transferência de dados off-line são enviados entre sua organização e o datacenter do Azure. Eles usam criptografia AES para ajudar a proteger seus dados em trânsito e passam por um processo completo de sanitização pós-upload para excluir seus dados do dispositivo. Para obter mais informações, consulte [Documentação da Caixa de Dados do Azure - Transferência Off-line](https://docs.microsoft.com/azure/databox/).
 
 A tabela a seguir tem a duração de transferência de dados aproximada com base na largura de banda de rede e no volume de dados. Use um Data Box se for esperado que a migração de dados levará mais de três semanas.
 

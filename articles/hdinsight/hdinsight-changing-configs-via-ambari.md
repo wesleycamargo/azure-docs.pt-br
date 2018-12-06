@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038511"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498660"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Ambari para otimizar as configurações de cluster do HDInsight
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Use o Apache Ambari para otimizar as configurações de cluster do HDInsight
 
-O HDInsight fornece clusters Apache Hadoop para aplicativos de processamento de dados de larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](http://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters do Windows, use a [API REST](hdinsight-hadoop-manage-ambari-rest-api.md) do Ambari.
+O HDInsight fornece clusters [Apache Hadoop](https://hadoop.apache.org/) para aplicativos de processamento de dados de larga escala. Gerenciar, monitorar e otimizar esses clusters complexos com vários nós pode ser desafiador. [Apache Ambari](http://ambari.apache.org/) é uma interface da Web voltada para gerenciar e monitorar clusters Linux do HDInsight.  Para clusters do Windows, use a [API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-Para ver uma introdução ao uso da interface do usuário da Web do Ambari, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md)
+Para ver uma introdução ao uso da interface do usuário da Web do Ambari, consulte [Gerenciar clusters HDInsight usando a interface de usuário do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
 
 Faça logon no Ambari em `https://CLUSTERNAME.azurehdidnsight.net` usando suas credenciais do cluster. A tela inicial exibe um painel de visão geral.
 
@@ -59,16 +59,16 @@ Para modificar o tamanho do heap do NameNode Java:
 
     ![Salvar alterações](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Otimização do Hive
+## <a name="apache-hive-optimization"></a>Otimização do Apache Hive
 
-As seções a seguir descrevem opções de configuração para otimizar o desempenho geral do Hive.
+As seções a seguir descrevem opções de configuração para otimizar o desempenho geral do Apache Hive.
 
 1. Para modificar parâmetros de configuração do Hive, selecione **Hive** na barra lateral Serviços.
 1. Navegue até a guia **Configurações**.
 
 ### <a name="set-the-hive-execution-engine"></a>Definir o mecanismo de execução do Hive
 
-O Hive fornece dois mecanismos de execução: MapReduce e Tez. O Tez é mais rápido que o MapReduce. Clusters Linux do HDInsight têm o Tez como mecanismo de execução padrão. Para alterar o mecanismo de execução:
+O Hive fornece dois mecanismos de execução: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) e [Apache TEZ](https://tez.apache.org/). O Tez é mais rápido que o MapReduce. Clusters Linux do HDInsight têm o Tez como mecanismo de execução padrão. Para alterar o mecanismo de execução:
 
 1. Na guia **Configurações** do Hive, digite **mecanismo de execução** na caixa de filtro.
 
@@ -99,7 +99,7 @@ Essas alterações afetam todos os trabalhos do Tez no servidor. Para obter o re
 
 ### <a name="tune-reducers"></a>Ajustar redutores
 
-Tanto o ORC quanto o Snappy têm alto desempenho. Entretanto, o Hive pode ter poucos redutores por padrão, o que causa gargalos.
+[Apache ORC](https://orc.apache.org/) e [Snappy](https://google.github.io/snappy/) ambos oferecem alto desempenho. Entretanto, o Hive pode ter poucos redutores por padrão, o que causa gargalos.
 
 Por exemplo, digamos que você tenha um tamanho de dados de entrada igual a 50 GB. Esses dados em formato ORC com compactação do Snappy terão 1 GB. O Hive estima o número de redutores necessários como: (número de entrada de bytes para mapeadores / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -196,7 +196,7 @@ Como regra geral, é importante que o método de compactação seja divisível. 
 
 1. Para adicionar uma configuração personalizada:
 
-    a. Navegue até a guia **Configurações** do Hive e selecione a guia **Avançado**.
+     a. Navegue até a guia **Configurações** do Hive e selecione a guia **Avançado**.
 
     b. Na guia **Avançado**, localize e expanda o painel **hive-site personalizado**.
 
@@ -287,9 +287,9 @@ Recomendações adicionais para otimizar o mecanismo de execução do Hive:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## <a name="pig-optimization"></a>Otimização de Pig
+## <a name="apache-pig-optimization"></a>Otimização de Apache Pig
 
-Propriedades de Pig podem ser modificadas da interface do usuário da Web do Ambari para ajustar consultas de Pig. Modificar propriedades de Pig do Ambari modifica diretamente as propriedades de Pig no arquivo `/etc/pig/2.4.2.0-258.0/pig.properties`.
+Propriedades de [Apache Pig](https://pig.apache.org/) podem ser modificadas da interface do usuário da Web do Ambari para ajustar consultas de Pig. Modificar propriedades de Pig do Ambari modifica diretamente as propriedades de Pig no arquivo `/etc/pig/2.4.2.0-258.0/pig.properties`.
 
 1. Para modificar propriedades de Pig, navegue até a guia **Configurações** de Pig e, em seguida, expanda o painel **Propriedades avançadas de Pig**.
 
@@ -344,7 +344,7 @@ O Pig gera arquivos temporários durante a execução do trabalho. Compactar os 
 
 * `pig.tmpfilecompression`: quando for true, habilitará a compactação de arquivos temporários. O valor padrão é falso.
 
-* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o LZO e o Snappy para menor utilização da CPU.
+* `pig.tmpfilecompression.codec`: o codec de compactação a ser usado para compactar os arquivos temporários. Os codecs de compactação recomendados são o [LZO](https://www.oberhumer.com/opensource/lzo/) e o Snappy para menor utilização da CPU.
 
 ### <a name="enable-split-combining"></a>Habilitar combinação de divisão
 
@@ -361,9 +361,9 @@ O número de mapeadores é controlado modificando a propriedade `pig.maxCombined
 O número de redutores é calculado com base no parâmetro `pig.exec.reducers.bytes.per.reducer`. O parâmetro especifica o número de bytes processados por redutor e por padrão é 1 GB. Para limitar o número máximo de redutores, defina a propriedade `pig.exec.reducers.max`, que por padrão é 999.
 
 
-## <a name="hbase-optimization-with-the-ambari-web-ui"></a>Otimização do HBase com a interface do usuário da Web do Ambari
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Otimização do Apache HBase com a interface do usuário da Web do Ambari
 
-A configuração do HBase é modificada na guia **Configurações do HBase**. As seções a seguir descrevem algumas das definições de configuração importantes que afetam o desempenho do HBase.
+A configuração do [Apache HBase](https://hbase.apache.org/) é modificada na guia **HBase Configs**. As seções a seguir descrevem algumas das definições de configuração importantes que afetam o desempenho do HBase.
 
 ### <a name="set-hbaseheapsize"></a>Definir HBASE_HEAPSIZE
 
@@ -453,5 +453,5 @@ O uso do buffer de alocação local do Memstore é determinado pela propriedade 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar clusters do HDInsight com a interface de usuário da Web do Ambari](hdinsight-hadoop-manage-ambari.md)
-* [API REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Gerenciar clusters do HDInsight com a interface de usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

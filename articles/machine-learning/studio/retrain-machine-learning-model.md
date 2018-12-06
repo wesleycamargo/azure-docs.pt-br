@@ -1,10 +1,11 @@
 ---
-title: Readaptar um modelo do Machine Learning | Microsoft Docs
+title: Treinar novamente um modelo de Machine Learning Studio - Azure|Microsoft Docs
 description: Aprenda como readaptar um modelo e atualizar o serviço Web para usar o modelo recentemente adaptado no Machine Learning do Azure.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 46aa2c209f782706357f9a928ddbaa6321abdd77
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115520"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317918"
 ---
-# <a name="retrain-a-machine-learning-model"></a>Readaptar um modelo do Machine Learning
+# <a name="retrain-an-azure-machine-learning-studio-model"></a>Treinar novamente um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 
 
 Os modelos que você cria usando o Machine Learning geralmente não são estáticos. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. 

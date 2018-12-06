@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240096"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821037"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -84,7 +84,7 @@ A etapa 1 do roteiro do destina-se as tarefas críticas que são rápidas e fác
 
 Se você ainda não tiver ativado o Azure AD Privileged Identity Management (PIM), você deve fazer isso em seu locatário de produção. Depois de ativar o Privileged Identity Management, você receberá mensagens de notificação por email para alterações da função de acesso privilegiado. Essas notificações fornecem aviso antecipado quando usuários adicionais são adicionados às funções altamente privilegiadas no seu diretório.
 
-O Azure AD Privileged Identity Management está incluído no Azure AD Premium P2 ou EMS E5. Essas soluções ajudam a proteger o acesso a aplicativos e recursos no ambiente local e na nuvem. Se você ainda não tiver Azure AD Premium P2 ou EMS E5 e deseja avaliar mais os recursos referenciados neste roteiro, inscreva-se nos 90 dias gratuitos [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use essas licenças de avaliação para testar o Azure AD Privileged Identity Management e o Azure AD Identity Protection para monitorar a atividade usando o Azure AD avançados relatórios de segurança, auditoria e alertas.
+O Azure AD Privileged Identity Management está incluído no Azure AD Premium P2 ou EMS E5. Essas soluções ajudam a proteger o acesso a aplicativos e recursos no ambiente local e na nuvem. Se você ainda não tiver o Azure AD Premium P2 ou o EMS E5 e desejar avaliar mais os recursos mencionados neste roteiro, inscreva-se na [avaliação gratuita de 90 dias do Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Use essas licenças de avaliação para testar o Azure AD Privileged Identity Management e o Azure AD Identity Protection para monitorar a atividade usando o Azure AD avançados relatórios de segurança, auditoria e alertas.
 
 Depois de ter ativado o Azure AD Privileged Identity Management:
 
@@ -102,7 +102,7 @@ A primeira pessoa a usar o Azure AD Privileged Identity Management em seu diret�
 
 Depois de ativar o Azure AD Privileged Identity Management, exiba os usuários que estão nas funções de diretório administrador Global administrator, administrador de função Priveleged, administrador de Exchange Online e administrador SharePoint Online. Se você não tiver o Azure AD PIM em seu locatário, você pode usar o [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Inicie com a função de administrador uma fez que essa função é genérica: um usuário ao qual seja atribuída uma função administrativa terá as mesmas permissões em todos os serviços de nuvem que sua organização tenha assinado, independentemente de você atribuir a função no portal do Office 365, no Portal Clássico do Azure ou usando o módulo do Azure AD para Microsoft PowerShell. 
 
-Remova as contas que não são mais necessárias nessas funções e categorize as contas que são atribuídas a funções de administrador:
+Remova todas as contas que não são mais necessárias nessas funções. Em seguida, categorize as contas restantes atribuídas às funções administrativas:
 
 * Atribuídas individualmente a usuários administrativos e também podem ser usadas para fins não administrativos (por exemplo, email pessoal)
 * Individualmente atribuídas para usuários administrativos e designadas para fins administrativos apenas
@@ -113,7 +113,7 @@ Remova as contas que não são mais necessárias nessas funções e categorize a
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Defina pelo menos duas contas de acesso de emergência 
 
-Certifique-se de não entrar em uma situação em que você pode ser bloqueado inadvertidamente da administração do seu locatário do Azure AD devido à incapacidade de conectar ou ativar uma conta de usuário individual como administrador. Por exemplo, se a organização for federada a um provedor de identidade local, esse provedor de identidade pode estar indisponível para que os usuários não possam entrar no local. Você pode reduzir o impacto da falta acidental de acesso administrativo ao armazenar duas ou mais contas de acesso de emergência em seu locatário.
+Certifique-se de não entrar em uma situação em que eles possam ser bloqueados inadvertidamente da administração do locatário do Azure AD devido à incapacidade de entrar ou ativar uma conta de usuário individual existente como administrador. Por exemplo, se a organização for federada a um provedor de identidade local, esse provedor de identidade pode estar indisponível para que os usuários não possam entrar no local. Você pode reduzir o impacto da falta acidental de acesso administrativo ao armazenar duas ou mais contas de acesso de emergência em seu locatário.
 
 As contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado em um ambiente existente do Azure Active Directory. Essas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a emergência ou cenários de urgência em que as contas administrativas normais não podem ser usadas. As organizações devem garantir a meta de controlar e reduzir o uso da conta de emergência para somente esse momento durante o qual é necessário. 
 
@@ -127,11 +127,11 @@ Exija o Azure Multi-Factor Authentication (MFA) na entrada para todos os usuári
 
 ![Etapa 2](./media/directory-admin-roles-secure/stage-two.png)
 
-A Etapa 2 do roteiro do destina-se a reduzir as técnicas de ataque mais usadas de roubo de credenciais e abuso e foi projetada para ser implementada em aproximadamente 2 a 4 semanas. Essa etapa do roteiro de Acesso Privilegiado Seguro inclui as ações a seguir.
+O estágio 2 do roteiro se concentra na redução das técnicas de ataque e roubo de credenciais usadas com mais frequência e pode ser implementado em aproximadamente 2 a 4 semanas. Essa etapa do roteiro de Acesso Privilegiado Seguro inclui as ações a seguir.
 
 ### <a name="general-preparation"></a>Preparação geral
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Realizar um inventário dos serviços, proprietários e administradores
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Realizar um inventário de serviços, proprietários e administradores
 
 Com o aumento de bring-your-own-device (BYOD) e políticas de trabalho de casa e o crescimento da conectividade sem fio em empresas, é importante monitorar quem está se conectando à sua rede. Uma auditoria de segurança efetiva geral revela dispositivos, aplicativos e programas em execução em sua rede que não são suportados pela equipe de TI e, portanto, potencialmente não seguros. Para obter mais informações, veja [visão geral de monitoramento e gerenciamento de segurança do Azure](../../security/security-management-and-monitoring-overview.md). Certifique-se de incluir todas as tarefas a seguir em seu processo de inventário. 
 
@@ -337,7 +337,7 @@ Além de gerenciar suas contas de acesso privilegiado, recomendamos que você re
 * Apenas conceda acesso privilegiado quando necessário e removê-o posteriormente (just-in-time).
 * Mantenha e analise as atividades de auditoria relacionadas a contas privilegiadas.
 
-Para obter mais informações sobre a criação de um roteiro de segurança completa, consulte [recursos de arquitetura de TI de nuvem da Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre atrair os serviços da Microsoft para ajudá-lo em qualquer um desses tópicos, entre em contato com seu representante da Microsoft ou visite [ Construir defesas cibernéticas essenciais para proteger a sua empresa](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Para obter mais informações sobre a criação de um roteiro de segurança completa, consulte [recursos de arquitetura de TI de nuvem da Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre atrair os serviços da Microsoft para ajudá-lo em qualquer um desses tópicos, entre em contato com seu representante da Microsoft ou visite [ Construir defesas cibernéticas essenciais para proteger a sua empresa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Essa etapa final do roteiro Secured Privileged Access inclui os seguintes componentes.
 

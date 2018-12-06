@@ -3,7 +3,7 @@ title: Relatório de inteligência de ameaças da Central de Segurança do Azure
 description: Este documento ajuda a usar os Relatórios de Inteligência de Ameaças da Central de Segurança do Azure durante uma investigação para obter mais informações sobre um alerta de segurança.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: yurid
-ms.openlocfilehash: f0c1588633f548b740e6b9f6a7a3121ef791500a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 90cf57e22c4bb86ed9a784731480bc3fb8d3025d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234248"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619946"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Relatório de Inteligência de Ameaças da Central de Segurança do Azure
 Este documento explica como os Relatórios Inteligentes de Ameças da Central de Segurança do Azure podem ajudá-lo a saber mais sobre uma ameaça que gerou um alerta de segurança.
@@ -27,7 +27,7 @@ Este documento explica como os Relatórios Inteligentes de Ameças da Central de
 ## <a name="what-is-a-threat-intelligence-report"></a>O que é um relatório de inteligência de ameaças?
 A detecção de ameaças da Central de Segurança funciona monitorando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Esse processo faz parte dos [recursos de detecção](security-center-detection-capabilities.md) da Central de Segurança.
 
-Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de segurança](security-center-managing-and-responding-alerts.md), que contém informações sobre um evento específico, incluindo sugestões de correção detalhadas. Para ajudar as equipes de resposta a incidentes a investigar e a corrigir ameaças, a Central de Segurança inclui um relatório de inteligência de ameaças que contém informações sobre a ameaça detectada, incluindo informações como :
+Quando a Central de Segurança identifica uma ameaça, ele dispara um [alerta de segurança](security-center-managing-and-responding-alerts.md), que contém informações sobre um evento específico, incluindo sugestões de correção detalhadas. Para ajudar as equipes de resposta a incidentes a investigar e a corrigir ameaças, a Central de Segurança inclui um relatório de inteligência de ameaças que contém informações sobre a ameaça detectada, incluindo informações como:
 
 * Identidade ou associações do invasor (se essas informações estiverem disponíveis)
 * Objetivos dos invasores
@@ -48,10 +48,10 @@ A Central de Segurança tem três tipos de relatórios de ameaça, que podem var
 * **Relatório de Campanha**: concentra-se nos detalhes de campanhas de ataque específicas.
 * **Relatório de Resumo de Ameaças**: abrange todos os itens dos dois relatórios anteriores.
 
-Esse tipo de informação é muito útil durante o processo de [resposta a incidentes](security-center-incident-response.md), onde há uma investigação em andamento para compreender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema no futuro.
+Esse tipo de informação é muito útil durante o processo de [resposta a incidentes](security-center-incident-response.md), em que há uma investigação em andamento para compreender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema no futuro.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Como acessar o relatório de inteligência de ameaças?
-Você pode examinar os alertas atuais observando o bloco **Alertas de segurança** . Abra o Portal do Azure e siga as etapas abaixo para ver mais detalhes sobre cada alerta:
+Você pode examinar os alertas atuais observando o bloco **Alertas de segurança** . Abra o portal do Azure e siga as etapas abaixo para ver mais detalhes sobre cada alerta:
 
 1. No painel Central de Segurança, você verá o bloco **Alertas de segurança** .
 2. Clique no bloco para abrir a folha **Alertas de segurança** que contém mais detalhes sobre os alertas e clique no alerta de segurança sobre o qual você deseja obter mais informações.

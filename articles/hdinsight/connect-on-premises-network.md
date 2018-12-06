@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016923"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496111"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
 
@@ -321,12 +321,12 @@ Para conectar-se diretamente ao HDInsight por meio da rede virtual, use as segui
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Para determinar a porta na qual um serviço está disponível, consulte o documento [Portas usadas por serviços do Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+2. Para determinar a porta na qual um serviço está disponível, consulte o documento [Portas usadas por serviços do Apache Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
     > [!IMPORTANT]
     > Alguns serviços hospedados em nós de cabeçalho ficam ativos apenas em um nó por vez. Se você tentar acessar um serviço em um nó de cabeçalho e ele falhar, mude para o outro nó de cabeçalho.
     >
-    > Por exemplo, o Ambari só está ativo em um nó de cabeçalho por vez. Se você tentar acessar o Ambari em um nó de cabeçalho e ele retornar um erro 404, então ele estará em execução no outro nó de cabeçalho.
+    > Por exemplo, o Apache Ambari só está ativo em um nó de cabeçalho por vez. Se você tentar acessar o Ambari em um nó de cabeçalho e ele retornar um erro 404, então ele estará em execução no outro nó de cabeçalho.
 
 ## <a name="next-steps"></a>Próximas etapas
 

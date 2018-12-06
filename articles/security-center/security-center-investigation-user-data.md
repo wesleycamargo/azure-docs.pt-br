@@ -3,7 +3,7 @@ title: Gerenciar dados de usuário encontrados em uma investigação da Central 
 description: " Saiba como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301643"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276237"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerenciar dados de usuário encontrados em uma investigação da Central de Segurança do Azure
 Este artigo fornece informações sobre como gerenciar dados de usuário encontrados no recurso de investigação da Central de Segurança do Azure. Os dados de investigação são armazenados no [Azure Log Analytics](../log-analytics/log-analytics-overview.md) e expostos na Central de Segurança. O gerenciamento de dados de usuário inclui a capacidade de excluir dados ou exportar dados.
@@ -58,3 +58,4 @@ Um usuário da Central de Segurança com a função Proprietário, Colaborador o
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o gerenciamento de dados de usuário, confira [Gerenciar dados de usuário localizados na Central de Segurança do Azure](security-center-privacy.md).
+Para saber mais sobre a exclusão de dados privados no Log Analytics, consulte [Como exportar e excluir dados privados](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).

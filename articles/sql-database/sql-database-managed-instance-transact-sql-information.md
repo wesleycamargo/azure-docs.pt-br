@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258911"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712136"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -75,7 +75,7 @@ A Instância Gerenciada tem backups automáticos e permite aos usuários criar b
   - Opções de fita: `REWIND`, `NOREWIND`, `UNLOAD` e `NOUNLOAD` não são suportadas
   - Opções específicas de log: `NORECOVERY`, `STANDBY` e `NO_TRUNCATE` não são suportadas
 
-Limitações:  
+ Limitações:  
 
 - A Instância Gerenciada pode fazer backup de um banco de dados para um backup com até 32 faixas, o que é suficiente para os bancos de dados de até 4 TB se a compactação de backup for usada.
 - O tamanho máximo de faixa de backup é 195 GB (tamanho máximo de blob). Aumente o número de faixas no comando de backup para reduzir o tamanho de faixas individuais e permanecer dentro desse limite.
@@ -317,7 +317,7 @@ As seguintes opções de banco de dados são definidas/substituídas e não pode
 - Qualquer grupo de arquivos otimizado por memória já existente é renomeado para XTP  
 - As opções `SINGLE_USER` e `RESTRICTED_USER` são convertidas em `MULTI_USER`
 
-Limitações:  
+ Limitações:  
 
 - Os arquivos `.BAK` contendo vários conjuntos de backup não podem ser restaurados.
 - Os arquivos `.BAK` contendo vários arquivos de log não podem ser restaurados.
@@ -427,7 +427,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 Cada Instância Gerenciada tem até 35 TB de armazenamento reservado para o espaço em Disco Premium do Azure e cada arquivo de banco de dados é colocado em um disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. O espaço não utilizado no disco não é cobrado, mas a soma total dos tamanhos de Disco Premium do Azure não pode exceder 35 TB. Em alguns casos, uma Instância Gerenciada que não precise de 8 TB no total pode exceder o limite de 35 TB do Azure em tamanho de armazenamento, devido à fragmentação interna.
 
-Por exemplo, uma instância gerenciada pode ter um arquivo de 1,2 TB de tamanho que é colocado em um disco de 4 TB e 248 arquivos ins um tamanho 1 GB que são colocados em discos separados de 128 GB. Neste exemplo:
+Por exemplo, uma Instância Gerenciada pode ter um arquivo de 1,2 TB de tamanho colocado em um disco de 4 TB e 248 arquivos a cada 1 GB de tamanho colocados em discos separados de 128 GB. Neste exemplo:
 
 - o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB.
 - total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.

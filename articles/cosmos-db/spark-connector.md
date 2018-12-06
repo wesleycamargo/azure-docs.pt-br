@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269404"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707173"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector do Apache Spark para o Azure Cosmos DB
  
@@ -70,20 +70,20 @@ A comunicação entre o Spark e o Azure Cosmos DB é limitada ao nó mestre do S
 
 Execute as etapas a seguir para conectar o Spark ao Azure Cosmos DB usando o SDK pyDocumentDB:
 
-1. Crie uma [área de trabalho do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e um [cluster do Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). A versão 4.0 do tempo de execução do Azure Databricks inclui o Apache Spark 2.3.0 e o Scala 2.11 nessa área de trabalho.  
+1. Crie um [workspace do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e um [cluster do Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). A versão 4.0 do tempo de execução do Azure Databricks inclui o Apache Spark 2.3.0 e o Scala 2.11 nesse workspace.  
 
-2. Quando o cluster for criado e estiver em execução, vá para **Área de Trabalho** > **Crie a** > **Biblioteca**.  
+2. Quando o cluster for criado e estiver em execução, vá para **Workspace** > **Crie a** > **Biblioteca**.  
 3. Na caixa de diálogo New Library, escolha **Upload Python Egg ou PyPi** como a origem. Fornecer **pydocumentdb** como o nome e selecione **instalar biblioteca**. SDK do pyDocumentdb já está publicada para os pacotes de pip, para que você possa localizar e instalá-lo. 
 
    ![Captura de tela da caixa de diálogo Nova Biblioteca](./media/spark-connector/create-library.png)
 
 4. Depois que a biblioteca estiver instalada, conecte-a ao cluster que você criou anteriormente.  
 
-5. Vá para **espaço de trabalho** > **crie** > **Notebook**.  
+5. Vá para **workspace** > **crie** > **Notebook**.  
 
 6. Na caixa de diálogo **Criar Bloco de Notas** ,insira um nome amigável e escolha **Python** como o idioma. Na lista suspensa, selecione o cluster que você criou anteriormente e selecione **Criar**.  
 
-7. Execute algumas consultas Spark usando os dados de exemplo de voos hospedados na conta "doctorwho" do Azure Cosmos DB. (Essa conta é acessível publicamente.) O repositório GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda a versão HTML do notebook. Baixe os arquivos do repositório e, em seguida, vá para `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Você pode importar o bloco de anotações para sua conta do Azure Databricks e executá-lo. A seção a seguir explica a funcionalidade dos blocos de código em detalhes.
+7. Execute algumas consultas Spark usando os dados de exemplo de voos hospedados na conta "doctorwho" do Azure Cosmos DB. Esta conta é acessível publicamente. O repositório do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda o notebook [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb). Você pode importar o bloco de anotações para sua conta do Azure Databricks e executá-lo. A seção a seguir explica a funcionalidade dos blocos de código em detalhes.
 
 O snippet de código a seguir mostra como importar o SDK pyDocumentDB e executar uma consulta no contexto do Spark. Conforme observado no snippet de código, o SDK pyDocumentDB contém os parâmetros de conexão necessários para conectar a conta do Azure Cosmos DB. Ele importa as bibliotecas necessárias e configura a chave mestra e o host para criar o cliente do Azure Cosmos DB (pydocumentdb.document_client).
 
@@ -191,11 +191,11 @@ A comunicação entre o Spark e o Azure Cosmos DB é significativamente mais rá
 
 ### <a name="find-and-attach-the-java-sdk-to-the-spark-cluster"></a>Localizar e anexar o SDK do Java para o cluster Spark
 
-1. Crie uma [área de trabalho do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e um [cluster do Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). A versão 4.0 do tempo de execução do Azure Databricks inclui o Apache Spark 2.3.0 e o Scala 2.11 nessa área de trabalho.  
+1. Crie um [workspace do Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) e um [cluster do Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). A versão 4.0 do tempo de execução do Azure Databricks inclui o Apache Spark 2.3.0 e o Scala 2.11 nesse workspace.  
 
-2. Quando o cluster for criado e estiver em execução, vá para **Área de Trabalho** > **Crie a** > **Biblioteca**.  
+2. Quando o cluster for criado e estiver em execução, vá para **Workspace** > **Crie a** > **Biblioteca**.  
 
-3. Na caixa de diálogo **New Library**, escolha **Maven Coordinate** como a origem. Forneça o valor de coordenada **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0** e selecione **Criar Biblioteca**. As dependências do Maven são resolvidas e o pacote é adicionado ao espaço de trabalho. No formato de coordenadas do Maven anterior, 2.3.0 representa a versão do Spark, 2.11 representa a versão do Scala e 1.2.0 representa a versão do conector do Azure Cosmos DB. 
+3. Na caixa de diálogo **New Library**, escolha **Maven Coordinate** como a origem. Forneça o valor de coordenada **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0** e selecione **Criar Biblioteca**. As dependências do Maven são resolvidas e o pacote é adicionado ao workspace. No formato de coordenadas do Maven anterior, 2.3.0 representa a versão do Spark, 2.11 representa a versão do Scala e 1.2.0 representa a versão do conector do Azure Cosmos DB. 
 
 4. Depois que a biblioteca estiver instalada, conecte-a ao cluster que você criou anteriormente. 
 
@@ -209,9 +209,9 @@ Este artigo demonstra o uso do Java SDK do conector Spark nos seguintes cenário
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Ler dados do Twitter do Azure Cosmos DB
  
-Nesta seção, você executa as consultas do Spark para ler um lote de dados do Twitter do Azure Cosmos DB. O repositório GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda a versão HTML do notebook. Faça o download dos arquivos do repositório e vá para `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
+Nesta seção, você executa as consultas do Spark para ler um lote de dados do Twitter do Azure Cosmos DB. O repositório do GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda o bloco de notas [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb). Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
 
-1. Vá para a sua conta do Azure Databricks e selecione **Área de Trabalho** > **Crie o** > **Bloco de Notas**. 
+1. Vá para a sua conta do Azure Databricks e selecione **Workspace** > **Crie o** > **Notebook**. 
 
 2. Na caixa de diálogo **Criar Bloco de Notas** ,insira um nome amigável e escolha **Python** como o idioma. Na lista suspensa, selecione o cluster que você criou anteriormente e selecione **Criar**.  
 
@@ -268,9 +268,9 @@ Dependendo do cenário, você deve usar valores de configuração diferentes par
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Leia os dados do Twitter que estão sendo transmitidos para o Azure Cosmos DB
 
-Nesta seção, você executa as consultas do Spark para ler um feed de mudança de dados do Twitter. Enquanto você executa as consultas nesta seção, verifique se o aplicativo de feed do Twitter está em execução e enviando dados para o Azure Cosmos DB. O repositório GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda a versão HTML do notebook. Baixe os arquivos do repositório e, em seguida, vá para `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
+Nesta seção, você executa as consultas do Spark para ler um feed de mudança de dados do Twitter. Enquanto você executa as consultas nesta seção, verifique se o aplicativo de feed do Twitter está em execução e enviando dados para o Azure Cosmos DB. O repositório do GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda o bloco de notas [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala). Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
 
-1. Vá para a sua conta do Azure Databricks e selecione **Área de Trabalho** > **Crie o** > **Bloco de Notas**.  
+1. Vá para a sua conta do Azure Databricks e selecione **Workspace** > **Crie o** > **Notebook**.  
 
 2. No **Criar bloco de notas** caixa de diálogo, digite um nome amigável e escolha **Scala** como o idioma. Na lista suspensa, selecione o cluster que você criou anteriormente e selecione **Criar**.  
 
@@ -335,9 +335,9 @@ O SDK do Java dá suporte às configurações de conexão a seguir:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Escrever dados do Twitter no Azure Cosmos DB 
 
-Nesta seção, você executa as consultas do Spark para gravar um lote de dados do Twitter em uma nova coleção no mesmo banco de dados. O repositório GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda a versão HTML do notebook. Baixe os arquivos do repositório e, em seguida, vá para `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
+Nesta seção, você executa as consultas do Spark para gravar um lote de dados do Twitter em uma nova coleção no mesmo banco de dados. O repositório do GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda o bloco de notas [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb). Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
 
-1. Vá para a sua conta do Azure Databricks e selecione **Área de Trabalho** > **Crie o** > **Bloco de Notas**.  
+1. Vá para a sua conta do Azure Databricks e selecione **Workspace** > **Crie o** > **Notebook**.  
 
 2. No **Criar bloco de notas** caixa de diálogo, digite um nome amigável e escolha **Scala** como o idioma. Na lista suspensa, selecione o cluster que você criou anteriormente e selecione **Criar**.  
 
@@ -428,9 +428,9 @@ O SDK do Java dá suporte aos valores a seguir para mapeamento de configuração
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Escrever dados do Twitter que estão sendo transmitidos para o Azure Cosmos DB 
 
-Nesta seção, você executa as consultas do Spark para gravar um feed de mudança de dados do Twitter de streaming em uma nova coleção no mesmo banco de dados. O repositório GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda a versão HTML do notebook. Baixe os arquivos do repositório e, em seguida, vá para `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
+Nesta seção, você executa as consultas do Spark para gravar um feed de mudança de dados do Twitter de streaming em uma nova coleção no mesmo banco de dados. O repositório do GitHub do [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) hospeda o bloco de notas [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala). Você pode importar o bloco de anotações para sua conta do Azure Databricks e atualizar os nomes de URI, chave mestra, banco de dados e coleção da conta. Você pode executar o bloco de notas ou criá-lo da seguinte maneira:
 
-1. Vá para a sua conta do Azure Databricks e selecione **Área de Trabalho** > **Crie o** > **Bloco de Notas**.  
+1. Vá para a sua conta do Azure Databricks e selecione **Workspace** > **Crie o** > **Notebook**.  
 
 2. No **Criar bloco de notas** caixa de diálogo, digite um nome amigável e escolha **Scala** como o idioma. Na lista suspensa, selecione o cluster que você criou anteriormente e selecione **Criar**.  
 

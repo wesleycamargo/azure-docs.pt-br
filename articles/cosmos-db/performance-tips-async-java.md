@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 233296a825653938da158fc70952c7fe7931498c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a2c66894270a537239c5328eff0acdc4b8339994
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261818"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443535"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
 
@@ -53,7 +53,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 4. **Ajustar consultas paralelas para coleções particionadas**
 
-    O SDK do SQL Java Assíncrono do Azure Cosmos DB é compatível com consultas paralelas, o que permite a consulta a uma coleção particionada em paralelo (confira [Trabalhando com os SDKs](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) e os [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados para saber mais). Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial.
+    Azure Cosmos DB SQL Async Java SDK dá suporte a consultas paralelas, que permitem a consulta uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial.
 
     (a) ***Ajustar setMaxDegreeOfParallelism\:*** consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série com relação à consulta. Por isso, use setMaxDegreeOfParallelism para definir o número de partições que representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá usar setMaxDegreeOfParallelism para definir um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo. 
 

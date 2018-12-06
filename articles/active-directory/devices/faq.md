@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515634"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309337"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -93,6 +93,7 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 >[!Note] 
 >Para dispositivos inscritos, é recomendável apagar o dispositivo para garantir que usuários não possam acessar os recursos. Para obter mais informações, consulte [Inscrever dispositivos para gerenciamento no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
@@ -103,6 +104,20 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 - Para dispositivos associados do Azure AD híbrido, desative o registro automático para que a tarefa agendada não registre o dispositivo novamente. Agora, abra um prompt de comando como Administrador e digite `dsregcmd.exe /debug /leave`. Como alternativa, este comando pode ser executado como um script em vários dispositivos para cancelar a associação em massa.
 
 - Para dispositivos Azure AD simplesmente associados, verifique se você tem uma conta de administrador local offline ou crie uma, pois você não poderá entrar com as credenciais de usuário do Azure AD. Em seguida, acesse **Configurações** > **Contas** > **Acessar corporativo ou de estudante**. Selecione sua conta e clique em **Desconectar**. Siga os prompts e forneça as credenciais de administrador local, quando solicitado. Reinicie o dispositivo para concluir o processo de cancelar a associação.
+
+---
+
+**P: meus usuários podem entrar nos dispositivos ingressados que foram excluídos ou desabilitados no Azure Active Directory? ** 
+ **R:** Sim. O Windows armazenou em cache o recurso para permitir que os usuários conectados anteriormente acessam a área de trabalho rapidamente, mesmo sem conectividade à rede. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é conhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. No entanto, assim que o dispositivo for excluído ou desabilitado, os usuários não podem acessar todos os recursos protegidos pelo acesso condicional com base em dispositivo. 
+
+Os usuários que ainda não estiverem conectados não podem acessar o dispositivo, pois não há nenhum logon armazenado em cache habilitado para eles. 
+
+---
+
+**P: É possível que usuários desabilitados ou excluídos entrem nos dispositivos unidos do Azure Active Directory? ** 
+ **R:** Sim, mas apenas por um período limitado. Quando um dispositivo for excluído ou desabilitado no Azure Active Directory, ele não é imediatamente reconhecido para o dispositivo do Windows. Portanto, usuários conectados anteriormente podem continuar a acessar a área de trabalho com logon armazenado em cache. Depois que o dispositivo estiver ciente do estado do usuário (normalmente em menos de 4 horas), o Windows bloqueia o acesso dos usuários à área de trabalho. Uma vez que o usuário é excluído ou desabilitado no Azure Active Directory, todos os seus tokens serão revogados, portanto, não poderão acessar todos os recursos. 
+
+Usuários excluídos ou desabilitados que fizeram logon anteriormente, não podem acessar um dispositivo, pois não há nenhum logon armazenado em cache habilitado para eles. 
 
 ---
 

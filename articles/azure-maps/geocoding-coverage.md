@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989870"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444249"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
 Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa os termos de pesquisa e retorna as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, Mapas não têm o mesmo nível de informações e precisão para todas as regiões. Use este artigo para determinar que tipo de locais você pode procurar de forma confiável em cada região. 
+
+A capacidade de geocodificação em um país é dependente de cobertura de dados de estrada e a precisão da codificação geográfica do serviço de geocodificação. As seguintes categorizações são usadas para especificar o nível de suporte de geocodificação em cada país.
+* **Pontos de endereço** - dados de endereços podem ser resolvidos para uma coordenada de latitude/longitude dentro do pacote de endereço (limite de propriedade). Às vezes chamado de “Telhado” preciso. Esse é o nível mais alto de precisão para endereços disponíveis. 
+* **Números residenciais** - endereços são interpolados para uma coordenada de latitude/longitude na rua.
+* **Nível da rua** - endereços são resolvidos para a coordenada de latitude/longitude da rua que contém o endereço. O número da casa não pode ser processado.
+* **Nível de cidade** - nomes de locais de cidade que são suportados.
 
 ## <a name="americas"></a>Américas
 
@@ -52,6 +58,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Guadalupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guiana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Ilhas Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Índia       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japão                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
@@ -124,7 +132,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Ilhas Senkaku                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Cingapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Singapura                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
 | Coreia do Sul                                         |                 |                |              |      ✓     |          ✓         |
 | Ilhas Curilas do Sul                                     |        ✓        |                |              |      ✓     |          ✓         |
@@ -166,7 +174,7 @@ Quando você procura um local com o Mapas do Azure, o serviço de pesquisa usa o
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grécia                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Groenlândia                                           |                 |                |              |      ✓     |          ✓         |
-| Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guernesey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Hungria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islândia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Irlanda (República da)                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

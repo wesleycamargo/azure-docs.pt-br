@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/01/2018
+ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ecde7cb3662fc80e7968acfcac99bc8f28e8b15b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287566"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852632"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure com o Azure PowerShell
 
@@ -31,9 +31,9 @@ Este tutorial requer o módulo do Azure PowerShell, versão 5.1.1 ou posterior. 
 >
 >
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon em sua assinatura do Azure usando o comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) e siga as instruções na tela.
+Entre em sua assinatura do Azure usando o comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) e siga as instruções na tela.
 
 ```powershell
 Add-AzureRmAccount
@@ -45,10 +45,10 @@ Para ver qual assinatura que você está usando, execute [Get-AzureRmSubscriptio
 Get-AzureRmSubscription
 ```
 
-Se você precisar usar uma assinatura diferente do padrão, execute [AzureRmSubscription selecione](/powershell/module/azurerm.profile/select-azurermsubscription).
+Se você precisar usar uma assinatura diferente do padrão, execute [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -60,10 +60,10 @@ Defina quais variáveis usar nos scripts neste início rápido.
 # The data center and resource name for your resources
 $resourcegroupname = "myResourceGroup"
 $location = "WestEurope"
-# The logical server name: Use a random value or replace with your own value (do not capitalize)
+# The logical server name: Use a random value or replace with your own value (don't capitalize)
 $servername = "server-$(Get-Random)"
-# Set an admin login and password for your database
-# The login information for the server
+# Set an admin name and password for your database
+# The sign-in information for the server
 $adminlogin = "ServerAdmin"
 $password = "ChangeYourAdminPassword1"
 # The ip address range that you want to allow to access your server - change as appropriate
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Crie um [servidor lógico do SQL do Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
+Crie um [servidor lógico do SQL do Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon do usuário administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -130,7 +130,7 @@ Os parâmetros requeridos são:
 
 Os parâmetros opcionais são:
 
-- **CollationName**: o agrupamento padrão, se não especificado, é SQL_Latin1_General_CP1_CI_AS. O agrupamento não pode ser alterado em um banco de dados.
+- **CollationName**: a ordenação padrão, se não especificada, é SQL_Latin1_General_CP1_CI_AS. A ordenação não pode ser alterada em um banco de dados.
 - **MaxSizeBytes**: o tamanho máximo padrão de um banco de dados é de 10 GB.
 
 Para obter mais informações sobre as opções de parâmetro, consulte [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
@@ -141,7 +141,7 @@ Para obter mais informações sobre as opções de parâmetro, consulte [New-Azu
 Outros tutoriais nesta coleção aproveitam este início rápido. 
 
 > [!TIP]
-> Se você planeja continuar trabalhando com os tutoriais de início rápido subsequentes, não limpe os recursos criados neste início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.
+> Se você planeja continuar trabalhando com os tutoriais de início rápido mais recentes, não limpe os recursos criados neste guia de início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no portal do Azure.
 >
 
 ```powershell

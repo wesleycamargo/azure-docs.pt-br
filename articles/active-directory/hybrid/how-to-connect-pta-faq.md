@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685643"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619803"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -34,7 +34,7 @@ Leia [este guia](https://docs.microsoft.com/azure/security/azure-ad-choose-authn
 
 A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
  Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
@@ -44,7 +44,7 @@ Sim. Todos os recursos de acesso condicional, incluindo a Autenticação Multifa
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>A Autenticação de Passagem dá suporte à "ID alternativa" como nome de usuário, em vez de "userPrincipalName"?
 
-Sim. A Autenticação de Passagem dá suporte a `Alternate ID` como nome de usuário quando configurada no Azure AD Connect. Para saber mais, confira [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte ao `Alternate ID`. Veja a documentação específica do aplicativo para obter o demonstrativo de suporte.
+A Autenticação de Passagem dá suporte `Alternate ID` como nome de usuário quando configurada no Azure AD Connect. Como pré-requisito, o Azure AD Connect precisa sincronizar o atributo do Active Directory local `UserPrincipalName` ao Azure AD. Para saber mais, confira [Instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte ao `Alternate ID`. Veja a documentação específica do aplicativo para obter o demonstrativo de suporte.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A sincronização de hash de senha funciona como um fallback da Autenticação de Passagem?
 
@@ -119,6 +119,10 @@ Se você estiver migrando do AD FS (ou outras tecnologias de federação) para A
 
 Sim. Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do Active Directory e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>A autenticação de passagem fornece balanceamento de carga entre vários Agentes de Autenticação?
+
+Não, a instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Não fornece o balanceamento de carga determinístico entre os Agentes de Autenticação. Qualquer agente de autenticação (aleatório) pode processar uma solicitação de entrada do usuário específico.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos Agentes de Autenticação de Passagem preciso instalar?
 
 A instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Mas não fornece o balanceamento de carga determinístico entre os Agentes de Autenticação.
@@ -132,7 +136,7 @@ Para estimar o tráfego de rede, use as seguintes diretrizes de tamanho:
 Para a maioria dos clientes, um total de dois ou três agentes de autenticação é o suficiente para alta disponibilidade e capacidade. Você deve instalar os Agentes de Autenticação perto de seus controladores de domínio para melhorar a latência de entrada.
 
 >[!NOTE]
->Há um limite do sistema de 12 Agentes de Autenticação por locatário.
+>Há um limite do sistema de 40 Agentes de Autenticação por locatário.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Eu posso instalar o primeiro Agente de Autenticação de Passagem em um servidor diferente daquele que executa o Azure AD Connect?
 
@@ -149,6 +153,22 @@ Execute novamente o assistente Azure AD Connect e altere o método de entrada do
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>O que acontece quando eu desinstalo um Agente de Autenticação de Passagem?
 
 Se você desinstalar um Agente de Autenticação de Passagem de um servidor, ele faz o servidor parar de aceitar solicitações de entrada. Para evitar desativar o recurso de entrada do usuário em seu locatário, tenha outro Agente de Autenticação em execução antes de desinstalar um Agente de Autenticação de Passagem.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Eu tenho um locatário mais antigo que originalmente foi configurada usando o AD FS.  Recentemente migrado para PTA, mas agora não está vendo nossas alterações UPN sincronizando com o Azure Active Directory.  Por que as nossas mudanças UPN não estão sendo sincronizadas?
+
+R: nas seguintes circunstâncias, as alterações do UPN local não podem sincronizar se:
+
+- Seu locatário do Azure Active Directory foi criado antes de 15 de junho de 2015
+- Você inicialmente foi federado com seu locatário do Azure Active Directory usando o AD FS para autenticação
+- Você alternou de ter usuários gerenciados para PTA como autenticação
+
+Isso ocorre porque o comportamento padrão de locatários criados antes de 15 de junho de 2015 era para bloquear alterações UPN.  Se você precisar de alterações UPN de desbloqueio, você precisará executar o seguinte cmdlet do PowerShell:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão da sincronização de alterações UPN.   
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte e quais não têm.

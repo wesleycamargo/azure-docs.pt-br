@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003552"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496471"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -90,6 +90,9 @@ Para criar uma VM do Azure do SQL Server 2017 com uma dessas imagens de pagament
 >
 >Ele não inclui os custos de licenciamento adicionais do SQL Server para as edições Enterprise, Standard e Web. Para obter a estimativa de preços mais precisa, selecione o sistema operacional e a edição do SQL Server na página de preços para [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ou [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> Agora, é possível alterar o modelo de licenciamento do pagamento por uso para levar sua própria licença (BYOL) e retornar. Para saber mais, confira [Como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Traga sua própria licença (BYOL)
 
 **Trazer sua própria licença do SQL Server por meio da Mobilidade de Licença**, também conhecida como **BYOL**, significa usar uma Licença de Volume existente do SQL Server com Software Assurance em uma VM do Azure. Uma VM do SQL Server usando BYOL é cobrada somente pelo custo da respectiva execução e não pelo licenciamento do SQL Server, considerando que você já tenha adquirido licenças e o Software Assurance por meio de um programa de Licenciamento por Volume.
@@ -123,7 +126,9 @@ Para criar uma VM do Azure do SQL Server 2017 com uma dessas imagens traga sua p
 > Informe-nos em até 10 dias quantas licenças do SQL Server você usará no Azure. Os links para as imagens anteriores têm instruções de como fazer isso.
 
 > [!NOTE]
-> Não é possível alterar o modelo de licenciamento de uma VM do SQL Server paga por segundo para usar sua própria licença. Nesse caso, você deve criar uma nova VM BYOL e migrar seus bancos de dados para a nova VM.
+> Agora, é possível alterar o modelo de licenciamento do pagamento por uso para levar sua própria licença (BYOL) e retornar. Para saber mais, confira [Como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## <a name="reduce-costs"></a>Reduzir custos
 

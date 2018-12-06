@@ -5,25 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632685"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854315"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de build, teste e aplicação de patch de várias etapas tarefas do ACR
 
-Tarefas de várias etapas estendem a capacidade de build e envio por push de imagem única do ACR tarefas com fluxos de trabalho baseados em vários contêineres e várias etapas. Usar tarefas de várias etapas para compilar e enviar por push várias imagens, em série ou em paralelo, e executar essas imagens como comandos dentro de uma única execução da tarefa. Cada etapa define uma operação de envio por push ou build de imagem de contêiner, podendo também definir a execução de um contêiner. Cada etapa em uma tarefa de várias etapas usa um contêiner como seu ambiente de execução.
+Tarefas de várias etapas estendem a capacidade de build e envio por push de imagem única do ACR tarefas com fluxos de trabalho baseados em vários contêineres e várias etapas. Use tarefas com várias etapas para criar e enviar várias imagens, em série ou em paralelo. Em seguida, execute essas imagens como comandos em uma única execução de tarefa. Cada etapa define uma operação de envio por push ou build de imagem de contêiner, podendo também definir a execução de um contêiner. Cada etapa em uma tarefa de várias etapas usa um contêiner como seu ambiente de execução.
 
 > [!IMPORTANT]
 > Se você já tiver criado tarefas durante a versão prévia com o comando `az acr build-task`, essas tarefas precisarão ser recriadas usando o comando [az acr task][az-acr-task].
 
-Por exemplo, você pode executar uma tarefa com etapas que automatizam o seguinte:
+Por exemplo, você pode executar uma tarefa com etapas que automatizam a seguinte lógica:
 
-1. Compilar uma imagem de aplicativo Web
+1. Compilar uma imagem do aplicativo Web
 1. Executar o contêiner de aplicativo Web
 1. Compilar uma imagem de teste do aplicativo Web
 1. Executar o contêiner de teste de aplicativo Web que executa testes em relação à execução do contêiner de aplicativo
@@ -37,11 +37,11 @@ Todas as etapas são executadas no Azure, descarregando o trabalho para os recur
 
 ## <a name="common-task-scenarios"></a>Cenários comuns de tarefas
 
-Tarefas de várias etapas permitem cenários como os seguintes:
+As tarefas em várias etapas permitem cenários como a seguinte lógica:
 
 * Compilar, marcar e enviar por push uma ou mais imagens de contêiner, em série ou em paralelo.
 * Executar e capturar resultados de cobertura de código e de teste de unidade.
-* Executar e capturar testes funcionais. As Tarefas do ACR dão suporte à execução de vários contêineres, executando uma série de solicitações entre eles.
+* Executar e capturar testes funcionais. O ACR Tasks suporta a execução de mais de um contêiner, executando uma série de solicitações entre eles.
 * Realizar execução baseada em tarefas, incluindo as etapas pré/pós de um build de imagem de contêiner.
 * Implantar um ou mais contêineres com seu mecanismo de implantação favorito no seu ambiente de destino.
 
@@ -176,5 +176,5 @@ Você pode encontrar referências e exemplos de tarefas de várias etapas aqui:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

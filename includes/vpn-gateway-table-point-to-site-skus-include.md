@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d1a0e66cff415d25e7019e163e5ae42be205888
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197662"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585613"
 ---
-| **SKU** | **Conexões P2S**| **Agregar parâmetro de comparação de taxa de transferência** | **Autenticação Radius** | **VPN IKEv2 P2S** |
-|---|---|---|---| --- |
-| VpnGw1 | 128 | 650 Mbps  | Com suporte     | Com suporte |
-| VpnGw2 | 128 | 1 Gbps     | Com suporte     | Com suporte |
-| VpnGw3 | 128 | 1,25 Gbps | Com suporte     | Com suporte |
-| Basic  | 128 | 100 Mbps  | Sem suporte | Sem suporte |
+|**SKU**   | **S2S/VNet para VNet<br>Túneis** | **P2S<br> Conexões SSTP** | **P2S<br> Conexões IKEv2** | **Parâmetro de comparação<br>de taxa de transferência total** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| Máx. 30   | Máx. 128  | Máx. 250       | 650 Mbps  |
+|**VpnGw2**| Máx. 30  | Máx. 128  | Máx. 500       | 1 Gbps    |
+|**VpnGw3**| Máx. 30   | Máx. 128  | Máx. 1000      | 1,25 Gbps |
+|**Básico** | Máx. 10    | Máx. 128  | Sem suporte  | 100 Mbps  | 

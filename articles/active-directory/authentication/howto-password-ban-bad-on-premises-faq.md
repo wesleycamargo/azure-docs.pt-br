@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 59c89c81f618876de48de66a38e1063eb658fba4
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742951"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314772"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Versão prévia: proteção de senha do Microsoft Azure Active Directory no local - Perguntas frequentes
 
@@ -50,7 +50,7 @@ Para obter mais informações, consulte:
 
 [O caso para a replicação do sysvol migrando para DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
-[O fim é Nigh para DRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[O fim é Nigh para FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 **P: por que uma reinicialização é necessária para instalar ou atualizar o software do agente de controlador de domínio?**
 
@@ -58,7 +58,7 @@ Esse requisito é causado pelo comportamento principal do Windows.
 
 **P: há alguma maneira de configurar um agente de controlador de domínio para usar um servidor proxy específico?**
 
-Não.
+ Não.
 
 ## <a name="next-steps"></a>Próximas etapas
 

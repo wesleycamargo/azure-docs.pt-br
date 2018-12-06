@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ff9f3186602b9047e53fb78edbf52c2c0d9ee574
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 796ed1cb0fde6b29a931099336fd91e2e931fc29
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423582"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820487"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: integração do Azure Active Directory com o Sedgwick CMS
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Sedgwick CMS da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Sedgwick CMS](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
-    a. Na caixa de texto **Identificador**, digite a URL: 
+     a. Na caixa de texto **Identificador**, digite a URL: 
     | |
     |--|
     | `expresspreview.sedgwickcms.net/voe/sso` |
@@ -134,7 +134,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/sedgwickcms-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **Sedgwick CMS**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Sedgwick CMS**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do Sedgwick CMS](https://www.sedgwick.com/help). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-sedgwick-cms-test-user"></a>Criar um usuário de teste Sedgwick CMS
 
-Nesta seção, você criará uma usuária chamado Brenda Fernandes no Sedgwick CMS. Trabalhe com a [equipe de suporte do Sedgwick CMS](https://www.sedgwick.com/contact/Pages/contactform.aspx) para adicionar os usuários na plataforma do Sedgwick CMS. Os usuários devem ser criados e ativados antes de usar o logon único.  
+Nesta seção, você criará uma usuária chamado Brenda Fernandes no Sedgwick CMS. Trabalhe com a equipe de suporte do  [Sedgwick CMS](https://www.sedgwick.com/help) para adicionar os usuários na plataforma Sedgwick CMS. Os usuários devem ser criados e ativados antes de usar o logon único.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -210,7 +210,7 @@ Nesta seção, você habilitará para Brenda Fernandes o uso do logon único do 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do Sedgwick CMS no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Sedgwick CMS.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

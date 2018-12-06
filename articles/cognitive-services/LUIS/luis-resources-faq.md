@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649305"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284363"
 ---
 # <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
 
@@ -60,6 +60,16 @@ Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mai
 
 ## <a name="luis-endpoint"></a>Ponto de extremidade LUIS
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de terminal retornou resultados inesperados. O que devo fazer?
+
+Os resultados inesperados de previsão de consulta baseiam-se no estado do modelo publicado. Para corrigir o modelo, talvez seja necessário alterar o modelo, treinar e publicar novamente. 
+
+A correção do modelo começa com o [aprendizado ativo](luis-how-to-review-endoint-utt.md).
+
+Você pode remover o treinamento não determinístico atualizando a [ API de configurações da versão do aplicativo ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para usar todos os dados de treinamento. 
+
+Examine as [práticas recomendadas](luis-concept-best-practices.md) para obter outras dicas. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Por que o LUIS adiciona espaços à consulta ao redor ou no meio das palavras?
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cu
 [Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribuir a tecla](luis-how-to-manage-keys.md#assign-endpoint-key) na página **[Chaves e pontos de extremidade](luis-how-to-manage-keys.md)**. Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como fazer para interpretar as pontuações de LUIS?
-Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a pontuação da intenção mais provável.
+Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais provável.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que eu não vejo minhas ocorrências de ponto de extremidade no painel do meu aplicativo?
 O total de pontos de extremidade no Painel do aplicativo é atualizado periodicamente, mas as métricas associadas à chave de ponto de extremidade de LUIS no portal do Azure são atualizadas com mais frequência.
@@ -187,7 +197,7 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 ## <a name="luis-service"></a>Serviço LUIS
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>O LUIS está disponível na nuvem privada ou local?
-Não.
+ Não.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na Conferência Build 2018, ouvi falar de uma demonstração ou um recurso de Reconhecimento Vocal, mas não lembro como se chamava.

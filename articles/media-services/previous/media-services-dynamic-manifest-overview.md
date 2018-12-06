@@ -12,16 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282400"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312962"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 2](media-services-dynamic-manifest-overview.md)
+> * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
+
 A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
 Este tópico analisa cenários comuns nos quais o uso dos filtros será muito útil para seus clientes e links para tópicos que demonstram como criar filtros de forma programática.
@@ -73,7 +78,7 @@ Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o 
 * Dispositivo específico: entregar apenas as representações especificadas e/ou faixas de idioma especificadas com suporte pelo dispositivo que é usado para reproduzir o conteúdo ("filtragem da representação"). 
 * Redução do manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe").
 * Corte do início de um vídeo ("corte de um vídeo").
-* Ajuste da janela de apresentação (DVR) a fim de fornecer um comprimento limitado da janela de DVR no player ("ajuste da janela de apresentação").
+* Ajuste da Janela de Apresentação (DVR) a fim de fornecer um comprimento limitado da janela de DVR no player ("ajuste da janela de apresentação").
 
 Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo: 
 
@@ -102,7 +107,7 @@ Há dois tipos de filtros de ativo:
 Os filtros globais e locais têm exatamente as mesmas propriedades. A principal diferença entre os dois é para quais cenários, que tipo de filtro é mais adequado. Os filtros globais geralmente são adequados para perfis de dispositivos (filtragem de representação) em que os filtros locais poderiam ser usados para cortar um ativo específico.
 
 ## <a id="scenarios"></a>Cenários comuns
-Como foi mencionado anteriormente, ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Além disso, você pode ter outros requisitos que envolvem a filtragem dos ativos e uso de **manifestos dinâmicos**. As seções a seguir proporcionam uma breve visão geral dos diferentes cenários de filtragem.
+Como foi mencionado anteriormente, ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Além disso, você pode ter outros requisitos que envolvem a filtragem dos ativos e uso de **Manifestos Dinâmicos**. As seções a seguir proporcionam uma breve visão geral dos diferentes cenários de filtragem.
 
 * Especifique apenas um subconjunto das representações de áudio e vídeos que podem tratar certos dispositivos (em vez de todas as representações que estão associadas ao ativo). 
 * Reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro).

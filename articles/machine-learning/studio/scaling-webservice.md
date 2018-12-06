@@ -1,10 +1,11 @@
 ---
-title: Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning | Microsoft Docs
-description: Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade.
+title: Dimensionar um serviço da Web do Machine Learning Studio - Azure|Microsoft Docs
+description: Saiba como aumentar a simultaneidade de um serviço da web do Azure Machine Learning Studio adicionando pontos de extremidade adicionais.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 keywords: aprendizado de máquina do azure, serviços Web, operacionalização, dimensionamento, ponto de extremidade, simultaneidade
@@ -16,16 +17,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 2f950d93c0d923e20451eb1622dd4b1393f343a7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835892"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312174"
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Dimensionando um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade
 > [!NOTE]
-> Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning **clássico**. 
+> Este tópico descreve as técnicas aplicáveis a um Serviço Web do Machine Learning **Clássico**. 
 > 
 > 
 

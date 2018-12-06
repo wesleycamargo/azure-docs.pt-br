@@ -30,18 +30,18 @@ items:
     - name: Coletar - Computador Linux
       href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
     - name: Coletar - Computador Windows
-      href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-windows-computer.md
   expanded: true
 - name: Tutoriais
   items:
   - name: Análise de dados no Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-viewdata.md
   - name: Visualizar dados no Log Analytics
-    href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-logs-dashboards.md
   - name: Arquivar métrica da plataforma e dados de log
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
   - name: Alertar sobre dados de log
-    href: ../log-analytics/log-analytics-tutorial-response.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-response.md
   - name: Dimensionamento automático segundo agendamento e desempenho
     href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
   - name: Localizar exceções de tempo de execução do aplicativo
@@ -175,15 +175,15 @@ items:
       - name: Criar um workspace
         items:
         - name: Usar o portal do Azure
-          href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace.md
         - name: Usar a CLI do Azure
-          href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-cli.md
         - name: Usar PowerShell do Azure
-          href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
+          href: learn/quick-create-workspace-posh.md
       - name: Excluir um workspace
         href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
       - name: Design para provedores de serviço
-        href: ../log-analytics/log-analytics-service-providers.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-providers.md
   - name: Coletar dados
     items:
     - name: Instalar e configurar agentes
@@ -717,7 +717,8 @@ items:
         - name: Dados do aplicativo
           href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
         - name: Propriedades padrões
-          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
+        - name: Analisar dados de texto
+          href: log-query/parse-text.md
       - name: Executar a ação nos resultados da pesquisa
         href: log-query/take-action.md
       - name: Grupos de computadores
@@ -861,7 +862,7 @@ items:
     - name: Exemplos da CLI do Azure
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Modelos do Gerenciador de Recursos
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+      href: platform/template-workspace-configuration.md
     - name: API
       items:
       - name: Passo a passo usando a API REST
@@ -1009,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: d87574fb4e430742a733d92992ef2009e0240d43
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889745"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968162"

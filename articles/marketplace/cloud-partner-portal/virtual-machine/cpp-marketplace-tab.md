@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638805"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977141"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Guia de Marketplace de máquina virtual
 
@@ -40,7 +40,8 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos.
 | **Descrição**           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
 | **Identificador de marketing**  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista branca terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
-| **Links úteis**          | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
+| **Links úteis**          | Adicione URLs a documentações, notas de versão, perguntas frequentes e assim por diante. |
+| **Categorias sugeridas (máximo 5)** | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
 |  |  |
 
 

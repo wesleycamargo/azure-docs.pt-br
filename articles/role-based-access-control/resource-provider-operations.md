@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626126"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499690"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -53,9 +53,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.aadiam/diagnosticsettings/read | Leitura de uma configuração de diagnóstico |
 > | Ação | microsoft.aadiam/diagnosticsettings/write | Gravação de uma configuração de diagnóstico |
 > | Ação | microsoft.aadiam/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
-> | Ação | microsoft.aadiam/tenants/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.aadiam/tenants/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.aadiam/tenants/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para locatários |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -104,7 +101,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ADHybridHealthService/reports/badpassword/read | Obtém a lista de tentativas com senhas incorretas de todos os usuários no Serviço de Federação do Active Directory. |
 > | Ação | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Obtém o URI de SAS do Blob que contém o status e o resultado eventual do trabalho de relatório recém-enfileirado para a frequência de Tentativas de Nome de Usuário/Senha incorretas por UserId por IPAddress por dia para um determinado locatário. |
 > | Ação | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Obtém a lista de locatários permitidos do DevOps. Normalmente usado para suporte ao cliente. |
-> | Ação | Microsoft.ADHybridHealthService/reports/isdevops/read | Obtém um valor indicando se o locatário é DevOps consentido ou não. |
+> | Ação | Microsoft.ADHybridHealthService/reports/isdevops/read | Obtém um valor indicando se o inquilino é DevOps consentido ou não. |
 > | Ação | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Atualiza o Userid(objectid) para o locatário do DevOps selecionado. |
 > | Ação | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Obtém a implantação selecionada para o locatário determinado. |
 > | Ação | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Dada uma ID de locatário, obtém o local de armazenamento do locatário. |
@@ -166,9 +163,14 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
+> | Ação | Microsoft.AlertsManagement / actionRules / read | Obter todas as regras de ação para os filtros de entrada. |
+> | Ação | Microsoft.AlertsManagement / actionRules / write | Criar ou atualizar regra de ação em uma determinada assinatura |
 > | Ação | Microsoft.AlertsManagement/alerts/changestate/action | Altera o estado do alerta. |
+> | Ação | Microsoft.AlertsManagement/alerts/delete/action | Exclua regra de ação em uma determinada assinatura. |
 > | Ação | Microsoft.AlertsManagement/alerts/read | Obter todos os alertas para os filtros de entrada. |
+> | Ação | Microsoft.AlertsManagement/alertsList/read | Obtenha todos os alertas para os filtros de entrada nas assinaturas |
 > | Ação | Microsoft.AlertsManagement/alertsSummary/read | Obter o resumo dos alertas |
+> | Ação | Microsoft.AlertsManagement / alertsSummaryList / read | Obtenha o resumo de alertas entre assinaturas |
 > | Ação | Microsoft.AlertsManagement/Operations/read | Ler as operações fornecidas |
 > | Ação | Microsoft.AlertsManagement/smartGroups/changestate/action | Altera o estado do grupo inteligente |
 > | Ação | Microsoft.AlertsManagement/smartGroups/read | Obtém todos os grupos inteligentes para os filtros de entrada |
@@ -185,10 +187,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.AnalysisServices/register/action | Registrar o provedor de recursos do Analysis Services. |
 > | Ação | Microsoft.AnalysisServices/servers/delete | Excluir o Analysis Server. |
 > | Ação | Microsoft.AnalysisServices/servers/listGatewayStatus/action | Listar o status do gateway associado ao servidor. |
-> | Ação | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o Analysis Server |
-> | Ação | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico do Analysis Server |
-> | Ação | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para servidores |
-> | Ação | Microsoft.AnalysisServices/servers/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Analysis Server |
 > | Ação | Microsoft.AnalysisServices/servers/read | Recupera as informações do Analysis Server especificado. |
 > | Ação | Microsoft.AnalysisServices/servers/resume/action | Retoma o Analysis Server. |
 > | Ação | Microsoft.AnalysisServices/servers/skus/read | Recuperar informações de SKU disponíveis para o servidor |
@@ -335,10 +333,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ApiManagement/service/properties/delete | Remover uma propriedade existente |
 > | Ação | Microsoft.ApiManagement/service/properties/read | Obter a lista de todas as propriedades ou obtém detalhes de uma propriedade especificada |
 > | Ação | Microsoft.ApiManagement/service/properties/write | Criar uma nova propriedade ou atualizar o valor da propriedade especificada |
-> | Ação | Microsoft.ApiManagement/service/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o serviço de Gerenciamento de API |
-> | Ação | Microsoft.ApiManagement/service/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o serviço de Gerenciamento de API |
-> | Ação | Microsoft.ApiManagement/service/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para o serviço de Gerenciamento de API |
-> | Ação | Microsoft.ApiManagement/service/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o serviço de Gerenciamento de API |
 > | Ação | Microsoft.ApiManagement/service/quotas/periods/read | Obter o valor do contador de cota para o período |
 > | Ação | Microsoft.ApiManagement/service/quotas/periods/write | Definir o valor atual do contador de cota |
 > | Ação | Microsoft.ApiManagement/service/quotas/read | Obter valores para cota |
@@ -456,8 +450,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Automation/automationAccounts/credentials/read | Obter um ativo de credencial da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/credentials/write | Criar ou atualizar um ativo de credencial da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/delete | Excluir uma conta da Automação do Azure |
-> | Ação | Microsoft.Automation/automationAccounts/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Automation/automationAccounts/diagnosticSettings/write | Definir a configuração de diagnóstico para o recurso |
 > | Ação | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Excluir recursos do Hybrid Runbook Worker |
 > | Ação | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Ler recursos do Hybrid Runbook Worker |
 > | Ação | Microsoft.Automation/automationAccounts/jobs/output/read | Obter a saída de um trabalho |
@@ -474,7 +466,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Automation/automationAccounts/jobSchedules/write | Criar uma agenda de trabalho da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Obtém o workspace vinculado à conta de automação |
 > | Ação | Microsoft.Automation/automationAccounts/listKeys/action | Lê as chaves para a conta de automação |
-> | Ação | Microsoft.Automation/automationAccounts/logDefinitions/read | Obter os logs disponíveis para a conta de automação |
 > | Ação | Microsoft.Automation/automationAccounts/modules/activities/read | Obter atividades de Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/modules/delete | Excluir um módulo Powershell da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/modules/getCount/action | Obtém a contagem de módulos Powershell dentro da conta de automação |
@@ -491,7 +482,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Automation/automationAccounts/nodes/reports/read | Ler relatórios do DSC de Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/nodes/write | Cria ou atualiza nós do DSC de Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/objectDataTypes/fields/read | Obter TypeFields de Automação do Azure |
-> | Ação | Microsoft.Automation/automationAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obter definições de Métrica de Automação |
 > | Ação | Microsoft.Automation/automationAccounts/python2Packages/delete | Exclui um pacote Python 2 da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/python2Packages/read | Obtém um pacote Python 2 da Automação do Azure |
 > | Ação | Microsoft.Automation/automationAccounts/python2Packages/write | Cria ou atualiza um pacote Python 2 da Automação do Azure |
@@ -600,10 +590,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Batch/batchAccounts/pools/stopResize/action | Interromper uma operação de redimensionamento em andamento em um pool de conta do Lote |
 > | Ação | Microsoft.Batch/batchAccounts/pools/upgradeOs/action | Atualizar o sistema operacional de um pool de conta do Lote |
 > | Ação | Microsoft.Batch/batchAccounts/pools/write | Criar um novo pool em uma conta do Lote ou atualizar um pool existente |
-> | Ação | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para o serviço em Lotes |
-> | Ação | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o serviço em Lotes |
 > | Ação | Microsoft.Batch/batchAccounts/read | Listar contas do Lote ou obtém as propriedades de uma conta do Lote |
 > | Ação | Microsoft.Batch/batchAccounts/regeneratekeys/action | Regenera chaves de acesso para uma conta do Lote |
 > | Ação | Microsoft.Batch/batchAccounts/syncAutoStorageKeys/action | Sincroniza as chaves de acesso da conta de armazenamento automática configurada para uma conta do Lote |
@@ -673,19 +659,19 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.Blueprint/blueprintAssignments/delete | Excluir quaisquer artefatos do Blueprint |
-> | Ação | Microsoft.Blueprint/blueprintAssignments/read | Ler qualquer Artefato do Blueprint |
-> | Ação | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer artefatos de blueprint |
+> | Ação | Microsoft.Blueprint/blueprintAssignments/read | Ler qualquer artefato do blueprint |
+> | Ação | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar qualquer artefato do blueprint |
 > | Ação | Microsoft.Blueprint/blueprints/artifacts/delete | Excluir quaisquer artefatos do Blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/artifacts/read | Ler qualquer Artefato do Blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/artifacts/write | Criar ou atualizar quaisquer artefatos de blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/delete | Excluir qualquer Blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/read | Ler quaisquer Blueprints |
-> | Ação | Microsoft.Blueprint/blueprints/versions/artifacts/read | Ler qualquer Artefato do Blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/versions/delete | Excluir qualquer Blueprint |
-> | Ação | Microsoft.Blueprint/blueprints/versions/read | Ler quaisquer Blueprints |
-> | Ação | Microsoft.Blueprint/blueprints/versions/write | Criar ou Atualizar quaisquer Blueprints |
-> | Ação | Microsoft.Blueprint/blueprints/write | Criar ou Atualizar quaisquer Blueprints |
-> | Ação | Microsoft.Blueprint/register/action | Registra o Provedor de Recursos de Blueprint |
+> | Ação | Microsoft.Blueprint/blueprints/artifacts/read | Ler qualquer artefato do blueprint |
+> | Ação | Microsoft.Blueprint/blueprints/artifacts/write | Criar ou atualizar qualquer artefato do blueprint |
+> | Ação | Microsoft.Blueprint/blueprints/delete | Excluir quaisquer modelos |
+> | Ação | Microsoft.Blueprint/blueprints/read | Leia qualquer modelo |
+> | Ação | Microsoft.Blueprint/blueprints/versions/artifacts/read | Ler qualquer artefato do blueprint |
+> | Ação | Microsoft.Blueprint/blueprints/versions/delete | Excluir quaisquer modelos |
+> | Ação | Microsoft.Blueprint/blueprints/versions/read | Leia qualquer modelo |
+> | Ação | Microsoft.Blueprint/blueprints/versions/write | Crie ou atualize qualquer blueprint |
+> | Ação | Microsoft.Blueprint/blueprints/write | Crie ou atualize qualquer blueprint |
+> | Ação | Microsoft.Blueprint/register/action | Registra o Provedor de Recursos Blueprints do Azure |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -731,7 +717,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Cache/redis/read | Exibir as configurações do Cache Redis e a configuração no portal de gerenciamento |
 > | Ação | Microsoft.Cache/redis/recommendations/read | Ler as recomendações do Cache Redis do Azure |
 > | Ação | Microsoft.Cache/redis/regenerateKey/action | Alterar o valor das chaves de acesso do Cache Redis no portal de gerenciamento |
-> | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/stop/action | Interromper uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/write | Modificar as configurações do Cache Redis e a configuração no portal de gerenciamento |
@@ -804,9 +789,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Cdn/profiles/endpoints/origins/delete |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/origins/read |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/origins/write |  |
-> | Ação | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do recurso |
-> | Ação | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico para o recurso |
-> | Ação | Microsoft.Cdn/profiles/endpoints/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para o Microsoft.Cdn |
 > | Ação | Microsoft.Cdn/profiles/endpoints/Purge/action |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/read |  |
 > | Ação | Microsoft.Cdn/profiles/endpoints/Start/action |  |
@@ -975,7 +957,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/delete | Excluir o grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | Ler o status da operação do grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico dos Grupos de Segurança de Rede |
-> | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico dos Grupos de segurança de rede, essa operação é complementada pelo provedor de recursos de insights. | 
+> | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico dos Grupos de segurança de rede, essa operação é complementada pelo provedor de recursos de insights. |
 > | Ação | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o grupo de segurança de rede |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/read | Obter o grupo de segurança de rede. |
 > | Ação | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | Excluir a regra de segurança. |
@@ -1091,10 +1073,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.CognitiveServices/accounts/delete | Excluir contas de API |
 > | Ação | Microsoft.CognitiveServices/accounts/listKeys/action | Listar chaves |
-> | Ação | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para a conta dos Serviços Cognitivos |
-> | Ação | Microsoft.CognitiveServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para os Serviços Cognitivos. |
 > | Ação | Microsoft.CognitiveServices/accounts/read | Ler as contas de API. |
 > | Ação | Microsoft.CognitiveServices/accounts/regenerateKey/action | Regenerar chave |
 > | Ação | Microsoft.CognitiveServices/accounts/skus/read | Ler SKUs disponíveis para um recurso existente. |
@@ -1103,7 +1081,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Ler os SKUs disponíveis para uma assinatura. |
 > | Ação | Microsoft.CognitiveServices/Operations/read | Listar todas as operações disponíveis |
 > | Ação | Microsoft.CognitiveServices/register/action | Registrar assinatura para Serviços Cognitivos |
-> | Ação | Microsoft.CognitiveServices/skus/read | Ler as SKUs disponíveis para os Serviços Cognitivos. |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -1188,7 +1165,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Faça logon em uma máquina virtual com os privilégios de administrador do Windows ou de usuário raiz do Linux |
 > | Ação | Microsoft.Compute/virtualMachines/performMaintenance/action | Executar a Operação de Manutenção na VM. |
 > | Ação | Microsoft.Compute/virtualMachines/powerOff/action | Desligar a máquina virtual. Observe que a máquina virtual continuará a ser cobrada. |
-> | Ação | Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Ler definições de Métrica de Máquina Virtual |
 > | Ação | Microsoft.Compute/virtualMachines/read | Obter as propriedades de uma máquina virtual |
 > | Ação | Microsoft.Compute/virtualMachines/redeploy/action | Reimplantar a máquina virtual |
 > | Ação | Microsoft.Compute/virtualMachines/reimage/action | Refazer a imagem da máquina virtual que está usando o disco diferencial. |
@@ -1211,10 +1187,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Obter o histórico de atualizações do SO para um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Realizar a manutenção planejada nas instâncias do Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Desligar a instância do Conjunto de Dimensionamento de Máquinas Virtuais |
-> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a configuração de diagnóstico para o conjunto de dimensionamento de máquinas virtuais. |
-> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a configuração de diagnóstico para o conjunto de dimensionamento de máquinas virtuais. |
-> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para conjuntos de dimensionamento de máquinas virtuais. |
-> | Ação | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Ler as Definições de Métricas do Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | Obter propriedades de todos os endereços IP públicos de um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/read | Obter as propriedades de um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | Reimplantar as instâncias do Conjunto de Dimensionamento de Máquinas Virtuais |
@@ -1234,7 +1206,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | Obter propriedades de uma ou de todas as interfaces de rede de uma máquina virtual criada usando o Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | Realizar manutenção planejada em uma instância de Máquina Virtual em um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/powerOff/action | Desligar uma instância de máquina virtual em um conjunto de dimensionamento de VM. |
-> | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/providers/Microsoft.Insights/metricDefinitions/read | Ler Máquina Virtual em Definições de Métricas do Conjunto de Dimensionamento |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read | Recuperar as propriedades de uma máquina virtual em um conjunto de dimensionamento de máquinas virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | Reimplantar uma instância de Máquina Virtual em um Conjunto de Dimensionamento de Máquinas Virtuais |
 > | Ação | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/reimage/action | Refazer a imagem de uma instância de Máquina Virtual em um Conjunto de Dimensionamento de Máquinas Virtuais. |
@@ -1276,6 +1247,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o grupo de contêineres. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/read | Obter todos os grupos de contêineres. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/restart/action | Reinicia um grupo de contêineres específico. |
+> | Ação | Microsoft.ContainerInstance/containerGroups/start/action | Inicia um grupo de contêineres específico. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/stop/action | Interrompe um grupo de contêineres específico. Os recursos de computação serão desalocados e a cobrança será interrompida. |
 > | Ação | Microsoft.ContainerInstance/containerGroups/write | Criar ou atualizar um grupo de contêineres específico. |
 > | Ação | Microsoft.ContainerInstance/register/action | Registra a assinatura para o provedor de recursos da instância do contêiner e habilita a criação de grupos de contêineres. |
@@ -1308,13 +1280,11 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Criar ou atualizar um filtro de grade de eventos para um registro de contêiner com os parâmetros especificados. |
 > | Ação | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Obter o local de upload para o usuário poder carregar a fonte. |
 > | Ação | Microsoft.ContainerRegistry/registries/importImage/action | Importa a imagem para o registro de contêiner com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Obtenha o local de URL de upload de origem para um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/listCredentials/action | Listar as credenciais de logon para o registro de contêiner especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/listPolicies/read | Lista as políticas para o registro de contêiner especificado |
 > | Ação | Microsoft.ContainerRegistry/registries/listUsages/read | Listar os usos de cotas para o registro de contêiner especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/operationStatuses/read | Obter um status de operação assíncrona do registro |
-> | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o Microsoft ContainerRegistry |
 > | Ação | Microsoft.ContainerRegistry/registries/pull/read | Efetuar pull ou Obter imagens de um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/push/write | Efetuar push ou Gravar imagens para um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/quarantineRead/read | Efetuar pull ou Obter imagens em quarentena do registro de contêiner |
@@ -1326,7 +1296,16 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Obter um status de operação assíncrona de replicação |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/read | Obter as propriedades da replicação especificada ou listar todas as replicações do registro de contêiner especificado. |
 > | Ação | Microsoft.ContainerRegistry/registries/replications/write | Criar ou atualizar uma replicação para um registro de contêiner com os parâmetros especificados. |
+> | Ação | Microsoft.ContainerRegistry/registries/runs/cancel/action | Cancele um tempo de execução existente. |
+> | Ação | Microsoft.ContainerRegistry/registries/runs/listLogSasUrl/action | Obtém o log da URL do SAS para uma execução. |
+> | Ação | Microsoft.ContainerRegistry/registries/runs/read | Obtém as propriedades de uma execução em um registro de contêiner ou lista é executado. |
+> | Ação | Microsoft.ContainerRegistry/registries/runs/write | Atualiza uma execução. |
+> | Ação | Microsoft.ContainerRegistry/registries/scheduleRun/action | Agende uma execução em um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/sign/write | Efetuar push/pull de metadados de conteúdo confiável para um registro de contêiner. |
+> | Ação | Microsoft.ContainerRegistry/registries/tasks/delete | Exclui uma tarefa para um registro de contêiner. |
+> | Ação | Microsoft.ContainerRegistry/registries/tasks/listDetails/action | Liste todos os detalhes de uma tarefa para um registro de contêiner. |
+> | Ação | Microsoft.ContainerRegistry/registries/tasks/read | Obtém uma tarefa para um registro de contêiner ou lista todas as tarefas. |
+> | Ação | Microsoft.ContainerRegistry/registries/tasks/write | Cria ou atualiza uma tarefa para um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/updatePolicies/write | Atualiza as políticas para o registro de contêiner especificado |
 > | Ação | Microsoft.ContainerRegistry/registries/webhooks/delete | Excluir um webhook de um registro de contêiner. |
 > | Ação | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Obter a configuração de URI de serviço e cabeçalhos personalizados para o webhook. |
@@ -1353,13 +1332,15 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ContainerService/managedClusters/delete | Exclui um cluster gerenciado |
 > | Ação | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerenciado |
 > | Ação | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerenciado |
-> | Ação | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtém a configuração de diagnóstico para um recurso de cluster gerenciado |
-> | Ação | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a configuração de diagnóstico para um recurso de cluster gerenciado |
-> | Ação | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para o cluster gerenciado |
-> | Ação | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o cluster gerenciado |
 > | Ação | Microsoft.ContainerService/managedClusters/read | Obtém um cluster gerenciado |
 > | Ação | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtém o perfil de atualização do cluster |
 > | Ação | Microsoft.ContainerService/managedClusters/write | Cria um novo cluster gerenciado ou atualiza um existente |
+> | Ação | Microsoft.ContainerService/openShiftClusters/delete | Excluir um cluster de turno aberto |
+> | Ação | Microsoft.ContainerService/openShiftClusters/read | Obtém um Cluster do Open Shift |
+> | Ação | Microsoft.ContainerService/openShiftClusters/write | Cria um novo Open Shift Cluster ou atualiza um já existente |
+> | Ação | Microsoft.ContainerService/openShiftManagedClusters/delete | Excluir um cluster gerenciado por turno aberto |
+> | Ação | Microsoft.ContainerService/openShiftManagedClusters/read | Obter um Cluster Gerenciado de Turno Aberto |
+> | Ação | Microsoft.ContainerService/openShiftManagedClusters/write | Cria um novo Cluster Gerenciado de Turno Aberto ou atualiza um existente |
 > | Ação | Microsoft.ContainerService/operations/read | Lista as operações disponíveis no provedor de recursos Microsoft.ContainerService |
 > | Ação | Microsoft.ContainerService/register/action | Registra a assinatura com o provedor de recursos Microsoft.ContainerService |
 > | Ação | Microsoft.ContainerService/unregister/action | Remove o registro da assinatura com o provedor de recursos Microsoft.ContainerService |
@@ -1527,9 +1508,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Instalar atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Lista ou obtém os trabalhos |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Lista ou obtém as configurações de rede do dispositivo |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas de nível de dispositivo do Data Box Edge disponíveis |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Lista ou obtém os dispositivos do Data Box Edge |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Lista ou obtém os dispositivos do Data Box Edge |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Lista ou obtém os dispositivos do Data Box Edge |
@@ -1562,9 +1540,13 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
-> | Ação | Microsoft.Databricks/workspaces/delete | Remove um workspace. |
-> | Ação | Microsoft.Databricks/workspaces/read | Recupera uma lista de workspaces. |
-> | Ação | Microsoft.Databricks/workspaces/write | Cria um workspace. |
+> | Ação | Microsoft.Databricks/register/action | Registro para Databricks. |
+> | Ação | Microsoft.Databricks/workspaces/delete | Remove um espaço de trabalho do Databricks. |
+> | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Define as configurações de diagnóstico disponíveis para o espaço de trabalho Databricks |
+> | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Adicionar ou modificar configurações de diagnóstico. |
+> | Ação | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Obtém as definições de log disponíveis para o espaço de trabalho do Databricks |
+> | Ação | Microsoft.Databricks/workspaces/read | Recupera uma lista de espaços de trabalho do Databricks. |
+> | Ação | Microsoft.Databricks/workspaces/write | Cria um espaço de trabalho do Databricks. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
@@ -1610,9 +1592,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DataFactory/datafactories/linkedServices/delete | Exclui qualquer Serviço Vinculado. |
 > | Ação | Microsoft.DataFactory/datafactories/linkedServices/read | Lê qualquer Serviço Vinculado. |
 > | Ação | Microsoft.DataFactory/datafactories/linkedServices/write | Cria ou atualiza qualquer Serviço Vinculado. |
-> | Ação | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataFactory/datafactories/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para os datafactories |
 > | Ação | Microsoft.DataFactory/datafactories/read | Lê o Data Factory. |
 > | Ação | Microsoft.DataFactory/datafactories/runs/loginfo/read | Lê um URI de SAS para um contêiner de blob que contém os logs. |
 > | Ação | Microsoft.DataFactory/datafactories/tables/delete | Exclui qualquer Conjunto de Dados. |
@@ -1656,10 +1635,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Lê as Execuções de Pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/read | Ler pipeline. |
 > | Ação | Microsoft.DataFactory/factories/pipelines/write | Criar ou atualizar pipeline |
-> | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para fábricas |
-> | Ação | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para fábricas |
 > | Ação | Microsoft.DataFactory/factories/querypipelineruns/action | Consulta as Execuções de Pipeline. |
 > | Ação | Microsoft.DataFactory/factories/querypipelineruns/read | Ler o resultado das execuções de pipeline de consulta. |
 > | Ação | Microsoft.DataFactory/factories/querytriggerruns/action | Consulta as Execuções de Gatilho. |
@@ -1694,10 +1669,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DataLakeAnalytics/accounts/firewallRules/read | Obter informações sobre uma regra de firewall. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/firewallRules/write | Criar ou atualizar uma regra de firewall. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/operationResults/read | Obter o resultado de uma operação de conta DataLakeAnalytics. |
-> | Ação | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico para a conta DataLakeAnalytics. |
-> | Ação | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico para a conta DataLakeAnalytics. |
-> | Ação | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para a conta DataLakeAnalytics. |
-> | Ação | Microsoft.DataLakeAnalytics/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para a conta DataLakeAnalytics. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/read | Obter informações sobre uma conta DataLakeAnalytics existente. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers/listSasTokens/action | Listar tokens SAS para contêineres de armazenamento de uma conta de armazenamento vinculada de uma conta DataLakeAnalytics. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/storageAccounts/Containers/read | Obter contêineres de uma conta de armazenamento vinculada de uma conta DataLakeAnalytics. |
@@ -1726,10 +1697,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DataLakeStore/accounts/firewallRules/read | Obter informações sobre uma regra de firewall. |
 > | Ação | Microsoft.DataLakeStore/accounts/firewallRules/write | Criar ou atualizar uma regra de firewall. |
 > | Ação | Microsoft.DataLakeStore/accounts/operationResults/read | Obter o resultado de uma operação de conta DataLakeStore. |
-> | Ação | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico para a conta DataLakeStore. |
-> | Ação | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico para a conta DataLakeStore. |
-> | Ação | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/logDefinitions/read | Obter os logs disponíveis para a conta DataLakeStore. |
-> | Ação | Microsoft.DataLakeStore/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para a conta DataLakeStore. |
 > | Ação | Microsoft.DataLakeStore/accounts/read | Obter informações sobre uma conta DataLakeStore existente. |
 > | Ação | Microsoft.DataLakeStore/accounts/Superuser/action | Conceder Superusuário no Data Lake Store quando concedido com o Microsoft.Authorization/roleAssignments/write. |
 > | Ação | Microsoft.DataLakeStore/accounts/trustedIdProviders/delete | Excluir um provedor de identidade confiável. |
@@ -1946,6 +1913,17 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Devices/register/action | Registrar a assinatura do provedor de recursos IotHub e permitir a criação de recursos IotHub |
 > | Ação | Microsoft.Devices/usages/Read | Obter detalhes de uso de assinatura para esse provedor. |
 
+## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo de ação | Operação | DESCRIÇÃO |
+> | --- | --- | --- |
+> | Ação | Microsoft.DevSpaces/controllers/delete | Excluir o Controlador do Azure Dev Spaces e os serviços do plano de dados |
+> | Ação | Microsoft.DevSpaces/controllers/listConnectionDetails/action | Listar detalhes de conexão para a infraestrutura do Controlador de Infraestrutura do Azure Dev Spaces |
+> | Ação | Microsoft.DevSpaces/controllers/read | Leia as propriedades do Controlador do Azure Dev Spaces |
+> | Ação | Microsoft.DevSpaces/controllers/write | Criar ou atualizar as propriedades do Controlador do Azure Dev Spaces |
+> | Ação | Microsoft.DevSpaces/register/action | Registre o provedor de recursos do Microsoft Dev Spaces com uma assinatura |
+
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -1984,6 +1962,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DevTestLab/labs/policySets/policies/delete | Excluir políticas. |
 > | Ação | Microsoft.DevTestLab/labs/policySets/policies/read | Ler políticas. |
 > | Ação | Microsoft.DevTestLab/labs/policySets/policies/write | Adicionar ou modificar políticas. |
+> | Ação | Microsoft.DevTestLab/labs/policySets/read | Leia conjuntos de políticas. |
 > | Ação | Microsoft.DevTestLab/labs/read | Ler laboratórios. |
 > | Ação | Microsoft.DevTestLab/labs/schedules/delete | Excluir agendas. |
 > | Ação | Microsoft.DevTestLab/labs/schedules/Execute/action | Executar uma agenda. |
@@ -2058,6 +2037,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.DocumentDB/databaseAccountNames/read | Verificar a disponibilidade do nome. |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/backup/action | Envie uma solicitação para configurar o backup |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/changeResourceGroup/action | Alterar o grupo de recursos de uma conta de banco de dados |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | Ler a coleção de definições de métrica. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/databases/collections/metrics/read | Ler a métrica da coleção. |
@@ -2082,10 +2062,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DocumentDB/databaseAccounts/percentile/read | Lê percentis de latências de replicação |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/percentile/sourceRegion/targetRegion/metrics/read | Ler métricas de latência para uma região específica de origem e destino |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/percentile/targetRegion/metrics/read | Ler métricas de latência para uma região de destino específica |
-> | Ação | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/logDefinitions/read | Obter as categorias de log disponíveis para a conta do banco de dados |
-> | Ação | Microsoft.DocumentDB/databaseAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para a conta do banco de dados |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/read | Ler uma conta de banco de dados. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/readonlykeys/action | Ler as chaves somente leitura da conta do banco de dados. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/readonlykeys/read | Ler as chaves somente leitura da conta do banco de dados. |
@@ -2095,6 +2071,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.DocumentDB/databaseAccounts/region/databases/collections/partitions/metrics/read | Lear as métricas de nível de partição da conta do banco de dados regional |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/region/databases/collections/partitions/read | Lê as partições da conta do banco de dados regional em uma coleção |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/region/metrics/read | Ler a região e as métricas da conta do banco de dados. |
+> | Ação | Microsoft.DocumentDB/databaseAccounts/restore/action | Enviar uma solicitação de restauração |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/usages/read | Ler os usos da conta do banco de dados. |
 > | Ação | Microsoft.DocumentDB/databaseAccounts/write | Atualizar uma conta de banco de dados. |
 > | Ação | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/action | Notificar o Microsoft.DocumentDB que a VirtualNetwork ou Sub-rede está sendo excluída |
@@ -2163,8 +2140,10 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para tópicos |
 > | Ação | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para tópicos |
 > | Ação | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para tópicos |
+> | Ação | Microsoft.EventGrid/locations/eventSubscriptions/read | Listar assinaturas de eventos regionais |
 > | Ação | Microsoft.EventGrid/locations/operationResults/read | Ler o resultado de uma operação de regional |
 > | Ação | Microsoft.EventGrid/locations/operationsStatus/read | Ler o status de uma operação de regional |
+> | Ação | Microsoft.EventGrid/locations/topictypes/eventSubscriptions/read | Listar assinaturas de eventos regionais por tipo de tópico |
 > | Ação | Microsoft.EventGrid/operationResults/read | Ler o resultado de uma operação |
 > | Ação | Microsoft.EventGrid/operationsStatus/read | Leia o status de uma operação de leitura |
 > | Ação | Microsoft.EventGrid/register/action | Registra a assinatura para o provedor de recursos do EventGrid. |
@@ -2176,6 +2155,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.EventGrid/topics/read | Ler um tópico |
 > | Ação | Microsoft.EventGrid/topics/regenerateKey/action | Regenerar chave para um tópico |
 > | Ação | Microsoft.EventGrid/topics/write | Criar ou atualizar um tópico |
+> | Ação | Microsoft.EventGrid/topictypes/eventSubscriptions/read | Listar assinaturas de eventos globais por tipo de tópico |
 > | Ação | Microsoft.EventGrid/topictypes/eventtypes/read | Ler eventTypes compatíveis com um topictype |
 > | Ação | Microsoft.EventGrid/topictypes/read | Ler um topictype |
 
@@ -2189,6 +2169,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtém a lista de Descrições de Recursos de Métrica de Cluster |
 > | Ação | Microsoft.EventHub/clusters/read | Obtém a Descrição do Recurso de Cluster |
 > | Ação | Microsoft.EventHub/clusters/write | Obtém a Descrição do Recurso de Cluster |
+> | Ação | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Exclui as regras VNet no Provedor de Recursos do EventHub para o VNet especificado |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/action | Atualizar regra de autorização de namespace. Essa API está preterida. Use uma chamada PUT para atualizar a regra de autorização de namespace. Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/delete | Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída.  |
 > | Ação | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Obter a cadeia de conexão para o namespace |
@@ -2216,6 +2197,9 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.EventHub/namespaces/eventhubs/Delete | Operação para excluir o recurso EventHub |
 > | Ação | Microsoft.EventHub/namespaces/eventhubs/read | Obter lista de descrições de recursos de EventHub |
 > | Ação | Microsoft.EventHub/namespaces/eventhubs/write | Criar ou atualizar propriedades EventHub. |
+> | Ação | Microsoft.EventHub/namespaces/ipFilterRules/delete | Excluir recurso de filtro IP |
+> | Ação | Microsoft.EventHub/namespaces/ipFilterRules/read | Obter recurso de filtro IP |
+> | Ação | Microsoft.EventHub/namespaces/ipFilterRules/write | Criar Recurso de Filtro IP |
 > | Ação | Microsoft.EventHub/namespaces/messagingPlan/read | Obter o Plano de Mensagens para um namespace.<br>Essa API está preterida.<br>As propriedades expostas por meio do recurso MessagingPlan são movidas para o recurso Namespace (pai) nas versões posteriores da API.<br>Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.EventHub/namespaces/messagingPlan/write | Atualizar o Plano de Mensagens para um namespace.<br>Essa API está preterida.<br>As propriedades expostas por meio do recurso MessagingPlan são movidas para o recurso Namespace (pai) nas versões posteriores da API.<br>Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.EventHub/namespaces/operationresults/read | Obter o status da operação de Namespace |
@@ -2225,6 +2209,9 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de métrica de descrições de recurso de métrica do namespace |
 > | Ação | Microsoft.EventHub/namespaces/read | Obter a lista de descrição do recurso de namespace |
 > | Ação | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Remove o namespace de ACS |
+> | Ação | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | Excluir Recurso de Regra VNET |
+> | Ação | Microsoft.EventHub/namespaces/virtualNetworkRules/read | Obtém o recurso de regra de rede virtual |
+> | Ação | Microsoft.EventHub/namespaces/virtualNetworkRules/write | Criar Recurso de Regra VNET |
 > | Ação | Microsoft.EventHub/namespaces/write | Criar um recurso de namespace e atualizar suas propriedades. Marcas e Capacidade do namespace são as propriedades que podem ser atualizadas. |
 > | Ação | Microsoft.EventHub/operations/read | Obter Operações |
 > | Ação | Microsoft.EventHub/register/action | Registrar a assinatura do provedor de recursos EventHub e permitir a criação de recursos EventHub |
@@ -2250,6 +2237,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Obter atribuição de configuração de convidado. |
+> | Ação | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Obtenha o relatório de atribuição de configuração de convidado. |
 > | Ação | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Criar uma nova atribuição de configuração de convidado. |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -2556,16 +2544,35 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Insights/Webtests/Read | Lendo uma configuração de teste na Web |
 > | Ação | Microsoft.Insights/Webtests/Write | Gravando em uma configuração de teste na Web |
 
+## <a name="microsoftintune"></a>Microsoft.Intune
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo de ação | Operação | DESCRIÇÃO |
+> | --- | --- | --- |
+> | Ação | Microsoft.Intune/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
+> | Ação | Microsoft.Intune/diagnosticsettings/delete | Leitura de uma configuração de diagnóstico |
+> | Ação | Microsoft.Intune/diagnosticsettings/delete | Gravação de uma configuração de diagnóstico |
+> | Ação | Microsoft.Intune/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
+
+## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo de ação | Operação | DESCRIÇÃO |
+> | --- | --- | --- |
+> | Ação | Microsoft.IoTCentral/checkNameAvailability/action | Verifica se um nome de aplicativo do IoT Central está disponível |
+> | Ação | Microsoft.IoTCentral/checkSubdomainAvailability/action | Verifica se um subdomínio do aplicativo do IoT Central está disponível |
+> | Ação | Microsoft.IoTCentral/IoTApps/delete | Exclui um aplicativo do IoT Central |
+> | Ação | Microsoft.IoTCentral/IoTApps/read | Obtém um único aplicativo do IoT Central |
+> | Ação | Microsoft.IoTCentral/IoTApps/write | Cria ou atualiza um aplicativo do IoT Central |
+> | Ação | Microsoft.IoTCentral/operations/read | Obtém todas as operações disponíveis em aplicativos de IoT Central |
+> | Ação | Microsoft.IoTCentral/register/action | Registrar a assinatura do provedor de recursos do IoT Central do Azure |
+
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.IoTSpaces/Graph/delete | Exclui o recurso Microsoft.IoTSpaces Graph |
-> | Ação | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/diagnosticSettings/read | Obtém as configurações de diagnóstico para o recurso |
-> | Ação | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/diagnosticSettings/write | Define as configurações de diagnóstico para o recurso |
-> | Ação | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/logDefinitions/read | Obter as definições de log disponíveis para o serviço Microsoft.IoTSpaces |
-> | Ação | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/metricDefinitions/read | Obter as definições de métrica disponíveis para o serviço Microsoft.IoTSpaces |
 > | Ação | Microsoft.IoTSpaces/Graph/read | Obtém os recursos Microsoft.IoTSpaces Graph |
 > | Ação | Microsoft.IoTSpaces/Graph/write | Cria o recurso Microsoft.IoTSpaces Graph |
 > | Ação | Microsoft.IoTSpaces/register/action | Registrar a assinatura para o provedor de recursos do Microsoft.IoTSpaces Graph para habilitar a criação de recursos |
@@ -2591,10 +2598,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.KeyVault/vaults/accessPolicies/write | Atualizar uma política de acesso existente por mesclagem ou substituição, ou adicionar uma nova política de acesso a um cofre. |
 > | Ação | Microsoft.KeyVault/vaults/delete | Excluir um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/deploy/action | Permite acesso aos segredos em um cofre de chaves durante a implantação de recursos do Azure |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/diagnosticSettings/Write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para um cofre de chaves |
-> | Ação | Microsoft.KeyVault/vaults/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/read | Exibir as propriedades de um cofre de chaves |
 > | Ação | Microsoft.KeyVault/vaults/secrets/read | Exibir as propriedades de um segredo, mas não seu valor |
 > | Ação | Microsoft.KeyVault/vaults/secrets/write | Criar um novo segredo ou atualizar o valor de um segredo existente |
@@ -2606,15 +2609,15 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Tipo de ação | Operação | DESCRIÇÃO |
 > | --- | --- | --- |
 > | Ação | Microsoft.Kusto/Clusters/Databases/delete | Exclui um recurso de banco de dados. |
-> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Exclui um recurso de conexões do hub de eventos. |
-> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Lê um recurso de conexões do hub de eventos. |
-> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Grava um recurso de conexões do hub de eventos. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Exclui um recurso de conexões de dados. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Exclui um recurso de conexões de dados. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Lê um recurso de conexões de dados. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Lê um recurso de conexões de dados. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Escreve um recurso de conexões de dados. |
+> | Ação | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Escreve um recurso de conexões de dados. |
 > | Ação | Microsoft.Kusto/Clusters/Databases/read | Lê um recurso de banco de dados. |
 > | Ação | Microsoft.Kusto/Clusters/Databases/write | Grava um recurso de banco de dados. |
 > | Ação | Microsoft.Kusto/Clusters/delete | Exclui um recurso de cluster. |
-> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do recurso |
-> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Kusto/Clusters/providers/Microsoft.Insights/metricDefinitions/read | Obtém as definições de métricas para um recurso |
 > | Ação | Microsoft.Kusto/Clusters/read | Lê um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Clusters/write | Grava um recurso de cluster. |
 > | Ação | Microsoft.Kusto/Locations/CheckNameAvailability/write | Lê a verificação do recurso de disponibilidade |
@@ -2639,11 +2642,15 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/Claim/action | Declara o ambiente e o atribui ao usuário |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/delete | Excluir ambientes. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/read | Ler ambientes. |
+> | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/ResetPassword/action | Reiniciar a senha do usuário em um ambiente |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/Start/action | Inicia um ambiente iniciando todos os recursos dentro do ambiente. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/Stop/action | Interrompe um ambiente interrompendo todos os recursos dentro do ambiente |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/write | Adicionar ou modificar ambientes. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/Publish/action | Provisionar/desprovisionar recursos necessários para uma configuração de ambiente com base no estado atual da configuração de ambiente/laboratório. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | Ler configuração de ambiente. |
+> | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | Excluir agendas. |
+> | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | Ler agendas. |
+> | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | Adicionar ou modificar agendamentos. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | Inicia um modelo iniciando todos os recursos dentro do modelo. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Inicia um modelo iniciando todos os recursos dentro do modelo. |
 > | Ação | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Adicionar ou modificar configuração de ambiente. |
@@ -2660,9 +2667,11 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.LabServices/users/GetEnvironment/action | Obtém os detalhes da máquina virtual |
 > | Ação | Microsoft.LabServices/users/GetOperationBatchStatus/action | Obter o status da operação de imagem |
 > | Ação | Microsoft.LabServices/users/GetOperationStatus/action | Obtém o status da operação de execução longa |
+> | Ação | Microsoft.LabServices/users/GetPersonalPreferences/action | Obter preferências pessoais para um usuário |
 > | Ação | Microsoft.LabServices/users/ListEnvironments/action | Lista Ambientes para o usuário |
 > | Ação | Microsoft.LabServices/users/ListLabs/action | Lista os laboratórios para o usuário. |
 > | Ação | Microsoft.LabServices/users/Register/action | Registra um usuário em um laboratório gerenciado |
+> | Ação | Microsoft.LabServices/users/ResetPassword/action | Reiniciar a senha do usuário em um ambiente |
 > | Ação | Microsoft.LabServices/users/StartEnvironment/action | Inicia um ambiente iniciando todos os recursos dentro do ambiente. |
 > | Ação | Microsoft.LabServices/users/StopEnvironment/action | Interrompe um ambiente interrompendo todos os recursos dentro do ambiente |
 
@@ -2673,9 +2682,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.LocationBasedServices/accounts/delete | (Preterido: use /providers/Microsoft.Maps) Exclui uma Conta dos Serviços Baseados na Localização. |
 > | Ação | Microsoft.LocationBasedServices/accounts/listKeys/action | (Preterido: use /providers/Microsoft.Maps) Lista as chaves da Conta dos Serviços Baseados na Localização |
-> | Ação | Microsoft.LocationBasedServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | (Preterido: use /providers/Microsoft.Maps) Obtém a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.LocationBasedServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | (Preterido: use /providers/Microsoft.Maps) Cria ou atualiza a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.LocationBasedServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | (Preterido: use /providers/Microsoft.Maps) Obtém as métricas disponíveis para as Contas dos Serviços Baseados na Localização |
 > | Ação | Microsoft.LocationBasedServices/accounts/read | (Preterido: use /providers/Microsoft.Maps) Obtém uma Conta dos Serviços Baseados na Localização. |
 > | Ação | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Preterido: use /providers/Microsoft.Maps) Gera novas chaves primária e secundária da Conta dos Serviços Baseados na Localização |
 > | Ação | Microsoft.LocationBasedServices/accounts/write | (Preterido: use /providers/Microsoft.Maps) Cria ou atualiza uma Conta dos Serviços Baseados na Localização. |
@@ -2688,9 +2694,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.LocationServices/accounts/delete | (Preterido: use /providers/Microsoft.Maps) Excluir uma Conta dos Serviços de Localização. |
 > | Ação | Microsoft.LocationServices/accounts/listKeys/action | (Preterido: use /providers/Microsoft.Maps) Lista as chaves da Conta dos Serviços Baseados na Localização |
-> | Ação | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/read | (Preterido: use /providers/Microsoft.Maps) Obtém a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/diagnosticSettings/write | (Preterido: use /providers/Microsoft.Maps) Cria ou atualiza a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.LocationServices/accounts/providers/Microsoft.Insights/metricDefinitions/read | (Preterido: use /providers/Microsoft.Maps) Obtém as métricas disponíveis para as Contas dos Serviços Baseados na Localização |
 > | Ação | Microsoft.LocationServices/accounts/read | (Preterido: use /providers/Microsoft.Maps) Obter uma Conta dos Serviços de Localização. |
 > | Ação | Microsoft.LocationServices/accounts/regenerateKey/action | (Preterido: use /providers/Microsoft.Maps) Gera novas chaves primária e secundária da Conta dos Serviços Baseados na Localização |
 > | Ação | Microsoft.LocationServices/accounts/write | (Preterido: use /providers/Microsoft.Maps) Cria ou atualiza uma Conta dos Serviços de Localização. |
@@ -2706,6 +2709,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Lê dados da tabela ADSecurityAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Lê dados da tabela de Alertas |
 > | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Lê dados da tabela AlertHistory |
+> | DataAction | Microsoft.LogAnalytics/logs/AppCenterError/read | Ler dados da tabela AppCenterError |
 > | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Lê dados da tabela ApplicationInsights |
 > | DataAction | Microsoft.LogAnalytics/logs/AuditLogs/read | Ler dados da tabela AuditLogs |
 > | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Lê dados da tabela AzureActivity |
@@ -2762,6 +2766,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | Lê dados da tabela MAApplicationReadiness |
 > | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | Lê dados da tabela MADeploymentPlan |
 > | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | Lê dados da tabela MADevice |
+> | DataAction | Microsoft.LogAnalytics/logs/MADeviceNotEnrolled/read | Ler dados da tabela MADeviceNotEnrolled |
 > | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | Ler dados da tabela MADevicePnPHealth |
 > | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | Ler dados da tabela MADevicePnPHealthAlternativeVersions |
 > | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | Ler dados da tabela MADevicePnPHealthIssues |
@@ -2904,6 +2909,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/join/action | Une o Ambiente do Serviço de Integração. |
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/managedApis/apiOperations/read | Lê a operação de API gerenciada do ambiente do serviço de integração. |
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | Lê a API gerenciada do ambiente de serviço de integração. |
+> | Ação | Microsoft.Logic/integrationServiceEnvironments/operationStatuses/read | Lê os status de operação do ambiente de serviço de integração. |
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | Lê as definições de métrica do ambiente de serviço de integração. |
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/read | Lê o ambiente do serviço de integração. |
 > | Ação | Microsoft.Logic/integrationServiceEnvironments/write | Cria ou atualiza o ambiente do serviço de integração. |
@@ -3076,9 +3082,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Maps/accounts/eventGridFilters/read | Obtenha um filtro de Grade de Eventos |
 > | Ação | Microsoft.Maps/accounts/eventGridFilters/write | Cria ou atualiza qualquer Filtro de Grade de Eventos |
 > | Ação | Microsoft.Maps/accounts/listKeys/action | Lista chaves da Conta de Mapas |
-> | Ação | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Maps/accounts/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para contas de Mapas |
 > | Ação | Microsoft.Maps/accounts/read | Obtém uma Conta de Mapas. |
 > | Ação | Microsoft.Maps/accounts/regenerateKey/action | Gera uma nova chave primária ou secundária da Conta de Mapas |
 > | Ação | Microsoft.Maps/accounts/write | Cria ou atualiza uma Conta de Mapas. |
@@ -3153,9 +3156,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Media/mediaservices/read | Ler qualquer Conta de Serviços de Mídia |
 > | Ação | Microsoft.Media/mediaservices/streamingEndpointOperations/read | Lê qualquer Operação de Ponto de Extremidade de Streaming |
 > | Ação | Microsoft.Media/mediaservices/streamingEndpoints/delete | Exclui qualquer Ponto de Extremidade de Streaming |
-> | Ação | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/metricDefinitions/read | Obter a lista de definições de métricas do ponto de extremidade de Streaming dos Serviços de Mídia do Microsoft Azure. |
 > | Ação | Microsoft.Media/mediaservices/streamingEndpoints/read | Lê qualquer Ponto de Extremidade de Streaming |
 > | Ação | Microsoft.Media/mediaservices/streamingEndpoints/scale/action | Dimensiona qualquer Operação de Ponto de Extremidade de Streaming |
 > | Ação | Microsoft.Media/mediaservices/streamingEndpoints/start/action | Inicia qualquer Operação de Ponto de Extremidade de Streaming |
@@ -3214,17 +3214,11 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.NetApp/locations/operationresults/read | Lê um recurso de resultado da operação. |
 > | Ação | Microsoft.NetApp/locations/read | Lê um recurso de verificação de disponibilidade. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/delete | Exclui um recurso de pool. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/read | Exclui um recurso de pool. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/write | Exclui um recurso de pool. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/metricDefinitions/read | Exclui um recurso de pool. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/read | Lê um recurso de pool. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/delete | Exclui um recurso de volume. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/MountTargets/delete | Exclui um recurso de destino de montagem. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/MountTargets/read | Lê um recurso de destino de montagem. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/MountTargets/write | Grava um recurso de destino de montagem. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/providers/Microsoft.Insights/diagnosticSettings/read | Exclui um recurso de volume. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/providers/Microsoft.Insights/diagnosticSettings/write | Exclui um recurso de volume. |
-> | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/providers/Microsoft.Insights/metricDefinitions/read | Exclui um recurso de volume. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/read | Lê um recurso de volume. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots/delete | Exclui um recurso de instantâneo. |
 > | Ação | Microsoft.NetApp/netAppAccounts/capacityPools/Volumes/Snapshots/read | Lê um recurso de instantâneo. |
@@ -3247,12 +3241,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end do gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/backendhealth/action | Obter uma integridade de back-end do Gateway de Aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/delete | Excluir um gateway de aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Obter Tabela de Rotas configurada no Gateway de Aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/effectiveRouteTable/action | Obter Tabela de Rotas configurada no Gateway de Aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o Gateway de Aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Gateway de Aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/read | Obter um gateway de aplicativo |
-> | Ação | Microsoft.Network/applicationGateways/setSecurityCenterConfiguration/action | Definir a configuração da Central de Segurança do Gateway de Aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/start/action | Inicia um gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/stop/action | Interrompe um gateway de aplicativo |
 > | Ação | Microsoft.Network/applicationGateways/write | Criar ou atualizar um gateway de aplicativo |
@@ -3263,25 +3252,24 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/applicationSecurityGroups/write | Criar um grupo de segurança de aplicativo ou atualizar um grupo de segurança de aplicativo existente. |
 > | Ação | Microsoft.Network/azureFirewallFqdnTags/read | Obtém as marcas FQDN do Firewall do Azure |
 > | Ação | Microsoft.Network/azurefirewalls/delete | Excluir o Firewall do Azure |
-> | Ação | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Obtém os eventos para o Firewall do Azure |
-> | Ação | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Firewall do Azure |
 > | Ação | Microsoft.Network/azurefirewalls/read | Obter o Firewall do Azure |
 > | Ação | Microsoft.Network/azurefirewalls/write | Cria ou atualiza um Firewall do Azure |
+> | Ação | Microsoft.Network/bastionHosts/delete | Exclui um host bastião |
+> | Ação | Microsoft.Network/bastionHosts/read | Obtém um host bastião |
+> | Ação | Microsoft.Network/bastionHosts/write | Criar ou atualizar um host bastião |
 > | Ação | Microsoft.Network/bgpServiceCommunities/read | Obter comunidades do serviço BGP |
+> | Ação | Microsoft.Network/checkFrontDoorNameAvailability/action | Verifica se um nome de porta frontal está disponível |
 > | Ação | Microsoft.Network/checkTrafficManagerNameAvailability/action | Verificar a disponibilidade de um nome DNS relativo do Gerenciador de Tráfego. |
 > | Ação | Microsoft.Network/connections/delete | Excluir VirtualNetworkGatewayConnection |
-> | Ação | Microsoft.Network/connections/providers/Microsoft.Insights/diagnosticSettings/read | Obter configurações de diagnóstico para Conexões |
-> | Ação | Microsoft.Network/connections/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico para Conexões |
-> | Ação | Microsoft.Network/connections/providers/Microsoft.Insights/metricDefinitions/read | Obtém as definições de métricas para Conexões |
 > | Ação | Microsoft.Network/connections/read | Obter o VirtualNetworkGatewayConnection |
 > | Ação | Microsoft.Network/connections/sharedkey/action | Obter VirtualNetworkGatewayConnection SharedKey |
 > | Ação | Microsoft.Network/connections/sharedKey/read | Obter SharedKey da VirtualNetworkGatewayConnection |
 > | Ação | Microsoft.Network/connections/sharedKey/write | Criar ou atualizar uma VirtualNetworkGatewayConnection SharedKey existente |
 > | Ação | Microsoft.Network/connections/vpndeviceconfigurationscript/action | Obter configuração do dispositivo VPN do VirtualNetworkGatewayConnection |
 > | Ação | Microsoft.Network/connections/write | Criar ou atualizar uma VirtualNetworkGatewayConnection existente |
-> | Ação | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/delete | Excluir um proxy do Plano de Proteção contra DDoS |
-> | Ação | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/read | Obter uma definição de proxy do Plano de Proteção contra DDoS |
-> | Ação | Microsoft.Network/ddosProtectionPlans/ddosProtectionPlanProxies/write | Criar um proxy do Plano de Proteção contra DDoS ou atualizar um proxy do Plano de Proteção contra DDoS existente |
+> | Ação | Microsoft.Network/ddosCustomPolicies/delete | Exclui uma política personalizada de DDoS |
+> | Ação | Microsoft.Network/ddosCustomPolicies/read | Obtém uma definição de política personalizada de DDoS |
+> | Ação | Microsoft.Network/ddosCustomPolicies/write | Cria uma política personalizada de DDoS ou atualiza uma política personalizada de DDoS existente |
 > | Ação | Microsoft.Network/ddosProtectionPlans/delete | Excluir um Plano de Proteção contra DDoS |
 > | Ação | Microsoft.Network/ddosProtectionPlans/join/action | Adicionar um Plano de Proteção contra DDoS |
 > | Ação | Microsoft.Network/ddosProtectionPlans/read | Obter um Plano de Proteção contra DDoS |
@@ -3308,9 +3296,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/dnszones/NS/delete | Excluir o conjunto de registros DNS do tipo NS |
 > | Ação | Microsoft.Network/dnszones/NS/read | Obter o conjunto de registros DNS do tipo NS |
 > | Ação | Microsoft.Network/dnszones/NS/write | Criar ou atualizar o conjunto de registros DNS do tipo NS |
-> | Ação | Microsoft.Network/dnszones/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico da zona DNS |
-> | Ação | Microsoft.Network/dnszones/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico da zona DNS |
-> | Ação | Microsoft.Network/dnszones/providers/Microsoft.Insights/metricDefinitions/read | Obter as definições de métrica da zona DNS |
 > | Ação | Microsoft.Network/dnszones/PTR/delete | Remover o conjunto de registros de determinado nome e tipo ‘PTR’ de uma zona DNS. |
 > | Ação | Microsoft.Network/dnszones/PTR/read | Obter o conjunto de registros do tipo 'PTR' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags. |
 > | Ação | Microsoft.Network/dnszones/PTR/write | Criar ou atualizar um conjunto de registros do tipo 'PTR' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros. |
@@ -3335,22 +3320,14 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/connections/read | Obter uma conexão de circuito de ExpressRoute |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/connections/write | Criar ou atualizar um Recurso de Conexão de ExpressRouteCircuit existente |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/delete | Excluir um emparelhamento de ExpressRouteCircuit |
-> | Ação | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/diagnosticSettings/read | Obter configurações de diagnóstico para emparelhamento ExpressRoute Circuit |
-> | Ação | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza configurações de diagnóstico para circuitos de emparelhamentos ExpressRoute Circuit |
-> | Ação | Microsoft.Network/expressRouteCircuits/peerings/providers/Microsoft.Insights/metricDefinitions/read | Otém as definições de métrica para emparelhamentos ExpressRoute Circuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/read | Obter um emparelhamento de ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/routeTables/action | Obter RouteTable de emparelhamento de ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/routeTablesSummary/action | Obter um resumo de RouteTable de emparelhamento de ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/stats/read | Obter status de emparelhamento de ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/peerings/write | Criar ou atualizar um emparelhamento de ExpressRouteCircuit existente |
-> | Ação | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/read | Obter configurações de diagnóstico para circuitos de ExpressRoute |
-> | Ação | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar configurações de diagnóstico para circuitos de ExpressRoute |
-> | Ação | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para circuitos de ExpressRoute |
-> | Ação | Microsoft.Network/expressRouteCircuits/providers/Microsoft.Insights/metricDefinitions/read | Obter as definições de métrica para circuitos de ExpressRoute |
 > | Ação | Microsoft.Network/expressRouteCircuits/read | Obter um ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/stats/read | Obter status de ExpressRouteCircuit |
 > | Ação | Microsoft.Network/expressRouteCircuits/write | Criar ou atualizar um ExpressRouteCircuit existente |
-> | Ação | Microsoft.Network/expressRouteCrossConnections/delete | Excluir Conexão Cruzada de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteCrossConnections/join/action | Adicionar uma Conexão Cruzada de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/action | Obter uma Tabela ARP de Emparelhamento de Conexão Cruzada de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Excluir um Emparelhamento de Conexão Cruzada de Rota Expressa |
@@ -3359,35 +3336,51 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/expressRouteCrossConnections/peerings/routeTableSummary/action | Obter uma Resumo de Tabela de Rotas de Emparelhamento de Conexão Cruzada de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteCrossConnections/peerings/write | Criar um emparelhamento de conexão cruzada de rota expressa ou atualizar um emparelhamento de conexão cruzada de rota expressa existente |
 > | Ação | Microsoft.Network/expressRouteCrossConnections/read | Excluir Conexão Cruzada de Rota Expressa |
-> | Ação | Microsoft.Network/expressRouteCrossConnections/write | Criar ou atualizar Conexão Cruzada de Rota Expressa |
-> | Ação | Microsoft.Network/expressRouteGateways/delete | Excluir o Gateway do ExpressRoute |
 > | Ação | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Adicionar uma Conexão Cruzada de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteGateways/expressRouteConnections/read | Adicionar uma Conexão de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Cria uma Conexão de Rota Expressa ou Atualiza uma Conexão de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteGateways/join/action | Ingressa em um gateway de Rota Expressa |
 > | Ação | Microsoft.Network/expressRouteGateways/read | Obtém o Gateway de Rota Expressa |
-> | Ação | Microsoft.Network/expressRouteGateways/write | Criar ou atualizar Gateway de Rota Expressa |
 > | Ação | Microsoft.Network/expressRoutePorts/delete | Exclui ExpressRoutePorts |
 > | Ação | Microsoft.Network/expressRoutePorts/join/action | Adiciona ExpressRoutePorts |
 > | Ação | Microsoft.Network/expressRoutePorts/links/read | Obtém ExpressRouteLink |
-> | Ação | Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read | Obter as definições de métrica para portas de ExpressRoute |
 > | Ação | Microsoft.Network/expressRoutePorts/read | Obtém ExpressRoutePorts |
 > | Ação | Microsoft.Network/expressRoutePorts/write | Cria ou atualiza o ExpressRoutePorts |
 > | Ação | Microsoft.Network/expressRoutePortsLocations/read | Obter Localizações de Porta do ExpressRoute |
 > | Ação | Microsoft.Network/expressRouteServiceProviders/read | Obter os provedores de serviços do ExpressRoute |
-> | Ação | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso do Frontdoor |
-> | Ação | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a configuração de diagnóstico para o recurso do Frontdoor |
-> | Ação | Microsoft.Network/frontdoors/providers/Microsoft.Insights/logDefinitions/read | Obter logs disponíveis para recursos do Frontdoor |
-> | Ação | Microsoft.Network/frontdoors/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para recursos do Frontdoor |
-> | Ação | Microsoft.Network/frontdoors/read | Obter Frontdoor |
-> | Ação | Microsoft.Network/getDnsResourceReference/action | Solicitação de dependência de recurso alias do DNS |
+> | Ação | Microsoft.Network/frontDoors/backendPools/delete | Exclui um pool de back-end |
+> | Ação | Microsoft.Network/frontDoors/backendPools/read | Obtém um pool de back-end |
+> | Ação | Microsoft.Network/frontDoors/backendPools/read | Cria ou atualiza um pool de back-end |
+> | Ação | Microsoft.Network/frontDoors/delete | Exclui uma Porta Frontal |
+> | Ação | Microsoft.Network/frontDoors/frontendEndpoints/delete | Exclui um ponto de extremidade de frontend |
+> | Ação | Microsoft.Network/frontDoors/frontendEndpoints/disableHttps/action | Desabilita o HTTPS em um ponto de extremidade de frontend |
+> | Ação | Microsoft.Network/frontDoors/frontendEndpoints/enableHttps/action | Ativa o HTTPS em um ponto de extremidade de frontend |
+> | Ação | Microsoft.Network/frontDoors/frontendEndpoints/read | Obtém um ponto de extremidade de frontend |
+> | Ação | Microsoft.Network/frontDoors/frontendEndpoints/write | Cria ou atualiza um ponto de extremidade de frontend |
+> | Ação | Microsoft.Network/frontDoors/healthProbeSettings/delete | Configurações da investigação de integridade personalizada |
+> | Ação | Microsoft.Network/frontDoors/healthProbeSettings/read | Obtém as configurações do probe de integridade |
+> | Ação | Microsoft.Network/frontDoors/healthProbeSettings/write | Cria ou atualiza as configurações de investigação de integridade |
+> | Ação | Microsoft.Network/frontDoors/loadBalancingSettings/delete | Cria ou atualiza as configurações de balanceamento de carga |
+> | Ação | Microsoft.Network/frontDoors/loadBalancingSettings/read | Obtém configurações de balanceamento de carga |
+> | Ação | Microsoft.Network/frontDoors/loadBalancingSettings/write | Cria ou atualiza as configurações de balanceamento de carga |
+> | Ação | Microsoft.Network/frontDoors/purge/action | Eliminar conteúdo em cache de uma porta frontal |
+> | Ação | Microsoft.Network/frontDoors/read | Obtém uma Porta Frontal |
+> | Ação | Microsoft.Network/frontDoors/routingRules/delete | Exclui uma regra de roteamento |
+> | Ação | Microsoft.Network/frontDoors/routingRules/read | Obtém uma regra de roteamento |
+> | Ação | Microsoft.Network/frontDoors/routingRules/write | Obtém uma regra de roteamento |
+> | Ação | Microsoft.Network/frontDoors/validateCustomDomain/action | Valida um endpoint frontend para uma porta frontal |
+> | Ação | Microsoft.Network/frontDoors/write | Cria ou atualiza uma Porta Frontal |
+> | Ação | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Exclui uma política de firewall de aplicativo da Web |
+> | Ação | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/read | Obtém uma política de firewall de aplicativo da Web |
+> | Ação | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Cria ou atualiza uma política de firewall de aplicativo da Web |
 > | Ação | Microsoft.Network/interfaceEndpoints/delete | Exclui um recurso de ponto de extremidade de interface. |
 > | Ação | Microsoft.Network/interfaceEndpoints/read | Obtém um recurso de ponto de extremidade de interface. |
 > | Ação | Microsoft.Network/interfaceEndpoints/write | Cria um novo ponto de extremidade de interface ou atualiza um ponto de extremidade de interface existente. |
-> | Ação | Microsoft.Network/internalNotify/action | Notificação do recurso de alias do DNS |
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ingressar em um pool de endereços de back-end do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/backendAddressPools/read | Obter uma definição de pool de endereços de back-end do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/delete | Excluir um balanceador de carga |
+> | Ação | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Une uma configuração de IP de front-end do balanceador de carga. |
+> | Ação | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Obter uma definição de configuração de IP de front-end do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Ingressar em um pool NAT de entrada do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatPools/read | Obter uma definição de pool NAT de entrada do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/inboundNatRules/delete | Excluir uma regra NAT de entrada do balanceador de carga |
@@ -3399,10 +3392,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/loadBalancers/outboundRules/read | Obtém uma definição de regra NAT de saída do balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/probes/join/action | Permite usar investigações de um balanceador de carga. Por exemplo, com essa permissão, a propriedade healthProbe do conjunto de dimensionamento de VM pode referenciar a investigação. |
 > | Ação | Microsoft.Network/loadBalancers/probes/read | Obter uma investigação do balanceador de carga |
-> | Ação | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do balanceador de carga |
-> | Ação | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico do balanceador de carga |
-> | Ação | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o balanceador de carga |
-> | Ação | Microsoft.Network/loadBalancers/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/read | Obter uma definição de balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/virtualMachines/read | Obter as referências a todas as máquinas virtuais em um balanceador de carga |
 > | Ação | Microsoft.Network/loadBalancers/write | Criar um balanceador de carga ou atualizar um balanceador de carga existente |
@@ -3413,32 +3402,22 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/locations/bareMetalTenants/action | Aloca ou valida um locatário do Bare Metal |
 > | Ação | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Verifica o suporte à Rede Acelerada |
 > | Ação | Microsoft.Network/locations/checkDnsNameAvailability/read | Verificar se o rótulo de DNS está disponível no local especificado |
-> | Ação | Microsoft.Network/locations/effectiveResourceOwnership/action | Obtém a propriedade de recursos efetivos |
 > | Ação | Microsoft.Network/locations/operationResults/read | Obter o resultado de uma operação POST ou DELETE assíncrona |
 > | Ação | Microsoft.Network/locations/operations/read | Obter o recurso de operação que representa o status de uma operação assíncrona |
-> | Ação | Microsoft.Network/locations/setResourceOwnership/action | Define a propriedade do recurso |
 > | Ação | Microsoft.Network/locations/supportedVirtualMachineSizes/read | Obtém os tamanhos de máquinas virtuais compatíveis |
 > | Ação | Microsoft.Network/locations/usages/read | Obter a métrica de uso dos recursos |
-> | Ação | Microsoft.Network/locations/validateResourceOwnership/action | Valida a propriedade do recurso |
 > | Ação | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Obter uma lista de serviços de ponto de extremidade de Rede Virtual disponíveis |
 > | Ação | Microsoft.Network/networkIntentPolicies/delete | Exclui uma política de intenção de rede |
 > | Ação | Microsoft.Network/networkIntentPolicies/read | Obtém uma descrição de intenção de diretiva de rede |
 > | Ação | Microsoft.Network/networkIntentPolicies/write | Cria uma interface de rede ou atualiza uma política de intenção de rede existente |
 > | Ação | Microsoft.Network/networkInterfaces/delete | Excluir um adaptador de rede |
-> | Ação | Microsoft.Network/networkInterfaces/diagnosticIdentity/read | Obter identidade de diagnóstico do recurso |
 > | Ação | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Obter grupos de segurança de configurados no adaptador de rede da máquina virtual |
 > | Ação | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Obter tabela de rota configurada no adaptador de rede da máquina virtual |
 > | Ação | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Une uma configuração IP do adaptador de rede. |
 > | Ação | Microsoft.Network/networkInterfaces/ipconfigurations/read | Obter uma definição de configuração de IP do adaptador de rede.  |
 > | Ação | Microsoft.Network/networkInterfaces/join/action | Adicionar uma Máquina Virtual a um adaptador de rede |
-> | Ação | Microsoft.Network/networkInterfaces/joinViaPrivateIp/acti | Ingressa um recurso em um adaptador de rede por meio de uma Associação de Serviço |
 > | Ação | Microsoft.Network/networkInterfaces/loadBalancers/read | Obter todos os balanceadores de carga dos quais o adaptador de rede faz parte |
-> | Ação | Microsoft.Network/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Adaptador de Rede |
 > | Ação | Microsoft.Network/networkInterfaces/read | Obter uma definição de adaptador de rede.  |
-> | Ação | Microsoft.Network/networkInterfaces/serviceAssociations/delete | Exclui uma Associação de Serviço |
-> | Ação | Microsoft.Network/networkInterfaces/serviceAssociations/read | Obtém uma definição de Associação de Serviço |
-> | Ação | Microsoft.Network/networkInterfaces/serviceAssociations/validate/action | Valida uma Associação de Serviço |
-> | Ação | Microsoft.Network/networkInterfaces/serviceAssociations/write | Cria uma nova Associação de Serviço ou modifica uma existente |
 > | Ação | Microsoft.Network/networkInterfaces/tapConfigurations/delete | Exclui uma configuração de toque do adaptador de rede. |
 > | Ação | Microsoft.Network/networkInterfaces/tapConfigurations/read | Obtém uma configuração de toque do adaptador de rede. |
 > | Ação | Microsoft.Network/networkInterfaces/tapConfigurations/write | Cria uma configuração de toque do adaptador de rede ou atualiza uma configuração de toque do adaptador de rede existente. |
@@ -3452,9 +3431,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read | Obter uma definição padrão da regra de segurança |
 > | Ação | Microsoft.Network/networkSecurityGroups/delete | Excluir um grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/join/action | Ingressar em um grupo de segurança de rede |
-> | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico dos Grupos de Segurança de Rede |
-> | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico dos Grupos de segurança de rede, essa operação é complementada pelo provedor de recursos de insights. |
-> | Ação | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/read | Obter uma definição de um grupo de segurança de rede |
 > | Ação | Microsoft.Network/networkSecurityGroups/securityRules/delete | Excluir uma regra de segurança |
 > | Ação | Microsoft.Network/networkSecurityGroups/securityRules/read | Obter uma definição da regra de segurança |
@@ -3464,9 +3440,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Retornar a pontuação de latência relativa para provedores de serviços de Internet de um local especificado para regiões do Azure. |
 > | Ação | Microsoft.Network/networkWatchers/configureFlowLog/action | Configurar o registro de fluxo em log para um recurso de destino. |
 > | Ação | Microsoft.Network/networkWatchers/connectionMonitors/delete | Excluir um Monitor de Conexão |
-> | Ação | Microsoft.Network/networkWatchers/connectionMonitors/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do Monitor de Conexão |
-> | Ação | Microsoft.Network/networkWatchers/connectionMonitors/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico do Monitor de Conexão |
-> | Ação | Microsoft.Network/networkWatchers/connectionMonitors/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Monitor de Conexão |
 > | Ação | Microsoft.Network/networkWatchers/connectionMonitors/query/action | Consultar monitoramento de conectividade entre os pontos de extremidades especificados |
 > | Ação | Microsoft.Network/networkWatchers/connectionMonitors/read | Obter detalhes do Monitor de Conexão |
 > | Ação | Microsoft.Network/networkWatchers/connectionMonitors/start/action | Iniciar monitoramento de conectividade entre pontos de extremidades especificados |
@@ -3504,6 +3477,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/operations/read | Obter operações disponíveis |
 > | Ação | Microsoft.Network/p2sVpnGateways/delete | Exclui um P2SVpnGateway. |
 > | Ação | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Gerar o perfil de Vpn para o P2SVpnGateway |
+> | Ação | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Obter uma conexão P2S Vpn íntegra para P2SVpnGateway |
 > | Ação | Microsoft.Network/p2sVpnGateways/read | Obtém um P2SVpnGateway. |
 > | Ação | Microsoft.Network/p2sVpnGateways/write | Coloca um P2SVpnGateway. |
 > | Ação | Microsoft.Network/privateLinkServices/delete | Exclui um recurso do serviço de link privado. |
@@ -3513,14 +3487,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/privateLinkServices/read | Obtém um recurso do serviço de link privado. |
 > | Ação | Microsoft.Network/privateLinkServices/write | Cria um novo serviço de link privado ou atualiza um serviço de link privado existente. |
 > | Ação | Microsoft.Network/publicIPAddresses/delete | Excluir um endereço IP público. |
-> | Ação | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Exclui um recurso de Alias de Dns do endereço Ip público |
-> | Ação | Microsoft.Network/publicIPAddresses/dnsAliases/read | Obtém um recurso de Alias de Dns do endereço Ip público |
-> | Ação | Microsoft.Network/publicIPAddresses/dnsAliases/write | Cria um recurso de Alias de Dns do endereço Ip público |
 > | Ação | Microsoft.Network/publicIPAddresses/join/action | Ingressar em um endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico do endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Obter as definições de log do endereço IP público |
-> | Ação | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | Obter as definições de métrica do endereço IP público |
 > | Ação | Microsoft.Network/publicIPAddresses/read | Obter uma definição de endereço IP público. |
 > | Ação | Microsoft.Network/publicIPAddresses/write | Criar um endereço IP público ou atualizar um endereço IP público existente.  |
 > | Ação | Microsoft.Network/publicIPPrefixes/delete | Exclui um prefixo IP público A |
@@ -3542,14 +3509,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/routeTables/routes/read | Obter uma definição de rota |
 > | Ação | Microsoft.Network/routeTables/routes/write | Criar uma rota ou atualizar uma rota existente |
 > | Ação | Microsoft.Network/routeTables/write | Criar uma tabela de rotas ou atualizar uma tabela de rotas existente |
-> | Ação | Microsoft.Network/securegateways/applicationRuleCollections/delete | Excluir uma Coleção de Regras de Aplicativo para um Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/applicationRuleCollections/read | Recuperar uma Coleção de Regras de Aplicativo para um determinado Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/applicationRuleCollections/write | Criar ou atualizar uma Coleção de Regras de Aplicativo para um Gateway de Segurança |
 > | Ação | Microsoft.Network/securegateways/delete | Excluir um Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/networkRuleCollections/delete | Excluir uma Coleção de Regras de Rede para um Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/networkRuleCollections/read | Recuperar uma Coleção de Regras de Rede para um determinado Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/networkRuleCollections/write | Criar ou atualizar uma Coleção de Regras de Rede para um Gateway de Segurança |
-> | Ação | Microsoft.Network/securegateways/providers/Microsoft.Insights/logDefinitions/read | Obtém os eventos para o Firewall do Azure |
 > | Ação | Microsoft.Network/securegateways/read | Obter um Gateway de Segurança |
 > | Ação | Microsoft.Network/securegateways/write | Criar ou atualizar um Gateway de Segurança |
 > | Ação | Microsoft.Network/serviceEndpointPolicies/delete | Excluir uma política de ponto de extremidade de serviço |
@@ -3572,10 +3532,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/delete | Excluir um ponto de extremidade aninhado de um perfil do Gerenciador de Tráfego existente. O Gerenciador de Tráfego interromperá o tráfego de roteamento para o ponto de extremidade aninhado excluído. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | Obtém um ponto de extremidade aninhado que pertence a um perfil do Gerenciador de Tráfego, incluindo todas as propriedades desse ponto de extremidade aninhado. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | Adicionar um novo ponto de extremidade aninhado em um perfil do Gerenciador de Tráfego existente ou atualizar as propriedades de um ponto de extremidade aninhado existente nesse perfil do Gerenciador de Tráfego. |
-> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do Gerenciador de Tráfego |
-> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico do Gerenciador de Tráfego, essa operação é complementada pelo provedor de recursos de informações. |
-> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos para o Gerenciador de Tráfego |
-> | Ação | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para o Gerenciador de Tráfego. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/read | Obter a configuração de perfil do Gerenciador de Tráfego. Isso inclui configurações DNS, configurações de roteamento de tráfego, configurações de monitoramento do ponto de extremidade e lista de pontos de extremidade roteados por esse perfil do Gerenciador de Tráfego. |
 > | Ação | Microsoft.Network/trafficManagerProfiles/write | Criar um perfil do Gerenciador de Tráfego ou modificar a configuração de um perfil do Gerenciador de Tráfego existente.<br>Isso inclui habilitar ou desabilitar um perfil e modificar as configurações de DNS, configurações de roteamento de tráfego ou configurações de monitoramento do ponto de extremidade.<br>Pontos de extremidade roteados pelo perfil do Gerenciador de Tráfego podem ser adicionados, removidos, habilitados ou desabilitados. |
 > | Ação | Microsoft.Network/trafficManagerUserMetricsKeys/delete | Excluir a chave do nível de assinatura usada para a coleção de métricas de usuário em tempo real. |
@@ -3598,47 +3554,23 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.network/virtualnetworkgateways/getvpnclientconnectionhealth/action | Obter por integridade de conexão de cliente Vpn para VirtualNetworkGateway |
 > | Ação | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | Obter parâmetros IPsec do Vpnclient para cliente P2S do VirtualNetworkGateway. |
 > | Ação | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | Obter a URL de um pacote de perfil de cliente VPN gerado previamente |
-> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico do Gateway de Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza as configurações de diagnóstico da Rede Virtual do Microsoft Azure, essa operação é complementada pelo provedor de recursos insights. |
-> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Obter os eventos do Gateway de Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para o Gateway de Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworkGateways/read | Obter um VirtualNetworkGateway |
 > | Ação | microsoft.network/virtualnetworkgateways/reset/action | Reiniciar um virtualNetworkGateway |
 > | Ação | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | Reiniciar a chave compartilhada Vpnclient para o cliente P2S do VirtualNetworkGateway. |
 > | Ação | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Configurar parâmetros IPsec do Vpnclient para cliente P2S do VirtualNetworkGateway. |
 > | Ação | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Listar dispositivos VPN com suporte |
 > | Ação | Microsoft.Network/virtualNetworkGateways/write | Criar ou atualizar um VirtualNetworkGateway |
+> | Ação | Microsoft.Network/virtualNetworks/BastionHosts/action | Obtém referências de Host Bastion em uma rede virtual. |
 > | Ação | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Verificar se o endereço IP está disponível na rede virtual especificada |
-> | Ação | Microsoft.Network/virtualNetworks/customViews/get/action | Obter um conteúdo de exibição personalizada da Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworks/customViews/read | Obter a definição de uma exibição personalizada da Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworks/delete | Excluir uma rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/peer/action | Colocar uma rede virtual com outra rede virtual de mesmo nível |
-> | Ação | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/read | Obter as configurações de diagnóstico da Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar as configurações de diagnóstico da Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/logDefinitions/read | Obter as definições de log da Rede Virtual |
-> | Ação | Microsoft.Network/virtualNetworks/providers/Microsoft.Insights/metricDefinitions/read | Obtem as métricas disponíveis para o PingMesh |
 > | Ação | Microsoft.Network/virtualNetworks/read | Obter a definição de rede virtual |
-> | Ação | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete | Excluir um proxy de emparelhamento de rede virtual |
-> | Ação | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/read | Obter uma definição de proxy de emparelhamento de rede virtual |
-> | Ação | Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | Criar um proxy de emparelhamento de rede virtual ou atualizar um proxy de emparelhamento de rede virtual existente |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/delete | Excluir uma sub-rede de rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/join/action | Ingressar em uma rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Adicionar recursos como conta de armazenamento ou banco de dados SQL a uma sub-rede. |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/read | Obter uma definição de sub-rede da rede virtual |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/delete | Excluir um link de navegação de recursos |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/read | Obter a definição de link de navegação de recursos |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/resourceNavigationLinks/write | Criar um link de navegação de recursos ou atualizar um link de navegação de recursos existente |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/delete | Exclui um Link de Associação de Serviço |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/details/read | Obtém uma definição dos Detalhes do Link de Associação de Serviço |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/read | Obtém uma definição do Link de Associação de Serviço |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/validate/action | Valida um Link de Associação de Serviço |
-> | Ação | Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/write | Cria um Link de Associação de Serviço ou atualiza um existente |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | Obter referências a todas as máquinas virtuais em uma sub-rede de rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/subnets/write | Criar uma sub-rede de rede virtual ou atualizar uma sub-rede de rede virtual existente |
-> | Ação | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/delete | Excluir um consumidor de tráfego marcado |
-> | Ação | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/read | Obter a definição de consumidor de tráfego marcado |
-> | Ação | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/validate/action | Validar um consumidor de tráfego marcado |
-> | Ação | Microsoft.Network/virtualNetworks/taggedTrafficConsumers/write | Criar um consumidor de tráfego marcado ou atualiza um consumidor de tráfego marcado existente |
 > | Ação | Microsoft.Network/virtualNetworks/usages/read | Obter os usos de IP para cada sub-rede da rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/virtualMachines/read | Obter referências a todas as máquinas virtuais em uma rede virtual |
 > | Ação | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Excluir um emparelhamento de redes virtuais |
@@ -3647,28 +3579,16 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Network/virtualNetworks/write | Criar uma rede virtual ou atualizar uma rede virtual existente |
 > | Ação | Microsoft.Network/virtualNetworkTaps/delete | Excluir Toque de Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworkTaps/join/action | Adicionar toque de rede virtual |
-> | Ação | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/delete | Exclui um proxy de configuração de toque do adaptador de rede. |
-> | Ação | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/read | Obtém um proxy de configuração de toque do adaptador de rede. |
-> | Ação | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/write | Cria um proxy de configuração de toque do adaptador de rede ou atualiza um proxy de configuração de toque do adaptador de rede existente. |
 > | Ação | Microsoft.Network/virtualNetworkTaps/read | Obter Toque de Rede Virtual |
 > | Ação | Microsoft.Network/virtualNetworkTaps/write | Criar ou atualizar Toque de Rede Virtual |
 > | Ação | Microsoft.Network/virtualWans/delete | Excluir uma WAN Virtual |
-> | Ação | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/delete | Exclui um proxy P2SVpnGateway |
-> | Ação | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/read | Obtém uma definição de proxy P2SVpnGateway |
-> | Ação | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/write | Cria um proxy P2SVpnGateway ou atualiza um proxy P2SVpnGateway |
 > | Ação | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/delete | Exclui um P2SVpnServerConfiguration de WAN virtual |
 > | Ação | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | Obtém uma definição de P2SVpnServerConfiguration de WAN virtual |
 > | Ação | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/write | Cria um P2SVpnServerConfiguration de WAN virtual ou atualiza um P2SVpnServerConfiguration de WAN virtual existente |
 > | Ação | Microsoft.Network/virtualWans/read | Obter uma WAN Virtual |
 > | Ação | Microsoft.Network/virtualwans/supportedSecurityProviders/read | Obtém os provedores de segurança de VirtualWan com suporte. |
-> | Ação | Microsoft.Network/virtualWans/virtualHubProxies/delete | Excluir um proxy de Hub Virtual |
-> | Ação | Microsoft.Network/virtualWans/virtualHubProxies/read | Obter uma definição de proxy de Hub Virtual |
-> | Ação | Microsoft.Network/virtualWans/virtualHubProxies/write | Criar um proxy de Hub Virtual ou atualizar um proxy de Hub Virtual |
 > | Ação | Microsoft.Network/virtualWans/virtualHubs/read | Obtém todos os Hubs Virtuais que fazem referência a uma WAN Virtual. |
 > | Ação | Microsoft.Network/virtualwans/vpnconfiguration/action | Obter uma configuração de VPN |
-> | Ação | Microsoft.Network/virtualWans/vpnSiteProxies/delete | Excluir um proxy de VPN site |
-> | Ação | Microsoft.Network/virtualWans/vpnSiteProxies/read | Obter uma definição de proxy de VPN site |
-> | Ação | Microsoft.Network/virtualWans/vpnSiteProxies/write | Criar um proxy de VPN site ou atualizar um proxy de VPN site |
 > | Ação | Microsoft.Network/virtualWans/vpnSites/read | Obtém todos os Sites VPN que fazem referência a uma WAN Virtual. |
 > | Ação | Microsoft.Network/virtualWans/write | Criar ou atualizar um uma WAN Virtual |
 > | Ação | Microsoft.Network/vpnGateways/delete | Exclui um VpnGateway. |
@@ -3815,6 +3735,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Lê dados da tabela ADSecurityAssessmentRecommendation |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/Alert/read | Lê dados da tabela de Alertas |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | Lê dados da tabela AlertHistory |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Ler dados da tabela AppCenterError |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Lê dados da tabela ApplicationInsights |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Ler dados da tabela AuditLogs |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Lê dados da tabela AzureActivity |
@@ -3871,6 +3792,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | Lê dados da tabela MAApplicationReadiness |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | Lê dados da tabela MADeploymentPlan |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MADevice/read | Lê dados da tabela MADevice |
+> | Ação | Microsoft.OperationalInsights/workspaces/query/MADeviceNotEnrolled/read | Ler dados da tabela MADeviceNotEnrolled |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | Ler dados da tabela MADevicePnPHealth |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | Ler dados da tabela MADevicePnPHealthAlternativeVersions |
 > | Ação | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | Ler dados da tabela MADevicePnPHealthIssues |
@@ -3967,9 +3889,16 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Lê dados da tabela WUDOStatus |
 > | Ação | Microsoft.OperationalInsights/workspaces/read | Obter um workspace existente |
 > | Ação | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | Regenera a chave compartilhada do espaço de trabalho especificado |
+> | Ação | microsoft.operationalinsights/workspaces/rules/read | Obtenha todas as regras de alerta. |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Excluir uma consulta de pesquisa salva |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obter uma consulta de pesquisa salva |
 > | Ação | microsoft.operationalinsights/workspaces/savedsearches/results/read | Obter resultados de pesquisas salvos. Preteridos |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Excluir ações de pesquisa programadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | Obtenha ações de pesquisa programadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | Crie ou atualize ações de pesquisa agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/delete | Excluir pesquisas agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/read | Obtenha pesquisas agendadas. |
+> | Ação | microsoft.operationalinsights/workspaces/savedsearches/schedules/write | Crie ou atualize pesquisas agendadas. |
 > | Ação | Microsoft.OperationalInsights/workspaces/savedSearches/write | Criar uma consulta de pesquisa salva |
 > | Ação | Microsoft.OperationalInsights/workspaces/schema/read | Obter o esquema de pesquisa do workspace.  O esquema de pesquisa inclui os campos expostos e seus tipos. |
 > | Ação | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
@@ -4036,10 +3965,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.PowerBIDedicated/capacities/checkNameAvailability/action | Verificar se o nome da capacidade dedicada do Power BI é válido e não está em uso. |
 > | Ação | Microsoft.PowerBIDedicated/capacities/delete | Excluir a capacidade dedicada do Power BI. |
-> | Ação | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para Capacidades Dedicadas do Power BI |
-> | Ação | Microsoft.PowerBIDedicated/capacities/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para a capacidade dedicada do Power BI. |
 > | Ação | Microsoft.PowerBIDedicated/capacities/read | Recuperar as informações da Capacidade Dedicada especificada do Power BI. |
 > | Ação | Microsoft.PowerBIDedicated/capacities/resume/action | Retoma a Capacidade. |
 > | Ação | Microsoft.PowerBIDedicated/capacities/skus/read | Recuperar informações de SKU disponíveis para a Capacidade |
@@ -4120,10 +4045,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolver o alerta. |
 > | Ação | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Obter a configuração de notificação do cofre dos Serviços de Recuperação. |
 > | Ação | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configurar notificações por email para o cofre dos Serviços de Recuperação. |
-> | Ação | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/diagnosticSettings/read | Diagnóstico do Backup do Azure |
-> | Ação | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/diagnosticSettings/write | Diagnóstico do Backup do Azure |
-> | Ação | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/logDefinitions/read | Logs do Backup do Azure |
-> | Ação | Microsoft.RecoveryServices/Vaults/providers/Microsoft.Insights/metricDefinitions/read | Métricas do Backup do Azure |
 > | Ação | Microsoft.RecoveryServices/Vaults/read | A operação Obter cofre obtém um objeto que representa o recurso do Azure do tipo 'cofre' |
 > | Ação | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | A operação Cancelar o registro de contêiner pode ser usada para cancelar o registro de um contêiner. |
 > | Ação | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | A operação Obter resultados da operação pode ser usada para obter o status da operação e o resultado da operação enviada de forma assíncrona |
@@ -4358,12 +4279,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Search/searchServices/createQueryKey/action | Criar a chave de consulta. |
 > | Ação | Microsoft.Search/searchServices/delete | Excluir o serviço de pesquisa. |
 > | Ação | Microsoft.Search/searchServices/deleteQueryKey/delete | Excluir a chave de consulta. |
-> | Ação | Microsoft.Search/searchServices/diagnosticSettings/read | Obter a leitura da configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Search/searchServices/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
 > | Ação | Microsoft.Search/searchServices/listAdminKeys/action | Ler as chaves de administração. |
 > | Ação | Microsoft.Search/searchServices/listQueryKeys/read | Retorna a lista de chaves de API de consulta para o serviço Azure Search especificado. |
-> | Ação | Microsoft.Search/searchServices/logDefinitions/read | Obter os logs disponíveis para o serviço de pesquisa |
-> | Ação | Microsoft.Search/searchServices/metricDefinitions/read | Obter as métricas disponíveis para o serviço de pesquisa |
 > | Ação | Microsoft.Search/searchServices/read | Ler o serviço de pesquisa. |
 > | Ação | Microsoft.Search/searchServices/regenerateAdminKey/action | Regenerar a chave de administração. |
 > | Ação | Microsoft.Search/searchServices/start/action | Iniciar o serviço de pesquisa. |
@@ -4381,6 +4298,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Security/applicationWhitelistings/read | Obter a lista de liberações do aplicativo |
 > | Ação | Microsoft.Security/applicationWhitelistings/write | Criar uma nova lista de exceções do aplicativo ou atualizar uma existente |
 > | Ação | Microsoft.Security/complianceResults/read | Obter os resultados de conformidade para o recurso |
+> | Ação | Microsoft.Security/informationProtectionPolicies/read | Obtém as políticas de proteção de informações para o recurso |
+> | Ação | Microsoft.Security/informationProtectionPolicies/write | Atualiza as políticas de proteção de informações para o recurso |
 > | Ação | Microsoft.Security/locations/alerts/activate/action | Ativar um alerta de segurança |
 > | Ação | Microsoft.Security/locations/alerts/dismiss/action | Ignorar um alerta de segurança |
 > | Ação | Microsoft.Security/locations/alerts/read | Obter todos os alertas de segurança disponíveis |
@@ -4409,6 +4328,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Security/securitySolutionsReferenceData/read | Obter dados de referência das soluções de segurança |
 > | Ação | Microsoft.Security/securityStatuses/read | Obter status de integridade da segurança para recursos do Azure |
 > | Ação | Microsoft.Security/securityStatusesSummaries/read | Obter os resumos de status de segurança para o escopo |
+> | Ação | Microsoft.Security/settings/read | Obtém as configurações para o escopo |
+> | Ação | Microsoft.Security/settings/write | Atualiza as configurações do escopo |
 > | Ação | Microsoft.Security/tasks/read | Obter todas as recomendações de segurança disponíveis |
 > | Ação | Microsoft.Security/unregister/action | Cancelar a assinatura da Central de Segurança do Azure |
 > | Ação | Microsoft.Security/webApplicationFirewalls/delete | Excluir um firewall do aplicativo Web |
@@ -4436,6 +4357,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | --- | --- | --- |
 > | Ação | Microsoft.ServiceBus/checkNameAvailability/action | Verificar a disponibilidade do namespace em determinada assinatura. |
 > | Ação | Microsoft.ServiceBus/checkNamespaceAvailability/action | Verificar a disponibilidade do namespace em determinada assinatura. Essa API está preterida, use CheckNameAvailabiltiy. |
+> | Ação | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Exclui as regras VNet no ServiceBus Resource Provider para o VNet especificado |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/action | Atualizar regra de autorização de namespace. Essa API está preterida. Use uma chamada PUT para atualizar a regra de autorização de namespace. Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída.  |
 > | Ação | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Obter a cadeia de conexão para o namespace |
@@ -4455,9 +4377,17 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ServiceBus/namespaces/eventGridFilters/read | Obter o filtro de Grade de Eventos associado ao namespace. |
 > | Ação | Microsoft.ServiceBus/namespaces/eventGridFilters/write | Criar ou atualizar o filtro da Grade de Eventos associado ao namespace. |
 > | Ação | Microsoft.ServiceBus/namespaces/eventhubs/read | Obter lista de descrições de recursos de EventHub |
+> | Ação | Microsoft.ServiceBus/namespaces/ipFilterRules/delete | Excluir recurso de filtro IP |
+> | Ação | Microsoft.ServiceBus/namespaces/ipFilterRules/read | Obter recurso de filtro IP |
+> | Ação | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Criar Recurso de Filtro IP |
 > | Ação | Microsoft.ServiceBus/namespaces/messagingPlan/read | Obter o Plano de Mensagens para um namespace.<br>Essa API está preterida.<br>As propriedades expostas por meio do recurso MessagingPlan são movidas para o recurso Namespace (pai) nas versões posteriores da API.<br>Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.ServiceBus/namespaces/messagingPlan/write | Atualizar o Plano de Mensagens para um namespace.<br>Essa API está preterida.<br>As propriedades expostas por meio do recurso MessagingPlan são movidas para o recurso Namespace (pai) nas versões posteriores da API.<br>Esta operação não tem suporte na versão da API 2017-04-01. |
 > | Ação | Microsoft.ServiceBus/namespaces/migrate/action | Migrar operação de namespace |
+> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/delete | Exclui a Configuração de migração. |
+> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | Obtém a Configuração de migração que indica o estado da migração e operações de replicação pendentes |
+> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/revert/action | Reverte a migração do namespace padrão ao premium |
+> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/upgrade/action | Atribui o DNS associado com o namespace padrão ao namespace premium que conclui a migração e interrompe os recursos sincronizando do namespace padrão ao premium |
+> | Ação | Microsoft.ServiceBus/namespaces/migrationConfigurations/write | Cria ou Atualiza a Configuração de migração. Isso iniciará a sincronização de recursos do namespace padrão ao premium |
 > | Ação | Microsoft.ServiceBus/namespaces/operationresults/read | Obter o status da operação de Namespace |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Ação | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
@@ -4489,6 +4419,9 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.ServiceBus/namespaces/topics/subscriptions/rules/write | Criar ou atualizar propriedades Rule. |
 > | Ação | Microsoft.ServiceBus/namespaces/topics/subscriptions/write | Criar ou atualizar propriedades TopicSubscription. |
 > | Ação | Microsoft.ServiceBus/namespaces/topics/write | Criar ou atualizar propriedades Topic. |
+> | Ação | Microsoft.ServiceBus/namespaces/virtualNetworkRules/delete | Excluir Recurso de Regra VNET |
+> | Ação | Microsoft.ServiceBus/namespaces/virtualNetworkRules/read | Obtém o recurso de regra de rede virtual |
+> | Ação | Microsoft.ServiceBus/namespaces/virtualNetworkRules/write | Criar Recurso de Regra VNET |
 > | Ação | Microsoft.ServiceBus/namespaces/write | Criar um recurso de namespace e atualizar suas propriedades. Marcas e Capacidade do namespace são as propriedades que podem ser atualizadas. |
 > | Ação | Microsoft.ServiceBus/operations/read | Obter Operações |
 > | Ação | Microsoft.ServiceBus/register/action | Registrar a assinatura do provedor de recursos ServiceBus e permitir a criação de recursos ServiceBus |
@@ -4536,9 +4469,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.SignalRService/checknameavailability/action | Verifica se um nome está disponível para uso com um novo serviço SignalR |
 > | Ação | Microsoft.SignalRService/register/action | Registra o provedor de recursos 'Microsoft.SignalRService' com uma assinatura |
 > | Ação | Microsoft.SignalRService/SignalR/delete | Excluir todo o SignalR |
-> | Ação | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para SignalR |
 > | Ação | Microsoft.SignalRService/SignalR/read | Exibe as definições e as configurações do SignalR no portal de gerenciamento ou por meio da API |
 > | Ação | Microsoft.SignalRService/SignalR/write | Modifica as definições e as configurações do SignalR no portal de gerenciamento ou por meio da API |
 > | Ação | Microsoft.SignalRService/unregister/action | Cancela o registro do provedor de recursos 'Microsoft.SignalRService' com uma assinatura |
@@ -4575,11 +4505,12 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/locations/deletedServerOperationResults/read | Obter operações em andamento no servidor excluído |
 > | Ação | Microsoft.Sql/locations/deletedServers/read | Retornar a lista de servidores excluídos ou obter as propriedades para o servidor excluído especificado. |
 > | Ação | Microsoft.Sql/locations/deletedServers/recover/action | Recuperar um servidor excluído |
-> | Ação | Microsoft.Sql/locations/deleteVirtualNetworkOrSubnets/action | Excluir regras de rede virtual associadas a uma rede virtual ou sub-rede |
 > | Ação | Microsoft.Sql/locations/elasticPoolAzureAsyncOperation/read | Obter a operação assíncrona do Azure para uma operação assíncrona de pool elástico |
 > | Ação | Microsoft.Sql/locations/elasticPoolOperationResults/read | Obter o resultado de uma operação de pool elástico. |
 > | Ação | Microsoft.Sql/locations/extendedAuditingSettingsAzureAsyncOperation/read | Recuperar resultado da política de auditoria de blob de servidor estendida Definir operação |
 > | Ação | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | Recuperar resultado da política de auditoria de blob de servidor estendida Definir operação |
+> | Ação | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | Obtém o status de uma operação de regra de firewall. |
+> | Ação | Microsoft.Sql/locations/firewallRulesOperationResults/read | Obtém o status de uma operação de regra de firewall. |
 > | Ação | Microsoft.Sql/locations/instanceFailoverGroups/delete | Exclui um grupo de failover de instância existente. |
 > | Ação | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | Executa o failover planejado em um grupo de failover de instância existente. |
 > | Ação | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Executa o failover forçado em um grupo de failover de instância existente. |
@@ -4609,18 +4540,24 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/managedInstances/administrators/write | Criar ou atualizar o administrador da instância gerenciada com os parâmetros especificados. |
 > | Ação | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/read | Obtém uma política de retenção de curto prazo para um banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | Atualiza uma política de retenção de curto prazo para um banco de dados gerenciado |
+> | Ação | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/delete | Excluir um banco de dados gerenciado existente |
 > | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
 > | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
 > | Ação | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para os bancos de dados de instância gerenciada |
 > | Ação | Microsoft.Sql/managedInstances/databases/read | Obter o banco de dados gerenciado existente |
+> | Ação | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Excluir o rótulo de confidencialidade de uma determinada coluna |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Obter o rótulo de confidencialidade de uma determinada coluna |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Criar ou atualizar o rótulo de confidencialidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Recuperar detalhes da política de detecção de ameaças do banco de dados configurada em um determinado banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | Alterar a política de detecção de ameaças do banco de dados para um determinado banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityEvents/read | Recuperar os eventos de segurança do banco de dados gerenciado |
+> | Ação | Microsoft.Sql/managedInstances/databases/sensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/read | Recuperar detalhes do Transparent Data Encryption do banco de dados em um determinado banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/transparentDataEncryption/write | Alterar o Transparent Data Encryption do banco de dados para um determinado banco de dados gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/delete | Remover a avaliação de vulnerabilidade de um determinado banco de dados |
-> | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/read | Recuperar detalhes da avaliação de vulnerabilidade configurada em um determinado banco de dados |
+> | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/read | Recuperar as políticas de avaliação de vulnerabilidades em um givendatabase |
 > | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/delete | Remover a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/read | Obter a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/rules/baselines/write | Alterar a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
@@ -4649,7 +4586,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/managedInstances/securityAlertPolicies/write | Alterar a política de detecção de ameaças do servidor gerenciado para um determinado servidor gerenciado |
 > | Ação | Microsoft.Sql/managedInstances/tdeCertificates/action | Criar/atualizar certificado TDE |
 > | Ação | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | Remover a avaliação de vulnerabilidade para determinada instância gerenciada |
-> | Ação | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | Recuperar detalhes da avaliação de vulnerabilidade configurada em determinada instância gerenciada |
+> | Ação | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | Recuperar as políticas de avaliação de vulnerabilidades em uma determinada instância gerenciada |
 > | Ação | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | Alterar a avaliação de vulnerabilidade para determinada instância gerenciada |
 > | Ação | Microsoft.Sql/managedInstances/write | Criar uma instância gerenciada com os parâmetros especificados ou atualizar as propriedades ou marcas para a instância gerenciada especificada. |
 > | Ação | Microsoft.Sql/operations/read | Obter as operações REST disponíveis |
@@ -4693,6 +4630,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/write | Criar ou atualizar uma política de arquivamento de backup de banco de dados. |
 > | Ação | Microsoft.Sql/servers/databases/connectionPolicies/read | Recuperar detalhes da política de conexão configurada em determinado servidor |
 > | Ação | Microsoft.Sql/servers/databases/connectionPolicies/write | Alterar política de conexão para determinado banco de dados |
+> | Ação | Microsoft.Sql/servers/databases/currentSensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/dataMaskingPolicies/read | Retornar a lista de políticas de máscara de dados do banco de dados. |
 > | Ação | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/delete | Excluir regra de política de máscara de dados para um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/read | Recuperar detalhes da regra de política de mascaramento de dados configurada em determinado servidor |
@@ -4728,6 +4666,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/databases/queryStore/read | Retornar os valores atuais das configurações do Repositório de Consultas do banco de dados. |
 > | Ação | Microsoft.Sql/servers/databases/queryStore/write | Atualizar a configuração do repositório de consultas do banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/read | Retornar a lista de bancos de dados ou obter as propriedades para o banco de dados especificado. |
+> | Ação | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/replicationLinks/delete | Encerrar a relação de replicação de modo forçado e com potencial perda de dados |
 > | Ação | Microsoft.Sql/servers/databases/replicationLinks/failover/action | Failover após a sincronização de todas as alterações do primário, tornando esse banco de dados na relação de replicação\u0027s primária e tornando o primário remoto em um secundário |
 > | Ação | Microsoft.Sql/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action | Failover imediatamente com possibilidade de perda de dados, tornando esse banco de dados o principal da relação de replicação\u0027s e tornando o primário remoto um secundário |
@@ -4746,8 +4685,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/read | Recuperar lista de tabelas de um banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Recuperar a lista de recomendações de índice em um banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Aplicar a recomendação de índice |
-> | Ação | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Recuperar detalhes da política de detecção de ameaças configurada em determinado servidor |
-> | Ação | Microsoft.Sql/servers/databases/securityAlertPolicies/write | Alterar política de detecção de ameaças para determinado banco de dados |
+> | Ação | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Recuperar detalhes da política de detecção de ameaças do banco de dados configurada em um determinado banco de dados |
+> | Ação | Microsoft.Sql/servers/databases/securityAlertPolicies/write | Alterar a política de detecção de ameaças do banco de dados para um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/securityMetrics/read | Obter uma coleção de métricas de segurança de banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/sensitivityLabels/read | Listar rótulos de confidencialidade de um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/serviceTierAdvisors/read | Retornar sugestão sobre escalar ou reduzir o banco de dados verticalmente com base nas estatísticas de execução de consulta para melhorar o desempenho ou reduzir os custos |
@@ -4776,7 +4715,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/databases/upgradeDataWarehouse/action | Atualizar o Banco de Dados do Datawarehouse do Azure SQL |
 > | Ação | Microsoft.Sql/servers/databases/usages/read | Obter as informações de uso do Banco de Dados SQL do Azure |
 > | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/delete | Remover a avaliação de vulnerabilidade de um determinado banco de dados |
-> | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/read | Recuperar detalhes da avaliação de vulnerabilidade configurada em um determinado banco de dados |
+> | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/read | Recuperar as políticas de avaliação de vulnerabilidades em um givendatabase |
 > | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/delete | Remover a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/read | Obter a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
 > | Ação | Microsoft.Sql/servers/databases/vulnerabilityAssessments/rules/baselines/write | Alterar a linha de base da regra de avaliação de vulnerabilidade para um determinado banco de dados |
@@ -4861,7 +4800,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Sql/servers/virtualNetworkRules/read | Retornar a lista de regras de rede virtual ou obter as propriedades da regra de rede virtual especificada. |
 > | Ação | Microsoft.Sql/servers/virtualNetworkRules/write | Criar uma regra de rede virtual com os parâmetros especificados ou atualizar as propriedades ou marcas para a regra de rede virtual especificada. |
 > | Ação | Microsoft.Sql/servers/vulnerabilityAssessments/delete | Remover a avaliação de vulnerabilidade de determinado servidor |
-> | Ação | Microsoft.Sql/servers/vulnerabilityAssessments/read | Recuperar detalhes da avaliação de vulnerabilidade configurada em determinado servidor |
+> | Ação | Microsoft.Sql/servers/vulnerabilityAssessments/read | Recuperar as políticas de avaliação de vulnerabilidades em um determinado servidor |
 > | Ação | Microsoft.Sql/servers/vulnerabilityAssessments/write | Alterar a avaliação de vulnerabilidade de determinado servidor |
 > | Ação | Microsoft.Sql/servers/write | Criar um servidor com os parâmetros especificados ou atualizar as propriedades ou marcas para o servidor especificado. |
 > | Ação | Microsoft.Sql/unregister/action | Cancelar a assinatura do provedor de recursos do Banco de Dados SQL do Microsoft Azure e habilitar a criação do Banco de Dados SQL do Microsoft Azure. |
@@ -4895,28 +4834,13 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | Definir a retenção legal do contêiner de blob |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/containers/write | Retornar o resultado de um contêiner de blobs de concessão ou colocação |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retorna uma chave de delegação de usuário para o serviço Blob |
-> | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de log para Blob |
-> | Ação | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de definições de Métricas de Armazenamento da Microsoft. |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/read | Retornar propriedades ou estatísticas do serviço blob |
 > | Ação | Microsoft.Storage/storageAccounts/blobServices/write | Retornar o resultado da inserção de propriedades do serviço blob |
 > | Ação | Microsoft.Storage/storageAccounts/delete | Excluir uma conta de armazenamento existente. |
-> | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de log para Arquivo |
-> | Ação | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de definições de Métricas de Armazenamento da Microsoft. |
 > | Ação | Microsoft.Storage/storageAccounts/lastsynctime/read | Devolve o horário da última sincronização da conta de armazenamento |
 > | Ação | Microsoft.Storage/storageAccounts/listAccountSas/action | Retornar o token SAS da conta para a conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/listkeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/listServiceSas/action | Retornar o token SAS de serviço para a conta de armazenamento especificada. |
-> | Ação | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de definições de Métricas de Armazenamento da Microsoft. |
-> | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de log para Fila |
-> | Ação | Microsoft.Storage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de definições de Métricas de Armazenamento da Microsoft. |
 > | Ação | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Retornar o resultado da exclusão de uma fila |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Retorna o resultado da adição de uma mensagem |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Retorna o resultado da exclusão de uma mensagem |
@@ -4931,10 +4855,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerar as chaves de acesso da conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Revoga todas as chaves de delegação do usuário para a conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Criar/atualizar definições de diagnóstico da conta de armazenamento. |
-> | Ação | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso. |
-> | Ação | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/logDefinitions/read | Obtém a definição de log para Tabela |
-> | Ação | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read | Obter lista de definições de Métricas de Armazenamento da Microsoft. |
 > | Ação | Microsoft.Storage/storageAccounts/write | Criar uma conta de armazenamento com os parâmetros especificados, atualizar as propriedades ou marcas ou adicionar um domínio personalizado à conta de armazenamento especificada. |
 > | Ação | Microsoft.Storage/usages/read | Retornar o limite e a contagem atual de uso de recursos na assinatura especificada |
 
@@ -5149,7 +5069,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.StorSimple/managers/storageDomains/write | Criar ou atualizar os domínios de armazenamento |
 > | Ação | Microsoft.StorSimple/managers/write | Criar ou atualizar os Gerenciadores de Dispositivo |
 > | Ação | Microsoft.StorSimple/Managers/write | A operação Criar cofre cria um recurso do Azure do tipo 'cofre' |
-> | Ação | Microsoft.StorSimple/operations/read | Lista ou obtém as operações |
 > | Ação | Microsoft.StorSimple/register/action | Registrar o provedor Microsoft.StorSimple |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
@@ -5220,14 +5139,8 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.TimeSeriesInsights/environments/accesspolicies/write | Criar uma nova política de acesso para um ambiente ou atualizar uma política de acesso existente. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/delete | Excluir o ambiente. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/delete | Excluir a origem do evento. |
-> | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/eventsources/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para eventsources |
 > | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/read | Obter as propriedades de uma origem do evento. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/eventsources/write | Criar uma nova origem do evento para um ambiente ou atualizar uma origem do evento existente. |
-> | Ação | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/metricDefinitions/read | Obter as métricas disponíveis para ambientes |
 > | Ação | Microsoft.TimeSeriesInsights/environments/read | Obter as propriedades de um ambiente. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/referencedatasets/delete | Excluir o conjunto de dados de referência. |
 > | Ação | Microsoft.TimeSeriesInsights/environments/referencedatasets/read | Obter as propriedades de um conjunto de dados de referência. |
@@ -5283,7 +5196,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/apimanagementaccounts/apis/write | Atualizar APIs de Contas de Gerenciamento de API. |
 > | Ação | microsoft.web/apimanagementaccounts/connectionacls/read | Obter Connectionacls de Contas de Gerenciamento de API. |
 > | Ação | microsoft.web/availablestacks/read | Obter pilhas disponíveis. |
-> | Ação | microsoft.web/billingmeters/read | Obter lista de medidores de cobrança. |
 > | Ação | Microsoft.Web/certificates/Delete | Excluir um certificado existente. |
 > | Ação | Microsoft.Web/certificates/Read | Obter a lista de certificados. |
 > | Ação | Microsoft.Web/certificates/Write | Adicionar um novo certificado ou atualizar um existente. |
@@ -5320,15 +5232,12 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/hostingenvironments/metricdefinitions/read | Obter definições de métrica de ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Obter definições de métrica de pools multifunção dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/multirolepools/metrics/read | Obter a métrica de pools multifunção em Ambientes de Hospedagem. |
-> | Ação | Microsoft.Web/hostingEnvironments/multiRolePools/providers/Microsoft.Insights/metricDefinitions/Read | Obter as métricas disponíveis para o MultiRole do Ambiente do Serviço de Aplicativo |
 > | Ação | Microsoft.Web/hostingEnvironments/multiRolePools/Read | Obter as propriedades de um pool de front-end em um Ambiente do Serviço de Aplicativo |
 > | Ação | microsoft.web/hostingenvironments/multirolepools/skus/read | Obter SKUs de pools multifunção dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/multirolepools/usages/read | Obter usos dos pools multifunção dos ambientes de hospedagem. |
 > | Ação | Microsoft.Web/hostingEnvironments/multiRolePools/Write | Criar um novo pool de front-end em um Ambiente do Serviço de Aplicativo ou atualizar um existente |
 > | Ação | microsoft.web/hostingenvironments/operations/read | Obter operações dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/outboundnetworkdependenciesendpoints/read | Obter os pontos de extremidade de rede de todas as dependências de saída. |
-> | Ação | microsoft.web/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/hostingenvironments/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
 > | Ação | Microsoft.Web/hostingEnvironments/Read | Obter as propriedades de um Ambiente do Serviço de Aplicativo |
 > | Ação | Microsoft.Web/hostingEnvironments/reboot/Action | Reinicializar todas as máquinas em um Ambiente do Serviço de Aplicativo |
 > | Ação | microsoft.web/hostingenvironments/resume/action | Retomar ambientes de hospedagem. |
@@ -5338,7 +5247,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/hostingenvironments/usages/read | Obter usos dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/workerpools/metricdefinitions/read | Obter definições de métrica de pools de trabalho dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/workerpools/metrics/read | Obter a métrica de pools de trabalho de Ambientes de Hospedagem. |
-> | Ação | Microsoft.Web/hostingEnvironments/workerPools/providers/Microsoft.Insights/metricDefinitions/Read | Obter as métricas disponíveis para o WorkerPool do Ambiente do Serviço de Aplicativo |
 > | Ação | Microsoft.Web/hostingEnvironments/workerPools/Read | Obter as propriedades de um pool de trabalho em um Ambiente do Serviço de Aplicativo |
 > | Ação | microsoft.web/hostingenvironments/workerpools/skus/read | Obter SKUs de pools de trabalho dos ambientes de hospedagem. |
 > | Ação | microsoft.web/hostingenvironments/workerpools/usages/read | Obter uso dos pools de trabalho dos ambientes de hospedagem. |
@@ -5350,6 +5258,7 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | Microsoft.Web/listSitesAssignedToHostName/Read | Obter nomes dos sites atribuídos ao nome de host. |
 > | Ação | microsoft.web/locations/apioperations/read | Obter operações API dos locais. |
 > | Ação | microsoft.web/locations/connectiongatewayinstallations/read | Obter as instalações de gateway de conexão locais. |
+> | Ação | microsoft.web/locations/deleteVirtualNetworkOrSubnets/action | Notificação de exclusão de Vnet ou sub-rede para Locais. |
 > | Ação | microsoft.web/locations/extractapidefinitionfromwsdl/action | Extrair a definição de API da WSDL para locais. |
 > | Ação | microsoft.web/locations/listwsdlinterfaces/action | Listar interfaces WSDL para locais. |
 > | Ação | microsoft.web/locations/managedapis/apioperations/read | Obter operações de API gerenciadas dos locais. |
@@ -5374,9 +5283,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/serverfarms/metricdefinitions/read | Obter definições de métrica dos Planos do Serviço de Aplicativo. |
 > | Ação | microsoft.web/serverfarms/metrics/read | Obter métrica dos Planos do Serviço de Aplicativo. |
 > | Ação | microsoft.web/serverfarms/operationresults/read | Obter resultados de operação dos Planos do Serviço de Aplicativo. |
-> | Ação | microsoft.web/serverfarms/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/serverfarms/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | Microsoft.Web/serverfarms/providers/Microsoft.Insights/metricDefinitions/Read | Obter as métricas disponíveis para o Plano do Serviço de Aplicativo |
 > | Ação | Microsoft.Web/serverfarms/Read | Obter as propriedades em um Plano do Serviço de Aplicativo |
 > | Ação | Microsoft.Web/serverfarms/restartSites/Action | Reiniciar todos os aplicativos Web em um Plano do Serviço de Aplicativo |
 > | Ação | microsoft.web/serverfarms/sites/read | Obter aplicativos Web dos Planos do Serviço de Aplicativo. |
@@ -5486,10 +5392,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/sites/premieraddons/write | Atualizar complementos Premier de aplicativos Web. |
 > | Ação | microsoft.web/sites/privateaccess/read | Obter dados sobre a habilitação de acesso a sites privados e Redes Virtuais autorizadas que podem acessar o site. |
 > | Ação | microsoft.web/sites/processes/read | Obter processos de Aplicativos Web. |
-> | Ação | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/sites/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para o aplicativo Web |
-> | Ação | Microsoft.Web/sites/providers/Microsoft.Insights/metricDefinitions/Read | Obter as métricas disponíveis para Aplicativo Web |
 > | Ação | microsoft.web/sites/publiccertificates/delete | Excluir certificados públicos de Aplicativos Web. |
 > | Ação | microsoft.web/sites/publiccertificates/read | Obter certificados públicos de Aplicativos Web. |
 > | Ação | microsoft.web/sites/publiccertificates/write | Atualizar certificados públicos de Aplicativos Web. |
@@ -5587,10 +5489,6 @@ As operações do provedor de recursos estão sempre em evolução. Para obter a
 > | Ação | microsoft.web/sites/slots/premieraddons/delete | Excluir complementos de Premier de slots de aplicativos Web. |
 > | Ação | microsoft.web/sites/slots/premieraddons/read | Obter complementos Premier de slots de aplicativos Web. |
 > | Ação | microsoft.web/sites/slots/premieraddons/write | Atualizar complementos Premier de slots de aplicativos Web. |
-> | Ação | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/read | Obter a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/sites/slots/providers/Microsoft.Insights/diagnosticSettings/write | Criar ou atualizar a configuração de diagnóstico para o recurso |
-> | Ação | microsoft.web/sites/slots/providers/Microsoft.Insights/logDefinitions/read | Obtém os logs disponíveis para os slots do aplicativo Web |
-> | Ação | Microsoft.Web/sites/slots/providers/Microsoft.Insights/metricDefinitions/Read | Obter as métricas disponíveis para slot de Aplicativo Web |
 > | Ação | microsoft.web/sites/slots/publiccertificates/delete | Excluir certificados públicos de slots de aplicativos Web. |
 > | Ação | microsoft.web/sites/slots/publiccertificates/read | Obter certificados públicos de slots de Aplicativos Web. |
 > | Ação | microsoft.web/sites/slots/publiccertificates/write | Criar ou atualizar certificados públicos de slots de Aplicativos Web. |

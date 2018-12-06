@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 378baad0735238dc0921e5e78e2a27b3ae907e19
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626761"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975900"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho e projetos do Hub para o Tradutor Personalizado
 
@@ -134,6 +134,19 @@ Se quiser um relatório de migração mais detalhado sobre os projetos, treiname
 
 >[!Note]
 >A migração tem suporte apenas para os pares de idiomas onde existem idiomas de NMT. Verifique a lista dos [idiomas de NMT com suporte](https://www.microsoft.com/translator/business/languages/). Para os pares de idiomas onde não existem idiomas de NMT, os dados serão movidos do Hub para o Tradutor Personalizado, mas os treinamentos não poderão ser conduzidos nesses pares de idiomas.
+
+## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
+
+Esta tabela compara os recursos entre o Microsoft Translator Hub e o conversor personalizado.
+
+|   | Hub | Tradutor personalizado |
+|:-----|:----:|:----:|
+|Status do recurso de personalização   | Disponibilidade geral  | Visualização |
+| Versão da API de texto  | V2    | V3  |
+| Personalização de SMT | SIM   | Não  |
+| Personalização de NMT | Não     | SIM |
+| Nova personalização de serviços de Fala unificados | Não     | SIM |
+| Sem rastreamento | SIM | Sim |
 
 ## <a name="next-steps"></a>Próximas etapas
 
