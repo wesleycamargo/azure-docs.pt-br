@@ -1,25 +1,21 @@
 ---
 title: Executar tarefas de ciência de dados – Azure Machine Learning | Microsoft Docs
 description: Como um cientista de dados pode executar um projeto de ciência de dados de modo rastreável, com controle de versão e colaborativo.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112637"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495697"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
@@ -34,7 +30,7 @@ Em geral, entre as tarefas de ciência de dados, temos: exploração, modelagem 
 
 Um cientista de dados pode realizar exploração e geração de relatórios de várias maneiras: usando bibliotecas e pacotes disponíveis para Python (matplotlib, por exemplo) ou com R (ggplot ou malha, por exemplo). Os cientistas de dados podem personalizar esse código para atender às necessidades de exploração de dados para cenários específicos. As necessidades de lidar com dados estruturados são diferentes daquelas de dados não estruturados, como texto ou imagens. 
 
-Produtos como o Azure Machine Learning Workbench também fornecem [preparação avançada de dados](../desktop-workbench/tutorial-bikeshare-dataprep.md) para disputa e exploração de dados, incluindo criação de recurso. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
+Produtos como o serviço do Azure Machine Learning também fornecem [ preparação avançada de dados ](../service/how-to-transform-data.md) para disputa e exploração de dados, incluindo a criação de recursos. O usuário deve decidir quais ferramentas, bibliotecas e pacotes se ajustam melhor às suas necessidades. 
 
 A entrega ao final dessa fase é um relatório de exploração de dados. O relatório deve fornecer uma exibição bastante abrangente dos dados a serem usados para modelagem e uma avaliação de se os dados são adequados para prosseguir para a etapa de modelagem. Os utilitários do Processo de ciência de dados de equipe (TDSP) discutidos nas seções a seguir para exploração, modelagem e geração de relatórios semiautomatizadas também oferecem exploração de dados e modelagem de relatórios padronizadas. 
 
@@ -90,7 +86,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
 
-- [Implantação de modelo no Azure Machine Learning](../desktop-workbench/model-management-overview.md)
+- [Implantação de modelo no serviço do Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
