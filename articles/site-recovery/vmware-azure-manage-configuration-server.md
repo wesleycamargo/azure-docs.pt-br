@@ -1,18 +1,18 @@
 ---
 title: Gerenciar o servidor de configuração para recuperação de desastre do VMware e do servidor físico com o Azure Site Recovery | Microsoft Docs
 description: Este artigo descreve como gerenciar um servidor de configuração existente para recuperação de desastre de VMs VMware e servidores físicos no Azure com o Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568447"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976376"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -222,7 +222,14 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 2. A data de expiração aparece sob **Integridade do servidor de configuração**.
 3. Selecione **Renovar Certificados**.
 
-## <a name="update-windows-licence"></a>Licença do Windows Update
+## <a name="refresh-configuration-server"></a>Atualizar servidor de configuração
+
+1. No portal do Azure, navegue para **Cofre de Serviços de Recuperação** > **Gerenciar** > **Infraestrutura de Recuperação do Site** > **Para máquinas VMware e físicas** > **Servidores de Configuração**
+2. Clique no servidor de configuração que você deseja atualizar.
+3. No blade com detalhes do servidor de configuração escolhido, clique em **Mais** >  **Refresh Server**.
+4. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
+
+## <a name="update-windows-license"></a>Atualizar a licença do Windows
 
 A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para uso ininterrupto, você deve ativar o Windows com uma licença adquirida.
 

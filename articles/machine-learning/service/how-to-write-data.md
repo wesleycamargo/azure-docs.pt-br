@@ -10,19 +10,20 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166734"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308555"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Gravar dados usando o SDK de preparação de dados do Azure Machine Learning
-Você pode gravar dados em qualquer ponto de um fluxo de dados. Essas gravações são adicionadas como etapas ao fluxo de dados resultante e são executadas sempre que o fluxo de dados é executado. Os dados são gravados em vários arquivos de partição para permitir gravações paralelas.
 
-Como não há nenhuma limitação para a quantidade de etapas de gravação em um pipeline, você pode facilmente adicionar mais etapas de gravação para obter resultados intermediários para solução de problemas ou para outros pipelines. 
+Neste artigo, você aprenderá os diferentes métodos para gravar dados usando o SDK do Azure Machine Learning Data Prep. Dados de saída podem ser gravados em qualquer ponto em um fluxo de dados e gravações são adicionadas como etapas ao fluxo de dados resultante e são executadas sempre que é o fluxo de dados. Os dados são gravados em vários arquivos de partição para permitir gravações paralelas.
 
-Sempre que você executar uma etapa de gravação, ocorrerá um pull completo dos dados no fluxo de dados. Por exemplo, um fluxo de dados com três etapas de gravação lerá e processará três vezes todos os registros no conjunto de dados.
+Como não há nenhuma limitação para a quantidade de etapas de gravação em um pipeline, você pode facilmente adicionar mais etapas de gravação para obter resultados intermediários para solução de problemas ou para outros pipelines.
+
+Sempre que você executar uma etapa de gravação, ocorrerá um pull completo dos dados no fluxo de dados. Por exemplo, um fluxo de dados com três etapas de gravação lerá e processar todos os registros no conjunto de dados três vezes.
 
 ## <a name="supported-data-types-and-location"></a>Tipos de dados e locais com suporte
 
@@ -36,21 +37,23 @@ Usando o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms
 + Armazenamento do Azure Data Lake
 
 ## <a name="spark-considerations"></a>Considerações sobre o Spark
+
 Ao executar um fluxo de dados no Spark, você precisa gravar em uma pasta vazia. Tentar executar uma gravação em uma pasta existente causará uma falha. Verifique se a pasta de destino está vazia ou use um local de destino diferente para cada execução, caso contrário, a gravação falhará.
 
 ## <a name="monitoring-write-operations"></a>Monitoramento de operações de gravação
+
 Para sua conveniência, um arquivo de sentinela chamado SUCCESS é gerado quando a gravação é concluída. Sua presença ajuda a identificar quando uma gravação intermediária foi concluída sem precisar esperar a conclusão do pipeline inteiro.
 
 ## <a name="example-write-code"></a>Exemplo de código de gravação
 
-Neste exemplo, comece a carregar dados em um fluxo de dados. Esses dados serão reutilizados com diferentes formatos.
+Neste exemplo, comece a carregar dados em um fluxo de dados. Você reutilizar esses dados com diferentes formatos.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 Saída de exemplo:
 |   |  Coluna1 |    Coluna2 | Coluna3 | Coluna4  |Coluna5   | Coluna6 | Coluna7 | Coluna8 | Coluna9 |
@@ -68,7 +71,7 @@ Saída de exemplo:
 
 ### <a name="delimited-file-example"></a>Exemplo de arquivo delimitado
 
-Nesta seção, você pode ver um exemplo que usa a função `write_to_csv` para gravar com um arquivo delimitado.
+O código a seguir usa o `write_to_csv` função para gravar dados em um arquivo delimitado.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -95,9 +98,9 @@ Saída de exemplo:
 |8| 10020.0|    99999.0|    ERROR |   NÃO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   NÃO| SV|     |77000.0|   15500.0|    120.0|
 
-Na saída anterior, você pode ver que há vários erros nas colunas numéricas por causa dos números que não foram analisados corretamente. Quando gravados em um CSV, esses valores nulos são substituídos pela cadeia de caracteres "ERROR", por padrão. 
+Na saída anterior, vários erros aparecem nas colunas numéricas por causa de números que não foram analisados corretamente. Quando gravados em CSV, valores nulos são substituídos com a cadeia de caracteres "ERROR", por padrão.
 
-Você pode adicionar parâmetros à chamada de gravação e especificar uma cadeia de caracteres a ser usada para declarar valores nulos. Por exemplo: 
+Adicione parâmetros como parte de sua gravação chamar e especificam uma cadeia de caracteres a ser usado para representar valores nulos.
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -122,7 +125,6 @@ O código anterior produz esta saída:
 |8| 10020.0|    99999.0|    BadData |   NÃO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   NÃO| SV|     |77000.0|   15500.0|    120.0|
 
-
 ### <a name="parquet-file-example"></a>Exemplo de arquivo parquet
 
 Da mesma forma que na função `write_to_csv`, `write_to_parquet` retorna um novo fluxo de dados com uma etapa de gravação de Parquet que será executada quando o fluxo de dados for executado.
@@ -132,9 +134,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-Em seguida, você pode executar o fluxo de dados para iniciar a operação de gravação.
+Execute o fluxo de dados para iniciar a operação de gravação.
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')

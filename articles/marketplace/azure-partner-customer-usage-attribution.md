@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685694"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262594"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
-Como parceiro de software do Azure, suas soluções exigem componentes do Azure ou precisam ser implantadas diretamente na infraestrutura do Azure. Os clientes que implantam uma solução de parceiro e provisionam seus próprios recursos do Azure podem achar difícil obter visibilidade do status da implantação e obter uma ótica do impacto no crescimento do Azure. Quando você adiciona um nível mais alto de visibilidade, você se alinha às equipes de vendas da Microsoft e obtém crédito para os programas de parceiros da Microsoft.   
+Como parceiro de software do Azure, suas soluções exigem componentes do Azure ou precisam ser implantadas diretamente na infraestrutura do Azure. Os clientes que implantam uma solução de parceiro e provisionam seus próprios recursos do Azure podem achar difícil obter visibilidade do status da implantação e obter uma ótica do impacto no crescimento do Azure. Quando você adiciona um nível mais alto de visibilidade, você se alinha às equipes de vendas da Microsoft e obtém crédito para os programas de parceiros da Microsoft. 
 
 A Microsoft agora oferece um método para ajudar os parceiros a rastrear melhor o uso do Azure de implantações de clientes de seus softwares no Azure. O novo método usa o Azure Resource Manager para orquestrar a implantação dos serviços do Azure.
 
 Como parceiro da Microsoft, você pode associar o uso do Azure a quaisquer recursos do Azure fornecidos em nome de um cliente. Você pode formar a associação por meio do Azure Marketplace, do repositório do Quickstart, dos repositórios privados do GitHub e do envolvimento individual do cliente. Para habilitar o rastreamento, as duas abordagens estão disponíveis:
 
 - Modelos do Azure Resource Manager: modelos do Gerenciador de Recursos ou modelos de solução para implantar os serviços do Azure para executar o software do parceiro. Os parceiros podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração de sua solução do Azure. Um modelo do Resource Manager permite que você e seus clientes implantem sua solução em todo o seu ciclo de vida. Você pode ter certeza de que seus recursos são implantados em um estado consistente. 
-
 - APIs do Azure Resource Manager: os parceiros podem chamar as APIs do Resource Manager diretamente para implantar um modelo do Resource Manager ou gerar as chamadas da API para provisionar diretamente os serviços do Azure. 
+
+A atribuição de uso do cliente é obrigatória em todos os [modelos de solução](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicados no Azure Marketplace. 
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
 

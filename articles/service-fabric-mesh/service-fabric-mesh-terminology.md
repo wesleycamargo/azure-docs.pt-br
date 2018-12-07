@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979124"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163717"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia da Malha do Service Fabric
 
@@ -32,7 +32,7 @@ O [Service Fabric](/azure/service-fabric/) é uma plataforma de sistemas distrib
 
 **Aplicativo**: aplicativo de malha Microsoft Azure Service Fabric é a unidade de implantação, controle de versão e o tempo de vida de um aplicativo de malha. O ciclo de vida de cada instância do aplicativo pode ser gerenciado independentemente.  Os aplicativos são compostos de um ou mais pacotes de códigos de serviço e configurações. Um aplicativo é definido usando o esquema do RM (Modelo de Recurso) do Azure.  Os serviços são descritos como propriedades do recurso de aplicativo em um modelo RM.  Redes e volumes usados pelo aplicativo são referenciados pelo aplicativo.  Ao criar um aplicativo, o aplicativo, os serviços, a rede e os volumes são modelados usando o Modelo de Recurso do Service Fabric.
 
-**Serviço**: um serviço em um aplicativo representa um microsserviço e executa uma função completa e independente. Cada serviço é composto de um ou mais pacotes de códigos que descrevem tudo o que é necessário para executar a imagem de contêiner associada ao pacote de códigos.  O número de serviços em um aplicativo pode ser escalado e reduzido verticalmente.
+**Serviço**: um serviço em um aplicativo representa um microsserviço e executa uma função completa e independente. Cada serviço é composto de um ou mais pacotes de códigos que descrevem tudo o que é necessário para executar a imagem de contêiner associada ao pacote de códigos.  O número de réplicas de serviço em um aplicativo pode ser dimensionado para dentro e para fora.
 
 **Pacote de códigos**: os pacotes de códigos descrevem tudo o que é necessário para executar a imagem de contêiner associada ao pacote de códigos, incluindo o seguinte:
 

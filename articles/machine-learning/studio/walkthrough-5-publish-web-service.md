@@ -1,10 +1,11 @@
 ---
-title: 'Etapa 5: implantar o serviço Web do Machine Learning | Microsoft Docs'
+title: 'Etapa 5: implantar o serviço da Web do Machine Learning Studio|Microsoft Docs'
 description: 'Etapa 5 do passo-a-passo Desenvolver uma solução preditiva: implantar um teste preditivo no Machine Learning Studio como um serviço Web.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246375"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309922"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Passo a passo 5: implantar o serviço da web do Azure Machine Learning Studio
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um novo teste](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)

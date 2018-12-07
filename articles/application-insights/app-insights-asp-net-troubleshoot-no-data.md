@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228531"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284669"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -175,8 +175,14 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 
 Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada para que a telemetria relacionada seja corretamente transmitida para fins de diagnóstico. 
 
-## <a name="client-ip-address-is-0000"></a>O Endereço IP do cliente é 0.0.0.0 
-Em fevereiro de 2018, [anunciamos](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) que removemos o registro em log do endereço IP do cliente. Isso não afeta a localização geográfica.
+## <a name="client-ip-address-is-0000"></a>O Endereço IP do cliente é 0.0.0.0
+
+Em fevereiro de 5 2018, anunciamos que removemos o registro em log do endereço IP do cliente. Isso não afeta a localização geográfica.
+
+> [!NOTE]
+> Se você precisar dos primeiros 3 octetos do endereço IP, poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) para adicionar um atributo personalizado.
+> Isso não afeta os dados coletados antes de 5 de fevereiro de 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dados geográficos errados na telemetria do usuário
 A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas. Esses endereços IP são processados para o local primeiro e, em seguida, alterados para 0.0.0.0 para armazenamento.

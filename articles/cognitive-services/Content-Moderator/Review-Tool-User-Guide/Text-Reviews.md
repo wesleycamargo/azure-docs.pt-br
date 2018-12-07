@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363396"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852088"
 ---
 # <a name="review-text"></a>Analisar texto
 
@@ -32,4 +32,4 @@ A ferramenta Análise primeiro chama a API de Moderação de Texto. Em seguida, 
 
 Os resultados detalhados aparecem nas janelas. Os resultados incluem marcas e termos detectados que foram retornados pela API de Moderação de Texto. Para alternar o status de seleção de uma marca, selecione a marca. Também é possível trabalhar com qualquer marca personalizada que possa ter sido criada.
 
-![Analisar os resultados do texto](images/3-review-text-2.png)
+![Captura de tela da ferramenta de revisão mostrando o texto sinalizado em uma janela do navegador Chrome](../images/reviewresults_text.png)

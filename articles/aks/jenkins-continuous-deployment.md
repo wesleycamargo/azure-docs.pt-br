@@ -1,46 +1,51 @@
 ---
-title: Implantação contínua com Jenkins com AKS (Serviço de Kubernetes do Azure)
-description: Saiba como automatizar um processo de implantação contínua com Jenkins para implantar e atualizar um aplicativo em recipientes no AKS (Serviço de Kubernetes do Azure)
+title: Tutorial - Implemente do GitHub para o Azure Kubernetes Service (AKS) com o Jenkins
+description: Configurar o Jenkins para integração contínua (CI) do GitHub e da implantação contínua (CD) para o Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
-ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087688"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853602"
 ---
-# <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Crie um pipeline de implantação contínua com o Jenkins e o AKS (Serviço de Kubernetes do Azure)
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implante do GitHub para o Azure Kubernetes Service (AKS) com a integração e implantação contínuas do Jenkins
 
-Para implantar rapidamente atualizações em aplicativos no AKS (Serviço de Kubernetes do Azure), você geralmente usa uma plataforma de CI/CD (integração contínua e entrega contínua). Em uma plataforma de CI/CD, uma confirmação de código pode disparar um novo build de contêiner que é usada para implantar uma instância de aplicativo atualizada. Neste artigo, você usará o Jenkins como plataforma de CI/CD para compilar e efetuar push de imagens de contêiner ao ACR (Registro de Contêiner do Azure) e, em seguida, executar esses aplicativos no AKS. Você aprenderá como:
+Este tutorial implanta um aplicativo de amostra do GitHub em um [cluster do Serviço de Kubernetes do Azure (AKS)](/azure/aks/intro-kubernetes) configurando a integração contínua (IC) e a implantação contínua (CD) no Jenkins. Dessa forma, quando você atualiza seu aplicativo enviando confirmações para o GitHub, o Jenkins executa automaticamente uma nova compilação de contêiner, envia imagens do Registro de Contêiner do Azure (ACR) e executa seu aplicativo no AKS. 
+
+Neste tutorial, você concluirá estas tarefas:
 
 > [!div class="checklist"]
-> * Implantar um aplicativo de voto do Azure de exemplo em um cluster do AKS
-> * Criar uma instância básica do Jenkins
-> * Configurar credenciais para o Jenkins interagir com o ACR
-> * Criar um trabalho de build do Jenkins e um webhook do GitHub para builds automatizados
-> * Testar o pipeline de CI/CD para atualizar um aplicativo no AKS com base nas confirmações de código do GitHub
+> * Implante um aplicativo de voto do Azure de exemplo para um cluster do AKS.
+> * Crie um projeto básico do Jenkins.
+> * Configure as credenciais para o Jenkins interagir com o ACR.
+> * Crie um trabalho de build do Jenkins e o webhook do GitHub para compilações automatizadas.
+> * Teste o pipeline de CI/CD para atualizar um aplicativo no AKS com base nas confirmações de código do GitHub.
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas neste artigo, você precisa dos itens a seguir.
+Para concluir este tutorial, você precisará destes itens:
 
 - Reconhecimento básico de Kubernetes, Git, CI/CD e imagens de contêiner
 
-- Um [cluster do AKS][aks-quickstart] e `kubectl` configurado com as [credenciais do cluster do AKS][aks-credentials].
-- Um [registro do ACR (Registro de Contêiner do Azure)][acr-quickstart], o nome do servidor de logon do ACR e um cluster do AKS configurado para [autenticação com o Registro do ACR][acr-authentication].
+- Um [cluster AKS][aks-quickstart] e `kubectl` configurado com as [credenciais do cluster AKS][aks-credentials]
+
+- Um [Registro de Contêiner do Azure (ACR)][acr-quickstart], o nome do servidor de login ACR e o cluster AKS configurado para [autenticar com o registro ACR][acr-authentication]
 
 - A CLI do Azure versão 2.0.46 ou posterior, instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
-- [Docker instalado][docker-install] no sistema de desenvolvimento.
-- Uma conta do GitHub, [token de acesso pessoal do GitHub][git-access-token] e cliente Git instalados no sistema de desenvolvimento.
+
+- [Docker instalado][docker-install] no sistema de desenvolvimento
+
+- Uma conta do GitHub [token de acesso pessoal do GitHub][git-access-token]e o cliente Git instalados no sistema de desenvolvimento
 
 - Se você fornecer sua própria instância do Jenkins, em vez de usar esse método para implementar o Jenkins, sua instância do Jenkins precisará do [Docker instalado e configurado][docker-install] e [kubectl][kubectl-install].
 
-## <a name="prepare-the-application"></a>Preparar o aplicativo
+## <a name="prepare-your-app"></a>Preparação do aplicativo
 
 Neste artigo, você usa um aplicativo de voto do Azure de exemplo que contém uma interface da Web hospedada em um ou mais pods, além de um segundo pod que hospeda o Redis para armazenamento de dados temporário. Antes de integrar o Jenkins e o AKS para implantações automatizadas, primeiro prepare e implante manualmente o aplicativo de voto do Azure no seu cluster do AKS. Essa implantação manual é a versão um do aplicativo e permite que você veja o aplicativo em ação.
 
