@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996706"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014848"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -86,7 +86,7 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 > URLs de saída têm a carga balanceada usando o Gerenciador de tráfego do Azure para fornecer a melhor conectividade possíveis com base na localização geográfica. Com as URLs com balanceamento de carga, a Microsoft pode atualizar e alterar pontos de extremidade de back-end sem afetar os clientes. A Microsoft não compartilha a lista de endereços IP para as URLs com balanceamento de carga. Você deve usar um dispositivo que dá suporte à filtragem por URL em vez de IP.
 
 > [!Note]  
-> 1809, o serviço de backup de infraestrutura se comunica para o servidor de arquivo externo da rede VIP pública. Antes de 1809, o serviço se comunica através da rede de infraestrutura pública. Se seus ambientes de não permitir o acesso aos recursos de infraestrutura da rede VIP pública, aplique o hotfix de 1809 mais recente para o Azure Stack. Este hotfix será mover o serviço de backup de infraestrutura de volta para a rede de infraestrutura pública. No 1811, se você aplicou o hotfix 1809, o serviço de infraestrutura de backup permanecerão na rede de infraestrutura pública. Se você não aplicar o hotfix, a atualização moverá o serviço de volta para a rede de infraestrutura pública.
+> 1809, o serviço de backup de infraestrutura se comunica para o servidor de arquivo externo da rede VIP pública. Antes de 1809, o serviço de comunicado através da rede de infraestrutura pública. Se seu ambiente não permite acesso aos recursos de infraestrutura da rede VIP pública, aplicar a versão mais recente [1809 hotfix](azure-stack-update-1809.md#post-update-steps) para o Azure Stack. Este hotfix será mover o serviço de backup de infraestrutura de volta para a rede de infraestrutura pública. 1811, se você aplicar o hotfix 1809, o serviço de backup de infraestrutura permanece na rede de infraestrutura pública. Se você não aplicar o hotfix, a atualização move o serviço para a rede de infraestrutura pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -127,7 +127,7 @@ items:
     - name: Níveis de acesso
       href: storage-blob-storage-tiers.md
     - name: Gerenciar ciclo de vida do Armazenamento de Blobs do Azure
-      href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: storage-lifecycle-management-concepts.md
     - name: Reagindo a eventos
       href: storage-blob-event-overview.md
     - name: Escalabilidade e metas de desempenho
@@ -154,7 +154,7 @@ items:
             href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
           - name: Design para alto desempenho
             href: ../../virtual-machines/linux/premium-storage-performance.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Armazenamento Premium de alto desempenho para Discos de VM
             href: ../../virtual-machines/windows/premium-storage.md
@@ -168,7 +168,7 @@ items:
           items:
           - name: Armazenamento Padrão para discos de VM
             href: ../../virtual-machines/linux/standard-storage.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Armazenamento Padrão para discos de VM
             href: ../../virtual-machines/windows/standard-storage.md
@@ -181,7 +181,7 @@ items:
             href: ../../virtual-machines/linux/storage-resource-deletion-errors.md
           - name: Reinicializações inesperadas de VMs com VHDs anexados
             href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md
-        - name: " Windows"
+        - name: Windows
           items:
           - name: Armazenar erros de exclusão de recursos
             href: ../../virtual-machines/windows/storage-resource-deletion-errors.md
@@ -504,66 +504,6 @@ items:
           href: /rest/api/storagerp
         - name: Importar/exportar
           href: /rest/api/storageimportexport
-    - name: Recursos
-      items:
-      - name: Roteiro do Azure
-        href: https://azure.microsoft.com/roadmap/?category=storage
-      - name: Ferramentas de cliente do Armazenamento do Microsoft Azure
-        href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Fórum
-        href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-      - name: Preços
-        href: https://azure.microsoft.com/pricing/details/storage/blobs/
-      - name: Calculadora de preço
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Atualizações de serviço
-        href: https://azure.microsoft.com/updates/?product=storage
-      - name: Stack Overflow
-        href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-      - name: vídeos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-      - name: Gerenciador de Armazenamento do Azure
-        items:
-        - name: Gerenciador de Armazenamento
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Notas de versão do Gerenciador de Armazenamento
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Solucionar problemas do Gerenciador de Armazenamento
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Acessibilidade do Gerenciador de Armazenamento
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Pacotes NuGet
-        items:
-        - name: Biblioteca do Cliente de Armazenamento do Azure para .NET
-          href: https://www.nuget.org/packages/WindowsAzure.Storage/
-        - name: Biblioteca de movimentação de dados do Armazenamento do Microsoft Azure
-          href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-        - name: Azure Configuration Manager
-          href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-      - name: Código-fonte
-        items:
-        - name: .NET
-          items:
-          - name: Blob, fila, tabela e arquivo
-            href: https://github.com/Azure/azure-storage-net
-          - name: Movimentação de dados
-            href: https://github.com/Azure/azure-storage-net-data-movement
-          - name: Provedor de recursos
-            href: https://github.com/Azure/azure-sdk-for-net
-        - name: Node.js
-          href: http://azure.github.io/azure-storage-node/
-        - name: Java
-          href: https://github.com/Azure/azure-storage-java
-        - name: C++
-          href: https://github.com/Azure/azure-storage-cpp
-        - name: PHP
-          href: https://github.com/Azure/azure-storage-php
-        - name: Python
-          href: https://github.com/Azure/azure-storage-python
-        - name: Ruby
-          href: https://github.com/Azure/azure-storage-ruby
-        - name: iOS
-          href: https://github.com/Azure/azure-storage-ios
 - name: Armazenamento do Data Lake Gen2
   items:
   - name: Trocar para documentação do Armazenamento do Data Lake Gen1
@@ -650,6 +590,8 @@ items:
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Conectar Azure Databricks
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+    - name: Conectar-se ao SQL Data Warehouse do Azure
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-sql-data-warehouse-polybase
   - name: Referência
     items:
     - name: REST
@@ -674,9 +616,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: bda06ecb2adbcf4aeea5e2877f37b4ddf2761d80
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957514"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013638"
