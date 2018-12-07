@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251603"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316337"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Solucionar problemas de erros HTTP de "502 Gateway Incorreto" e "503 Serviço Indisponível" em seus Aplicativos Web do Azure
 "502 Gateway Incorreto" e "503 Serviço Indisponível" são os erros comuns em seu aplicativo Web hospedado no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda você a solucionar esses erros.
@@ -74,22 +74,10 @@ Para obter mais informações, consulte:
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Coletar dados
-#### <a name="use-the-azure-app-service-support-portal"></a>Usar o Portal de Suporte do Serviço de Aplicativo do Azure
-Os Aplicativos Web fornecem a capacidade de solucionar problemas relacionados ao seu aplicativo Web examinando logs de HTTP, logs de eventos, despejos de processo e muito mais. Você pode acessar todas essas informações usando nosso portal de Suporte em **http://&lt;nome do aplicativo>.scm.azurewebsites.net/Support**
+#### <a name="use-the-diagnostics-tool"></a>Use a ferramenta de diagnóstico
+O Serviço de Aplicativo fornece uma experiência inteligente e interativa para ajudar você a solucionar problemas do seu aplicativo da Web sem a necessidade de configuração. Quando você tiver problemas com seu aplicativo da web, a ferramenta de diagnóstico indicará o que está errado para guiá-lo até as informações certas para solucionar o problema com mais facilidade e rapidez.
 
-O portal de Suporte do Serviço de Aplicativo do Azure fornece três guias separadas para dar suporte às três etapas de um cenário de solução de problemas comum:
-
-1. Observar o comportamento atual
-2. Analisar por meio da coleta das informações de diagnóstico e da execução dos analisadores internos
-3. Atenuar
-
-Se o problema estiver ocorrendo no momento, clique em **Analisar** > **Diagnóstico** > **Diagnosticar Agora** para criar uma sessão de diagnóstico para você, que coletará logs de HTTP, logs do visualizador de eventos, despejos de memória, logs de erros de PHP e relatórios de processo de PHP.
-
-Depois que os dados são coletados, ele também executará uma análise dos dados e fornecerá um relatório HTML.
-
-Caso queira baixar os dados, por padrão, estariam armazenados na pasta D:\home\data\DaaS.
-
-Para saber mais sobre o portal de Suporte do Serviço de Aplicativo do Azure, consulte [Novas atualizações para suporte de extensão de sites para sites do Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Para acessar o diagnóstico do Serviço de Aplicativo, navegue até seu aplicativo Serviço de Aplicativo ou Ambiente do Serviço de Aplicativo no [Portal do Azure](https://portal.azure.com). No painel de navegação esquerdo, clique em **Diagnosticar e resolver problemas**.
 
 #### <a name="use-the-kudu-debug-console"></a>Usar o Console de Depuração Kudu
 Aplicativos Web vêm com um console de depuração que você pode usar para depuração, exploração, carregamento de arquivos, bem como para pontos de extremidade JSON para obter informações sobre seu ambiente. Chama-se *Console Kudu* ou *Painel SCM* de seu aplicativo Web.

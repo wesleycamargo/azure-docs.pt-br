@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262328"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584869"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos da política:** todos os escopos
 
 ##  <a name="LimitConcurrency"></a> Simultaneidade de limite
- A política `limit-concurrency` impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações em um determinado momento. Ao exceder esse número, novos pedidos falharão imediatamente com o código de status 429 Número excessivo de solicitações.
+ A política `limit-concurrency` impede que políticas fechadas sejam executadas por mais do que o número especificado de solicitações a qualquer momento. Ao exceder esse número, novos pedidos falharão imediatamente com o código de status 429 Número excessivo de solicitações.
 
 ###  <a name="LimitConcurrencyStatement"></a> Declaração de política
 
@@ -876,7 +876,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

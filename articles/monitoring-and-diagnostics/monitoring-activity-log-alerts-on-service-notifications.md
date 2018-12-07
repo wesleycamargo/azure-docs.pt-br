@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1fcbbce87c822c49882f8e42a1eaccfd389ee310
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961884"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852921"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
@@ -70,7 +70,7 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
 1. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
 
-    a. **Nome**: insira o nome do destinatários, alias ou identificador.
+     a. **Nome**: insira o nome do destinatário, o alias ou o identificador.
 
     b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure e muito mais.
 

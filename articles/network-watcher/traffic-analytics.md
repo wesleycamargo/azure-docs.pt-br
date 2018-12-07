@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457401"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443025"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -53,9 +53,39 @@ A Análise de Tráfego examina os logs de fluxo NSG brutos e captura logs reduzi
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Centro Norte dos EUA, Centro-Sul dos EUA, centro dos EUA, oeste dos EUA, oeste dos EUA 2, Canadá Central, Europa Ocidental, Europa Setentrional, Oeste do Reino Unido, Sul do Reino Unido, Leste do Japão, Índia Central, Leste da Austrália, Sudeste da Austrália e Sudeste Asiático. 
+Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes regiões com suporte:
 
-O espaço de trabalho do log analytics deve existir no Centro-Oeste dos EUA, Leste dos EUA, Europa Ocidental, Sul do Reino Unido, centro do Canadá, Leste do Japão, Sudeste da Austrália Central da Índia ou região Sudeste Asiática.
+* Canadá Central
+* Centro-Oeste dos EUA
+* Leste dos EUA
+* Leste dos EUA 2
+* Centro-Norte dos EUA
+* Centro-Sul dos Estados Unidos
+* Centro dos EUA
+* Oeste dos EUA
+* Oeste dos EUA 2
+* Europa Ocidental
+* Norte da Europa
+* Sul do Brasil
+* Oeste do Reino Unido
+* Sul do Reino Unido
+* Leste da Austrália
+* Sudeste da Austrália
+* Sudeste Asiático
+* Índia Central
+* Sul da Índia
+* Leste do Japão 
+
+O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
+* Canadá Central
+* Centro-Oeste dos EUA
+* Leste dos EUA
+* Europa Ocidental
+* Sul do Reino Unido
+* Sudeste da Austrália
+* Sudeste Asiático
+* Índia Central
+* Leste do Japão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

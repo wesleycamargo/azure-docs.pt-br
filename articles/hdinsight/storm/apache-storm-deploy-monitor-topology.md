@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005369"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583152"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
 
-O Painel Storm permite que você implante e execute facilmente topologias Apache Storm para seu cluster HDInsight usando o navegador da Web. Você também pode usar o painel para monitorar e gerenciar topologias em execução. Se você usar o Visual Studio, as ferramentas do HDInsight para Visual Studio fornecem recursos semelhantes no Visual Studio.
+O [Apache Storm](http://storm.apache.org/) Dashboard permite que você implante e execute facilmente as topologias do Apache Storm em seu cluster do HDInsight usando seu navegador da web. Você também pode usar o painel para monitorar e gerenciar topologias em execução. Se você usar o Visual Studio, as ferramentas do HDInsight para Visual Studio fornecem recursos semelhantes no Visual Studio.
 
 Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com API REST Storm, que pode ser usada para criar suas próprias soluções de monitoramento e gerenciamento.
 
@@ -88,7 +88,7 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
   * **Reequilibrar**: ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster.
 
-      Para obter mais informações, consulte [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)
+      Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 
@@ -118,7 +118,7 @@ Selecionar um spout nas seções **Spouts** ou **Bolts** exibirá as seguintes i
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>Ferramentas do HDInsight para Visual Studio
 
-As Ferramentas do HDInsight podem ser usadas para enviar topologias C# ou híbridas para seu cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [Desenvolver topologias em C# usando as Ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
+As [Ferramentas do HDInsight](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/) podem ser usadas para enviar topologias C# ou híbridas para seu cluster do Storm. As etapas a seguir usam um aplicativo de exemplo. Para obter informações sobre como criar suas próprias topologias usando as Ferramentas do HDInsight, consulte [Desenvolver topologias em C# usando as Ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
 Use as etapas a seguir para implantar um exemplo para seu Storm no cluster HDInsight e exibir e gerenciar a topologia.
 
@@ -159,7 +159,7 @@ Use as etapas a seguir para implantar um exemplo para seu Storm no cluster HDIns
 
 A interface do usuário do Storm é criada sobre a API REST e, portanto, você pode realizar gerenciamento semelhante e monitorar a funcionalidade usando a API REST. Você pode usar a API REST para criar ferramentas personalizadas para o gerenciamento e o monitoramento de topologias Storm.
 
-Para obter mais informações, veja [API REST da interface do usuário do Storm](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
+Para obter mais informações, veja [API REST da interface do usuário do Apache Storm](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md). As informações a seguir são específicas para o uso da API REST com Apache Storm no HDInsight.
 
 ### <a name="base-uri"></a>URI de base
 
@@ -174,7 +174,7 @@ As solicitações para a API REST devem usar a **autenticação básica**e, port
 
 ### <a name="return-values"></a>Valores de retorno
 
-As informações retornadas da API REST só poderão ser usadas dentro do cluster ou de máquinas virtuais na mesma Rede Virtual do Azure que o cluster. Por exemplo, o nome de domínio totalmente qualificado (FQDN) retornado para servidores Zookeeper não será acessível pela Internet.
+As informações retornadas da API REST só poderão ser usadas dentro do cluster ou de máquinas virtuais na mesma Rede Virtual do Azure que o cluster. Por exemplo, o nome de domínio totalmente qualificado (FQDN) retornado para os servidores do [Apache ZooKeeper](https://zookeeper.apache.org/) não pode ser acessado pela Internet.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -182,9 +182,9 @@ Agora que você aprendeu como implantar e monitorar topologias usando o Painel S
 
 * [Desenvolver topologias C# usando as Ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [Desenvolver topologias baseadas em Java usando Maven](apache-storm-develop-java-topology.md)
+* [Desenvolver topologias em Java usando Apache Maven](apache-storm-develop-java-topology.md)
 
-Para obter mais topologias de exemplo, consulte [Topologias de exemplo para Storm no HDInsight](apache-storm-example-topology.md).
+Para obter uma lista de mais exemplos de topologias, consulte [ Exemplos de topologias para o Apache Storm no HDInsight ](apache-storm-example-topology.md).
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

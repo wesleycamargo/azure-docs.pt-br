@@ -4,26 +4,30 @@ description: Este artigo fornece uma visão geral do WAF (Firewall do Aplicativo
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219521"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425141"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall do aplicativo Web (WAF)
 
-O Firewall do aplicativo Web (WAF) é um recurso do Gateway de Aplicativo que fornece proteção centralizada de seus aplicativos Web de vulnerabilidades e explorações comuns. 
+O Firewall do aplicativo Web (WAF) é um recurso do Gateway de Aplicativo que fornece proteção centralizada de seus aplicativos Web de vulnerabilidades e explorações comuns.
 
-Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. Os ataques de injeção de SQL, os ataques de scripts entre sites, entre outros, são comuns entre essas explorações. Pode ser difícil impedir esses ataques no código do aplicativo e pode exigir manutenção rigorosa, aplicação de patches e monitoramento em várias camadas da topologia do aplicativo. Um firewall de aplicativo Web centralizado ajuda a simplificar bastante o gerenciamento de segurança e oferece mais garantia ao administrador do aplicativo contra ameaças ou invasões. Uma solução WAF também pode reagir a uma ameaça de segurança mais rapidamente ao aplicar um patch contra uma vulnerabilidade conhecida em um local central do que a proteção de cada um dos aplicativos Web individuais. Os gateways de aplicativos existentes podem ser facilmente convertidos em um gateway de aplicativo com firewall de aplicativo Web.
+Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. Comum entre essas explorações são ataques de injeção de SQL e ataques de script entre sites, para citar alguns. 
+
+Pode ser difícil impedir esses ataques no código do aplicativo e pode exigir manutenção rigorosa, aplicação de patches e monitoramento em várias camadas da topologia do aplicativo. Um firewall de aplicativo Web centralizado ajuda a simplificar bastante o gerenciamento de segurança e oferece mais garantia ao administrador do aplicativo contra ameaças ou invasões. Uma solução WAF também pode reagir a uma ameaça de segurança mais rapidamente, corrigindo uma vulnerabilidade conhecida em um local central, em vez de proteger cada um dos aplicativos da Web individuais. Os gateways de aplicativos existentes podem ser facilmente convertidos em um gateway de aplicativo com firewall de aplicativo Web.
 
 O WAF é baseado em regras dos [conjuntos de regras principais do OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Ele é atualizado automaticamente para incluir proteção contra novas vulnerabilidades, sem necessidade de configuração adicional.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-O Gateway de Aplicativo opera como um ADC (controlador de entrega de aplicativos) e oferece a terminação SSL, a afinidade de sessão baseada em cookies, a distribuição de carga round robin, o roteamento baseado em conteúdo, a capacidade de hospedar vários sites e os aprimoramentos de segurança. Os aprimoramentos de segurança oferecidos pelo Gateway de Aplicativo incluem gerenciamento de política SSL, suporte a SSL de ponta a ponta. Agora, a segurança do aplicativo foi reforçada pele integração direta do WAF (firewall do aplicativo Web) à oferta ADC. Isso oferece uma forma fácil de configurar um local central para gerenciar e proteger seus aplicativos Web contra vulnerabilidades comuns da Web.
+O Gateway de Aplicativo opera como um controlador de entrega de aplicativos (ADC) e oferece terminação SSL, afinidade de sessão baseada em cookie, distribuição de carga round-robin, roteamento baseado em conteúdo, capacidade de hospedar vários sites e aprimoramentos de segurança.
+
+Os aprimoramentos de segurança oferecidos pelo Gateway de Aplicativo incluem o gerenciamento de políticas SSL e o suporte de ponta a ponta a SSL. Agora, a segurança do aplicativo foi reforçada pele integração direta do WAF (firewall do aplicativo Web) à oferta ADC. Isso oferece uma forma fácil de configurar um local central para gerenciar e proteger seus aplicativos Web contra vulnerabilidades comuns da Web.
 
 ## <a name="benefits"></a>Benefícios
 
@@ -53,11 +57,11 @@ Estes são os principais benefícios fornecidos pelo Gateway de Aplicativo e pel
 - Proteção contra violações de protocolo HTTP
 - Proteção contra anomalias de protocolo HTTP, como ausência de cabeçalhos de agente de usuário do host e de aceitação
 - Prevenção contra bots, rastreadores e scanners
-- Detecção de problemas de configuração de aplicativo comuns (ou seja, Apache, IIS etc.)
+- Detecção de configurações incorretas de aplicativos comuns (por exemplo, Apache, IIS e assim por diante)
 
 ### <a name="public-preview-features"></a>Recursos da visualização pública
 
-A SKU de visualização pública atual do WAF inclui os seguintes recursos:
+O SKU de visualização pública atual do WAF inclui os seguintes recursos:
 
 - **Solicitar limites de tamanho** - O Firewall do Aplicativo Web permite que os usuários configurem limites de tamanho de solicitação dentro dos limites inferior e superior.
 - **Listas de exclusões** - As listas de exclusão do WAF permitem que os usuários omitam certos atributos de solicitação de uma avaliação do WAF. Um exemplo comum são os tokens inseridos do Active Directory que são usados para autenticação ou campos de senha.
@@ -80,9 +84,9 @@ O firewall de aplicativo Web vem pré-configurado por padrão com o CRS 3.0, ou 
 - Proteção contra violações de protocolo HTTP
 - Proteção contra anomalias de protocolo HTTP, como ausência de cabeçalhos de agente de usuário do host e de aceitação
 - Prevenção contra bots, rastreadores e scanners
-- Detecção de problemas de configuração de aplicativo comuns (por exemplo, Apache, IIS etc.)
+- Detecção de configurações incorretas de aplicativos comuns (por exemplo, Apache, IIS etc.)
 
-Para obter uma lista mais detalhada das regras e suas proteções, consulte [Conjuntos de regras principais](#core-rule-sets).
+Para obter uma lista mais detalhada de regras e suas proteções, consulte [Conjuntos de regras principais](#core-rule-sets).
 
 
 #### <a name="owasp30"></a>OWASP_3.0
@@ -91,7 +95,7 @@ O conjunto de regras principais 3.0 fornecido tem 13 grupos de regras, conforme 
 
 |RuleGroup|DESCRIÇÃO|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contém as regras para bloquear métodos (PUT, PATCH< .)|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contém as regras para bloquear métodos (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contém as regras para proteção contra os scanners de porta e ambiente.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contém as regras para proteção contra problemas de protocolo e codificação.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contém as regras para proteger contra injeção de cabeçalho, solicitações indesejadas e divisão de resposta|
@@ -124,18 +128,18 @@ O conjunto de regras principais 2.2.9 fornecido tem 10 grupos de regras, conform
 
 O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes dois modos:
 
-* **Modo de Detecção** – Quando configurado para ser executado no modo de detecção, o WAF do Gateway de Aplicativo monitora e registra todos os alertas de ameaça em um arquivo de log. O log de diagnóstico para o Gateway de Aplicativo deve estar ativado usando a seção **Diagnóstico**. Você também precisa garantir que o log do WAF esteja selecionado e ativado. Ao ser executado no firewall do aplicativo Web no modo de detecção não bloqueia solicitações de entrada.
+* **Modo de detecção** - Quando configurado para ser executado no modo de detecção, o Gateway de Aplicativo WAF monitora e registra todos os alertas de ameaça em um arquivo de log. O log de diagnóstico para o Gateway de Aplicativo deve estar ativado usando a seção **Diagnóstico**. Você também precisa garantir que o log do WAF esteja selecionado e ativado. Ao ser executado no firewall do aplicativo Web no modo de detecção não bloqueia solicitações de entrada.
 * **Modo de Prevenção** – quando configurado para ser executado no modo de prevenção, o Gateway de Aplicativo bloqueia ativamente invasões e ataques detectados por suas regras. O invasor recebe uma exceção 403 acesso não autorizado e a conexão é encerrada. O modo de Prevenção continua a registrar em log tais ataques nos logs do WAF.
 
 ### <a name="application-gateway-waf-reports"></a>Monitoramento de WAF
 
-É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall de aplicativo Web, e dos aplicativos que ele protege, é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure (em breve) e o Log Analytics.
+É importante monitorar a integridade de seu gateway de aplicativo. O monitoramento da integridade de seu firewall do aplicativo Web e dos aplicativos que ele protege é fornecido por meio do registro em log e da integração com o Azure Monitor, a Central de Segurança do Azure e o Log Analytics.
 
 ![diagnóstico](./media/waf-overview/diagnostics.png)
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Isso permite o controle das informações de diagnóstico, incluindo logs e alertas de WAF.  Esse recurso é fornecido Gateway de Aplicativo no portal na guia **Diagnóstico** ou diretamente no serviço Azure Monitor. Para saber mais sobre como habilitar logs de diagnóstico para Gateway de Aplicativo, consulte [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
+Cada log de gateway de aplicativo é integrado ao [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Isso permite o controle das informações de diagnóstico, incluindo logs e alertas de WAF.  Esse recurso é fornecido Gateway de Aplicativo no portal na guia **Diagnóstico** ou diretamente no serviço Azure Monitor. Para saber mais sobre como habilitar logs de diagnóstico para o gateway de aplicativo, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md)
 
 #### <a name="azure-security-center"></a>Central de Segurança do Azure
 
@@ -145,7 +149,7 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 #### <a name="logging"></a>Registro em log
 
-O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado aos Logs de diagnóstico do Azure e os alertas são registrados em um formato json. Esses logs podem ser integrados ao [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça detectada. O registro em log é integrado aos Logs de diagnóstico do Azure e os alertas são registrados em um formato json. Esses logs podem ser integrados ao [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 
@@ -179,7 +183,9 @@ O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Preços da SKU do WAF do Gateway de Aplicativo
 
-O firewall de aplicativo Web está disponível em um novo um SKU do WAF. Esse SKU está disponível apenas no modelo de provisionamento do Azure Resource Manager e não no modelo de implantação clássico. Além disso, o SKU do WAF vem apenas em instâncias de gateway de aplicativo médias e grandes. Todos os limites do gateway de aplicativo também se aplicam ao SKU do WAF. Preço tem base nos encargos por hora da instância do gateway e nos encargos de processamento de dados. O preços do gateway por hora para o SKU do WAF é diferente dos encargos pelo SKU Standard e podem ser encontrados em [Detalhes de preços do Gateway de Aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/). Os encargos de processamento de dados permanecem os mesmos. Não há cobrança por regra ou grupo de regras. Você pode proteger vários aplicativos Web atrás do mesmo firewall de aplicativo Web, e não há encargos adicionais para dar suporte a vários aplicativos. 
+O firewall de aplicativo Web está disponível em um novo um SKU do WAF. Esse SKU está disponível apenas no modelo de provisionamento do Azure Resource Manager e não no modelo de implantação clássico. Além disso, o SKU WAF vem apenas em tamanhos de instância de gateway de aplicativo de médio e grande porte. Todos os limites do gateway de aplicativo também se aplicam ao SKU do WAF.
+
+Preço tem base nos encargos por hora da instância do gateway e nos encargos de processamento de dados. O preços do gateway por hora para o SKU do WAF é diferente dos encargos pelo SKU Standard e podem ser encontrados em [Detalhes de preços do Gateway de Aplicativo](https://azure.microsoft.com/pricing/details/application-gateway/). Os encargos de processamento de dados permanecem os mesmos. Não há cobranças por regra ou grupo de regras. Você pode proteger vários aplicativos da web por trás do mesmo firewall de aplicativo da web e não é cobrado pelo suporte a vários aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

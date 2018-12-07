@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 377dbadd7b696e62d8464258d22d0dd5ed926208
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106096"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499333"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Instalar aplicativo publicado – Plataforma de Aplicativo de Dados de Cask (CDAP)
 
-Este artigo descreve como instalar e executar o aplicativo de Hadoop publicado da [CDAP](http://cask.co/products/cdap/) no HDInsight do Azure. Para obter uma visão geral da plataforma do aplicativo HDInsight e uma lista dos aplicativos publicados de Independent Software Vendor (ISV), consulte [Instalar aplicativos de Hadoop de terceiros](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
+Este artigo descreve como instalar e executar o [CDAP](http://cask.co/products/cdap/) publicado [Apache Hadoop](https://hadoop.apache.org/) aplicativo no Azure HDInsight. Para obter uma visão geral da plataforma de aplicativos do HDInsight e uma lista de aplicativos publicados disponíveis do Independent Software Vendor (ISV), consulte [ Instalar aplicativos do Apache Hadoop de terceiros ](hdinsight-apps-install-applications.md). Para obter instruções sobre como instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>Sobre a CDAP
 

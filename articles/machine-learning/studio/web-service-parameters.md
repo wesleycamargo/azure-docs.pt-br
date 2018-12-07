@@ -1,10 +1,11 @@
 ---
-title: Usar os Parâmetros de Serviço Web do Machine Learning do Azure | Microsoft Docs
+title: Usar parâmetros de serviço web de Azure Machine Learning Studio | Microsoft Docs
 description: Como usar Parâmetros de Serviço Web de Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço Web é acessado.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 91b3c9df8a7fd0e1abb79c21b1e1d833e57c24d5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835919"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312003"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Usar os parâmetros do serviço Web de Azure Machine Learning
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Usar parâmetros de serviço web de Azure Machine Learning Studio
 Um serviço Web de Azure Machine Learning é criado pela publicação de um experimento com módulos com parâmetros configuráveis. Em alguns casos, talvez você queira alterar o comportamento do módulo durante a execução do serviço Web. *Parâmetros de serviço Web* permitem que você execute essa tarefa. 
 
 Um exemplo comum é a configuração do módulo [Importar Dados][reader] para que o usuário do serviço Web publicado possa especificar outra fonte de dados quando o serviço Web for acessado. Ou então, configurar o módulo [Exportar Dados][writer] para que um destino diferente possa ser especificado. Alguns outros exemplos incluem a alteração do número de bits para o módulo [Hash de Recurso][feature-hashing] ou o número de recursos desejados para o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection]. 

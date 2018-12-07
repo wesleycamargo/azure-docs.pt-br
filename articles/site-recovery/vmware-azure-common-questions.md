@@ -4,15 +4,15 @@ description: Este artigo resume as perguntas comuns ao configurar a recuperaçã
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636808"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162476"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -47,14 +47,20 @@ Se você é um administrador da assinatura, tem as permissões de replicação n
 ## <a name="on-premises"></a>Configuração local
 
 ### <a name="what-do-i-need-on-premises"></a>O que é necessário no local?
-No local, serão necessários os componentes do Site Recovery instalados em uma única VM VMware. Além disso, será necessária uma infraestrutura VMware com pelo menos um host ESXi, e é recomendável um vCenter Server. Adicionalmente, você precisará de uma ou mais VMs VMware para replicar. [Saiba mais](vmware-azure-architecture.md) sobre a arquitetura do VMware para o Azure.
 
-O servidor de configuração local pode ser implantado em uma das duas maneiras a seguir
+No local, você precisa:
+- Componentes do Site Recovery, instalados em uma única VM VMware.
+- Uma infraestrutura VMware, com pelo menos um host ESXi, e recomendamos um servidor vCenter.
+- Um ou mais VMs do VMware para replicar.
 
-1. Implantá-lo utilizando um modelo de VM que tenha o servidor de configuração pré-instalado. [Leia mais aqui](vmware-azure-tutorial.md#download-the-vm-template).
-2. Implantá-lo utilizando a configuração em um computador Windows Server 2016 de sua escolha. [Leia mais aqui](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Saiba mais](vmware-azure-architecture.md) sobre a arquitetura do VMware para o Azure.
 
-Para descobrir as etapas de introdução da implantação do servidor de configuração em seus próprios computadores com Windows Server, na meta Proteção de habilitar proteção, escolha **Para Azure > Não virtualizado/outro**.
+O servidor de configuração local pode ser implementado da seguinte forma:
+
+- Recomendamos que você implante o servidor de configuração como uma VM VMware usando um modelo OVA com o servidor de configuração pré-instalado.
+- Se por algum motivo você não puder usar um modelo, poderá configurar o servidor de configuração manualmente. [Saiba mais](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Para onde as VMs locais são replicadas?
 Os dados replicam para o armazenamento do Azure. Ao executar um failover, o Site Recovery cria automaticamente VMs do Azure a partir da conta de armazenamento.

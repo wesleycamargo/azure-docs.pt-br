@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 999f7265cc62236fa085a0c2fb90a68707891dd4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345769"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620366"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,11 +33,11 @@ Especificamente, este conector de armazenamento de Blob dá suporte a:
 
 - Copiar blobs de e para contas de Armazenamento do Azure de uso geral e para armazenamento de blobs Quente/Frio. 
 - Copiar blobs usando chave de conta, assinatura de acesso compartilhado de serviço, entidade de serviço ou identidades gerenciadas para autenticações de recursos do Azure.
-- Copiar blobs de blocos, acréscimos ou de páginas e copiar dados somente para blobs de blocos. Não há suporte para o Armazenamento Premium do Azure como um coletor porque ele é feito por blobs de página.
+- Copiar blobs de blocos, acréscimos ou de páginas e copiar dados somente para blobs de blocos.
 - Copiar blobs no estado em que se encontram ou analisando ou gerando blobs com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Se você habilitar a opção _"Permitir que serviços Microsoft confiáveis acessem esta conta de armazenamento"_ nas configurações do firewall do Azure Storage, o uso do Azure Integration Runtime para se conectar ao armazenamento Blob falhará com erro proibido, pois o ADF não é tratado como confiável Microsoft serviço. Use o Microsoft Integration Runtime auto-hospedado como se conectar por meio em vez disso.
+>Se você habilitar a opção _"Permitir que serviços Microsoft confiáveis acessem esta conta de armazenamento"_ nas configurações do firewall do Azure Storage, o uso do Azure Integration Runtime para se conectar ao armazenamento Blob falhará com erro proibido, pois o ADF não é tratado como confiável Microsoft serviço. Por favor, use o Microsoft Integração Runtime Auto-hospedado como conexão via.
 
 ## <a name="get-started"></a>Introdução
 
@@ -207,7 +207,7 @@ Para usar identidades gerenciadas para autenticação de recursos do Azure, siga
 
 1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
 
-2. Conceda a permissão apropriada à entidade de serviço no armazenamento de Blob do Azure. Consulte [Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
+2. Conceda a permissão adequada de identidade gerenciada no armazenamento do Azure Blob. Consulte [Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC](../storage/common/storage-auth-aad-rbac.md) com mais detalhes sobre as funções.
 
     - **Como fonte**, no Controle de acesso (IAM), conceda pelo menos a função **Leitor de Dados do Blob de Armazenamento**.
     - **Como coletor**, no Controle de acesso (IAM), conceda pelo menos a função **Colaborador de Dados do Blob de Armazenamento**.

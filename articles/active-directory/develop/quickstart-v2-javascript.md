@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986281"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317340"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: conectar os usuários e adquirir um token de acesso de um aplicativo JavaScript
 
@@ -66,7 +66,7 @@ Extraia o arquivo zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
 #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
 
 > [!div renderon="docs"]
-> Edite `index.html` e substitua `Enter_the_Application_Id_here` em `applicationConfig` pela ID do aplicativo que você acabou de registrar.
+> Edite `index.html` e defina o `clientID` e `authority` valores abaixop `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Edite `index.html` e substitua `applicationConfig` por:
@@ -74,13 +74,25 @@ Extraia o arquivo zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Em que:
+> - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** que você registrou.
+> - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
+>   - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
+>   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
+
 > [!NOTE]
->Se você usar [Node.js](https://nodejs.org/en/download/), o arquivo *server.js* será configurado para o servidor para começar a escutar na porta 30662.
-> Se você usar o [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), o arquivo *.csproj* de exemplo de código será configurado para o servidor para começar a escutar na porta 30662.
+> O servidor está configurado para escutar na porta 30662 no arquivo *server.js* no projeto [Node.js](https://nodejs.org/en/download/) e no arquivo *.csproj* no [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) projeto.
 >
 
 #### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
@@ -121,7 +133,7 @@ npm install msal
 O código de início rápido também mostra como inicializar a biblioteca:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

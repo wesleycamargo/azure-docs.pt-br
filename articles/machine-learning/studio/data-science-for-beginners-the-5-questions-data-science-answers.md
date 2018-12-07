@@ -1,11 +1,12 @@
 ---
-title: As cinco perguntas da ciência de dados – Ciência de dados para iniciantes – Azure Machine Learning | Microsoft Docs
+title: -Ciência de dados para iniciantes – Azure Machine Learning Studio de perguntas de ciência de 5 dados|Microsoft Docs
 description: Ciência de dados para iniciantes ensina os conceitos básicos em cinco vídeos curtos, começando com as cinco perguntas que a ciência de dados responde. Do Azure Machine Learning.
 keywords: fazendo ciência de dados, iniciantes da ciência de dados, ciência de dados para iniciantes, perguntas de ciência de dados, vídeo de ciência de dados, introdução à ciência de dados
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 1d004eb16fcac13d6ba7592cbe432cbeac0401e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c59b4783c59c44604738a3056b3484e11ff90363
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834144"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314159"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 Obtenha uma breve introdução à ciência de dados com *Ciência de dados para iniciantes* em cinco vídeos curtos de um grande cientista de dados. Esses vídeos são básicos, mas úteis, esteja você interessado em fazer a ciência de dados ou trabalhar com os cientistas de dados.

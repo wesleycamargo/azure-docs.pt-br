@@ -125,8 +125,6 @@ items:
         href: sql-database-connectivity-architecture.md
       - name: Diferenças de T-SQL
         href: sql-database-transact-sql-information.md
-      - name: Replicação transacional - BDs únicos e pools elásticos
-        href: replication-to-sql-database.md
     - name: Pools elásticos
       items:
       - name: Pools elásticos
@@ -171,8 +169,6 @@ items:
         href: sql-database-managed-instance-connect-app.md
     - name: Diferenças de T-SQL
       href: sql-database-managed-instance-transact-sql-information.md
-    - name: Replicação transacional
-      href: replication-with-sql-database-managed-instance.md
   - name: Plataforma como serviço
     items:
     - name: Plataforma como serviço
@@ -231,10 +227,8 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: Avaliação de vulnerabilidade
         href: sql-vulnerability-assessment.md
-      - name: Detecção de ameaças - Banco de Dados SQL
-        href: sql-database-threat-detection.md
-      - name: Detecção de ameaças - Instância Gerenciada
-        href: sql-database-managed-instance-threat-detection.md
+      - name: Detecção de ameaças
+        href: sql-database-threat-detection-overview.md
     - name: Regras de firewall
       items:
       - name: Criar e gerenciar
@@ -473,16 +467,30 @@ items:
       href: sql-database-in-memory-oltp-migration.md
 - name: Guias de instruções
   items:
-  - name: Migrar para o Banco de Dados SQL
+  - name: Banco de Dados Individual
     items:
     - name: Migrar para o Banco de Dados SQL
       href: sql-database-cloud-migrate.md
+    - name: Gerenciar Banco de Dados SQL após migração
+      href: sql-database-manage-after-migration.md
+    - name: Configurar replicação transacional
+      href: replication-to-sql-database.md
+    - name: Configurar a detecção de ameaças
+      href: sql-database-threat-detection.md
+    - name: Gerenciar o espaço do arquivo
+      href: sql-database-file-space-management.md
+    - name: Usar o Resource Health para problemas de conectividade
+      href: sql-database-resource-health.md
+  - name: Instância Gerenciada
+    items:
     - name: Como migrar para Instância Gerenciada
       href: sql-database-managed-instance-migrate.md
     - name: Migrar certificado TDE para Instância Gerenciada
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Gerenciar Banco de Dados SQL após migração
-      href: sql-database-manage-after-migration.md
+    - name: Replicação transacional
+      href: replication-with-sql-database-managed-instance.md
+    - name: Configurar a detecção de ameaças
+      href: sql-database-managed-instance-threat-detection.md
   - name: Carregar e mover dados
     items:
     - name: Copiar um BD no Azure
@@ -509,10 +517,6 @@ items:
       href: sql-database-load-from-csv-with-bcp.md
     - name: Carregar dados com o ADF
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: Gerenciar o espaço do arquivo
-    href: sql-database-file-space-management.md
-  - name: Usar o Resource Health para problemas de conectividade
-    href: sql-database-resource-health.md
   - name: Desenvolver aplicativos
     items:
     - name: Conectividade
@@ -662,9 +666,9 @@ items:
     href: /azure/architecture/
   - name: Relatos de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 8c32468bf7b21cd2545f85226758879cc5b657e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6ae879edcd2b835cb52e20f070d6d8c0998ba610
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961970"
+ms.locfileid: "52994564"

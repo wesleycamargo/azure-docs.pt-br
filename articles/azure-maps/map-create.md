@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 659f6def7e6bb045606b7214a4b8b4cab693117b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248160"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424232"
 ---
 # <a name="create-a-map"></a>Criar um mapa
 
@@ -31,7 +31,7 @@ Há duas maneiras de construir um mapa. Você pode definir a câmera do mapa esp
 <iframe height='500' scrolling='no' title='Criar um mapa por meio de CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Caneta <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Crie um mapa via `CameraOptions` </a> pelos Serviços Baseados em Localização do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, um [objeto Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) é criado via `new atlas.Map()` e o centro e o zoom são definidos. As propriedades do mapa, como centro e nível de zoom, fazem parte de [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest).
+No código acima, um [objeto Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) é criado via `new atlas.Map()` e o centro e o zoom são definidos. As propriedades do mapa, como centro e nível de zoom, fazem parte de [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <a id="setCameraBoundsOptions"></a>
 
@@ -47,9 +47,9 @@ No código acima, uma [objeto Map](https://docs.microsoft.com/javascript/api/azu
 <iframe height='500' scrolling='no' title='Animar a exibição do mapa' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/WayvbO/'>animar a exibição do mapa</a> por mapas do Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-No código acima, o primeiro bloco de código cria um [objeto Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) por meio de `new atlas.Map()`. As propriedades do mapa, como centro e nível de zoom, fazem parte de [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest). `CameraOptions` pode ser definido no construtor de mapa ou por meio [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) função da classe Map. O [mapear estilo](https://review.docs.microsoft.com/azure/azure-maps/supported-map-styles?branch=pr-en-us-54960) é definido como `road`.
+No código acima, o primeiro bloco de código cria um [objeto Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) por meio de `new atlas.Map()`. As propriedades do mapa, como centro e nível de zoom, fazem parte de [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions). `CameraOptions` pode ser definido no construtor de mapa ou por meio [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) função da classe Map. O [mapear estilo](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) é definido como `road`.
 
-O segundo bloco de código cria uma função animate map, que anima a mudança na visualização do mapa definindo [AnimateOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.animationoptions?view=azure-iot-typescript-latest) através da função [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera). A função é disparada pelo botão 'Mapa animar' para gerar um nível de zoom aleatório após cada clique.
+O segundo bloco de código cria uma função animate map, que anima a mudança na visualização do mapa definindo [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) através da função [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera). A função é disparada pelo botão 'Mapa animar' para gerar um nível de zoom aleatório após cada clique.
 
 ## <a name="try-out-the-code"></a>Experimentar o código
 

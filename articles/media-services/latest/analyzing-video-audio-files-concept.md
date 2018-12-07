@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228113"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427398"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisando os arquivos de áudio e vídeos
 
@@ -33,7 +33,7 @@ O Serviços de Mídia do Microsoft Azure atualmente suporta as seguintes predefi
 
 |**Nome da predefinição**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em AI, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio.<br/>É possível especificar o idioma para a carga de áudio na entrada usando o formato BCP-47 de 'região de marca de idioma' (por exemplo, 'en-US'). A lista de idiomas com suporte é, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**AudioAnalyzerPreset**|Analisar áudio|A predefinição aplica um conjunto predefinido de operações de análise baseadas em AI, incluindo transcrição de fala. Atualmente, a predefinição dá suporta ao processamento de conteúdo com uma única faixa do áudio.<br/>É possível especificar o idioma para a carga de áudio na entrada usando o formato BCP-47 de 'região de marca de idioma' (por exemplo, 'en-US'). A lista de idiomas suportados é 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', ' pt-BR ',' zh-CN '. Se o idioma não for especificado ou definido como Nulo, a detecção automática de idioma será empregada. O recurso de detecção automática de idioma suporta atualmente inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português.|
 |**VideoAnalyzerPreset**|Analisar áudio e vídeo|Extraia insights (metadados avançados) de áudio e vídeo e gere um arquivo no formato JSON. É possível especificar se deseja extrair apenas insights de áudio ao processar um arquivo de vídeo. Para obter mais informações, consulte [Analisar vídeo](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

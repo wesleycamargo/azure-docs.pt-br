@@ -7,17 +7,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901899"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498301"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Versão prévia do SDK de Gerenciamento de Go do HDInsight
 
 ## <a name="overview"></a>Visão geral
-O SDK do Go do HDInsight oferece classes e funções que permitem gerenciar os seus clusters do HDInsight. Inclui operações para criar, excluir, atualizar, listar, redimensionar, executar ações de script, monitorar, obter propriedades de clusters HDInsight e muito mais.
+O SDK do Go do HDInsight oferece classes e funções que permitem gerenciar os seus clusters do HDInsight. Inclui operações para criar, excluir, atualizar, listar, redimensionar, executar ações de script, monitorar, obter propriedades dos clusters HDInsight e muito mais.
 
 > [!NOTE]
 >O material de referência do GoDoc para esse SDK também está [disponível aqui](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -141,7 +141,7 @@ Um novo cluster pode ser criado chamando `client.Create()`.
 
 #### <a name="example"></a>Exemplo
 
-Este exemplo demonstra como criar um cluster Spark com 2 nós principais e 1 nó de trabalho.
+Este exemplo demonstra como criar uma [Apache Spark](https://spark.apache.org/) cluster com 2 nós de cabeçalho e o nó de 1 trabalho.
 
 > [!NOTE]
 > Primeiro você precisa criar um grupo de recursos e uma conta de armazenamento, conforme explicado abaixo. Se você já os tiver criado, ignore as próximas etapas.
@@ -327,7 +327,7 @@ client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchPara
 
 ### <a name="resize-cluster"></a>Redimensionar o cluster
 
-É possível redimensionar um determinado número de nós de trabalho do cluster especificando um novo tamanho da seguinte forma:
+É possível redimensionar o número de nós de trabalho de determinado cluster especificando um novo tamanho, assim:
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
@@ -350,7 +350,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Habilitar o monitoramento de OMS
 
 > [!NOTE]
-> Para habilitar o Monitoramento de OMS, você deve ter um espaço de trabalho existente do Log Analytics. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um espaço de trabalho do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Para habilitar o Monitoramento de OMS, você deve ter um workspace existente do Log Analytics. Se você já não tiver criado um, você pode aprender como fazer isso aqui: [Criar um workspace do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Para habilitar o Monitoramento de OMS no seu cluster:
 

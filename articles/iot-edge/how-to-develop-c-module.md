@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566016"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446731"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Use o código do Visual Studio para desenvolver e depurar módulos C para o Azure IoT Edge
 
@@ -59,7 +59,7 @@ Siga estas etapas para criar um módulo IoT Edge com base no SDC do Azure IoT C 
 
 7. Digite um nome para o módulo. Escolha um nome exclusivo no registro de contêiner. 
 
-8. Forneça o nome do repositório de imagens do módulo. O VS Code popula automaticamente o nome do módulo com **localhost:5000**. Substitua-o pelas informações de seu registro. Se você usa um registro local do Docker para testes, **localhost** é uma opção adequada. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de início de seção é semelhante ao **\<nome do registro\>.azurecr.io**. Substitua somente a parte de localhost da cadeia de caracteres, não exclua o nome do módulo. 
+8. Forneça o nome do repositório de imagens do módulo. O VS Code popula automaticamente o nome do módulo com **localhost:5000**. Substitua-o pelas informações de seu registro. Se você usa um registro local do Docker para testes, **localhost** é uma opção adequada. Se usar o Registro de Contêiner do Azure, utilize o servidor de início de sessão nas configurações do registro. O servidor de início de seção é semelhante ao **\<nome do registro\>.azurecr.io**. Substitua somente a parte de localhost da cadeia de caracteres, não exclua o nome do módulo. A cadeia de caracteres final se parece com \<nome do registro \>.azurecr.io /\<modulename\>.
 
    ![Fornecer o repositório de imagem do Docker](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ Quando você estiver pronto para personalizar o modelo C com seu próprio códig
 
 Em cada pasta de módulo, há vários arquivos do Docker para diferentes tipos de contêiner. Use qualquer um dos arquivos que terminam com a extensão **.debug** para compilar o módulo para teste. Atualmente, os módulos C suportam a depuração apenas nos contêineres amd64 do Linux.
 
-1. No VS Code, navegue até o arquivo `deployment.template.json`. Atualize o URL da sua imagem de módulo adicionando **.debug** ao final.
-
-    ![Adicione **.debug** ao nome da imagem](./media/how-to-develop-c-module/image-debug.png)
-
-2. Substitua o createOptions do módulo C em **deployment.template.json** com o conteúdo abaixo e salve o arquivo: 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. No VS Code, navegue até o arquivo `deployment.debug.template.json`. Esse arquivo contém a versão de depuração do seu módulo de opções de criação de imagens com apropriada. 
 2. Na paleta de comandos do VS Code, digite e execute o comando do **Azure IoT Edge: Push IoT Edge e Build de solução**.
-3. Selecione o arquivo `deployment.template.json` para a solução na paleta de comandos. 
+3. Selecione o arquivo `deployment.debug.template.json` para a solução na paleta de comandos. 
 4. No Device Explorer do Hub IoT do Azure, clique com botão direito do mouse em uma ID de dispositivo do IoT Edge. Em seguida, selecione **Criar implantação para dispositivo único**. 
-5. Abra a pasta **config** de sua solução. Em seguida, selecione o arquivo `deployment.json`. Escolha **Selecionar Manifesto de Implantação do Edge**. 
+5. Abra a pasta **config** de sua solução. Em seguida, selecione o arquivo `deployment.debug.amd64.json`. Escolha **Selecionar Manifesto de Implantação do Edge**. 
 
 Você verá a implantação criada com êxito, com uma ID de implantação em um terminal integrado com o VS Code.
 

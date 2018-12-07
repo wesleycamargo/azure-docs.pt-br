@@ -1,6 +1,6 @@
 ---
 title: Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure v3.
+description: Este artigo fornece uma visão geral da transmissão ao vivo usando os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,153 +11,123 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344959"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632687"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
-Ao distribuir eventos de transmissão ao vivo com os Serviços de Mídia do Azure, normalmente, os seguintes componentes estão envolvidos:
+O Azure Media Services permite entregar eventos ao vivo para seus clientes na nuvem do Azure. Para transmitir seus eventos ao vivo com os Serviços de Mídia, você precisa do seguinte:  
 
-* Uma câmera é usada para transmitir um evento.
-* Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como laptop) em fluxos enviados para o serviço Live Streaming. Os sinais também podem incluir SCTE-35 de publicidade e Indicações de anúncio. 
-* O serviço de transmissão ao vivo dos Serviços de Mídia permite que você ingira, visualize, empacote, registre, criptografe e transmita o conteúdo para seus clientes ou para uma CDN, a fim de ampliar a distribuição.
+- Uma câmera é usada para capturar o evento ao vivo.
+- Um codificador de vídeo ao vivo que converte sinais da câmera (ou outro dispositivo, como um laptop) em um feed de contribuição enviado para os Serviços de Mídia. O feed de contribuição pode incluir sinais relacionados à publicidade, como os marcadores SCTE-35.
+- Componentes nos Serviços de Mídia, que permitem a você ingerir, visualizar, empacotar, gravar, criptografar e transmitir o evento ao vivo para seus clientes ou para um CDN para distribuição posterior.
 
-Este artigo fornece uma visão geral detalhada e inclui diagramas dos principais componentes envolvidos na transmissão ao vivo com os Serviços de Mídia.
+Este artigo fornece uma visão geral detalhada, orientação e inclui diagramas dos principais componentes envolvidos na transmissão ao vivo com os Serviços de Mídia.
 
 ## <a name="overview-of-main-components"></a>Visão geral dos componentes principais
 
-Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um LiveEvent fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico local. O LiveEvent recebe fluxos de entrada ao vivo do codificador dinâmico no formato RTMP ou Smooth Streaming e o disponibiliza para streaming por meio de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Um [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. O LiveEvent também fornece um ponto de extremidade de versão prévia (URL de versão prévia) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. 
+Para fornecer transmissões on-demand ou ao vivo com os Serviços de Mídia do Azure, você precisa ter pelo menos um [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Quando sua conta de Serviços de Mídia é criada, um StreamingEndpoint **padrão** é adicionado à sua conta no estado **Parado**. Você precisa iniciar o StreamingEndpoint do qual deseja transmitir seu conteúdo para seus espectadores. Você pode usar o **StreamingEndpoint** padrão ou criar outro **StreamingEndpoint** personalizado com as configurações de CDN e configuração desejadas. Você pode decidir ativar vários StreamingEndpoints, cada um segmentando um CDN diferente e fornecendo um nome de host exclusivo para a entrega de conteúdo. 
 
-Os Serviços de Mídia fornecem um **Empacotamento Dinâmico** que permite a você visualizar e transmitir seu conteúdo nos formatos de streaming MPEG DASH, HLS, Smooth Streaming, sem a necessidade de empacotar novamente nesses formatos de streaming. Você pode reproduzir com players compatíveis com HLS, DASH ou Smooth. Também é possível usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) para testar o stream.
+Nos Serviços de Mídia, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e processamento dos feeds de vídeo ao vivo. Quando você cria um LiveEvent, é criado um terminal de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. O codificador dinâmico remoto envia o feed de contribuição para esse terminal de entrada usando o protocolo [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) ou [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (fragmented-MP4).  
 
-Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dinamicamente (**Criptografia Dinâmica**) com a criptografia AES-128 (Advanced Encryption Standard) ou qualquer um dos três principais sistemas de DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
+Quando o **LiveEvent** começar a receber o feed de contribuição, você poderá usar o ponto de extremidade de visualização (URL de visualização para visualizar e validar que está recebendo a transmissão ao vivo antes de publicar mais. Depois de verificar se o fluxo de visualização é bom, você pode usar o LiveEvent para disponibilizar a transmissão ao vivo para entrega por meio de um ou mais **StreamingEndpoints** (pré-criados). Para conseguir isso, crie uma nova [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) no **LiveEvent**. 
 
-Se quiser, também é possível aplicar uma **Filtragem Dinâmica**, que pode ser usada para controlar o número de faixas, formatos, taxas de bits, que são enviadas para os players. Os Serviços de Mídia também dão suporte à inserção de anúncios.
+O objeto **LiveOutput** é como um gravador que captura e grava a transmissão ao vivo em um Ativo em sua conta de Serviços de Mídia. O conteúdo gravado será mantido na conta de Armazenamento do Azure anexada à sua conta, no contêiner definido pelo recurso Ativo.  O **LiveOuput** também permite controlar algumas propriedades da transmissão ao vivo, como quanto do fluxo é mantido na gravação do arquivo (por exemplo, a capacidade do DVR da nuvem). O arquivo no disco é uma "janela" de arquivo circular que contém apenas a quantidade de conteúdo especificada na propriedade **archiveWindowLength** da **LiveOutput**. O conteúdo que fica fora dessa janela é automaticamente descartado do contêiner de armazenamento e não é recuperável. Você pode criar várias LiveOutputs (até três no máximo) em um LiveEvent com diferentes comprimentos e configurações de arquivamento.  
 
-### <a name="new-live-encoding-improvements"></a>Novos aprimoramentos de codificação ao vivo
+Com os Serviços de Mídia, você pode aproveitar o **Dynamic Packaging**, que permite visualizar e transmitir suas transmissões ao vivo nos [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) do feed de contribuição que você envia para o serviço. Seus espectadores podem reproduzir a transmissão ao vivo com qualquer player compatível com HLS, DASH ou Smooth Streaming. Você pode usar o [Player de Mídia do Azure](http://amp.azure.net/libs/amp/latest/docs/index.html) em seus aplicativos da Web ou móveis para fornecer seu fluxo em qualquer um desses protocolos.
 
-Os seguintes aprimoramentos novos foram feitos na versão mais recente.
+Com os Serviços de Mídia, você pode entregar seu conteúdo criptografado dinamicamente (**Criptografia Dinâmica**) com a criptografia AES-128 (Advanced Encryption Standard) ou qualquer um dos três principais sistemas de DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os Serviços de Mídia também fornecem um serviço para entrega de chaves AES e licenças DRM a clientes autorizados. Para obter mais informações sobre como criptografar seu conteúdo com os Serviços de Mídia, consulte [Protegendo a visão geral do conteúdo](content-protection-overview.md)
 
-- Novo modo de baixa latência. Para obter mais informações, consulte [latência](#latency).
+Se desejar, você também pode aplicar a Filtragem dinâmica, que pode ser usada para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos jogadores. 
+
+### <a name="new-capabilities-for-live-streaming-in-v3"></a>Novos recursos para transmissão ao vivo na v3
+
+Com as APIs v3 dos serviços de mídia, você se beneficia dos novos recursos a seguir:
+
+- Novo modo de baixa latência. Para obter mais informações, consulte [latência](live-event-latency.md).
 - Suporte aprimorado do RTMP (maior estabilidade e mais suporte de codificador de código-fonte).
-- Ingestão segura de RTMPS.
-
-    Quando você cria um LiveEvent, obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
-- Suporte de transcodificação 24 horas por dia. 
-- Suporte aprimorado de sinalização de anúncio no RTMP via SCTE35.
+- Ingestão segura de RTMPS.<br/>Quando você cria um LiveEvent, obtém 4 URLs de ingestão. As 4 URLs de ingestão são quase idênticas, têm o mesmo token de streaming (AppId) e apenas a parte do número da porta é diferente. Duas das URLs são primárias e de backup para RTMPS.   
+- Você pode transmitir eventos ao vivo de até 24 horas longa quando usar os Serviços de Mídia do Microsoft Azure para transcodificação uma contribuição de taxa de bits única de feed em um fluxo de saída que tem várias taxas de bits. 
 
 ## <a name="liveevent-types"></a>Tipos de LiveEvent
 
-Um [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser de dois tipos: codificação ativa e de passagem. 
-
-### <a name="live-encoding-with-media-services"></a>Codificação ativa com os Serviços de Mídia
-
-![Codificação ativa](./media/live-streaming/live-encoding.png)
-
-Um codificador ativo local envia uma transmissão de taxa de bits adaptável única para o LiveEvent que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes protocolos: RTMP ou Smooth Streaming (MP4 fragmentado). Depois, o LiveEvent realiza a codificação ativa do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
-
-Ao criar esse tipo de LiveEvent, especifique **Básico** (LiveEventEncodingType.Basic).
+A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) pode ser de dois tipos: pass-through e codificação ativa. 
 
 ### <a name="pass-through"></a>Passagem
 
 ![passagem](./media/live-streaming/pass-through.png)
 
-A Passagem é otimizada para live streams de longa execução, ou codificação ativa linear 24x7 usando um codificador ativo local. O codificador local envia múltiplas taxas de bits de **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o LiveEvent que está configurado para a entrega de **passagem**. A entrega de **passagem** ocorre quando as transmissões ingeridas passam pelos **LiveEvents** sem nenhum processamento adicional. 
+Ao usar o LiveEvent de passagem, você depende de seu codificador local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o LiveEvent (usando o protocolo RTMP ou fragmentado-MP4). O LiveEvent, em seguida, realiza os fluxos de vídeo de entrada sem qualquer processamento adicional. Esse LiveEvent de passagem é otimizado para eventos ao vivo de longa duração ou streaming ao vivo linear 24x365. Ao criar esse tipo de LiveEvent, especifique None (LiveEventEncodingType.None).
 
-LiveEvents de passagem são compatíveis com a resolução de 4K, e são passados com HEVC quando usados com o protocolo de ingestão Smooth Streaming. 
-
-Ao criar esse tipo de LiveEvent, especifique **Nenhum** (LiveEventEncodingType.None).
+Você pode enviar a contribuição em resoluções de até 4K e em uma taxa de quadros de 60 quadros / segundo, com codecs de vídeo H.264/AVC ou H.265/HEVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio.  Veja o artigo [ Comparação de tipos e limitações do LiveEvent ](live-event-types-comparison.md) para mais detalhes.
 
 > [!NOTE]
 > Usar um método de passagem é a maneira mais econômica de fazer uma transmissão ao vivo quando você estiver fazendo vários eventos durante um longo período e já tiver investido em codificadores locais. Veja os detalhes de [preços](https://azure.microsoft.com/pricing/details/media-services/) .
 > 
 
-## <a name="liveevent-types-comparison"></a>Comparação dos tipos de LiveEvent 
+Veja um exemplo em tempo real no [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-A tabela a seguir compara os recursos dos dois tipos de LiveEvent.
+### <a name="live-encoding"></a>Codificação ativa  
 
-| Recurso | LiveEvent de passagem | LiveEvent padrão |
-| --- | --- | --- |
-| A entrada de taxa de bits única é codificada em várias taxas de bits na nuvem |Não  |SIM |
-| Resolução máxima, número de camadas |4Kp30  |720p, 6 camadas, 30 fps |
-| Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Preço |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique na guia “Vídeo ao vivo” |Confira a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) |
-| Tempo de execução máximo |24x7 |24x7 |
-| Suporte para inserção de imagens fixas |Não  |SIM |
-| Suporte para sinalização de anúncios via API|Não  |SIM |
-| Suporte para sinalização de anúncios via SCTE35 inband|SIM |SIM |
-| Legendas CEA 608/708 de passagem |SIM |SIM |
-| Capacidade de recuperação de interrupções breves no feed de contribuição |SIM |Não (O LiveEvent começará a exibir imagens fixas após um período superior a 6 segundos sem dados de entrada)|
-| Suporte para GOPs de entrada não uniforme |SIM |Não - a entrada deve ser fixa em GOPs de 2 s |
-| Suporte para entrada de taxa de quadros variável |SIM |Não – a entrada deve ser uma taxa de quadros fixa.<br/>Pequenas variações são toleradas, por exemplo, durante cenas ricas em movimento. No entanto, o codificador não poderá reduzir para 10 quadros por segundo. |
-| Desligamento automático de LiveEvents quando há perda do feed de entrada |Não  |Após 12 horas, se não houver nenhum LiveOutput em execução |
+![Codificação ativa](./media/live-streaming/live-encoding.png)
 
-## <a name="liveevent-states"></a>Estados de LiveEvent 
+Ao usar a codificação ao vivo com os Serviços de Mídia, você configuraria seu codificador dinâmico local para enviar um único vídeo de taxa de bits como o feed de contribuição para o LiveEvent (usando o protocolo RTMP ou Fragmented-Mp4). O LiveEvent codifica esse fluxo de entrada de taxa de bits única para um fluxo de vídeo de [taxa de bits múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), tornando-o disponível para entrega para reproduzir dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar esse tipo de LiveEvent, especifique o tipo de codificação como **Básico** (LiveEventEncodingType.Basic).
 
-O estado atual de um LiveEvent. Os valores possíveis incluem:
+Você pode enviar a alimentação de contribuição com resolução de até 1080p a uma taxa de quadros de 30 quadros/segundo, com codec de vídeo H.264/AVC e codec de áudio AAC (AAC-LC, HE-AAC v1 ou HE-AAC v2). Veja o artigo [ Comparação de tipos e limitações do LiveEvent ](live-event-types-comparison.md) para mais detalhes.
 
-|Estado|DESCRIÇÃO|
-|---|---|
-|**Interrompido**| Esse é o estado inicial do LiveEvent após sua criação (a menos que o início automático tenha sido especificado). Não há cobrança nesse estado. Nesse estado, as propriedades do LiveEvent podem ser atualizadas, mas streaming não é permitido.|
-|**Iniciando**| O LiveEvent está sendo iniciado. Não há cobrança nesse estado. Nenhuma atualização ou streaming é permitido durante esse estado. Se ocorrer um erro, o LiveEvent retornará para o estado Parado.|
-|**Executando**| O LiveEvent é capaz de processar live streams. Agora o uso está sendo cobrado. Você deve parar o LiveEvent para evitar outras cobranças.|
-|**Parando**| O LiveEvent está sendo interrompido. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.|
-|**Excluindo**| O LiveEvent está sendo excluído. Não haverá cobrança nesse estado transitório. Nenhuma atualização ou streaming é permitido durante esse estado.|
+## <a name="liveevent-types-comparison"></a>Comparação dos tipos de LiveEvent
+
+O artigo a seguir contém uma tabela que compara os recursos dos dois tipos de LiveEvent: [Comparação](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 
-Um [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle a publicação, gravação e as configurações da janela de DVR do live stream. A relação entre LiveEvent e LiveOutput é semelhante à mídia tradicional, em que um canal (LiveEvent) tem um fluxo constante de conteúdo, e um programa (LiveOutput) tem como escopo um evento cronometrado nesse LiveEvent.
-Você pode especificar o número de horas pelo qual deseja manter o conteúdo gravado para o LiveOutput, definindo a propriedade **ArchiveWindowLength**. **ArchiveWindowLength** é um período ISO 8601 de duração da janela de arquivo (Gravador de Vídeo Digital ou DVR). Esse valor pode ser definido entre o mínimo de 5 minutos e o máximo de 25 horas. 
+Uma [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) permite que você controle as propriedades da transmissão ao vivo, como quanto do fluxo é gravado (por exemplo, a capacidade do DVR na nuvem) e se os espectadores podem ou não assistir à exibição transmissão ao vivo. A relação entre um relacionamento **LiveEvent** e seu **LiveOutput** é similar à transmissão de televisão tradicional, onde um canal (**LiveEvent**) representa um fluxo constante de vídeo e uma gravação (**LiveOutput**) tem o escopo definido para um segmento de tempo específico (por exemplo, notícias noturnas das 18h30 às 19h00). Você pode gravar televisão usando um gravador de vídeo digital (DVR) - o recurso equivalente no LiveEvents é gerenciado por meio da propriedade ArchiveWindowLength. É uma duração de tempo ISO-8601 (por exemplo, PTHH: MM: SS), que especifica a capacidade do DVR e pode ser definida de um mínimo de 3 minutos a um máximo de 25 horas.
 
-**ArchiveWindowLength** também determina o número máximo de vezes que os clientes podem voltar no tempo a partir da posição dinâmica atual. Os LiveOutputs podem ser executados no período de tempo especificado, mas o conteúdo que ficar para trás no comprimento da janela será continuamente descartado. O valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
-Cada LiveOutput está associado a um [Ativo](https://docs.microsoft.com/rest/api/media/assets) e registra os dados em um contêiner no armazenamento do Azure associado à conta dos Serviços de Mídia. Para publicar o LiveOutput, você deve criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) para o ativo associado. Ter esse localizador permitirá que você crie uma URL de transmissão que você pode fornecer aos seus clientes.
+> [!NOTE]
+> **LiveOutput** s inicie a criação e pare quando for excluído. Quando você exclui **LiveOutput**, não está excluindo o **Ativo** subjacente e o conteúdo no Ativo.  
 
-Um LiveEvent dá suporte a até três LiveOutputs em execução simultânea para que você possa criar diversos arquivos no mesmo fluxo de entrada. Isso permite que você publique e arquive diferentes partes de um evento, conforme necessário. Por exemplo, você precisa transmitir um feed linear ao vivo 24x7, mas deseja criar "gravações" dos programas ao longo do dia, a fim de oferecê-las aos clientes que perderam alguma transmissão como conteúdo sob demanda.  Para esse cenário, primeiro crie um LiveOutput primário, com uma janela de arquivo curto de 1 hora ou menos, para que os clientes sintonizem como live stream primário. Você criaria um StreamingLocator para esse LiveOutput e o publicaria em seu aplicativo ou site como o feed "Ao vivo".  Durante a execução do feed, você pode criar programaticamente um segundo LiveOutput simultâneo no início de uma apresentação (ou cinco minutos antes, a fim ter arestas para aparar posteriormente.) Esse segundo LiveOutput pode ser interrompido cinco minutos após o término do programa ou evento e, em seguida, pode criar um novo StreamingLocator para publicar esse programa como um ativo de sob demanda no catálogo do seu aplicativo.  Repita esse processo várias vezes para outros limites ou destaques de um programa que você deseja compartilhar imediatamente como conteúdo sob demanda, enquanto a transmissão do feed "Ao vivo" do primeiro LiveOutput continua no feed linear.  Além disso, você pode aproveitar o suporte do Filtro Dinâmico para aparar o arquivo do LiveOutput introduzido para "sobreposição de segurança" entre programas, e atingir uma precisão maior do início e fim do conteúdo. O conteúdo arquivado também pode ser enviado para [Transformação](https://docs.microsoft.com/rest/api/media/transforms) para codificação ou enquadramento de subclipping preciso para vários formatos de saída que serão usados como sindicalização para outros serviços.
+Para obter mais informações, consulte [Usando o DVR na nuvem](live-event-cloud-dvr.md).
 
 ## <a name="streamingendpoint"></a>StreamingEndpoint
 
-Uma vez que o fluxo está fluindo para o LiveEvent, será possível iniciar o evento de streaming criando um Asset, LiveOutput e StreamingLocator. Isso arquivará o fluxo e o disponibilizará aos espectadores por meio do [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
+Uma vez que o fluxo está fluindo para o **LiveEvent**, você pode começar o evento de transmissão criando um **ativo**, **LiveOutput**, e **StreamingLocator**. Isso arquivará o fluxo e o disponibilizará aos espectadores por meio do [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming padrão é adicionado à sua conta em estado Parado. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado Executando.
 
+## <a name="a-idbilling-liveevent-states-and-billing"></a><a id="billing" /> Estados do LiveEvent e faturamento
+
+Um LiveEvent começa o faturamento assim que seu estado passar para **Execução**. Para interromper o evento ao vivo do faturamento, você precisa interromper o evento ao vivo.
+
+Para obter informações detalhadas, consulte [estados e cobrança](live-event-states-billing.md).
+
 ## <a name="latency"></a>Latency
 
-Esta seção discute os resultados comuns que você vê ao usar as configurações de baixa latência e de vários jogadores. Os resultados variam com base na latência de rede e da CDN.
+Para obter informações detalhadas sobre a latência do LiveEvents, consulte [Latência](live-event-latency.md).
 
-Para usar o novo recurso LowLatency, você pode definir as **StreamOptionsFlag** à **LowLatency** sobre o LiveEvent. Depois que o fluxo está em execução, você pode usar o [Player de Mídia do Azure](http://ampdemo.azureedge.net/) (AMP) página de demonstração e defina as opções de reprodução para usar a baixa latência heurística "perfil".
+## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
 
-### <a name="pass-through-liveevents"></a>LiveEvents de passagem
+Aqui estão as etapas para um fluxo de trabalho de streaming ao vivo:
 
-||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
-|---|---|---|
-|TRAÇO no AMP|10s|8s|
-|HLS no player de iOS nativo|14s|10s|
-|HLS. JS no Player do Mixer|30 s|16s|
+1. Crie um LiveEvent.
+2. Crie um novo objeto de ativo.
+3. Crie um LiveOutput e use o nome do ativo que você criou.
+4. Crie uma política de Streaming e a chave de conteúdo, se você pretende criptografar seu conteúdo com DRM.
+5. Se não estiver usando o DRM, crie um localizador de Streaming com os tipos internos de política de Streaming.
+6. Liste os caminhos na política de Streaming para retornar as URLs a serem usadas (esses são determinísticas).
+7. Obtenha o nome do host para o ponto de extremidade de Streaming, você deseja transmitir do. 
+8. Combine a URL da etapa 6 com o nome do host na etapa 7 para obter a URL completa.
 
-## <a name="billing"></a>Cobrança
-
-Um LiveEvent começará a ser cobrado assim que seu estado mudar para "Executando". Para interromper a cobrança do LiveEvent, você deve Interromper o LiveEvent.
-
-> [!NOTE]
-> Quando **LiveEventEncodingType** em seu [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) estiver definido como Básico, os Serviços de Mídia desligarão automaticamente para qualquer LiveEvent que ainda esteja em estado de "Execução" 12 horas após o feed de entrada ser perdido, e não exista nenhum LiveOutput em execução. No entanto, você ainda receberá uma cobrança pelo tempo em que o LiveEvent estava no estado "Execução".
->
-
-A tabela a seguir mostra como os estados de LiveEvent são mapeados para o modo de cobrança.
-
-| Estado de LiveEvent | Trata-se de cobrança? |
-| --- | --- |
-| Iniciando |Nenhum (estado transitório) |
-| Executando |SIM |
-| Parando |Nenhum (estado transitório) |
-| Parado |Não  |
+Para obter mais informações, consulte um [tutorial de streaming ao vivo](stream-live-tutorial-with-api.md) que se baseia o [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Tutorial de live streaming](stream-live-tutorial-with-api.md)
+- [Comparação de tipos de LiveEvent](live-event-types-comparison.md)
+- [Estados e cobrança](live-event-states-billing.md)
+- [Latência](live-event-latency.md)

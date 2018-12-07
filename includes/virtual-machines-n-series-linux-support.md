@@ -2,24 +2,24 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/08/2018
-ms.author: danlep
+ms.date: 11/27/2018
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: df7d8815eeb588e4e99041844642b6721e25dad7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333733"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585617"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
 ### <a name="nvidia-cuda-drivers"></a>Drivers NVIDIA CUDA
 
-Drivers NVIDIA Tesla para NC, NCv2, NCv3 e VMs da série ND (opcional para a série NV) têm suporte apenas nas distribuições de Linux listadas na tabela a seguir. As informações sobre o driver CUDA são atuais no momento da publicação. Para os drivers CUDA mais recentes, visite o site da [NVIDIA](https://developer.nvidia.com/cuda-zone). Certifique-se de instalar ou atualizar para os drivers mais recentes do CUDA para a sua distribuição. 
+Os drivers NVIDIA CUDA para VMs das séries NC, NCv2, NCv3, ND e NDv2 (opcional para a série NV) são suportados apenas nas distribuições Linux listadas na tabela a seguir. As informações sobre o driver CUDA são atuais no momento da publicação. Para os drivers CUDA mais recentes, visite o site da [NVIDIA](https://developer.nvidia.com/cuda-zone). Certifique-se de instalar ou atualizar para os drivers mais recentes do CUDA para a sua distribuição. 
 
 > [!TIP]
 > Como alternativa à instalação manual do driver CUDA em uma VM do Linux, você pode implantar uma imagem de [Máquina Virtual de Ciência de Dados](../articles/machine-learning/data-science-virtual-machine/overview.md) do Azure. As edições DSVM para Ubuntu 16.04 LTS ou CentOS 7.4 vem com drivers NVIDIA CUDA pré-instalados, a Biblioteca de Rede Neural Avançada CUDA Neural e outras ferramentas.
@@ -34,7 +34,7 @@ A Microsoft redistribui os instaladores do driver NVIDIA GRID para VMs das séri
 
 | Distribuição | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Com base em CentOS 7.3 ou 7.4 | NVIDIA GRID 6.2, branch do driver R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Com base em CentOS 7.3 ou 7.4 | NVIDIA GRID 7, driver branch R410|
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).

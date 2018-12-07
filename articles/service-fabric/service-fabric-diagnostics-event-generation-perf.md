@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408006"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290766"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -31,14 +31,15 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 
 | Categoria do Contador | Nome do contador |
 | --- | --- |
+| Disco Lógico | Espaço livre em disco lógico |
 | PhysicalDisk(per Disco) | Média Tamanho de Fila de Leitura de Disco |
 | PhysicalDisk(per Disco) | Média Tamanho de Fila de Gravação de Disco |
 | PhysicalDisk(per Disco) | Média de segundos/Leitura do Disco |
 | PhysicalDisk(per Disco) | Média de segundos/Gravação do Disco |
 | PhysicalDisk(per Disco) | Leituras de Disco/s  |
 | PhysicalDisk(per Disco) | Bytes Lidos no Disco/s  |
-| PhysicalDisk(per Disco) | Gravações de Disco/s |
-| PhysicalDisk(per Disco) | Bytes Gravados no Disco/s |
+| PhysicalDisk(per Disco) |  Gravações de Disco/s |
+| PhysicalDisk(per Disco) |  Bytes Gravados no Disco/s |
 | Memória | MBytes Disponíveis |
 | PagingFile | % Uso |
 | Processador(total) | % Tempo do Processador |
@@ -49,6 +50,9 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | Processo (por serviço) | Bytes Virtuais |
 | Processo (por serviço) | Conjunto de Trabalho |
 | Processo (por serviço) | Conjunto de Trabalho - Particular |
+| Interface de rede(todas as instâncias) | Bytes recd |
+| Interface de rede(todas as instâncias) | Bytes sent |
+| Interface de rede(todas as instâncias) | Bytes total |
 | Interface de rede(todas as instâncias) | Tamanho da Fila de Saída |
 | Interface de rede(todas as instâncias) | Pacotes de Saída Descartados |
 | Interface de rede(todas as instâncias) | Pacotes Recebidos Descartados |
@@ -65,6 +69,8 @@ Colete os contadores a seguir se você estiver implantando serviços .NET em seu
 | Memória CLR .NET (por serviço) | Nº Total de Bytes confirmados |
 | Memória CLR .NET (por serviço) | N º Total de Bytes reservados |
 | Memória CLR .NET (por serviço) | N º de Bytes em todos os Heaps |
+| Memória CLR .NET (por serviço) | Tamanho de Heap de objeto grande |
+| Memória CLR .NET (por serviço) | # Identificadores de GC |
 | Memória CLR .NET (por serviço) | Nº de Coleções Geração 0 |
 | Memória CLR .NET (por serviço) | Nº de Coleções Geração 1 |
 | Memória CLR .NET (por serviço) | Nº de Coleções Geração 2 |
@@ -76,7 +82,7 @@ O Service Fabric gera uma quantidade significativa de contadores de desempenho p
 
 Nos aplicativos que você está implantando em seu cluster, se você estiver usando Reliable Actors, adicione contadores das categorias `Service Fabric Actor` e `Service Fabric Actor Method` (consulte [Diagnósticos de Reliable Actors do Service Fabric](service-fabric-reliable-actors-diagnostics.md)).
 
-Se você usar os Reliable Services, teremos as categorias de contadores `Service Fabric Service` e `Service Fabric Service Method` das quais você deverá coletar contadores. 
+Se você usa Serviços Confiáveis ou Remoting de Serviço, da mesma forma temos `Service Fabric Service` e `Service Fabric Service Method` categorias de contador das quais você deve coletar contadores, consulte [monitoramento com contadores remotos](service-fabric-reliable-serviceremoting-diagnostics.md) e [contador de desempenho de serviços confiáveis](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction ms/Commit` do `Service Fabric Transactional Replicator` para coletar a latência média de confirmação por métrica da transação.
 

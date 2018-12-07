@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625293"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335173"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -109,10 +109,11 @@ Para exibir os resultados em CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos do Sistema
-- Um servidor que executa o Windows Server 2012 R2 ou o Windows Server 2016:
+- Um servidor executando o Windows Server 2012 R2, o Windows Server 2016 ou o Windows Server 2019:
 
     | Versão | SKUs com suporte | Opções de implantação com suporte |
     |---------|----------------|------------------------------|
+    | Windows Server 2019 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
     | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
     | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
 
@@ -198,10 +199,10 @@ As soluções antivírus internas da Microsoft, o Windows Defender e o System Ce
 ### <a name="backup-solutions"></a>Soluções de backup
 Como as soluções de antivírus, as soluções de backup podem causar o recall de arquivos em camadas. Recomendamos o uso de uma solução de backup de nuvem para fazer backup do compartilhamento do arquivos do Azure, em vez de um produto de backup local.
 
-Se você estiver usando uma solução de backup local, os backups deverão ser executados em um servidor no grupo de sincronização que possui a camada de nuvem desabilitada. Ao restaurar arquivos no local do ponto de extremidade do servidor, use a opção de restauração no nível de arquivo. Os arquivos restaurados serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.
+Se você estiver usando uma solução de backup local, os backups deverão ser executados em um servidor no grupo de sincronização que possui a camada de nuvem desabilitada. Ao executar uma restauração, use as opções de restauração no nível do volume ou no nível do arquivo. Os arquivos restaurados usando a opção de restauração no nível do arquivo serão sincronizados com todos os pontos de extremidade no grupo de sincronização e os arquivos existentes serão substituídos pela versão restaurada do backup.  As restaurações no nível de volume não substituirão as versões de arquivo mais recentes no compartilhamento de arquivos do Azure ou em outros pontos de extremidade do servidor.
 
 > [!Note]  
-> Opções de restauração BMR (recuperação bare-metal) e nível de volume com reconhecimento de aplicativo podem causar resultados inesperados e atualmente não têm suporte. Essas opções de restauração terão suporte em uma versão futura.
+> A restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.
 
 ### <a name="encryption-solutions"></a>Soluções de criptografia
 O suporte para soluções de criptografia depende de como elas são implementadas. A Sincronização de Arquivo do Azure é conhecida por funcionar com:

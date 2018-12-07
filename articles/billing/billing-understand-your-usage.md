@@ -4,7 +4,7 @@ description: Saiba como ler e entender as seções do CSV de uso detalhado para 
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230454"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580908"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreenda os termos nos encargos de uso detalhado do Microsoft Azure 
 
@@ -88,5 +88,6 @@ Se há um encargo em seu arquivo de uso detalhado sobre o qual você deseja obte
 ## <a name="external"></a>E quanto a cobranças de serviço externo?
 Serviços externos (também conhecidos como pedidos do Marketplace) são fornecidos por fornecedores de serviços independentes e são cobrados separadamente. Os encargos não aparecem na fatura do Azure. Para saber mais, confira [Entender os encargos dos serviços externos do Azure](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
-Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?) para resolver seu problema rapidamente.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
+
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
