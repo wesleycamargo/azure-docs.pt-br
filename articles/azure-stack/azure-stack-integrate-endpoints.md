@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298733"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996706"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integration data center – publicar pontos de extremidade
 
@@ -79,10 +79,14 @@ O Azure Stack oferece suporte a apenas os servidores de proxy transparente. Em u
 |NTP|(Fornecido para a implantação de servidor IP de NTP)|UDP|123|
 |DNS|(Servidor de DNS do IP fornecido para implantação)|TCP<br>UDP|53|
 |LISTA DE CERTIFICADOS REVOGADOS|(Em pontos de distribuição de CRL no certificado de URL)|HTTP|80|
+|Backup de infraestrutura|(IP ou FQDN do servidor de arquivos de destino externo)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > URLs de saída têm a carga balanceada usando o Gerenciador de tráfego do Azure para fornecer a melhor conectividade possíveis com base na localização geográfica. Com as URLs com balanceamento de carga, a Microsoft pode atualizar e alterar pontos de extremidade de back-end sem afetar os clientes. A Microsoft não compartilha a lista de endereços IP para as URLs com balanceamento de carga. Você deve usar um dispositivo que dá suporte à filtragem por URL em vez de IP.
+
+> [!Note]  
+> 1809, o serviço de backup de infraestrutura se comunica para o servidor de arquivo externo da rede VIP pública. Antes de 1809, o serviço se comunica através da rede de infraestrutura pública. Se seus ambientes de não permitir o acesso aos recursos de infraestrutura da rede VIP pública, aplique o hotfix de 1809 mais recente para o Azure Stack. Este hotfix será mover o serviço de backup de infraestrutura de volta para a rede de infraestrutura pública. No 1811, se você aplicou o hotfix 1809, o serviço de infraestrutura de backup permanecerão na rede de infraestrutura pública. Se você não aplicar o hotfix, a atualização moverá o serviço de volta para a rede de infraestrutura pública.
 
 ## <a name="next-steps"></a>Próximas etapas
 
