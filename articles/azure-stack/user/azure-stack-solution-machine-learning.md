@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002166"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106746"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda
 
@@ -357,7 +357,7 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
     | Nome do projeto | myIris | Insira um nome exclusivo que identifica a conta. Use o departamentais ou o nome do projeto que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). |
     | Diretório do projeto | c:\Temp\ | Especifique o diretório no qual o projeto é criado. |
     | Descrição do projeto | deixar em branco | Campo opcional útil para descrever os projetos. |
-    | URL do repositório GIT VisualStudio.com | deixar em branco | Campo opcional. Associe um projeto com um repositório Git no Visual Studio Team Services para controle do código-fonte e colaboração. |
+    | URL do repositório GIT VisualStudio.com | deixar em branco | Campo opcional. Associe um projeto com um repositório Git em repositórios do Azure para controle do código-fonte e colaboração. |
     | Workspace selecionado | IrisGarden (se houver) | Escolha um espaço de trabalho criado para a conta de experimentação no portal do Azure. <br>Usando o guia de início rápido, o espaço de trabalho pelo nome do IrisGarden está listado. Caso contrário, use o espaço de trabalho com o nome da conta de experimentação, ou um nome de conta preferencial. |
     | Modelo do projeto | Classificando a Íris | Modelos contêm scripts e os dados usados para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e outros tutoriais neste site de documentação. |
 
@@ -1420,7 +1420,7 @@ Kubectl get deployments
 
 A implantação pode levar algum tempo.
 
-### <a name="configure-visual-studio-team-services-to-deploy-automatically"></a>Configurar o Visual Studio Team Services para implantar automaticamente
+### <a name="configure-azure-devops-to-deploy-automatically"></a>Configurar o DevOps do Azure para implantar automaticamente
 
 #### <a name="create-a-team-project"></a>Criar um projeto de equipe
 
@@ -1760,7 +1760,7 @@ Agora que as conexões são estabelecidas, você manualmente criada extremidade 
 
     ![Alt text](media/azure-stack-solution-machine-learning/image110.png)
 
-1.  Nomeie o artefato **iris_deployment** e selecione o local de publicação seja **Visual Studio Team Services/TFS**.
+1.  Nomeie o artefato **iris_deployment** e selecione o local de publicação seja **Pipelines do Azure**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image111.png)
 
