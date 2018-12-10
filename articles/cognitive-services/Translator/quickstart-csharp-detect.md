@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Identificar o idioma com base no texto, C# - API de Tradução de Texto'
+title: 'Início Rápido: Detectar o idioma do texto, C# – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a detectar o idioma do texto fornecido usando o .NET Core e a API REST de Tradução de Texto.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 89aedb33a88a7fb5f0a4e0abed172ba4e1cd091e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: de5088a012a7f5fd210a5aa66805fe865cc09bbe
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682054"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889252"
 ---
-# <a name="quickstart-detect-text-language-with-the-translator-text-rest-api-c"></a>Início Rápido: Detectar o idioma do texto com a API REST de Tradução de Texto (C#)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma do texto com C#
 
 Neste início rápido, você aprenderá a detectar o idioma do texto fornecido usando o .NET Core e a API REST de Tradução de Texto.
 

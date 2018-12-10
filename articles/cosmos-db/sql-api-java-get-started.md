@@ -1,28 +1,29 @@
 ---
-title: 'Tutorial de NoSQL: API do SQL para o SDK Java do Azure Cosmos DB | Microsoft Docs'
+title: 'Tutorial de NoSQL: API do SQL para o SDK de Java do Azure Cosmos DB'
 description: Um tutorial do NoSQL que cria um banco de dados online e um aplicativo de console Java usando a API do SQL para o Azure Cosmos DB. O SQL do Azure é um banco de dados NoSQL para JSON.
 keywords: tutorial do nosql, banco de dados online, aplicativo de console java
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: d4f5a174efb6679bfa29b1a2dfbcf3b1adb91053
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162407"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866076"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Tutorial do NoSQL: criar um aplicativo de console em Java da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET (versão prévia)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (versão prévia)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)

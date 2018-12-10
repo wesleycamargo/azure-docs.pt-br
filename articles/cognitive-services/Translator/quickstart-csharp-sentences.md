@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 868c19f8c9e42bcd4a03aa2c766dff185f6319a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680048"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888334"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Início Rápido: Obter comprimentos de frase com a API REST de Tradução de Texto (C#)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para determinar o comprimento de frase usando C#
 
 Neste início rápido, você aprenderá a determinar os comprimentos de sentença usando o .NET Core e a API de Tradução de Texto.
 

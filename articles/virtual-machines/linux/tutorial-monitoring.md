@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406493"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868541"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar e atualizar uma máquina virtual do Linux no Azure
 
@@ -208,7 +208,7 @@ Para agendar uma nova Implantação de atualização para a VM selecione **Agend
 * **Classificação de atualização** – selecione os tipos de software que a implantação de atualização incluiu na implantação. Os tipos de classificação são:
   * Atualizações críticas ou de segurança
   * Outras atualizações
-* **Atualizações a serem excluídas** – você pode fornecer uma lista de nomes de pacote que devem ser ignorados durante a implantação da atualização. Os nomes de pacote dão suporte a curingas (como \*kernal\*).
+* **Atualizações a serem excluídas** – você pode fornecer uma lista de nomes de pacote que devem ser ignorados durante a implantação da atualização. Os nomes de pacote dão suporte a curingas (como \*kernel\*).
 
   ![Tela de configurações de agenda de atualização](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: d67fbdad32612f23b1de31f7d2a1d7b4dee3b68e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334303"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889133"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Início Rápido: Transliterar texto com a API de Tradução de Texto (C#)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Início Rápido: usar a API de Tradução de Texto para transliterar o texto usando C#
 
 Neste início rápido, você aprenderá a transcrever texto (converter) de um script para outro usando .NET Core (C#) e a API REST de Tradução de Texto. No exemplo fornecido, o japonês é transliterado para usar o alfabeto latino.
 
@@ -28,7 +28,7 @@ Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https:
 * [SDK .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote NuGet do Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou seu editor de texto favorito
-* Uma chave de assinatura do Azure para o Serviço de Fala
+* Uma chave de assinatura do Azure para a Tradução de Texto
 
 ## <a name="create-a-net-core-project"></a>Criar projeto do .NET Core
 
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Executar o aplicativo de exemplo
 
-E pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
+E, pronto, você já pode executar seu aplicativo de exemplo. Na linha de comando (ou sessão de terminal), navegue até o diretório do projeto e execute:
 
 ```console
 dotnet run

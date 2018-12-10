@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 3fe1ee3d23594d5c1697ed08b17cb0b4d5b7a2fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857628"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863713"
 ---
 # <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Tutorial: implantar um contêiner em Instâncias de Contêiner do Azure
 
@@ -52,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>Implantar o contêiner
 
-Agora, use o comando [az container create][az-container-create] para implantar o contêiner. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores. Substitua `<acrName>` pelo nome do seu Registro de contêiner.
+Agora, use o comando [az container create][az-container-create] para implantar o contêiner. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores. Substitua `<acrName>` pelo nome do registro do contêiner e `<aciDnsLabel>` pelo nome DNS que você prefere usar.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Em alguns segundos, você deverá receber uma resposta inicial do Azure. O valor `--dns-name-label` deve ser exclusivo dentro da região do Azure em que você criar a instância do contêiner. Modifique o valor no comando anterior caso receba uma mensagem de erro de **rótulo do nome DNS** ao executar o comando.

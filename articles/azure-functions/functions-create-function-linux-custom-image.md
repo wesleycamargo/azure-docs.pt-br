@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5d03b7075b1ae590c400eb96525ab84d8487fa3e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564802"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840088"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux usando uma imagem personalizada (versão prévia)
 
@@ -66,6 +66,7 @@ Quando solicitado, escolha um tempo de execução do trabalho com as seguintes l
 
 * `dotnet`: cria um projeto de biblioteca de classes do .NET (.csproj).
 * `node`: cria um projeto de JavaScript.
+* `python`: cria um projeto do Python.
 
 Quando o comando for executado, você verá algo parecido com a seguinte saída:
 

@@ -1,9 +1,8 @@
 ---
-title: 'Início Rápido: API do Gremlin com PHP – Azure Cosmos DB | Microsoft Docs'
+title: 'Início Rápido: API do Gremlin com PHP – Azure Cosmos DB'
 description: Este início rápido mostra como usar a API do Gremlin do Azure Cosmos DB para criar um aplicativo de console com o Portal do Azure e o PHP
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 06f54429957a84de81e3dfaae00c6126b5340b74
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e5a7d40007076d09695d166148d84684c1cccee5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702486"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839599"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o PHP e o Portal do Azure
 
@@ -75,7 +74,7 @@ Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do Greml
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Os trechos são todos obtidos do arquivo connect.php na pasta C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Os snippets são todos obtidos do arquivo connect.php na pasta C:\git-samples\azure-cosmos-db-graph-php-getting-started\. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-information). 
 
 * O Gremlin `connection` é inicializado no início do arquivo `connect.php` utilizando o objeto `$db`.
 
@@ -132,7 +131,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
-    No momento, todo o objeto de Conexão deve parecer com o trecho de código a seguir:
+    No momento, todo o objeto de Conexão deve parecer com o snippet de código a seguir:
 
     ```php
     $db = new Connection([

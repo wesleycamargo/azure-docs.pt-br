@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467422"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839034"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório usando o Azure DevTest Labs
 Neste tutorial, você criará um laboratório usando o Portal do Azure. Um administrador de laboratório define um laboratório em uma organização, cria máquinas virtuais no laboratório e configura políticas. Os usuários de laboratório (por exemplo: desenvolvedores e testadores) solicitam máquinas virtuais no laboratório, as conectam e as usam. 
@@ -80,15 +80,11 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
 1. Selecione **Configuração e políticas** no menu à esquerda. 
 
     ![Configuração e políticas](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Selecione **Controle de acesso (IAM)** no menu e selecione **+ Adicionar** na barra de ferramentas. 
-
-    ![Controle de acesso - Botão adicionar usuário](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Selecione **Controle de acesso (IAM)** no menu e selecione **+ Adicionar atribuição de função** na barra de ferramentas. 
 1. Na página **Adicionar permissões**, execute as ações a seguir:
     1. Para **Função**, selecione **Usuário do DevTest Labs**. 
     2. Selecione o **usuário** que deseja adicionar. 
     3. Clique em **Salvar**.
-
-        ![Adicionar permissões](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Para fechar **Configuração e políticas - Controle de acesso (IAM)**, selecione **X** no canto direito. 
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza

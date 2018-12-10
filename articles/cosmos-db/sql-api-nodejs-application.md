@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Web Node.js usando o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB | Microsoft Docs
+title: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar os dados da API do SQL do Azure Cosmos DB
 description: Este tutorial do Node.js explora como usar o Microsoft Azure Cosmos DB para armazenar e acessar dados de um aplicativo Web do Node.js Express hospedado em sites do Azure.
 services: cosmos-db
 author: SnehaGunda
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 0c99b7d1ef774e20a49564db269555bab95789a3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 04f634406eacd05e772d2b672cdfb2af6fb42054
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741769"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874474"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Compilar um aplicativo Web Node.js usando o SDK do JavaScript para gerenciar dados da API de SQL do Azure Cosmos DB
 

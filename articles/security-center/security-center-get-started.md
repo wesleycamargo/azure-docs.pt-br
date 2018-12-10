@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8a0467a383e2c8e3efab685187c5a37d1549f664
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025457"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838150"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Integrar sua assinatura do Azure ao Centro de Segurança Standard
-A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo pelos primeiros 60 dias.
+A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Neste artigo, você fará um upgrade para a camada Standard para aumentar a segurança e instalará o Microsoft Monitoring Agent em suas máquinas virtuais para monitorar as ameaças e vulnerabilidades de segurança.
 
@@ -51,16 +51,16 @@ Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você
 Para tirar total proveito da Central de Segurança, você precisa concluir as etapas abaixo para fazer upgrade para a camada Standard e instalar o Microsoft Monitoring Agent.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
-Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para a camada Standard. Seus primeiros 60 dias são gratuitos e você pode voltar para a camada Gratuita a qualquer momento.
+Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para a camada Standard. Há uma avaliação gratuita da Central de Segurança Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. No menu principal da Central de Segurança, selecione **Introdução**.
  
   ![Introdução][4]
 
-2. Em **Upgrade**, a Central de Segurança lista as assinaturas e os espaços de trabalho qualificados para a integração. 
-   - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e espaços de trabalho com seu status de qualificação de avaliação.
-   -    Você pode fazer upgrade das assinaturas e dos espaços de trabalho que não são elegíveis para avaliação.
-   -    Você pode selecionar espaços de trabalho qualificados e assinaturas para iniciar sua avaliação.
+2. Em **Atualização**, a Central de Segurança lista as assinaturas e os workspaces qualificados para a integração. 
+   - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e workspaces com seu status de qualificação de avaliação.
+   -    Você pode atualizar as assinaturas e os workspaces que não são qualificados para avaliação.
+   -    Você pode selecionar workspaces e assinaturas qualificados para iniciar sua avaliação.
 3.  Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
 
 

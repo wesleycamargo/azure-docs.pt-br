@@ -1,28 +1,28 @@
 ---
-title: Compilar um aplicativo Web com o Azure Cosmos DB usando a API do SQL| Microsoft Docs
+title: Compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL
 description: Neste guia de início rápido, use a API de SQL do Azure Cosmos DB e o Portal do Azure para criar um aplicativo Web do .NET
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: sngun
 clicktale: true
-ms.openlocfilehash: 506d21589ee8c5d284bd9ffc430d8b1d40afb910
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 04/10/2018
+ms.openlocfilehash: a41042dc72fc7883d5b3185453eab446a1378ce4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741718"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832302"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Início Rápido: compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL e o Portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (versão prévia)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)

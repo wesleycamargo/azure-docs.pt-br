@@ -1,9 +1,8 @@
 ---
-title: 'BD Cosmos do Azure: compilar um aplicativo Web com o .NET e com a API do MongoDB | Microsoft Docs'
+title: 'Azure Cosmos DB: Compilar um aplicativo Web com .NET e a API do MongoDB'
 description: Apresenta um exemplo de código .NET que pode ser usado para se conectar à API do MongoDB do BD Cosmos do Azure e consultá-la
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sclyon
-ms.openlocfilehash: 7ab02cf2cc9a25a5c4c7aa6d782d37d932dc8369
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a0255257ca4f9ebfd0ae230a872be34c4dbec02a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701944"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846692"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo Web da API do MongoDB com o .NET e com o Portal do Azure
 
@@ -74,9 +73,9 @@ Se não quiser usar o git, você também pode [baixar o projeto como um arquivo 
 
 ## <a name="review-the-code"></a>Examine o código
 
-Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os trechos de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
+Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá pular para [Atualizar sua cadeia de conexão](#update-your-connection-string). 
 
-Todos os trechos de código a seguir são retirados do arquivo Dal.cs no diretório DAL.
+Todos os snippets de código a seguir são retirados do arquivo Dal.cs no diretório DAL.
 
 * Inicialize o cliente Mongo.
 

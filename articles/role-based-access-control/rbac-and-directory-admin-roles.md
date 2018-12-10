@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637661"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633275"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador da assinatura clássica, funções do Azure RBAC e funções de administrador do Azure AD
 
@@ -77,13 +77,13 @@ As demais funções internas permitem o gerenciamento de recursos específicos d
 
 Somente o portal do Azure e as APIs do Azure Resource Manager dão suporte ao RBAC. Os usuários, grupos e aplicativos aos quais são atribuídas funções RBAC não podem usar as [APIs do modelo de implantação clássico do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-No portal do Azure, as atribuições de função usando o RBAC aparecem na folha **Controle de acesso (IAM)**. Essa folha pode ser encontrada em todo o portal, por exemplo, em assinaturas, grupos de recursos e vários recursos.
+No portal do Azure, as atribuições de função usando o RBAC aparecem na folha **Controle de acesso (IAM)**. Essa folha pode ser encontrada em todo o portal, por exemplo, em grupos de gerenciamento, assinaturas, grupos de recursos e vários recursos.
 
-![Folha Controle de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control.png)
+![Folha Controle de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 Quando você clicar na opção **Funções**, verá a lista de funções internas e personalizadas.
 
-![Funções internas no portal do Azure](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Funções internas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Funções de administrador do Azure AD
 

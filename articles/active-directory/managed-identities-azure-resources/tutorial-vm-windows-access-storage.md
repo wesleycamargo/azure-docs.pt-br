@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: d032d8cc33d33954406ad45e64fc199d569abf41
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c2280d2b571bf9f08adb69b67992376a71c1463
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620928"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723628"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Armazenamento do Azure
 
@@ -74,7 +74,7 @@ Você pode usar a identidade gerenciada atribuída pelo sistema da VM para recup
 
 1. Navegue de volta para sua conta de armazenamento criado recentemente.  
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  
-3. Clique em **+ Adicionar** na parte superior da página para adicionar uma nova atribuição de função para a sua VM.
+3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função à sua VM.
 4. Em **Função**, no menu suspenso, selecione **Leitor de Dados de Blob de Armazenamento (Versão prévia)**. 
 5. No menu suspenso seguinte, em **Atribuir acesso a**, escolha **Máquina Virtual**.  
 6. Depois, verifique se a assinatura correta está listada no menu suspenso **Assinatura** e defina **Grupo de Recursos** como **Todos os grupos de recursos**.  

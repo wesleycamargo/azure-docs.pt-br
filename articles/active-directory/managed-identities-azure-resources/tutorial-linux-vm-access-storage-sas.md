@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16bcc56dd05c86b7c2adb324de480e7482f80fef
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626058"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724291"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar uma identidade atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure por meio de uma credencial SAS
 
@@ -68,9 +68,9 @@ Mais tarde vamos carregar e baixar um arquivo para a nova conta de armazenamento
 
 O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  No entanto, você pode usar sua identidade gerenciada atribuída pelo sistema da VM para recuperar uma SAS de armazenamento do Resource Manager e usar a SAS para acessar o armazenamento.  Nesta etapa, você concede o acesso à identidade gerenciada atribuída pelo sistema da VM à sua conta de armazenamento SAS.   
 
-1. Navegue de volta à sua conta de armazenamento recém-criada.   
+1. Navegue de volta para sua conta de armazenamento criado recentemente.
 2. Clique no link do **Controle de acesso (IAM)** no painel à esquerda.  
-3. Clique em **+ Adicionar** na parte superior da página para adicionar uma nova atribuição de função para a sua VM
+3. Clique em **+ Adicionar atribuição de função** na parte superior da página para adicionar uma nova atribuição de função à sua VM
 4. Defina **Função** como "Colaborador da Conta de Armazenamento" no lado direito da página. 
 5. No próximo menu suspenso, escolha **Atribuir acesso a** ao recurso “Máquina Virtual”.  
 6. Em seguida, verifique se a assinatura correta é listada no menu suspenso **Assinatura** e, em seguida, defina **Grupo de Recursos** como "Todos os grupos de recursos".  

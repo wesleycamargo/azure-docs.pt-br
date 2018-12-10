@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189282"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890442"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Windows no Azure
 
@@ -44,10 +44,10 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 ## <a name="create-a-backup"></a>Criar um backup
 Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação. 
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual fazer backup.
-4. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
+4. Na folha da VM, na seção **Operações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
 5. Em **Cofre de Serviços de Recuperação**, clique em **Criar novo** e forneça o nome para o novo cofre. Um novo cofre é criado no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
 6. Clique em **Política de backup**. Para este exemplo, mantenha os padrões e clique em **OK**.
 7. Na folha **Habilitar backup**, clique em **Habilitar Backup**. Isso cria um backup diário com base no agendamento padrão.
