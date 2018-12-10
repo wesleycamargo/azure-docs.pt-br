@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218620"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092604"
 documentType: LandingData
 title: Documentação do Serviço de Fala
 metadata:
-  title: Documentação do serviço de fala – Tutoriais, guias de início rápido, referência da API – Serviços Cognitivos | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Documentação do Serviço de Fala - Tutoriais, inícios rápidos, referência de API
+  titleSuffix: Azure Cognitive Services
+  description: O Serviço de Fala fornece aos desenvolvedores um jeito fácil de adicionar recursos incríveis habilitados para fala aos seus aplicativos. Exemplos incluem controle de comando de voz e caixa de diálogo, conversa com fala natural, transcrição e ditado de fala e tradução de fala.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,8 +20,9 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
   description: Saiba como usar o Serviço de Fala e o SDK de Fala para adicionar recursos habilitados para fala aos seus aplicativos. Você pode usar o SDK de Fala para adicionar funcionalidades de <i>conversão de fala em texto</i> (reconhecimento de fala/SR), <i>intenção</i>, <i>tradução</i> e <i>TTS</i> (conversão de texto em fala) aos seus aplicativos. O Serviço de Fala também tem uma API REST que funciona com qualquer linguagem de programação que pode fazer solicitações HTTP.
 sections:
@@ -39,10 +38,10 @@ sections:
         src: ../media/index/i_overview.svg
       title: O que é o Serviço de Fala?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Saiba como se inscrever gratuitamente no Serviço de Fala.</p>
+      html: <p>Inscreva-se gratuitamente.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: Inscrever-se no Serviço de Fala
+      title: Inscreva-se no Serviço de Fala
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Saiba mais sobre a referência de hardware habilitado para fala.</p>
       image:

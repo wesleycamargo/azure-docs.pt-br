@@ -17,8 +17,56 @@ items:
   expanded: true
 - name: Conceitos
   items:
+  - name: Azure AD Connect e Connect Health
+    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+    items:
+    - name: O que é o Azure AD Connect e Connect Health?
+      href: whatis-azure-ad-connect.md
+    - name: Escolha a autenticação correta
+      href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+    - name: 'Sincronização de identidades e resiliência do atributo duplicado '
+  - name: Sincronização de hash de senha
+    items:
+    - name: O que é sincronização de hash da senha?
+      href: whatis-phs.md
+    - name: Como a sincronização de hash de senha funciona
+      href: how-to-connect-password-hash-synchronization.md
+  - name: Autenticação de passagem
+    items:
+    - name: O que é autenticação de passagem?
+      href: how-to-connect-pta.md
+    - name: Como funciona a autenticação de passagem
+      href: how-to-connect-pta-how-it-works.md
+    - name: Limites atuais da autenticação de passagem
+      href: how-to-connect-pta-current-limitations.md
+    - name: Aprofundamento em segurança na autenticação de passagem
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Autenticação de passagem e privacidade do usuário
+      href: how-to-connect-pta-user-privacy.md
+  - name: Federação
+    items:
+    - name: O que é federação?
+      href: whatis-fed.md
+    - name: Como funciona a federação
+      href: how-to-connect-fed-whatis.md
+    - name: Lista de compatibilidade de federação do AD do Azure
+      href: how-to-connect-fed-compatibility.md
+  - name: Logon único
+    items:
+    - name: O que é Logon Único?
+      href: how-to-connect-sso.md
+    - name: Como funciona o Logon Único
+      href: how-to-connect-sso-how-it-works.md
+    - name: Logon Único e privacidade do usuário
+      href: how-to-connect-sso-user-privacy.md
   - name: Sincronização do Azure AD Connect
     items:
+    - name: O que é a Sincronização do Azure AD Connect?
+      href: how-to-connect-sync-whatis.md
+    - name: Recursos do Azure AD Connect Sync
+      href: how-to-connect-syncservice-features.md
+    - name: O que é o gerenciador de serviços do Azure AD Connect Sync?
+      href: how-to-connect-sync-service-manager-ui.md
     - name: Conceitos técnicos da sincronização do Azure AD Connect
       href: how-to-connect-sync-technical-concepts.md
     - name: Noções básicas sobre a arquitetura da sincronização do Azure AD Connect
@@ -33,8 +81,6 @@ items:
       href: concept-azure-ad-connect-sync-user-and-contacts.md
     - name: Noções básicas sobre os atributos de sombra
       href: how-to-connect-syncservice-shadow-attributes.md
-  - name: 'Sincronização de identidades e resiliência do atributo duplicado '
-    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
 - name: Guias de instruções
   items:
   - name: Instalação e atualização
@@ -119,8 +165,6 @@ items:
         href: plan-hybrid-identity-design-considerations-tools-comparison.md
   - name: Gerenciar o Azure AD Connect
     items:
-    - name: O que é sincronização de hash da senha?
-      href: how-to-connect-password-hash-synchronization.md
     - name: Habilitar write-back de dispositivo
       href: how-to-connect-device-writeback.md
     - name: Opções do dispositivo
@@ -141,10 +185,14 @@ items:
       href: how-to-connect-sync-change-addsacct-pass.md
     - name: O que é módulo do PowerShell para ADConnectivityTools?
       href: how-to-connect-adconnectivitytools.md
+  - name: Gerenciar Autenticação de passagem
+    items:
+    - name: Introdução da autenticação de passagem
+      href: how-to-connect-pta-quick-start.md
+    - name: Perguntas frequentes da autenticação de passagem
+      href: how-to-connect-pta-faq.md
   - name: Gerenciar Serviços de Federação
     items:
-    - name: O que é federação com o Azure AD Connect?
-      href: how-to-connect-fed-whatis.md
     - name: Gerenciando federação com o Azure AD Connect
       href: how-to-connect-fed-management.md
     - name: Suporte a vários domínios para federação
@@ -159,40 +207,14 @@ items:
       href: how-to-connect-azure-ad-trust.md
     - name: Mudar algoritmo de hash para RP do O365
       href: how-to-connect-fed-sha256-guidance.md
-    - name: Lista de compatibilidade de federação do AD do Azure
-      href: how-to-connect-fed-compatibility.md
     - name: Usar um servidor SAML 2.0 como seu Idp
       href: how-to-connect-fed-saml-idp.md
     - name: Tarefas de configuração de postagem para junção do Microsoft Azure Active Directory Híbrido
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
-  - name: Gerenciar Autenticação de passagem
-    items:
-    - name: O que é autenticação de passagem?
-      href: how-to-connect-pta.md
-    - name: Introdução da autenticação de passagem
-      href: how-to-connect-pta-quick-start.md
-    - name: Como funciona a autenticação de passagem
-      href: how-to-connect-pta-how-it-works.md
-    - name: Limites atuais da autenticação de passagem
-      href: how-to-connect-pta-current-limitations.md
-    - name: Aprofundamento em segurança na autenticação de passagem
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Autenticação de passagem e privacidade do usuário
-      href: how-to-connect-pta-user-privacy.md
-    - name: Limites atuais da autenticação de passagem
-      href: how-to-connect-pta-security-deep-dive.md
-    - name: Perguntas frequentes da autenticação de passagem
-      href: how-to-connect-pta-faq.md
   - name: Gerenciar logon único
     items:
-    - name: O que é Logon Único?
-      href: how-to-connect-sso.md
     - name: Introdução do Logon Único
       href: how-to-connect-sso-quick-start.md
-    - name: Como funciona o Logon Único
-      href: how-to-connect-sso-how-it-works.md
-    - name: Logon Único e privacidade do usuário
-      href: how-to-connect-sso-user-privacy.md
     - name: Perguntas frequentes do Logon Único
       href: how-to-connect-sso-faq.md
   - name: Gerenciar o Azure AD Connect Health
@@ -213,10 +235,6 @@ items:
       href: how-to-connect-health-alert-catalog.md
   - name: Gerenciar a sincronização do Azure AD Connect
     items:
-    - name: O que é a Sincronização do Azure AD Connect?
-      href: how-to-connect-sync-whatis.md
-    - name: Recursos do Azure AD Connect Sync
-      href: how-to-connect-syncservice-features.md
     - name: Gerenciar tarefa operacional
       href: how-to-connect-sync-operations.md
     - name: Práticas recomendadas para alterar a configuração padrão
@@ -233,8 +251,6 @@ items:
       href: how-to-connect-sync-feature-scheduler.md
     - name: Gerenciador de serviços do Azure AD Connect Sync
       items:
-      - name: O que é o gerenciador de serviços do Azure AD Connect Sync?
-        href: how-to-connect-sync-service-manager-ui.md
       - name: Gerenciar a guia de operações do gerenciador de serviços
         href: how-to-connect-sync-service-manager-ui-operations.md
       - name: Usar conectores com o gerenciador de serviços
@@ -303,9 +319,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Referência do ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 07a3bfd816cd57ecbe77bf7e7435be99a0321fd2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3488ec5aec1c5bd1d3f38a2bf87ab1d8d3a87f1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335433"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080139"

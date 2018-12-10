@@ -56,16 +56,8 @@ items:
         href: storage-secure-access-application.md
       - name: 4 – Monitorar e solucionar problemas de armazenamento
         href: storage-monitor-troubleshoot-storage-application.md
-    - name: Design de alta disponibilidade no armazenamento em nuvem
-      items:
-      - name: 1 - Tornar seu aplicativo altamente disponível
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - Simular uma falha no armazenamento RA-GRS
-        href: storage-simulate-failure-ragrs-account-app.md
     - name: Migrar dados para a nuvem com AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Pesquisar dados não estruturados no armazenamento em nuvem
-      href: storage-unstructured-search.md
     - name: Otimizar escalabilidade e desempenho de aplicativo de armazenamento
       items:
       - name: 1 - Criar uma VM e uma conta de armazenamento
@@ -76,6 +68,20 @@ items:
         href: storage-blob-scalable-app-download-files.md
       - name: 4 - Verificar taxa de transferência e métricas da latência
         href: storage-blob-scalable-app-verify-metrics.md
+    - name: Alojar um site estático
+      items:
+      - name: 1 - Criar um site estático
+        href: storage-blob-static-website-host.md
+      - name: 2 - Habilitar um domínio personalizado com SSL
+        href: storage-blob-static-website-custom-domain.md
+    - name: Design de alta disponibilidade no armazenamento em nuvem
+      items:
+      - name: 1 - Tornar seu aplicativo altamente disponível
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 - Simular uma falha no armazenamento RA-GRS
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: Pesquisar dados não estruturados no armazenamento em nuvem
+      href: storage-unstructured-search.md
   - name: Exemplos
     items:
     - name: .NET
@@ -558,8 +564,6 @@ items:
         items:
         - name: Gerenciar direitos de acesso com RBAC
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Avaliação do Armazenamento do Data Lake Gen2
-      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Como
     items:
     - name: Definir permissões usando o gerenciador de Armazenamento do Azure
@@ -616,9 +620,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fb4a261b19f08e5dcf4bedda60eacca42e97c7e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013638"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099606"
