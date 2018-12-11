@@ -1,30 +1,32 @@
 ---
-title: Carregar dados de exemplo em uma tabela de API do Cassandra do Azure Cosmos DB usando um aplicativo Java | Microsoft Docs
-description: Este artigo mostra como carregar dados de usuário de exemplo em uma tabela na conta de API do Cassandra do Azure Cosmos DB usando um aplicativo java.
-services: cosmos-db
+title: 'Tutorial: Carregar dados de exemplo em uma tabela de API do Cassandra do Azure Cosmos DB usando um aplicativo Java'
+description: Este tutorial mostra a carregar dados de usuário de exemplo em uma tabela da API do Cassandra do Azure Cosmos DB usando um aplicativo Java.
 author: kanshiG
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.openlocfilehash: fad6d34a3d3712a036e0275717754f75d5314aae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740713"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863646"
 ---
-# <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Tutorial: Carregar dados de exemplo em uma tabela de API do Cassandra do Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carregar dados de exemplo em uma tabela da API do Cassandra do Azure Cosmos DB
 
-Este tutorial mostra como carregar dados de usuário de exemplo em uma tabela na conta da API do Cassandra do Azure Cosmos DB usando um aplicativo Java. O aplicativo Java usa o [driver Java](https://github.com/datastax/java-driver) e carrega dados do usuário, como ID, nome e cidade do usuário. 
+Como desenvolvedor, é possível ter aplicativos que usam os pares de chave/valor. Você pode usar a conta de API do Cassandra no Azure Cosmos DB para armazenar e gerenciar dados de chave/valor. Este tutorial mostra a carregar dados de usuário de exemplo em uma tabela em uma conta da API do Cassandra do Azure Cosmos DB usando um aplicativo Java. O aplicativo Java usa o [driver Java](https://github.com/datastax/java-driver) e carrega os dados do usuário, como ID, nome e cidade do usuário. 
 
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Carregar dados na tabela do Cassandra
+> * Carregar dados em uma tabela do Cassandra
 > * Execute o aplicativo
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,7 +76,7 @@ Use as etapas a seguir para carregar dados em sua tabela de API do Cassandra:
 
 ## <a name="run-the-app"></a>Execute o aplicativo
 
-Abra o prompt de comando ou a janela do terminal e altere o caminho para a pasta onde você criou o projeto. Execute o comando de "mvn clean install" para gerar o arquivo cosmosdb-cassandra-Examples.jar dentro da pasta de destino e executar o aplicativo. 
+Abra um prompt de comando ou a janela do terminal e altere o caminho para a pasta onde você criou o projeto. Execute o comando de "mvn clean install" para gerar o arquivo cosmosdb-cassandra-Examples.jar dentro da pasta de destino e executar o aplicativo. 
 
 ```bash
 cd "cassandra-demo"
@@ -88,7 +90,7 @@ Agora você pode abrir o Data Explorer no portal do Azure para confirmar se as i
     
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como carregar dados de exemplo para a conta de API do Cassandra do Azure Cosmos DB. Prossiga agora para o próximo artigo:
+Neste tutorial, você aprendeu a carregar dados de exemplo para uma conta de API do Cassandra do Azure Cosmos DB. Prossiga agora para o próximo artigo:
 
 > [!div class="nextstepaction"]
 > [Consultar dados da conta de API do Cassandra](cassandra-api-query-data.md)

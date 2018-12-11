@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246728"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839727"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -36,8 +36,8 @@ As Migrações para Azure ajudam você a:
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
 -  Você só pode criar um projeto das Migrações para Azure na região geográfica dos Estados Unidos. No entanto, você pode planejar uma migração a qualquer local de destino do Azure.
     - Apenas os metadados descobertos no ambiente local são armazenados na região do projeto de migração.
-    - Os metadados são armazenados em uma das regiões geográficas: Centro-oeste dos EUA/Leste dos EUA.
-    - Se você usar a visualização de dependência com um workspace do Log Analytics, ele é criado na mesma região que o projeto.
+    - Os metadados são armazenados em uma das regiões geográficas selecionadas: Centro-oeste dos EUA/Leste dos EUA.
+    - Se você usar a visualização de dependência criando um novo workspace do Log Analytics, ele é criado na mesma região que o projeto.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pelo que eu preciso pagar?
@@ -51,18 +51,18 @@ As configurações de avaliação podem ser personalizadas de acordo com suas ne
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>As Migrações para Azure atualmente dão suporte a 30 regiões. [Verificar regiões](https://azure.microsoft.com/global-infrastructure/services/). Por padrão, a região de destino é definida como Oeste dos EUA 2.
-**Tipo de armazenamento** | o tipo dos discos que deseja alocar no Azure. Isso se aplica quando o critério de dimensionamento for **local**. Especifique o tipo de disco de destino como discos gerenciados Premium (o padrão) ou Standard. Para o dimensionamento com base em desempenho, a recomendação do dimensionamento do disco é feita automaticamente com base nos dados de desempenho das VMs.
-**Critério de dimensionamento** | O dimensionamento pode ser baseado no **histórico de desempenho** das VMs locais ou **local** (padrão), sem considerar o histórico de desempenho.
+**Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/>Atualmente, as Migrações para Azure dão suporte a 33 regiões como locais de destino da migração. [Verificar regiões](https://azure.microsoft.com/global-infrastructure/services/). Por padrão, a região de destino é definida como Oeste dos EUA 2.
+**Tipo de armazenamento** | O tipo de discos gerenciados que você quer alocar para todas as VMs fazem parte da avaliação. Se o critério de dimensionamento for *como dimensionamento local* você pode especificar o tipo de disco de destino como discos premium (padrão), discos SSD standard ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, você também tem a opção de selecionar Automático, o que garantirá que a recomendação de dimensionamento de disco seja feita automaticamente com base nos dados de desempenho das VMs. Por exemplo, para obter um [SLA de VM de instância única de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), você talvez queira especificar o tipo de armazenamento como discos gerenciados Premium que garantam que todos os discos na avaliação sejam recomendados como discos gerenciados Premium. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração.
+**Instâncias reservadas** |  Se você tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. As Migrações para Azure calculam o custo de acordo com isso.
+**Critério de dimensionamento** | O dimensionamento pode ser baseado no **histórico de desempenho** das VMs locais (padrão) ou **como local**, sem considerar o histórico de desempenho.
+**Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando o histórico de desempenho do último dia, com um valor de percentil de 95%.
+**Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. A configuração de conforto padrão é de 1.3 x.
+**Série de VM** | A série de VM usada para estimativas de tamanho. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento baseia-se apenas na série selecionada.   
+**Moeda** | Moeda de cobrança. O padrão é dólares americanos.
+**Desconto (%)** | Qualquer desconto específico da assinatura  recebido por você sobre a oferta do Azure. A configuração padrão é 0%.
+**Tempo de atividade da VM** | Se as VMs não estiverem em execução 24x7 no Azure, será possível especificar a duração da execução (número de dias por mês e número de horas por dia) e as estimativas de custo serão feitas adequadamente. O valor padrão é 31 dias por mês e 24 horas por dia.
 **Oferta do Azure** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você se inscreveu. As Migrações para Azure calculam o custo de acordo com isso.
 **Benefício Híbrido do Azure** | Se você tem a garantia do software e está qualificado para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) com desconto nos valores.
-**Instâncias reservadas** |  Se você tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. As Migrações para Azure calculam o custo de acordo com isso.
-**Tempo de atividade da VM** | A duração da execução das VMs no Azure. As estimativas de custo são feitas de acordo com isso.
-**Tipo de preços** | O [tipo de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) das VMs de destino do Azure. Por exemplo, se você estiver planejando migrar um ambiente de produção, deverá considerar a camada Standard, que fornece VMs com baixa latência, mas pode custar mais. Por outro lado, em um ambiente de teste, você poderia usar a camada básica com maior latência e custos mais baixos. Por padrão o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
-**Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando o histórico de desempenho do último dia, com um valor de percentil de 95%.
-**Série de VM** | A série de VM usada para estimativas de tamanho. Por exemplo, se você tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento baseia-se apenas na série selecionada.   
-**Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. A configuração de conforto padrão é de 1.3 x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Como funcionam as Migrações para Azure?
 

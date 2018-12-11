@@ -4,18 +4,16 @@ description: Tutorial sobre como configurar o fluxo de trabalho de build e vers�
 services: cosmos-db
 keywords: Emulador do Azure Cosmos DB
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036963"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875205"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline de CI/CD com a tarefa de build do emulador do Azure Cosmos DB no Azure DevOps
 
@@ -23,7 +21,7 @@ O emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do 
 
 A tarefa de build do emulador do Azure Cosmos DB para o Azure DevOps permite que você faça o mesmo em um ambiente de CI. Com a tarefa de build, você pode executar testes no emulador como parte dos seus fluxos de trabalho de build e versão. A tarefa gira um contêiner do Docker com o emulador já em execução e fornece um ponto de extremidade que pode ser usado pelo restante da definição de build. Você pode criar e iniciar quantas instâncias do emulador precisar, cada uma executando em um contêiner separado. 
 
-Este artigo demonstra como configurar um pipeline de CI no Azure DevOps para um aplicativo ASP.NET que usa a tarefa de build do emulador do Cosmos DB para executar testes. 
+Este artigo demonstra como configurar um pipeline de CI no Azure DevOps para um aplicativo ASP.NET que usa a tarefa de build do emulador do Cosmos DB para executar testes. Você pode usar uma abordagem semelhante para configurar um pipeline de CI para um aplicativo do Node.js ou Python. 
 
 ## <a name="install-the-emulator-build-task"></a>Instalar a tarefa de build do emulador
 
@@ -82,6 +80,8 @@ Abaixo está um exemplo de um arquivo **.RunSettings** que define os parâmetros
   </TestRunParameters>
 </RunSettings>
 ```
+
+Se você estiver configurando um pipeline de CI/CD para um aplicativo que usa a API do MongoDB do Azure Cosmos DB, a cadeia de conexão do MongoDB por padrão inclui o número da porta 10255. No entanto, essa porta não está aberta no momento, como uma alternativa, você deve usar a porta 10250 para estabelecer a conexão. A cadeia de caracteres de conexão da API do MongoDB permanece a mesma, exceto o número da porta com suporte é 10250 em vez de 10255.
 
 Estes parâmetros `TestRunParameters` são referenciados por meio de uma propriedade `TestContext` no projeto de teste do aplicativo. Aqui está um exemplo de um teste executado no Cosmos DB.
 

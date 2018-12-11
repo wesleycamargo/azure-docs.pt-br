@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 6b44e08fc1dce489e703bea1cbef2a7e94ae0f2a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83785e532523c3e921b0772ddaa50502b2dc867d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961008"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633785"
 ---
 # <a name="manage-conflicts-between-regions"></a>Gerenciar conflitos entre regiões
 
@@ -20,7 +20,7 @@ Com gravações em várias regiões, quando ocorre um conflito de dados, você p
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Criar uma política de resolução de conflitos personalizada
 
-Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada. Esses conflitos aparecerão no feed de conflitos.
+Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada. Esses conflitos aparecem no feed de conflitos.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>SDK .NET
 
@@ -83,9 +83,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-stored-procedure"></a>Criar uma política de resolução de conflitos personalizada com procedimento armazenado
+## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Criar uma política de resolução de conflitos personalizada com um procedimento armazenado
 
-Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada com procedimento armazenado para resolver o conflito. Esses conflitos **não** aparecerão no feed de conflitos se não houver um erro em seu procedimento armazenado.
+Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada com procedimento armazenado para resolver o conflito. Esses conflitos não aparecem no feed de conflitos se não houver um erro em seu procedimento armazenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>SDK .NET
 
@@ -102,7 +102,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
+Depois que o contêiner é criado, você deve criar o `resolver` procedimento armazenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>SDK de Java Assíncrono
 
@@ -114,7 +114,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
+Depois que o contêiner é criado, você deve criar o `resolver` procedimento armazenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>SDK de Java Síncrono
 
@@ -127,7 +127,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
+Depois que o contêiner é criado, você deve criar o `resolver` procedimento armazenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>SDK de Node.js/JavaScript/TypeScript
 
@@ -146,7 +146,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
+Depois que o contêiner é criado, você deve criar o `resolver` procedimento armazenado.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK do Python
 
@@ -154,11 +154,11 @@ Você precisará criar o procedimento armazenado `resolver` após a criação do
 
 ```
 
-Você precisará criar o procedimento armazenado `resolver` após a criação do contêiner.
+Depois que o contêiner é criado, você deve criar o `resolver` procedimento armazenado.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Criar uma política de resolução de conflitos do tipo “última gravação ganha”
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Crie uma política de resolução de conflitos do tipo “última gravação ganha”
 
-Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos do tipo “última gravação ganha”. Se o caminho não estiver definido ou for inválido, o padrão será a propriedade `_ts` (o campo de carimbo de data/hora). Esses conflitos **não** aparecerão no feed de conflitos.
+Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos do tipo “última gravação ganha”. Se o caminho não estiver definido ou for inválido, o padrão será a propriedade `_ts`. Essa propriedade é o campo de carimbo de data/hora. Esses conflitos não aparecem no feed de conflitos.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK .NET
 
@@ -210,7 +210,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Se você omitir a propriedade `conflictResolutionPath`, o padrão será a propriedade `_ts`.
+Se você deixar a propriedade `conflictResolutionPath`, ele assume como padrão a propriedade `_ts`.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>SDK do Python
 
@@ -277,8 +277,8 @@ while conflict:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você pode começar a aprender os conceitos do Cosmos DB abaixo:
+Saiba mais sobre os conceitos do Azure Cosmos DB a seguir:
 
 * [Particionamento e distribuição de dados](partition-data.md)
-* [Indexação no Cosmos DB](indexing-policies.md)
+* [Indexação no Azure Cosmos DB](indexing-policies.md)
 

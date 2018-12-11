@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Conceder acesso a um usuário usando o RBAC e o portal do Azure | Microsoft Docs'
+title: 'Tutorial: Conceder acesso a um usuário usando o RBAC e o portal do Azure | Microsoft Docs'
 description: Use o RBAC (controle de acesso baseado em função) para conceder permissões a um usuário atribuindo uma função no portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
@@ -8,21 +8,27 @@ manager: mtillman
 editor: ''
 ms.service: role-based-access-control
 ms.devlang: ''
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 74ecca671409b6e163bc0db29d66167d240b645c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092515"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634465"
 ---
-# <a name="quickstart-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Início Rápido: Conceder acesso a um usuário usando o RBAC e o portal do Azure
+# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder acesso a um usuário usando o RBAC e o portal do Azure
 
-O RBAC (controle de acesso baseado em função) é a maneira de gerenciar o acesso aos recursos no Azure. Neste início rápido, você concede acesso a um usuário para criar e gerenciar máquinas virtuais em um grupo de recursos.
+O [Controle de acesso baseado em função (RBAC)](overview.md) é a maneira de gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um usuário para criar e gerenciar máquinas virtuais em um grupo de recursos.
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Conceder acesso a um usuário em um escopo do grupo de recursos
+> * Remover acesso
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -38,7 +44,7 @@ Entre no Portal do Azure em http://portal.azure.com.
 
    ![Adicionar um novo grupo de recursos](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. Para **Nome do grupo de recursos**, insira **rbac-quickstart-resource-group**.
+1. Para o **Nome do grupo de recursos**, insira **rbac-resource-group**.
 
 1. Selecione uma assinatura e localização.
 
@@ -54,17 +60,19 @@ Entre no Portal do Azure em http://portal.azure.com.
 
 No RBAC, para conceder acesso, você cria uma atribuição de função.
 
-1. Na lista de **Grupos de recursos**, escolha o novo grupo de recursos **rbac-quickstart-resource-group**.
+1. Na lista de **Grupos de recursos**, escolha o novo grupo de recursos **rbac-resource-group**.
 
-1. Escolha **Controle de acesso (IAM)** para ver a lista atual de atribuições de função.
+1. Clique em **Controle de acesso (IAM)**.
+
+1. Escolha a aba **Atribuições de função** para ver a lista atual das atribuições de função.
 
    ![Folha Controle de acesso (IAM) para o grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Escolha **Adicionar** para abrir o painel **Adicionar permissões**.
+1. Escolha **Adicionar atribuição de função** para abrir o painel Adicionar atribuição de função.
 
-   Se você não tiver permissões para atribuir funções, não verá a opção **Adicionar**.
+   Se você não tiver permissões para atribuir funções, a opção Adicionar atribuição de função será desativada.
 
-   ![Painel Adicionar permissões](./media/quickstart-assign-role-user-portal/add-permissions.png)
+   ![Adicionar painel de atribuição de função](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
 1. Na lista suspensa **Função**, selecione **Colaborador da Máquina Virtual**.
 
@@ -72,7 +80,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 1. Escolha **Salvar** para criar a atribuição de função.
 
-   Após alguns instantes, a função Colaborador da Máquina Virtual é atribuída ao usuário no escopo do grupo de recursos rbac-quickstart-resource-group.
+   Após alguns instantes, a função Colaborador da Máquina Virtual é atribuída ao usuário no escopo do grupo de recursos rbac-resource-group.
 
    ![Atribuição de função Colaborador da Máquina Virtual](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
@@ -92,13 +100,13 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Na lista de navegação, escolha **Grupos de recursos**.
 
-1. Escolha **rbac-quickstart-resource-group** para abrir o grupo de recursos.
+1. Escolha **rbac-resource-group** para abrir o grupo de recursos.
 
 1. Escolha **Excluir grupo de recursos** para excluir o grupo de recursos.
 
    ![Excluir grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
-1. Na folha **Tem certeza de que deseja excluir**, digite o nome do grupo de recursos: **rbac-quickstart-resource-group**.
+1. Na folha **Tem certeza de que deseja excluir**, digite o nome do grupo de recursos: **rbac-resource-group**.
 
 1. Escolha **Excluir** para excluir o grupo de recursos.
 

@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: e215577fdb39b3dc1a9c5ce641c44e3cdef8fb45
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604086"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834716"
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: permitir que um aplicativo Web autentique com contas usando o Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Registrar um aplicativo Web ASP.NET de exemplo em seu locatário do Azure AD B2C.
-> * Criar políticas de inscrição, entrada, edição de perfil e redefinição de senha para usuários.
+> * Criar fluxos de usuário para inscrição, entrada, edição de perfil e redefinição de senha para usuários.
 > * Configurar o aplicativo Web de exemplo para usar o locatário do Azure AD B2C. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -79,65 +79,87 @@ O Azure AD B2C usa autorização OAuth2 para [aplicativos clientes](../active-di
 
 A chave é exibida uma vez no portal. É importante copiar e salvar o valor da chave. Você precisa desse valor para configurar seu aplicativo. Proteja a chave. Não compartilhe a chave publicamente.
 
-## <a name="create-policies"></a>Criar políticas
+## <a name="create-user-flows"></a>Criar fluxos de usuário
 
-Uma política do Azure AD B2C define fluxos de trabalho do usuário. Por exemplo, inscrição, entrada, alteração de senha e edição de perfis são fluxos de trabalho comuns.
+Um fluxo de usuário do Azure AD B2C define a experiência do usuário para uma tarefa de identidade. Por exemplo, inscrição, entrada, alteração de senhas e edição de perfis são fluxos de trabalho comuns.
 
-### <a name="create-a-sign-up-or-sign-in-policy"></a>Criar uma política de inscrição ou credenciais
+### <a name="create-a-sign-up-or-sign-in-user-flow"></a>Criar um fluxo de usuário de inscrição ou entrada
 
-Para inscrever usuários para acesso e conectá-los no aplicativo Web, crie uma **política de inscrição ou entrada**.
+Para inscrever usuários para acesso e conectá-los ao aplicativo Web, crie um **fluxo de usuário de inscrição ou entrada**.
 
-1. Na página do portal do Azure AD B2C, selecione **Políticas de inscrição ou entrada** e clique em **Adicionar**.
+1. Na página do portal do Azure AD B2C, selecione **Fluxos de usuário** e clique em **Novo fluxo de usuário**.
+2. Na guia **Recomendado**, clique em **Inscrever-se e entrar**.
 
-    Para configurar a política, use as seguintes configurações:
+    Para configurar o fluxo de usuário, use as seguintes configurações:
 
-    ![Adicionar política de inscrição ou de entrada](media/active-directory-b2c-tutorials-web-app/add-susi-policy.png)
-
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiUpIn | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SiUpIn** no código de exemplo. | 
-    | **Provedor de identidade** | Inscrição de email | O provedor de identidade usado para identificar o usuário exclusivamente. |
-    | **Atributos de inscrição** | Nome de exibição e CEP | Selecione os atributos a serem coletados do usuário durante a inscrição. |
-    | **Declarações do aplicativo** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
-
-2. Clique em **Criar** para criar a sua política. 
-
-### <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
-
-Para permitir que os usuários redefinam suas informações de perfil de usuário por conta própria, crie uma **política de edição de perfil**.
-
-1. Na página do portal do Azure AD B2C, selecione **Políticas de edição de perfil** e clique em **Adicionar**.
-
-    Para configurar a política, use as seguintes configurações:
+    ![Adicionar um fluxo de usuário de inscrição ou entrada](media/active-directory-b2c-tutorials-web-app/add-susi-user-flow.png)
 
     | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SiPe | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SiPe** no código de exemplo. | 
-    | **Provedor de identidade** | Entrada na conta local | O provedor de identidade usado para identificar o usuário exclusivamente. |
-    | **Atributos de perfil** | Nome de exibição e CEP | Selecione os atributos que os usuários podem modificar durante a edição de perfil. |
-    | **Declarações do aplicativo** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
+    | **Nome** | SiUpIn | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **b2c_1_**. Use o nome do fluxo de usuário completo **b2c_1_SiUpIn** no código de exemplo. | 
+    | **Provedores de Identidade** | Inscrição de email | O provedor de identidade usado para identificar o usuário exclusivamente. |
 
-2. Clique em **Criar** para criar a sua política. 
+3. Em **Atributos de usuário e declarações**, clique em **Mostrar mais** e selecione as seguintes configurações:
 
-### <a name="create-a-password-reset-policy"></a>Criar uma política de redefinição de senha
+    ![Adicionar um fluxo de usuário de inscrição ou entrada](media/active-directory-b2c-tutorials-web-app/add-attributes-and-claims.png)
 
-Para habilitar a redefinição de senha no seu aplicativo, você precisará criar uma **política de redefinição de senha**. Essa política descreve a experiência do consumidor durante a redefinição de senha e o conteúdo de tokens que o aplicativo recebe após a conclusão bem-sucedida.
+    | Coluna      | Valores sugeridos  | DESCRIÇÃO                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Coletar atributo** | Nome de exibição e CEP | Selecione os atributos a serem coletados do usuário durante a inscrição. |
+    | **Declaração de devolução** | Nome de exibição, CEP, Usuário é novo, ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token). |
+
+4. Clique em **OK**.
+5. Clique em **Criar** para criar o fluxo de usuário. 
+
+### <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de usuário de edição de perfil
+
+Para permitir que os usuários redefinam suas informações de perfil de usuário por conta própria, crie um **fluxo de usuário de edição de perfil**.
+
+1. Na página do portal do Azure AD B2C, selecione **Fluxos de usuário** e clique em **Novo fluxo de usuário**.
+2. Na guia **Recomendado**, clique em **Edição de perfil**.
+
+    Para configurar o fluxo de usuário, use as seguintes configurações:
+
+    | Configuração      | Valor sugerido  | Descrição                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Nome** | SiPe | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **b2c_1_**. Use o nome do fluxo de usuário completo **b2c_1_SiPe** no código de exemplo. | 
+    | **Provedores de Identidade** | Entrada na conta local | O provedor de identidade usado para identificar o usuário exclusivamente. |
+
+3. Em **Atributos de usuário**, clique em **Mostrar mais** e selecione as seguintes configurações:
+
+    | Coluna      | Valores sugeridos  | DESCRIÇÃO                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Coletar atributo** | Nome de exibição e CEP | Selecione os atributos que os usuários podem modificar durante a edição de perfil. |
+    | **Declaração de devolução** | Nome de exibição, CEP, ID de Objeto do Usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma edição de perfil bem-sucedida. |
+
+4. Clique em **OK**.
+5. Clique em **Criar** para criar o fluxo de usuário. 
+
+### <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de usuário de redefinição de senha
+
+Para habilitar a redefinição de senha no seu aplicativo, você precisará criar um **fluxo de usuário de redefinição de senha**. Esse fluxo de usuário descreve a experiência do consumidor durante a redefinição de senha e o conteúdo de tokens que o aplicativo recebe após a conclusão bem-sucedida.
 
 1. Na página do portal do Azure AD B2C, selecione **Políticas de redefinição de senha** e clique em **Adicionar**.
+2. Na guia **Recomendado**, clique em **Redefinição de senha**.
 
-    Para configurar a política, use as configurações a seguir.
+    Para configurar o fluxo de usuário, use as configurações a seguir.
 
     | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Nome** | SSPR | Insira um **Nome** para a política. O nome da política é prefixado com **b2c_1_**. Use o nome da política completa **b2c_1_SSPR** no código de exemplo. | 
-    | **Provedor de identidade** | Redefinição de senha usando endereço de email | É o provedor de identidade usado para identificar o usuário exclusivamente. |
-    | **Declarações do aplicativo** | ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma redefinição de senha bem-sucedida. |
+    | **Nome** | SSPR | Insira um **Nome** para o fluxo de usuário. O nome do fluxo de usuário é prefixado com **b2c_1_**. Use o nome do fluxo de usuário completo **b2c_1_SSPR** no código de exemplo. | 
+    | **Provedores de Identidade** | Redefinição de senha usando endereço de email | É o provedor de identidade usado para identificar o usuário exclusivamente. |
 
-2. Clique em **Criar** para criar a sua política. 
+3. Em **Declarações de aplicativo**, clique em **Mostrar mais** e selecione as seguintes configurações:
+    | Coluna      | Valor sugerido  | DESCRIÇÃO                                        |
+    | ------------ | ------- | -------------------------------------------------- |
+    | **Declaração de devolução** | ID de objeto do usuário | Selecione as [declarações](../active-directory/develop/developer-glossary.md#claim) que você deseja incluir no [token de acesso](../active-directory/develop/developer-glossary.md#access-token) após uma redefinição de senha bem-sucedida. |
+
+4. Clique em **OK**.
+5. Clique em **Criar** para criar o fluxo de usuário. 
 
 ## <a name="update-web-app-code"></a>Atualizar o código do aplicativo Web
 
-Agora que você registrou o aplicativo Web e criou as políticas, precisa configurar o aplicativo para usar o locatário do Azure AD B2C. Neste tutorial, você deve configurar um aplicativo Web de exemplo que pode ser baixado do GitHub. 
+Agora que você registrou o aplicativo Web e criou os fluxos de usuário, precisa configurar o aplicativo para usar o locatário do Azure AD B2C. Neste tutorial, você deve configurar um aplicativo Web de exemplo que pode ser baixado do GitHub. 
 
 [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub. Extraia o arquivo de exemplo em uma pasta cujo tamanho total de caracteres do caminho seja menor que 260.
 
@@ -145,15 +167,15 @@ Agora que você registrou o aplicativo Web e criou as políticas, precisa config
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-O aplicativo Web ASP.NET de exemplo é um aplicativo de lista de tarefas simples para criação e atualização de uma lista de tarefas pendentes. O aplicativo usa [componentes de middleware do Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) para permitir que os usuários se inscrevam para usar o aplicativo em seu locatário do Azure AD B2C. Ao criar uma política do Azure AD B2C, os usuários podem usar uma conta social ou criar uma conta para usar como identidade na hora de acessar o aplicativo. 
+O aplicativo Web ASP.NET de exemplo é um aplicativo de lista de tarefas simples para criação e atualização de uma lista de tarefas pendentes. O aplicativo usa [componentes de middleware do Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) para permitir que os usuários se inscrevam para usar o aplicativo em seu locatário do Azure AD B2C. Ao criar um fluxo de usuário do Azure AD B2C, os usuários poderão usar uma conta social ou criar uma conta para usar como identidade na hora de acessar o aplicativo. 
 
 Há dois projetos na solução de exemplo:
 
-**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa a política **criar conta ou entrar** para inscrever ou fazer logon de usuários.
+**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa o fluxo de usuário de **inscrição ou entrada** para inscrever ou fazer logon de usuários.
 
 **O aplicativo de API Web de exemplo (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
-Você precisará alterar o aplicativo para usar o registro do aplicativo em seu locatário, o que inclui a ID do aplicativo e a chave registrada anteriormente. Você também precisa configurar as políticas criadas. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
+Você precisará alterar o aplicativo para usar o registro do aplicativo em seu locatário, o que inclui a ID do aplicativo e a chave registrada anteriormente. Você também precisa configurar os fluxos de usuário criados. O aplicativo Web de exemplo define os valores de configuração como configurações de aplicativo no arquivo Web.config. Para alterar as configurações do aplicativo:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 
@@ -171,11 +193,11 @@ O aplicativo de exemplo dá suporte a inscrição, entrada, edição de perfil e
 
 ### <a name="sign-up-using-an-email-address"></a>Criar conta usando um endereço de email
 
-1. Clique no link **Inscrever-se/Entrar** na faixa superior para inscrever-se como um usuário do aplicativo Web. Isso usa a política **b2c_1_SiUpIn** definida em uma etapa anterior.
+1. Clique no link **Inscrever-se/Entrar** na faixa superior para inscrever-se como um usuário do aplicativo Web. Para isso, use o fluxo de usuário**b2c_1_SiUpIn** definido em uma etapa anterior.
 
 2. O Azure AD B2C apresenta uma página de entrada com um link de inscrição. Como você ainda não tem uma conta, clique no link **Inscrever-se agora**. 
 
-3. O fluxo de trabalho de inscrição apresenta uma página para coletar e verificar a identidade do usuário usando um endereço de email. O fluxo de trabalho de inscrição também coleta atributos solicitados definidos na política e a senha do usuário.
+3. O fluxo de trabalho de inscrição apresenta uma página para coletar e verificar a identidade do usuário usando um endereço de email. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo de usuário.
 
     Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários. 
 
@@ -191,7 +213,7 @@ Você pode usar o seu locatário do Azure AD B2C se planeja experimentar outros 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar políticas e a atualizar o aplicativo Web de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma ASP.NET Web API protegida por seu locatário do Azure AD B2C.
+Neste tutorial, você aprendeu a criar um locatário do Azure AD B2C, a criar fluxos de usuário e a atualizar o aplicativo Web de exemplo para usar o seu locatário do Azure AD B2C. Continue para o próximo tutorial a fim de aprender a registrar, configurar e chamar uma ASP.NET Web API protegida por seu locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Usar o Azure Active Directory B2C para proteger uma ASP.NET Web API](active-directory-b2c-tutorials-web-api.md)

@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 3b9968fa0349a7c68a598681a1d6d5aad230055b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/01/2018
+ms.openlocfilehash: cab92539b5019d4807ddefb2b84279c844f53016
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913080"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721894"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>Início Rápido: Criar uma regra de firewall no nível do servidor para o Banco de Dados SQL usando o portal do Azure
 
@@ -25,49 +25,51 @@ Este início rápido mostra como criar uma regra de firewall no nível do servid
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este Início Rápido usa como ponto de partida os recursos criados neste outro Início Rápido: [Criar um Banco de Dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md)
+Esse Início Rápido usa os recursos criados em [Criar um Banco de Dados SQL do Azure no portal do Azure](sql-database-get-started-portal.md) como ponto de partida.
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
-O serviço do Banco de Dados SQL cria um firewall no nível do servidor impedindo que os aplicativos e as ferramentas se conectem ao servidor ou aos bancos de dados no servidor, a menos que uma regra de firewall seja criada para abrir o firewall. Para uma conexão de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP ou intervalo de endereços específico. Execute estas etapas a fim de criar uma [regra de firewall no nível do servidor do Banco de Dados SQL](sql-database-firewall-configure.md) para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP.
+O serviço de Banco de Dados SQL cria um firewall no nível do servidor. Esse firewall impede que os aplicativos e as ferramentas se conectem ao servidor ou qualquer banco de dados do servidor, a menos que você crie uma regra de firewall para abrir o firewall. Para uma conexão a partir de um endereço IP fora do Azure, crie uma regra de firewall para um endereço IP específico ou intervalo de endereços. Para obter mais informações sobre as regras de firewall, confira [Regras de firewall no nível de servidor para o Banco de Dados SQL](sql-database-firewall-configure.md).
 
 > [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Se isto acontecer, você não poderá conectar o servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 >
 
-1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais.
+Execute essas etapas para criar uma regra de firewall no nível de servidor para o endereço IP do seu cliente e habilite a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP.
 
-2. Copie esse nome do servidor totalmente qualificado para se conectar ao servidor e aos bancos de dados nos próximos inícios rápidos.
+1. Após a conclusão da implantação dos [pré-requisitos do Banco de Dados SQL do Azure](#prerequisites), selecione **bancos de dados SQL** no menu à esquerda e escolha **mySampleDatabase** na página **Bancos de Dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170824.database.windows.net**) e fornece opções para configurações adicionais.
+
+2. Copie esse nome do servidor totalmente qualificado para usar quando se conectar ao servidor e aos bancos de dados nos outros inícios rápidos.
 
    ![nome do servidor](./media/sql-database-get-started-portal/server-name.png)
 
-3. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta.
+3. Selecione **Definir firewall do servidor** na barra de ferramentas. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta.
 
    ![regra de firewall do servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-4. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+4. Selecione **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+
+   > [!IMPORTANT]
+   > Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Selecione **DESATIVAR** nessa página para desabilitar todos os serviços do Azure.
+   >
 
 5. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
 
-6. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
+6. Feche a página **Configurações do Firewall**.
 
-Agora, você pode conectar o servidor do Banco de Dados SQL e seus bancos de dados usando o SQL Server Management Studio ou outra ferramenta de sua escolha neste endereço IP usando a conta do administrador do servidor criada anteriormente.
-
-> [!IMPORTANT]
-> Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desabilitar todos os serviços do Azure.
->
+Usando o SQL Server Management Studio ou outra ferramenta de sua escolha, agora é possível conectar-se ao servidor do Banco de Dados SQL e a seus bancos de dados a partir desse endereço IP com a conta do administrador do servidor criada anteriormente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como se conectar e consultar o banco de dados usando vários métodos diferentes. No entanto, se você deseja excluir os recursos criados neste início rápido, use as etapas a seguir.
+Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps) e saiba como se conectar e consultar o banco de dados usando vários métodos diferentes. No entanto, se você quer excluir os recursos criados nesse início rápido, use as etapas a seguir.
 
 
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.
+1. No menu à esquerda no portal do Azure, selecione **Grupos de recursos** e, em seguida, selecione **myResourceGroup**.
+2. Em sua página de grupo de recursos, selecione **Excluir**, digite **myResourceGroup** na caixa de texto e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -75,5 +77,5 @@ Salvar esses recursos se você deseja ir para as [Próximas etapas](#next-steps)
   - [Conectar e consultar usando o SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para saber como projetar seu primeiro banco de dados, criar tabelas e inserir dados, consulte um destes tutoriais:
- - [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md)
- - [Criar um banco de dados SQL do Azure e conectar-se com C# e o ADO.NET](sql-database-design-first-database-csharp.md)
+  - [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md)
+  - [Criar um banco de dados SQL do Azure e conectar-se com C# e o ADO.NET](sql-database-design-first-database-csharp.md)

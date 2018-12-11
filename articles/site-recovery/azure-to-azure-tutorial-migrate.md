@@ -1,30 +1,30 @@
 ---
-title: Migrar VMs IaaS do Azure para outra região do Azure usando o serviço Azure Site Recovery | Microsoft Docs
-description: Use o Azure Site Recovery para migrar VMs IaaS do Azure de uma região do Azure para outra.
+title: Mover as VMs IaaS do Azure para outra região do Azure usando o serviço Azure Site Recovery | Microsoft Docs
+description: Use o Azure Site Recovery para mover as VMs IaaS do Azure de uma região do Azure para outra.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9ad994ad3dc1fc350a9a41c23574acfa2bae9629
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 656f58bb9864757635ab5752da6bf31320504415
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212277"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843250"
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>Migrar VMs do Azure para outra região
+# <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
-Além de usar o serviço [Azure Site Recovery](site-recovery-overview.md) para gerenciar e coordenar a recuperação de desastres de máquinas locais e VMs do Azure para fins de continuidade de negócios e recuperação de desastres (BCDR), você também pode usar o Site Recovery para gerenciar a migração de VMs do Azure para uma região secundária. Para migrar VMs do Azure, habilite a replicação para elas e faça o failover da região primária para uma região secundária de sua escolha.
+Além de usar o serviço [Azure Site Recovery](site-recovery-overview.md) para gerenciar e coordenar a recuperação de desastres de máquinas locais e VMs do Azure para fins de continuidade de negócios e recuperação de desastres (BCDR), você também pode usar o Site Recovery para gerenciar a transferência das VMs do Azure para uma região secundária. Para mover as VMs do Azure, habilite a replicação para elas e faça o failover da região primária para uma região secundária de sua escolha.
 
-Este tutorial mostra como migrar VMs do Azure para outra região. Neste tutorial, você aprenderá como:
+Este tutorial mostra como mover VMs do Azure para outra região. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um cofre de serviços de recuperação
 > * Habilitar a replicação para uma VM
-> * Executar um failover para migrar a VM
+> * Executar um failover para mover a VM
 
 Este tutorial pressupõe que você já tem uma assinatura do Azure. Caso não tenha, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
@@ -34,7 +34,7 @@ Este tutorial pressupõe que você já tem uma assinatura do Azure. Caso não te
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Verifique se que você tem VMs do Azure na região do Azure a partir da qual você deseja migrar.
+- Verifique se que você tem VMs do Azure na região do Azure de onde deseja mover.
 - Verifique se você entende os [componentes e a arquitetura do cenário](azure-to-azure-architecture.md).
 - Examine os [requisitos e limitações com suporte](azure-to-azure-support-matrix.md).
 
@@ -66,12 +66,12 @@ Se você acabou de criar sua conta gratuita do Azure, você é o administrador d
 
 ### <a name="verify-vm-outbound-access"></a>Verificar o acesso de saída da VM
 
-1. Verifique se você não está usando um proxy de autenticação para controlar a conectividade de rede das VMs que deseja migrar. 
-2. Para os fins deste tutorial, pressupomos que as VMs que você deseja migrar podem acessar a internet e não estão usando um proxy de firewall para controlar o acesso de saída. Caso tenha, verifique os requisitos [aqui](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Verifique se você não está usando um proxy de autenticação para controlar a conectividade de rede das VMs que deseja mover. 
+2. Para os fins deste tutorial, pressupomos que as VMs que você deseja mover podem acessar a internet e não estão usando um proxy de firewall para controlar o acesso de saída. Caso tenha, verifique os requisitos [aqui](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
 ### <a name="verify-vm-certificates"></a>Verificar os certificados de VM
 
-Verifique se todos os certificados raiz mais recentes estão presentes nas VMs do Azure que deseja migrar. Caso não estejam, a VM não poderá ser registrada no Site Recovery devido a restrições de segurança.
+Verifique se todos os certificados raiz mais recentes estão presentes nas VMs do Azure que deseja mover. Caso não estejam, a VM não poderá ser registrada no Site Recovery devido a restrições de segurança.
 
 - Para VMs Windows, instale todas as atualizações do Windows mais recentes na VM para que todos os certificados raiz confiáveis estejam no computador. Em um ambiente desconectado, siga os processos padrão do Windows Update e de atualização de certificado para sua organização.
 - Para VMs Linux, siga as diretrizes fornecidas pelo seu distribuidor Linux para obter os certificados raiz confiáveis mais recentes e a lista de certificados revogados na VM.
@@ -113,7 +113,7 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
 
 1. No portal do Azure, clique em **Máquinas virtuais**.
-2. Selecione a VM que deseja migrar. Em seguida, clique em **OK**.
+2. Selecione a VM que deseja mover. Em seguida, clique em **OK**.
 3. Em **Configurações**, clique em **Recuperação de desastre**.
 4. Em **Configurar a recuperação de desastre** > **Região de destino**, selecione a região de destino para a qual você replicará.
 5. Para este tutorial, aceite as outras configurações padrão.
@@ -136,7 +136,7 @@ O Site Recovery recupera uma lista das VMs associadas à assinatura e ao grupo d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você migrou uma VM do Azure para uma região diferente dele. Agora é possível configurar a recuperação de desastres para a VM migrada.
+Neste tutorial, você moveu uma VM do Azure para uma região diferente dele. Agora é possível configurar a recuperação de desastres para VMs do Azure movida.
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação de desastres após a migração](azure-to-azure-quickstart.md)
