@@ -1,22 +1,21 @@
 ---
-title: Usar mongoimport e o mongorestore com a API para MongoDB do Azure Cosmos DB | Microsoft Docs
+title: Usar mongoimport e mongorestore com a API para MongoDB do Azure Cosmos DB
 description: Saiba como usar mongoimport e mongorestore para importar dados para uma conta da API para MongoDB
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706969"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870996"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: Migrar seus dados para a conta de API de MongoDB do Azure Cosmos DB
 
@@ -60,7 +59,7 @@ Antes de migrar dados para a conta de API do MongoDB, verifique se você tem alg
 
 1. Calcule a taxa de RU aproximada para gravação de um documento único:
 
-    a. Conecte-se à sua conta da API do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
+   a. Conecte-se à sua conta da API do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
     
    b. Execute um comando de inserção de exemplo utilizando um dos documentos de exemplo do MongoDB Shell:
    
