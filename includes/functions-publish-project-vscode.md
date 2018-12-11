@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 27dc63f73b7edcc6a46a5b7079a96a5bc5bbb2d0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641913"
----
 
 
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
