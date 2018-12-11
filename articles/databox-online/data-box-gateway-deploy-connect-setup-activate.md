@@ -1,5 +1,5 @@
 ---
-title: Conecte-se, configure e ative o Gateway de Caixa de Dados do Azure no portal do Azure | Microsoft Docs
+title: Conecte-se, configure e ative o Azure Data Box Gateway no portal do Azure | Microsoft Docs
 description: O terceiro tutorial para implantar o Data Box Gateway instrui você a conectar, configurar e ativar seu dispositivo virtual.
 services: databox
 author: alkohli
@@ -15,7 +15,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49166739"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Gateway da Caixa de Dados do Azure (Visualizar) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conectar, configurar, ativar o Azure Data Box Gateway (Visualizar) 
 
 ## <a name="introduction"></a>Introdução
 
@@ -33,15 +33,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de configurar e configurar seu Data Box Gateway, verifique se:
 
-* Você provisionou um dispositivo virtual e obteve uma URL conectada a ele, conforme detalhado em [Provisionar um gateway de caixa de dados no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um gateway de caixa de dados no VMware](data-box-gateway-deploy-provision-vmware.md).
-* Você tem a chave de ativação do serviço Data Box Gateway que você criou para gerenciar dispositivos Data Box Gateway. Para obter mais informações, vá para [Preparar para implantar o Gateway de Caixa de Dados do Azure](data-box-gateway-deploy-prep.md).
+* Você provisionou um dispositivo virtual e obteve uma URL conectada a ele, conforme detalhado em [Provisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md).
+* Você tem a chave de ativação do serviço Data Box Gateway que você criou para gerenciar dispositivos Data Box Gateway. Para saber mais, acesse [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
 <!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
@@ -107,9 +107,9 @@ Agora você está no **Dashboard** do seu dispositivo.
     3. Opcionalmente, especifique um **Servidor NTP secundário** para o dispositivo.
     4. Clique em **Aplicar**. Isso validará e aplicará as configurações de hora definidas.
 
-6. Na página **Configurações da nuvem**, ative seu dispositivo com o serviço Gateway da caixa de dados no portal do Azure.
+6. Na página **Configurações da nuvem**, ative seu dispositivo com o serviço Data Box Gateway no portal do Azure.
     
-    1. Insira o **chave de ativação** que você obteve na [obter a chave de ativação](data-box-gateway-deploy-prep.md#get-the-activation-key) para o Gateway de caixa de dados.
+    1. Insira o **chave de ativação** que você obteve em [Obter a chave de ativação](data-box-gateway-deploy-prep.md#get-the-activation-key) para o Data Box Gateway.
 
     2. Clique em **Ativar**. 
        

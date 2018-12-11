@@ -45,11 +45,11 @@ items:
         href: data-box-cable-options.md
       - name: Contatar o suporte
         href: data-box-disk-contact-microsoft-support.md
-  - name: Disco do Data Box
+  - name: Data Box Disk
     items:
     - name: Visão geral
       items:
-      - name: O que é o Disco do Data Box?
+      - name: O que é o Data Box Disk?
         href: data-box-disk-overview.md
     - name: Guia de início rápido
       items:
@@ -96,7 +96,7 @@ items:
       href: https://azure.microsoft.com/services/storage/databox/data/
     - name: Preço do Data Box
       href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Preço do Disco do Data Box
+    - name: Preço do Data Box Disk
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
 ms.openlocfilehash: bd23df1abd99ba3fd89a4b382c6c5f00c8b80f1f
 ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c

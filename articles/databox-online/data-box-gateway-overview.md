@@ -1,6 +1,6 @@
 ---
-title: Visão geral do Gateway do Microsoft Azure Data Box | Microsoft Docs
-description: Descreve o Gateway do Azure Data Box, uma solução de virtualização que permite transferir dados para o Azure
+title: Visão geral do Microsoft Azure Data Box Gateway | Microsoft Docs
+description: Descreve o Azure Data Box Gateway, uma solução de virtualização que permite transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -14,18 +14,18 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49165310"
 ---
-# <a name="what-is-azure-data-box-gateway-preview"></a>O que é o Gateway do Azure Data Box (versão prévia)? 
+# <a name="what-is-azure-data-box-gateway-preview"></a>O que é o Azure Data Box Gateway (versão prévia)? 
 
-O Gateway do Azure Data Box é uma solução de armazenamento que lhe permite enviar dados diretamente para o Azure. Este artigo fornece uma visão geral da solução, dos benefícios, das principais funcionalidades e dos cenários do Gateway do Azure Data Box em que é possível implantar esse dispositivo. 
+O Azure Data Box Gateway é uma solução de armazenamento que lhe permite enviar dados diretamente para o Azure. Este artigo fornece uma visão geral da solução, dos benefícios, das principais funcionalidades e dos cenários do Azure Data Box Gateway em que é possível implantar esse dispositivo. 
 
-O Gateway do Data Box é um dispositivo virtual baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor. O dispositivo virtual reside em seu local e você grava dados nele usando os protocolos NFS e SMB. Em seguida, o dispositivo transfere seus dados para o blob de blocos ou blob de páginas do Azure ou Arquivos do Azure. 
+O Data Box Gateway é um dispositivo virtual baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor. O dispositivo virtual reside em seu local e você grava dados nele usando os protocolos NFS e SMB. Em seguida, o dispositivo transfere seus dados para o blob de blocos ou blob de páginas do Azure ou Arquivos do Azure. 
 
 > [!IMPORTANT]
-> O Gateway do Data Box está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
+> O Data Box Gateway está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
 
 ## <a name="use-cases"></a>Casos de uso
 
-O Gateway do Data Box pode ser usado para transferir dados para a nuvem, como arquivamento na nuvem, recuperação de desastre ou caso haja a necessidade de processar seus dados em escala de nuvem. Veja a seguir os vários cenários em que o Gateway do Data Box pode ser usado para a transferência de dados.
+O Data Box Gateway pode ser usado para transferir dados para a nuvem, como arquivamento na nuvem, recuperação de desastre ou caso haja a necessidade de processar seus dados em escala de nuvem. Veja a seguir os vários cenários em que o Data Box Gateway pode ser usado para a transferência de dados.
 
 - **Arquivamento na nuvem** – Copie centenas de TBs de dados para o armazenamento do Azure usando o Gateway do Data Box de uma maneira segura e eficiente. Os dados podem ser ingeridos uma vez ou continuamente para cenários de arquivamento.
 
@@ -35,7 +35,7 @@ O Gateway do Data Box pode ser usado para transferir dados para a nuvem, como ar
 
 ## <a name="benefits"></a>Benefícios
 
-O Gateway do Data Box tem os seguintes benefícios:
+O Data Box Gateway tem os seguintes benefícios:
 
 - **Transferência de dados fácil** – Facilita a movimentação de dados para dentro e fora do Azure, tanto quanto trabalhar em um compartilhamento de rede local.  
 - **Alto desempenho** – Acaba com a complicação do transporte de dados de rede com transferências de alto desempenho para e do Azure. 
@@ -44,7 +44,7 @@ O Gateway do Data Box tem os seguintes benefícios:
 
 ## <a name="key-capabilities"></a>Principais recursos
 
-O Gateway do Data Box tem as seguintes funcionalidades:
+O Data Box Gateway tem as seguintes funcionalidades:
 
 |Recurso |DESCRIÇÃO  |
 |---------|---------|
@@ -60,7 +60,7 @@ O Gateway do Data Box tem as seguintes funcionalidades:
 
 ## <a name="specifications"></a>Especificações
 
-O dispositivo virtual Gateway do Data Box tem as seguintes especificações:
+O dispositivo virtual Data Box Gateway tem as seguintes especificações:
 
 | Especificações                                          | DESCRIÇÃO              |
 |---------------------------------------------------------|--------------------------|
@@ -71,16 +71,16 @@ O dispositivo virtual Gateway do Data Box tem as seguintes especificações:
 | Interfaces de rede|1 ou mais adaptadores de rede virtual|
 | Protocolos de compartilhamento de arquivo nativo|SMB e NFS  |
 | Segurança| Autenticação para desbloquear o acesso ao dispositivo e aos dados <br> Dados em trânsito criptografados usando a criptografia AES de 256 bits|
-| Gerenciamento| Interface do usuário da Web local – configuração inicial, diagnóstico e gerenciamento de energia do dispositivo <br> Portal do Azure – gerenciamento diário de dispositivos de Gateway do Data Box       |
+| Gerenciamento| Interface do usuário da Web local – configuração inicial, diagnóstico e gerenciamento de energia do dispositivo <br> Portal do Azure – gerenciamento diário de dispositivos de Data Box Gateway       |
 
 
 ## <a name="components"></a>Componentes
 
-A solução Gateway do Data Box é composta pelo recurso de Gateway do Data Box, dispositivo virtual de Gateway do Data Box e uma interface do usuário da Web local.
+A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispositivo virtual de Data Box Gateway e uma interface do usuário da Web local.
 
 * **Dispositivo virtual de Gateway do Data Box** – Um dispositivo baseado em uma máquina virtual provisionada em seu ambiente virtualizado ou hipervisor e que permite que você envie dados para o Azure. 
     
-* **Recurso de Gateway do Data Box** – um recurso no portal do Azure que permite gerenciar um dispositivo de Gateway do Data Box de uma interface da Web que você pode acessar de diferentes localizações geográficas. Use o recurso de Gateway do Data Box para criar e gerenciar recursos, exibir e gerenciar dispositivos e alertas e gerenciar compartilhamentos.  
+* **Recurso de Gateway do Data Box** – um recurso no portal do Azure que permite gerenciar um dispositivo de Gateway do Data Box de uma interface da Web que você pode acessar de diferentes localizações geográficas. Use o recurso de Data Box Gateway para criar e gerenciar recursos, exibir e gerenciar dispositivos e alertas e gerenciar compartilhamentos.  
 
     <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
 
@@ -109,9 +109,9 @@ O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os [requisitos do sistema do Gateway do Data Box](data-box-gateway-system-requirements.md).
-- Entenda os [limites do Gateway do Data Box](data-box-gateway-limits.md).
-- Implante o [Gateway do Azure Data Box](data-box-gateway-deploy-prep.md) no portal do Azure.
+- Examine os [requisitos do sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
+- Entenda os [limites do Data Box Gateway](data-box-gateway-limits.md).
+- Implante o [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) no portal do Azure.
 
 
 

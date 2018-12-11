@@ -1,6 +1,6 @@
 ---
 title: Início Rápido do Microsoft Azure Data Box Disk | Microsoft Docs
-description: Use este guia de início rápido para implantar rapidamente o disco do Azure Data Box no portal do Azure
+description: Use este guia de início rápido para implantar rapidamente o Azure Data Box Disk no portal do Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -16,11 +16,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/15/2018
 ms.locfileid: "51712255"
 ---
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o disco do Azure Data Box usando o portal do Azure (visualização)
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implantar o Azure Data Box Disk usando o portal do Azure (visualização)
 
-Este início rápido descreve como implantar o disco do Azure Data Box usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure. 
+Este início rápido descreve como implantar o Azure Data Box Disk usando o portal do Azure. As etapas incluem como, rapidamente, criar um pedido, receber discos, descompactar, conectar e copiar dados para discos de modo que eles sejam carregados no Azure. 
 
-Para implantação passo a passo detalhada e instruções de acompanhamento, acesse [Tutorial: solicitar disco do Azure Data Box](data-box-disk-deploy-ordered.md). 
+Para implantação passo a passo detalhada e instruções de acompanhamento, acesse [Tutorial: solicitar Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,7 +43,7 @@ Esta etapa leva aproximadamente 5 minutos.
 
 1. Criar um novo recurso do Azure Data Box no portal do Azure. 
 2. Selecione uma assinatura habilitada para esse serviço e escolha o tipo de transferência como **Importação**. Forneça o **País de origem** onde os dados residem e a **região de destino do Azure** para a transferência de dados.
-3. Selecione **Disco do Data Box**. A capacidade máxima da solução é de 35 TB, e você pode criar vários pedidos de disco para tamanhos maiores de dados.  
+3. Selecione **Data Box Disk**. A capacidade máxima da solução é de 35 TB, e você pode criar vários pedidos de disco para tamanhos maiores de dados.  
 4. Insira os detalhes do pedido e as informações de envio. Se o serviço estiver disponível em sua região, forneça endereços de email de notificação, examine o resumo e, em seguida, crie o pedido. 
 
 Depois que o pedido é criado, os discos estão preparados para remessa. 
@@ -52,7 +52,7 @@ Depois que o pedido é criado, os discos estão preparados para remessa.
 
 Esta etapa leva aproximadamente 5 minutos.
 
-O disco do Data Box é enviado em uma caixa expressa da UPS. Abra a caixa e verifique se a ela contém:
+O Data Box Disk é enviado em uma caixa expressa da UPS. Abra a caixa e verifique se a ela contém:
 
 - 1 a 5 discos de USB embalados em plástico-bolha.
 - Um cabo de conexão por disco. 
@@ -62,12 +62,12 @@ O disco do Data Box é enviado em uma caixa expressa da UPS. Abra a caixa e veri
 
 Esta etapa leva aproximadamente 5 minutos.
 
-1. Use o cabo incluído para conectar o disco em um computador Windows/Linux executando uma versão com suporte. Para obter mais informações sobre versões de sistema operacional com suporte, vá até [Requisitos de sistema do disco do Azure Data Box](data-box-disk-system-requirements.md). 
+1. Use o cabo incluído para conectar o disco em um computador Windows/Linux executando uma versão com suporte. Para obter mais informações sobre versões de sistema operacional com suporte, vá até [Requisitos de sistema do Azure Data Box Disk](data-box-disk-system-requirements.md). 
 2. Para desbloquear o disco:
 
     1. No portal do Azure, acesse **Geral > Detalhes do Dispositivo** e obtenha a chave de acesso.
-    2. Baixe e extraia a ferramenta de desbloqueio do Disco do Data Box específico do sistema operacional no computador usado para copiar os dados para discos. 
-    3. Execute a ferramenta de Desbloqueio do Disco do Data Box e forneça a senha. Para qualquer nova inserção de disco, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não use a caixa de diálogo BitLocker nem a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, acesse [Desbloquear discos no cliente do Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos no cliente do Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
+    2. Baixe e extraia a ferramenta de desbloqueio do Data Box Disk específico do sistema operacional no computador usado para copiar os dados para discos. 
+    3. Execute a ferramenta de Desbloqueio do Data Box Disk e forneça a senha. Para qualquer nova inserção de disco, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não use a caixa de diálogo BitLocker nem a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, acesse [Desbloquear discos no cliente do Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos no cliente do Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. A letra da unidade atribuída ao disco é exibida pela ferramenta. Anote a letra da unidade de disco. Isso é usado nas etapas subsequentes.
 
 ## <a name="copy-data-and-validate"></a>Copiar dados e validar
@@ -92,13 +92,13 @@ Essa etapa demora cerca de 5 a 7 minutos para ser concluída.
 1. Coloque todos os discos em conjunto no pacote original. Use a etiqueta de remessa inclusa. Se a etiqueta for danificada ou perdida, baixe-a partir do portal. Vá para **Visão geral** e clique em **Baixar etiqueta de remessa** na barra de comandos.
 2. Entregue o pacote lacrado no local de remessa.  
 
-O serviço do disco do Data Box envia uma notificação por email e atualiza o status do trabalho no portal do Azure.
+O serviço do Data Box Disk envia uma notificação por email e atualiza o status do trabalho no portal do Azure.
 
 ## <a name="verify-your-data"></a>Verifique seus dados
 
 O tempo para concluir essa operação depende do tamanho dos dados.
 
-1. Quando o disco do Data Box estiver conectado à rede de datacenter do Azure, o carregamento de dados do Azure é iniciado automaticamente. 
+1. Quando o Data Box Disk estiver conectado à rede de datacenter do Azure, o carregamento de dados do Azure é iniciado automaticamente. 
 2. O serviço do Azure Data Box notifica que a cópia de dados foi concluída por meio do portal do Azure. 
     
     1. Verifique se há logs de erros para quaisquer falhas e tome as medidas apropriadas.
@@ -120,7 +120,7 @@ Para limpar, você pode cancelar o pedido do Data Box e, em seguida, excluí-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou o disco do Azure Data Box para ajudar a importar seus dados no Azure. Para saber mais sobre o gerenciamento de disco do Azure Data Box, avance para o tutorial a seguir: 
+Neste início rápido, você implantou o Azure Data Box Disk para ajudar a importar seus dados no Azure. Para saber mais sobre o gerenciamento de Azure Data Box Disk, avance para o tutorial a seguir: 
 
 > [!div class="nextstepaction"]
 > [Usar o portal do Azure para administrar o disco do Data Box](data-box-portal-ui-admin.md)

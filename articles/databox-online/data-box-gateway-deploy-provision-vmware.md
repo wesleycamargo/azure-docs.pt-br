@@ -1,6 +1,6 @@
 ---
-title: Tutorial sobre como provisionar o Gateway do Azure Data Box no VMware | Microsoft Docs
-description: O segundo tutorial de implantação do Gateway do Azure Data Box envolve o provisionamento de um dispositivo virtual no VMware.
+title: Tutorial sobre como provisionar o Azure Data Box Gateway no VMware | Microsoft Docs
+description: O segundo tutorial de implantação do Azure Data Box Gateway envolve o provisionamento de um dispositivo virtual no VMware.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,11 +15,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49167147"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Gateway do Azure Data Box no VMware (Versão prévia)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware (Versão prévia)
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial descreve como provisionar um Gateway do Data Box em um sistema de host que executa o VMware ESXi 6.0 ou 6.5. 
+Este tutorial descreve como provisionar um Data Box Gateway em um sistema de host que executa o VMware ESXi 6.0 ou 6.5. 
 
 Você precisa de privilégios de administrador para provisionar e conectar-se a um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
@@ -33,23 +33,23 @@ Neste tutorial, você aprenderá como:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o VMware ESXi 6.0 ou 6.5 são os seguintes.
 
-### <a name="for-the-data-box-gateway-resource"></a>Para o recurso de Gateway do Data Box
+### <a name="for-the-data-box-gateway-resource"></a>Para o recurso de Data Box Gateway
 
 Antes de começar, verifique se:
 
-* Você concluiu todas as etapas em [Preparar o portal para o Gateway do Data Box](data-box-gateway-deploy-prep.md).
-* Você fez o download da imagem do dispositivo virtual para VMware do portal do Azure, conforme descrito em [Preparar o portal para o Gateway do Data Box](data-box-gateway-deploy-prep.md).
+* Você concluiu todas as etapas em [Preparar o portal para o Data Box Gateway](data-box-gateway-deploy-prep.md).
+* Você fez o download da imagem do dispositivo virtual para VMware do portal do Azure, conforme descrito em [Preparar o portal para o Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
   > O software em execução no Data Box Gateway só pode ser usado com o recurso Data Box Gateway.
 
-### <a name="for-the-data-box-gateway-virtual-device"></a>Para o dispositivo virtual do Gateway do Data Box
+### <a name="for-the-data-box-gateway-virtual-device"></a>Para o dispositivo virtual do Data Box Gateway
 
 Antes de implantar um dispositivo virtual, verifique se:
 
@@ -66,7 +66,7 @@ Antes de implantar um dispositivo virtual, verifique se:
 
 Antes de começar:
 
-- Revise os requisitos de rede para implantar um Gateway do Data Box e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Gateway do Data Box](data-box-gateway-system-requirements.md#networking-requirements).
+- Revise os requisitos de rede para implantar um Data Box Gateway e configurar a rede de datacenter de acordo com os requisitos. Saiba mais em [Requisitos de rede do Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
 - Garanta que a largura de banda mínima da Internet seja de 20 Mbps, para permitir o funcionamento ideal do dispositivo.
 
 ## <a name="check-the-host-system"></a>Verificar o sistema host

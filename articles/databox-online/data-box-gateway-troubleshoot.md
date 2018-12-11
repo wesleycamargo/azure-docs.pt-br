@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para solucionar problemas do Gateway do Azure Data Box | Microsoft Docs
-description: Descreve como solucionar problemas do Gateway do Azure Data Box.
+title: Usar o portal do Azure para solucionar problemas do Azure Data Box Gateway | Microsoft Docs
+description: Descreve como solucionar problemas do Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,12 +15,12 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50241593"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Gateway do Azure Data Box 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Azure Data Box Gateway 
 
-Este artigo descreve como solucionar problemas no seu Gateway do Azure Data Box. 
+Este artigo descreve como solucionar problemas no seu Azure Data Box Gateway. 
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 Neste artigo, você aprenderá a:
 
@@ -65,7 +65,7 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
 
       ![Clique em adicionar usuário](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
-2. Clique na _pasta do Gateway do Microsoft Data Box_. Esta pasta tem duas subpastas:
+2. Clique na _pasta do Microsoft Data Box Gateway_. Esta pasta tem duas subpastas:
 
     - Faça upload da pasta que contém os arquivos de log para erros de upload.
     - Atualize a pasta para erros durante a atualização.

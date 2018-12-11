@@ -1,6 +1,6 @@
 ---
 title: Registrar tíquete de suporte ou abrir um caso no Azure Data Box | Microsoft Docs
-description: Saiba como registrar solicitações de suporte para problemas relacionados às suas ordens do Data Box ou do Disco do Data Box.
+description: Saiba como registrar solicitações de suporte para problemas relacionados às suas ordens do Data Box ou do Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -18,7 +18,7 @@ ms.locfileid: "49092483"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abrir um tíquete de suporte para o Azure Data Box 
 
-Este artigo se aplica ao Azure Data Box e ao Disco do Azure Data Box, que são gerenciados pelo serviço Azure Data Box. Caso enfrente algum problema com o serviço Azure Data Box, você poderá criar uma solicitação de serviço para suporte técnico. Este artigo orienta você sobre:
+Este artigo se aplica ao Azure Data Box e ao Azure Data Box Disk, que são gerenciados pelo serviço Azure Data Box. Caso enfrente algum problema com o serviço Azure Data Box, você poderá criar uma solicitação de serviço para suporte técnico. Este artigo orienta você sobre:
 
 * Como criar uma solicitação de suporte.
 * Como gerenciar o ciclo de vida de uma solicitação de suporte de dentro do portal.
@@ -27,7 +27,7 @@ Este artigo se aplica ao Azure Data Box e ao Disco do Azure Data Box, que são g
 
 Execute as seguintes etapas para criar uma solicitação de suporte:
 
-1. Vá para a sua ordem do Data Box ou do Disco do Data Box. Navegue até **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
+1. Vá para a sua ordem do Data Box ou do Data Box Disk. Navegue até **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
      
     ![Nova solicitação de suporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
@@ -84,4 +84,4 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
    
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [Solucionar problemas relacionados ao serviço de Disco do Data Box](data-box-disk-troubleshoot.md).
+Saiba como [Solucionar problemas relacionados ao serviço de Data Box Disk](data-box-disk-troubleshoot.md).

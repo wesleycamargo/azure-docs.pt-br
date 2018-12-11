@@ -1,6 +1,6 @@
 ---
-title: Gateway do Azure Data Box, gerenciar compartilhamentos | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar compartilhamentos em seu Gateway do Azure Data Box.
+title: Azure Data Box Gateway, gerenciar compartilhamentos | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,17 +15,17 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49165651"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Gateway do Azure Data Box 
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
-Este artigo descreve como gerenciar compartilhamentos em seu Gateway do Azure Data Box. Você pode gerenciar o Gateway do Azure Data Box usando o portal do Azure ou a interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para conta de armazenamento associada com os compartilhamentos.
+Este artigo descreve como gerenciar compartilhamentos em seu Azure Data Box Gateway. Você pode gerenciar o Azure Data Box Gateway usando o portal do Azure ou a interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para conta de armazenamento associada com os compartilhamentos.
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 
 ## <a name="about-shares"></a>Sobre compartilhamentos
 
-Para transferir dados para o Azure, você precisa criar compartilhamentos em seu Gateway do Azure Data Box. Os compartilhamentos que você adiciona ao dispositivo do Gateway do Data Box compartilhamentos em nuvem. Os dados nesses compartilhamentos são carregados automaticamente para a nuvem. Todas as funções de nuvem, como Atualizar e Sincronizar as chaves de armazenamento se aplicam a esses compartilhamentos. Use os compartilhamentos de nuvem quando você desejar que os dados de dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem.
+Para transferir dados para o Azure, você precisa criar compartilhamentos em seu Azure Data Box Gateway. Os compartilhamentos que você adiciona ao dispositivo do Data Box Gateway compartilhamentos em nuvem. Os dados nesses compartilhamentos são carregados automaticamente para a nuvem. Todas as funções de nuvem, como Atualizar e Sincronizar as chaves de armazenamento se aplicam a esses compartilhamentos. Use os compartilhamentos de nuvem quando você desejar que os dados de dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem.
 
 Neste artigo, você aprenderá a:
 
@@ -40,7 +40,7 @@ Neste artigo, você aprenderá a:
 
 Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
-1. No portal do Azure, vá até seu recurso do Gateway do Data Box e navegue até **Visão geral**. Clique em **+ Adicionar compartilhamento** na barra de comandos.
+1. No portal do Azure, vá até seu recurso do Data Box Gateway e navegue até **Visão geral**. Clique em **+ Adicionar compartilhamento** na barra de comandos.
 2. Em **Adicionar compartilhamento**, especifique as configurações de compartilhamento. Forneça um nome exclusivo para seu compartilhamento.
 
     ![Clique em adicionar compartilhamento](media/data-box-gateway-manage-shares/add-share-1.png)

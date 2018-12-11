@@ -1,6 +1,6 @@
 ---
-title: Transferir dados com o Gateway do Azure Data Box | Microsoft Docs
-description: Saiba como adicionar e conectar-se aos compartilhamentos no dispositivo do Gateway do Data Box.
+title: Transferir dados com o Azure Data Box Gateway | Microsoft Docs
+description: Saiba como adicionar e conectar-se aos compartilhamentos no dispositivo do Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,12 +15,12 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51249873"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Gateway do Azure Data Box (Versão prévia)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Azure Data Box Gateway (Versão prévia)
 
 
 ## <a name="introduction"></a>Introdução
 
-Este artigo descreve como adicionar e conectar-se aos compartilhamentos no Gateway do Data Box. Depois que os compartilhamentos são adicionados, o dispositivo Gateway do Data Box pode transferir dados para o Azure.
+Este artigo descreve como adicionar e conectar-se aos compartilhamentos no Data Box Gateway. Depois que os compartilhamentos são adicionados, o dispositivo Data Box Gateway pode transferir dados para o Azure.
 
 Esse procedimento leva cerca de 10 minutos para ser concluído. 
 
@@ -31,24 +31,24 @@ Neste tutorial, você aprenderá como:
 > * Conectar-se para compartilhar
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução. 
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de adicionar compartilhamentos ao Gateway do Data Box, verifique se:
+Antes de adicionar compartilhamentos ao Data Box Gateway, verifique se:
 
-* Você provisionou um dispositivo virtual e se conectou a ele conforme detalhado em [Provisionar um Gateway do Data Box no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Gateway do Data Box no VMware](data-box-gateway-deploy-provision-vmware.md). 
+* Você provisionou um dispositivo virtual e se conectou a ele conforme detalhado em [Provisionar um Data Box Gateway no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [Provisionar um Data Box Gateway no VMware](data-box-gateway-deploy-provision-vmware.md). 
 
-    O dispositivo virtual foi ativado conforme detalhado em [Conectar e ativar o Gateway do Azure Data Box](data-box-gateway-deploy-connect-setup-activate.md) e está pronto para criar compartilhamentos e transferir dados.
+    O dispositivo virtual foi ativado conforme detalhado em [Conectar e ativar o Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) e está pronto para criar compartilhamentos e transferir dados.
 
 
 ## <a name="add-a-share"></a>Adicionar um compartilhamento
 
 Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para criar um compartilhamento.
 
-1. Volte para o portal do Azure. Vá para **Todos os recursos** e procure o recurso Gateway do Data Box.
+1. Volte para o portal do Azure. Vá para **Todos os recursos** e procure o recurso Data Box Gateway.
     
-2. Na lista filtrada de recursos, selecione o recurso Gateway do Data Box e, em seguida, navegue para **Visão Geral**. Clique em **+ Adicionar compartilhamento** na barra de comandos do dispositivo.
+2. Na lista filtrada de recursos, selecione o recurso Data Box Gateway e, em seguida, navegue para **Visão Geral**. Clique em **+ Adicionar compartilhamento** na barra de comandos do dispositivo.
    
    ![Adicionar um compartilhamento](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
@@ -82,7 +82,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/) para 
 
 ## <a name="connect-to-the-share"></a>Conectar-se ao compartilhamento
 
-Execute estas etapas no cliente do Windows Server conectado ao Gateway do Data Box para se conectar aos compartilhamentos.
+Execute estas etapas no cliente do Windows Server conectado ao Data Box Gateway para se conectar aos compartilhamentos.
 
 
 1. Abra uma janela de comando. No prompt de comando, digite:
@@ -119,7 +119,7 @@ Execute estas etapas no cliente Linux conectado ao Edge do Data Box.
 
     Para obter mais informações, vá para [Instalar cliente NFSv4](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
-2. Depois que o cliente NFS for instalado, use o seguinte comando para montar o compartilhamento NFS criado em seu dispositivo do Gateway do Data Box:
+2. Depois que o cliente NFS for instalado, use o seguinte comando para montar o compartilhamento NFS criado em seu dispositivo do Data Box Gateway:
 
    `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
@@ -136,14 +136,14 @@ Execute estas etapas no cliente Linux conectado ao Edge do Data Box.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu tópicos do Gateway do Data Box, como:
+Neste tutorial, você aprendeu tópicos do Data Box Gateway, como:
 
 > [!div class="checklist"]
 > * Adicionar um compartilhamento
 > * Conectar-se para compartilhar
 
 
-Avance para o próximo tutorial para aprender a administrar seu Gateway do Data Box.
+Avance para o próximo tutorial para aprender a administrar seu Data Box Gateway.
 
 > [!div class="nextstepaction"]
 > [Usar a interface do usuário Web local para administrar o Gateway do Data Box](https://aka.ms/dbg-docs)

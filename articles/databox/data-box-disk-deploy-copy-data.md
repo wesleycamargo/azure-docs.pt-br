@@ -1,6 +1,6 @@
 ---
-title: Copiar dados para o Disco do Microsoft Azure Data Box | Microsoft Docs
-description: Use este tutorial para aprender a copiar dados para o Disco do Azure Data Box
+title: Copiar dados para o Microsoft Azure Data Box Disk | Microsoft Docs
+description: Use este tutorial para aprender a copiar dados para o Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
@@ -16,20 +16,20 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/02/2018
 ms.locfileid: "50913784"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Disco do Azure Data Box e verificar
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Azure Data Box Disk e verificar
 
 Este tutorial descreve como copiar dados do computador host e gerar somas de verificação para verificar a integridade dos dados.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Copiar dados para o Disco do Data Box
+> * Copiar dados para o Data Box Disk
 > * Verificar os dados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
-- Você concluiu o [Tutorial: Instalar e configurar o Disco do Azure Data Box](data-box-disk-deploy-set-up.md).
+- Você concluiu o [Tutorial: Instalar e configurar o Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e conectados a um computador cliente.
 - O computador cliente usado para copiar dados para os discos precisa executar um [Sistema operacional com suporte](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
 - Certifique-se de que o tipo de armazenamento pretendido para seus dados corresponde aos [tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types).
@@ -37,7 +37,7 @@ Antes de começar, verifique se:
 
 ## <a name="copy-data-to-disks"></a>Copiar dados para os discos
 
-Execute as seguintes etapas para fazer a conexão e copiar dados do computador para o Disco do Data Box.
+Execute as seguintes etapas para fazer a conexão e copiar dados do computador para o Data Box Disk.
 
 1. Exiba o conteúdo da unidade desbloqueada.
 
@@ -82,7 +82,7 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
 
     Vários discos podem ser usados em paralelo com vários trabalhos em execução em cada disco. 
 
-6. Verifique o status da cópia quando o trabalho está em andamento. O exemplo a seguir mostra a saída do comando robocopy para copiar arquivos no Disco do Data Box.
+6. Verifique o status da cópia quando o trabalho está em andamento. O exemplo a seguir mostra a saída do comando robocopy para copiar arquivos no Data Box Disk.
 
     ```
     C:\Users>robocopy
@@ -155,15 +155,15 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
 
 > [!IMPORTANT]
 > - Você é responsável por copiar os dados para pastas que correspondam ao formato de dados apropriado. Por exemplo, copie os dados de blob de bloco para a pasta de blobs de blocos. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), o carregamento de dados do Azure falhará em uma etapa posterior.
-> -  Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [limites do armazenamento do Azure e do Disco do Data Box](data-box-disk-limits.md). 
-> - Se dados estiverem sendo carregados pelo Disco do Data Box e por outro aplicativo fora do Disco do Data Box ao mesmo tempo, isso poderá causar falha no trabalho de upload e corromper os dados.
+> -  Durante a cópia de dados, verifique se o tamanho dos dados está em conformidade com os limites de tamanho descritos nos [limites do armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md). 
+> - Se dados estiverem sendo carregados pelo Data Box Disk e por outro aplicativo fora do Data Box Disk ao mesmo tempo, isso poderá causar falha no trabalho de upload e corromper os dados.
 
 ### <a name="split-and-copy-data-to-disks"></a>Dividir e copiar dados para os discos
 
 Este procedimento opcional pode ser usado quando você usar vários discos e tiver um grande conjunto de dados que precisa ser dividido e copiado entre todos os discos. A Data Box Split Copy ajuda a dividir e copiar os dados em um computador Windows.
 
-1. No seu computador Windows, verifique se você tem uma ferramenta Data Box Split Copy baixada e extraída em uma pasta local. Essa ferramenta foi baixada quando você baixou o conjunto de ferramentas para o Disco do Data Box para Windows.
-2. Abra o Explorador de Arquivos. Anote a unidade da fonte de dados e as letras das unidades atribuídas ao Disco do Data Box. 
+1. No seu computador Windows, verifique se você tem uma ferramenta Data Box Split Copy baixada e extraída em uma pasta local. Essa ferramenta foi baixada quando você baixou o conjunto de ferramentas para o Data Box Disk para Windows.
+2. Abra o Explorador de Arquivos. Anote a unidade da fonte de dados e as letras das unidades atribuídas ao Data Box Disk. 
 
      ![Dividir e copiar dados ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
@@ -182,7 +182,7 @@ Este procedimento opcional pode ser usado quando você usar vários discos e tiv
  
 5. Modifique o arquivo SampleConfig.json.
  
-    - Forneça um nome de trabalho. Isso cria uma pasta no Disco do Data Box e, eventualmente, torna-se o contêiner na conta de armazenamento do Azure associada a esses discos. O nome do trabalho precisa seguir as convenções de nomenclatura do contêiner do Azure. 
+    - Forneça um nome de trabalho. Isso cria uma pasta no Data Box Disk e, eventualmente, torna-se o contêiner na conta de armazenamento do Azure associada a esses discos. O nome do trabalho precisa seguir as convenções de nomenclatura do contêiner do Azure. 
     - Forneça um caminho de origem, anotando o formato do caminho no SampleConfigFile.json. 
     - Insira as letras das unidades correspondentes aos discos de destino. Os dados são tirados do caminho de origem e copiados para vários discos.
     - Forneça um caminho para os arquivos de log. Por padrão, ele é enviado para o diretório atual em que o .exe se encontra.
@@ -232,7 +232,7 @@ Para verificar os dados, execute as seguintes etapas.
 
 1. Execute `DataBoxDiskValidation.cmd` para validação de soma de verificação na pasta *DataBoxDiskImport* da unidade. 
     
-    ![Saída da ferramenta de validação do Disco do Data Box](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
+    ![Saída da ferramenta de validação do Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
 2. Escolha a opção apropriada. **É recomendado que você sempre valide os arquivos e gere somas de verificação selecionando a opção 2**. Dependendo do tamanho dos dados, esta etapa pode demorar um pouco. Depois que o script for concluído, saia da janela Comando. Se houver erros durante a validação e a geração da soma de verificação, você será notificado e também será fornecido um link para os logs de erros.
 
@@ -249,10 +249,10 @@ Para verificar os dados, execute as seguintes etapas.
 Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk como:
 
 > [!div class="checklist"]
-> * Copiar dados para o Disco do Data Box
+> * Copiar dados para o Data Box Disk
 > * Verificar a integridade dos dados
 
-Avance para o próximo tutorial a fim de saber como devolver o Disco do Data Box e verificar o carregamento de dados do Azure.
+Avance para o próximo tutorial a fim de saber como devolver o Data Box Disk e verificar o carregamento de dados do Azure.
 
 > [!div class="nextstepaction"]
 > [Devolver o Azure Data Box para a Microsoft](./data-box-disk-deploy-picked-up.md)

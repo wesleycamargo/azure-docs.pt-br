@@ -1,6 +1,6 @@
 ---
-title: Gerenciar usuários do Gateway do Azure Data Box | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar agendas de largura de banda em seu Gateway do Azure Data Box.
+title: Gerenciar usuários do Azure Data Box Gateway | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,14 +15,14 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49165991"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Gateway do Azure Data Box  
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar agendas de largura de banda em seu Azure Data Box Gateway  
 
-Este artigo descreve como gerenciar usuários em seu Gateway do Azure Data Box. As agendas de largura de banda permitem configurar o uso da largura de banda da rede em diferentes agendamentos ao longo das horas do dia. Essas agendas podem ser aplicadas às operações de download e upload de seu dispositivo para a nuvem. 
+Este artigo descreve como gerenciar usuários em seu Azure Data Box Gateway. As agendas de largura de banda permitem configurar o uso da largura de banda da rede em diferentes agendamentos ao longo das horas do dia. Essas agendas podem ser aplicadas às operações de download e upload de seu dispositivo para a nuvem. 
 
-Você pode adicionar, modificar ou excluir as agendas de largura de banda de seu Gateway do Data Box usando o portal do Azure.
+Você pode adicionar, modificar ou excluir as agendas de largura de banda de seu Data Box Gateway usando o portal do Azure.
 
 > [!IMPORTANT]
-> - O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
+> - O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 Neste artigo, você aprenderá a:
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá a:
 
 Para adicionar um usuário, siga estas etapas no portal do Azure.
 
-1. No portal do Azure de seu recurso do Gateway do Data Box, acesse **Largura de banda**.
+1. No portal do Azure de seu recurso do Data Box Gateway, acesse **Largura de banda**.
 2. No painel direito, clique em **+ Adicionar agendamento**.
 
     ![Clique em adicionar usuário](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
@@ -58,7 +58,7 @@ Para adicionar um usuário, siga estas etapas no portal do Azure.
 
 Execute as etapas a seguir para editar uma agenda de largura de banda. 
 
-1. No portal do Azure, vá até seu recurso do Gateway do Data Box e acesse Largura de banda. 
+1. No portal do Azure, vá até seu recurso do Data Box Gateway e acesse Largura de banda. 
 2. Na lista de agendas de largura de banda, selecione e clique em uma agenda que você deseja modificar.
     ![Modificar usuário](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-1.png)
 
@@ -73,9 +73,9 @@ Execute as etapas a seguir para editar uma agenda de largura de banda.
 
 ## <a name="delete-a-schedule"></a>excluir uma agenda
 
-Execute as seguintes etapas para excluir uma agenda de largura de banda associada a seu dispositivo de Gateway do Data Box.
+Execute as seguintes etapas para excluir uma agenda de largura de banda associada a seu dispositivo de Data Box Gateway.
 
-1. No portal do Azure, vá até seu recurso do Gateway do Data Box e acesse **Largura de banda**.  
+1. No portal do Azure, vá até seu recurso do Data Box Gateway e acesse **Largura de banda**.  
 
 2. Na lista de agendas de largura de banda, selecione uma agenda que você deseja excluir. Clique com o botão direito do mouse para exibir o menu de contexto e clique em **Excluir**. 
 

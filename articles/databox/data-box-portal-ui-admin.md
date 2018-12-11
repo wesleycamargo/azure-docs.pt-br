@@ -1,5 +1,5 @@
 ---
-title: Guia do administrador do portal do Disco do Azure Data Box | Microsoft Docs
+title: Guia do administrador do portal do Azure Data Box Disk | Microsoft Docs
 description: Descreve como usar o portal do Azure para administrar o Azure Data Box.
 services: databox
 author: alkohli
@@ -15,11 +15,11 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/19/2018
 ms.locfileid: "51974982"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Usar o portal do Azure para administrar o Disco do Data Box (Versão prévia)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Usar o portal do Azure para administrar o Data Box Disk (Versão prévia)
 
-Os tutoriais neste artigo aplicam-se ao Disco do Microsoft Azure Data Box durante a versão prévia. Este artigo descreve alguns dos fluxos de trabalho e tarefas de gerenciamento complexos que podem ser executados no Disco do Data Box. 
+Os tutoriais neste artigo aplicam-se ao Microsoft Azure Data Box Disk durante a versão prévia. Este artigo descreve alguns dos fluxos de trabalho e tarefas de gerenciamento complexos que podem ser executados no Data Box Disk. 
 
-Você pode gerenciar o Disco do Data Box pelo portal do Azure. Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o Portal do Azure para gerenciar pedidos e discos e acompanhar o status do pedido até sua conclusão.
+Você pode gerenciar o Data Box Disk pelo portal do Azure. Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o Portal do Azure para gerenciar pedidos e discos e acompanhar o status do pedido até sua conclusão.
 
 > [!IMPORTANT]
 > O Data Box Disk está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
@@ -47,7 +47,7 @@ Você não recebe uma notificação por email quando o pedido é cancelado.
 
 ## <a name="clone-an-order"></a>Clonar um pedido
 
-A clonagem é útil em determinadas situações. Por exemplo, um usuário usou um Disco do Data Box para transferir alguns dados. Conforme mais dados vão sendo gerados, há uma necessidade de mais discos para transferir dados para o Azure. Nesse caso, o mesmo pedido pode simplesmente ser clonado.
+A clonagem é útil em determinadas situações. Por exemplo, um usuário usou um Data Box Disk para transferir alguns dados. Conforme mais dados vão sendo gerados, há uma necessidade de mais discos para transferir dados para o Azure. Nesse caso, o mesmo pedido pode simplesmente ser clonado.
 
 Execute as etapas a seguir para clonar um pedido.
 
@@ -69,15 +69,15 @@ Só é possível excluir pedidos que tenham sido concluídos ou cancelados. Exec
 
 1. Acesse **Todos os recursos**. Pesquise seu pedido.
 
-    ![Pesquisar pedidos de Discos do Data Box](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Pesquisar pedidos de Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 
 2. Clique no pedido que você deseja excluir e vá para **Visão Geral**. Na barra de comandos, clique em **Excluir**.
 
-    ![Excluir pedido de Disco do Data Box 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Excluir pedido de Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
 
 3. Insira o nome do pedido quando solicitado a confirmar a exclusão de um pedido. Clique em **Excluir**.
 
-     ![Excluir pedido de Disco do Data Box 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Excluir pedido de Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
 
 
 ## <a name="download-shipping-label"></a>Faça o download da etiqueta de remessa
@@ -126,7 +126,7 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 |Status do pedido |DESCRIÇÃO |
 |---------|---------|
 |Encomendado     | Pedido feito com êxito. <br> Se os discos não estiverem disponíveis, você receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identificará um disco para remessa e preparará o pacote de disco.        |
-|Processado     | O processamento de pedidos foi concluído. <br> Durante o processamento do pedido, as seguintes ações ocorrem:<li>Os discos são criptografados usando a criptografia BitLocker AES-128. </li> <li>Os Discos do Data Box estão bloqueados para impedir acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante esse processo.</li>        |
+|Processado     | O processamento de pedidos foi concluído. <br> Durante o processamento do pedido, as seguintes ações ocorrem:<li>Os discos são criptografados usando a criptografia BitLocker AES-128. </li> <li>Os Azure Data Box Disk estão bloqueados para impedir acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante esse processo.</li>        |
 |Expedido     | O pedido foi enviado. Você deve receber o pedido em 1 a 2 dias.        |
 |Entregue     | O pedido foi entregue no endereço especificado no pedido.        |
 |Recolhido     |A remessa de devolução foi recolhida. <br> Após o recebimento da remessa no datacenter do Azure, os dados são carregados automaticamente no Azure.         |
@@ -140,4 +140,4 @@ Execute as etapas a seguir para editar os detalhes de notificação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [Solucionar problemas do Disco do Data Box](data-box-disk-troubleshoot.md).
+- Saiba como [Solucionar problemas do Data Box Disk](data-box-disk-troubleshoot.md).

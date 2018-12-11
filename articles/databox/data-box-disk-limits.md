@@ -1,6 +1,6 @@
 ---
-title: Limites de disco do Azure Data Box | Microsoft Docs
-description: Descreve os limites do sistema e tamanhos recomendados para o Disco do Microsoft Azure Data Box.
+title: Limites de Azure Data Box Disk | Microsoft Docs
+description: Descreve os limites do sistema e tamanhos recomendados para o Microsoft Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,21 +15,21 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2018
 ms.locfileid: "49389455"
 ---
-# <a name="azure-data-box-disk-limits-preview"></a>Limites de Disco do Azure Data Box (Versão Prévia)
+# <a name="azure-data-box-disk-limits-preview"></a>Limites de Azure Data Box Disk (Versão Prévia)
 
 
-Considere esses limites ao implantar e operar sua solução de Disco do Microsoft Azure Data Box. 
+Considere esses limites ao implantar e operar sua solução de Microsoft Azure Data Box Disk. 
 
 > [!IMPORTANT] 
-> O Disco do Azure Data Box está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
+> O Azure Data Box Disk está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
 
 
 ## <a name="data-box-service-limits"></a>Limites de serviço do Data Box
 
  - O serviço do Data Box está disponível somente nos EUA, UE, Canadá e Austrália em todas as regiões do Azure para nuvem pública do Azure.
- - Uma única conta de armazenamento é compatível com o Disco do Data Box.
+ - Uma única conta de armazenamento é compatível com o Data Box Disk.
 
-## <a name="data-box-disk-performance"></a>Desempenho do Disco do Data Box
+## <a name="data-box-disk-performance"></a>Desempenho do Data Box Disk
 
 Quando testado com discos conectados via USB 3.0, o desempenho do disco foi de até 430 MB/s. Os números reais variam dependendo do tamanho do arquivo usado. Para arquivos menores, o desempenho poderá ser mais baixo.
 
@@ -50,7 +50,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 - Não copie dados diretamente para os discos. Copiar dados para pastas *BlockBlob* e *PageBlob* pré-criadas.
 - Uma pasta sob as pastas *BlockBlob* e *PageBlob* é um contêiner. Por exemplo, os contêineres são criados como *BlockBlob/contêiner* e *PageBlob/contêiner*.
-- Se você tiver um objeto existente do Azure (como um blob) na nuvem com o mesmo nome que o objeto que está sendo copiado, o Disco do Data Box substituirá o arquivo na nuvem.
+- Se você tiver um objeto existente do Azure (como um blob) na nuvem com o mesmo nome que o objeto que está sendo copiado, o Data Box Disk substituirá o arquivo na nuvem.
 - Todos os arquivos gravados nos compartilhamentos *BlockBlob* e *PageBlob* são carregados como um blob de blocos e um blob de páginas, respectivamente.
 - Qualquer hierarquia de diretórios vazios (sem nenhum arquivo) criada sob as pastas *BlockBlob* e *PageBlob* não é carregada.
 - Se há erros ao carregar dados no Azure, um log de erros é criado na conta de armazenamento de destino. O caminho para esse log de erros está disponível no portal quando o upload é concluído e você pode examinar o log para tomar uma ação corretiva. Não exclua os dados da origem sem verificar os dados carregados.
@@ -61,7 +61,7 @@ Abaixo, são informados os limites do tamanho dos dados que são copiados para a
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite padrão          |
 |---------------------------------------------------------------------|------------------------|
-| Blob de páginas e blob de blocos                                            | 500 TB por conta de armazenamento. <br> Isso inclui dados de todas as fontes, incluindo o Disco do Data Box.|
+| Blob de páginas e blob de blocos                                            | 500 TB por conta de armazenamento. <br> Isso inclui dados de todas as fontes, incluindo o Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Limites de tamanho do objeto do Azure

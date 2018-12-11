@@ -37,5 +37,5 @@ Este documento fornece uma visão geral das opções de transferência de dados 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) e [Gateway de Caixa de Dados do Azure](/azure/databox-online/data-box-gateway-overview)
+- Saiba mais sobre [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) e [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
 - Saiba mais sobre a [Sincronização de arquivos do Azure](/azure/storage/files/storage-sync-files-deployment-guide)

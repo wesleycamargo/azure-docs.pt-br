@@ -104,7 +104,7 @@ Para obter mais informações sobre as redes virtuais e os firewalls do armazena
 
 Os dispositivos Data Box, Data Box Disk e Data Box Heavy ajudam a transferir grandes quantidades de dados para o Azure quando a rede não é uma opção. Esses dispositivos de transferência de dados off-line são enviados entre sua organização e o data center do Azure. Eles usam criptografia AES para ajudar a proteger seus dados em trânsito e passam por um processo completo de sanitização pós-upload para excluir seus dados do dispositivo.
 
-O Data Box Edge e o Data Box Gateway são produtos de transferência de dados on-line que atuam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada por inteligência artificial (AI) para processar dados. Gateway de caixa de dados é uma solução de virtualização com recursos de gateway de armazenamento.
+O Data Box Edge e o Data Box Gateway são produtos de transferência de dados on-line que atuam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma solução de virtualização com recursos de gateway de armazenamento.
 
 Saiba mais:
 

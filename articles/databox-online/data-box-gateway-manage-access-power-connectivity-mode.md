@@ -1,6 +1,6 @@
 ---
-title: O acesso ao dispositivo Gateway do Microsoft Azure Data Box, energia e acesso ao modo conectividade | Microsoft Docs
-description: Descreve como gerenciar o acesso, a potência e o modo de conectividade para o dispositivo de Gateway do Azure Data Box que ajuda a transferir dados para o Azure
+title: O acesso ao dispositivo Microsoft Azure Data Box Gateway, energia e acesso ao modo conectividade | Microsoft Docs
+description: Descreve como gerenciar o acesso, a potência e o modo de conectividade para o dispositivo de Azure Data Box Gateway que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,9 +15,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51516373"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gerenciar o acesso, energia e modo de conectividade para o Gateway do Azure Data Box (visualização)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gerenciar o acesso, energia e modo de conectividade para o Azure Data Box Gateway (visualização)
 
-Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Gateway do Azure Data Box. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
+Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
 Neste artigo, você aprenderá a:
 
@@ -27,11 +27,11 @@ Neste artigo, você aprenderá a:
 > * Gerenciar potência
 
 > [!IMPORTANT]
-> O Gateway do Data Box está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
+> O Data Box Gateway está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de solicitar e implantar essa solução.
 
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
-O acesso ao seu dispositivo de Gateway do Azure Data Box é controlado pelo uso de uma senha de administrador do dispositivo. Você pode alterar a senha do administrador por meio da interface do usuário da web local. Você também pode redefinir a senha do administrador do dispositivo no portal do Azure.
+O acesso ao seu dispositivo de Azure Data Box Gateway é controlado pelo uso de uma senha de administrador do dispositivo. Você pode alterar a senha do administrador por meio da interface do usuário da web local. Você também pode redefinir a senha do administrador do dispositivo no portal do Azure.
 
 ### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
 

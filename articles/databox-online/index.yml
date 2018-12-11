@@ -19,7 +19,7 @@ metadata:
   ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
-  description: A família do Azure Data Box permite que você transfira centenas de terabytes de dados para o Azure de forma rápida, barata e confiável. Use dispositivos do Data Box para transferências de dados de alto desempenho de rede.<p>Escolha Gateway do Azure Data Box<SUP>versão prévia</SUP> para enviar dados para arquivamento em nuvem, recuperação de desastres, ou para processar dados em escala de nuvem.  Use o Data Box Edge<SUP>versão prévia</SUP> para filtrar, analisar e transformar seus dados à medida que eles são transferidos para o Azure.</p><p>Confira nossos tutoriais para saber como aproveitar o Gateway do Data Box e o Data Box Edge para transferências baseadas em rede.</p>
+  description: A família do Azure Data Box permite que você transfira centenas de terabytes de dados para o Azure de forma rápida, barata e confiável. Use dispositivos do Data Box para transferências de dados de alto desempenho de rede.<p>Escolha Data Box Gateway<SUP>versão prévia</SUP> para enviar dados para arquivamento em nuvem, recuperação de desastres, ou para processar dados em escala de nuvem.  Use o Data Box Edge<SUP>versão prévia</SUP> para filtrar, analisar e transformar seus dados à medida que eles são transferidos para o Azure.</p><p>Confira nossos tutoriais para saber como aproveitar o Data Box Gateway e o Data Box Edge para transferências baseadas em rede.</p>
 sections:
 - title: Tutoriais
   items:

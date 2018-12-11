@@ -21,7 +21,7 @@ O Azure Data Box Edge é uma solução de armazenamento que permite processar da
 
 O Data Box Edge usa um dispositivo físico fornecido pela Microsoft para acelerar a transferência de dados segura. O dispositivo físico reside em seu local e você grava os dados nele usando os protocolos NFS e SMB. 
 
-O Data Box Edge tem todas as funcionalidades do Gateway do Data Box. Além disso, o Data Box é equipado com funcionalidades de computação borda habilitadas para IA que ajudam a analisar, processar ou filtrar dados à medida em que são movidos para o blob de blocos do Azure, blob de páginas ou para os Arquivos do Azure.  
+O Data Box Edge tem todas as funcionalidades do Data Box Gateway. Além disso, o Data Box é equipado com funcionalidades de computação borda habilitadas para IA que ajudam a analisar, processar ou filtrar dados à medida em que são movidos para o blob de blocos do Azure, blob de páginas ou para os Arquivos do Azure.  
 
 > [!IMPORTANT]
 > - O Data Box Edge está em versão prévia. [Inscreva-se](#sign-up) neste serviço!
@@ -121,7 +121,7 @@ O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamen
 
 ## <a name="sign-up"></a>Inscrição
 
-O Data Box Edge está em versão prévia e uma inscrição é necessária. Siga estas etapas para inscrever-se no Gateway do Data Box:
+O Data Box Edge está em versão prévia e uma inscrição é necessária. Siga estas etapas para inscrever-se no Data Box Gateway:
 
 1. Entre no portal do Azure em: [https://aka.ms/databox-edge](https://aka.ms/databox-edge).
 

@@ -21,7 +21,7 @@ O serviço de Importação/Exportação do Azure permite transferir com seguran�
 
 Forneça suas próprias unidades de disco e transfira dados com o serviço de Importação/Exportação do Microsoft Azure. Também é possível usar unidades de disco fornecidas pela Microsoft. 
 
-Se você quiser transferir dados usando unidades de disco fornecidas pela Microsoft, é possível usar o [Disco do Azure Data Box](../../databox/data-box-disk-overview.md) para importar dados para o Azure. A Microsoft envia até 5 SSDs (unidades de disco de estado sólido) criptografadas com uma capacidade total de 40 TB por pedido, para seu datacenter através de uma operadora regional. É possível configurar rapidamente unidades de disco, copiar dados em unidades de disco por uma conexão USB 3.0 e enviar as unidades de disco de volta ao Azure. Para obter mais informações, acesse [Visão geral do Disco do Azure Data Box](../../databox/data-box-disk-overview.md).
+Se você quiser transferir dados usando unidades de disco fornecidas pela Microsoft, é possível usar o [Azure Data Box Disk](../../databox/data-box-disk-overview.md) para importar dados para o Azure. A Microsoft envia até 5 SSDs (unidades de disco de estado sólido) criptografadas com uma capacidade total de 40 TB por pedido, para seu datacenter através de uma operadora regional. É possível configurar rapidamente unidades de disco, copiar dados em unidades de disco por uma conexão USB 3.0 e enviar as unidades de disco de volta ao Azure. Para obter mais informações, acesse [Visão geral do Azure Data Box Disk](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Usecases de importação/exportação do Microsoft Azure
 
