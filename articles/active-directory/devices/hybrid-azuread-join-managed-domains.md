@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963924"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887790"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
 
@@ -109,7 +109,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
-    a. Selecione a floresta.
+     a. Selecione a floresta.
 
     b. Selecione o serviço de autenticação.
 
@@ -140,6 +140,8 @@ Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de n�
  
 - Definir as configurações de Intranet Local para registro do dispositivo
 
+- Configurar logon único (SSO) contínuo
+
 - Controlar os dispositivos de nível inferior do Windows 
 
 
@@ -166,6 +168,11 @@ Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de ní
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, é necessário habilitar **Permitir atualizações na barra de status via script** na zona da Intranet Local do usuário.
+
+
+### <a name="configure-seamless-sso"></a>Configurar SSO contínuo
+
+Para concluir a junção híbrida do Azure AD de seus dispositivos de nível inferior do Windows em um domínio gerenciado usando Autenticação de Passagem (PTA) ou Sincronização de Hash de Senha (PHS) como o método de autenticação de nuvem do Azure AD, você deve também [configurar o SSO contínuo](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426098"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724087"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -42,7 +42,7 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
     ![Criar uma conta do Batch][account_portal]
 
-    a. **Nome da conta**: o nome que você escolher deve ser exclusivo dentro da região do Azure onde a conta é criada (confira **Local** abaixo). O nome da conta pode conter apenas minúsculas ou números e deve ter 3 a 24 caracteres de comprimento.
+     a. **Nome da conta**: o nome que você escolher deve ser exclusivo dentro da região do Azure onde a conta é criada (confira **Local** abaixo). O nome da conta pode conter apenas minúsculas ou números e deve ter 3 a 24 caracteres de comprimento.
 
     b. **Assinatura**: a assinatura na qual a conta do Lote será criada. Se você tiver somente uma assinatura, ela será selecionada por padrão.
 
@@ -91,11 +91,11 @@ Ao criar sua primeira conta do Lote no modo de assinatura do usuário, é precis
 
     ![Registrar o provedor Microsoft.Batch][register_provider]
 
-1. Na página **Assinatura**, selecione **Controle de acesso (IAM)** > **Adicionar**.
+1. Na página **Assinatura**, selecione **Controle de acesso (IAM)** > **Atribuições de função** > **Adicionar atribuição de função**.
 
     ![Controle de acesso de assinatura][subscription_access]
 
-1. Na página **Adicionar permissões**, selecione a função **Colaborador**, procure a API do Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
+1. Na página **Adicionar atribuição de função**, selecione a função **Colaborador**, procure a API do Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
     1. **MicrosoftAzureBatch**.
     1. **Lote do Microsoft Azure**. Os locatários mais recentes do Azure AD podem usar esse nome.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote. 
