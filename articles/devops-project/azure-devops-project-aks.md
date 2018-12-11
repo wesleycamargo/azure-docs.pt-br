@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implantar seu aplicativo ASP.NET Core no Serviço de Kubernetes do Azure (AKS) usando Azure DevOps Projects'
+title: 'Tutorial: Implantar aplicativos ASP.NET Core no Serviço de Kubernetes do Azure com o Azure DevOps Projects'
 description: O Azure DevOps Projects facilita o uso inicial do Azure. Com o DevOps Projects, é possível implantar seu aplicativo ASP.NET Core com o AKS (Serviço de Kubernetes do Azure) em algumas etapas rápidas.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165537"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620635"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Tutorial: Implantar seu aplicativo ASP.NET Core no Serviço de Kubernetes do Azure (AKS) usando Azure DevOps Projects
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutorial: Implantar aplicativos ASP.NET Core no Serviço de Kubernetes do Azure com o Azure DevOps Projects
 
 O Azure DevOps Projects apresenta uma experiência simplificada na qual é possível trazer o seu código e repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure. 
 
@@ -24,6 +24,7 @@ O DevOps Projects também:
 * Cria automaticamente os recursos do Azure, como o AKS (Serviço de Kubernetes do Azure).
 * Cria e configura um pipeline de lançamento no Azure DevOps que define um pipeline de build e de lançamento de CI/CD.
 * Cria um recurso do Azure Application Insights para monitoramento.
+* Habilita o [Azure Monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) para monitorar o desempenho para as cargas de trabalho de contêiner no cluster do AKS
 
 Neste tutorial, você irá:
 
@@ -48,7 +49,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
 1. No painel esquerdo, selecione **Criar um recurso**.
 
-1. Na caixa de pesquisa, digite **DevOps Projects**, depois selecione **Criar**.
+1. Na caixa de pesquisa, digite **DevOps Projects** e selecione **Criar**.
 
     ![O painel do DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -97,7 +98,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organiza
 1. Na parte superior do painel do DevOps Projects, selecione **Pipelines de Build**.  
     Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
-1. Aponte para o campo **Status**, depois selecione as reticências (...).  
+1. Aponte para o campo **Status** e selecione as reticências (...).  
     Um menu exibe várias opções, como o enfileiramento de um novo build, pausando um build e editando o pipeline de build.
 
 1. Selecione **Editar**.
@@ -113,7 +114,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organiza
     Esse painel exibe uma trilha de auditoria das alterações recentes do build. O Azure DevOps controla quaisquer alterações feitas no pipeline de build e permite que você compare versões.
 
 1. Selecione **Gatilhos**.  
-    O DevOps Projects criou automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
+    O DevOps Projects cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**.  
     Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
@@ -125,7 +126,7 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 1. Selecione **Build e lançamento**, depois selecione **Lançamentos**.  
     O DevOps Projects cria um pipeline de lançamento para gerenciar implantações no Azure.
 
-1. Selecione as reticências (...) ao lado do pipeline de lançamento, depois selecione **Editar**.  
+1. Selecione as reticências (...) ao lado do pipeline de lançamento e selecione **Editar**.  
     O pipeline de lançamento contém um *pipeline* que define o processo de lançamento.
 
 1. Em **Artefatos**, selecione **Soltar**.  
@@ -136,11 +137,11 @@ O DevOps Projects cria e configura automaticamente as etapas necessárias para i
 
 1. À direita, selecione **Exibir versões** para exibir um histórico de versões.
 
-1. Selecione as reticências (...) ao lado de uma versão, depois selecione **Abrir**.  
+1. Selecione as reticências (...) ao lado de uma versão e selecione **Abrir**.  
     É possível explorar vários menus, como um resumo da versão, itens de trabalho associados e testes.
 
 1. Selecione **Confirmações**.  
-    Essa exibição mostra as confirmações de código associadas à essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
+    Essa exibição mostra as confirmações de código associadas a essa implantação. Compare as versões para exibir as diferenças de confirmação entre implantações.
 
 1. Selecione **Logs**.  
     Os logs contêm informações úteis sobre o processo de implantação. É possível exibi-los durante e após as implantações.
@@ -158,7 +159,7 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. Faça uma alteração no arquivo, como adicionar um texto dentro de uma das marcas div. 
 
-1. No canto superior direito, selecione **Confirmar**, depois selecione **Confirmar** novamente para efetuar push da alteração.  
+1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração.  
     Após alguns instantes, um build é iniciado no Azure DevOps, e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Projects ou no navegador com sua organização do Azure DevOps.
 
 1. Após concluir o lançamento, atualize o aplicativo para verificar as alterações.

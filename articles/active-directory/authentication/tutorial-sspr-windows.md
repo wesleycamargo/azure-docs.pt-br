@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277759"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844831"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -101,23 +101,29 @@ Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha 
 
 Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## <a name="common-issues"></a>Problemas comuns
+O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
+
+![Exemplo de redefinição de senha na tela de logon no log de auditoria do Microsoft Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Limitações
 
 Ao testar essa funcionalidade usando o Hyper-V, o link de "Redefinir senha" não aparece.
 
 * Acesse a máquina virtual que você está usando para teste, clique em **Exibição** e, em seguida, desmarque a opção **Sessão aprimorada**.
 
-Ao testar essa funcionalidade usando a Área de Trabalho Remota, o link de “Redefinir senha” não aparece.
+Ao testar essa funcionalidade usando a Área de Trabalho Remota ou uma seção de VM avançada, o link de “Redefinir senha” não aparece.
 
 * Atualmente não há suporte para a redefinição de senha a partir de uma Área de Trabalho Remota.
 
-Se a tela de bloqueio do Windows for desabilitada usando uma chave do Registro ou uma política de grupo, **Redefinir senha** não estará disponível.
-
 Se for exigido o Ctrl + Alt + Del pela política ou as notificações de tela de bloqueio estiverem desativadas, a **Redefinição de senha** não funcionará.
 
-O log de auditoria do Microsoft Azure AD inclui informações sobre o endereço IP e o ClientType em que a redefinição de senha ocorreu.
+As configurações de política a seguir são conhecidas por interferir com a capacidade de redefinir senhas
 
-![Exemplo de redefinição de senha na tela de logon no log de auditoria do Microsoft Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching é definido como habilitado ou 1
+   * DontDisplayLastUserName é definido como habilitado ou 1
+   * NoLockScreen é definido como habilitado ou 1
+   * EnableLostMode é definido no dispositivo
+   * Explorer.exe é substituído por um shell personalizado
 
 Se os seus computadores com Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deverá ter permissão.
 

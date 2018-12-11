@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 08/08/2018
+ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 0531985cbab9c10b4df8ea3f27ac6c7903790da5
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: bec0b9a7e34f1577f80a99f5380795c479c04bc8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978223"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890459"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurar seu ambiente de desenvolvimento do Windows para compilar aplicativos de Malha do Service Fabric
 
@@ -73,27 +73,31 @@ Instale o tempo de execução da Malha do Service Fabric, o SDK e as ferramentas
 
 ## <a name="build-a-cluster"></a>Criar um cluster
 
+> [!IMPORTANT]
+> O Docker **deve** estar em execução antes de um cluster ser compilado.
+> Teste se o Docker está em execução abrindo uma janela de terminal e executando `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está em execução e você está pronto para compilar um cluster.
+
 Se você estiver usando o Visual Studio, você pode ignorar esta seção porque o Visual Studio criará um cluster local para você se você não tiver um.
 
 Para melhor desempenho de depuração ao criar e executar aplicativos do Service Fabric, é recomendável criar um cluster de nó único de desenvolvimento local. Esse cluster deve ser executado sempre que você implanta ou depura um projeto de malha do Service Fabric.
 
-O Docker **deve** estar em execução antes de um cluster ser compilado. Teste se o Docker está em execução abrindo uma janela de terminal e executando `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está em execução e você está pronto para compilar um cluster.
-
-Depois de instalar o tempo de execução, os SDKs e as ferramentas do Visual Studio, crie um cluster de desenvolvimento.
+Depois de instalar o tempo de execução, os SDKs, as ferramentas do Visual Studio, Docker e estar com o Docker funcionando, crie um cluster de desenvolvimento.
 
 1. Feche a janela do PowerShell.
 2. Abra uma janela nova, com privilégios elevados do PowerShell como administrador. Essa etapa é necessária para carregar os módulos do Service Fabric que foram instalados.
 3. Digite o seguinte comando do PowerShell para criar um cluster de desenvolvimento:
 
     ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateMeshCluster -CreateOneNodeCluster
     ```
-
 4. Para iniciar a ferramenta de gerenciamento do cluster, execute o comando do PowerShell a seguir:
 
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
+5. Depois que a ferramenta Gerenciador do cluster de serviço estiver funcionando (aparece na bandeja do sistema), clique nela com o botão direito do mouse e clique em **Iniciar o Cluster Local**.
+
+![Figura 1 – Iniciar o cluster local](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 
 Agora você está pronto para criar os aplicativos de malha do Service Fabric!
 
@@ -109,5 +113,5 @@ Encontre respostas para [dúvidas comuns](service-fabric-mesh-faq.md).
 [download-runtime]: https://aka.ms/sfruntime
 [download-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
-[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
+[download-tools]: https://aka.ms/sfmesh_vs2017tools
 [download-visual-studio]: https://www.visualstudio.com/downloads/

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426179"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633717"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar um ambiente de rede de teste
 > * Implantar um firewall
 > * Criar uma rota padrão
-> * Configurar um aplicativo para permitir o acesso a github.com
+> * Configurar um aplicativo para permitir o acesso ao msn.com
 > * Configurar uma regra de rede para permitir o acesso a servidores DNS externos
 > * Testar o firewall
 
@@ -136,7 +136,7 @@ Implante o firewall na VNET.
 2. Clique em **Rede**e, após **Em destaque**, clique em **Ver todos**.
 3. Clique em **Firewall** > **Criar**. 
 4. Na página **Criar um Firewall**, use a tabela abaixo para configurar o firewall:
-   
+
    |Configuração  |Valor  |
    |---------|---------|
    |NOME     |Test-FW01|
@@ -146,12 +146,12 @@ Implante o firewall na VNET.
    |Escolher uma rede virtual     |**Usar existente**: Test-FW-VN|
    |Endereço IP público     |**Criar novo**. O endereço IP público deve ser do tipo SKU Standard.|
 
-2. Clique em **Revisar + Criar**.
-3. Reveja o resumo e clique em **Criar** para criar o firewall.
+5. Clique em **Revisar + Criar**.
+6. Reveja o resumo e clique em **Criar** para criar o firewall.
 
    Isso levará alguns minutos para ser implantado.
-4. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e clique no firewall **Test-FW01**.
-6. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
+7. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e clique no firewall **Test-FW01**.
+8. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
 
@@ -182,7 +182,7 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 
 ## <a name="configure-an-application-rule"></a>Configurar uma regra de aplicativo
 
-Essa é a regra de aplicativo que permite o acesso de saída para github.com.
+Essa é a regra de aplicativo que permite o acesso de saída para msn.com.
 
 1. Abra **Test-FW-RG**e clique no firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Configurações**, clique em **Regras**.
@@ -194,7 +194,7 @@ Essa é a regra de aplicativo que permite o acesso de saída para github.com.
 8. Em **Regras**, **FQDNs de Destino**, para **Nome**, digite **AllowGH**.
 9. Em **Endereços de Origem**, digite **10.0.2.0/24**.
 10. Em **Protocol:port**, digite **http, https**.
-11. Em **FQDNS de destino**, digite **github.com**
+11. Em **FQDNS de destino**, digite **msn.com**
 12. Clique em **Adicionar**.
 
 O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infraestrutura que têm permissão por padrão. Esses FQDNs são específicos da plataforma e não podem ser usados para outras finalidades. Para saber mais, veja [FQDNs de infraestrutura](infrastructure-fqdns.md).
@@ -204,17 +204,17 @@ O Firewall do Azure inclui uma coleção de regras internas para FQDNs de infrae
 Essa é a regra de rede que permite o acesso de saída para dois endereços IP na porta 53 (DNS).
 
 1. Clique na guia **Coleção de regras de rede**.
-1. Clique em **Adicionar coleção de regras de rede**.
-2. Em **Nome**, digite **Net-Coll01**.
-3. Digite **200** em **Prioridade**.
-4. Em **Ação**, selecione **Permitir**.
+2. Clique em **Adicionar coleção de regras de rede**.
+3. Em **Nome**, digite **Net-Coll01**.
+4. Digite **200** em **Prioridade**.
+5. Em **Ação**, selecione **Permitir**.
 
 6. Em **Regras**, digite **AllowDNS** como **Nome**.
-8. Em **Protocolo**, selecione **UDP**.
-9. Em **Endereços de Origem**, digite **10.0.2.0/24**.
-10. Em Endereço de destino, digite **209.244.0.3,209.244.0.4**
-11. Em **Portas de Destino**, digite **53**.
-12. Clique em **Adicionar**.
+7. Em **Protocolo**, selecione **UDP**.
+8. Em **Endereços de Origem**, digite **10.0.2.0/24**.
+9. Em Endereço de destino, digite **209.244.0.3,209.244.0.4**
+10. Em **Portas de Destino**, digite **53**.
+11. Clique em **Adicionar**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Altere os endereços DNS primário e secundário para o adaptador de rede **Srv-Wprk**
 
@@ -235,12 +235,12 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
 2. Conectar-se a uma área de trabalho remota à máquina virtual **Srv-Jump** e de lá abra uma conexão de área de trabalho remota para o endereço IP privado **Srv-Work**.
 
-5. Abra o Internet Explorer e navegue até http://github.com.
-6. Clique em **OK** > **Fechar** nos alertas de segurança.
+3. Abra o Internet Explorer e navegue até http://msn.com.
+4. Clique em **OK** > **Fechar** nos alertas de segurança.
 
-   Você deve ver a página inicial do GitHub.
+   Você verá a página inicial do MSN.
 
-7. Navegue até http://www.msn.com.
+5. Navegue até http://www.msn.com.
 
    Você deve ser bloqueado pelo firewall.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425095"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678654"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
 
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 Se esse código detectar que ele está sendo executado em produção (que indica o ambiente do Azure), ele usará a cadeia de conexão configurada para se conectar ao Banco de Dados SQL.
 
 A chamada `Database.Migrate()` ajuda você quando ele está em execução no Azure, porque ela cria automaticamente os bancos de dados necessários para o aplicativo .NET Core, de acordo com sua configuração de migração. 
+
+> [!IMPORTANT]
+> Para aplicativos de produção que precisam ser expandidos, siga as práticas recomendadas em [Aplicar migrações em produção](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
 Salve suas alterações e depois confirme-as no repositório do Git. 
 

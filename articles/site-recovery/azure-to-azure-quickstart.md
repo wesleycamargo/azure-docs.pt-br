@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c0d5b556cfeaf26e58104c1cbb7d394e5594f3e5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212923"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850492"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação de desastre para uma região secundária do Azure para uma VM do Azure 
 
@@ -54,10 +54,10 @@ Após o trabalho de replicação, você poderá verificar o status de replicaç�
 
 A VM na região primária deixa de replicar quando você desabilita a replicação para ela:
 
-- As configurações de replicação de origem são limpas automaticamente.
+- As configurações de replicação de origem são limpas automaticamente. Observe que a extensão de Site Recovery instalada como parte da replicação não é removida e precisa ser removida manualmente. 
 - A cobrança do Site Recovery para a VM também é interrompida.
 
-Interrompa a replicação da seguinte maneira:
+Interrompa a replicação da seguinte maneira
 
 1. Selecione a VM.
 2. Em **Recuperação de desastres**, clique em **Desabilitar Replicação**.

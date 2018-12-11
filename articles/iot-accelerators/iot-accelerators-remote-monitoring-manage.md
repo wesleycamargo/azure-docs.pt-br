@@ -1,35 +1,32 @@
 ---
-title: Gerenciar dispositivos em uma solução de monitoramento remoto baseada no Azure | Microsoft Docs
-description: Este tutorial mostra como gerenciar dispositivos conectados ao acelerador de solução de Monitoramento Remoto.
+title: 'Tutorial: Configurar dispositivos em uma solução de monitoramento remoto baseada no Azure | Microsoft Docs'
+description: Este tutorial mostra como configurar os dispositivos conectados ao acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821033"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679147"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar e gerenciar dispositivos conectados à sua solução de monitoramento
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar dispositivos conectados à sua solução de monitoramento
 
-Neste tutorial, você usará o acelerador da solução de Monitoramento Remoto para identificar e corrigir problemas em dispositivos IoT conectados. Adicione um novo dispositivo ao acelerador de solução, configure o dispositivo e atualize o firmware do dispositivo.
+Neste tutorial, você usará o acelerador da solução de Monitoramento Remoto para identificar e corrigir problemas em dispositivos IoT conectados. Adicione um novo dispositivo ao acelerador de solução e configure-o.
 
-A Contoso solicitou novas máquinas para expandir uma de suas instalações. Enquanto espera a entrega das novas máquinas, você pode executar uma simulação para testar o comportamento da solução. Para executar a simulação, você pode adicionar um novo dispositivo de mecanismo simulado ao acelerador de solução de Monitoramento Remoto e testar se esse dispositivo simulado responde corretamente a ações e atualizações de configuração.
-
-Para fornecer uma maneira extensível de configurar e gerenciar dispositivos, o acelerador de solução de Monitoramento Remoto usa recursos do Hub IoT como [trabalhos](../iot-hub/iot-hub-devguide-jobs.md) e [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md). Embora este tutorial use dispositivos simulados, um desenvolvedor de dispositivo pode implementar métodos diretos em um [dispositivo físico conectado ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
+A Contoso solicitou novas máquinas para expandir uma de suas instalações. Enquanto espera a entrega das novas máquinas, você pode executar uma simulação para testar o comportamento da solução. Para executar a simulação, é possível adicionar um novo dispositivo de mecanismo simulado ao acelerador de solução de Monitoramento Remoto e testar se esse dispositivo simulado responde corretamente às atualizações de configuração. Embora este tutorial use dispositivos simulados, um desenvolvedor de dispositivo pode implementar métodos diretos em um [dispositivo físico conectado ao acelerador de solução de Monitoramento Remoto](iot-accelerators-connecting-devices.md).
 
 Neste tutorial, você irá:
 
 >[!div class="checklist"]
 > * Provisionar um dispositivo simulado.
 > * Testar um dispositivo simulado.
-> * Atualizar o firmware de um dispositivo.
 > * Reconfigurar um dispositivo.
 > * Organizar seus dispositivos.
 
@@ -60,24 +57,6 @@ Em **Detalhes do Dispositivo**, verifique se o novo dispositivo está enviando t
 O painel **Detalhes do Dispositivo** exibe outras informações sobre o dispositivo como valores de marca, os métodos com suporte e as propriedades relatadas pelo dispositivo.
 
 Para exibir um diagnóstico detalhado, role para baixo no painel **Detalhes do dispositivo** para exibir a seção **Diagnóstico**.
-
-## <a name="act-on-a-device"></a>Agir em um dispositivo
-
-Para testar se o dispositivo de mecanismo simulado responde corretamente às ações iniciadas no painel, execute o método **FirmwareUpdate**. Para atuar em um dispositivo com a execução de um método, selecione o dispositivo na lista de dispositivos e clique em **Trabalhos**. Você poderá selecionar mais de um dispositivo se quiser agir em vários dispositivos. No painel **Trabalhos**, selecione **Métodos**. O modelo de dispositivo **Mecanismo** especifica três métodos: **FirmwareUpdate**, **FillTank** e **EmptyTank**:
-
-[![Métodos de mecanismo](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Escolha **FirmwareUpdate**, defina o nome do trabalho como **UpdateEngineFirmware**, defina a versão do firmware como **2.0.0**, defina o URI do firmware como **http://contoso.com/engine.bin**e clique em **Aplicar**:
-
-[![Agendar o método de atualização do firmware](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-Para acompanhar o status do trabalho, clique em **Exibir status do trabalho**:
-
-[![Monitorar o trabalho de atualização de firmware agendado](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-Depois que o trabalho for concluído, navegue de volta para a página **Dispositivos**. A nova versão do firmware é exibida para o dispositivo de mecanismo.
-
-Se você selecionar vários dispositivos de tipos diferentes na página **Dispositivos**, ainda poderá criar um trabalho para executar um método nesses vários dispositivos. O painel **Trabalhos** mostra somente os tipos de método comuns a todos os dispositivos selecionados.
 
 ## <a name="reconfigure-a-device"></a>Reconfigurar um dispositivo
 

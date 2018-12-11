@@ -12,18 +12,19 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7483ac4521b0b997111dcc5705ba8c28a8443299
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fdd29bbfaf36619fd823220e5d32a48a1619679b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842060"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+> [!NOTE] 
+> O Java para Azure Functions está atualmente na versão prévia.
 
-Este guia de início rápido fornece orientação para a criação de um projeto de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) com o Maven, testá-lo localmente e implantá-lo no Azure Functions. Quando terminar, você terá um aplicativo de funções disparado por HTTP em execução no Azure.
+Este guia de início rápido fornece orientação para criar um projeto de função [sem servidor](https://azure.microsoft.com/solutions/serverless/) com o Maven, testá-lo localmente e implantá-lo no Azure. Quando terminar, seu código de função Java estará em execução na nuvem e poderá ser disparado a partir de uma solicitação HTTP.
 
 ![Acessar uma função Olá, Mundo na linha de comando com cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -41,9 +42,23 @@ Para desenvolver aplicativos de funções com Java, você deve ter o seguinte in
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalação das ferramentas básicas do Azure Functions
 
-As Ferramentas Básicas do Azure Functions fornecem um ambiente de desenvolvimento local para gravar, executar e depurar funções do Azure no terminal ou prompt de comando. 
+As [Ferramentas Básicas do Azure Functions 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fornecem um ambiente de desenvolvimento local para gravar, executar e depurar funções do Azure. 
 
-Instale a [versão 2 das Ferramentas Básicas](functions-run-local.md#v2) no computador local antes de continuar.
+Para instalá-las, visite a seção de [Instalação](https://github.com/azure/azure-functions-core-tools#installing) do projeto de Ferramentas principais do Azure Functions para encontrar as instruções específicas para o seu sistema operacional.
+
+Também é possível fazer a instalação manualmente com [npm](https://www.npmjs.com/), incluído com o [Node.js](https://nodejs.org/), depois de instalar os seguintes requisitos:
+
+-  [.NET core](https://www.microsoft.com/net/core), a versão mais recente.
+-  [Node.js](https://nodejs.org/download/), versão 8.6 ou superior.
+
+Para continuar com uma instalação baseada em npm, execute:
+
+```
+npm install -g azure-functions-core-tools@core
+```
+
+> [!NOTE]
+> Se você tiver problemas para instalar as Ferramentas Básicas do Azure Functions 2.0, consulte [Tempo de execução da versão 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
 ## <a name="generate-a-new-functions-project"></a>Gerar um novo projeto do Functions
 
@@ -66,8 +81,6 @@ mvn archetype:generate ^
 
 O Maven solicitará os valores necessários para concluir a geração do projeto. Para os valores de _groupId_, _artifactId_ e _versão_, consulte a referência [Convenções de nomenclatura Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). O valor de _appName_ deve ser exclusivo no Azure, portanto, o Maven gera um nome de aplicativo com base no _artifactId_ em inserido anteriormente como padrão. O valor de _packageName_ determina o pacote de Java para o código de função gerado.
 
-O valor de `appRegion` especifica em qual [região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) você deseja executar o aplicativo Function implantado. Você pode obter uma lista de valores de nome de região por meio do comando `az account list-locations` na CLI do Azure. O valor `resourceGroup` especifica em qual grupo de recursos do Azure o aplicativo de funções será criado.
-
 Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são usados como um exemplo e tornam as etapas posteriores deste início rápido mais fáceis de ler. Forneça seus próprios valores para o Maven nesta etapa.
 
 ```Output
@@ -76,18 +89,22 @@ Define value for property 'artifactId' : fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
-Define value for property 'appRegion' westus : 
-Define value for property 'resourceGroup' java-functions-group: 
 Confirm properties configuration: Y
 ```
 
-O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma simples função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que reflete o corpo da solicitação após uma cadeia de caracteres "Olá, ".
+O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma simples função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que reflete o corpo da solicitação:
 
 ```java
 public class Function {
-    @FunctionName("HttpTrigger-Java")
-    public HttpResponseMessage HttpTriggerJava(
-    @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,final ExecutionContext context) {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
+    @FunctionName("hello")
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
         // Parse query parameter
@@ -95,12 +112,13 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
         } else {
-            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+            return request.createResponse(200, "Hello, " + name);
         }
     }
 }
+
 ```
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -108,7 +126,7 @@ public class Function {
 Altere o diretório para a pasta do projeto recém-criado e compile e execute a função com o Maven:
 
 ```
-cd fabrikam-functions
+cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
@@ -119,22 +137,22 @@ mvn azure-functions:run
 Esse resultado é exibido quando a função está sendo executada localmente no seu sistema e está pronta para responder às solicitações HTTP:
 
 ```Output
-Listening on http://0.0.0.0:7071/
+Listening on http://localhost:7071
 Hit CTRL-C to exit...
 
 Http Functions:
 
-        HttpTrigger-Java: http://localhost:7071/api/HttpTrigger-Java
+   hello: http://localhost:7071/api/hello
 ```
 
 Dispare a função na linha de comando usando cURL em uma nova janela de terminal:
 
 ```
-curl -w '\n' -d LocalFunctionTest http://localhost:7071/api/HttpTrigger-Java
+curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
 ```Output
-Hello, LocalFunctionTest
+Hello LocalFunction!
 ```
 
 Use `Ctrl-C` no terminal para interromper o código da função.
@@ -166,11 +184,11 @@ Quando a implantação for concluída, você verá a URL que pode usar para aces
 Teste o aplicativo de funções em execução no Azure usando `cURL`. Você precisará alterar a URL do exemplo abaixo para corresponder à URL implantada no seu próprio aplicativo de funções da etapa anterior.
 
 ```
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
-Hello, AzureFunctionsTest
+Hello AzureFunctions!
 ```
 
 ## <a name="make-changes-and-redeploy"></a>Fazer alterações e implantar novamente

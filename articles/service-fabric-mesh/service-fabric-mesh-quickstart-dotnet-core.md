@@ -1,6 +1,6 @@
 ---
-title: Início rápido - Criar e implantar um aplicativo Web na Malha do Microsoft Azure Service Fabric | Microsoft Docs
-description: Este início rápido mostra como criar um site do ASP.NET Core e publicá-lo na Malha do Azure Service Fabric.
+title: Início Rápido - Implantar um aplicativo Web na Malha do Azure Service Fabric | Microsoft Docs
+description: Este início rápido mostra como criar um site do ASP.NET Core e publicá-lo na Malha do Azure Service Fabric usando o Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: tylermsft
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407392"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888525"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Início rápido: Criar e implantar um aplicativo Web na Malha do Microsoft Azure Service Fabric
 
@@ -88,7 +88,7 @@ Na caixa de diálogo de publicação, clique no botão **Publicar** para implant
 
 Ao publicar no Azure pela primeira vez, a imagem do docker é enviada para o ACR (Registro de Contêiner do Azure), e isso demora dependendo do tamanho da imagem. Publicações subsequentes do mesmo projeto serão mais rápidas. É possível monitorar o progresso da implantação, selecionando **Ferramentas do Service Fabric** no menu suspenso da janela **Saída** do Visual Studio. Quando a implantação for concluída, a saída **Ferramentas do Service Fabric** exibirá o endereço IP e a porta do aplicativo na forma de uma URL.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll

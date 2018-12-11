@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/29/2018
-ms.openlocfilehash: 98495c35270ea3d6d500151c8e5dfb35751d5cc5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c53980dc2d29fbfb7e59dcba7252e0b0448d14d3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232130"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840003"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
 
@@ -25,10 +25,11 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 
 | |  |
 |---|---|
-|**Criar um banco de dados individual e um pool elástico**||
+|**Criar e configurar a instância gerenciada, banco de dados individual e um pool elástico**||
 | [Criar um Banco de Dados individual e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este exemplo de script do PowerShell cria um Banco de Dados SQL do Azure e configura uma regra de firewall no nível do servidor. |
 | [Criar pools Elásticos e mover bancos de dados em pools](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria pools elásticos do Banco de Dados SQL do Azure, move os bancos de dados em pool e altera os tamanhos de computação.|
 | [Criar e gerenciar uma Instância Gerenciada](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell |
+| [Criar e gerenciar uma Instância Gerenciada usando o modelo do Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar uma Instância Gerenciada usando o Azure PowerShell e o modelo do Azure Resource Manager.|
 |**Configurar a replicação geográfica e o failover**||
 | [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
 | [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure em um pool elástico SQL e faz o failover dele para a réplica secundária. |

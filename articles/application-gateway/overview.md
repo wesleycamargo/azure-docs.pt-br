@@ -3,25 +3,25 @@ title: O que é o Gateway de Aplicativo do Azure
 description: Saiba como você pode usar um gateway de aplicativo do Azure para gerenciar o tráfego da Web para seu aplicativo.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068087"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679164"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicativo do Azure?
 
-O Gateway de Aplicativo do Azure é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web. 
+O Gateway de Aplicativo do Azure é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web. Os balanceadores de carga tradicionais operam na camada de transporte (camada OSI 4 – TCP e UDP) e encaminham o tráfego com base no endereço IP de origem e na porta para um endereço IP de destino e uma porta.
 
-Os balanceadores de carga tradicionais operam na camada de transporte (camada OSI 4 – TCP e UDP) e encaminham o tráfego com base no endereço IP de origem e na porta para um endereço IP de destino e uma porta. Porém, com o Gateway de Aplicativo, você pode ser ainda mais específico. Por exemplo, você pode encaminhar o tráfego com base na URL de entrada. Portanto, se `/images` estiver na URL de entrada, você poderá encaminhar o tráfego para um conjunto específico de servidores (conhecido como um pool) configurado para as imagens. Se `/video` estiver na URL, esse tráfego será encaminhado para outro pool otimizado para vídeos.
+![Gateway de Aplicativo conceitual](media/overview/figure1-720.png)
+
+Porém, com o Gateway de Aplicativo, você pode ser ainda mais específico. Por exemplo, você pode encaminhar o tráfego com base na URL de entrada. Portanto, se `/images` estiver na URL de entrada, você poderá encaminhar o tráfego para um conjunto específico de servidores (conhecido como um pool) configurado para as imagens. Se `/video` estiver na URL, esse tráfego será encaminhado para outro pool otimizado para vídeos.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
@@ -31,7 +31,7 @@ Os seguintes recursos estão incluídos no Gateway de Aplicativo do Azure:
 
 ## <a name="autoscaling-public-preview"></a>Versão prévia pública do dimensionamento automático
 
-Além dos recursos descritos neste artigo, o Gateway de Aplicativo também oferece uma versão prévia pública de um novo SKU [Standard_V2] que oferece dimensionamento automático e outros aprimoramentos de desempenho críticos.
+Além dos recursos descritos neste artigo, o Gateway de Aplicativo também oferece uma versão prévia pública de um novo SKU [Standard_V2], que oferece dimensionamento automático e outros aprimoramentos de desempenho críticos.
 
 - **Dimensionamento automático** – implantações do Gateway de Aplicativo ou do WAF com o SKU de dimensionamento automático podem ser escaladas ou reduzidas verticalmente com base na mudança dos padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. 
 
@@ -44,6 +44,10 @@ Além dos recursos descritos neste artigo, o Gateway de Aplicativo também ofere
 - **Desempenho de descarregamento SSL cinco vezes melhor** em comparação com o SKU com disponibilidade geral.
 
 Para obter mais informações sobre os recursos do Gateway de Aplicativo em versão prévia pública, confira [Dimensionamento Automático e Gateway de Aplicativo com redundância de zona (versão prévia pública)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="secure-sockets-layer-ssl-termination"></a>Encerramento do protocolo SSL
+
+O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o tráfego flui geralmente descriptografado até os servidores de back-end. Esse recurso permite que os servidores Web fiquem livres da sobrecarga da criptografia e descriptografia dispendiosa. Mas, às vezes, a comunicação não criptografada com os servidores não é uma opção aceitável. Isso pode ocorrer devido a requisitos de segurança, requisitos de conformidade ou o aplicativo pode aceitar apenas uma conexão segura. Para tais aplicativos, o Gateway de Aplicativo dá suporte à criptografia SSL de ponta a ponta.
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versão prévia do controlador de entrada do AKS (Serviço de Kubernetes do Azure) 
 
@@ -59,10 +63,6 @@ O descarregamento de conexão ajuda você a efetuar a remoção normal de membro
 O Gateway de Aplicativo permite que você crie páginas de erro personalizadas em vez de exibir páginas de erro padrão. Você pode usar sua própria identidade visual e layout em uma página de erro personalizada.
 
 Para obter mais informações, confira [Criar páginas de erro personalizadas do Gateway de Aplicativo](custom-error.md).
-
-## <a name="secure-sockets-layer-ssl-termination"></a>Encerramento do protocolo SSL
-
-O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o tráfego flui geralmente descriptografado até os servidores de back-end. Esse recurso permite que os servidores Web fiquem livres da sobrecarga da criptografia e descriptografia dispendiosa. No entanto, às vezes, a comunicação não criptografada com os servidores não é uma opção aceitável. Isso pode ocorrer devido a requisitos de segurança, requisitos de conformidade ou o aplicativo pode aceitar apenas uma conexão segura. Para tais aplicativos, o gateway de aplicativo dá suporte à criptografia SSL de ponta a ponta.
 
 ## <a name="web-application-firewall"></a>Firewall do aplicativo Web
 
@@ -96,22 +96,15 @@ O suporte a redirecionamento do Gateway de Aplicativo oferece os seguintes recur
 - Redirecionamento baseado em caminho. Esse tipo de redirecionamento permite o redirecionamento de HTTP para HTTPS apenas em uma área específica do site, por exemplo, uma área de carrinho de compras indicada por `/cart/*`.
 - Redirecionamento para um site externo.
 
-
-
 ## <a name="session-affinity"></a>Afinidade de sessão
 
 O recurso de afinidade de sessão baseada em cookies é útil quando você deseja manter uma sessão de usuário no mesmo servidor. Usando cookies gerenciados pelo gateway, o Gateway de Aplicativo pode direcionar o tráfego seguinte de uma sessão de usuário para o mesmo servidor para processamento. Isso é importante em casos em que o estado de sessão é salvo localmente no servidor para uma sessão de usuário.
 
-
-
-
 ## <a name="websocket-and-http2-traffic"></a>Tráfego do WebSocket e HTTP/2
 
 O Gateway de Aplicativo fornece suporte nativo para os protocolos WebSocket e HTTP/2. Não há nenhuma configuração configurável pelo usuário para habilitar ou desabilitar seletivamente o suporte ao WebSocket. O suporte a HTTP/2 pode ser habilitado por meio do Azure PowerShell.
- 
+
 Os protocolos WebSocket e HTTP/2 permitem uma comunicação full duplex entre um servidor e um cliente em uma conexão TCP de execução longa. Isso permite uma comunicação mais interativa entre o servidor Web e o cliente, que pode ser bidirecional, sem a necessidade de sondagem, necessária nas implementações baseadas em HTTP. Esses protocolos têm baixa sobrecarga, ao contrário do HTTP, e podem reutilizar a mesma conexão TCP para várias solicitações/respostas, resultando em uma utilização mais eficiente de recursos. Esses protocolos foram projetados para funcionar em portas HTTP tradicionais de 80 e 443.
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

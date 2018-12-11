@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857662"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727318"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança de conteúdo no Registro de Contêiner do Azure
 
@@ -77,7 +77,7 @@ Detalhes para a concessão da função `AcrImageSigner` no portal do Azure e na 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Navegue até seu registro no portal do Azure e escolha **Controle de Acesso (IAM)** > **Adicionar**. Em **Adicionar permissões**, escolha `AcrImageSigner` em **Função** e **Selecionar** um ou mais usuários ou entidades de serviço e, em seguida, **Salvar**.
+Navegue até seu registro no portal do Azure e escolha **Controle de Acesso (IAM)** > **Adicionar atribuição de função**. Em **Adicionar atribuição de função**, escolha `AcrImageSigner` em **Função** e **Selecionar** um ou mais usuários ou entidades de serviço e, em seguida, **Salvar**.
 
 Neste exemplo, duas entidades receberam a função `AcrImageSigner`: uma entidade de serviço chamada "service-principal" e um usuário chamado "Usuário do Azure".
 

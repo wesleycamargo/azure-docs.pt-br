@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cca18b2aa5cb6f27df45e4b63e55251bea058625
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968842"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890374"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implantar um aplicativo na Malha do Service Fabric usando um modelo
 
@@ -51,7 +51,7 @@ Antes de começar este tutorial:
 
 * [Instalar o Docker](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-docker)
 
-* [Instale a CLI do Azure e a CLI da Malha do Service Fabric localmente](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Instale a CLI do Azure e a CLI da Malha do Service Fabric localmente](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -61,7 +61,7 @@ Use as seguintes etapas para criar uma nova instância do ACR.  Se você já tiv
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Fazer logon no Azure e definir a assinatura ativa.
+Entre no Azure e defina a assinatura ativa.
 
 ```azurecli
 az login
@@ -205,7 +205,7 @@ Um aplicativo de Malha do Serviço Fabric é um recurso do Azure que você pode 
 Este tutorial usa o exemplo de lista de tarefas como um exemplo.  Em vez de criar novos arquivos de modelo e parâmetros, baixe os arquivos [modelo de implantação mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [parâmetros mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>parâmetros
-Quando você tiver valores em seu modelo que pretende alterar após o aplicativo ser implantado ou gostaria de ter a opção de alteração em uma base de implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo*, *defaultValue*e uma seção opcional *metadados* com uma *descrição*.
+Quando há valores no modelo que você pretende alterar após a implantação do aplicativo ou se você deseja ter a opção de alterar a cada implantação (se você planeja reutilizar esse modelo para outras implantações), a prática recomendada é parametrizar os valores. A maneira correta de fazer isso é criar uma seção "parâmetros" na parte superior do seu modelo de implantação, em que você especifica nomes e propriedades de parâmetros, que serão referenciados posteriormente no modelo de implantação. Cada definição de parâmetro inclui *tipo*, *defaultValue*e uma seção opcional *metadados* com uma *descrição*.
 
 A seção de parâmetros é definida na parte superior do seu modelo de implantação, logo antes da seção *recursos*:
 
@@ -359,9 +359,27 @@ Para implantar o aplicativo, faça o seguinte:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-Em alguns minutos, você deverá ver:
+Este comando produzirá um trecho JSON mostrado abaixo. Na seção ```outputs``` da saída JSON, copie a propriedade ```publicIPAddress```.
 
-`todolistappNetwork has been deployed successfully on todolistappNetwork with public ip address <IP Address>`
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+Essa informação vem da seção ```outputs``` no modelo ARM. Conforme mostrado abaixo, esta seção referencia o recurso de Gateway para buscar o endereço IP público. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>Abra o aplicativo
 

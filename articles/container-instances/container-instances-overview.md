@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802093"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841448"
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -38,6 +38,8 @@ Historicamente, os contêineres ofereciam isolamento de dependência de aplicati
 
 Os contêineres normalmente são otimizados para executar apenas um único aplicativo, mas as necessidades exatas desses aplicativos podem variar significativamente. As Instâncias de Contêiner do Azure fornecem uma utilização ideal ao permitirem especificações exatas de núcleos e memória da CPU. Você paga com base no que precisar e é cobrado por segundo, assim, é possível ajustar seus gastos eficientemente com base em suas necessidades reais.
 
+Para trabalhos de computação intensiva, como o aprendizado de máquina, as Instâncias de Contêiner do Azure podem agendar contêineres do Linux para usar os [recursos da GPU](container-instances-gpu.md) da NVIDIA Tesla (versão prévia).
+
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
 Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, nós oferecemos a [montagem direta de compartilhamentos de arquivos do Azure](container-instances-mounting-azure-files-volume.md).
@@ -59,7 +61,7 @@ As Instâncias de Contêiner do Azure são compatíveis com a programação de [
 Atualmente em versão prévia, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma Rede Virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> A implantação de grupos de contêineres a uma rede virtual está atualmente em versão prévia e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
+> Determinados recursos de Instâncias de Contêiner do Azure estão em visualização e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares][terms-of-use]. Alguns aspectos desses recursos podem ser alterados antes da disponibilidade geral (GA).
 
 ## <a name="next-steps"></a>Próximas etapas
 

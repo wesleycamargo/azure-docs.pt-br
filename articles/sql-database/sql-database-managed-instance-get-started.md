@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b7a3fc6e5dafb59d6981ff4302d4b060b0c73d6b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499244"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890493"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
-Este Início Rápido orienta sobre como criar uma [Instância Gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure no portal do Azure. 
+Este Início Rápido orienta sobre como criar uma [Instância Gerenciada](sql-database-managed-instance.md) do Banco de Dados SQL do Azure no portal do Azure.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -45,7 +45,7 @@ As etapas a seguir mostram como criar uma Instância Gerenciada.
    | ------ | --------------- | ----------- |
    | **Assinatura** | Sua assinatura | Uma assinatura na qual você tem permissão para criar novos recursos |
    |**Nome da Instância Gerenciada**|Qualquer nome válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Logon de administrador da Instância Gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "serveradmin", que é uma função de nível de servidor reservada.| 
+   |**Logon de administrador da Instância Gerenciada**|Um nome de usuário válido|Para ver os nomes válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não use "serveradmin", que é uma função de nível de servidor reservada.|
    |**Senha**|Qualquer senha válida|A senha deve ter no mínimo 16 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Localidade**|O local no qual você deseja criar a Instância Gerenciada|Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|Selecione **Criar nova rede virtual** ou uma rede virtual que você criou previamente no grupo de recursos indicado anteriormente neste formulário.| Para configurar uma rede virtual para uma Instância Gerenciada com configurações personalizadas, confira [Configurar o modelo de ambiente de rede virtual de Instância Gerenciada do SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) no Github. Para saber mais sobre os requisitos para configurar o ambiente de rede para uma Instância Gerenciada, confira [Configurar uma VNet para a Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md). |
@@ -53,15 +53,16 @@ As etapas a seguir mostram como criar uma Instância Gerenciada.
 
    ![formulário de instância gerenciada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Selecione **Tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. O tipo de preço de Uso Geral com 32 GB de memória e 16 vCores é o valor padrão.
-6. Use os controles deslizantes ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-7. Ao concluir, escolha **Aplicar** para salvar sua seleção.  
-8. Selecione **Criar** para implantar a Instância Gerenciada.
-9. Selecione o ícone **Notificações** para exibir o status da implantação.
+5. Para usar a Instância Gerenciada como um Grupo de Failover de Instância secundário, selecione o check-out e especifique a instância gerenciada do DnsAzurePartner. Esse recurso está em versão prévia e não é mostrado na captura de tela que acompanha este artigo.
+6. Selecione **Tipo de preço** para dimensionar os recursos de computação e armazenamento e revisar as opções de tipo de preço. O tipo de preço de Uso Geral com 32 GB de memória e 16 vCores é o valor padrão.
+7. Use os controles deslizantes ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais.
+8. Ao concluir, escolha **Aplicar** para salvar sua seleção.  
+9. Selecione **Criar** para implantar a Instância Gerenciada.
+10. Selecione o ícone **Notificações** para exibir o status da implantação.
 
     ![andamento da implantação da instância gerenciada](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. Selecione **Implantação em andamento** para abrir a janela Instância Gerenciada e monitorar melhor o progresso da implantação. 
+11. Selecione **Implantação em andamento** para abrir a janela Instância Gerenciada e monitorar melhor o progresso da implantação.
 
 > [!IMPORTANT]
 > Para a primeira instância em uma sub-rede, o tempo de implantação é normalmente muito maior do em instâncias subsequentes. Não cancele a operação de implantação porque ela dura mais que o esperado. A criação da segunda Instância Gerenciada na sub-rede levará apenas alguns minutos.
@@ -78,7 +79,6 @@ Depois que a implantação for concluída com êxito, examine os recursos criado
 
 3. Na guia **Visão geral**, localize a propriedade **Host** e copie o endereço de host totalmente qualificado para a Instância Gerenciada.
 
-
    ![Recursos da Instância Gerenciada](./media/sql-database-managed-instance-get-started/host-name.png)
 
    O nome será semelhante a **nome_do_seu_computador.a1b2c3d4e5f6.database.windows.net**.
@@ -90,4 +90,4 @@ Depois que a implantação for concluída com êxito, examine os recursos criado
   - Para ver um início rápido que mostra como se conectar a uma Instância Gerenciada de uma máquina virtual do Azure, confira [Configurar uma conexão de máquina virtual do Azure](sql-database-managed-instance-configure-vm.md).
   - Para ver um início rápido que mostra como se conectar a uma Instância Gerenciada de um computador cliente local usando uma conexão ponto a site, confira [Configurar uma conexão ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para restaurar um banco de dados do SQL Server existente do local para uma Instância Gerenciada, use o [DMS (Serviço de Migração de Banco de Dados do Azure) para realizar a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar de um arquivo de backup do banco de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar de um arquivo de backup do banco de dados.
-- Para monitoramento avançado de desempenho de banco de dados de Instância Gerenciada com inteligência de solução de problemas, confira [Monitorar Banco de Dados SQL do Azure usando a Análise de SQL do Azure ](../log-analytics/log-analytics-azure-sql.md)
+- Para monitoramento avançado do desempenho de banco de dados de Instância Gerenciada com inteligência de solução de problemas, confira [Monitorar Banco de Dados SQL do Azure usando a Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)

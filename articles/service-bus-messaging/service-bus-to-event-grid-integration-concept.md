@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166892"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834376"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -36,10 +36,7 @@ Para habilitar o recurso, você precisa dos itens a seguir:
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se você tem acesso de colaborador
-
-Navegue até seu namespace do Barramento de Serviço e selecione **Controle de acesso (IAM)**, conforme mostrado abaixo:
-
-![1][]
+Navegue até seu namespace do Barramento de Serviço, selecione **Controle de acesso (IAM)** e selecione a aba **Atribuição de função**. Verifique se você tem o acesso de Colaborador ao namespace. 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de evento
 

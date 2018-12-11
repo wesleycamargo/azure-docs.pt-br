@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395200"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834843"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de rede virtual
 
@@ -74,7 +74,7 @@ Os pontos de extremidade de serviço fornecem os seguintes benefícios:
 
   Por padrão, os recursos do serviço do Azure garantidos para redes virtuais não podem ser acessados nas redes locais. Se você quiser permitir o tráfego vindo do local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou ExpressRoute. Esses endereços IP podem ser adicionados por meio da configuração de firewall de IP dos recursos de serviço do Azure.
 
-  ExpressRoute: Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de seu local, para emparelhamento público ou emparelhamento da Microsoft, você precisará identificar os endereços IP de NAT usados. Para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP de NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para emparelhamento da Microsoft, os endereços IP de NAT usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviço. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute: Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de seu local, para emparelhamento público ou emparelhamento da Microsoft, você precisará identificar os endereços IP de NAT usados. Para emparelhamento público, cada circuito do ExpressRoute usará dois endereços IP de NAT, que serão aplicados ao tráfego do serviço do Azure quando o tráfego entrar no backbone da rede do Microsoft Azure. Para emparelhamento da Microsoft, os endereços IP de NAT usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviço. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP públicos do circuito do ExpressRoute de emparelhamento, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![Proteção dos serviços do Azure em redes virtuais](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -133,11 +133,17 @@ Não há limite para o número total de pontos de extremidade de serviço em uma
 
 Para um recurso de serviço do Azure (por exemplo, uma conta de Armazenamento do Azure), os serviços podem impor limites para o número de sub-redes usadas para garantir o recurso. Consulte a documentação para serviços diversos em [Próximas etapas](#next-steps) para obter detalhes.
 
+## <a name="virtual-network-service-endpoint-policies"></a>Políticas de Ponto de Extremidade de Serviço de Rede Virtual 
+
+As políticas de ponto de extremidade de serviço de rede virtual permitem filtrar o tráfego da rede virtual para serviços do Azure, permitindo apenas recursos específicos de serviço do Azure, em pontos de extremidade de serviço. As políticas de ponto de extremidade de serviço fornecem controle de acesso granular para tráfego de rede virtual para serviços do Azure. Mais informações: [Políticas de ponto de extremidade de serviço de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [configurar pontos de extremidade de serviço de rede virtual](tutorial-restrict-network-access-to-resources.md)
 - Saiba como [proteger uma conta de Armazenamento do Azure em uma rede virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba como [proteger um Banco de Dados SQL do Azure em uma rede virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Saiba mais sobre a [integração do serviço do Azure em redes virtuais](virtual-network-for-azure-services.md)
+- Saiba mais sobre [Políticas de ponto de extremidade de serviço de rede virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Início rápido: [modelo do gerenciador de recursos do Azure](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para configurar o ponto de extremidade de serviço em uma sub-rede de rede virtual e ligar a conta de armazenamento do Azure a essa sub-rede.
 

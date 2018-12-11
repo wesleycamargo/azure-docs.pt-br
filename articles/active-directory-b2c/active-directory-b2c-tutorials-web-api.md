@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.author: davidmu
-ms.date: 01/23/2018
+ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604332"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726399"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET de um aplicativo Web usando o Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ A API Web de exemplo está incluída no projeto baixado no tutorial de pré-requ
 
 Há dois projetos na solução de exemplo:
 
-**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa a política **inscrever-se ou entrar** para inscrever ou fazer logon de usuários com um endereço de email.
+**Aplicativo Web de exemplo (TaskWebApp):** o aplicativo Web para criar e editar uma lista de tarefas. O aplicativo Web usa o fluxo de usuário de **inscrição ou entrada** para inscrever ou fazer logon de usuários com um endereço de email.
 
 **O aplicativo de exemplo de API Web (TaskService):** API Web que dá suporte às funções criar, ler, atualizar e excluir a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
@@ -162,10 +162,10 @@ Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Atualize a configuração de política com o nome gerado quando você criou sua política de inscrição e entrada.
+4. Atualize a configuração do fluxo de usuário com o nome gerado quando você criou seu fluxo de usuário de inscrição e entrada.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
+    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_SiUpIn" />
     ```
 
 5. Configure os escopos de configuração para corresponder ao que você criou no portal.

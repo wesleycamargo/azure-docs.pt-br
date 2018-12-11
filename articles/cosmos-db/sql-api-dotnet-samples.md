@@ -1,22 +1,19 @@
 ---
-title: 'Azure Cosmos DB: Exemplos do .NET para a API do SQL | Microsoft Docs'
+title: 'Azure Cosmos DB: Exemplos do .NET para a API do SQL'
 description: Encontre exemplos do C# .NET no GitHub para tarefas comuns na Azure Cosmos DB SQL API, incluindo operações CRUD.
 keywords: Exemplo de NoSQL
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262272"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875256"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos do .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -29,10 +26,12 @@ ms.locfileid: "52262272"
 > 
 > 
 
-As últimas soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Esse artigo fornece:
+As soluções de exemplo mais recentes que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídas no repositório GitHub [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples). Esse artigo fornece:
 
 * Links para as tarefas em cada um dos arquivos de exemplo do projeto C#. 
 * Links para o conteúdo de referência da API relacionada.
+
+Para exemplos de código para o SDK do .NET versão 3.0 (versão prévia), consulte os exemplos mais recentes do repositório do GitHub [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3). 
 
 **Pré-requisitos**
 

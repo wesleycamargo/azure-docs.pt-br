@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997005"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887501"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar um aplicativo da Malha do Service Fabric em execução em seu cluster de desenvolvimento local
 
 Este tutorial é a parte dois de uma série e mostra como criar e depurar um aplicativo da Malha do Azure Service Fabric em seu cluster de desenvolvimento local.
 
-Neste tutorial, você irá aprender:
+Neste tutorial, você aprenderá:
 
 > [!div class="checklist"]
 > * O que acontece quando você compila um aplicativo da Malha do Azure Service Fabric
@@ -52,7 +52,7 @@ Antes de começar este tutorial:
 
 ## <a name="download-the-to-do-sample-application"></a>Faça o download do aplicativo de exemplo de tarefas pendentes
 
-Se você não tiver criado o aplicativo de exemplo de tarefas pendentes na [parte um desta série de tutoriais](service-fabric-mesh-tutorial-create-dotnetcore.md), baixe-o. Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
+Se você não criou o aplicativo de exemplo de tarefas pendentes na [parte um dessa série de tutoriais](service-fabric-mesh-tutorial-create-dotnetcore.md), baixe-o. Em uma janela de comando, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,7 +74,9 @@ Pressione **F5** para compilar e executar seu serviço localmente. Quando o proj
 
 Após a conclusão da implantação local, e quando o Visual Studio estiver executando seu aplicativo, uma janela do navegador será aberta com uma página da Web de exemplo padrão.
 
-**Dicas de depuração**
+## <a name="debugging-tips"></a>Dicas de depuração
+
+Torne sua primeira operação de depuração (F5) muito mais rápida seguindo as instruções em [Otimizar o desempenho do Visual Studio](service-fabric-mesh-howto-optimize-vs.md).
 
 Atualmente, há um problema que faz com que a chamada para `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` não se conecte ao serviço. Isso pode ocorrer sempre que seu endereço IP do host for alterado. Para resolver esse problema:
 
@@ -95,8 +97,8 @@ Ao depurar um aplicativo da Malha do Service Fabric no Visual Studio, você usa 
 2. No projeto **ToDoService**, abra **TodoController.cs** e defina um ponto de interrupção no método **OnGet** (linha 15).
 3. Volte para o navegador e atualize a página. Você chegou ao ponto de interrupção no método `OnGet()` front-end da Web. Você pode inspecionar a variável `backendUrl` para ver como as variáveis de ambiente que você definiu no arquivo **service.yaml** são combinadas na URL usada para contatar o serviço de back-end.
 4. Avance (F10) a chamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` e você atingirá o ponto de interrupção `Get()` do controlador. Nesse método, você pode ver como a lista de itens de tarefas pendentes é recuperada da lista na memória.
-5. Quando você terminar, pare a depuração de seu projeto no Visual Studio pressionando **SHIFT+F5**.
- 
+5. Quando terminar, pare a depuração de seu projeto no Visual Studio pressionando **Shift+F5**.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Nesta parte do tutorial, você aprendeu a:

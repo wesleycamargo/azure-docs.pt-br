@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686003"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850254"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é o Banco de Dados do Azure para o MariaDB?
 
-O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB se baseia no mecanismo de banco de dados da [edição da comunidade do MariaDB](https://mariadb.org/download/), versão 10.2. Esse serviço está na fase de visualização pública. 
+O Banco de Dados do Azure para MariaDB é um serviço de banco de dados relacional na nuvem da Microsoft. O Banco de Dados do Azure para MariaDB se baseia no mecanismo de banco de dados da [edição da comunidade do MariaDB](https://mariadb.org/download/), versão 10.2.
 
 Banco de dados do Azure para MariaDB oferece:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
 
-Na visualização, o serviço Banco de Dados do Azure para MariaDB oferece vários níveis de serviço: Básico, Uso Geral e Memória Otimizada. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
+O serviço Banco de Dados do Azure para MariaDB oferece vários níveis de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica ajuda o seu banco de dados a responder de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
 
@@ -51,7 +51,7 @@ Como você decide quando aumentar ou reduzir? É possível usar os recursos inte
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha seus aplicativos e a continuidade dos negócios
 
-O SLA de disponibilidade de 99,99% do setor líder do Azure (não oferecido durante a versão prévia pública) é impulsionado por uma rede global de datacenters gerenciados pela Microsoft. A rede ajuda a manter seu aplicativo em execução 24 horas por dia, 7 dias por semana. Você irá beneficiar-se de segurança interna, tolerância a falhas e proteção de dados no Banco de Dados do Azure para MariaDB. Com o Banco de Dados do Azure para MariaDB, você pode usar a restauração point-in-time para recuperar um servidor para um estado anterior, em até 35 dias.
+O SLA de disponibilidade de 99,99%, líder no setor, do Azure é impulsionado por uma rede global de datacenters gerenciados pela Microsoft. A rede ajuda a manter seu aplicativo em execução 24 horas por dia, 7 dias por semana. Você irá beneficiar-se de segurança interna, tolerância a falhas e proteção de dados no Banco de Dados do Azure para MariaDB. Com o Banco de Dados do Azure para MariaDB, você pode usar a restauração point-in-time para recuperar um servidor para um estado anterior, em até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteja seus dados
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: edfd17763a7d555e773e7d271ed5cc22a0307996
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250590"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726586"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo ASP.NET usando o Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
     Estes dois projetos estão na solução de exemplo:
 
-    - **TaskWebApp**: um aplicativo Web que cria e edita uma lista de tarefas. O aplicativo Web usa a política de **criar conta ou entrar** para inscrever ou fazer logon de usuários.
+    - **TaskWebApp**: um aplicativo Web que cria e edita uma lista de tarefas. O aplicativo Web usa o fluxo de usuário de **inscrição ou entrada** para inscrever ou fazer logon de usuários.
     - **TaskService**: a API Web que dá suporte às funções criar, ler, atualizar e excluir para a lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pelo aplicativo Web.
 
 ## <a name="run-the-application-in-visual-studio"></a>Executar o aplicativo no Visual Studio
@@ -67,7 +67,7 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 ## <a name="edit-your-profile"></a>Editar o perfil
 
-O Azure Active Directory B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa uma política de perfil de edição do Azure AD B2C no fluxo de trabalho. 
+O Azure Active Directory B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de perfil de edição do Azure AD B2C no fluxo de trabalho. 
 
 1. Na barra de menus do aplicativo, clique no nome do perfil e selecione **Editar perfil** para editar o perfil criado.
 
@@ -97,7 +97,7 @@ Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tuto
 
 Neste início rápido você usou um aplicativo do ASP.NET para entrar com uma página de logon personalizada, entrar com um provedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
 
-Comece a criar seu próprio locatário do Azure AD B2C.
+Introdução à criação de seu próprio locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Criar um locatário do Azure Active Directory B2C no Portal do Azure](tutorial-create-tenant.md)

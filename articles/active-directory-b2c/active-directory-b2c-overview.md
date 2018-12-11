@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954087"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724019"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -60,9 +60,9 @@ O Azure AD B2C interage com provedores de identidade, clientes e outros sistemas
 
 O Azure AD B2C usa várias formas para proteger seus aplicativos de ataques de negação de serviço e senha. O Azure AD B2C usa técnicas de detecção e de mitigação como cookies SYN e limites de taxa e de conexão para proteger os recursos contra esses ataques de negação de serviço. A mitigação também inclui ataques de senhas de força bruta e ataques de senhas de dicionário.
 
-#### <a name="built-in-policies"></a>Políticas internas
+#### <a name="user-flows"></a>Fluxos de usuário
 
-Cada solicitação enviada para o Azure AD B2C especifica uma política. Uma política controla o comportamento de como seu aplicativo interage com o Azure AD B2C. Políticas internas são predefinidas para tarefas mais comuns de identidade, como se inscrever, entrar e editar perfil.  Por exemplo, uma política de inscrição permite controlar comportamentos definindo as seguintes configurações:
+Cada solicitação enviada para o Azure AD B2C especifica um fluxo de usuário, que é uma política que controla o comportamento de como seu aplicativo interage com o Azure AD B2C. Os fluxos de usuário predefinidos para as tarefas mais comuns de identidade, como inscrição, entrada e edição de perfil, estão disponíveis no portal do Azure AD B2C.  Por exemplo, um fluxo de usuário de inscrição permite controlar comportamentos definindo as seguintes configurações:
 
 - Contas sociais que o cliente usa para entrar no aplicativo
 - Dados coletados do cliente, como nome ou código postal
