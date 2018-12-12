@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970834"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088044"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
@@ -70,17 +70,6 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Corrigido um problema no qual IPs públicos que foram implantados usando a alocação dinâmica o método não eram garantia de ser preservada após a emissão de uma interrupção da desalocação. Agora são preservados.
 
 - <!-- 3078022 - IS, ASDK --> Se uma máquina virtual foi interrompida e desalocada antes 1808 pode não ser realocada após a atualização 1808.  Esse problema foi corrigido no 1809. Instâncias que foram nesse estado e não pôde ser iniciadas podem ser iniciadas no 1809 com essa correção. A correção também impede que esse problema ocorra.
-
-<!-- 3090289 – IS, ASDK --> 
-- Corrigido o problema em que depois de aplicar a atualização 1808, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
-
-   1. Se a assinatura foi criada antes da atualização 1808, implantação de VM com discos gerenciados podem falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
-      1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
-      2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
-   2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas:
-      1. Aplicar a [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066).
-      2. Siga as etapas em [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
-
 
 ### <a name="changes"></a>Alterações
 
@@ -173,7 +162,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links aci
 > Prepare sua implantação do Azure Stack para o host de extensão que é habilitada pelo próximo pacote de atualização. Preparar seu sistema usando as diretrizes a seguir, [preparar para o host de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 Após a instalação dessa atualização, instale os Hotfixes aplicáveis. Para obter mais informações, consulte os seguintes artigos de base de Conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md).  
-- [KB 4477849 – o Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – o Azure Stack Hotfix Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
@@ -226,7 +215,7 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    
   Execute o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar a integridade das instâncias de função de infraestrutura e dimensionar nós de unidade. Se nenhum problema for detectado pelo [AzureStack teste](azure-stack-diagnostic-test.md), você pode ignorar esses alertas. Se for detectado um problema, você pode tentar iniciar a instância de função de infraestrutura ou de um nó usando o portal de administração do PowerShell.
 
-  Esse problema foi corrigido no último [versão do hotfix 1809](https://support.microsoft.com/help/4477849/), portanto, certifique-se de instalar esse hotfix, se você estiver enfrentando o problema. 
+  Esse problema foi corrigido no último [versão do hotfix 1809](https://support.microsoft.com/help/4481548/), portanto, certifique-se de instalar esse hotfix, se você estiver enfrentando o problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Você pode ver os alertas para o **controlador de integridade** componente que tem os seguintes detalhes:  
@@ -292,7 +281,18 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 
    Para localizar os dados de métricas, como o gráfico de percentual de CPU para a VM, vá para a janela de métricas e mostrar todos os as métricas com suporte VM Windows convidado.
 
+<!-- 3507629 - IS, ASDK --> 
+- Discos gerenciados cria dois novos [tipos de cota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos gerenciados podem ser provisionados. Por padrão, 2048 GiB é alocado para cada tipo de cota de discos gerenciados. No entanto, você pode encontrar os seguintes problemas:
 
+   - Cotas de criados antes da atualização 1808, a cota de Managed Disks mostra valores 0 no portal do administrador, apesar de 2048 GiB é alocada. Você pode aumentar ou diminuir o valor com base em suas necessidades reais e recentemente defina o valor de cota substitui o padrão de GiB de 2048.
+   - Se você atualizar o valor da cota para 0, é equivalente ao valor padrão de 2048 GiB. Como alternativa, defina o valor da cota como 1.
+
+<!-- TBD - IS ASDK --> Depois de aplicar o 1809 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
+
+   - Se a assinatura foi criada antes da atualização 1808, implantando uma VM com discos gerenciados pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
+      1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
+      2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
+   2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas no [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
 
 ### <a name="networking"></a>Rede  
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238619"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864971"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considerações de planejamento de implantação de pilha do Azure
 Antes de implantar o Azure Stack desenvolvimento ASDK (Kit), certifique-se de que seu computador de host do kit de desenvolvimento atende aos requisitos descritos neste artigo.
@@ -121,7 +121,7 @@ Há suporte apenas para IPv4. Não é possível criar redes IPv6.
 Verifique se há um servidor DHCP disponível na rede ao qual a NIC se conecta. Se o DHCP não estiver disponível, você deverá preparar uma rede IPv4 estática adicional, além daquela usada pelo host. Você deve fornecer o endereço IP e o gateway como um parâmetro de implantação.
 
 ### <a name="internet-access"></a>Acesso à Internet
-O Azure Stack requer acesso à Internet, diretamente ou através de um proxy transparente. O Azure Stack não oferece suporte para a configuração de um proxy da web para habilitar o acesso à Internet. O IP do host e o novo IP atribuído ao MAS-BGPNAT01 (pelo DHCP ou IP estático) devem ser capaz de acessar a Internet. As portas 80 e 443 são usadas nos domínios graph.windows.net e login.microsoftonline.com.
+O Azure Stack requer acesso à Internet, diretamente ou através de um proxy transparente. O Azure Stack não oferece suporte para a configuração de um proxy da web para habilitar o acesso à Internet. O IP do host e o novo IP atribuído ao AzS-BGPNAT01 (pelo DHCP ou IP estático) devem ser capaz de acessar a Internet. As portas 80 e 443 são usadas nos domínios graph.windows.net e login.microsoftonline.com.
 
 
 ## <a name="next-steps"></a>Próximas etapas
