@@ -1,6 +1,6 @@
 ---
-title: Requisitos de sistema do Gateway do Microsoft Azure Data Box | Microsoft Docs
-description: Saiba mais sobre o software e os requisitos de rede do Gateway do Azure Data Box
+title: Requisitos de sistema do Microsoft Azure Data Box Gateway | Microsoft Docs
+description: Saiba mais sobre o software e os requisitos de rede do Azure Data Box Gateway
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,21 +15,21 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50157353"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Gateway do Azure Data Box (versão prévia)
+# <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Azure Data Box Gateway (versão prévia)
 
-Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Gateway do Azure Data Box. Recomendamos que você examine as informações com atenção antes de implantar o Gateway do Data Box e consulte-as, quando necessário, durante a implantação e a subsequente operação.
+Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação.
 
-Os requisitos de sistema para o dispositivo virtual Gateway do Data Box incluem:
+Os requisitos de sistema para o dispositivo virtual Data Box Gateway incluem:
 
 - **Requisitos de software para hosts** – descreve as plataformas com suporte, os navegadores da interface do usuário de configuração local, os clientes SMB e requisitos adicionais para os hosts que se conectam ao dispositivo.
 - **Requisitos de rede para o dispositivo** – fornece informações sobre os requisitos de rede da operação do dispositivo virtual.
 
 > [!IMPORTANT]
-> O Gateway do Data Box está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
+> O Data Box Gateway está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operacional com suporte para clientes conectados ao dispositivo
 
-Aqui está uma lista dos sistemas operacionais com suporte para clientes ou hosts conectados ao Gateway do Data Box.
+Aqui está uma lista dos sistemas operacionais com suporte para clientes ou hosts conectados ao Data Box Gateway.
 
 | **Sistema operacional/plataforma** | **Versões** |
 | --- | --- |
@@ -66,7 +66,7 @@ Aqui está uma lista das contas de armazenamento suportadas para o Data Box Gate
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
-Aqui está uma lista dos tipos de armazenamento com suporte para o Gateway do Data Box.
+Aqui está uma lista dos tipos de armazenamento com suporte para o Data Box Gateway.
 
 | **Formato de arquivo** | **Observações** |
 | --- | --- |
@@ -102,9 +102,9 @@ A tabela a seguir lista as portas que devem ser abertas no firewall para permiti
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 
-Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Seu dispositivo Gateway do Data Box e o serviço Gateway do Data Box dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall do Gateway do Data Box conforme e quando necessário.
+Os administradores de rede geralmente podem configurar regras avançadas de firewall com base nos padrões de URL para filtrar o tráfego de entrada e de saída. Seu dispositivo Data Box Gateway e o serviço Data Box Gateway dependem de outros aplicativos da Microsoft, como o Barramento de Serviço do Azure, o Controle de Acesso do Azure Active Directory, contas de armazenamento e servidores do Microsoft Update. Os padrões de URL associados a esses aplicativos podem ser usados para configurar regras de firewall. É importante entender que os padrões de URL associados a esses aplicativos podem ser alterados. Isso, por sua vez, exigirá que o administrador de rede monitore e atualize as regras de firewall do Data Box Gateway conforme e quando necessário.
 
-É recomendado que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do Gateway do Data Box e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
+É recomendado que você defina suas regras de firewall para tráfego de saída, com base nos endereços IP fixos do Data Box Gateway e, na maioria dos casos, de modo flexível. No entanto, você pode usar as informações a seguir para definir regras avançadas de firewall que são necessárias para criar ambientes seguros.
 
 > [!NOTE]
 > - Os IPs do dispositivo (de origem) sempre devem estar configurados para todas as interfaces de rede habilitadas para a nuvem.
@@ -112,7 +112,7 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 |     Padrão de URL                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Componente/funcionalidade                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Serviço de Gateway do Azure Data Box<br>Barramento de Serviço do Azure<br>Serviço de autenticação    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Serviço de Azure Data Box Gateway<br>Barramento de Serviço do Azure<br>Serviço de autenticação    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Ativação do dispositivo                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Revogação de certificado                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Contas de armazenamento e monitoramento do Azure                                                                |
@@ -126,10 +126,10 @@ Os administradores de rede geralmente podem configurar regras avançadas de fire
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
-Os seguintes requisitos aplicam-se à largura de banda mínima da Internet disponível para seus dispositivos do Gateway do Data Box.
+Os seguintes requisitos aplicam-se à largura de banda mínima da Internet disponível para seus dispositivos do Data Box Gateway.
 
-- O Gateway do Data Box tem uma largura de banda de Internet dedicada de 20 Mbps (ou mais) disponível o tempo todo. Essa largura de banda não deve ser compartilhada com outros aplicativos. 
-- O Gateway do Data Box tem uma largura de banda de Internet dedicada de 32 Mbps (ou mais) ao usar a limitação de rede.
+- O Data Box Gateway tem uma largura de banda de Internet dedicada de 20 Mbps (ou mais) disponível o tempo todo. Essa largura de banda não deve ser compartilhada com outros aplicativos. 
+- O Data Box Gateway tem uma largura de banda de Internet dedicada de 32 Mbps (ou mais) ao usar a limitação de rede.
 
 ## <a name="next-step"></a>Próxima etapa
 

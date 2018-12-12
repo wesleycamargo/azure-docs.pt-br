@@ -1,6 +1,6 @@
 ---
-title: Limites do Gateway do Azure Data Box | Microsoft Docs
-description: Descreve os limites do sistema e tamanhos recomendados para o Gateway do Microsoft Azure Data Box.
+title: Limites do Azure Data Box Gateway | Microsoft Docs
+description: Descreve os limites do sistema e tamanhos recomendados para o Microsoft Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,33 +15,33 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49164426"
 ---
-# <a name="azure-data-box-gateway-limits-preview"></a>Limites do Gateway do Azure Data Box (versão prévia)
+# <a name="azure-data-box-gateway-limits-preview"></a>Limites do Azure Data Box Gateway (versão prévia)
 
 
-Considere esses limites ao implantar e operar sua solução de do Gateway do Microsoft Azure Data Box. 
+Considere esses limites ao implantar e operar sua solução do Microsoft Azure Data Box Gateway. 
 
 > [!IMPORTANT] 
-> O Gateway do Data Box está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
+> O Data Box Gateway está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
 
 
-## <a name="data-box-gateway-service-limits"></a>Limites do serviço do Gateway do Data Box
+## <a name="data-box-gateway-service-limits"></a>Limites do serviço do Data Box Gateway
 
 - Nesta versão, o serviço está disponível somente em determinadas regiões nos EUA, Europa e Pacífico Asiático. Para saber mais, acesse [Disponibilidade por região](#data-box-gateway-overview#region-availability). A conta de armazenamento deve estar fisicamente próxima à região em que o dispositivo foi implantado (pode ser diferente da área geográfica do serviço).
-- Não há suporte para mover um recurso do Gateway do Data Box para um grupo de recursos ou assinatura diferente. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Não há suporte para mover um recurso do Data Box Gateway para um grupo de recursos ou assinatura diferente. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
-## <a name="data-box-gateway-device-limits"></a>Limites de dispositivo do Gateway do Data Box
+## <a name="data-box-gateway-device-limits"></a>Limites de dispositivo do Data Box Gateway
 
-A tabela a seguir descreve esses limites para o dispositivo do Gateway do Data Box.
+A tabela a seguir descreve esses limites para o dispositivo do Data Box Gateway.
 
 | DESCRIÇÃO | Valor |
 |---|---|
-| Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
-| Não. de compartilhamentos por dispositivo |24 |
+|Não. de arquivos por dispositivo |100 milhões <br> O limite é aproximadamente 25 milhões de arquivos para cada 2 TB de espaço em disco com o limite máximo em 100 milhões |
+|Não. de compartilhamentos por dispositivo |24 |
 |Tamanho máximo do arquivo gravado em um compartilhamento|Para um dispositivo virtual de 2 TB, o tamanho máximo do arquivo é de 500 GB. <br> O tamanho máximo do arquivo aumenta com o tamanho do disco de dados na proporção anterior até atingir um máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure
 
-Esta seção descreve os limites de serviço de Armazenamento do Microsoft Azure e as convenções de nomenclatura necessárias para Arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço de Gateway do Data Box/Data Box Edge. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
+Esta seção descreve os limites de serviço de Armazenamento do Microsoft Azure e as convenções de nomenclatura necessárias para Arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço de Data Box Gateway/Data Box Edge. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
 
 Para obter as informações mais recentes sobre os limites de serviço de armazenamento do Azure e práticas recomendadas para nomear compartilhamentos, contêineres e arquivos, visite:
 
@@ -50,7 +50,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 - [Convenções de blobs de páginas e blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se há quaisquer arquivos ou diretórios que excedem os limites de serviço de Armazenamento do Microsoft Azure ou não estão em conformidade com as convenções de nomenclatura de Blobs/Arquivos do Azure, esses arquivos ou diretórios não são ingeridos no Armazenamento do Azure por meio do serviço Data Box Edge/Gateway do Data Box.
+> Se há quaisquer arquivos ou diretórios que excedem os limites de serviço de Armazenamento do Microsoft Azure ou não estão em conformidade com as convenções de nomenclatura de Blobs/Arquivos do Azure, esses arquivos ou diretórios não são ingeridos no Armazenamento do Azure por meio do serviço Data Box Edge/Data Box Gateway.
 
 ## <a name="data-upload-caveats"></a>Limitações de upload de dados
 

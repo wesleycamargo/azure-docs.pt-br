@@ -1,6 +1,6 @@
 ---
-title: Notas de versão da versão prévia do Gateway do Azure Data Box | Microsoft Docs
-description: Descreve problemas críticos em aberto e resoluções para a versão prévia do Gateway do Azure Data Box.
+title: Notas de versão da versão prévia do Azure Data Box Gateway | Microsoft Docs
+description: Descreve problemas críticos em aberto e resoluções para a versão prévia do Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,15 +15,15 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49164562"
 ---
-# <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão da versão prévia do Gateway do Azure Data Box
+# <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de versão da versão prévia do Azure Data Box Gateway
 
 ## <a name="overview"></a>Visão geral
 
-As notas de versão a seguir identificam os problemas críticos em aberto e os problemas resolvidos para a versão prévia do Microsoft Gateway do Azure Data Box.
+As notas de versão a seguir identificam os problemas críticos em aberto e os problemas resolvidos para a versão prévia do Microsoft Azure Data Box Gateway.
 
-As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar o Gateway do Data Box, examine cuidadosamente as informações contidas nas notas de versão.
+As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar o Data Box Gateway, examine cuidadosamente as informações contidas nas notas de versão.
 
-A versão prévia corresponde à versão de software do **Gateway do Data Box versão prévia 2.0**.
+A versão prévia corresponde à versão de software do **Data Box Gateway versão prévia 2.0**.
 
 ## <a name="issues-fixed-in-preview-release"></a>Problemas corrigidos na versão prévia
 
@@ -36,12 +36,12 @@ A tabela a seguir fornece um resumo dos problemas corrigidos nesta versão.
 
 ## <a name="known-issues-in-preview-release"></a>Problemas conhecidos na versão prévia
 
-A tabela a seguir fornece um resumo dos problemas conhecidos para o Gateway do Data Box executando a versão prévia.
+A tabela a seguir fornece um resumo dos problemas conhecidos para o Data Box Gateway executando a versão prévia.
 
 | Não. | Recurso | Problema | Solução alternativa/comentários |
 | --- | --- | --- | --- |
-| **1.** |Atualizações |Os dispositivos do Gateway do Data Box criados em versões prévias anteriores não podem ser atualizados para esta versão. |Faça o download das imagens de disco virtual da nova versão e configure e implante os novos dispositivos. Para saber mais, acesse [Preparar para implantar o Gateway do Azure Data Box](data-box-gateway-deploy-prep.md). |
-| **2.** |Disco de dados provisionado |Após o provisionamento de um disco de dados de um determinado tamanho e a criação do Gateway do Data Box correspondente, você não deve reduzir o disco de dados. A tentativa de reduzir o disco resulta na perda de todos os dados locais no dispositivo. | |
+| **1.** |Atualizações |Os dispositivos do Data Box Gateway criados em versões prévias anteriores não podem ser atualizados para esta versão. |Faça o download das imagens de disco virtual da nova versão e configure e implante os novos dispositivos. Para saber mais, acesse [Preparar para implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
+| **2.** |Disco de dados provisionado |Após o provisionamento de um disco de dados de um determinado tamanho e a criação do Data Box Gateway correspondente, você não deve reduzir o disco de dados. A tentativa de reduzir o disco resulta na perda de todos os dados locais no dispositivo. | |
 | **3.** |Atualizar |Nesta versão, você pode atualizar apenas um compartilhamento por vez. | |
 | **4.** |Renomear |Não há suporte para renomeação de objetos. |Entre em contato com o Suporte da Microsoft se esse recurso for crucial para seu fluxo de trabalho. |
 | **5.** |Copiar| Se um arquivo somente leitura for copiado no dispositivo, a propriedade somente leitura não será preservada. | |

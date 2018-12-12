@@ -1,6 +1,6 @@
 ---
-title: Perguntas Frequentes do Disco do Microsoft Azure Data Box | Microsoft Docs nos dados
-description: Contém perguntas frequentes e respostas sobre o Disco do Azure Data Box, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure
+title: Perguntas Frequentes do Microsoft Azure Data Box Disk | Microsoft Docs nos dados
+description: Contém perguntas frequentes e respostas sobre o Azure Data Box Disk, uma solução de nuvem que permite transferir grandes quantidades de dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,9 +15,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51238124"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
+# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk?  (Visualização)
 
-A solução de nuvem Disco do Microsoft Azure Data Box permite que você envie terabytes de dados para o Azure de maneira rápida, barata e confiável. Estas Perguntas frequentes contêm respostas para perguntas que podem surgir durante o uso dos Discos do Data Box no portal do Azure. 
+A solução de nuvem do Microsoft Azure Data Box Disk permite que você envie terabytes de dados do Azure de maneira rápida, barata e confiável. Estas Perguntas frequentes contêm respostas para perguntas que podem surgir durante o uso dos Discos do Data Box no portal do Azure. 
 
 As perguntas e respostas são organizadas nas seguintes categorias:
 
@@ -28,7 +28,7 @@ As perguntas e respostas são organizadas nas seguintes categorias:
 - Verificação e carregamento de dados 
 
 > [!IMPORTANT]
-> O Disco do Data Box está em versão prévia. Reveja os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar a solução.
+> O Data Box Disk está em versão prévia. Reveja os [Termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar a solução.
 
 ## <a name="about-the-service"></a>Sobre o serviço
 
@@ -47,7 +47,7 @@ a. Se você tiver 40 TB de dados (ou menos) que deseja transferir para o Azure, 
 a. Para saber mais sobre o preço dos Discos do Data Box, acesse a [página Preços de Versão Prévia](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como fazer para obter Discos do Data Box? 
-a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão prévia do Disco do Data Box](https://aka.ms/AzureDataBox). Em seguida, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.   
+a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão prévia do Data Box Disk](https://aka.ms/AzureDataBox). Em seguida, faça logon no portal do Azure e crie um pedido de discos do Data Box. Forneça detalhes de notificação e informações de contato. Depois de fazer um pedido, com base na disponibilidade, os discos serão enviados para você no prazo de 10 dias.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com Discos do Data Box em uma instância?
 a. Com cinco discos, cada um com 8 TB (7 TB de capacidade utilizável), a capacidade utilizável máxima é de 35 TB. Portanto, você pode transferir 35 TB de dados em uma instância.  Para transferir mais dados, você precisa solicitar mais discos.
@@ -56,18 +56,18 @@ a. Com cinco discos, cada um com 8 TB (7 TB de capacidade utilizável), a capaci
 a.  Os Discos do Data Box estão disponíveis nos EUA, no Canadá, na Austrália e em todos os países da União Europeia durante a fase de versão prévia.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com Discos do Data Box?
-a. O Disco do Data Box tem suporte em todas as regiões nos EUA, no Canadá, na Austrália e na Europa Ocidental e na Europa Setentrional para a versão prévia. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
+a. O Data Box Disk tem suporte em todas as regiões nos EUA, no Canadá, na Austrália e na Europa Ocidental e na Europa Setentrional para a versão prévia. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contatar se eu encontrar problemas com Discos do Data Box?
-a. Se você tiver problemas com Discos do Data Box, entre em contato com o [Suporte ao Disco do Data Box](mailto:expresspodsupport@microsoft.com).
+a. Se você tiver problemas com Discos do Data Box, entre em contato com o [Suporte ao Data Box Disk](mailto:expresspodsupport@microsoft.com).
 
 ## <a name="configure-and-connect"></a>Configuração e conexão
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>P. Posso especificar o número de Discos do Data Box no pedido?
-a.  Não. Você obtém os discos de 8 TB (máximo de até cinco discos) dependendo do tamanho de seus dados e da disponibilidade dos discos.  
+a.   Não. Você obtém os discos de 8 TB (máximo de até cinco discos) dependendo do tamanho de seus dados e da disponibilidade dos discos.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>P. Como faço para desbloquear os Discos do Data Box? 
-a.  No portal do Azure, vá para o pedido do Disco do Data Box e navegue até **Detalhes do dispositivo**. Copie a chave de acesso. Baixe e extraia a ferramenta de desbloqueio do Disco do Data Box do portal do Azure para seu sistema operacional. Execute a ferramenta no computador que contém os dados que você deseja copiar para os discos. Forneça a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos. 
+a.  No portal do Azure, vá para o pedido do Data Box Disk e navegue até **Detalhes do dispositivo**. Copie a chave de acesso. Baixe e extraia a ferramenta de desbloqueio do Data Box Disk do portal do Azure para seu sistema operacional. Execute a ferramenta no computador que contém os dados que você deseja copiar para os discos. Forneça a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos. 
 
 Para obter instruções passo a passo, acesse [Desbloquear discos em um cliente do Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [Desbloquear discos em um cliente do Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
@@ -83,7 +83,7 @@ a. Sim. Vários Discos do Data Box podem ser conectados ao mesmo computador host
 ## <a name="track-status"></a>Rastreamento de status
 
 ### <a name="q-how-do-i-track-the-disks-from-when-i-placed-the-order-to-shipping-the-disks-back"></a>P. Como rastrear os discos desde a realização do pedido até a devolução? 
-a.  Você pode rastrear o status do pedido de Disco do Data Box no portal do Azure. Ao criar o pedido, é necessário também fornecer um email para notificações. Através desse email você será notificado sobre todas as alterações de status do pedido. Para obter mais informações, consulte como [configurar emails de notificação](data-box-portal-ui-admin.md#edit-notification-details).
+a.  Você pode acompanhar o status do pedido de Data Box Disk no portal do Azure. Ao criar o pedido, é necessário também fornecer um email para notificações. Através desse email você será notificado sobre todas as alterações de status do pedido. Para obter mais informações, consulte como [configurar emails de notificação](data-box-portal-ui-admin.md#edit-notification-details).
 
 ### <a name="q-how-do-i-return-the-disks"></a>P. Como fazer para retornar os discos? 
 a.  A Microsoft fornece uma etiqueta de remessa com os Discos do Data Box no pacote de envio. Cole a etiqueta na embalagem para envio e leve o pacote lacrado à transportadora responsável. Se o rótulo estiver danificado ou for perdido, vá para **Visão geral > Baixar etiqueta de remessa** e baixe um novo rótulo de remessa de devolução.
@@ -100,7 +100,7 @@ a.  Os tamanhos máximos são regidos pelos limites do Armazenamento do Azure. O
 a. Quando testado com discos conectados via USB 3.0, o desempenho do disco foi de até 430 MB/s. Os números reais variam dependendo do tamanho do arquivo usado. Para arquivos menores, o desempenho poderá ser mais baixo.
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>P. Como fazer para saber se meus dados estão protegidos durante o trânsito? 
-a.  Os Discos do Data Box são criptografados usando a criptografia BitLocker AES de 128 bits e a chave de acesso só está disponível no portal do Azure. Faça logon no portal do Azure usando suas credenciais de conta para obter a chave de acesso. Forneça essa chave de acesso quando executar a ferramenta de desbloqueio do Disco do Data Box.
+a.  Os Discos do Data Box são criptografados usando a criptografia BitLocker AES de 128 bits e a chave de acesso só está disponível no portal do Azure. Faça logon no portal do Azure usando suas credenciais de conta para obter a chave de acesso. Forneça essa chave de acesso quando executar a ferramenta de desbloqueio do Data Box Disk.
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box-disks"></a>P. Como fazer para copiar os dados para os Discos do Data Box? 
 a.  Use uma ferramenta de cópia SMB, como o Robocopy, o Diskboss ou até mesmo o arrastar e soltar do Explorador de Arquivos do Windows para copiar os dados nos discos. 
@@ -108,7 +108,7 @@ a.  Use uma ferramenta de cópia SMB, como o Robocopy, o Diskboss ou até mesmo 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>P. Existem dicas para acelerar a cópia dos dados?
 a.  Para acelerar o processo de cópia:
 
-- Use diversos fluxos de cópia de dados. Por exemplo, com o Robocopy, use a opção de vários threads. Para obter mais informações sobre o comando exato usado, vá para [Tutorial: Copiar dados para o Disco do Azure Data Box e verificar](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
+- Use diversos fluxos de cópia de dados. Por exemplo, com o Robocopy, use a opção de vários threads. Para obter mais informações sobre o comando exato usado, vá para [Tutorial: Copiar dados para o Azure Data Box Disk e verificar](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Use várias sessões.
 - Em vez de copiar arquivos por compartilhamento de rede (onde você poderia ser limitado pelas velocidades da rede), tenha os dados no mesmo computador em que os discos estão conectados.
 - Verifique se você está usando USB 3.0 ou posterior em todo o processo de cópia. Baixe e use a [ferramenta USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) para identificar os controladores USB e dispositivos USB conectados ao computador.
@@ -123,7 +123,7 @@ a.  Para acelerar o processo de cópia:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>P. Posso usar várias contas de armazenamento com Discos do Data Box?
-a.  Não. Apenas uma conta de armazenamento geral ou clássica tem suporte atualmente para os Discos do Data Box. Há suporte para o blob frequente e esporádico. Durante a versão prévia, há suporte apenas para as contas de armazenamento dos EUA, da Europa Ocidental e da Europa Setentrional na nuvem pública do Azure.
+a.   Não. Apenas uma conta de armazenamento geral ou clássica tem suporte atualmente para os Discos do Data Box. Há suporte para o blob frequente e esporádico. Durante a versão prévia, há suporte apenas para as contas de armazenamento dos EUA, da Europa Ocidental e da Europa Setentrional na nuvem pública do Azure.
 
 ## <a name="verify-and-upload"></a>Verificar e carregar
 
@@ -157,4 +157,4 @@ a. Você pode clonar o pedido anterior. A clonagem cria o mesmo pedido de antes 
 
 - Reveja os [requisitos de sistema do Data Box](data-box-disk-system-requirements.md).
 - Entenda os [limites do Data Box](data-box-disk-limits.md).
-- Implante rapidamente o [Disco do Azure Data Box](data-box-disk-quickstart-portal.md) no portal do Azure.
+- Implante rapidamente o [Azure Data Box Disk](data-box-disk-quickstart-portal.md) no portal do Azure.

@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51229604"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
+# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Visualização)
 
 A solução do Microsoft Azure Data Box Disk permite que você envie terabytes de dados locais para o Azure de forma rápida, barata e confiável. A transferência de dados segura é acelerada por meio do envio de uma a cinco SSDs (unidades de estado sólido). Esses discos de 8 TB criptografados são enviados ao seu datacenter por meio de uma operadora regional. 
 

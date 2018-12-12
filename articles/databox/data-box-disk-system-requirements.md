@@ -1,6 +1,6 @@
 ---
-title: Requisitos de sistema de Disco do Microsoft Azure Data Box | Microsoft Docs
-description: Aprender sobre os requisitos de software e de rede para seu Disco do Azure Data Box
+title: Requisitos de sistema Microsoft Azure Data Box Disk | Microsoft Docs
+description: Aprender sobre os requisitos de software e de rede para seu Azure Data Box Disk
 services: databox
 author: alkohli
 ms.service: databox
@@ -15,19 +15,19 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49092245"
 ---
-# <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos do sistema do Disco do Azure Data Box (versão prévia)
+# <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos do sistema do Azure Data Box Disk (versão prévia)
 
-Este artigo descreve os requisitos de sistema importantes para a solução de Disco do Microsoft Azure Data Box e para os clientes se conectando ao Disco do Data Box. Recomendamos que você examine as informações com atenção antes de implantar o Disco do Data Box e consulte-as, quando necessário, durante a implantação e a subsequente operação.
+Este artigo descreve os requisitos de sistema importantes para a solução do Microsoft Azure Data Box Disk e para os clientes se conectando ao Data Box Disk. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Disk e consulte-as, quando necessário, durante a implantação e a subsequente operação.
 
 > [!IMPORTANT]
-> O Disco do Data Box está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
+> O Data Box Disk está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
 
 Os requisitos de sistema incluem as plataformas compatíveis com os clientes que se conectam a discos, contas de armazenamento compatíveis e tipos de armazenamento.
 
 
 ## <a name="supported-operating-systems-for-clients"></a>Sistemas operacionais compatíveis para clientes
 
-Aqui está uma lista dos sistemas operacionais compatíveis para desbloqueio de disco e a operação de cópia de dados por meio de clientes conectados ao Disco do Data Box.
+Aqui está uma lista dos sistemas operacionais compatíveis para desbloqueio de disco e a operação de cópia de dados por meio de clientes conectados ao Data Box Disk.
 
 | **Sistema operacional** | **Versões testadas** |
 | --- | --- |
@@ -48,14 +48,14 @@ Para o cliente do Windows, o seguinte também deve ser instalado.
 
 ## <a name="other-required-software-for-linux-clients"></a>Outros softwares necessários para clientes do Linux
 
-Para o cliente do Linux, o conjunto de ferramentas do Disco do Data Box instala o software necessário a seguir:
+Para o cliente do Linux, o conjunto de ferramentas do Data Box Disk instala o software necessário a seguir:
 
 - dislocker
 - OpenSSL
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
-Aqui está uma lista dos tipos de armazenamento compatíveis com o Disco do Data Box.
+Aqui está uma lista dos tipos de armazenamento compatíveis com o Data Box Disk.
 
 | **Conta de armazenamento** | **Observações** |
 | --- | --- |
@@ -65,7 +65,7 @@ Aqui está uma lista dos tipos de armazenamento compatíveis com o Disco do Data
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento com suporte
 
-Aqui está uma lista dos tipos de armazenamento compatíveis com o Disco do Data Box.
+Aqui está uma lista dos tipos de armazenamento compatíveis com o Data Box Disk.
 
 | **Formato de arquivo** | **Observações** |
 | --- | --- |

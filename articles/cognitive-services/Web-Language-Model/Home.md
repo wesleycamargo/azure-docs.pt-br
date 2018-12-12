@@ -50,6 +50,6 @@ A API de Modelo de Linguagem da Web dá suporte a quatro operações de pesquisa
 
 O artigo a seguir fornece detalhes sobre o desenvolvimento desses modelos de linguagem e deve ser citado em publicações de pesquisa que usem este serviço:
 
-- [An Overview of Microsoft Web N-gram Corpus and Applications](https://research.microsoft.com/apps/pubs/default.aspx?id=130762) (Visão geral dos aplicativos e do corpus do Microsoft Web N-gram), NAACL-HLT 2010
+- [Visão geral dos aplicativos e do corpus do Microsoft Web N-gram](https://research.microsoft.com/apps/pubs/default.aspx?id=130762) NAACL-HLT 2010
 
 Clique [aqui](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) para obter uma lista atual de artigos que citam esse trabalho.
