@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: sharadag
-ms.openlocfilehash: e36253600dd8039940209cb5912cb2e4c2e0fbcf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988576"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865498"
 ---
 # <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Filtragem geográfica: controle de acesso de base geográfica para front-ends do Azure Front Door Service
 
@@ -31,7 +31,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 
 |Código do país | Nome do país |
 | ----- | ----- |
-| AD | Federação Russa |
+| AD | Andorra |
 | AE | Emirados Árabes Unidos|
 | AF | Afeganistão|
 | AG | Antígua e Barbuda|

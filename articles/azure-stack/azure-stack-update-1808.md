@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964246"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098082"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização da pilha 1808 do Azure
 
@@ -275,6 +275,12 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 <!-- 3179561 - IS --> 
 - O uso de discos gerenciado é relatado em horas, conforme descrito na [perguntas frequentes sobre o uso de pilha do Azure](azure-stack-usage-related-faq.md#managed-disks). No entanto, a cobrança do Azure Stack usa o preço mensal em vez disso, portanto, você pode obter cobrado incorretamente para o uso do Managed Disks em ou antes de 27 de setembro. Estamos temporariamente suspendeu encargos para Managed Disks após 27 de setembro até que o problema de cobrança seja resolvido. Se você foi cobrado incorretamente para o uso do Managed Disks, entre em contato com o suporte de cobrança da Microsoft.
 Produzido com o uso do Azure Stack APIs de relatórios de uso mostram quantidades corretas e podem ser usados.
+
+<!-- 3507629 - IS, ASDK --> 
+- Discos gerenciados cria dois novos [tipos de cota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos gerenciados podem ser provisionados. Por padrão, 2048 GiB é alocado para cada tipo de cota de discos gerenciados. No entanto, você pode encontrar os seguintes problemas:
+
+   - Cotas de criados antes da atualização 1808, a cota de Managed Disks mostra valores 0 no portal do administrador, apesar de 2048 GiB é alocada. Você pode aumentar ou diminuir o valor com base em suas necessidades reais e recentemente defina o valor de cota substitui o padrão de GiB de 2048.
+   - Se você atualizar o valor da cota para 0, é equivalente ao valor padrão de 2048 GiB. Como alternativa, defina o valor da cota como 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhará com o seguinte erro: *operação de execução longa falhou com status 'Failed'*. 

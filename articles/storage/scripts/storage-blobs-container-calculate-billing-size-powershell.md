@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26368537"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867368"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de cobrança de um contêiner de blob
 
@@ -37,7 +37,7 @@ Este script calcula o tamanho de um contêiner no armazenamento de Blobs do Azur
 
 O tamanho total do contêiner de blob inclui o tamanho do próprio contêiner e o tamanho de todos os blobs no contêiner.
 
-O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs. Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
+O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs. Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
 
 ### <a name="blob-containers"></a>Contêineres de blob
 
@@ -103,16 +103,16 @@ A seguir, encontra-se a divisão:
 * Para os blobs de bloco:
     * 8 bytes para a lista de blocos.
     * Número de blocos vezes o tamanho da ID do bloco em bytes.
-    * O tamanho dos dados em todos os blocos confirmados e não confirmados. 
-    
+    * O tamanho dos dados em todos os blocos confirmados e não confirmados.
+
     >[!NOTE]
     >Quando os instantâneos são usados, esse tamanho inclui apenas os dados exclusivos para esse blob de instantâneo ou de base. Se os blocos não confirmados não forem usados após uma semana, eles serão coletados como lixo. Depois disso, eles não contam para cobrança.
 
 * Para blobs de página:
     * O número de intervalos de página não consecutivos que têm dados vezes 12 bytes. Esse é o número de intervalos de páginas únicos que você vê ao chamar a API **GetPageRanges**.
 
-    * O tamanho dos dados em bytes de todas as páginas armazenadas. 
-    
+    * O tamanho dos dados em bytes de todas as páginas armazenadas.
+
     >[!NOTE]
     >Quando instantâneos são usados, esse tamanho inclui apenas as páginas exclusivas para o blob de base ou o blob de instantâneo que está sendo contado.
 

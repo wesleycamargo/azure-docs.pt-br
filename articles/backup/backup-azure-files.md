@@ -2,18 +2,18 @@
 title: Backup de compartilhamentos de arquivos do Azure
 description: Este artigo fornece detalhes sobre como fazer backup e restaurar seus compartilhamentos de arquivos do Azure e explica as tarefas de gerenciamento.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4a1fcd27603b0323fffe7b59ef2fdfdcabaf8f58
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265331"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874984"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 Este artigo explica como usar o Portal do Azure para fazer backup e restaurar [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md) no Azure.
