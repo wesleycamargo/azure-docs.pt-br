@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633717"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250477"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Uso de infraestrutura de relatórios para provedores de serviços de nuvem
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Uso de infraestrutura de relatórios para provedores de serviços de nuvem
 
 O Azure Stack inclui a infraestrutura necessária para controlar o uso conforme ele ocorre e os encaminha para o Azure. No Azure, comércio do Azure processa os dados de uso e os encargos de uso para as assinaturas do Azure apropriadas. Isso ocorre da mesma forma como o acompanhamento de uso é monitorado na nuvem do Azure global.
 
