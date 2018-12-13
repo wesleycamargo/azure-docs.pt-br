@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623750"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849387"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Stream de logs do Azure Active Directory para um hub de eventos do Azure (versão prévia)
 
@@ -77,7 +77,7 @@ Depois que os dados são exibidos no hub de eventos, você pode acessar e ler os
 * **Configurar uma ferramenta de SIEM com suporte**. Para ler dados do hub de eventos, a maioria das ferramentas exige a cadeia de conexão de hub de eventos e determinadas permissões para sua assinatura do Azure. Ferramentas de terceiros que têm integração com o Azure Monitor incluem, dentre outras:
     * **Splunk**: para obter mais informações sobre como integrar os logs do Azure AD ao Splunk, consulte [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: o DSM e o protocolo de Hub de Eventos do Azure estão disponíveis para download no [Suporte da IBM](http://www.ibm.com/support). Para obter mais informações sobre a integração com o Azure, vá para a [Plataforma de Inteligência de Segurança da IBM QRadar 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
+    * **IBM QRadar**: o DSM e o protocolo de Hub de Eventos do Azure estão disponíveis para download no [Suporte da IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração com o Azure, vá para a [Plataforma de Inteligência de Segurança da IBM QRadar 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
     * **Sumo Logic**: para configurar o Sumo Logic a fim de consumir dados de um hub de eventos, confira [Instalar o aplicativo do Azure AD e exibir os painéis](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 

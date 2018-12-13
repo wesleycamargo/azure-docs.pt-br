@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 6354212eb95fbefb217dd5339613d050da55f4ba
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166278"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Notas de versão do provedor 1.1.30.0 de recursos do MySQL
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e problemas conhecidos no MySQL versão 1.1.30.0 do provedor de recursos.
 
@@ -56,13 +56,26 @@ Esta versão do provedor de recursos MySQL do Azure Stack inclui os seguintes ap
 
 - **SKUs MySQL pode levar até uma hora para ser visíveis no portal do**. Pode demorar até uma hora para recentemente criados SKUs fique visível para uso durante a criação de novos bancos de dados MySQL. 
 
-    **Solução alternativa**: nenhum.
+    **Solução alternativa**: Nenhuma.
 
 - **Reutilizado MySQL logons**. Tentativa de criar um novo MySQL logon com o mesmo nome de usuário como um logon existente na mesma assinatura resultará em reutilizando o mesmo logon e a senha existente. 
 
-    **Solução alternativa**: usar nomes de usuário diferente ao criar novos logons sob a mesma assinatura ou crie logons com o mesmo nome de usuário em assinaturas diferentes.
+    **Solução alternativa**: Usar nomes de usuário diferente ao criar novos logons sob a mesma assinatura ou crie logons com o mesmo nome de usuário em assinaturas diferentes.
 
+- **Requisito de suporte do TLS 1.2**. Se você tentar implantar ou atualizar o provedor de recursos do MySQL de um computador onde o TLS 1.2 não está habilitada, a operação poderá falhar. Execute o seguinte comando do PowerShell no computador que está sendo usado para implantar ou atualizar o provedor de recursos para verificar que o TLS 1.2 é retornado como o suporte para:
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Se **Tls12** não está incluído na saída do comando, TLS 1.2 não está habilitado no computador.
+
+    **Solução alternativa**: Execute o seguinte comando do PowerShell para habilitar o TLS 1.2 e, em seguida, iniciar a implantação de provedor de recursos ou atualizar o script na mesma sessão do PowerShell:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemas conhecidos para administradores de nuvem operacional do Azure Stack
 Consulte a documentação na [notas de versão do Azure Stack](azure-stack-servicing-policy.md).
 
