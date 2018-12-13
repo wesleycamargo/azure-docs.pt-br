@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969355"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186745"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação do ASDK tarefas de configuração
 
-Após [instalando o Azure Stack desenvolvimento ASDK (Kit)](asdk-install.md), você precisará fazer alterações de uma configuração de pós-instalação alguns recomendada.
+Após [instalando o Azure Stack desenvolvimento ASDK (Kit)](asdk-install.md), você precisará fazer alterações enquanto estiver conectado como AzureStack\AzureStackAdmin no computador host ASDK de uma configuração de pós-instalação alguns recomendada. 
 
 ## <a name="install-azure-stack-powershell"></a>Instalar o PowerShell do Azure Stack
 
