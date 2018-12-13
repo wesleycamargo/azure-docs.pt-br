@@ -4,7 +4,7 @@ description: Saiba como se conectar a um Banco de Dados SQL no Azure usando o Vi
 keywords: conectar-se ao banco de dados sql
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 627d4a353e2e6582ed7b579a3f9d74594c6c10fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: ea4809368189a3fefac95c867e2b29d0b8f58442
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912961"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868524"
 ---
 # <a name="quickstart-azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Início Rápido: Banco de Dados SQL do Azure: Use Visual Studio Code para se conectar e consultar dados
 

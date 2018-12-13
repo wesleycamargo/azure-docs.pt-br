@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 867c52d87562c11eff8dfe2abd443a2c068eb9ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037610"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871873"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -165,7 +165,7 @@ Quando você substitui o prefixo de endereço 0.0.0.0/0, além do tráfego de sa
         - Não ter uma regra de grupo de segurança de rede associada a ela que impeça a comunicação com o dispositivo
         - Não negar a comunicação
         - Ser capaz de converter o endereço de rede e encaminhar ou ser proxy do tráfego para o recurso de destino na sub-rede e retornar o tráfego de volta para a Internet. 
-    - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual ExpressRoute, um dispositivo local conectado à Internet pode converter o endereço de rede e encaminhar ou ser proxy do tráfego para o recurso de destino na sub-rede por meio do [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) do ExpressRoute. 
+    - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual ExpressRoute, um dispositivo local conectado à Internet pode converter o endereço de rede e encaminhar ou ser proxy do tráfego para o recurso de destino na sub-rede por meio do [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) do ExpressRoute. 
 
 Se sua rede virtual está conectada a um gateway de VPN do Azure, não associe a uma tabela de rota para o [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de 0.0.0.0/0. Isso pode impedir que o gateway funcione corretamente. Para obter detalhes, consulte a pergunta *Por que determinadas portas estão abertas no meu gateway de VPN?* em [Perguntas frequentes sobre o Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
