@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5a1f0c0ee8a9f6ef6871e19e7722e09f4e96ba7f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106746"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142063"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como criar uma solução com o Azure e o Azure Stack de aprendizado de máquina de borda.
 
@@ -135,22 +135,22 @@ Conhecimento prévio do Azure e o Azure Stack é necessário. Para saber mais an
 
  -  **Pool de agentes de Build do Linux hospedada do VSTS.** Criar, testar e implantar rapidamente aplicativos usar um Microsoft gerenciadas e mantidas agente hospedado. Para obter mais informações sobre a compilação do VSTS hospedado agentes veem [agentes hospedados](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) documentação.
 
-## <a name="step-1-create-a-storage-account"></a>Etapa 1: criar uma conta de armazenamento
+## <a name="step-1-create-a-storage-account"></a>Etapa 1: Criar uma conta de armazenamento
 
 Crie uma conta de armazenamento e um contêiner para limpar dados residam.
 
 1.  Entrar para o [ *portal do Azure*](https://portal.azure.com/).
 
-2.  No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **todos os serviços**. Role para baixo até **armazenamento** e escolha **contas de armazenamento**. No * * as contas de armazenamento * * janela escolher **adicionar**.
+2.  No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **todos os serviços**. Role para baixo até **armazenamento** e escolha **contas de armazenamento**. No **contas de armazenamento** janela escolher **Add**.
 
 3.  Insira um nome para a conta de armazenamento.
 
     > [!Note]  
     > Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. O nome da conta de armazenamento deve ser exclusivo dentro do Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionado já está em uso.
 
-4.  Especifique o modelo de implantação a ser usado: **Resource Manager**.
+4.  Especifique o modelo de implantação a ser usado: **O Gerenciador de recursos**.
 
-5.  Selecione o tipo de conta de armazenamento: **uso geral V1**, em seguida, especifique o nível de desempenho: **padrão**.
+5.  Selecione o tipo de conta de armazenamento: **Uso geral V1**, em seguida, especifique o nível de desempenho: **Standard**.
 
 6.  Selecione a opção de replicação para a conta de armazenamento: **GRS**.
 
@@ -162,7 +162,7 @@ Crie uma conta de armazenamento e um contêiner para limpar dados residam.
 
 10. Selecione **Criar** para criar a conta de armazenamento.
 
-    ![Alt text](/media/azure-stack-solution-machine-learning/image1.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Escolha a conta de armazenamento criada recentemente.
 
@@ -194,8 +194,8 @@ Crie uma máquina Virtual de ciência de dados (DSVM) do Ubuntu no portal do Azu
 
     ![Alt text](media/azure-stack-solution-machine-learning/image6.png)
 
-> ! [Importante]  
-> **Escolher** senha * * como o*tipo de autenticação*.
+> [!Important]  
+> Escolher **senha** como o **tipo de autenticação**.
 
 Coloque a DSVM de novo no mesmo grupo de recursos como a conta de armazenamento recém-criada. Todos os objetos de ML de borda são implantados no Azure por este grupo de recursos.
 
@@ -209,7 +209,8 @@ Coloque a DSVM de novo no mesmo grupo de recursos como a conta de armazenamento 
 
     d.  Para o **conta de armazenamento de diagnóstico**, selecione a conta de armazenamento criada anteriormente.
 
-    e.  Observação: Com o AAD habilitado e configurado para a assinatura do Azure, identidades gerenciadas para recursos do Azure podem ser habilitadas também.
+    > [!Note]  
+    > Com o AAD habilitado e configurado para a assinatura do Azure, identidades gerenciadas para recursos do Azure podem ser habilitadas também.
 
 2.  Selecione **OK**.
 
@@ -312,7 +313,8 @@ Use o portal do Azure para provisionar as contas do Azure Machine Learning:
 
 O Azure Machine Learning Workbench está disponível para Windows ou macOS. Consulte a lista de [plataformas com suporte](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation).
 
-**Aviso:** a instalação pode levar em torno de uma hora para ser concluída.
+> [!Warning]  
+> A instalação pode levar em torno de uma hora para ser concluída.
 
 1.  Baixe e inicie o instalador mais recente do Workbench.
 
@@ -321,7 +323,7 @@ O Azure Machine Learning Workbench está disponível para Windows ou macOS. Cons
 
 1.  Siga na tela instruções do instalador para conclusão.
 
-    * * A instalação pode levar até 30 minutos para ser concluída. **
+    **A instalação pode levar até 30 minutos para ser concluída.**
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -493,7 +495,7 @@ Este pacote de preparação de dados poderá ser entregue posteriormente a um te
 
     3.  Selecione **contagens de valor** no menu.
 
-        O painel **Inspetores** é aberto abaixo dos dados. Um histograma com quatro barras é exibido. A coluna de destino possui quatro valores distintos: **Iris-virginica**, **Iris-versicolor**,**Iris-setosa**e um **(null)** valor.
+        O painel **Inspetores** é aberto abaixo dos dados. Um histograma com quatro barras é exibido. A coluna de destino possui quatro valores distintos: **Iris-virginica**, **Iris-versicolor**,**Iris-setosa**e uma **(null)** valor.
 
     ![Selecione Contagens de valor](media/azure-stack-solution-machine-learning/image34.png)
 
@@ -865,7 +867,7 @@ Para executar o script em um contêiner do Docker em um computador Linux remoto,
     ```yaml  
     Framework: Python
     ```
-1.  Emita o comando mesmo de antes na janela da CLI, usando o destino*<DSVM>* neste momento para executar o iris_sklearn. py em um contêiner do Docker remoto: (substitua o <DSVM> com o nome de VM de ciência de dados, sem os colchetes).
+1.  Execute o comando mesmo de antes na janela da CLI, usando o destino*<DSVM>* neste momento para executar o iris_sklearn. py em um contêiner do Docker remoto: (Substitua o <DSVM> com o nome de VM de ciência de dados, sem os colchetes).
 
     ```CLI
         az ml experiment submit -c <DSVM> iris_sklearn.py
@@ -885,7 +887,7 @@ Na parte anterior do tutorial, o script **iris_sklearn.py** foi executado localm
 
 4.  Examine o arquivo **iris_sklearn.py** para ver onde o arquivo pickle foi gerado. Selecione Control + F para abrir a caixa de diálogo **Localizar** e, em seguida, localize a palavra **pickle** no código Python.
 
-Este snippet de código mostra como o arquivo de saída processado pelo pickle foi gerado. O arquivo pickle de saída é denominado **model.pkl** no disco.
+    Este snippet de código mostra como o arquivo de saída processado pelo pickle foi gerado. O arquivo pickle de saída é denominado **model.pkl** no disco.
 
     ```Python
         print("Export the model to model.pkl")
@@ -923,7 +925,7 @@ Para implantar o serviço web junto com o arquivo de modelo, o script de pontua�
 
     Esse script cria um arquivo JSON na **saídas** seção, que captura o esquema de dados de entrada exigido pelo modelo.
 
-1.  Observe o painel **Trabalhos** no lado direito do **Painel do Projeto**. Aguarde até que o trabalho mais recente * * score_iris.py** exibir o verde **concluído** status. Em seguida, selecione o hiperlink **score_iris.py** da execução de trabalho mais recente para ver os detalhes da execução.
+1.  Observe o painel **Trabalhos** no lado direito do **Painel do Projeto**. Aguarde que a versão mais recente do trabalho **score_iris.py** exiba o status verde **Concluído**. Em seguida, selecione o hiperlink **score_iris.py** da execução de trabalho mais recente para ver os detalhes da execução.
 
 2.  Na página **Propriedades de Execução**, na seção **Saídas**, selecione o arquivo recém-criado **service_schema.json**. Marque a caixa de seleção ao lado do nome de arquivo e, em seguida, selecione **Baixar**. Salve o arquivo na pasta raiz do projeto.
 
@@ -952,23 +954,23 @@ Para implantar o serviço web junto com o arquivo de modelo, o script de pontua�
 
 Agora, prepare o ambiente para operacionalizar o modelo.
 
-## <a name="step-5-deploy-and-use-azure-container-registry"></a>Etapa 5: Implantar e usar o registro de contêiner do Azure
+## <a name="step-5-deploy-and-use-azure-container-registry"></a>Etapa 5: Implantar e usar o Registro de Contêiner do Azure
 
 Implantar e usar o registro de contêiner do Azure.
 
 Crie um Registro de Contêiner do Azure com o comando **az acr create**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. O grupo de recursos é o mesmo.
 
-    ```CLI
-        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-    ```
+```CLI
+    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+```
 
 ### <a name="container-registry-login"></a>Logon no registro de contêiner
 
 Use o comando **az acr login** para fazer logon na instância do ACR. Forneça o nome exclusivo fornecido para o Registro de contêiner quando ele foi criado.
 
-    ```CLI
-        az acr login --name <acrName>
-    ```
+```CLI
+    az acr login --name <acrName>
+```
 
 O comando retorna um ' logon bem-sucedido mensagem após a conclusão.
 
@@ -978,11 +980,11 @@ Use *modo local* implantação para ser executada em contêineres do Docker no c
 
 O mecanismo do Docker deve ser executado localmente para concluir as etapas a seguir para operacionalizar o modelo. Use o `-h` sinalizador no final de cada comando para mostrar a mensagem de ajuda correspondente.
 
-    > [!Note]  
-    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
+> [!Note]  
+> Se o mecanismo do Docker não estiver disponível localmente, continue criando um cluster no Azure para implantação e manter o cluster para reutilização ou excluí-lo após o tutorial para evitar encargos contínuos.
 
-    > [!Note]  
-    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
+> [!Note]  
+> Serviços Web implantados localmente não aparecem na lista do Portal do Azure de serviços. Eles serão executados no Docker no computador local.
 
 1.  Abra a interface de linha de comando (CLI) do Azure. No aplicativo Machine Learning Workbench, no menu **Arquivo**, selecione **Abrir o prompt de comando**.
 
@@ -1017,7 +1019,7 @@ O mecanismo do Docker deve ser executado localmente para concluir as etapas a se
     az provider show -n Microsoft.ContainerRegistry
     ```
 
-    A terceira linha da saída exibe **"registrationState": "Registrar"**. Aguarde alguns minutos e repita a **mostram** comando até que a saída exibe **"registrationState": "registrado.**
+    A terceira linha da saída exibe **"registrationState": "Registrar"**. Aguarde alguns minutos e repita a **mostram** comando até que a saída exibe **"registrationState": "Registrado.**
 
 1.  Crie o ambiente. Execute essa etapa uma vez por ambiente.
 
@@ -1218,9 +1220,9 @@ Conceder acesso à entidade de serviço para a assinatura para que ele pode cria
 
     ![Modelo de Solução de Implementação](media/azure-stack-solution-machine-learning/image59.png)
 
-10\. Selecione **Noções básicas de** na criar o Cluster Kubernetes.
+10. Selecione **Noções básicas de** na criar o Cluster Kubernetes.
 
-    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
+    ![Modelo de Solução de Implementação](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Insira o **o nome de usuário de administrador VM Linux**. Nome de usuário para as máquinas virtuais de Linux que fazem parte do cluster Kubernetes e DVM.
 
@@ -1261,7 +1263,7 @@ De dentro do ambiente WSL, execute os seguintes comandos para instalar o kubectl
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
+Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
 ```
 
 ### <a name="install-kubectl-on-the-windows-subsystem-for-linux-environment"></a>Instalar kubectl no subsistema do Windows para o ambiente do Linux
@@ -1301,7 +1303,7 @@ Por exemplo, ao executar um cluster Kubernetes em um laptop local, uma ferrament
 Se as informações do cluster kubectl retorna a resposta da url, mas o cluster ainda não está acessível, verificar a configuração apropriada, usando:
 
 ```Bash  
-> kubectl cluster-info dump
+    kubectl cluster-info dump
 ```
 
 ### <a name="enable-shell-autocompletion"></a>Habilitar o preenchimento automático de shell
@@ -1349,7 +1351,7 @@ Depois que o arquivo JSON local é obtido, em uma nova sessão WSL, use os segui
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
+    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
     kubectl.exe config view
 ```
 
@@ -1408,7 +1410,7 @@ Salvar a **iris_deployment.yaml** arquivo (localizado no /*mnt/c/usuários/<curr
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
+![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Verifique o status da implantação:
 
@@ -1416,7 +1418,7 @@ Verifique o status da implantação:
 Kubectl get deployments
 ```
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
+![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 A implantação pode levar algum tempo.
 
@@ -1553,7 +1555,7 @@ Como parte da configuração do ponto de extremidade de serviço, o VSTS requer 
 
 Conceder os direitos de entidade de serviço para implantar recursos na assinatura do Azure Stack
 
-Para acessar recursos na assinatura, atribua o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Para acessar recursos na assinatura, atribua o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Defina o escopo no nível da assinatura, grupo de recursos ou recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos permite que ele leia o grupo de recursos e quaisquer recursos que ele contém.
 
@@ -1824,11 +1826,11 @@ Sucesso será semelhante a este:
 
 1.  Em Conexão de serviço do Kubernetes, selecione o **+ novo** botão e selecione**Kubernetes**na lista. Você pode usar esse ponto de extremidade para se conectar a**VSTS**e o**serviço de contêiner do Azure (AKS)**.
 
-2.  **Nome da Conexão**: forneça o nome de conexão.
+2.  **Nome da Conexão**: Forneça o nome de conexão.
 
-3.  **URL do servidor**: forneça o endereço do serviço de contêiner no formathttp: / / {endereço do servidor de API}
+3.  **URL do servidor**: Forneça o endereço do serviço de contêiner no formathttp: / / {endereço do servidor de API}
 
-4.  **Kubeconfig**: para obter o valor de Kubeconfig, execute os seguintes comandos do Azure em um prompt de comando iniciado com o privilégio de administrador.
+4.  **Kubeconfig**: Para obter o valor de Kubeconfig, execute os seguintes comandos do Azure em um prompt de comando iniciado com o privilégio de administrador.
 
     > [!Important]  
     > Use essa janela da CLI para realizar as próximas etapas.
@@ -1855,7 +1857,7 @@ grupo de AZ aks get-credentials recursos- <yourResourceGroup> nome <yourazurecon
 
 ![Ponto de extremidade de serviço do Kubernetes](media/azure-stack-solution-machine-learning/image123.png)
 
-1.  Navegue até a **.kube**pasta sob o diretório base (por exemplo: c:\\usuários\\<user>\\documentos\\Kube)
+1.  Navegue até a **.kube**pasta sob o diretório base (por exemplo: C:\\os usuários\\<user>\\documentos\\Kube)
 
 2.  Copie o conteúdo do**config**de arquivo e cole-o na janela de Conexão do Kubernetes. Selecione o**Okey**botão.
 
@@ -1914,7 +1916,7 @@ Depois que o kubernetes interface do usuário está em execução, navegue até 
 
     ```Bash  
     git add .
-    git commit -m “Added Service YAML” 
+    git commit -m "Added Service YAML" 
     git push
     ```
 
@@ -1958,10 +1960,9 @@ Depois que o kubernetes interface do usuário está em execução, navegue até 
 
 1.  Definir a conexão Kubernates Service para a Conexão de pilha do Azure criado anteriormente e, em seguida, selecione a **usar arquivos de configuração** caixa de seleção para adicionar um arquivo de configuração. Navegue até o arquivo iris_service.yaml nos artefatos vinculados.
 
-    ![Alt text](media/azure-stack-solution-machine-learning/image135.png)
-
-
-    ![Alt text](media/azure-stack-solution-machine-learning/image136.png)
+    ![Texto ALT](media/azure-stack-solution-machine-learning/image135.png)
+    <!-- -->
+    ![texto Alt](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Salve a definição da versão.
 
@@ -2013,7 +2014,7 @@ Deve ser exibida uma mensagem de validação semelhante à seguinte:
 
 Um aplicativo de funções é necessária para hospedar a execução de cada função. Um aplicativo de funções permite que a função de agrupamento como uma unidade lógica para fácil gerenciamento, implantação e compartilhamento de recursos.
 
-1.  No portal do usuário do Azure Stack, selecione a **+ novo** botão encontrado no canto superior esquerdo, em seguida, selecione**Web + móvel** >**aplicativo de funções**.
+1.  No portal do usuário do Azure Stack, selecione a **+ novo** botão encontrado no canto superior esquerdo, em seguida, selecione **Web + móvel** >**aplicativo de funções**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2021,13 +2022,13 @@ Um aplicativo de funções é necessária para hospedar a execução de cada fun
 
     ![Definir novas configurações de aplicativo de função](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  Selecione**criar**para provisionar e implantar o aplicativo de funções.
+1.  Selecione **criar**para provisionar e implantar o aplicativo de funções.
 
-2.  Selecione o ícone de notificação no canto superior direito do portal e ficar atento a**implantação bem-sucedida** mensagem.
+2.  Selecione o ícone da Notificação no canto superior direito do portal e veja se a mensagem **Implantação concluída com êxito** é exibida.
 
     ![Definir novas configurações do aplicativo de funções](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  Selecione**ir para o recurso** para exibir o novo aplicativo de funções.
+1.  Selecione **ir para o recurso** para exibir o novo aplicativo de funções.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2103,13 +2104,13 @@ Crie uma conta de armazenamento do Azure Stack e a fila de armazenamento para os
 
 6.  Selecione **Local** para o local para a conta de armazenamento.
 
-7.  Selecione**criar**para criar a conta de armazenamento.
+7.  Selecione **criar**para criar a conta de armazenamento.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Escolha a conta de armazenamento criada recentemente.
 
-2.  Selecione na**filas**.
+2.  Selecione na **filas**.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2129,7 +2130,7 @@ Crie uma conta de armazenamento do Azure Stack e a fila de armazenamento para os
 
     ![Alt text](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  Insira o nome da conta de armazenamento na **nome** campo, adicionando ao final; armazenamento
+1.  Insira o nome da conta de armazenamento na **nome** campo, adicionando ao final, `_STORAGE`.
 
 Isso permite que o aplicativo entender o que se trata de um ponto de extremidade de conta de armazenamento.
 
@@ -2229,7 +2230,7 @@ Isso permite que o aplicativo entender o que se trata de um ponto de extremidade
 
     ![Alt text](media/azure-stack-solution-machine-learning/image178.png)
 
-1.  Verifique a conta de armazenamento hospedado do Azure para ver os dados de backup na nuvem do Azure foi analisada: êxito será semelhante de abaixo.
+1.  Verifique a conta de armazenamento hospedado do Azure para ver que os dados de backup na nuvem do Azure foi analisados: Sucesso será semelhante de abaixo.
 
     ![Alt text](media/azure-stack-solution-machine-learning/image179.png)
 
