@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404861"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889185"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Monitorar um cluster Kubernetes do Azure com o Log Analytics
 
@@ -143,7 +143,7 @@ Depois que os agentes estiverem em execução, levará vários minutos para que 
 
 ## <a name="access-monitoring-data"></a>Acessar dados de monitoramento
 
-Exiba e analise os dados de monitoramento com o contêiner com a [solução Contêiner](../../log-analytics/log-analytics-containers.md) no portal do Log Analytics ou no Portal do Azure.
+Exiba e analise os dados de monitoramento com o contêiner com a [solução Contêiner](../../azure-monitor/insights/containers.md) no portal do Log Analytics ou no Portal do Azure.
 
 Para instalar a solução Contêiner usando o [portal do Log Analytics](https://mms.microsoft.com), acesse a **Galeria de Soluções**. Em seguida, adicione a **solução Contêiner**. Como alternativa, adicione a solução Contêineres por meio do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
 
@@ -153,7 +153,7 @@ No portal do Log Analytics, procure um bloco de resumo **Contêineres** no paine
 
 Da mesma forma, no portal do Azure, acesse o **Log Analytics** e selecione o nome do workspace. Para ver o bloco de resumo **Contêineres** clique em **Soluções** > **Contêineres**. Para ver os detalhes, clique no bloco.
 
-Consulte a [documentação do Azure Log Analytics](../../log-analytics/log-analytics-queries.md) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
+Consulte a [documentação do Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para obter orientações detalhadas de como consultar e analisar dados de monitoramento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

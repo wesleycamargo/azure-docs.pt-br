@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353548"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888504"
 ---
 # <a name="configure-deployment-sources"></a>Configurar fontes de implantação
 
@@ -38,7 +38,8 @@ Além do Git local, há suporte para os seguintes provedores de controle do cód
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Exibir fontes de implantação na administração do serviço de aplicativo
 
 1. Entrar no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviço.
-2. Navegue até **Provedores de Recursos** e selecione o **Administrador de Provedor de Recursos do Serviço de Aplicativo**.  ![Administrador de Provedor de Recursos do Serviço de Aplicativo][1]
+2. Navegue até **todos os serviços** e selecione o **serviço de aplicativo**.
+    ![Administrador de Provedor de Recursos do Serviço de Aplicativo][1]
 3. Clique em **Configuração do controle de origem**. Você pode ver a lista de todas as fontes de implantação configurado.
     ![Configuração do controle de origem da Administração de Provedor de Recursos do Serviço de Aplicativo][2]
 

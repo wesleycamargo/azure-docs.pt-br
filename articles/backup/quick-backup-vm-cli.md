@@ -2,21 +2,21 @@
 title: Início Rápido do Azure – Fazer backup de uma VM com a CLI do Azure
 description: Saiba como fazer backup de suas máquinas virtuais com a CLI do Azure
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 8/3/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e378c385d3ea98fd43937558d00d3d13accb636b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcc995994b19314b985e9a038fed236ca55db804
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984952"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878764"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Fazer backup de uma máquina virtual no Azure com a CLI
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma máquina virtual (VM) no Azure com a CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](quick-backup-vm-powershell.md) ou o [portal do Azure](quick-backup-vm-portal.md).
