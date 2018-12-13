@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688199"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164694"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notas de versão de 1.1.30.0 do provedor de recursos do SQL
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e problemas conhecidos na versão 1.1.30.0 do provedor de recursos do SQL.
 
@@ -58,15 +58,29 @@ Esta versão do provedor de recursos do SQL do Azure Stack inclui os seguintes a
 
 - **SKUs do SQL pode levar até uma hora para ser visíveis no portal do**. Pode demorar até uma hora para recentemente criados SKUs fique visível para uso durante a criação de novos bancos de dados SQL. 
 
-    **Solução alternativa**: nenhum.
+    **Solução alternativa**: Nenhuma.
 
 - **Reutilizado logons do SQL Server**. Tentativa de criar um novo SQL logon com o mesmo nome de usuário como um logon existente na mesma assinatura resultará em reutilizando o mesmo logon e a senha existente. 
 
-    **Solução alternativa**: usar nomes de usuário diferente ao criar novos logons sob a mesma assinatura ou crie logons com o mesmo nome de usuário em assinaturas diferentes.
+    **Solução alternativa**: Usar nomes de usuário diferente ao criar novos logons sob a mesma assinatura ou crie logons com o mesmo nome de usuário em assinaturas diferentes.
 
 - **Logons do SQL Server compartilhados causam inconsistência de dados**. Se um logon do SQL é compartilhado para vários bancos de dados do SQL na mesma assinatura, alterando a senha de login irá causar inconsistência de dados.
 
-    **Solução alternativa**: sempre usam logons diferentes para diferentes bancos de dados na mesma assinatura.
+    **Solução alternativa**: Sempre usam logons diferentes para diferentes bancos de dados na mesma assinatura.
+
+- **Requisito de suporte do TLS 1.2**. Se você tentar implantar ou atualizar o provedor de recursos do SQL de um computador onde o TLS 1.2 não está habilitada, a operação poderá falhar. Execute o seguinte comando do PowerShell no computador que está sendo usado para implantar ou atualizar o provedor de recursos para verificar que o TLS 1.2 é retornado como o suporte para:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Se **Tls12** não está incluído na saída do comando, TLS 1.2 não está habilitado no computador.
+
+    **Solução alternativa**: Execute o seguinte comando do PowerShell para habilitar o TLS 1.2 e, em seguida, iniciar a implantação de provedor de recursos ou atualizar o script na mesma sessão do PowerShell:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemas conhecidos para administradores de nuvem operacional do Azure Stack
 Consulte a documentação na [notas de versão do Azure Stack](azure-stack-servicing-policy.md).

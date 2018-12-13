@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233058"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269729"
 ---
 # <a name="azure-stack-capacity-planner"></a>Planejador de capacidade do Azure Stack
 O Planejador de capacidade do Azure Stack é uma planilha usada para planejamento de capacidade de recursos do Azure Stack. O Planejador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e ver como eles seriam se através de uma seleção de ofertas de hardware. Instruções detalhadas para o uso da Calculadora do Azure Stack são fornecidas abaixo.
@@ -61,7 +61,7 @@ Para criar um modelo usando uma única coleção de vários tamanhos e as quanti
 3. Agora você está pronto para começar a adicionar várias VMs de tamanhos para seu modelo. Para incluir um tipo específico de VM, digite um valor de quantidade para a caixa contornada azul à esquerda da entrada da VM.
 
   > [!NOTE]
-  > Cada VM começa com um tamanho de armazenamento inicialmente atribuída. Tamanho de armazenamento é exibido usando uma caixa de listagem e pode ser modificado para ajustar o nível desejado de recurso de armazenamento para cada VM do Azure Stack. Se o tamanho de armazenamento que você deseja usar não for fornecido, você pode adicioná-lo por meio da modificação de qualquer um dos tamanhos inicias 10 contidos na lista de "Configurações de armazenamento disponível", localizada no lado direito da página.<br><br>Cada VM começa com um armazenamento temporário local de inicialmente atribuído. Para refletir o provisionamento dinâmico de armazenamento temporário o número de temp local pode ser alterado a qualquer coisa na lista suspensa menu incluindo o valor máximo permitido de armazenamento temporário.
+  > Total de armazenamento de VM refere-se com a capacidade total do disco de dados da VM (número de discos com suporte * a capacidade máxima de um único disco (1 TB)). Com base nos indicadores de configuração do preenchemos a tabela de configurações de armazenamento disponíveis, para que você pode escolher o nível desejado de recurso de armazenamento para cada VM do Azure Stack. No entanto, é importante observar que você pode adicionar ou alterar a tabela de configurações de armazenamento disponíveis como conforme necessário.<br><br>Cada VM começa com um armazenamento temporário local de inicialmente atribuído. Para refletir o provisionamento dinâmico de armazenamento temporário o número de temp local pode ser alterado a qualquer coisa na lista suspensa menu incluindo o valor máximo permitido de armazenamento temporário.
 
 4. Conforme você adiciona máquinas virtuais, você verá os gráficos que mostram os recursos SKU disponíveis a alteração. Isso permite que você veja os efeitos de adição de vários tamanhos e as quantidades de VMs durante o processo de modelagem. Outra maneira de exibir o efeito das alterações é observar os números de consumida e ainda estão disponíveis listados diretamente abaixo da lista de VMs disponíveis. Esses números refletem os valores estimados com base no hardware SKU selecionado no momento.
 5. Depois de criar seu conjunto de VMs, você pode encontrar o SKU de hardware sugeridas, clicando no botão "SKU sugerido" encontrado no canto superior direito da página, diretamente abaixo do rótulo de "SKU atual". Com esse botão, em seguida, você pode modificar suas configurações de VM e ver qual hardware dá suporte a cada configuração.

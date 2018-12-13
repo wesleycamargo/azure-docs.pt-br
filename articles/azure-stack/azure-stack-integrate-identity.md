@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300703"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257369"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -27,7 +27,7 @@ A tabela a seguir mostra as diferenças entre as opções de dois identidade:
 |Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) apenas|Capacidade ou pagamento-como-uso<br>EA ou provedor de soluções de nuvem (CSP)|
 |Identidade|Deve ser o AD FS|Azure AD ou AD FS|
 |Marketplace |Com suporte<br>Licenciamento de BYOL|Com suporte<br>Licenciamento de BYOL|
-|Registro|Recomendado, requer mídia removível<br> e um dispositivo conectado separado.|Automatizada|
+|Registro|Recomendado, requer mídia removível<br> e um dispositivo conectado separado.|Automatizado|
 |Patches e atualizações|Obrigatório, requer mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixada diretamente<br> da Internet para o Azure Stack.|
 
 > [!IMPORTANT]
@@ -131,7 +131,7 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
 
 |Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|CustomAdfsName|Nome do provedor de declarações. <cr>Ele aparece dessa forma, na página de aterrissagem do AD FS.|Contoso|
+|CustomAdfsName|Nome do provedor de declarações.<br>Ele aparece dessa forma, na página de aterrissagem do AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Link de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Para este procedimento, use um computador que possa se comunicar com o ponto de 
 
 A Microsoft fornece um script que configura a terceira parte confiável, incluindo as regras de transformação de declaração. Usando o script é opcional, pois você pode executar os comandos manualmente.
 
-Você pode baixar o script auxiliar [as ferramentas do Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no Github.
+Você pode baixar o script auxiliar [as ferramentas do Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no GitHub.
 
 Se você decidir executar manualmente os comandos, siga estas etapas:
 

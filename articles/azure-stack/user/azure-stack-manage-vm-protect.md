@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963906"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191522"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implantadas no Azure Stack
 
@@ -55,8 +55,8 @@ Planeje sua estratégia de recuperação de backup e recuperação de desastre p
 
 |  | Azure global | O Azure Stack implantados no datacenter do CSP e operados pelo CSP | O Azure Stack implantados no datacenter do cliente e operados por cliente |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **O Azure Stack implantados no datacenter do CSP e operados pelo CSP** | VMs do usuário são implantadas à pilha do Azure CSP operado. VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | CSP opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters. VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | CSP opera o Azure Stack no site primário. Datacenter do cliente é o destino de restauração ou failover. |
-| **O Azure Stack implantados no datacenter do cliente e operados por cliente** | VMs do usuário são implantadas para o cliente operado Azure Stack. VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | Cliente opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters. VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | Cliente opera o Azure Stack no site primário. Datacenter do CSP é o destino de restauração ou failover. |
+| **O Azure Stack implantados no datacenter do CSP e operados pelo CSP** | VMs do usuário são implantadas à pilha do Azure CSP operado.<br><br>VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | CSP opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters.<br><br>VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. | CSP opera o Azure Stack no site primário.<br><br>Datacenter do cliente é o destino de restauração ou failover. |
+| **O Azure Stack implantados no datacenter do cliente e operados por cliente** | VMs do usuário são implantadas para o cliente operado Azure Stack.<br><br>VMs do usuário são restauradas a partir do backup ou failover diretamente no Azure. | Cliente opera o Azure Stack no site primário.<br><br>Datacenter do CSP é o destino de restauração ou failover. | Cliente opera instâncias primárias e secundárias do Azure Stack em seus próprios datacenters.<br><br>VMs do usuário são restauradas ou failover entre as duas instâncias do Azure Stack. |
 
 ![Combinações de origem e destino](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -81,9 +81,9 @@ O esquema de proteção mais comuns para aplicativos baseados em máquina virtua
 
 Recuperando o aplicativo requer a restauração de uma ou mais VMs na nuvem mesma ou para uma nova nuvem. Você pode direcionar uma nuvem em seu datacenter ou nuvem pública. A nuvem escolhida está completamente dentro de seu controle e baseia-se em seus requisitos de privacidade e Soberania de dados.
  
- - RTO: Tempo de inatividade medido em horas
+ - RTO: Medido em horas de tempo de inatividade
  - RPO: Perda de dados da variável (dependendo da frequência de backup)
- - Topologia de implantação: ativo/passivo
+ - Topologia de implantação: Ativo/passivo
 
 #### <a name="planning-your-backup-strategy"></a>Planejando sua estratégia de backup
 
@@ -111,7 +111,7 @@ Com essa abordagem, o aplicativo é implantado em uma nuvem e sua VM é replicad
 
  - RTO: Medida de tempo de inatividade em minutos
  - RPO: Perda de dados da variável (dependendo da frequência de replicação)
- - Topologia de implantação: espera por ativo/passivo
+ - Topologia de implantação: Espera por ativo/passivo
  
 ### <a name="high-availabilityautomatic-failover"></a>Failover de alta disponibilidade/automático
 
@@ -121,9 +121,9 @@ Em combinação com conjuntos de dimensionamento, seu aplicativo precisará dar 
 
 Usando essa abordagem, o aplicativo está ativo somente em uma nuvem, mas o software é implantado em várias nuvens. Outras nuvens estão no modo de espera pronto para iniciar o aplicativo quando o failover é disparado.
 
- - RTO: Tempo de inatividade medido em segundos
+ - RTO: Medido em segundos de tempo de inatividade
  - RPO: Perda mínima de dados
- - Topologia de implantação: espera por ativo/ativo
+ - Topologia de implantação: Espera por ativo/ativo
 
 ### <a name="fault-tolerance"></a>Tolerância a falhas
 
@@ -133,16 +133,16 @@ Primeiro, você precisa garantir que o aplicativo que as VMs são implantadas us
 
 Tenha em mente que cada nuvem do Azure Stack é independente uns dos outros, portanto, as nuvens são sempre consideradas ativos com base em uma perspectiva de infraestrutura. Nesse caso, várias instâncias ativas do aplicativo são implantadas para uma ou mais nuvens Active Directory.
 
- - RTO: Nenhum tempo de inatividade
+ - RTO: Sem tempo de inatividade
  - RPO: Sem perda de dados
- - Topologia de implantação: ativo/ativo
+ - Topologia de implantação: Ativo/ativo
 
 ### <a name="no-recovery"></a>Sem recuperação
 
 Alguns aplicativos em seu ambiente podem não precisar de proteção contra tempo de inatividade não planejado ou perda de dados. Por exemplo, as VMs usadas para desenvolvimento e teste normalmente não precisa ser recuperado. É sua decisão de fazer sem proteção de um aplicativo ou uma VM específica. O Azure Stack não oferece backup ou replicação de VMs da infraestrutura subjacente. Semelhante ao Azure, você precisará participar de proteção para cada VM em cada uma das suas assinaturas.
 
- - RTO: irrecuperável
- - RPO: Perda de dados completos
+ - RTO: Irrecuperável
+ - RPO: Perda de dados completo
 
 ## <a name="recommended-topologies"></a>Topologias recomendadas
 
