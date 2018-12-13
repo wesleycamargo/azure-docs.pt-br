@@ -3,7 +3,7 @@ title: Trabalhos de Banco de Dados Elástico do SQL do Azure | Microsoft Docs
 description: Usar trabalhos de Banco de Dados Elástico para executar scripts T-SQL (Transact-SQL) em um conjunto de um ou mais bancos de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054720"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873693"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gerenciar grupos de bancos de dados com trabalhos de Banco de Dados Elástico
 
