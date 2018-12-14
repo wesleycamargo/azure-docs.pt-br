@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9eed4c4bd8cd6290bd2126c91bcf4e37c1b0fa0b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284022"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341932"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks do Azure Stack: Diferenças e considerações
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Discos gerenciados do Azure Stack: Diferenças e considerações
 Este artigo resume as diferenças conhecidas entre discos gerenciados do Azure Stack e Managed Disks do Azure. Para saber mais sobre as diferenças de alto nível entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
 
 Managed Disks simplifica o gerenciamento de disco para VMs IaaS ao gerenciar o [contas de armazenamento](/azure/azure-stack/azure-stack-manage-storage-accounts) associados com os discos de VM.
+
+> [!Note]  
+> Discos gerenciados no Azure Stack está disponível no 1808.
   
 
-## <a name="cheat-sheet-managed-disk-differences"></a>Folha de dados: gerenciado diferenças de disco
+## <a name="cheat-sheet-managed-disk-differences"></a>Folha de dados: Diferenças do disco de gerenciado
 
 | Recurso | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
@@ -40,9 +43,13 @@ Managed Disks simplifica o gerenciamento de disco para VMs IaaS ao gerenciar o [
 |Discos Premium  |Com suporte total |Pode ser provisionado, mas nenhum limite de desempenho ou a garantia de  |
 |IOPs de discos Premium  |Depende do tamanho do disco  |2300 IOPs por disco |
 |Taxa de transferência de discos Premium |Depende do tamanho do disco |145 MB/segundo por disco |
-|Tamanho do disco  |Disco do Azure Premium: P4 (32 GiB) para P80 (32 TiB)<br>Disco SSD Standard do Azure: E10 (128 GiB) para E80 (32 TiB)<br>Disco HDD Standard do Azure: S4 (32 GiB) para S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
+|Tamanho do disco  |Disco Premium do Azure: P4 (32 GiB) para P80 (32 TiB)<br>Disco SSD Standard do Azure: E10 (128 GiB) para E80 (32 TiB)<br>Disco HDD Standard do Azure: S4 (32 GiB) para S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256 GiB<br>M20: 512 GiB<br>M30: 1024 GiB |
+|Cópia de instantâneo de discos|Instantâneo do Azure discos gerenciados anexados a uma VM em execução com suporte|Ainda não tem suporte |
 |Análise de desempenho de discos |Métricas de agregação e métricas por disco com suporte |Ainda não tem suporte |
 |Migração      |Forneça a ferramenta para migrar de VMs de Gerenciador de recursos do Azure não gerenciado existentes sem a necessidade de recriar a VM  |Ainda não tem suporte |
+
+> [!Note]  
+> Gerenciado discos IOPs e taxa de transferência no Azure Stack é um número de limite, em vez de um número provisionado, o que pode ser afetado pelo hardware e cargas de trabalho em execução no Azure Stack.
 
 
 ## <a name="metrics"></a>Métricas

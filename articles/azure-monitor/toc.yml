@@ -121,13 +121,13 @@ items:
   - name: Responder a incidentes
     items:
     - name: Alertas
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-overview.md
     - name: Alertas clássicos
       href: platform/alerts-classic.overview.md
     - name: Grupos inteligentes
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-smartgroups-overview.md
     - name: Autoscale
-      href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
+      href: platform/autoscale-overview.md
     - name: Alertas de métricas
       href: platform/alerts-metric-overview.md
     - name: Alertas de registro
@@ -151,7 +151,7 @@ items:
     - name: Gerenciar acesso
       items:
       - name: Permissões e segurança de funções
-        href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/roles-permissions-security.md
       - name: Workspaces
         href: platform/manage-access.md
       - name: APLICATIVOS
@@ -217,7 +217,7 @@ items:
         - name: solução de problemas
           href: platform/diagnostics-extension-troubleshooting.md
         - name: Habilitar configurações de diagnóstico com modelos do Gerenciador de Recursos
-          href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-stream-template.md
         - name: Preparar para o formato de logs de diagnóstico JSON Lines
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM convidada para repositório de métricas
@@ -441,9 +441,9 @@ items:
     - name: Rotear dados
       items:
       - name: Arquivar log de atividades
-        href: ../monitoring-and-diagnostics/monitoring-archive-activity-log.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-activity-log.md
       - name: Arquivar logs de diagnóstico
-        href: ../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/archive-diagnostic-logs.md
       - name: Armazenar logs de diagnóstico
         href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
       - name: Transmitir log de atividades para Hubs de Eventos
@@ -655,7 +655,7 @@ items:
   - name: Analisar dados
     items:
     - name: Criar gráficos de métricas no Metrics Explorer
-      href: ../monitoring-and-diagnostics/monitoring-metric-charts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-charts.md
     - name: Exibir eventos no log de atividades
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: Exibir notificações de serviço
@@ -740,11 +740,11 @@ items:
         - name: Alertas com limites dinâmicos
           href: platform/alerts-dynamic-thresholds.md
         - name: Configurar alertas de métrica em logs
-          href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-logs.md
         - name: Criar um alerta de métrica mais recente com um modelo do Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric-create-templates.md
         - name: Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
-          href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-enable-template.md
         - name: Fazer com que o alerta de métrica clássico chame um webhook
           href: platform/alerts-webhooks.md
       - name: Usar alertas de registro
@@ -760,7 +760,7 @@ items:
         - name: Configurar alertas em um evento de log de atividades
           href: platform/alerts-activity-log.md
         - name: Migrar para alertas de log de atividades
-          href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/migrate-management-alerts.md
         - name: Configurar alertas em notificações de serviço
           href: platform/alerts-activity-log-service-notifications.md
       - name: Usar alertas de aplicativo
@@ -776,11 +776,11 @@ items:
         - name: Saiba mais sobre o esquema de webhook
           href: platform/activity-log-alerts-webhook.md
         - name: Comportamento de alerta do SMS
-          href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-sms-behavior.md
         - name: Limitação de taxa de alerta
-          href: ../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-rate-limiting.md
         - name: Criar grupos de ação com o Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-create-resource-manager-template.md
         - name: Implementar uma ação de aplicativo lógico
           href: platform/action-groups-logic-app.md
       - name: Alertas do Operations Manager
@@ -790,11 +790,11 @@ items:
         - name: Gerenciar instâncias de alerta
           href: platform/alerts-managing-alert-instances.md
         - name: Gerenciar grupos inteligentes
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-smart-groups.md
         - name: Gerenciar alertas e estados de grupos inteligentes
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-states.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-states.md
         - name: Gerenciar alertas de outros serviços de monitoramento
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-nagios-zabbix-scom.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-nagios-zabbix-scom.md
     - name: Autoscale
       items:
       - name: Instruções passo a passo de dimensionamento automático
@@ -808,7 +808,7 @@ items:
       - name: Padrões comuns
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: Dimensionamento automático usando uma métrica personalizada
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-custom-metric.md
       - name: Dimensionar automaticamente conjuntos de Dimensionamento de VMs usando modelos do Resource Manager
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Dimensionar automaticamente computadores em um conjunto de Dimensionamento de VM
@@ -958,9 +958,9 @@ items:
   - name: Esquemas
     items:
     - name: Serviços para logs de diagnóstico, categorias e esquemas
-      href: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/tutorial-dashboards.md
     - name: Esquema de evento do log de atividades
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-schema.md
     - name: Esquema de extensão do Diagnóstico do Azure
       href: platform/diagnostics-extension-schema.md
       items:
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322543"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384422"

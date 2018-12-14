@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035894"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341551"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introdução às ferramentas de desenvolvimento de armazenamento do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O Microsoft Azure Stack fornece um conjunto de serviços de armazenamento que inclua o blob, tabela e o armazenamento de filas.
 
 Use este artigo como um guia para começar a usar as ferramentas de desenvolvimento de armazenamento do Azure Stack. Você pode encontrar informações mais detalhadas e código de exemplo nos tutoriais de armazenamento do Azure correspondente.
 
-> [!NOTE]  
-> Há diferenças entre o armazenamento do Azure Stack e o armazenamento do Azure, incluindo requisitos específicos para cada plataforma conhecidos. Por exemplo, há bibliotecas de cliente específicas e requisitos de sufixo de ponto de extremidade específico para o Azure Stack. Para obter mais informações, consulte [armazenamento do Azure Stack: diferenças e considerações](azure-stack-acs-differences.md).
+> [!NOTE]
+> Há diferenças entre o armazenamento do Azure Stack e o armazenamento do Azure, incluindo requisitos específicos para cada plataforma conhecidos. Por exemplo, há bibliotecas de cliente específicas e requisitos de sufixo de ponto de extremidade específico para o Azure Stack. Para obter mais informações, consulte [armazenamento do Azure Stack: Diferenças e considerações](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Bibliotecas de cliente do Azure
 
