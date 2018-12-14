@@ -17,8 +17,16 @@ items:
 - name: Conceitos
   href: video-indexer-concepts.md
   items:
-  - name: Comparar as predefinições VI e AMS
+  - name: Comparar as predefinições do Video Indexer e dos Serviços de Mídia
     href: compare-video-indexer-with-media-services-presets.md
+  - name: Personalizando modelos de conteúdo
+    items:
+    - name: Marcas
+      href: customize-brands-model-overview.md
+    - name: Linguagem
+      href: customize-language-model-overview.md
+    - name: Pessoa
+      href: customize-person-model-overview.md
 - name: Guias de como fazer
   items:
   - name: Migrar de v1 para v2
@@ -39,6 +47,26 @@ items:
     href: video-indexer-create-new.md
   - name: Inserir widgets em seu aplicativo
     href: video-indexer-embed-widgets.md
+  - name: Personalizar modelos de conteúdo
+    items:
+    - name: Pessoa
+      items:
+      - name: usando o site do Video Indexer
+        href: customize-person-model-with-website.md
+      - name: usando a API do Video Indexer
+        href: customize-person-model-with-api.md
+    - name: Marcas
+      items:
+      - name: usando o site do Video Indexer
+        href: customize-brands-model-with-website.md
+      - name: usando a API do Video Indexer
+        href: customize-brands-model-with-api.md
+    - name: Linguagem
+      items:
+      - name: usando o site do Video Indexer
+        href: customize-language-model-with-website.md
+      - name: usando a API do Video Indexer
+        href: customize-language-model-with-api.md
 - name: Referência
   items:
   - name: API do Video Indexer
@@ -51,9 +79,11 @@ items:
     href: https://azure.microsoft.com/pricing/details/media-services/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 0936678c29ac4ab4e89bcacd746bbcbb88e22c21
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+  - name: Regiões
+    href: regions.md
+ms.openlocfilehash: 0ede3667a745959b2d58d1ad1f37e36728fcd503
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290800"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270069"

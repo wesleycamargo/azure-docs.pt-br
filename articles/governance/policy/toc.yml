@@ -48,28 +48,28 @@ items:
       items:
       - name: Aplicar marca e seu valor padrão
         displayName: append, builtin, concat
-        href: samples/apply-tag-def-val.md
+        href: samples/apply-tag-default-value.md
       - name: Iniciativa de política de marcas de cobrança
-        href: samples/billing-tags-policy-init.md
+        href: samples/billing-tags-policy-initiative.md
       - name: Impor marca e seu valor
         displayName: deny, concat, builtin
-        href: samples/enforce-tag-val.md
+        href: samples/enforce-tag-value.md
       - name: Impor marca e seu valor em grupos de recursos
         displayName: deny, concat
-        href: samples/enforce-tag-rg.md
+        href: samples/enforce-tag-on-resource-groups.md
     - name: Locais
       items:
       - name: Locais permitidos
         displayName: deny, builtin, location
-        href: samples/allowed-locs.md
+        href: samples/allowed-locations.md
     - name: Tipos de recurso
       items:
       - name: Tipos de recursos permitidos
         displayName: deny, builtin, resourceTypes
-        href: samples/allowed-res-types.md
+        href: samples/allowed-resource-types.md
       - name: Tipos de recursos não permitidos
         displayName: deny, builtin, resourceTypes
-        href: samples/not-allowed-res-type.md
+        href: samples/not-allowed-resource-types.md
   - name: Computação
     items:
     - name: Máquinas virtuais
@@ -85,10 +85,10 @@ items:
         href: samples/allowed-custom-images.md
       - name: Auditar se a extensão não existir
         displayName: auditIfNotExists
-        href: samples/audit-ext-not-exist.md
+        href: samples/audit-extension-not-exist.md
       - name: Extensões de VM não permitidas
         displayName: deny
-        href: samples/not-allowed-vm-ext.md
+        href: samples/not-allowed-vm-extension.md
     - name: conjuntos de escala de máquina virtual
       items:
       - name: Auditar quando a VM não usa um disco gerenciado
@@ -107,12 +107,12 @@ items:
     items:
     - name: Aplicar criptografia do Data Lake Store
       displayName: deny
-      href: samples/enforce-datalakestore-encryption.md
+      href: samples/enforce-data-lake-store-encryption.md
   - name: Monitoramento
     items:
     - name: Configuração de diagnóstico de auditoria
       displayName: auditIfNotExists, resourceTypes
-      href: samples/audit-diag-setting.md
+      href: samples/audit-diagnostic-setting.md
   - name: Rede
     items:
     - name: Interfaces de rede
@@ -130,13 +130,19 @@ items:
       items:
       - name: SKUs de gateway de aplicativo aprovadas
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
+      - name: SKUs de gateway de rede virtual permitidas
+        displayName: deny
+        href: samples/allowed-vnet-gateway-sku.md
+      - name: SKUs do balanceador de carga permitidos
+        displayName: deny
+        href: samples/allowed-load-balancer-skus.md
       - name: Nenhum emparelhamento de rede para a rede ER
         displayName: deny, all, concat, ExistingResourceGroups
-        href: samples/no-peering-er-net.md
+        href: samples/no-peering-express-route-network.md
       - name: Nenhuma tabela de rotas definida pelo usuário
         displayName: deny, all
-        href: samples/no-user-def-route-table.md
+        href: samples/no-user-defined-route-table.md
       - name: NSG X em cada sub-rede
         displayName: deny, all
         href: samples/nsg-on-subnet.md
@@ -158,23 +164,23 @@ items:
       items:
       - name: Largura de banda do Express Route permitida
         displayName: deny
-        href: samples/allowed-er-band.md
+        href: samples/allowed-express-route-bandwidth.md
       - name: SKUs de Express Route permitidas
         displayName: deny
-        href: samples/allowed-er-skus.md
-      - name: Local de emparelhamento permitido para Express Route
+        href: samples/allowed-express-route-skus.md
+      - name: Locais de emparelhamento da Rota Expressa permitidos
         displayName: deny, Location
-        href: samples/allowed-peering-er.md
+        href: samples/allowed-express-route-peering.md
     - name: Observadores de Rede
       items:
       - name: Auditar se o Observador de Rede não está habilitado para a região
         displayName: auditIfNotExists, Location
-        href: samples/net-watch-not-enabled.md
+        href: samples/network-watcher-not-enabled.md
     - name: Application gateways
       items:
       - name: SKUs de gateway de aplicativo aprovadas
         displayName: deny
-        href: samples/allowed-app-gate-sku.md
+        href: samples/allowed-app-gateway-sku.md
   - name: SQL
     items:
     - name: SQL Servers
@@ -184,16 +190,16 @@ items:
         href: samples/audit-no-aad-admin.md
       - name: Auditar configuração de detecção de ameaças no nível do Servidor
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-threat-det-setting.md
+        href: samples/audit-sql-server-threat-detection-setting.md
       - name: Auditar configurações de auditoria do SQL Server
         displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Auditar a configuração da auditoria no nível do SQL Server
         displayName: auditIfNotExists
-        href: samples/audit-sql-ser-leve-audit-setting.md
+        href: samples/audit-sql-server-audit-setting.md
       - name: Requer o SQL Server versão 12.0
         displayName: deny, builtin
-        href: samples/req-sql-12.md
+        href: samples/require-sql-12.md
     - name: BANCOS DE DADOS SQL
       items:
       - name: SKUs do BD SQL permitidas
@@ -201,7 +207,7 @@ items:
         href: samples/allowed-sql-db-skus.md
       - name: Auditar configuração de detecção de ameaças no nível do BD SQL
         displayName: auditIfNotExists
-        href: samples/audit-db-threat-det-setting.md
+        href: samples/audit-db-threat-detection-setting.md
       - name: Auditar criptografia do BD SQL
         displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
@@ -215,19 +221,19 @@ items:
       href: samples/allowed-skus-storage.md
     - name: SKUs de contas de armazenamento permitidas
       displayName: deny, builtin, storageSKUs
-      href: samples/allowed-stor-acct-skus.md
+      href: samples/allowed-storage-account-skus.md
     - name: Negar camadas de acesso esporádico para contas de armazenamento
       displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: Assegurar tráfego HTTPS somente para conta de armazenamento
       displayName: deny, all
-      href: samples/ensure-https-stor-acct.md
+      href: samples/ensure-https-storage-account.md
     - name: Assegurar a criptografia de arquivo de armazenamento
       displayName: deny, all
-      href: samples/ensure-store-file-enc.md
+      href: samples/ensure-storage-file-encryption.md
     - name: Exigir criptografia de conta de armazenamento
       displayName: deny, builtin
-      href: samples/req-store-acct-enc.md
+      href: samples/require-storage-account-encryption.md
 - name: Conceitos
   items:
   - name: Estrutura de definição da Política do Azure
@@ -244,9 +250,9 @@ items:
   - name: Cria políticas de maneira programática
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
-  - name: Obtendo dados de conformidade
+  - name: Obter dados de conformidade
     displayName: evaluation, scan, summarize, query, events, log analytics
-    href: ./how-to/getting-compliance-data.md
+    href: ./how-to/get-compliance-data.md
   - name: Corrigir recursos sem conformidade
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
@@ -302,9 +308,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 6bb656f390ad7f0e3ead1928476cdbe3845be633
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b71365c05180db643bfc9a693f40db97dd89729
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725906"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312537"
