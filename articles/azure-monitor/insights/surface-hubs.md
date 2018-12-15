@@ -10,17 +10,15 @@ ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 761140b1022f5a1c1cd523c6e0e52193ff2a9700
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a006e9a9eb3fe4d9dc049e29eb404e5edf8f35c9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429981"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342129"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorar Surface Hubs com o Log Analytics para acompanhar sua integridade
 
@@ -35,7 +33,7 @@ Use as informações a seguir para instalar e configurar a solução. Para geren
 
 * Um nível de [assinatura do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) que dará suporte ao número de dispositivos que você deseja monitorar. Os preços do Log Analytics variam dependendo de quantos dispositivos estão registrados e a quantidade de dados que ele processa. Convém levar isso em consideração ao planejar a distribuição do Surface Hub.
 
-Em seguida, você irá adicionar um workspace existente do Log Analytics ou crie um. Instruções detalhadas para usar qualquer um dos métodos em [criar um espaço de trabalho do Log Analytics no portal do Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Quando o workspace do Log Analytics estiver configurado, há duas maneiras de registrar seus dispositivos Surface Hub:
+Em seguida, você irá adicionar um workspace existente do Log Analytics ou crie um. Instruções detalhadas para usar qualquer um dos métodos em [criar um espaço de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Quando o workspace do Log Analytics estiver configurado, há duas maneiras de registrar seus dispositivos Surface Hub:
 
 * Automaticamente por meio do Intune
 * Manualmente por meio das **configurações** em seu dispositivo do Surface Hub.
@@ -84,8 +82,8 @@ Monitorar os Surface Hubs usando o Log Analytics é muito parecido com o monitor
 
    ![Painel do Surface Hub](./media/surface-hubs/surface-hub-dashboard.png)
 
-Você pode criar [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em pesquisas de log existentes ou personalizadas. Ao usar os dados que o Log Analytics coleta de seu Surface Hubs, você pode procurar problemas e alertar sobre as condições que definir para seus dispositivos.
+Você pode criar [alertas](../../azure-monitor/platform/alerts-overview.md) com base em pesquisas de log existentes ou personalizadas. Ao usar os dados que o Log Analytics coleta de seu Surface Hubs, você pode procurar problemas e alertar sobre as condições que definir para seus dispositivos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Pesquisas de Log no Log Analytics](../../log-analytics/log-analytics-queries.md) para exibir dados detalhados do Surface Hub.
-* Crie [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.
+* Use [Pesquisas de Log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para exibir dados detalhados do Surface Hub.
+* Crie [alertas](../../azure-monitor/platform/alerts-overview.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.

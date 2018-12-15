@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338499"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164000"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementar o comportamento do modelo do dispositivo
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a:
 > * Definir como um dispositivo simulado responde a uma chamada de método da solução de Monitoramento Remoto
 > * Depurar seus scripts
 
-[!INCLUDE [iot-accelerators-device-schema](../../includes/iot-accelerators-device-schema.md)]
+[!INCLUDE [iot-accelerators-device-behavior](../../includes/iot-accelerators-device-behavior.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

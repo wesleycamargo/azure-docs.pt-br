@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622626"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139017"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 
@@ -32,7 +32,7 @@ Todos os aplicativos são atribuídos a um grupo de conectores. Se você não cr
 >Se você tiver uma grande implantação de Proxy de Aplicativo, não atribua nenhum aplicativo ao grupo de conectores padrão. Dessa forma, novos conectores não recebem nenhum tráfego ao vivo até você atribuí-los a um grupo de conectores ativo. Essa configuração permite que você coloque conectores em um modo ocioso, movendo-os de volta ao grupo padrão, para que você possa executar manutenções sem afetar os usuários.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](application-proxy-enable.md). Quando você instala um novo conector, ele automaticamente se junta ao grupo de conector **Padrão** .
+Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](application-proxy-add-on-premises-application.md). Quando você instala um novo conector, ele automaticamente se junta ao grupo de conector **Padrão** .
 
 ## <a name="create-connector-groups"></a>Criar grupos de conectores
 Siga estas etapas para criar quantos grupos de conectores desejar. 

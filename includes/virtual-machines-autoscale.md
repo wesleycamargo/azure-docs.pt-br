@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226567"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399784"
 ---
-Você pode [dimensionar automaticamente](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) suas [VMs (máquinas virtuais)](../articles/virtual-machines/windows/overview.md) quando usa [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [recurso de dimensionamento automático do Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Suas VMs precisam ser membros de um conjunto de dimensionamento definido para serem dimensionadas automaticamente. Este artigo fornece informações que permitem a você entender melhor como dimensionar suas VMs vertical e horizontalmente usando métodos automáticos e manuais.
+Você pode [dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) suas [VMs (máquinas virtuais)](../articles/virtual-machines/windows/overview.md) quando usa [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [recurso de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Suas VMs precisam ser membros de um conjunto de dimensionamento definido para serem dimensionadas automaticamente. Este artigo fornece informações que permitem a você entender melhor como dimensionar suas VMs vertical e horizontalmente usando métodos automáticos e manuais.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Dimensionamento horizontal ou vertical
 
@@ -35,7 +35,7 @@ Você pode habilitar o dimensionamento automático quando cria o conjunto de dim
  
 ### <a name="metrics"></a>Métricas
 
-O recurso de dimensionamento automático do Azure Monitor permite que você aumente ou diminua o número de VMs em execução com base em [métricas](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Por padrão, as VMs fornecem métricas básicas no nível do host para uso da CPU, rede e disco. Quando você configura a coleta de dados de diagnóstico usando a extensão de diagnóstico, outros contadores de desempenho do sistema operacional convidado ficam disponíveis para disco, CPU e memória.
+O recurso de dimensionamento automático do Azure Monitor permite que você aumente ou diminua o número de VMs em execução com base em [métricas](../articles/azure-monitor/platform/autoscale-common-metrics.md). Por padrão, as VMs fornecem métricas básicas no nível do host para uso da CPU, rede e disco. Quando você configura a coleta de dados de diagnóstico usando a extensão de diagnóstico, outros contadores de desempenho do sistema operacional convidado ficam disponíveis para disco, CPU e memória.
 
 ![Critérios de métrica](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ As [regras](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by
  
 ### <a name="notifications"></a>Notificações
 
-Você pode [configurar gatilhos](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) para que URLs Web específicas sejam chamadas ou emails sejam enviados com base nas regras de dimensionamento automático criadas. Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas.
+Você pode [configurar gatilhos](../articles/azure-monitor/platform/autoscale-webhook-email.md) para que URLs Web específicas sejam chamadas ou emails sejam enviados com base nas regras de dimensionamento automático criadas. Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Dimensionar automaticamente as VMs em um conjunto de dimensionamento
 

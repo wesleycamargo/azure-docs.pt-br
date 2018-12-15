@@ -3,18 +3,18 @@ title: Evitar interrupções de serviço nos trabalhos do Azure Stream Analytics
 description: Este artigo descreve as diretrizes para tornar o upgrade dos trabalhos do Stream Analytics mais resiliente.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902700"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090782"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantir a confiabilidade do trabalho do Stream Analytics durante atualizações do serviço
 
@@ -29,3 +29,11 @@ _Com exceção da Índia central_ (cuja região emparelhada, sul da Índia, não
 O artigo em **[regiões de disponibilidade e emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** tem as informações mais atualizadas sobre quais regiões são emparelhadas.
 
 Os clientes são aconselhados a implantar trabalhos idênticos para ambas as regiões emparelhadas. Além das funcionalidades de monitoramento interno do Stream Analytics, também é recomendável que os clientes monitorem os trabalhos como se **ambos** fossem trabalhos de produção. Se uma interrupção for identificada como sendo o resultado da atualização do serviço do Stream Analytics, escalone adequadamente e realize o failover de consumidores downstream para que a saída do trabalho seja íntegra. O escalonamento ao suporte impedirá a região emparelhada de ser afetada pela nova implantação e manterá a integridade dos trabalhos emparelhados.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Introdução ao Stream Analytics](stream-analytics-introduction.md)
+* [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referência da linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

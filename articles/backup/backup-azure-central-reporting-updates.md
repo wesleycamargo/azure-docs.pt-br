@@ -10,16 +10,15 @@ ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: adigan;
-ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.author: adigan
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267277"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968878"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Atualizar o pacote do conteúdo de relatório central do Backup do Azure 
 
@@ -31,7 +30,7 @@ O [pacote de conteúdo do Backup do Azure](https://docs.microsoft.com/azure/back
 Se você ainda não tiver feito alterações em sua cópia do pacote de conteúdo, ele será atualizado automaticamente. Quando o pacote de conteúdo for alterado, você receberá uma notificação no Power BI e uma notificação por email. Você pode optar por obter o pacote de conteúdo atualizado, de acordo com sua conveniência. 
 
 ### <a name="postpone-the-update"></a>Adiar a atualização
-A prática recomendada é importar o pacote de conteúdo em um [espaço de trabalho personalizado](https://youtu.be/26zyOtyHPJM?t=1m57s). Agora você pode editar os relatórios.
+A prática recomendada é importar o pacote de conteúdo em um [workspace personalizado](https://youtu.be/26zyOtyHPJM?t=1m57s). Agora você pode editar os relatórios.
 Conforme mencionado anteriormente, se o pacote de conteúdo for alterado, você verá uma notificação no Power BI. Você pode optar por obter o pacote de conteúdo mais tarde. 
 
 ## <a name="coming-soon"></a>Em breve
@@ -42,30 +41,30 @@ Os relatórios pré-configurados que vêm com o pacote de conteúdo do Backup do
 
 ### <a name="summary"></a>Resumo
    
-![Resumo](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![Resumo](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>Cobrança
 
-![Cobrança](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![Cobrança](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### <a name="compliance"></a>Conformidade
 
-![Conformidade](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![Conformidade](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>Armazenamento
 
-![Armazenamento](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Armazenamento](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Itens de Backup
-![Itens de Backup](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Itens de Backup](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Alertas
 
-![Alertas](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![Alertas](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>Trabalhos
 
-![Trabalhos](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![Trabalhos](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -3,7 +3,7 @@ title: Central de Segurança do Azure e serviço do Banco de Dados SQL | Microso
 description: Este artigo mostra como a Central de Segurança pode ajudar você a proteger seus bancos de dados no Banco de Dados SQL.
 services: sql-database
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312622"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337828"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Central de Segurança do Azure e serviço do Banco de Dados SQL
 A [Central de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda você a evitar, detectar e responder a ameaças. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
@@ -60,7 +60,7 @@ Você pode definir uma política para mostrar as recomendações para a auditori
 Para definir uma política de segurança, selecione o bloco **Política** na folha Central de Segurança. Na folha **Política de segurança**, selecione a assinatura na qual você deseja habilitar a política de segurança. Selecione **Política de prevenção** e **Ative** as recomendações de segurança que você deseja usar nesta assinatura.
 ![Política de segurança][3]
 
-Para saber mais, confira [Definir políticas de segurança](security-center-azure-policy.md).
+Para saber mais, confira [Definir políticas de segurança](tutorial-security-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Gerenciar recomendações de segurança
 A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. As recomendações o orientam ao longo do processo de configuração dos controles necessários.
@@ -85,7 +85,7 @@ Execute as etapas em [Detecção de ameaças do Banco de Dados SQL no Portal do 
 Para saber mais sobre recomendações, consulte [Gerenciar recomendações de segurança](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Monitorar integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-azure-policy.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos no bloco **Integridade da segurança do recurso**. Quando você clica em **Dados** no bloco **Integridade de segurança dos recursos**, a folha **Recursos de Dados** é aberta com recomendações SQL para problemas como a não habilitação da Transparent Data Encryption e da auditoria. Ela também contém recomendações para o estado de integridade geral do banco de dados.
+Depois de habilitar as [políticas de segurança](tutorial-security-policy.md) para os recursos de uma assinatura, a Central de Segurança analisará a segurança de seus recursos para identificar as possíveis vulnerabilidades.  Você pode exibir o estado de segurança de seus recursos no bloco **Integridade da segurança do recurso**. Quando você clica em **Dados** no bloco **Integridade de segurança dos recursos**, a folha **Recursos de Dados** é aberta com recomendações SQL para problemas como a não habilitação da Transparent Data Encryption e da auditoria. Ela também contém recomendações para o estado de integridade geral do banco de dados.
 ![Integridade da segurança de recursos][6]
 
 Para saber mais, confira [Monitoramento de integridade de segurança](security-center-monitoring.md).

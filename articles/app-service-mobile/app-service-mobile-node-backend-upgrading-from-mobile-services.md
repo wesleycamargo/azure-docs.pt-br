@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002120"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Atualizar seu Serviço Móvel do Azure Node.js para o Serviço de Aplicativo
 Os Aplicativos Móveis do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são Aplicativos Móveis?].
@@ -39,7 +39,7 @@ Quando um back-end móvel é atualizado para o Serviço de Aplicativo do Azure, 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Aprimoramentos no SDK do servidor Node.js de Aplicativos Móveis
 A atualização para o novo [SDK de Aplicativos Móveis](https://www.npmjs.com/package/azure-mobile-apps) fornece muitos aprimoramentos, incluindo:
 
-* Com base na [estrutura do Express](http://expressjs.com/en/index.html), o novo SDK do Node é leve e foi projetado para acompanhar as novas versões do Node, conforme elas forem surgindo. Você pode personalizar o comportamento do aplicativo com o middleware do Express.
+* Com base na [estrutura do Express](https://expressjs.com/en/index.html), o novo SDK do Node é leve e foi projetado para acompanhar as novas versões do Node, conforme elas forem surgindo. Você pode personalizar o comportamento do aplicativo com o middleware do Express.
 * Aprimoramentos consideráveis de desempenho em comparação com o SDK dos Serviços Móveis.
 * Agora você pode hospedar um site junto com o back-end móvel. Da mesma forma, é fácil adicionar o Azure Mobile SDK a qualquer aplicativo express.v4 existente.
 * Criado para o desenvolvimento local e de plataforma cruzada, o SDK dos Aplicativos Móveis pode ser desenvolvido e executado localmente nas plataformas do Windows, do Linux e do OSX. Agora é fácil usar técnicas comuns de desenvolvimento em Node, como a execução de testes [Mocha](https://mochajs.org/) antes da implantação.
@@ -160,13 +160,13 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Conceitos de Autenticação]: ../app-service/app-service-authentication-overview.md
+[Conceitos de autenticação]: ../app-service/app-service-authentication-overview.md
 [Início Rápido da Autenticação]: app-service-mobile-auth.md
 
 [Portal do Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -175,6 +175,6 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

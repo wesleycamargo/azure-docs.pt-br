@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344623"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956926"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -28,17 +27,17 @@ O Application Insights sempre forneceu um painel de visão geral resumida para p
 
 O novo painel de visão geral agora inicia por padrão:
 
-![Painel Versão prévia de visão geral](.\media\app-insights-overview-dashboard\overview.png)
+![Painel Versão prévia de visão geral](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Melhor desempenho
 
 A seleção de intervalo de tempo foi simplificada para uma interface de um clique simples.
 
-![Intervalo de tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Intervalo de tempo](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 O desempenho geral foi aumentado significativamente. Você tem acesso a recursos populares como **Pesquisa** e **Análise**. Cada bloco de KPI de atualização dinâmica padrão fornece insight sobre os recursos do Visual Studio Online Application Insights. Para saber mais sobre solicitações com falha, selecione **Falhas** no cabeçalho **Investigar**:
 
-![Falhas](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Falhas](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Painel do aplicativo
 
@@ -46,11 +45,11 @@ O painel do aplicativo utiliza a tecnologia de painel existente no Azure para fo
 
 Para acessar o painel padrão, selecione _Painel do aplicativo_ no canto superior esquerdo.
 
-![Exibição Painel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Exibição Painel](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se esta for a primeira vez que você acessa o painel, ele inicializará um modo de exibição padrão:
 
-![Exibição Painel](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Exibição Painel](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Se você desejar, mantenha a visualização padrão. Ou você pode adicionar e excluir do painel para melhor atender às necessidades da sua equipe.
 
@@ -59,7 +58,7 @@ Se você desejar, mantenha a visualização padrão. Ou você pode adicionar e e
 
 Para navegar de volta para a experiência de visão geral basta selecionar:
 
-![Botão Visão geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Botão Visão geral](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

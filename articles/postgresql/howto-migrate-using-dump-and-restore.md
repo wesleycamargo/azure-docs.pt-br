@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984665"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966901"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar seu banco de dados PostgreSQL usando despejar e restaurar
 Use [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados PostgreSQL para um arquivo de despejo, e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar o banco de dados PostgreSQL de um arquivo criado por pg_dump.
@@ -71,7 +71,7 @@ Uma maneira de migrar seu banco de dados PostgreSQL existente para o serviço Ba
     ```
 
 ### <a name="for-the-restore"></a>Para a restauração
-- Sugerimos que você mova o arquivo de backup para uma VM do Azure na mesma região que o servidor do Banco de Dados do Azure para PostgreSQL de destino da migração e execute o pg_restore dessa VM para reduzir a latência de rede. Também é recomendado que a VM seja criada com a [rede acelerada](..\virtual-network\create-vm-accelerated-networking-powershell.md) habilitada.
+- Sugerimos que você mova o arquivo de backup para uma VM do Azure na mesma região que o servidor do Banco de Dados do Azure para PostgreSQL de destino da migração e execute o pg_restore dessa VM para reduzir a latência de rede. Também é recomendado que a VM seja criada com a [rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) habilitada.
 - Isso já deve estar feito por padrão, mas abra o arquivo de despejo para verificar se as instruções create index estão após a inserção dos dados. Se não estiverem, coloque as instruções create index após a inserção dos dados.
 - Restauração com as opções -Fc e -j *#* para paralelizar a restauração. *#* é o número de núcleos no servidor de destino. Você também pode experimentar com *#* definido como duas vezes o número de núcleos do servidor de destino para ver o impacto. Por exemplo: 
 

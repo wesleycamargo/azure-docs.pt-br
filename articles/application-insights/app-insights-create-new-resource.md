@@ -9,16 +9,15 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996251"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* do Microsoft Azure. Por isso, criar um novo recurso faz parte da [configuração do Application Insights para monitorar um novo aplicativo][start]. Em muitos casos, criar um recurso pode ser feito automaticamente pelo IDE. Porém, em alguns casos, você criará um recurso manualmente, por exemplo, para ter recursos separados para versões de desenvolvimento e produção do seu aplicativo.
@@ -26,11 +25,11 @@ O Azure Application Insights exibe dados sobre o seu aplicativo em um *recurso* 
 Depois de criar o recurso, você pode obter sua chave de instrumentação e usá-la para configurar o SDK no aplicativo. A chave de recurso vincula a telemetria para o recurso.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Inscreva-se no Microsoft Azure
-Se você ainda não tiver uma [conta da Microsoft, obtenha uma agora mesmo](http://live.com). (Se usar serviços como Outlook.com, OneDrive, Windows Phone ou XBox Live, você já tem uma conta da Microsoft.)
+Se você ainda não tiver uma [conta da Microsoft, obtenha uma agora mesmo](https://live.com). (Se usar serviços como Outlook.com, OneDrive, Windows Phone ou XBox Live, você já tem uma conta da Microsoft.)
 
-Você também precisa de uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela usando seu Windows Live ID. Você será cobrado apenas pelo que usa. Permite que o plano básico padrão para uma determinada quantidade de uso experimental gratuita.
+Você também precisa de uma assinatura do [Microsoft Azure](https://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela usando seu Windows Live ID. Você será cobrado apenas pelo que usa. Permite que o plano básico padrão para uma determinada quantidade de uso experimental gratuita.
 
-Quando você tem acesso a uma assinatura, entre no Application Insights em [http://portal.azure.com](https://portal.azure.com) e use sua Live ID para fazer logon.
+Quando você tem acesso a uma assinatura, entre no Application Insights em [https://portal.azure.com](https://portal.azure.com) e use sua Live ID para fazer logon.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 No [portal.azure.com](https://portal.azure.com), adicione um recurso do Application Insights:
