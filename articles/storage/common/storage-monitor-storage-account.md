@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523369"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275679"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -98,7 +98,7 @@ Você pode criar alertas para notificá-lo quando os limites forem atingidos par
 3. Dê um **Nome** e uma **Descrição** para o alerta.
 4. Selecione a **Métrica** para a qual você deseja adicionar um alerta, uma **Condição** de alerta e um **Limite**. O tipo de unidade de limite é alterado dependendo da métrica que você escolheu. Por exemplo, "count" é o tipo de unidade para *ContainerCount*, enquanto a unidade para a métrica *PercentNetworkError* é um percentual.
 5. Selecione o **Período**. As métricas que atingiram ou excederam o limite dentro do período disparam um alerta.
-6. (Opcional) Configurar notificações de **Email** e **Webhook**. Para obter mais informações sobre webhooks, confira [Configurar um webhook em um alerta de métrica do Azure](../../monitoring-and-diagnostics/insights-webhooks-alerts.md). Se você não configurar notificações por email ou webhook, serão exibidos alertas somente no portal do Azure.
+6. (Opcional) Configurar notificações de **Email** e **Webhook**. Para obter mais informações sobre webhooks, confira [Configurar um webhook em um alerta de métrica do Azure](../../azure-monitor/platform/alerts-webhooks.md). Se você não configurar notificações por email ou webhook, serão exibidos alertas somente no portal do Azure.
 
 ![Folha 'Adicionar uma regra de alerta' no portal do Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 

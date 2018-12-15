@@ -9,19 +9,18 @@ ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: e2ec165d0183510487744bc98e31688eb5de0f8c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e8fafbe1c5fafd338009b1bdd8c5d838c3fac726
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959249"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323279"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Usando o PowerShell para configurar o Application Insights para um aplicativo Web do Azure
-O [Microsoft Azure](https://azure.com) pode ser [configurado para enviar o Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) para o [Application Insights do Azure](app-insights-overview.md). O diagnóstico está relacionado aos Serviços de Nuvem do Azure e às VMs do Azure. Eles complementam a telemetria que você envia de um aplicativo usando o SDK do Application Insights. Como parte do processo de automatização da criação de novos recursos no Azure, você poderá configurar o diagnóstico usando o PowerShell.
+O [Microsoft Azure](https://azure.com) pode ser [configurado para enviar o Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) para o [Application Insights do Azure](app-insights-overview.md). O diagnóstico está relacionado aos Serviços de Nuvem do Azure e às VMs do Azure. Eles complementam a telemetria que você envia de um aplicativo usando o SDK do Application Insights. Como parte do processo de automatização da criação de novos recursos no Azure, você poderá configurar o diagnóstico usando o PowerShell.
 
 ## <a name="azure-template"></a>Modelo do Azure
 Se o aplicativo Web estiver no Azure e se você criar os recursos usando um modelo do Azure Resource Manager, poderá configurar o Application Insights adicionando isto ao nó de recursos:
@@ -136,6 +135,6 @@ Para remover a extensão de diagnóstico de cada função individual:
 
 ## <a name="see-also"></a>Consulte também
 * [Monitorar aplicativos dos Serviços de Nuvem do Azure com o Application Insights](app-insights-cloudservices.md)
-* [Enviar o Diagnóstico do Azure para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Enviar o Diagnóstico do Azure para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 

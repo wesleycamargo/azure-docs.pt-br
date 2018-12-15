@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: accb7b84793b9fc98bc20f1637ec30f97a7f4a87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649934"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962073"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e versão Ansible do Azure
 
@@ -133,4 +133,4 @@ A [função do manual do azure_preview_module](https://galaxy.ansible.com/Azure/
 A função de manual azure_preview_module é liberada a cada três semanas.
 
 ## <a name="next-steps"></a>Próximas etapas
-Mais informações relacionadas às funções de manual, consulte [Criar manuais reutilizáveis](http://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Mais informações relacionadas às funções de manual, consulte [Criar manuais reutilizáveis](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

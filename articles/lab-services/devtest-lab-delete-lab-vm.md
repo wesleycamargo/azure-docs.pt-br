@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 99caf04698226de8daa9cfb8f60662e5cb0f8b49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450386"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956323"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Excluir um laboratório ou VM em um laboratório no Azure DevTest Labs
 Este artigo mostra como excluir um laboratório ou uma VM em um laboratório.
@@ -34,16 +34,16 @@ Para excluir um laboratório, realize as seguintes ações:
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
-    ![Selecione seu laboratório](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Selecione seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Na página **DevTest Lab**, selecione **Excluir** na barra de ferramentas. 
 
-    ![Botão Excluir](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![Botão Excluir](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Na página **Confirmação**, insira o **nome** do seu laboratório e selecione **Excluir**. 
 
-    ![Confirmar](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![Confirmar](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. Para ver o status da operação, selecione o ícone **Notificações** (sino). 
 
-    ![Notificações](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![Notificações](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>Excluir uma VM em um laboratório
@@ -59,16 +59,16 @@ Para excluir um laboratório, realize as seguintes ações:
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Selecione **Todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
-    ![Selecione seu laboratório](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Selecione seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Selecione **... (reticências)**  para a VM na lista de VMs e selecione **Excluir**. 
 
-    ![Exclua a VM no menu](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![Exclua a VM no menu](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. Na caixa de diálogo **Confirmação**, selecione **Ok**. 
 5. Para ver o status da operação, selecione o ícone **Notificações** (sino). 
 
 Para excluir uma VM a partir de **página de Máquina Virtual**, selecione **Excluir** na barra de ferramentas, conforme mostrado na imagem a seguir:
 
-![Excluir VM de página VM](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![Excluir VM de página VM](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## <a name="next-steps"></a>Próximas etapas

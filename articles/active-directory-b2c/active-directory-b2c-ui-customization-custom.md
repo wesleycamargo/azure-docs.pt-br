@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583442"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833934"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário do aplicativo usando uma política personalizada no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Conclua as etapas em [Introdução às políticas personalizadas](active-directo
 
 Usando o recurso de personalização da interface do usuário da página, você pode personalizar a aparência de qualquer política personalizada. Também pode manter a consistência visual e da marca entre seu aplicativo e o Azure AD B2C.
 
-É assim que ela funciona: o Azure AD B2C executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos entre Origens)](http://www.w3.org/TR/cors/). Primeiro, especifique uma URL na política personalizada com um conteúdo personalizado em HTML. O Azure AD B2C mescla os elementos de interface do usuário com o conteúdo HTML carregado da URL e exibe a página para o cliente.
+Veja como ele funciona: O Azure AD B2C executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos entre Origens)](https://www.w3.org/TR/cors/). Primeiro, especifique uma URL na política personalizada com um conteúdo personalizado em HTML. O Azure AD B2C mescla os elementos de interface do usuário com o conteúdo HTML carregado da URL e exibe a página para o cliente.
 
 ## <a name="create-your-html5-content"></a>Crie seu conteúdo em HTML5
 
@@ -111,7 +111,7 @@ Configure o Armazenamento de nlobs para o Compartilhamento de Recursos entre Ori
 
 Verifique se você está pronto fazendo o seguinte:
 
-1. Acesse o site [www.test-cors.org](http://www.test-cors.org/) e cole a URL na caixa **URL Remota**.
+1. Acesse o site [www.test-cors.org](https://www.test-cors.org/) e cole a URL na caixa **URL Remota**.
 2. Clique em **Enviar Solicitação**.  
     Se você receber um erro, verifique se as [Configurações do CORS](#configure-cors) estão corretas. Você também pode precisar limpar o cache do navegador ou abrir uma sessão de navegação particular pressionando Ctrl+Shift+P.
 

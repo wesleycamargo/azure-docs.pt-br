@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981277"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027905"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
@@ -23,7 +23,7 @@ Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é i
     - A [Automação do Azure](#azure-automation) pode executar ações em sua infraestrutura local e do Azure.
 
 - Automatizar a entrega e a implantação de aplicativos
-    - Os exemplos incluem [Azure DevOps Services](#visual-studio-team-services) e [Jenkins](#jenkins).
+    - Os exemplos incluem [Azure DevOps Services](#azure-devops-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em playbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).

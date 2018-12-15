@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2423c4fde177ab50552af580a60c7a15550e5586
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241065"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840428"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -26,7 +26,6 @@ As [Migrações para Azure](migrate-overview.md) criam avaliações com configur
     **Configuração** | **Detalhes** | **Padrão**
     --- | --- | ---
     **Local de destino** | O local do Azure para o qual você deseja migrar.<br/><br/> Atualmente, as Migrações para Azure dão suporte a 30 regiões, incluindo Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Canadá Central, Leste do Canadá, Índia Central, EUA Central, Leste da China, Norte da China, Ásia Oriental, Leste dos EUA, Alemanha Central, Nordeste da Alemanha, Leste dos EUA 2, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia, Centro-Norte dos EUA, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Sul da Índia, Sul do Reino Unido, Oeste do Reino Unido, US Gov – Arizona, US Gov – Texas, US Gov – Virgínia, Centro-Oeste dos EUA, Europa Ocidental, Índia Ocidental, Oeste dos EUA e Oeste dos EUA 2. |  Oeste dos EUA 2 é o local padrão.
-    **Tipo de preços** | É possível especificar o [tipo de preço (Básico/Standard)](../virtual-machines/windows/sizes-general.md) das VMs de destino do Azure. Por exemplo, se você estiver planejando migrar um ambiente de produção, deverá considerar a camada Standard. Por outro lado, caso tenha um ambiente de desenvolvimento de teste, talvez você deva considerar a camada Básica, que tem VMs com latência maior e custos mais baixos. | Por padrão, o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
     **Tipo de armazenamento** | Você pode usar essa propriedade para especificar o tipo dos discos que deseja alocar no Azure. Para dimensionamento local, especifique o tipo de disco de destino como discos gerenciados Premium ou Standard. Para dimensionamento baseado em desempenho, especifique o tipo de disco de destino como discos gerenciados Automático, Premium ou Standard. Quando você especifica o tipo de armazenamento como automático, a recomendação de disco é feita com base nos dados de desempenho dos discos (IOPS e taxa de transferência). Por exemplo, para obter um [SLA de VM de instância única de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), você talvez queira especificar o tipo de armazenamento como discos gerenciados Premium que garantam que todos os discos na avaliação sejam recomendados como discos gerenciados Premium. Observe que as Migrações para Azure são compatíveis apenas com discos gerenciados para avaliação de migração. | O valor padrão é discos gerenciados Premium (com o critério de dimensionamento *como dimensionamento local*).
     **Instâncias reservadas** |  Você também pode especificar se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure, e as Migrações para Azure estimarão o custo adequadamente. As instâncias reservadas não são aplicáveis a regiões soberanas (Azure Governamental, Alemanha e China) e são aplicáveis somente à oferta Pagamento Conforme o Uso nas Migrações para Azure. | O valor padrão para essa propriedade é de 3 anos de instâncias reservadas.
     **Critério de dimensionamento** | O critério a ser usado pelas Migrações para Azure para redimensionar VMs para o Azure. Você pode fazer dimensionamento *com base no desempenho* ou dimensionar as VMs *como locais*, sem considerar o histórico de desempenho. | O dimensionamento com base no desempenho é a opção padrão.

@@ -10,17 +10,15 @@ ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: e66f74edf93688a2793b3f24516f8b14328a8bb9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2e20623c015f8bc80b61f07e28c49d49df73887b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189431"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -55,7 +53,7 @@ Para executar a verificação de integridade nos servidores do SQL Server, são 
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
 O agente no SQL Server que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -184,7 +182,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../../log-analytics/log-analytics-queries.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../../azure-monitor/log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +207,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../../log-analytics/log-analytics-queries.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../../azure-monitor/log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +263,4 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Pesquise os logs](../../log-analytics/log-analytics-queries.md) para aprender como analisar os dados de Verificação da Integridade do SQL detalhados e as recomendações.
+* [Pesquise os logs](../../azure-monitor/log-query/log-query-overview.md) para aprender como analisar os dados de Verificação da Integridade do SQL detalhados e as recomendações.

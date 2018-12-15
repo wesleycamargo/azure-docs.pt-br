@@ -1,0 +1,138 @@
+---
+title: Grupos de computadores em pesquisas de log do Azure Log Analytics | Microsoft Docs
+description: Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: carmonm
+editor: ''
+ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.topic: conceptual
+ms.date: 05/03/2018
+ms.author: bwren
+ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192375"
+---
+# <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
+
+Os grupos de computadores no Log Analytics permitem analisar [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para um conjunto específico de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma pesquisa de log, os resultados são limitados aos registros que correspondem os computadores do grupo.
+
+## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
+Você pode criar um grupo de computadores no Log Analytics usando qualquer um dos métodos na tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
+
+| Método | DESCRIÇÃO |
+|:--- |:--- |
+| Pesquisa de log |Criar uma pesquisa de logs que retorna uma lista de computadores. |
+| API da Pesquisa de Log |Use a API da Pesquisa de Log para criar um grupo de computadores programaticamente com base nos resultados de uma pesquisa de log. |
+| Active Directory |Verifique automaticamente a associação de grupo dos computadores de agente que são membros de um domínio do Active Directory e crie um grupo no Log Analytics para cada grupo de segurança. |
+| Gerenciador de Configurações | Importar coleções do System Center Configuration Manager e criar um grupo no Log Analytics cada uma. |
+| Windows Server Update Services |Verifique servidores ou clientes de WSUS para direcionar grupos e criar um grupo no Log Analytics para cada um. |
+
+### <a name="log-search"></a>Pesquisa de log
+Grupos de computadores criados por meio de uma Pesquisa de Logs contêm todos os computadores retornados por uma consulta que você definir.  Essa consulta é executada sempre que o grupo de computadores é utilizado para que qualquer alteração desde que o grupo foi criado seja refletida.  
+
+Você pode usar qualquer consulta de um grupo de computadores, mas ela deve retornar um conjunto distinto de computadores usando `distinct Computer`.  A seguir está um exemplo de pesquisa típica que você pode usar como um grupo de computadores.
+
+    Heartbeat | where Computer contains "srv" | distinct Computer
+
+A tabela a seguir descreve as propriedades que definem um grupo de computadores.
+
+| Propriedade | DESCRIÇÃO |
+|:---|:---|
+| Nome de exibição   | Nome da pesquisa para exibir no portal. |
+| Categoria       | Categoria para organizar as pesquisas no portal. |
+| Consultar          | A consulta para o grupo de computadores. |
+| Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
+
+Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa de logs no portal do Azure.
+
+2. Abra **Pesquisa de Logs** e, em seguida, clique em **Pesquisas Salvas** na parte superior da tela.
+3. Clique em **Adicionar** e forneça valores para cada propriedade para o grupo de computadores.
+4. Selecione **Salvar esta consulta como um grupo de computadores** e clique em **OK**.
+
+
+
+### <a name="active-directory"></a>Active Directory
+Ao configurar o Log Analytics para importar associações de grupo do Active Directory, ele analisa a associação de grupo de todos os computadores associados ao domínio com o agente do Log Analytics.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado aos grupos de computadores que correspondem aos grupos de segurança de que são membros.  Essa associação é atualizada continuamente a cada 4 horas.  
+
+Configure o Log Analytics para importar os grupos de segurança do Active Directory de **Configurações avançadas** do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
+
+![Grupos de computadores do Active Directory](media/computer-groups/configure-activedirectory.png)
+
+Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
+
+### <a name="windows-server-update-service"></a>Serviços de Atualização do Windows Server
+Ao configurar o Log Analytics para importar associações de grupo do WSUS, ele analisa a associação de grupo de destino de todos os computadores com o agente do Log Analytics.  Se você estiver utilizando o direcionamento do lado do cliente, qualquer computador que estiver conectado ao Log Analytics e fizer parte de qualquer grupo de direcionamento do WSUS terá sua associação de grupo importada para o Log Analytics. Se você estiver usando o direcionamento do lado do servidor, o agente do Log Analytics deverá ser instalado no servidor do WSUS para que as informações de associação do grupo sejam importadas para o Log Analytics.  Essa associação é atualizada continuamente a cada 4 horas. 
+
+Configure o Log Analytics para importar grupos do WSUS das **configurações avançadas** do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **WSUS** e, em seguida, **Importar associações de grupo do WSUS**.  Não é necessária nenhuma configuração.
+
+![Grupos de computadores do WSUS](media/computer-groups/configure-wsus.png)
+
+Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
+
+### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+Quando você configura o Log Analytics para importar associações de coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas a cada 3 horas para manter os grupos de computadores atualizados. 
+
+Antes de importar coleções do Configuration Manager, você deve [conectar o Configuration Manager ao Log Analytics](../../azure-monitor/platform/collect-sccm.md).  Então você pode configurar a importação das **Configurações avançadas** do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **SCCM** e, em seguida, **Importar associações de coleção do Configuration Manager**.  Não é necessária nenhuma configuração.
+
+![Grupos de computadores do SCCM](media/computer-groups/configure-sccm.png)
+
+Quando as coleções tiverem sido importadas, o menu listará o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
+
+## <a name="managing-computer-groups"></a>Gerenciando grupos de computadores
+Você pode exibir grupos de computadores que foram criados de uma pesquisa de logs ou da API de Pesquisa de Logs das **Configurações avançadas** do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores** e então **Grupos Salvos**.  
+
+Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Clique no ícone **Exibir membros** para que um grupo execute a pesquisa de log do grupo que retorna seus membros.  Não é possível modificar um grupo de computadores, assim, em vez disso, você precisar excluir e recriar o grupo com as configurações modificadas.
+
+![Grupos de computadores salvados](media/computer-groups/configure-saved.png)
+
+
+## <a name="using-a-computer-group-in-a-log-search"></a>Usando um grupo de computadores em uma pesquisa de log
+Use um grupo de computadores criados em uma pesquisa de logs em uma consulta tratando seu alias como uma função, normalmente com a seguinte sintaxe:
+
+  `Table | where Computer in (ComputerGroup)`
+
+Por exemplo, você pode usar o seguinte para retornar registros de UpdateSummary somente para os computadores em um grupo de computadores chamado mycomputergroup.
+ 
+  `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Os grupos de computadores importados e seus computadores incluídos estão armazenados na tabela **ComputerGroup**.  Por exemplo, a seguinte consulta retornaria uma lista de computadores no grupo de Computadores do domínio do Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+A consulta a seguir retornaria registros UpdateSummary apenas para computadores em Computadores de domínio.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+
+## <a name="computer-group-records"></a>Registros de grupo de computadores
+Um registro é criado no workspace do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
+
+| Propriedade | DESCRIÇÃO |
+|:--- |:--- |
+| Tipo |*ComputerGroup* |
+| SourceSystem |*SourceSystem* |
+| Computador |Nome do computador membro. |
+| Agrupar |Nome do grupo. |
+| GroupFullName |Caminho completo para o grupo, incluindo a fonte e o nome da fonte. |
+| GroupSource |Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| GroupSourceName |Nome da origem da qual o grupo foi coletado.  Para o Active Directory, este é o nome de domínio. |
+| ManagementGroupName |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| TimeGenerated |Data e hora em que o grupo de computadores foi criado ou atualizado. |
+
+## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
+

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261405"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274914"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de integridade para sistemas de gerenciamento de problemas existentes usando um webhook
 
@@ -37,7 +37,7 @@ Caso deseje usar uma integração pré-configurada, saiba como:
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configurar uma notificação personalizada usando o conteúdo do webhook de integridade do serviço
 Caso deseje configurar sua própria integração de webhook personalizada, você precisa analisar o conteúdo do JSON que é enviado durante as notificações de integridade do serviço.
 
-Acesse [aqui para ver um exemplo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) da aparência do conteúdo do webhook `ServiceHealth`.
+Acesse [aqui para ver um exemplo](../azure-monitor/platform/activity-log-alerts-webhook.md) da aparência do conteúdo do webhook `ServiceHealth`.
 
 Detecte se esse é um alerta de integridade do serviço examinando `context.eventSource == "ServiceHealth"`. Nesse local, as propriedades que são mais relevantes para ingestão são:
  * `data.context.activityLog.status`
@@ -102,7 +102,7 @@ Isso mostra que há problemas com “Alertas e Métricas” no Leste e Sudeste d
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
-1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 2. Crie uma solicitação HTTP POST, da seguinte maneira:
 
@@ -118,6 +118,6 @@ Isso mostra que há problemas com “Alertas e Métricas” no Leste e Sudeste d
 4. Acesse o [PagerDuty](https://www.pagerduty.com/) para confirmar se a integração foi configurada com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Examine o [esquema do webhook de alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434969"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387056"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -35,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 Para a CLI do Azure, use:
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 O tipo de recurso é retornado no formato `<resource-provider>/<resource-type-name>`. Portanto, o valor `Microsoft.OperationalInsights/workspaces` tem um provedor de recursos de **Microsoft.OperationalInsights** e o nome do tipo de recurso de **workspaces**.
@@ -89,14 +89,6 @@ Depois de localizar o provedor de recursos e o tipo de recurso, use as tabelas n
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | -------------- | ------------ |
 | batchaccounts | SIM | SIM |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| Tipo de recurso | Grupo de recursos | Assinatura |
-| ------------- | -------------- | ------------ |
-| clusters | Não  | Não  |
-| fileservers | Não  | Não  |
-| jobs | Não  | Não  |
-| workspaces | Não  | Não  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupo de recursos | Assinatura |

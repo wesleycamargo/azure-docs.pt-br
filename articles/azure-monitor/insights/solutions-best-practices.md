@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632426"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192679"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "52632426"
 Este artigo apresenta as práticas recomendadas para a [criação de um arquivo de solução de gerenciamento](solutions-solution-file.md) no Azure.  Essas informações serão atualizadas à medida que práticas recomendadas adicionais forem identificadas.
 
 ## <a name="data-sources"></a>Fontes de dados
-- As fontes de dados podem ser [configuradas com um modelo do Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), mas não devem ser incluídas em um arquivo de solução.  Isso porque configurar fontes de dados, atualmente, não é idempotente, o que significa que a solução pode substituir a configuração existente no workspace do usuário.<br><br>Por exemplo, a solução pode exigir eventos de Aviso e Erro do log de eventos do Aplicativo.  Caso especifique isso como uma fonte de dados em sua solução, você correrá o risco de remover eventos de Informações se o usuário tiver configurado isso no respectivo workspace.  Caso tenha incluído todos os eventos, talvez você esteja coletando eventos de Informações excessivos no workspace do usuário.
+- As fontes de dados podem ser [configuradas com um modelo do Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mas não devem ser incluídas em um arquivo de solução.  Isso porque configurar fontes de dados, atualmente, não é idempotente, o que significa que a solução pode substituir a configuração existente no workspace do usuário.<br><br>Por exemplo, a solução pode exigir eventos de Aviso e Erro do log de eventos do Aplicativo.  Caso especifique isso como uma fonte de dados em sua solução, você correrá o risco de remover eventos de Informações se o usuário tiver configurado isso no respectivo workspace.  Caso tenha incluído todos os eventos, talvez você esteja coletando eventos de Informações excessivos no workspace do usuário.
 
 - Se a solução exigir dados de uma das fontes de dados padrão, você deverá definir isso como um pré-requisito.  Determine na documentação que o cliente deverá configurar a fonte de dados por sua própria conta.  
 - Adicione uma mensagem de [Verificação do Fluxo de Dados](../../azure-monitor/platform/view-designer-tiles.md) a todas as exibições em sua solução a fim de orientar o usuário sobre as fontes de dados que precisam ser configuradas para que os dados necessários sejam coletados.  Essa mensagem será mostrada no bloco da exibição quando os dados necessários não forem encontrados.

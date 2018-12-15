@@ -10,16 +10,16 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 76fb61f0f1dd3c1f72c4c6132d1bfdc8b516477a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414957"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955540"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Usar um token de insights para obter insights sobre uma imagem
 
-A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou carregando uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](overview.md). Este artigo demonstra como usar um token de insights. Para exemplos que demonstram upload de uma imagem para obter insights, consulte os inícios rápidos do ([C#](quickstarts\csharp.md) | [Java](quickstarts\java.md) | [Node.js](quickstarts\nodejs.md) | [Python](quickstarts\python.md)).
+A API de Pesquisa Visual do Bing retorna informações sobre uma imagem que você fornece. Você pode fornecer a imagem usando a URL da imagem, um token de insights ou carregando uma imagem. Para obter informações sobre essas opções, consulte [O que é a API de Pesquisa Visual do Bing?](overview.md). Este artigo demonstra como usar um token de insights. Para exemplos que demonstram upload de uma imagem para obter insights, consulte os inícios rápidos do ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
 
 Se você enviar uma URL ou um token de imagem à Pesquisa Visual, inclua os dados de formulário mostrados a seguir no corpo do POST. Os dados de formulário devem incluir o cabeçalho Conteúdo-Disposição e o parâmetro `name` deve ser definido como "knowledgeRequest". Para obter detalhes sobre o objeto `imageInfo`, consulte [A solicitação](#the-request).

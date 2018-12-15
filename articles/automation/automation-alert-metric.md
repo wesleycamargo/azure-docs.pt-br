@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959811"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185845"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorando runbooks com alertas de métrica
 
@@ -51,7 +51,7 @@ No portal do Azure, navegue até sua conta de automação. Sob **Monitoring**, s
 
 ### <a name="define-the-action-to-take"></a>Definir a ação a ser executada
 
-1. Em **3. Definir o grupo de ação**, clique em **+ Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+1. Em **3. Definir o grupo de ação**, clique em **+ Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não estão limitados a, notificações de email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 1. Na caixa **Nome do grupo de ação** caixa, dê a ele um nome fácil e curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 

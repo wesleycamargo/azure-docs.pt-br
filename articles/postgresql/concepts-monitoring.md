@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035077"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843675"
 ---
 # <a name="monitor-and-tune"></a>Monitorar e ajustar
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
@@ -39,10 +39,10 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
-|backup_storage_used|Armazenamento de backup usado|Bytes|A quantidade de armazenamento de backup usado.|
+|backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
 
 ## <a name="server-logs"></a>Logs do servidor
-Você pode habilitar o registro no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no [Log Analytics](../log-analytics/log-analytics-queries.md), Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
+Você pode habilitar o registro no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Hubs de Eventos e Conta de Armazenamento. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Repositório de Consultas
 [Repositório de Consultas](concepts-query-store.md) é uma versão prévia pública do recurso que mantém o controle do desempenho da consulta ao longo do tempo incluindo eventos de espera e estatísticas de tempo de execução de consulta. O recurso mantém as informações de desempenho de tempo de execução de consulta em um banco de dados do sistema chamado **azure_sys** sob o esquema query_store. Você pode controlar a coleta e o armazenamento de dados por meio de vários botões de configuração.

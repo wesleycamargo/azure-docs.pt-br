@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165281"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999520"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Trabalhando com a conta do Azure Cosmos
 
@@ -38,7 +38,7 @@ Agora você pode continuar a aprender como gerenciar sua conta do Azure Cosmos o
 * [Distribuição global](distribute-data-globally.md)
 * [Níveis de consistência](consistency-levels.md)
 * [Trabalhando com itens e contêineres do Azure Cosmos](databases-containers-items.md)
-* [Ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos](firewall-support.md)
-* [Firewall de IP para sua conta do Azure Cosmos](vnet-service-endpoint.md)
+* [Ponto de extremidade de serviço de rede virtual para sua conta do Azure Cosmos](vnet-service-endpoint.md)
+* [Firewall de IP para sua conta do Azure Cosmos](firewall-support.md)
 * [Como adicionar e remover regiões do Azure para sua conta do Azure Cosmos](how-to-manage-database-account.md)
 * [SLAs do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

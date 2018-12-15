@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126319"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966255"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerenciar recursos do Armazenamento de Dados do Azure Data Lake Gen1 usando o Storage Explorer
 
@@ -31,7 +31,7 @@ Outra vantagem é que você não precisa ter permissão de assinatura para geren
 Para concluir as etapas neste artigo, você precisa dos seguintes pré-requisitos:
 
 *   Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial).
-*   Uma conta do Data Lake armazenamento Gen1. Para obter instruções sobre como criar um, consulte [Introdução ao Azure Data Lake armazenamento Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Uma conta do Data Lake Storage Gen1. Para obter instruções de como criar uma, confira [Introdução ao Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalar o Gerenciador de Armazenamento
 
@@ -136,7 +136,7 @@ Os itens a seguir ilustram como gerenciar recursos dentro de uma conta do Data L
 
    ![Caixa de diálogo com o carregamento em andamento](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > É possível arrastar as pastas e arquivos diretamente em um computador local para iniciar o upload. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Baixar pastas ou arquivos para o computador local
@@ -164,7 +164,7 @@ O arquivo é baixado e aberto por meio do aplicativo associado ao tipo de arquiv
 
 ![Seleções para copiar uma pasta](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > Não há suporte para operações de copiar/colar em todos os tipos de armazenamento. Você pode copiar pastas ou arquivos do Data Lake Storage Gen1 e colá-los em outra conta do Data Lake Storage Gen1. Mas você *não pode* copiar pastas ou arquivos do Data Lake Storage Gen1 e colá-los no armazenamento do Azure Blob ou vice-versa.
 > 
 > A operação copiar/colar funciona baixando pastas ou arquivos no computador local e, em seguida, carregando-os para o destino. A ferramenta *não* executa a ação no back-end. A operação copiar/colar em arquivos grandes é um processo lento. A otimização da movimentação/cópia de arquivos de alto desempenho está a caminho.

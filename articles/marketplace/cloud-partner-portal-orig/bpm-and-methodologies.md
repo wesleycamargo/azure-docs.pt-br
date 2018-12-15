@@ -14,22 +14,20 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7e7aa2e14d86a0295a9921766f7fef547d42a05d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: df323d121b42ab1200844f3fefb713122ba43106
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804995"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316073"
 ---
-<a name="business-process-libraries"></a>Bibliotecas de processos empresariais
-==========================
+# <a name="business-process-libraries"></a>Bibliotecas de processos empresariais
 
 As bibliotecas de processos empresariais não são nada além de guias de tarefa de seus cenários de ponta a ponta. A biblioteca de processos empresariais devem alinhar-se diretamente ao seu conteúdo de marketing. Cada processo empresarial na biblioteca de processos empresariais deve ter uma [gravação de tarefa](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder) associada a ela. Se você tiver processos que estão fora do Dynamics 365 for Operations, anexe um Visio à sua biblioteca BPM.
 
 Confira [Business Process Modeler](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions) (Modelador de processos empresariais) para saber mais.
 
-<a name="methodologies"></a>Metodologias
-=============
+## <a name="methodologies"></a>Metodologias
 
 O LCS (Serviços de Ciclo de Vida) para Microsoft Dynamics oferece metodologias que você pode usar para garantir uma experiência de projeto de implementação previsível e mais repetível. É possível usar uma das metodologias fornecidas ou criar suas próprias. Com uma metodologia, é possível controlar e relatar facilmente o andamento.
 

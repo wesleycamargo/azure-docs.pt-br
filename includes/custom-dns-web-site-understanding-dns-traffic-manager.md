@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571773"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344577"
 ---
 O Sistema de Nomes de Domínio (DNS) é usado para localizar coisas na internet. Por exemplo, quando você digita um endereço em seu navegador ou clica em um link em uma página da web, ele usa o DNS para traduzir o domínio em um endereço IP. O endereço IP é semelhante a um endereço, mas não é muito amigável ao ser humano. Por exemplo, é mais fácil se lembrar de um nome DNS como **contoso.com** do que se lembrar de um endereço IP, como 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
@@ -32,7 +32,7 @@ Um registro CNAME mapeia um nome DNS *específico* como **mail.contoso.com** ou 
 Depois que o tráfego chega ao Gerenciador de Tráfego, ele encaminha o tráfego para o site, usando o método de balanceamento de carga para o qual está configurado. Isso é completamente transparente para os visitantes do site. Eles verão apenas o nome de domínio personalizado no navegador.
 
 > [!NOTE]
-> Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como **www.contoso.com** e não nomes de raiz, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida por seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a> ou o documento <a href="http://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
+> Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como **www.contoso.com** e não nomes de raiz, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida por seu registrador, <a href="https://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a> ou o documento <a href="https://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
 > 
 > 
 

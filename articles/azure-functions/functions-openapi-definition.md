@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496040"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993172"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 
-APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
+APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](https://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
 
 Neste tutorial, você deve criar uma função que determina se um reparo de emergência em uma turbina eólica é eficaz em termos de custo. Em seguida, crie uma definição de OpenAPI para o aplicativo de funções para que a função possa ser chamada de outros aplicativos e serviços.
 
@@ -123,7 +123,7 @@ Agora você tem uma função que determina o custo-benefício de reparos de emer
 
 ## <a name="generate-the-openapi-definition"></a>Gerar a definição de OpenAPI
 
-Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como aplicativos de API, [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
+Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como aplicativos de API, [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](https://swagger.io/tools/).
 
 1. Selecione apenas os *verbos* que sua API dá suporte (neste caso, POST). Isso torna a definição de API gerada mais clara.
 
@@ -141,7 +141,7 @@ Agora você está pronto para gerar a definição de OpenAPI. Essa definição p
 
     ![Fonte de definição da API](media/functions-openapi-definition/api-definition-source.png)
 
-    Esta etapa habilita um pacote de opções OpenAPI para seu aplicativo de funções, incluindo um ponto de extremidade para hospedar um arquivo OpenAPI de domínio do seu aplicativo de funções, uma cópia embutida do [Editor OpenAPI](http://editor.swagger.io) e um gerador de modelo de definição da API.
+    Esta etapa habilita um pacote de opções OpenAPI para seu aplicativo de funções, incluindo um ponto de extremidade para hospedar um arquivo OpenAPI de domínio do seu aplicativo de funções, uma cópia embutida do [Editor OpenAPI](https://editor.swagger.io) e um gerador de modelo de definição da API.
 
 1. Clique em **Gerar modelo de definição da API** > **Salvar**.
 
@@ -168,7 +168,7 @@ Agora você está pronto para gerar a definição de OpenAPI. Essa definição p
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

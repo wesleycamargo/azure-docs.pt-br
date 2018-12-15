@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804950"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308627"
 ---
-<a name="lcs-subscription"></a>Assinatura do LCS
-================
+# <a name="lcs-subscription"></a>Assinatura do LCS
 
 Neste tutorial, você aprenderá como criar uma assinatura. Esta assinatura lhe dará um locatário de teste do Microsoft Online e um projeto do Microsoft Dynamics Lifecycle Services onde você pode implantar um ambiente. Você também definirá usuários adicionais em seu locatário do Microsoft Online e obterá experiência com os seguintes recursos de administração de serviço. Aqui estão as habilidades que você aprenderá:
 
@@ -32,8 +31,7 @@ Neste tutorial, você aprenderá como criar uma assinatura. Esta assinatura lhe 
 - Adicionando usuários adicionais ao Microsoft Azure Active Directory e o cliente.
 - Visualizar recursos no seu email de assinatura.
 
-<a name="key-terms"></a>Principais termos
-=========
+## <a name="key-terms"></a>Principais termos
 
 **Locatário do Microsoft Online Services** - um locatário é o grupo de todas as assinaturas e os usuários para sua organização. O locatário é criado ao mesmo tempo de primeira assinatura do Microsoft Online Services.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023739"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342231"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
@@ -50,7 +50,7 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
 |Nome do controle do código-fonte     | Um nome amigável para o controle do código-fonte        |
-|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Tipo de controle do código-fonte     | O tipo de origem do controle do código-fonte. As opções disponíveis são:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. O pull desse valor é efetuado do repositório do controle do código-fonte. Exemplo: $/ContosoFinanceTFVCExample         |
 |Branch     | O branch do qual o pull dos arquivos de origem é efetuado. O direcionamento de branch não está disponível para o tipo de controle do código-fonte TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks         |
@@ -62,7 +62,7 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 
 ## <a name="syncing"></a>Sincronização
 
-Configurando a sincronização automática ao configurar a integração do controle do código-fonte, a sincronização inicial começa automaticamente. Se sincronização automática não estiver definida, selecione o código-fonte da tabela na página **Controle do código-fonte (Visualização)**. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
+Configurando a sincronização automática ao configurar a integração do controle do código-fonte, a sincronização inicial começa automaticamente. Se sincronização automática não estiver definida, selecione o código-fonte da tabela na página **Controle do código-fonte (Visualização)**. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 
 É possível exibir o status do trabalho de sincronização atual ou anteriores clicando na guia **Trabalho de sincronização**. Na lista suspensa **Controle do código-fonte**, selecione um controle do código-fonte.
 

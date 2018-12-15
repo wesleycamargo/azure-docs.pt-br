@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467711"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867573"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar fontes de voz personalizadas
 
@@ -87,7 +87,7 @@ Por exemplo:
 O sistema de voz personalizada normaliza as transcrições convertendo o texto em minúscula e removendo a pontuação estranha. É importante que as transcrições sejam transcrições 100% exatas das gravações de áudio correspondentes.
 
 > [!TIP]
-> Ao compilar vozes de Conversão de Texto em Fala de produção, selecione enunciados (ou escreva scripts) que levem em conta a cobertura e eficiência fonética. Tendo problemas para a obtenção dos resultados você deseja? [Entre em contato com a equipe de voz personalizada](mailto:tts@microsoft.com) para descobrir mais sobre ter nos consulte.
+> Ao compilar vozes de Conversão de Texto em Fala de produção, selecione enunciados (ou escreva scripts) que levem em conta a cobertura e eficiência fonética. Tendo problemas para a obtenção dos resultados você deseja? [Entre em contato com a equipe de voz personalizada](mailto:speechsupport@microsoft.com) para descobrir mais sobre ter nos consulte.
 
 ## <a name="upload-your-datasets"></a>Upload de conjunto de dados
 

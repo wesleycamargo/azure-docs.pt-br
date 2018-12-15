@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879051"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969661"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o StorSimple
 
@@ -47,7 +47,7 @@ Veja uma lista de regiões onde o serviço do Gerenciador de Dispositivos do Sto
 
 ![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-Para a nuvem do Azure Governamental, o serviço do Gerenciador de Dispositivos do StorSimple está disponível nos datacenters US Gov – Iowa e US Gov – Virgínia.
+Para a nuvem do Azure Governamental, o serviço do Gerenciador de Dispositivos do StorSimple está disponível nos datacenters US Gov Iowa e US Gov Virginia.
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>Disponibilidade de região de dados armazenados no StorSimple
 
@@ -81,11 +81,11 @@ Se usar um dispositivo físico StorSimple 8100 ou 8600, o dispositivo estará di
 | 10 | Dinamarca        | 25 | Quênia       | 40 | Romênia      | 55 | Ucrânia              |
 | 11 | Egito          | 26 | Kuwait      | 41 | Rússia       | 56 | Emirados Árabes Unidos |
 | 12 | Finlândia        | 27 | Macau       | 42 | Arábia Saudita | 57 | Reino Unido       |
-| 13 | França         | 28 | Malásia    | 43 | Cingapura    | 58 | Estados Unidos        |
+| 13 | França         | 28 | Malásia    | 43 | Singapura    | 58 | Estados Unidos        |
 | 14 | Alemanha        | 29 | México      | 44 | Eslováquia     | 59 | Vietnã              |
 | 15 | Grécia         | 30 | Países Baixos | 45 | Eslovênia     | 60 | Croácia              |
 
-Esta lista muda à medida que mais países são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/Licensing/product-licensing).
+Esta lista muda à medida que mais países são adicionados. Para obter uma lista mais atualizada de regiões geográficas, vá para o apêndice de termos de matriz de armazenamento em [Termos do produto](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
 A Microsoft pode enviar o hardware físico e substituir peças de reposição de hardware para o StorSimple para regiões geográficas na lista anterior.
 

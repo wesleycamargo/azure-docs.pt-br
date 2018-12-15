@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713292"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386427"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Use Azure Log Analytics para monitorar clusters HDInsight
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um workspace do Log Analytics**. É possível pensar neste workspace como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **Um workspace do Log Analytics**. É possível pensar neste workspace como um ambiente exclusivo do Log Analytics com seu próprio repositório de dados, fontes de dados e soluções. Para obter instruções, consulte [Criar um workspace do Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **Um cluster Azure HDInsight**. Atualmente, é possível usar o Log Analytics com os tipos de Cluster HDInsight a seguir:
 
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
   Para obter instruções sobre como criar um cluster HDInsight, consulte [Introdução ao Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > É recomendável colocar o cluster HDInsight e o workspace do Log Analytics na mesma região para melhorar o desempenho. O Azure Log Analytics não está disponível em todas as regiões do Azure.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Habilitar o Log Analytics no portal

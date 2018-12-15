@@ -2,18 +2,18 @@
 title: O que há de novo no Servidor de Backup do Azure
 description: O Servidor de Backup do Azure oferece recursos avançados de backup para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais. Aprenda a instalar ou atualizar o Servidor de Backup do Azure V3.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: adigan
+ms.openlocfilehash: 01709bf7bdf4812802ab983729cc628101810f43
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869612"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Servidor de Backup do Azure
 

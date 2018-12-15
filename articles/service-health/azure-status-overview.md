@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282899"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308273"
 ---
 # <a name="azure-status"></a>Status do Azure
 [Status do Azure](https://azure.microsoft.com/status/) fornece uma exibição global da integridade dos serviços do Azure. Com o status do Azure, você pode obter informações atualizadas sobre a disponibilidade do serviço. Todos têm acesso ao status do Azure e pode exibir todos os serviços que a integridade do serviço de relatório. 
@@ -37,8 +37,8 @@ Enquanto a página de status do Azure sempre mostra as informações de integrid
 Nela, você pode ver eventos de até 90 dias anteriores, incluindo a causa raiz preliminar, a mitigação e as próximas etapas do Azure.
 
 ## <a name="rss-feed"></a>RSS Feed
-O status do Azure também fornece [um RSS feed](https://azure.microsoft.com/en-us/status/feed/) de alterações para a integridade dos serviços do Azure em que você pode se inscrever.
+O status do Azure também fornece [um RSS feed](https://azure.microsoft.com/status/feed/) de alterações para a integridade dos serviços do Azure em que você pode se inscrever.
 
-# <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como você pode obter uma exibição mais personalizada da integridade do Azure com a [Integridade do Serviço](./service-health-overview.md).
 * Saiba como você pode obter uma exibição mais detalhada da integridade dos recursos específicos do Azure com o [Resource Health](./resource-health-overview.md).

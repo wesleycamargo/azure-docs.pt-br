@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631550"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016769"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma sandbox do Apache Hadoop, um emulador em uma máquina virtual
 
@@ -27,7 +27,7 @@ Aprenda a instalar o sandbox Apache Hadoop do Hortonworks em uma máquina virtua
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Baixar e instalar a máquina virtual
-1. Navegue até os [downloads da Hortonworks](http://hortonworks.com/downloads/#sandbox).
+1. Navegue até os [downloads da Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
 2. Clique em **BAIXAR PARA VIRTUALBOX** para baixar a Área Restrita da Hortonworks mais recente em uma VM. Será solicitado que você se registre na Hortonworks antes de iniciar o download. O download leva de uma a duas horas, dependendo da velocidade da sua rede.
    
@@ -78,6 +78,6 @@ Para baixar uma área restrita da versão mais antiga do HDP, expanda o arquivam
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

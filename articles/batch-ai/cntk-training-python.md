@@ -15,14 +15,17 @@ ms.devlang: Python
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0c805deb85a999d3c23be24b81c1d97ed5fe55eb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 86ce9fd77ccf83ed6f5f1c722b4c8c809ef0eedf
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057397"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407908"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>Execute um trabalho de treinamento do CNTK usando o SDK do Python do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este artigo mostra como usar o SDK do Python do Azure para treinar um modelo do Microsoft Cognitive Toolkit (CNTK) de exemplo usando o serviço IA do Lote.
 
@@ -88,7 +91,7 @@ batchai_client = batchai.BatchAIManagementClient(
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Os trabalhos e os clusters da IA do Lote são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O trecho a seguir cria um grupo de recursos:
+Os trabalhos e os clusters da IA do Lote são recursos do Azure e devem ser colocados em um grupo de recursos do Azure. O snippet a seguir cria um grupo de recursos:
 
 ```Python
 from azure.mgmt.resource import ResourceManagementClient

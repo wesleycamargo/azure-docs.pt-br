@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978363"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135178"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando a CLI do Azure
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 O comando `az mysql server restore` exige os seguintes parâmetros:
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+
+| Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
+| resource-group |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
 | Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | Restauração-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para o qual restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Você também pode usar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
@@ -108,7 +109,8 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 O comando `az mysql server georestore` exige os seguintes parâmetros:
-| Configuração | Valor sugerido | DESCRIÇÃO  |
+
+| Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | O nome do grupo de recursos a qual o novo servidor pertencerá.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |

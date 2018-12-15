@@ -9,16 +9,15 @@ ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2f9b61a212251332cd94379b40f93eb52d49c729
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957481"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870055"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploração de dados do HockeyApp no Application Insights
 
@@ -61,7 +60,7 @@ O Analytics é uma ferramenta eficiente para consultas ad hoc de seus dados, per
 
 ![Análise](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [Saiba mais sobre o Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Saiba mais sobre o Analytics](../azure-monitor/log-query/get-started-portal.md)
 
 ## <a name="continuous-export"></a>Exportação contínua
 A Exportação Contínua permite que você exporte os dados para um contêiner do Armazenamento de Blobs do Azure. Isso será muito útil se você precisar manter seus dados por mais tempo que o período de retenção atualmente oferecido pelo Application Insights. Você pode manter os dados no armazenamento de blobs, processá-los em um banco de dados SQL ou a solução de data warehouse preferencial.
@@ -69,5 +68,5 @@ A Exportação Contínua permite que você exporte os dados para um contêiner d
 [Saiba mais sobre a Exportação Contínua](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Aplicar a análise aos seus dados](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Aplicar a análise aos seus dados](../azure-monitor/log-query/get-started-portal.md)
 
