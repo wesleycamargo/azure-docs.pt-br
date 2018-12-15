@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: d22103a049d62f48e8b9b9d3f71138842fbfaa89
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262481"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088180"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Criar um contêiner no Azure Cosmos DB
 
@@ -30,7 +30,6 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
    * Crie um novo banco de dados ou use um existente.
    * Insira uma ID de coleção.
-   * Selecione a capacidade de armazenamento **Ilimitada**.
    * Insira uma chave de partição.
    * Insira uma taxa de transferência, por exemplo, 1000 RUs.
    * Selecione **OK**.
@@ -58,7 +57,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma nova conta do Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) ou selecione uma conta existente.
+1. [Criar uma nova conta do Cosmos DB](create-cassandra-dotnet.md#create-a-database-account) ou selecionar uma conta existente.
 
 1. Abra o painel **Data Explorer** e selecione **Nova Tabela**. Em seguida, preencha o formulário com os seguintes detalhes:
 
@@ -77,7 +76,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma nova conta do Cosmos DB](create-graph-dotnet.md#create-a-database-account) ou selecione uma conta existente.
+1. [Criar uma nova conta do Cosmos DB](create-graph-dotnet.md#create-a-database-account) ou selecionar uma conta existente.
 
 1. Abra o painel **Data Explorer** e selecione **Novo Grafo**. Em seguida, preencha o formulário com os seguintes detalhes:
 
@@ -94,7 +93,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner (coleção, ta
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma nova conta do Cosmos DB](create-table-dotnet.md#create-a-database-account) ou selecione uma conta existente.
+1. [Criar uma nova conta do Cosmos DB](create-table-dotnet.md#create-a-database-account) ou selecionar uma conta existente.
 
 1. Abra o painel **Data Explorer** e selecione **Nova Tabela**. Em seguida, preencha o formulário com os seguintes detalhes:
 
