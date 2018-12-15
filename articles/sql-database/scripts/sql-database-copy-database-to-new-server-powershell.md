@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 209ee97f65f13037d5c87082615bcf37074a91c7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 02e945d838da552e2054c9547a2a6a26c73e273d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963652"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>Usar o PowerShell para copiar um Banco de Dados SQL para um novo servidor
 
-Este exemplo de script do PowerShell cria uma cópia de um banco de dados existente em um novo servidor. 
+Este exemplo de script do PowerShell cria uma cópia de um banco de dados existente em um novo servidor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113845"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999882"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -27,7 +27,7 @@ Saiba como criar uma função disparada quando arquivos são carregados ou atual
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/).
++ Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
 + Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-an-azure-function-app"></a>Criar um Aplicativo de funções do Azure
@@ -76,7 +76,7 @@ Em seguida, você pode se conectar à sua conta de armazenamento do Azure e cria
 
     ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), clique no ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e clique em **Avançar**.
+1. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), clique no ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e clique em **Avançar**.
 
     ![Execute a ferramenta Gerenciador de Conta de Armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
