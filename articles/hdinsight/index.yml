@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd8976bc9c78045830ab499f48775bcb051f6c71
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: bf2b326b6e0003b9a690e560d5a312f16659dad9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455735"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406736"
 documentType: LandingData
 title: Documentação do HDInsight do Azure
 metadata:
@@ -70,12 +70,12 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Executar operações de ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Criar clusters sob demanda</a>
-    - html: Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Executar consultas interativas</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizar dados</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Aprendizado de máquina</a>
-    - html: Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming estruturado com Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usar com o Storm no HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usar APIs do Produtor do Kafka e do consumidor</a>
-    - html: HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Criar clusters HBase em uma VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usar o Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Conectar ao Spark</a>
+    - html: Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Executar operações de ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Criar clusters sob demanda</a>
+    - html: Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Executar consultas interativas</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizar dados</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Aprendizado de máquina</a>
+    - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming estruturado com Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usar com o Storm no HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usar APIs do Produtor e Consumidor do Kafka</a>
+    - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Criar clusters HBase em uma VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usar o Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Conectar ao Spark</a>
     - html: Consulta interativa &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Conectar com o Power BI usando a Consulta Direta</a>
-    - html: Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Criar topologia do Storm em Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Implantar topologias do Storm no HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Gravar do Storm ao Data Lake Store</a>
+    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Criar topologia do Storm em Java</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">Implantar topologias do Storm no HDInsight</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Gravar do Storm para o Data Lake Store</a>
     - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Usar Ferramentas do R para Visual Studio</a>
 - title: Referência
   items:

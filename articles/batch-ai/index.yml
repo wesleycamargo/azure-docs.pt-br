@@ -1,25 +1,25 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 16fa5136457616644b91b4796769ce4050f6a462
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cd5101c7e979c63d274f1534a3fec8190e00317
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385940"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409489"
 documentType: LandingData
-title: Documentação da IA do Lote (Versão prévia)
+title: Documentação da IA do Lote do Azure (RETIRING)
 metadata:
-  title: Documentação da IA do Lote (Versão prévia)
+  title: Documentação da IA do Lote do Azure (RETIRING)
   meta.description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
   services: batch-ai
-  author: dlepow
-  manager: jeconnock
+  author: j-martens
+  manager: cjgronlun
   layout: LandingPage
   ms.service: batch-ai
   ms.topic: landing-page
-  ms.date: 08/16/2018
-  ms.author: danlep
+  ms.date: 12/14/2018
+  ms.author: jmartens
 abstract:
-  description: A IA do Lote do Azure é um serviço gerenciado para ajudar cientistas de dados e pesquisadores de IA a treinar e testar o aprendizado de máquina e modelos de inteligência artificial em escala no Azure – sem precisar gerenciar uma infraestrutura complexa. Saiba como usar a IA do Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  description: <div class="NOTE"><p>Observação</p><p><strong>A IA do Lote do Azure será desativada.</strong> O suporte para esse serviço será desativado gradualmente. Agora, os recursos da IA do Lote do Azure estão disponíveis como um destino de computação gerenciada no Serviço do Azure Machine Learning. Para obter mais informações, confira <a href="overview-what-happened-batch-ai" data-linktype="relative-path">O que está acontecendo com a IA do Lote?</a></p></div>
 sections:
 - title: Guia de início rápido de 5 minutos
   items:

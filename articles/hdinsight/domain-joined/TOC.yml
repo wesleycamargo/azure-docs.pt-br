@@ -26,7 +26,7 @@ items:
   - name: Usar o Eclipse para vincular ao cluster ESP
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
-  - name: Usar o Oozie em clusters ESP
+  - name: Usar o Apache Oozie nos clusters ESP
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Proteção de dados
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -39,10 +39,10 @@ items:
   - name: Conectar o HDInsight à rede local
     href: ../connect-on-premises-network.md
     maintainContext: true
-  - name: Criar cluster HBase na VNet do Azure
+  - name: Criar cluster do Apache HBase na rede virtual do Azure
     href: ../hbase/apache-hbase-provision-vnet.md
     maintainContext: true
-  - name: Replicação de cluster HBase na VNet do Azure
+  - name: Replicação de cluster do Apache HBase na rede virtual do Azure
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
 - name: Monitoramento usando Log Analytics
@@ -70,13 +70,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: SDK do Go
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Recursos
   items:
@@ -100,9 +100,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 08e08fba0b9957babd391cada4a665e5d99fdd90
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 838d344742cdb9c19224b6831540736a86fc5b33
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155704"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433638"
