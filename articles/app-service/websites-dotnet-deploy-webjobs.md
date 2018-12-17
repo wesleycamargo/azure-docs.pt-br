@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 300ccf5da3528be63ae618338b8953d05b0e799d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245709"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337454"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implantar o WebJobs usando o Visual Studio – Serviço de Aplicativo do Azure
 
@@ -35,7 +35,7 @@ Ao implantar um projeto do Aplicativo de Console habilitado para Trabalhos Web, 
 
 Um projeto habilitado para Trabalhos Web tem os seguintes itens adicionados:
 
-* O pacote NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) .
+* O pacote NuGet [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) .
 * Um arquivo [webjob-publish-settings.json](#publishsettings) que contém configurações de implantação e agendador. 
 
 ![Diagrama que mostra o que é adicionado a um Aplicativo de Console para habilitar implantação como um Trabalho Web](./media/websites-dotnet-deploy-webjobs/convert.png)
@@ -97,7 +97,7 @@ Para criar um projeto habilitado para Trabalhos Web, é possível usar o modelo 
     Crie um projeto que seja configurado para ser implantado automaticamente como um Trabalho Web quando um projeto Web na mesma solução for implantado. Use esta opção quando quiser executar o Trabalho Web no mesmo aplicativo Web em que você executa o aplicativo Web relacionado.
 
 > [!NOTE]
-> O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK do WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não desejar usar o SDK do WebJobs, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
+> O modelo new-project do WebJobs instala automaticamente pacotes NuGet e inclui o código em *Program.cs* para o [SDK do WebJobs](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Se você não desejar usar o SDK do WebJobs, remova ou altere a instrução `host.RunAndBlock` em *Program.cs*.
 > 
 > 
 
@@ -130,7 +130,7 @@ Os campos dessa caixa de diálogo correspondem aos campos da caixa de diálogo *
 > 
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json
-Quando você configura um Aplicativo de Console para implantação de Trabalhos Web, o Visual Studio instala o pacote NuGet [Microsoft.Web.WebJobs.Publish](http://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e armazena informações de agendamento em um arquivo *webjob-publish-settings.json* na pasta *Propriedades* do projeto dos Trabalhos Web. Aqui está um exemplo desse arquivo:
+Quando você configura um Aplicativo de Console para implantação de Trabalhos Web, o Visual Studio instala o pacote NuGet [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) e armazena informações de agendamento em um arquivo *webjob-publish-settings.json* na pasta *Propriedades* do projeto dos Trabalhos Web. Aqui está um exemplo desse arquivo:
 
         {
           "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
@@ -142,7 +142,7 @@ Quando você configura um Aplicativo de Console para implantação de Trabalhos 
           "runMode": "Continuous"
         }
 
-É possível editar esse arquivo diretamente, e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser exibido.  
+É possível editar esse arquivo diretamente, e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [https://schemastore.org](https://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser exibido.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 Quando você vincula um projeto habilitado para Trabalhos Web a um projeto Web, o Visual Studio armazena o nome do projeto de Trabalhos Web em um arquivo *webjobs-list.json* na pasta *Propriedades* do projeto Web. A lista pode conter vários projetos do WebJobs, conforme mostrado no seguinte exemplo:
@@ -159,7 +159,7 @@ Quando você vincula um projeto habilitado para Trabalhos Web a um projeto Web, 
           ]
         }
 
-É possível editar esse arquivo diretamente, e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) e pode ser exibido.
+É possível editar esse arquivo diretamente, e o Visual Studio fornece o IntelliSense. O esquema de arquivo é armazenado em [https://schemastore.org](https://schemastore.org/schemas/json/webjobs-list.json) e pode ser exibido.
 
 ## <a id="deploy"></a>Implantar um projeto de Trabalhos Web
 Um projeto de Trabalhos Web vinculado a um projeto Web é implantado automaticamente com o projeto Web. Para obter informações sobre a implantação de projetos Web, consulte os **guias de instruções** > **Implantar aplicativo** na navegação à esquerda.

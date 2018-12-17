@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3accc31f433e6db40c7d1de2b56dfbd4180b4933
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6db451ab7de50039c38b59612dd2ab1c61c35e7b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265158"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271218"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usar o Portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MySQL 
 
@@ -29,8 +29,8 @@ Você pode configurar um alerta para fazer as seguintes ações quando ele dispa
 
 Você pode configurar e obter informações sobre as regras de alerta usando:
 * [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [CLI (Interface da linha de comando)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [CLI (Interface da linha de comando)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta em uma métrica no Portal do Azure
@@ -82,5 +82,5 @@ Depois de criar um alerta, você poderá selecioná-lo e executar as seguintes a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como [configurar webhooks em alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Saiba mais sobre como [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Tenha uma [visão geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8ae8fa823b919ec4a67832e7c42088c994bd2d97
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2dade35b05a07b649282ae00bb6fee354adcd195
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354223"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845462"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemas para entrar em um aplicativo de desenvolvimento personalizado
 
@@ -32,7 +32,7 @@ Há vários erros que podem estar causando a impossibilidade de entrar em um apl
 
 * Compare o recurso que você está solicitando acesso no código com as permissões configuradas na guia **Recursos Necessários** para certificar-se de que está solicitando somente os recursos que você configurou.
 
-* Consulte [StackOverflow do Azure AD ](http://stackoverflow.com/questions/tagged/azure-active-directory) para quaisquer erros ou problemas semelhantes.
+* Consulte [StackOverflow do Azure AD ](https://stackoverflow.com/questions/tagged/azure-active-directory) para quaisquer erros ou problemas semelhantes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -42,4 +42,4 @@ Há vários erros que podem estar causando a impossibilidade de entrar em um apl
 
 [Consentimento e Permissão para Aplicativos Convergidos do Azure AD v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[StackOverflow do Azure AD](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[StackOverflow do Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory>)

@@ -9,21 +9,20 @@ ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958399"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877829"
 ---
 # <a name="using-search-in-application-insights"></a>Usar a Pesquisa no Application Insights
 A Pesquisa é um recurso do [Application Insights](app-insights-overview.md) que você usa para localizar e explorar itens individuais de telemetria, como exibições de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
-(Para consultas mais complexas sobre os dados, use o [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(Para consultas mais complexas sobre os dados, use o [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde você vê o Search?
 
@@ -102,7 +101,7 @@ Localize todos os itens com o mesmo valor da propriedade:
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para escrever consultas mais complexas, abra o [**Analytics**](../log-analytics/query-language/get-started-analytics-portal.md) na parte superior da folha Pesquisa.
+> Para escrever consultas mais complexas, abra o [**Analytics**](../azure-monitor/log-query/get-started-portal.md) na parte superior da folha Pesquisa.
 > 
 
 Você pode pesquisar termos em qualquer um dos valores de propriedade. Isso será especialmente útil se você tiver gravado [eventos personalizados](app-insights-api-custom-events-metrics.md) com valores de propriedade. 
@@ -164,7 +163,7 @@ Nós não registramos os dados de POST automaticamente, mas você pode usar [cha
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Próximas etapas
-* [Escrever consultas complexas no Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Escrever consultas complexas no Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Enviar logs e telemetria personalizada para o Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](app-insights-monitor-web-app-availability.md)
 * [Solução de problemas](app-insights-troubleshoot-faq.md)

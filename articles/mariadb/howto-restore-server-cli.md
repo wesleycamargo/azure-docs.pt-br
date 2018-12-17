@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516376"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955183"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>O backup ocorre automaticamente
+
 O backup dos servidores do Banco de Dados do Azure para MariaDB é realizado periodicamente para habilitar recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este guia de instruções, você precisa:
+
 - Um [banco de dados e um servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Este guia de instruções requer que você use a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, digite `az --version`. Para instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Definir configuração de backup
 
-Escolha entre configurar o servidor para backups com redundância local ou backups com redundância geográfica na criação do servidor. 
+Escolha entre configurar o servidor para backups com redundância local ou backups com redundância geográfica na criação do servidor.
 
 > [!NOTE]
 > Depois que um servidor é criado, o tipo de redundância que ele tem, geográfica ou local, não pode ser alternado.
@@ -58,7 +59,8 @@ O exemplo anterior altera o período de retenção de backup de mydemoserver par
 O período de retenção de backup determina até quando a restauração de pontos anteriores pode ser feita, já que ele se baseia em backups disponíveis. A restauração pontual é descrita mais detalhadamente na próxima seção.
 
 ## <a name="server-point-in-time-restore"></a>Restauração pontual do servidor
-Você pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela tiver sido descartada acidentalmente ao meio-dia de hoje, você poderá restaurá-la para um horário um pouco antes do meio-dia. Depois, você pode recuperar a tabela e os dados ausentes da cópia restaurada do servidor. 
+
+Você pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela tiver sido descartada acidentalmente ao meio-dia de hoje, você poderá restaurá-la para um horário um pouco antes do meio-dia. Depois, você pode recuperar a tabela e os dados ausentes da cópia restaurada do servidor.
 
 Para restaurar o servidor, use o comando [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) do CLI do Azure.
 
@@ -85,6 +87,7 @@ Os valores de local e tipo de preço para o servidor restaurado permanecem iguai
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
 
 ## <a name="geo-restore"></a>Restauração geográfica
+
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para MariaDB está disponível.  
 
 Para criar um servidor usando um backup de redundância geográfica, use o comando `az mariadb server georestore` da CLI do Azure.
@@ -96,8 +99,9 @@ Para criar um servidor usando um backup de redundância geográfica, use o coman
 Para restaurar geograficamente o servidor, no prompt de comando da CLI do Azure, digite o seguinte comando:
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 Este comando cria um novo servidor chamado *mydemoserver-georestored* no Leste dos EUA que pertencerá a *myresourcegroup*. É um Uso geral, servidor Gen 5 com 8 vCores. O servidor é criado a partir do backup com redundância geográfica de *mydemoserver*, que também está no grupo de recursos *myresourcegroup*
 
 Se você deseja criar o novo servidor em outro grupo de recursos do servidor existente, será necessário qualificar no parâmetro `--source-server` o nome do servidor como no exemplo a seguir:
@@ -116,12 +120,12 @@ O comando `az mariadb server georestore` exige os seguintes parâmetros:
 |location | eastus | A localização do novo servidor. |
 |sku-name| GP_Gen5_8 | Esse parâmetro define o tipo de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen5_8 mapeia para um Uso geral, Gen 5 com 8 vCores.|
 
-
 >[!Important]
 >Ao criar um novo servidor com uma restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preços do servidor de origem. Esses valores não podem ser alterados durante a criação. Depois que o novo servidor é criado, seu tamanho de armazenamento pode ser expandido.
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Saiba mais sobre os [backups](concepts-backup.md) do serviço.
 - Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md).

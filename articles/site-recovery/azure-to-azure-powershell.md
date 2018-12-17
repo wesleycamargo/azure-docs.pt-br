@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f75c9a9b9cd258ad2c4e071593126697d41e4071
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b2f20f72d177afead9c20f60fd7369c8d58bbd08
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624396"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845681"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
 
@@ -64,7 +64,7 @@ No exemplo deste artigo, uma máquina virtual na região Leste dos EUA será rep
 # Get details of the virtual machine
 $VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
-Write-Output $VM
+Write-Output $VM     
 ```
 
 ```

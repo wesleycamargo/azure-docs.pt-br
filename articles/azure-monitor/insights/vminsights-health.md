@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: aac6ca2db815aa3ca427b281e146874dc142107a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713812"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344008"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreenda a integridade de suas máquinas virtuais do Azure com o Monitor do Azure para VMs (visualização)
 O Azure inclui vários serviços que executam individualmente uma função ou tarefa específica no espaço de monitoramento, mas não oferece uma perspectiva de integridade detalhada do sistema operacional hospedado nas máquinas virtuais do Azure.  Embora você possa monitorar diferentes condições usando o Log Analytics ou o Azure Monitor, elas não foram projetadas para modelar e representar a integridade dos principais componentes ou a integridade geral da máquina virtual.  Com o recurso de integridade do Azure Monitor for VMs, ele monitora proativamente a disponibilidade e o desempenho do sistema operacional convidado Windows ou Linux com um modelo que representa os principais componentes e seus relacionamentos, critérios que determinam como avaliar a integridade desses componentes e alertam quando um condição insalubre é detectada.  
@@ -119,7 +118,7 @@ Na guia **Integridade**, você pode aprender o seguinte:
 * Quantas VMs não são íntegras devido a um problema detectado com um processador, disco, memória ou adaptador de rede, categorizado por estado de integridade?  
 * Quantas VMs não são íntegras devido a um problema detectado em um serviço central do sistema operacional, categorizado por estado de integridade?
 
-Aqui você pode identificar rapidamente os principais problemas críticos detectados pelos critérios de integridade, monitorando proativamente a VM e analisando os detalhes do alerta de integridade da VM e o artigo de conhecimento associado com a intenção de auxiliar no diagnóstico e na correção do problema.  Selecione qualquer uma das gravidades para abrir a página [Todos os Alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) filtrada por tal gravidade.
+Aqui você pode identificar rapidamente os principais problemas críticos detectados pelos critérios de integridade, monitorando proativamente a VM e analisando os detalhes do alerta de integridade da VM e o artigo de conhecimento associado com a intenção de auxiliar no diagnóstico e na correção do problema.  Selecione qualquer uma das gravidades para abrir a página [Todos os Alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) filtrada por tal gravidade.
 
 A lista da **distribuição da VM por sistema operacional** mostra as VMs listadas pela edição do Windows ou pela distribuição do Linux, junto com sua versão. Em cada categoria de sistema operacional, as VMs são divididas ainda mais com base na integridade da VM. 
 
@@ -247,7 +246,7 @@ No exemplo acima, quando se seleciona **/mnt (Disco Lógico)**, a árvore de Cri
 Para ver o estado de integridade atualizado, você pode atualizar a página de Diagnósticos de Integridade clicando no link **Atualizar**.  Se houver uma atualização no estado de integridade do critério de integridade com base no intervalo de pesquisa predefinido, essa tarefa permitirá que você evite esperar e reflita o estado de integridade mais recente.  O **Estado de Critérios de Integridade** é um filtro que permite que você alcance os resultados com base no estado de integridade selecionado - Saudável, Aviso, Crítico, Desconhecido e todos.  A hora **Última Atualização** no canto superior direito representa a última vez em que a página Diagnósticos de integridade foi atualizada.  
 
 ## <a name="alerting-and-alert-management"></a>Gerenciamento de alerta e alerta 
-O recurso Azure Monitor for VMs Health se integra ao [Alertas do Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) e gera um alerta quando os critérios de integridade predefinidos mudam de um estado íntegro para um estado não íntegro quando a condição é detectada. Os alertas são categorizados por gravidade - Sev 0 a 4, com Sev 0 representando o nível de severidade mais alto.  
+O recurso Azure Monitor for VMs Health se integra ao [Alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e gera um alerta quando os critérios de integridade predefinidos mudam de um estado íntegro para um estado não íntegro quando a condição é detectada. Os alertas são categorizados por gravidade - Sev 0 a 4, com Sev 0 representando o nível de severidade mais alto.  
 
 O número total de alertas de integridade da VM categorizados por gravidade está disponível no painel **Integridade** na seção **Alertas**. Quando você seleciona o número total de alertas ou o número correspondente a um nível de gravidade, a página **Alertas** é aberta e lista todos os alertas correspondentes à sua seleção.  Por exemplo, se você tiver selecionado a linha correspondente à **nível de gravidade 1**, em seguida, você vê a seguinte exibição:
 
@@ -255,7 +254,7 @@ O número total de alertas de integridade da VM categorizados por gravidade est�
 
 Na página **Alertas**, o escopo não abrange apenas os alertas correspondentes à sua seleção, mas também são filtrados por **Tipo de recurso** para mostrar apenas os alertas de integridade gerados pelo recurso de máquina virtual.  Isso é refletido na lista de alertas, na coluna **Recurso de Destino**, em que é mostrado que a VM do Azure para a qual o alerta foi gerado devido ao atingimento de uma condição de não íntegro dos critérios de integridade específico.  
 
-Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição, como alertas de log com base no Log Analytics ou alertas de métrica que você normalmente exibiria na página [Todos os Alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) padrão do Azure Monitor. 
+Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa exibição, como alertas de log com base no Log Analytics ou alertas de métrica que você normalmente exibiria na página [Todos os Alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) padrão do Azure Monitor. 
 
 É possível filtrar essa exibição, selecionando valores nos menus suspensos na parte superior da página.
 
@@ -271,7 +270,7 @@ Alertas de outros tipos de recursos ou serviços não devem ser incluídos nessa
 |Monitorar serviço |Selecione um serviço ou selecione *Todos* para incluir todos os serviços. Apenas alertas do *VM Insights* são compatíveis com esse recurso.| 
 |Intervalo de tempo| Apenas alertas acionados dentro da janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. | 
 
-A página **Detalhes do alerta** é exibida quando você seleciona um alerta, fornecendo detalhes do alerta e permitindo que você altere seu estado. Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar alertas usando o Azure Monitor](../../monitoring-and-diagnostics/alert-metric.md).  
+A página **Detalhes do alerta** é exibida quando você seleciona um alerta, fornecendo detalhes do alerta e permitindo que você altere seu estado. Para saber mais sobre como gerenciar alertas, confira [Criar, exibir e gerenciar alertas usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  
 
 >[!NOTE]
 >No momento, não há compatibilidade com a criação de novos alertas com base em critérios de integridade ou a modificação das regras de alerta de integridade existentes no Azure Monitor no portal.  

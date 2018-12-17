@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967207"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas baseadas em log e pré-agregadas no Application Insights
 
@@ -55,7 +55,7 @@ Existem várias [maneiras de enviar métricas personalizadas do SDK do Applicati
 
 Todas as métricas que você envia usando o método [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) ou as chamadas à API [GetMetric e TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) são automaticamente armazenadas em repositórios de logs e de métricas. No entanto, enquanto a versão baseada em log da métrica personalizada sempre retém todas as dimensões, a versão pré-agregada da métrica é armazenada por padrão sem dimensões. Você pode ativar a coleta de dimensões de métricas personalizadas na guia [uso e custo estimado](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) marcando a opção “Habilitar alertas sobre dimensões de métricas personalizadas”: 
 
-![Uso e custo estimado](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Uso e custo estimado](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>Por que a coleta de dimensões de métricas personalizadas está desativada por padrão?
 
@@ -65,7 +65,7 @@ A coleta de dimensões de métricas personalizadas está desativada por padrão 
 
 Use o Azure Monitor Metrics Explorer para plotar gráficos de métricas pré-agregadas e baseadas em log e para criar painéis com gráficos. Depois de selecionar o recurso desejado do Application Insights, use o seletor de namespace para alternar entre as métricas padrão (versão prévia) e as métricas baseadas em log, ou selecione um namespace de métrica personalizado:
 
-![Namespace da métrica](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Namespace da métrica](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

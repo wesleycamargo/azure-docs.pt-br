@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 6acc9a8b9cd7b6ef1218b1e8cae2e6a9af92f9d8
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9eb8b6e6af6fb2912789b66ed622fd47d2cb8b8b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393687"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311874"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
 
@@ -70,5 +70,6 @@ Para **desabilitar todas as futuras operações de consentimento do usuário no 
 6.  Defina a alternância de **Usuários podem permitir que aplicativos acessem dados empresariais em seu nome** como **Não** e clique no botão Salvar.
 
 
-# <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
+
 [Gerenciamento do acesso aos aplicativos](what-is-access-management.md)

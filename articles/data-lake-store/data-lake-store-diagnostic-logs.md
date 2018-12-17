@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390789"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966068"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acessando os logs de diagnóstico do Azure Data Lake Storage Gen1
 Saiba como habilitar o log de diagnósticos em sua conta do Azure Data Lake Storage Gen1 e como exibir os logs coletados em sua conta.
@@ -46,7 +46,7 @@ As organizações podem habilitar o log de diagnóstico para que suas contas do 
         
         * Selecione a opção **Transmitir pra um hub de eventos** para transmitir os dados de log para um Hub de Eventos do Azure. Provavelmente, você usará esta opção se tiver um pipeline de processamento de downstream para analisar os logs de entrada em tempo real. Se escolher esta opção, você deverá fornecer os detalhes no Hub de Eventos do Azure que deseja usar.
 
-        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, deverá fornecer os detalhes para o workspace do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
+        * Selecione a opção de **enviar para Log Analytics** para usar o serviço do Azure Log Analytics para analisar os dados de log gerado. Se você selecionar essa opção, deverá fornecer os detalhes para o workspace do Log Analytics que seria utilizado para executar a análise de log. Consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics.
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
@@ -178,7 +178,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | StreamName |Cadeia de caracteres |O caminho em que a operação foi executada |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados do log
-Ao enviar logs do Azure Data Lake Storage Gen1 para o Azure Log Analytics (consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics), a consulta a seguir retornará uma tabela contendo uma lista de nomes de exibição de usuário, o horário dos eventos e o número de eventos para o horário do evento junto com um gráfico visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
+Ao enviar logs do Azure Data Lake Storage Gen1 para o Azure Log Analytics (consulte [Exibir ou analisar os dados coletados com a pesquisa de logs do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre a utilização do Log Analytics), a consulta a seguir retornará uma tabela contendo uma lista de nomes de exibição de usuário, o horário dos eventos e o número de eventos para o horário do evento junto com um gráfico visual. Podem ser facilmente modificados para mostrar o GUID de usuário ou outros atributos:
 
 ```
 search *

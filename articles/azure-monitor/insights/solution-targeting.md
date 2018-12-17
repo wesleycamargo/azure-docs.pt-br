@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713711"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192746"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Direcionamento de Soluções de Gerenciamento no Azure (versão prévia)
 Quando você adiciona uma solução de gerenciamento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e Linux conectados ao seu workspace do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.
@@ -29,7 +28,7 @@ Há três etapas para direcionar uma solução, conforme descrito nas próximas 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
-Especifique os computadores que você deseja incluir em um escopo criando um [grupo de computadores](../../log-analytics/log-analytics-computer-groups.md) no Log Analytics.  O grupo de computadores pode se basear em uma pesquisa de logs ou ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente os computadores que estão diretamente conectados ao Log Analytics serão incluídos no escopo.
+Especifique os computadores que você deseja incluir em um escopo criando um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) no Log Analytics.  O grupo de computadores pode se basear em uma pesquisa de logs ou ser importado de outras fontes, como grupos do Active Directory ou do WSUS. Conforme [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), somente os computadores que estão diretamente conectados ao Log Analytics serão incluídos no escopo.
 
 Depois de criar o grupo de computadores em seu workspace, você o incluirá em uma configuração de escopo que pode ser aplicada a uma ou mais soluções.
  
@@ -75,4 +74,4 @@ O direcionamento de solução não pode ser usado com as soluções descritas a 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as soluções de gerenciamento, incluindo as soluções disponíveis para instalação em seu ambiente em [Adicionar soluções de gerenciamento do Azure Log Analytics a seu workspace](solutions.md).
-- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em pesquisas de logs do Log Analytics](../../log-analytics/log-analytics-computer-groups.md).
+- Saiba mais sobre como criar grupos de computadores em [Grupos de computadores em pesquisas de logs do Log Analytics](../../azure-monitor/platform/computer-groups.md).

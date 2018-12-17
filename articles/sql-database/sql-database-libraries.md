@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: d7c0a2060d1ec084e575edaf128d72495b1d7b85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: b8e41b77bfb47a08d443fb05e9d59f3f0f958358
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967905"
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Estruturas e bibliotecas de conectividade para SQL Server
 
@@ -29,7 +29,7 @@ A tabela a seguir lista as bibliotecas de conectividade ou *drivers* que os apli
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Baixar](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Microsoft JDBC Driver para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Baixar](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Driver do SQL de PHP para SQL Server](https://msdn.microsoft.com/library/dn865013.aspx) | Sistema operacional: <br/> \* [Windows](https://www.microsoft.com/download/details.aspx?id=55642) <br/> \* [Linux](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) <br/> \* [macOS](https://github.com/Microsoft/msphpsql/tree/dev#install-unix) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu)
+| PHP | Windows, Linux, macOS| [Driver do SQL de PHP para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Baixar](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Introdução](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Driver Node.js para SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Driver Python SQL](https://msdn.microsoft.com/library/mt652092.aspx) | Opções de instalação: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Ruby Driver para SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
@@ -41,7 +41,7 @@ A tabela a seguir lista exemplos de estruturas de mapeamento relacional de objet
 | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
-| PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
+| PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |

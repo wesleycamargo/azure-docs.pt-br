@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 49d6e2ded2ad4b2e5bb0ee30c323b1f459422437
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634006"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338389"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Conexão do Microsoft Advanced Threat Analytics à Central de Segurança do Azure
 Este documento ajuda você a configurar a integração entre o Microsoft Advanced Threat Analytics e a Central de Segurança do Azure.
@@ -68,7 +68,7 @@ Depois de concluir a instalação, a integração será concluída e você poder
 Neste documento, você aprendeu como conectar o Microsoft ATA à Central de Segurança. Para saber mais sobre a Central de Segurança, confira estes artigos:
 
 * [Conexão do Azure Active Directory Identity Protection à Central de Segurança do Azure](security-center-aadip-integration.md)
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e responder aos alertas de segurança.

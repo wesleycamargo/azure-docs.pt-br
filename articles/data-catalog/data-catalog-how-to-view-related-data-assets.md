@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404989"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958325"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como exibir ativos de dados relacionados no Catálogo de Dados do Azure?
 O Catálogo de Dados do Azure permite que você exiba os ativos de dados relacionados a um ativo de dados selecionado exiba as relações entre eles. 
@@ -31,7 +31,7 @@ Quando você registra os ativos de dados das fontes de dados a seguir, o Catálo
 ## <a name="view-related-data-assets"></a>Exibir ativos de dados relacionados
 Para exibir os ativos de dados relacionados a um conjunto de dados selecionado, use a guia **Relações** conforme mostrado na imagem a seguir: 
 
-![Catálogo de Dados do Azure – exibir ativos de dados relacionados](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Catálogo de Dados do Azure – exibir ativos de dados relacionados](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 Neste exemplo, existem duas relações para o ativo de dados **ProductSubcategory** selecionado: 
 
@@ -43,7 +43,7 @@ Neste exemplo, existem duas relações para o ativo de dados **ProductSubcategor
 
 Para ver mais detalhes, como o nome totalmente qualificado da coluna, mova o mouse sobre ela e você verá um pop-up semelhante à imagem a seguir: 
 
-![Catálogo de Dados do Azure – pop-up de relação](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Catálogo de Dados do Azure – pop-up de relação](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 Para incluir relações entre os ativos que já foram registrados, registre novamente esses ativos.
 

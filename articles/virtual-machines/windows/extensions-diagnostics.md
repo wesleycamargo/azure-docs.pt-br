@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429109"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322816"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensão de Diagnóstico do Azure para Windows
 
@@ -37,7 +37,7 @@ A Extensão de Diagnóstico do Azure para requer que a máquina virtual de desti
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-[Os valores de propriedade e o esquema da Extensão de Diagnóstico do Azure são descritos neste documento.](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[Os valores de propriedade e o esquema da Extensão de Diagnóstico do Azure são descritos neste documento.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
@@ -80,12 +80,12 @@ Dados sobre o estado das implantações de extensão podem ser recuperados do Po
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-[Consulte este artigo](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md) para obter um guia de solução de problemas mais abrangente para a extensão de Diagnóstico do Azure.
+[Consulte este artigo](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md) para obter um guia de solução de problemas mais abrangente para a extensão de Diagnóstico do Azure.
 
 ### <a name="support"></a>Suporte
 
 Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre a Extensão de Diagnóstico do Azure](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [Examine o esquema e as versões de extensão](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [Saiba mais sobre a Extensão de Diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [Examine o esquema e as versões de extensão](../../azure-monitor/platform/diagnostics-extension-schema.md)

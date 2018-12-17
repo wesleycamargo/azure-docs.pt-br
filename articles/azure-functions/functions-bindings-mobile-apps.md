@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250964"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001662"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associações de Aplicativos Móveis para o Azure Functions 
 
@@ -31,7 +31,7 @@ As associações dos Aplicativos Móveis permitem ler e atualizar tabelas de dad
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
+As ligações de aplicativos para dispositivos móveis são fornecidas no pacote [ do Microsoft.Azure.WebJobs.Extensions.MobileApps ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet, versão 1.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -157,7 +157,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="input---usage"></a>Entrada - uso
 
-Em funções do C#, quando o registro com a ID especificada for encontrado, ele é passado para o parâmetro chamado [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm). Quando o registro não é encontrado, o valor do parâmetro é `null`. 
+Em funções do C#, quando o registro com a ID especificada for encontrado, ele é passado para o parâmetro chamado [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm). Quando o registro não é encontrado, o valor do parâmetro é `null`. 
 
 Em funções do JavaScript, o registro é passado para o objeto `context.bindings.<name>`. Quando o registro não é encontrado, o valor do parâmetro é `null`. 
 

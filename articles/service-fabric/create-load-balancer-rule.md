@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008035"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962056"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir portas para um cluster do Service Fabric
 
 O balanceador de carga implantado com o cluster do Azure Service Fabric direciona o tráfego para seu aplicativo em execução em um nó. Se você alterar o aplicativo para usar uma porta diferente, será preciso expor essa porta (ou rotear outra porta) no Azure Load Balancer.
 
-Na implantação do cluster do Service Fabric no Azure, um balanceador de carga foi criado automaticamente para você. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Na implantação do cluster do Service Fabric no Azure, um balanceador de carga foi criado automaticamente para você. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 ## <a name="configure-service-fabric"></a>Configurar o Service Fabric
 
@@ -33,7 +33,7 @@ O arquivo de configuração do seu aplicativo do Service Fabric **ServiceManifes
 
 ## <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
-Uma regra de balanceador de carga abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interna usado pelo seu aplicativo. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](..\load-balancer\load-balancer-get-started-internet-portal.md).
+Uma regra de balanceador de carga abre uma porta voltada para a Internet e encaminha o tráfego para a porta do nó interna usado pelo seu aplicativo. Caso não tenha um balanceador de carga, confira [Configurar um balanceador de carga voltado para Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
 
 Para criar uma regra de balanceador de carga, você precisa coletar as seguintes informações:
 
@@ -68,7 +68,7 @@ O comando da CLI do Azure tem alguns parâmetros que são descritos na seguinte 
 
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](..\load-balancer\load-balancer-get-started-internet-arm-cli.md).
+>Para saber mais sobre como criar um balanceador de carga com a CLI do Azure, confira [Criar um balanceador de carga com a CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 Em relação ao comando `New-AzureRmLoadBalancerRuleConfig`, o `-FrontendPort` representa a porta que o balanceador de carga expõe para conexões externas e o `-BackendPort` representa a porta em que o aplicativo do Service Fabric está escutando.
 
 >[!NOTE]
->Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](..\load-balancer\load-balancer-get-started-internet-arm-ps.md).
+>Para saber mais sobre como criar um balanceador de carga com o PowerShell, confira [Criar um balanceador de carga com o PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

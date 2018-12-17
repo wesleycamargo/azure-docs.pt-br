@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956645"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
-1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [criar um início rápido de aplicativo](quick-deploy-iot-central.md).
+1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte o [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo DevKit. Para adquirir um dispositivo DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -49,12 +49,12 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
     * Insira a ID do Dispositivo **<span style="color:Red">(deve estar em minúsculas)</span>** ou use a ID do Dispositivo sugerida.
     * Insira o nome do dispositivo ou use o nome sugerido
     
-    ![Adicionar dispositivo](media\concepts-connectivity\add-device.png)
+    ![Adicionar dispositivo](media/concepts-connectivity/add-device.png)
 
 
 1. Obtenha detalhes da conexão como a **ID do escopo, ID do dispositivo e Chave Primária** do dispositivo adicionado, clicando em **Conectar** na página do dispositivo.
  
-    ![Detalhes da conexão](media\concepts-connectivity\device-connect.PNG)
+    ![Detalhes da conexão](media/concepts-connectivity/device-connect.PNG)
 
 3. Certifique-se de salvar esses detalhes, pois a Internet será desconectada temporariamente enquanto você prepara o dispositivo DevKit. 
 

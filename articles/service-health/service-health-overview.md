@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: aa7a925255b0c30b84c3b32bb53ba3f31c11fa6b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162283"
 ---
 # <a name="service-health"></a>Integridade do Serviço
 A Integridade do Serviço oferece um painel personalizável que controla a integridade de seus serviços do Azure nas regiões onde você os usa. Neste painel, você pode rastrear eventos ativos, como problemas de serviço em andamento, manutenção planejada futura ou avisos de saúde relevantes. Quando os eventos se tornam inativos, eles são inseridos em seu histórico de integridade por até 90 dias. Por fim, você pode usar o painel de Integridade do Serviço para criar e gerenciar alertas de integridade do serviço que notificam proativamente quando problemas de serviço estão afetando você.
@@ -60,7 +60,7 @@ Filtre a Integridade do Serviço para mostrar suas assinaturas, regiões e tipos
 ![Fixar um mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de integridade de serviço
-A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [Configurar alertas para a Integridade do Serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
+A Integridade de Serviço integra-se ao Azure Monitor para alertar você por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta de log de atividades para o evento de integridade de serviço apropriado. Direcione esse alerta para as pessoas apropriadas em sua organização usando Grupos de Ações. Para obter mais informações, consulte [Configurar alertas para a Integridade do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 # <a name="next-steps"></a>Próximas etapas
-Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [Configurar alertas do Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [Configurar alertas do Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

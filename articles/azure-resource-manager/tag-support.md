@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284975"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409659"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-group-using-tags.md).
@@ -68,18 +68,6 @@ Este artigo descreve se dá suporte a um tipo de recurso [marcação](resource-g
 | Tipo de recurso | Suporte de Tags |
 | ------------- | ----------- |
 | batchAccounts | SIM | 
-
-## <a name="batch-ai"></a>Lote AI
-| Tipo de recurso | Suporte de Tags |
-| ------------- | ----------- |
-| clusters | SIM | 
-| jobs | SIM | 
-| fileservers | SIM | 
-| workspaces | SIM | 
-| workspaces/clusters | Não  | 
-| workspaces/clusters | Não  | 
-| workspaces/experiments | Não  | 
-| workspaces/experiments | Não  | 
 
 ## <a name="bing-maps"></a>Bing Mapas
 | Tipo de recurso | Suporte de Tags |

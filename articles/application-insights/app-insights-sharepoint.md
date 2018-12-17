@@ -9,16 +9,15 @@ ms.assetid: 2bfe5910-d673-4cf6-a5c1-4c115eae1be0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 0425dad96cccb019392c8055b0d1127b583b70dd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992034"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726025"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorar um site do SharePoint com o Application Insights
 O Azure Application Insights monitora a disponibilidade, o desempenho e o uso de seus aplicativos. Aqui você aprenderá a configurá-lo para um site do SharePoint.
@@ -70,7 +69,7 @@ Adicione o código antes da marca </head> .
 #### <a name="or-on-individual-pages"></a>Ou em páginas individuais
 Para monitorar um conjunto limitado de páginas, adicione o script separadamente a cada página. 
 
-Insira uma web part e insira o trecho de código nela.
+Insira uma web part e insira o snippet de código nela.
 
 ![](./media/app-insights-sharepoint/05-page.png)
 
@@ -86,14 +85,14 @@ Os primeiros eventos aparecerão na Pesquisa.
 Se você estiver esperando mais dados, clique em Atualizar depois de alguns segundos.
 
 ## <a name="capturing-user-id"></a>Capturando a ID de usuário
-O trecho de código de página da Web padrão não captura a ID de usuário do SharePoint, mas você pode fazer isso com uma pequena modificação.
+O snippet de código de página da Web padrão não captura a ID de usuário do SharePoint, mas você pode fazer isso com uma pequena modificação.
 
 1. Copie a chave de instrumentação do seu aplicativo da lista suspensa Essentials no Application Insights. 
 
     ![](./media/app-insights-sharepoint/02-props.png)
 
-1. Substitua a chave de instrumentação para 'XXXX' no trecho a seguir. 
-2. Insira o script em seu aplicativo do SharePoint, em vez de inserir o trecho de código que você obtém do portal.
+1. Substitua a chave de instrumentação para 'XXXX' no snippet a seguir. 
+2. Insira o script em seu aplicativo do SharePoint, em vez de inserir o snippet de código que você obtém do portal.
 
 ```
 

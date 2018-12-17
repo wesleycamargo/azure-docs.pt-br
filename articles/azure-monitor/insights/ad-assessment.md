@@ -10,17 +10,15 @@ ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 65acbfbecf8ae34ff25780bfc161c52b5adc1d65
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193001"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Log Analytics
 
@@ -55,7 +53,7 @@ Para executar a verificação de integridade nos controladores de domínio membr
 
 1. Instale o [MMA (Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o controlador de domínio poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
-3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../log-analytics/log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) depois de habilitar a solução em seu workspace.  
 
 O agente em seu controlador de domínio que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
@@ -186,4 +184,4 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use as [Pesquisas de log no Log Analytics](../../log-analytics/log-analytics-queries.md) para aprender como analisar os dados da Verificação da Integridade do AD detalhados e as recomendações.
+* Use as [Pesquisas de log no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para aprender como analisar os dados da Verificação da Integridade do AD detalhados e as recomendações.

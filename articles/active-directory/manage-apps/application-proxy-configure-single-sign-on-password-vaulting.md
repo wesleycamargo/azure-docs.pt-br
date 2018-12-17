@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138918"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Compartimentação de senhas para logon único com o Proxy de Aplicativo
 
@@ -26,7 +26,7 @@ O Proxy de Aplicativo do Azure Active Directory o ajuda a aprimorar a produtivid
 
 O Proxy de Aplicativo dá suporte a vários [modos de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method). O logon único baseado em senha destina-se a aplicativos que usam uma combinação de nome de usuário e senha para autenticação. Quando você configura logon único baseado em senha para seu aplicativo, os usuários devem entrar no aplicativo local uma vez. Depois disso, o Azure Active Directory armazena as informações de entrada, fornecendo-as automaticamente ao aplicativo quando os usuários o acessarem remotamente. 
 
-Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo. Caso contrário, siga as etapas em [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md) e depois volte para este artigo. 
+Você já deve ter publicado e testado seu aplicativo com o Proxy de Aplicativo. Caso contrário, siga as etapas em [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md) e depois volte para este artigo. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Definir o cofre de senha para seu aplicativo
 

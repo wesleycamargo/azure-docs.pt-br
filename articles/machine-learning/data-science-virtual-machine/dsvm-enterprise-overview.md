@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: ea8d53ee71e9272167a045e2ea1780828f974d30
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 84dfef65c341ca8023b741a98c26081da36e9ff7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085120"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente de IA e análise de equipe com base em Máquina Virtual de Ciência de Dados 
 A [DSVM](overview.md) (Máquina Virtual de Ciência de Dados) fornece um ambiente avançado na plataforma Azure com o software predefinido de IA (inteligência artificial) e análise de dados. 
@@ -36,7 +37,7 @@ Esta seção discute alguns padrões e diretrizes que você pode usar para impla
 Alguns dos principais blocos de construção de um ambiente corporativo de análise de equipe são:
 
 * [Pool de dimensionamento automático de Máquinas Virtuais de Ciência de Dados](dsvm-pools.md)
-* [Identidade e acesso comum ao espaço de trabalho de qualquer uma das DSVMs no pool](dsvm-common-identity.md)
+* [Identidade e acesso comum ao workspace de qualquer uma das DSVMs no pool](dsvm-common-identity.md)
 * [Acesso seguro a fontes de dados](dsvm-secure-access-keys.md)
 
 

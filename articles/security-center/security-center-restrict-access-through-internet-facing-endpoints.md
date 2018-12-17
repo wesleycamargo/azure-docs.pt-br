@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 487b9d8d02909913f251ae7547d75669fa90f8d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a1677e2c5518fec4412adb87cd058571bd435dd4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313293"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338474"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso por meio de pontos de extremidade para a Internet na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará que você restrinja o acesso por meio de pontos de extremidade para a Internet se qualquer um dos seus grupos de segurança de rede (NSGs) tiver uma ou mais regras de entrada que permitam acesso de "qualquer" endereço IP de origem. Abrir o acesso a "qualquer" um pode permitir que os invasores acessem seus recursos. A Central de Segurança recomendará que você edite essas regras de entrada para restringir o acesso a endereços IP de origem que realmente precisem de acesso.
@@ -60,7 +60,7 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md): saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md): saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.

@@ -9,16 +9,15 @@ ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8a15e8d609624ff22a831c832e48ef59c640a1b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958195"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877313"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -212,7 +211,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Monitorar sua telemetria no portal](app-insights-dashboards.md)
-* [Escrever consultas de análise sobre a telemetria](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Escrever consultas de análise sobre a telemetria](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->
 

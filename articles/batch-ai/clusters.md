@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056632"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410084"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Trabalhar com clusters de IA do Lote 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este artigo explica como trabalhar com clusters de IA do Lote do Azure. Ele apresenta o conceito de clusters, os tipos de configurações possíveis e exemplos. A maioria dos exemplos para criar e gerenciar um cluster neste artigo usa a CLI do Azure. No entanto, você pode usar outras ferramentas, como o portal do Azure e os SDKs de IA do Lote do Azure para trabalhar com clusters.
 

@@ -1,19 +1,18 @@
 ---
-title: Usar o gerenciador do Azure Cosmos DB para gerenciar os dados | Microsoft Docs
+title: Usar o gerenciador do Azure Cosmos DB para gerenciar os dados
 description: O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que permite exibir e gerenciar os dados armazenados no Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 8d1bd0d4331937e37307140e17e5aed1a6e3b0ff
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141009"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140739"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Usar o gerenciador do Azure Cosmos DB para gerenciar os dados 
 
@@ -52,4 +51,4 @@ Atualmente, a experiência de **Abrir Modo de Exibição de Tela Inteira** que p
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como começar a usar o gerenciador do Azure Cosmos DB para gerenciar os dados, em seguida, poderá:
 
-* Começar a definir[consultas](sql-api-sql-query-reference.md) usando a sintaxe SQL e executar [programação do lado do servidor](programming.md), usando procedimentos armazenados, UDFs, gatilhos. 
+* Começar a definir[consultas](sql-api-query-reference.md) usando a sintaxe SQL e executar [programação do lado do servidor](programming.md), usando procedimentos armazenados, UDFs, gatilhos. 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263942"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429912"
 ---
 As organizações têm necessidades de computação em larga escala. Essas cargas de trabalho de computação intensa incluem o design e a análise de engenharia, cálculos de riscos financeiros, renderização de imagem, modelagens complexas, simulações Monte Carlo e muito mais. 
 
@@ -86,7 +86,6 @@ Execute aplicativos de HPC comerciais ou personalizados no Azure. Vários exempl
 
 ### <a name="ai-and-deep-learning"></a>IA e deep learning
 
-* Treinamento de [IA em lote](../articles/batch-ai/overview.md) para modelos de deep learning
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [VM de deep learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Receitas do Shipyard do Lote para deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 
 ### <a name="ai-and-machine-learning"></a>IA e machine learning
 * [Serviços de Machine Learning](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Lote AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Rede
@@ -177,7 +175,7 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 
 ### <a name="containers"></a>Contêineres
 * [Serviço de Contêiner](../articles/container-service/dcos-swarm/container-service-intro.md)
-* [AKS (Serviço do Kubernetes do Azure)](../articles/aks/intro-kubernetes.md)
+* [AKS (Serviço de Kubernetes do Azure)](../articles/aks/intro-kubernetes.md)
 * [Registro de Contêiner](../articles/container-registry/container-registry-intro.md)
 
 

@@ -3,23 +3,22 @@ title: Recomendações de alta disponibilidade do Azure Advisor | Microsoft Docs
 description: Use o Azure Advisor para melhorar a alta disponibilidade das implantações do Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.author: kasparks
+ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068342"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839494"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recomendações de alta disponibilidade do Advisor
 
@@ -34,7 +33,7 @@ Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>Assegure que haja tolerância a falhas de conjunto de disponibilidade 
 
-Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos, uma máquina virtual esteja disponível e cumpra o SLA de máquina virtual do Azure. Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
+Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele. Essa configuração garante que durante um evento de manutenção planejada ou não planejada, pelo menos, uma máquina virtual esteja disponível e cumpra o SLA de máquina virtual do Azure. Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Garantir tolerância a falhas de Gateway de Aplicativo
 Para garantir a continuidade de negócios de aplicativos críticos que são ativados pelos Gateways de Aplicativo, o Assistente identifica as instâncias de Gateway de Aplicativo que não estão configuradas para tolerância a falhas e sugere ações de correção que você pode realizar. O Assistente identifica Gateways de Aplicativo de instância única médios ou grandes e recomenda adicionar pelo menos uma instância a mais. Ele também identifica Gateways de Aplicativo de instância única ou de várias instâncias pequenos e recomenda a migração para SKUs médios ou grandes. O Assistente recomenda essas ações para garantir que suas instâncias de Gateway de Aplicativo estejam configuradas para satisfazer os requisitos de SLA atuais para esses recursos.

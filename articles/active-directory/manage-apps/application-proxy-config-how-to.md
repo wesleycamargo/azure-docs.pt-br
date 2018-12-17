@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cf3e367dad528017a98e103962c57cb758da55cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354226"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132424"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Como configurar um aplicativo de Application Proxy
 
@@ -28,15 +28,15 @@ Este artigo o ajudará a compreender como configurar um aplicativo de Applicatio
 
 ## <a name="recommended-documents"></a>Documentos recomendados 
 
-Para saber mais sobre a criação de um aplicativo de Application Proxy por meio do Portal de administração e configurações iniciais, siga o [publicar aplicativos usando o Application Proxy do Azure AD](application-proxy-publish-azure-portal.md).
+Para saber mais sobre a criação de um aplicativo de Application Proxy por meio do Portal de administração e configurações iniciais, siga o [publicar aplicativos usando o Application Proxy do Azure AD](application-proxy-add-on-premises-application.md).
 
-Para obter detalhes sobre como configurar conectores, consulte [habilitar Application Proxy no portal do Azure](application-proxy-enable.md).
+Para obter detalhes sobre como configurar conectores, consulte [habilitar Application Proxy no portal do Azure](application-proxy-add-on-premises-application.md).
 
 Para obter informações sobre como carregar certificados e usar domínios personalizados, consulte [trabalhando com domínios personalizados no Application Proxy do Azure AD](application-proxy-configure-custom-domain.md).
 
 ## <a name="create-the-applicationsetting-the-urls"></a>Criar o aplicativo/Definindo as URLs
 
-Se você estiver seguindo as etapas na documentação [publicar aplicativos usando o Application Proxy do Azure AD](application-proxy-publish-azure-portal.md) e está recebendo um erro ao criar o aplicativo, consulte os detalhes do erro para obter informações e sugestões para corrigir o aplicativo. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, verifique se:
+Se você estiver seguindo as etapas na documentação [publicar aplicativos usando o Application Proxy do Azure AD](application-proxy-add-on-premises-application.md) e está recebendo um erro ao criar o aplicativo, consulte os detalhes do erro para obter informações e sugestões para corrigir o aplicativo. A maioria das mensagens de erro incluem uma correção sugerida. Para evitar erros comuns, verifique se:
 
 -   Você é um administrador com permissão para criar um aplicativo de Application Proxy
 
@@ -75,4 +75,4 @@ A mensagem de erro é exibida no canto superior direito ao tentar carregar o cer
    ![Prompt de notificação](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](application-proxy-publish-azure-portal.md)
+[Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](application-proxy-add-on-premises-application.md)

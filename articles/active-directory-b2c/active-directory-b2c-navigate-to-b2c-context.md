@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9b8ff03ff90a0962a6a890cf7cc99e7134559b7f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c0b6cb411618b01adfc23fa124ff624206da7b2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442943"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836093"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Alternar para o locatário do Azure AD B2C
 
@@ -25,7 +25,7 @@ Para configurar o Azure AD B2C, você precisa estar no contexto do seu locatári
 
 Para navegar até seu locatário do Azure AD B2C, você deve estar conectado ao portal do Azure como um administrador global do locatário do Azure AD B2C.
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Alternar locatários clicando em seu endereço de email ou na imagem no canto superior direito.
 1. Na lista `Directory` que aparece, selecione o locatário do Azure AD B2C que você deseja gerenciar.
 

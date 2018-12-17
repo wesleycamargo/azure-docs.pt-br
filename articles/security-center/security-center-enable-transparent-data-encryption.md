@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 765a3a985a2198951ed17292dc376b25adfccc03
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dbe1b3e3515f05f9addb8d2ac9333407ea2c0984
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314789"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336638"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Habilitar Transparent Data Encryption na Central de Segurança do Azure
 A Central de Segurança do Azure recomendará habilitar a TDE (Transparent Data Encryption) em bancos de dados SQL se já não estiver habilitada. A TDE protege seus dados e ajuda a cumprir os requisitos de conformidade, criptografando seu banco de dados, backups associados e arquivos de log de transações em repouso, sem exigir alterações no seu aplicativo. Para saber mais, consulte [Transparent Data Encryption com o Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/dn948096).
@@ -51,7 +51,7 @@ Este artigo mostrou como implementar a recomendação da Central de Segurança "
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Configurando políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
 * [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.

@@ -3,7 +3,7 @@ title: Gerenciar retenção de backup de longo prazo do Banco de Dados SQL do Az
 description: Saiba como armazenar backups automatizados no armazenamento do SQL do Azure e como restaurá-los
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33086be2c85e44b81a9f444a10a683e54f8612f7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137218"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164442"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -173,7 +173,7 @@ $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 >
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR

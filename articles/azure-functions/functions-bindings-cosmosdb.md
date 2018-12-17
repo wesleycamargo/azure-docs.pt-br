@@ -2,21 +2,20 @@
 title: Associações do Azure Cosmos DB para Functions 1.x
 description: Entenda como usar gatilhos e associações do Azure Cosmos DB no Azure Functions.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136198"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -24,7 +23,7 @@ ms.locfileid: "52276203"
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
-Este artigo explica como trabalhar com associações do [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) no Azure Functions. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
+Este artigo explica como trabalhar com associações do [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure Functions. O Azure Functions dá suporte a associações de gatilho, entrada e saída para o Azure Cosmos DB.
 
 > [!NOTE]
 > Este artigo serve para o Azure Functions 1.x.  Para obter informações sobre como usar essas associações em Functions 2.x, veja [Associações do Azure Cosmos DB para Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -38,7 +37,7 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](..\cos
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
-As associações do Azure Cosmos DB para Functions versão 1.x são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), versão 1.x. O código-fonte para a associação está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
+As associações do Azure Cosmos DB para Functions versão 1.x são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB), versão 1.x. O código-fonte para a associação está no repositório GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Esta seção contém os seguintes exemplos:
 
-* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Gatilho da fila, pesquisar ID no JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Gatilho HTTP, pesquisar ID na cadeia de caracteres de consulta](#http-trigger-look-up-id-from-query-string-javascript)
 * [Gatilho HTTP, pesquisar ID nos dados da rota](#http-trigger-look-up-id-from-route-data-javascript)
 * [Gatilho da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Em funções C# e F#, todas as alterações feitas no documento de entrada por parâmetros de entrada nomeados são persistidas automaticamente. 
 
-Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#input---javascript-example).
+Funções de JavaScript, as atualizações não são feitas automaticamente após a saída da função. Em vez disso, use `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para fazer atualizações. Consulte o [exemplo JavaScript](#input---javascript-examples).
 
 ## <a name="output"></a>Saída
 
@@ -1571,7 +1570,7 @@ O construtor do atributo toma o nome do banco de dados e o nome da coleção. Pa
     }
 ```
 
-Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-example).
+Para ver um exemplo completo, consulte [Saída – exemplo de C#](#output---c-examples).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -1606,7 +1605,7 @@ Por padrão, quando você grava no parâmetro de saída em sua função, um docu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Saiba mais sobre a computação de banco de dados sem servidor com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
 <!---

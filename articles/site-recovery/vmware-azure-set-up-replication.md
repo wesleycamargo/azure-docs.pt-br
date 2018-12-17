@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: fd987097c2ca7b1e7509a1a0e63905c36ec8fec8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e83b15b5e53a203a3583c02565ea9c316b7c481c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212889"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832355"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurar e gerenciar políticas de replicação para recuperação de desastre do VMware no Azure
 Este artigo descreve como configurar uma política de replicação quando você replicar VMs do VMware no Azure, usando o [Azure Site Recovery](site-recovery-overview.md).
@@ -45,6 +45,6 @@ Associe a política de replicação ao servidor de configuração local.
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Desassociar ou excluir uma política de replicação
 1. Escolha a política de replicação.
-    a. Para desassociar a política do servidor de configuração, verifique se nenhum computador replicado está usando a política. Em seguida, clique em **Desassociar**.
+     a. Para desassociar a política do servidor de configuração, verifique se nenhum computador replicado está usando a política. Em seguida, clique em **Desassociar**.
     b. Para excluir a política, verifique se ela não está associada a um servidor de configuração. Em seguida, clique em **Excluir**. A exclusão deve levar de 30 a 60 segundos.
 1. Clique em **OK**.

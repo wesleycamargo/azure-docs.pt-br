@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c96ca70b9b6a82dcccec443ac0b1e06f96a2396
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597404"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270127"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -33,7 +33,7 @@ Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azu
 
 ![Cenário][scenario]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Uma instância existente do Observador de Rede. Se você ainda não tiver um, [crie uma instância do Observador de Rede](network-watcher-create.md).
@@ -331,7 +331,7 @@ O exemplo a seguir é o código do PowerShell que pode ser usado na função. H�
 
     ![Copiando a URL da função][2]
 
-Se você precisar de propriedades personalizadas no conteúdo da solicitação POST do webhook, confira [Configurar um webhook em um alerta de métrica do Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Se você precisar de propriedades personalizadas no conteúdo da solicitação POST do webhook, confira [Configurar um webhook em um alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configurar um alerta em uma VM
 

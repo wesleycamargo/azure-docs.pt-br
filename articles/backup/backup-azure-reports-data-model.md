@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444296"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877126"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios de Backup do Azure
 Este artigo descreve o modelo de dados do Power BI usado para criar relatórios de Backup do Azure. Usando esse modelo de dados, você pode filtrar os relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo. 
@@ -33,7 +33,7 @@ Esta tabela fornece campos e agregações básicos em vários campos relacionado
 | #AlertsCreatedInPeriod |Número inteiro |Número de alertas criados no período de tempo selecionado |
 | %ActiveAlertsCreatedInPeriod |Percentual |Porcentagem de alertas ativos no período de tempo selecionado |
 | %CriticalAlertsCreatedInPeriod |Percentual |Porcentagem de alertas críticos no período de tempo selecionado |
-| AlertOccurenceDate |Data |Data em que o alerta foi criado |
+| AlertOccurrenceDate |Data |Data em que o alerta foi criado |
 | AlertSeverity |Texto |Severidade do alerta, por exemplo, crítico |
 | AlertStatus |Texto |Status do alerta, por exemplo, ativo |
 | AlertType |Texto |Tipo de alerta gerado, por exemplo, Backup |

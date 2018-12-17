@@ -10,22 +10,21 @@ ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713757"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335941"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de integridade do agente do Azure
 A solução do Agent Health no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics ou um grupo de gerenciamento do System Center Operations Manager conectado ao Log Analytics, que não responde e envia dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../log-analytics/log-analytics-om-agents.md) integrado com seu espaço de trabalho.    
+Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.    
 
 ## <a name="solution-components"></a>Componentes da solução
 Essa solução consiste nos seguintes recursos que são adicionados ao seu workspace e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.
@@ -36,7 +35,7 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Direct (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Server Channel (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Configuração
 Adicione a solução de integridade do agente ao seu espaço de trabalho do Log Analytics usando o processo descrito em [adicionar soluções](solutions.md). Não é necessária nenhuma configuração.
@@ -118,4 +117,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre os [Alertas no Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics. 
+* Saiba mais sobre os [Alertas no Log Analytics](../../azure-monitor/platform/alerts-overview.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics. 

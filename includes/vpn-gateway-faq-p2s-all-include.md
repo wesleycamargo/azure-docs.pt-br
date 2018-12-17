@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 709a8eb9b5e2ab1a3a9deb10e35a5e996c8f9d93
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: eff7ccc40cd31e604cc4e54b6da9421d1d0b4f4e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585614"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53439197"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -76,11 +76,11 @@ Para preparar o Windows 10 ou Server 2016 para IKEv2:
 
 1. Instale a atualização.
 
-  | Versão do SO | Data | Número/Link |
-  |---|---|---|---|
-  | Windows Server 2016<br>Windows 10, versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10, versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-  |  |  |  |  |
+   | Versão do SO | Data | Número/Link |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10, versão 1607 | 17 de janeiro de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10, versão 1703 | 17 de janeiro de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   |  |  |  |  |
 
 2. Defina o valor da chave do Registro. Crie ou defina a chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD do Registro como 1.
 

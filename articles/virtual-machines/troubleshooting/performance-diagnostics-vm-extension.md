@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194157"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
 Extensão de VM de Diagnóstico de Desempenho do Azure ajuda a coletar dados de diagnóstico de desempenho das máquinas virtuais do Windows. A extensão executa uma análise e fornece um relatório dos resultados e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Essa extensão instala uma ferramenta de solução de problemas chamada [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-    > Se você quer executar o diagnóstico na sua VM do portal do Azure para VMs não clássicas, é recomendável usar a nova experiência. Para obter mais informações, consulte [Diagnóstico de Desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
+> Se você quer executar o diagnóstico na sua VM do portal do Azure para VMs não clássicas, é recomendável usar a nova experiência. Para obter mais informações, consulte [Diagnóstico de Desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

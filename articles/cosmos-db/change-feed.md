@@ -2,16 +2,17 @@
 title: Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 description: Use o suporte ao feed de alterações do Azure Cosmos DB para controlar as alterações nos documentos e executar o processamento baseado em eventos como gatilhos e manter os caches e sistemas de análise atualizados.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621302"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133739"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Por exemplo, com o feed de alterações, é possível executar as seguintes tare
 
 Veja a seguir alguns dos cenários que você pode implementar com o feed de alterações facilmente:
 
-* Em aplicativos Web e móveis [sem servidor](http://azure.com/serverless), é possível acompanhar eventos como todas as alterações no perfil, nas preferências ou na localização do cliente e disparar determinadas ações, como enviar notificações por push para seus dispositivos usando o [Azure Functions](#azure-functions). 
+* Em aplicativos Web e móveis [sem servidor](https://azure.microsoft.com/en-us/solutions/serverless/), é possível acompanhar eventos como todas as alterações no perfil, nas preferências ou na localização do cliente e disparar determinadas ações, como enviar notificações por push para seus dispositivos usando o [Azure Functions](change-feed-functions.md).
 
 * Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
 
@@ -120,8 +121,8 @@ O feed de alterações está disponível para cada chave de partição lógica d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora, continue sabendo mais sobre o feed de alterações conferindo os seguintes artigos:
+Agora, você pode prosseguir para saber mais sobre o feed de alterações nos seguintes artigos:
 
 * [Opções de ler o feed de alterações](read-change-feed.md)
 * [Usando o feed de alterações com o Azure Functions](change-feed-functions.md)
-* [Usando a biblioteca do processadores do feed de alterações](change-feed-processor.md)
+* [Biblioteca do processador do feed usando a alteração](change-feed-processor.md)

@@ -8,14 +8,12 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 09/24/2018
-ms.openlocfilehash: a974c362bef2d67479e64f16ca4653d8dde9a454
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/04/2018
+ms.openlocfilehash: c4b5bd8eaa5ddf636609976ff6ab05d23cf52f7e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254676"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52881450"
 ---
-1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks) [Importe blocos de anotações de exemplo no Azure Notebooks](https://aka.ms/aml-clone-azure-notebooks). (Sua organização pode exigir o [consentimento do ](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)administrador para que você possa fazer login.)
-
-1. Consulte o Leia-me na biblioteca importado para obter mais instruções executar os blocos de anotações.
+Saiba como executar blocos de anotações, seguindo o artigo [Usar os blocos de anotações do Jupyter para explorar esse serviço](../articles/machine-learning/service/samples-notebooks.md).

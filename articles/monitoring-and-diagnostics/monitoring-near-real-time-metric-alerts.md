@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: d5802ed71c187979fb91bcd4ea532891d343f14a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613698"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435694"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
-Agora, o Azure Monitor dá suporte a um [novo tipo de alerta de métrica](monitoring-overview-alerts.md), que tem vantagens significativas sobre os [alertas de métrica clássicos](monitoring-overview-alerts-classic.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto.
+Agora, o Azure Monitor dá suporte a um [novo tipo de alerta de métrica](../azure-monitor/platform/alerts-overview.md), que tem vantagens significativas sobre os [alertas de métrica clássicos](../azure-monitor/platform/alerts-classic.overview.md) mais antigos. As métricas estão disponíveis para uma [ampla lista de serviços do Azure](../azure-monitor/platform/metrics-supported.md). Os alertas mais recentes dão suporte a um subconjunto (cada vez maior) de tipos de recurso. Este artigo lista esse subconjunto.
 
 
-Use também os alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas. Para saber mais, exiba [Alertas de Métrica para Logs](monitoring-metric-alerts-logs.md).
+Use também os alertas de métrica mais recentes em logs populares do Log Analytics extraídos como métricas. Para saber mais, exiba [Alertas de Métrica para Logs](../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, suporte REST
-Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) ou [Modelos do Gerenciador de Recursos](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
+Atualmente, é possível criar alertas de métrica mais novos apenas no portal do Azure, [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) ou [Modelos do Gerenciador de Recursos](../azure-monitor/platform/alerts-metric-create-templates.md). Suporte para configurar os alertas mais recentes usando o PowerShell e a CLI do Azure versões 2.0 e superiores em breve.
 
 ## <a name="metrics-and-dimensions-supported"></a>Medidas e dimensões com suporte
-Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas no [Azure Monitor – Metrics Explorer](monitoring-metric-charts.md).
+Os alertas de métrica mais recentes fornecem suporte a alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. Todas as métricas compatíveis, juntamente com as dimensões aplicáveis, podem ser exploradas e visualizadas no [Azure Monitor – Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
 
 Esta é a lista completa das origens métricas do Azure Monitor com suporte pelos alertas mais recentes:
 
 |Tipo de recurso  |Dimensões compatíveis  | Métricas disponíveis|
 |---------|---------|----------------|
-|Microsoft.ApiManagement/service     | SIM        | [Gerenciamento da API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
-|Microsoft.Automation/automationAccounts     |     SIM   | [Contas de Automação](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
-|Microsoft.Batch/batchAccounts | N/D| [Contas do Lote](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    N/D     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
-|Microsoft.CognitiveServices/accounts     |    N/D     | [Serviços Cognitivos](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.Compute/virtualMachines     |    N/D     | [Máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de dimensionamento de máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
-|Microsoft.ContainerInstance/containerGroups | SIM| [Grupos de contêineres](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
-|Microsoft.ContainerService/managedClusters | SIM | [Clusters gerenciados](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
-|Microsoft.DataFactory/datafactories| SIM| [Data Factories V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
-|Microsoft.DataFactory/factories     |   SIM     |[Data Factories V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
-|Microsoft.DBforMySQL/servers     |   N/D      |[Banco de dados para MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/servers     |    N/D     | [Banco de dados para PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
-|Microsoft.EventHub/namespaces     |  SIM      |[Hubs de Evento](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| Não  | [Vaults](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
-|Microsoft.Logic/workflows     |     N/D    |[Aplicativos Lógicos](monitoring-supported-metrics.md#microsoftlogicworkflows) |
-|Microsoft.Network/applicationGateways     |    N/D     | [Gateways do Aplicativo](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/expressRouteCircuits | N/D |  [Circuitos do ExpressRoute](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
-|Microsoft.Network/dnsZones | N/D| [Zonas DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
-|Microsoft.Network/loadBalancers (apenas para SKUs Standard)| SIM| [Balanceadores de carga](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/publicipaddresses     |  N/D       |[Endereços IP Públicos](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.PowerBIDedicated/capacities | N/D | [Capacidades](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
-|Microsoft.Network/trafficManagerProfiles | SIM | [Perfis do Gerenciador de Tráfego](monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) |
-|Microsoft.Search/searchServices     |   N/D      |[Serviços de pesquisa](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
-|Microsoft.ServiceBus/namespaces     |  SIM       |[Barramento de Serviço](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
-|Microsoft.Storage/storageAccounts     |    SIM     | [Contas de Armazenamento](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services     |     SIM    | [Serviços de blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Serviços de arquivo](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [Serviços de fila](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de tabela](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
-|Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
-| Microsoft.Web/serverfarms | SIM | [Planos do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-| Microsoft.Web/sites | SIM | [Serviços de Aplicativos](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) e [Funções](monitoring-supported-metrics.md#microsoftwebsites-functions)|
-| Microsoft.Web/sites/slots | SIM | [Slots do Serviço de Aplicativo](monitoring-supported-metrics.md#microsoftwebsitesslots)|
-|Microsoft.OperationalInsights/workspaces| SIM|[Workspaces do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.ApiManagement/service     | SIM        | [Gerenciamento da API](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     SIM   | [Contas de Automação](../azure-monitor/platform/metrics-supported.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | N/D| [Contas do Lote](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    N/D     |[Cache Redis do Azure](../azure-monitor/platform/metrics-supported.md#microsoftcacheredis)|
+|Microsoft.CognitiveServices/accounts     |    N/D     | [Serviços Cognitivos](../azure-monitor/platform/metrics-supported.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.Compute/virtualMachines     |    N/D     | [Máquinas virtuais](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/D      |[Conjuntos de dimensionamento de máquinas virtuais](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.ContainerInstance/containerGroups | SIM| [Grupos de contêineres](../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups)|
+|Microsoft.ContainerService/managedClusters | SIM | [Clusters gerenciados](../azure-monitor/platform/metrics-supported.md#microsoftcontainerservicemanagedclusters)|
+|Microsoft.DataFactory/datafactories| SIM| [Data Factories V1](../azure-monitor/platform/metrics-supported.md#microsoftdatafactorydatafactories)|
+|Microsoft.DataFactory/factories     |   SIM     |[Data Factories V2](../azure-monitor/platform/metrics-supported.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   N/D      |[Banco de dados para MySQL](../azure-monitor/platform/metrics-supported.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    N/D     | [Banco de dados para PostgreSQL](../azure-monitor/platform/metrics-supported.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  SIM      |[Hubs de Evento](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)|
+|Microsoft.KeyVault/vaults| Não  | [Vaults](../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
+|Microsoft.Logic/workflows     |     N/D    |[Aplicativos Lógicos](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    N/D     | [Gateways do Aplicativo](../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/expressRouteCircuits | N/D |  [Circuitos do ExpressRoute](../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/dnsZones | N/D| [Zonas DNS](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/loadBalancers (apenas para SKUs Standard)| SIM| [Balanceadores de carga](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
+|Microsoft.Network/publicipaddresses     |  N/D       |[Endereços IP Públicos](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | N/D | [Capacidades](../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
+|Microsoft.Network/trafficManagerProfiles | SIM | [Perfis do Gerenciador de Tráfego](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.Search/searchServices     |   N/D      |[Serviços de pesquisa](../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  SIM       |[Barramento de Serviço](../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    SIM     | [Contas de Armazenamento](../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     SIM    | [Serviços de blob](../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Serviços de arquivo](../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Serviços de fila](../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de tabela](../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](../azure-monitor/platform/metrics-supported.md#microsoftstreamanalyticsstreamingjobs)|
+| Microsoft.Web/serverfarms | SIM | [Planos do Serviço de Aplicativo](../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
+| Microsoft.Web/sites | SIM | [Serviços de Aplicativos](../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | SIM | [Slots do Serviço de Aplicativo](../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| SIM|[Workspaces do Log Analytics](../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 
 
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 
-A operação POST contém a carga JSON e esquema a seguir para todos os alertas de métrica mais recentes quando o [grupo de ações ](monitoring-action-groups.md) adequadamente configurado é usado:
+A operação POST contém a carga JSON e esquema a seguir para todos os alertas de métrica mais recentes quando o [grupo de ações ](../azure-monitor/platform/action-groups.md) adequadamente configurado é usado:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -121,6 +121,6 @@ A operação POST contém a carga JSON e esquema a seguir para todos os alertas 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a nova [Experiência de alertas](monitoring-overview-alerts.md).
-* Saiba mais sobre os [alertas de log no Azure](monitor-alerts-unified-log.md).
-* Saiba mais sobre os [Alertas no Azure](monitoring-overview-alerts.md).
+* Saiba mais sobre a nova [Experiência de alertas](../azure-monitor/platform/alerts-overview.md).
+* Saiba mais sobre os [alertas de log no Azure](../azure-monitor/platform/alerts-unified-log.md).
+* Saiba mais sobre os [Alertas no Azure](../azure-monitor/platform/alerts-overview.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/15/2018
 ms.author: stbaron
-ms.openlocfilehash: 73e58653c249639d2c2317badcd9995658009b64
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710980"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163031"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -144,4 +144,4 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 # <a name="next-steps"></a>Próximas etapas
 -  Consulte [Introdução ao painel de Integridade do Serviço do Azure](service-health-overview.md) e [Introdução ao Azure Resource Health](resource-health-overview.md) para entender mais sobre eles. 
 -  [Perguntas frequentes sobre o Azure Resource Health](resource-health-faq.md)
-- Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [Configurar alertas do eventos do Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Configure alertas para receber notificações de problemas de integridade. Para obter mais informações, consulte [Configurar alertas do eventos do Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

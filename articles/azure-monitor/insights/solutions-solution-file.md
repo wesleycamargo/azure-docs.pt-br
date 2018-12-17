@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ae310ac35afed06881eb85fabc92d68e256ca5e7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713724"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189761"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -169,7 +168,7 @@ Os [recursos](../../azure-resource-manager/resource-group-authoring-templates.md
 O elemento **dependsOn** especifica uma [dependência](../../azure-resource-manager/resource-group-define-dependencies.md) de outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as suas dependências tenham sido criadas.  Por exemplo, sua solução pode [iniciar um runbook](solutions-resources-automation.md#runbooks) quando ele é instalado usando um [recurso de trabalho](solutions-resources-automation.md#automation-jobs).  O recurso de trabalho seria dependente do recurso de runbook para assegurar que o runbook fosse criado antes do trabalho.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Workspace do Log Analytics e Conta de automação
-Soluções de gerenciamento exigem que um [workspace do Log Analytics](../../log-analytics/log-analytics-manage-access.md) contenha modos de exibição e que uma [Conta de automação](../../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados.  Eles devem estar disponíveis antes que os recursos na solução sejam criados e não devem ser definidos na solução em si.  O usuário [especificará uma conta e workspace](solutions.md#log-analytics-workspace-and-automation-account) quando implantar a sua solução mas, na condição de autor, você deve considerar os pontos a seguir.
+Soluções de gerenciamento exigem que um [workspace do Log Analytics](../../azure-monitor/platform/manage-access.md) contenha modos de exibição e que uma [Conta de automação](../../automation/automation-security-overview.md#automation-account-overview) contenha runbooks e recursos relacionados.  Eles devem estar disponíveis antes que os recursos na solução sejam criados e não devem ser definidos na solução em si.  O usuário [especificará uma conta e workspace](solutions.md#log-analytics-workspace-and-automation-account) quando implantar a sua solução mas, na condição de autor, você deve considerar os pontos a seguir.
 
 
 ## <a name="solution-resource"></a>Recurso da solução

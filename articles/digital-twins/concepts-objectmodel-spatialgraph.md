@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636876"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436918"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objeto e grafos de inteligência espacial dos Gêmeos Digitais
 
@@ -48,11 +48,11 @@ Outras categorias de objetos são:
 - **Funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo `Space Administrator`, `User Administrator` e `Device Administrator`.
 - **Atribuições de funções** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
 - **Armazenamentos de chaves de seguranças** fornecem as chaves de segurança para todos os dispositivos na hierarquia sob um determinado objeto de espaço para permitir que o dispositivo comunique-se de maneira segura com Gêmeos Digitais.
-- **UDFs** (Funções Definidas pelo Usuário) permitem processamento de telemetria do sensor personalizável no grafo espacial. Por exemplo, uma UDF pode: 
-    - Definir um valor de sensor. 
-    - Realizar uma lógica personalizada com base nas leituras do sensor e definir a saída para um espaço. 
-    - Anexar metadados a um espaço. 
-    - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
+- **UDFs** (Funções Definidas pelo Usuário) permitem processamento de telemetria do sensor personalizável no grafo espacial. Por exemplo, uma UDF pode:
+  - Definir um valor de sensor.
+  - Realizar uma lógica personalizada com base nas leituras do sensor e definir a saída para um espaço.
+  - Anexar metadados a um espaço.
+  - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
 - **Correspondentes** são objetos que determinam quais UDFs são executadas para uma determinada mensagem de telemetria.
 - **Pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de Gêmeos Digitais podem ser roteados, por exemplo, `Event Hub`, `Service Bus` e `Event Grid`.
 
@@ -84,8 +84,8 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 | NOME | Substitua por |
 | --- | --- |
-| YOUR_INSTANCE_NAME | O nome da instância dos Gêmeos Digitais |
-| YOUR_LOCATION | Em qual região do servidor de sua instância está hospedada |
+| NOME_DA_SUA_INSTÂNCIA | O nome da instância dos Gêmeos Digitais |
+| SUA_LOCALIZAÇÃO | Em qual região do servidor de sua instância está hospedada |
 
  O formato completo da URL aparece nesta imagem.
 
@@ -103,9 +103,9 @@ Todas as chamadas à API devem ser autenticadas usando [OAuth](https://docs.micr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre conectividade do dispositivo e como enviar mensagens de telemetria para Gêmeos Digitais, leia [Entrada de telemetria e conectividade do dispositivo de Gêmeos Digitais do Azure](concepts-device-ingress.md).
+- Para saber mais sobre conectividade do dispositivo e como enviar mensagens de telemetria para Gêmeos Digitais, leia [Entrada de telemetria e conectividade do dispositivo de Gêmeos Digitais do Azure](concepts-device-ingress.md).
 
-* Para saber mais sobre restrições e limitações da API de Gerenciamento, leia [Limitações e gerenciamento de API de Gêmeos Digitais do Azure](concepts-service-limits.md).
+- Para saber mais sobre restrições e limitações da API de Gerenciamento, leia [Limitações e gerenciamento de API de Gêmeos Digitais do Azure](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

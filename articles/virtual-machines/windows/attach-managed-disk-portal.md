@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093894"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075083"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados gerenciado a uma VM Windows usando o portal do Azure
 
@@ -52,30 +52,6 @@ Este artigo mostra como anexar um novo disco de dados gerenciados a uma VM (máq
 8. Na janela **Formatar novo disco**, verifique as configurações e, em seguida, selecione **Iniciar**.
 9. Será exibido um aviso informando que formatar os discos apaga todos os dados. Selecione **OK**.
 10. Quando a formatação estiver concluída, selecione **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>Usar TRIM com o armazenamento padrão
-
-Se você usar o armazenamento padrão (HD), será necessário habilitar o comando **TRIM**. O comando **TRIM** descarta os blocos não utilizados no disco, de modo que você será cobrado somente por armazenamento que de fato esteja usando. Usando **TRIM**, você poderá economizar nos custos se criar arquivos grandes e, em seguida, excluí-los. 
-
-Para verificar a configuração **TRIM**, abra um prompt de comando em sua VM do Windows e digite o seguinte comando:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Se o comando retornar 0, o **TRIM** estará habilitado corretamente. Caso contrário, se ele retornar 1, execute o seguinte comando para habilitar o **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Depois de excluir os dados do disco, você pode garantir a liberação de operações **TRIM** corretamente executando a desfragmentação com **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-Você também pode formatar o volume para garantir que todo o volume seja cortado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

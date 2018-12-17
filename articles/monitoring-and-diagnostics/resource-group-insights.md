@@ -7,17 +7,16 @@ manager: carmonm
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986416"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961800"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
 
@@ -29,19 +28,19 @@ Aplicativos modernos são frequentemente complexos e altamente distribuídos, co
 2. Escolha um dos grupos de recursos que você quer explorar. (Se você tiver um grande número de grupos de recursos, a filtragem por assinatura poderá, às vezes, ser útil.)
 3. Para acessar insights de um grupo de recursos, clique em **Insights** no menu esquerdo de qualquer grupo de recursos.
 
-![Captura de tela da página de visão geral de insights do grupo de recursos](.\media\resource-group-insights\0001-overview.png)
+![Captura de tela da página de visão geral de insights do grupo de recursos](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>Recursos com alertas ativos e problemas de integridade
 
 A página de visão geral mostra quantos alertas foram acionados e ainda estão ativos, juntamente com o Azure Resource Health atual de cada recurso. Em conjunto, essas informações podem ajudá-lo a identificar rapidamente todos os recursos que estão enfrentando problemas. Os alertas ajudam você a detectar problemas no código e a configurar a infraestrutura. As superfícies do Azure Resource Health emitem problemas com a própria plataforma do Azure, que não são específicas para os aplicativos individuais.
 
-![Captura de tela do painel do Azure Resource Health](.\media\resource-group-insights\0002-overview.png)
+![Captura de tela do painel do Azure Resource Health](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
 Para exibir o Azure Resource Health, selecione a caixa **Mostrar Azure Resource Health** acima da tabela. Esta coluna está oculta por padrão para ajudar a página carregar rapidamente.
 
-![Captura de tela com o grafo de integridade do recurso adicionado](.\media\resource-group-insights\0003-overview.png)
+![Captura de tela com o grafo de integridade do recurso adicionado](./media/resource-group-insights/0003-overview.png)
 
 Por padrão, os recursos são agrupados por camada de aplicativo e tipo de recurso. **Camada de aplicativo** é uma categorização simples de tipos de recursos que existe apenas no contexto da página de visão geral de insights do grupo de recursos. Há tipos de recursos relacionados ao código do aplicativo, infraestrutura de computação, rede, armazenamento + bancos de dados. As ferramentas de gerenciamento recebem suas próprias camadas de aplicativos e todos os outros recursos são categorizados como pertencentes à camada de aplicativo **Outro**. Esse agrupamento pode ajudá-lo a ver rapidamente quais subsistemas do aplicativo estão íntegros e não íntegros.
 
@@ -70,33 +69,33 @@ Para testar a guia Falhas, selecione **Falhas** em **Investigar** no menu esquer
 
 A barra de menu do lado esquerdo muda depois que a seleção é feita, oferecendo novas opções.
 
-![Captura de tela do painel de visão geral de Falha](.\media\resource-group-insights\00004-failures.png)
+![Captura de tela do painel de visão geral de Falha](./media/resource-group-insights/00004-failures.png)
 
 Quando o Serviço de Aplicativo é escolhido, você recebe uma galeria dos modelos de pasta de trabalho do Azure Monitor.
 
-![Captura de tela da galeria da pasta de trabalho do aplicativo](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![Captura de tela da galeria da pasta de trabalho do aplicativo](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 A escolha do modelo para Insights de Falha abrirá a pasta de trabalho.
 
-![Captura de tela do relatório de falhas](.\media\resource-group-insights\0006-failure-visual.png)
+![Captura de tela do relatório de falhas](./media/resource-group-insights/0006-failure-visual.png)
 
 É possível selecionar qualquer uma das linhas. A seleção é exibida em uma exibição de detalhes gráficos.
 
-![Captura de tela dos detalhes da falha](.\media\resource-group-insights\0007-failure-details.png)
+![Captura de tela dos detalhes da falha](./media/resource-group-insights/0007-failure-details.png)
 
 As Pastas de Trabalho abstraem o difícil trabalho de criar relatórios e visualizações personalizados em um formato facilmente consumível. Enquanto alguns usuários podem querer apenas ajustar os parâmetros predefinidos, as pastas de trabalho são completamente personalizáveis.
 
 Para ter uma noção de como essa pasta de trabalho funciona internamente, selecione **Editar** na barra superior.
 
-![Captura de tela da opção de edição adicional](.\media\resource-group-insights\0008-failure-edit.png)
+![Captura de tela da opção de edição adicional](./media/resource-group-insights/0008-failure-edit.png)
 
 Várias caixas **Editar** aparecem perto dos vários elementos da pasta de trabalho. Selecione a caixa **Editar** abaixo da tabela de operações.
 
-![Captura de tela de caixas de edição](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![Captura de tela de caixas de edição](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 Isso revela a consulta do Log Analytics subjacente que está impulsionando a visualização da tabela.
 
- ![Captura de tela da janela de consulta do Log Analytics](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Captura de tela da janela de consulta do Log Analytics](./media/resource-group-insights/0010-failure-edit-query.png)
 
 Você pode modificar a consulta diretamente. Ou, pode usá-la como referência e pegá-la emprestada ao criar sua própria pasta de trabalho parametrizada personalizada.
 
@@ -104,11 +103,11 @@ Você pode modificar a consulta diretamente. Ou, pode usá-la como referência e
 
 O desempenho oferece sua própria galeria de pastas de trabalho. Para o Serviço de Aplicativo, a pasta de trabalho de Desempenho de Aplicativos predefinida oferece a seguinte exibição:
 
- ![Captura de tela da exibição de desempenho](.\media\resource-group-insights\0011-performance.png)
+ ![Captura de tela da exibição de desempenho](./media/resource-group-insights/0011-performance.png)
 
 Nesse caso, se você selecionar a edição, verá que esse conjunto de visualizações é ativado pelas métricas do Azure Monitor.
 
- ![Captura de tela da exibição de desempenho com Métricas do Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Captura de tela da exibição de desempenho com Métricas do Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>solução de problemas
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405065"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890204"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e usar o Log Analytics com um aplicativo SaaS multilocatário do Banco de Dados SQL
 
@@ -42,20 +42,20 @@ Para o Banco de Dados SQL do Azure, o monitoramento e o alerta estão disponíve
 
 Para cenários de alto volume, você pode usar o Log Analytics para monitoramento e alertas. O Log Analytics é um serviço do Azure separado que habilita a análise de logs de diagnóstico e telemetria coletados em um workspace de possivelmente vários serviços. O Log Analytics fornece uma linguagem de consulta e ferramentas de visualização de dados internas que permitem a análise de dados operacionais. A solução Análise do SQL fornece várias exibições e consultas de monitoramento e alertas de pools elásticos e bancos de dados. O Log Analytics também fornece um designer de exibição personalizado.
 
-Os espaços de trabalho do OMS agora são referidos como espaços de trabalho do Log Analytics. As áreas de trabalho do Log Analytics e as soluções de análise são abertas no portal do Azure. O portal do Azure é o ponto de acesso mais novo, mas pode ser o que está por trás do portal do Operations Management Suite em algumas áreas.
+Os workspaces do OMS agora são chamados de workspaces do Log Analytics. As áreas de trabalho do Log Analytics e as soluções de análise são abertas no portal do Azure. O portal do Azure é o ponto de acesso mais novo, mas pode ser o que está por trás do portal do Operations Management Suite em algumas áreas.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho simulando uma carga de trabalho em seus locatários 
 
 1. No ISE do PowerShell, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Módulos de Aprendizado\\Gerenciamento e Monitoramento do desempenho\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto, pois você talvez queira executar vários dos cenários de geração de carga durante este tutorial.
 1. Se você já não fez isso, provisione um lote de locatários para tornar o contexto de monitoramento mais interessante. Esse processo leva alguns minutos.
 
-   a. Defina **$DemoScenario = 1,** _Provisionar um lote de locatários_.
+    a. Defina **$DemoScenario = 1,** _Provisionar um lote de locatários_.
 
    b. Para executar o script e implantar mais 17 locatários, pressione F5.
 
 1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os locatários.
 
-    a. Defina **$DemoScenario** = 2, _Gerar carga de intensidade normal (aproximadamente 30 DTU)_.
+     a. Defina **$DemoScenario** = 2, _Gerar carga de intensidade normal (aproximadamente 30 DTU)_.
 
     b. Para executar o script, pressione F5.
 
@@ -151,4 +151,4 @@ Experimente o [Tutorial de análise de locatário](saas-dbpertenant-log-analytic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais que aproveitam a implantação inicial do aplicativo de banco de dados por locatário Saas Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)
