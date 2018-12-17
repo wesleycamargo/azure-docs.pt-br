@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184960"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do serviço e dispositivo Java e registros de grupo para Java para o Serviço de Provisionamento do Dispositivo Hub IoT
 
@@ -49,20 +49,20 @@ Conclua as etapas em [Configurar o Serviço de Provisionamento do Dispositivo Hu
             - Selecione o arquivo **_RootCA.pem_** que você acabou de criar.
             - Uma vez concluído, clique no botão **Salvar**.
 
-        ![Adicionar certificado](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Adicionar certificado](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Selecione o certificado recém-criado:
             - Clique em **Gerar Código de Verificação**. Copie o código gerado.
             - Execute a etapa de verificação. Insira o _código de verificação_ ou clique com o botão direito do mouse para colar na janela do PowerShell.  Pressione **Enter**.
             - Selecione o arquivo **_verifyCert4.pem_** recém-criados no portal do Azure. Clique em **Verificar**.
 
-            ![Validar certificado](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Validar certificado](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Conclua executando as etapas para criar seus certificados de dispositivo e os recursos de limpeza.
 
-    > [!NOTE]
-    > Ao criar certificados de dispositivo, certifique-se de usar somente caracteres alfanuméricos em letras minúsculas e hifens no seu nome de dispositivo.
-    >
+       > [!NOTE]
+       > Ao criar certificados de dispositivo, certifique-se de usar somente caracteres alfanuméricos em letras minúsculas e hifens no seu nome de dispositivo.
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Criar uma entrada de registro de dispositivo

@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: adf3fdf694216353c5e6a0df8726cb5cd337ddf8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264054"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385985"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
@@ -181,7 +181,7 @@ Neste tutorial, você
 > * Limpou seus recursos
 
 
-Para saber mais sobre as configurações de dimensionamento automático, continue e vá para a [visão geral do dimensionamento automático](monitoring-overview-autoscale.md).
+Para saber mais sobre as configurações de dimensionamento automático, continue e vá para a [visão geral do dimensionamento automático](../azure-monitor/platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
 > [Arquivar os dados de monitoramento](monitor-tutorial-archive-monitoring-data.md)
