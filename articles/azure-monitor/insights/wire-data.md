@@ -10,17 +10,15 @@ ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 62d1ea2def4ef920ebaca20b06252bd86ec776a4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 04566009ba7b71b48cf3dfc7d51cbbdcd596dc0e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633208"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186524"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Versão Prévia) no Log Analytics
 
@@ -61,8 +59,8 @@ O Wire Data obtém seus dados do Agente de Dependência da Microsoft. O Microsof
 | **Fonte conectada** | **Com suporte** | **Descrição** |
 | --- | --- | --- |
 | Agentes do Windows | SIM | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [Agente do Log Analytics](../../azure-monitor/platform/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Agentes do Linux | SIM | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | SIM | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md) conectado. <br><br> Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
+| Agentes do Linux | SIM | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [Agente do Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) para obter uma lista completa das versões de sistema operacional. |
+| Grupo de gerenciamento do System Center Operations Manager | SIM | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) conectado. <br><br> Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
 | Conta de Armazenamento do Azure | Não  | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o MMA (Microsoft Monitoring Agent) é usado pelo System Center Operations Manager e pelo Log Analytics para coletar e enviar dados. Dependendo do contexto, esse agente é chamado de Agente do System Center Operations Manager, agente do Log Analytics, MMA ou Agente Direto. O System Center Operations Manager e o Log Analytics fornecem versões do MMA ligeiramente diferentes. Essas versões podem relatar para o System Center Operations Manager, para o Log Analytics ou para ambos.
@@ -237,7 +235,7 @@ O Agente de Dependência é instalado em computadores com o Linux por meio do In
 
 Use as seguintes etapas para instalar o Dependency Agent em cada computador com o Linux:
 
-1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Linux hospedados em seu ambiente](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Instale o agente do Log Analytics seguindo as etapas em [Coletar dados de computadores Linux hospedados em seu ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Baixe o Agente de Dependência do Linux usando o link na seção anterior e, em seguida, instale-o como raiz usando o seguinte comando: sh InstallDependencyAgent-Linux64.bin
 3. Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é /var/opt/microsoft/dependency-agent/log.
 
@@ -361,7 +359,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 
-Quando o Wire Data é ativado em um workspace do Log Analytics, um pacote de gerenciamento de 300 KB é enviado a todos os servidores do Windows nesse workspace. Se você estiver usando agentes do System Center Operations Manager em um [grupo de gerenciamento conectado](../../log-analytics/log-analytics-om-agents.md), o pacote de gerenciamento do Monitor de Dependência será implantado do System Center Operations Manager. Se os agentes forem conectados diretamente, o Log Analytics fornecerá o pacote de gerenciamento.
+Quando o Wire Data é ativado em um workspace do Log Analytics, um pacote de gerenciamento de 300 KB é enviado a todos os servidores do Windows nesse workspace. Se você estiver usando agentes do System Center Operations Manager em um [grupo de gerenciamento conectado](../../azure-monitor/platform/om-agents.md), o pacote de gerenciamento do Monitor de Dependência será implantado do System Center Operations Manager. Se os agentes forem conectados diretamente, o Log Analytics fornecerá o pacote de gerenciamento.
 
 O pacote de gerenciamento chama-se Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Ele é gravado em: %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. A fonte de dados usada pelo pacote de gerenciamento é: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -451,4 +449,4 @@ Um registro com um tipo de _WireData_ é criado para cada tipo de dados de entra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquise nos logs](../../log-analytics/log-analytics-queries.md) para exibir registros detalhados da pesquisa de dados de transmissão.
+- [Pesquise nos logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros detalhados da pesquisa de dados de transmissão.

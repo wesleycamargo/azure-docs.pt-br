@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: f88c16c6f98e5860b0ee200edd18a86ab2a76883
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 881de4fc47a399b2ab22edbc6748eb95bc032086
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985736"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075753"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorar e gerenciar trabalhos do Stream Analytics usando cmdlets do Azure PowerShell
 Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets do Azure PowerShell e script do PowerShell que executam tarefas básicas de análise de fluxo.
@@ -24,32 +24,29 @@ Saiba como monitorar e gerenciar os recursos do Stream Analytics com os cmdlets 
 
 Azure PowerShell 0.9.8:  
 
-         # Log in to your Azure account
-        Add-AzureAccount
+```powershell
+# Log in to your Azure account
+Add-AzureAccount
+# Select the Azure subscription you want to use to create the resource group if you have more han one subscription on your account.
+Select-AzureSubscription -SubscriptionName <subscription name>
+# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#)to run the Register-AzureProvider cmdlet to register the provider namespace.
+#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+# Create an Azure resource group
+New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+```
 
-        # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
-        Select-AzureSubscription -SubscriptionName <subscription name>
+Azure PowerShell 1.0:
 
-        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
-        #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-
-        # Create an Azure resource group
-        New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-
-Azure PowerShell 1.0:  
-
-         # Log in to your Azure account
-        Connect-AzureRmAccount
-
-        # Select the Azure subscription you want to use to create the resource group.
-        Get-AzureRmSubscription –SubscriptionName "your sub" | Select-AzureRmSubscription
-
-        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
-        #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-
-        # Create an Azure resource group
-        New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-
+```powershell
+# Log in to your Azure account
+Connect-AzureRmAccount
+# Select the Azure subscription you want to use to create the resource group.
+Get-AzureRmSubscription –SubscriptionName "your sub" | Select-AzureRmSubscription
+# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#)to run the Register-AzureProvider cmdlet to register the provider namespace.
+#Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+# Create an Azure resource group
+New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+```
 
 
 > [!NOTE]
@@ -59,7 +56,7 @@ Azure PowerShell 1.0:
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Cmdlets do PowerShell do Azure para Stream Analytics
 Os seguintes cmdlets do PowerShell do Azure podem ser usados para monitorar e gerenciar trabalhos de Stream Analytics do Azure. Observe que o Azure PowerShell tem diferentes versões. 
-**Nos exemplos listados, o primeiro comando é para o Azure PowerShell 0.9.8 e o segundo comando é para o Azure PowerShell 1.0.** Os comandos do Azure PowerShell 1.0 sempre terão "AzureRM".
+**Nos exemplos listados, o primeiro comando é para o Azure PowerShell 0.9.8 e o segundo comando é para o Azure PowerShell 1.0.**  Os comandos do Azure PowerShell 1.0 sempre terão "AzureRM".
 
 ### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
 Lista todas os trabalhos de Stream Analytics definidos na assinatura do Azure ou especificados no grupo de recursos ou obtém informações sobre um trabalho específico dentro de um grupo de recursos.
@@ -68,11 +65,15 @@ Lista todas os trabalhos de Stream Analytics definidos na assinatura do Azure ou
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsJob
+```powershell
+Get-AzureStreamAnalyticsJob
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsJob
+```powershell
+Get-AzureRMStreamAnalyticsJob
+```
 
 Esse comando do PowerShell retorna informações sobre todos os trabalhos do Stream Analytics na assinatura do Azure.
 
@@ -80,11 +81,15 @@ Esse comando do PowerShell retorna informações sobre todos os trabalhos do Str
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
+```powershell
+Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
+```powershell
+Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
+```
 
 Esse comando do PowerShell retorna informações sobre todos os trabalhos de Stream Analytics no grupo de recursos StreamAnalytics-Default-Central-US.
 
@@ -92,11 +97,15 @@ Esse comando do PowerShell retorna informações sobre todos os trabalhos de Str
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
+```powershell
+Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
+```powershell
+Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
+```
 
 Esse comando do PowerShell retorna informações sobre o trabalho StreamingJob do Stream Analytics no grupo de recursos StreamAnalytics-Default-Central-US.
 
@@ -107,11 +116,15 @@ Lista todas as entradas que são definidas em um trabalho específico de Stream 
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```powershell
+Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```powershell
+Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```
 
 Esse comando do PowerShell retorna informações sobre todas as entradas definidas no trabalho StreamingJob.
 
@@ -119,11 +132,15 @@ Esse comando do PowerShell retorna informações sobre todas as entradas definid
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
+```powershell
+Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
+```powershell
+Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
+```
 
 Esse comando do PowerShell retorna informações sobre a entrada denominada EntryStream definida no trabalho StreamingJob.
 
@@ -134,11 +151,15 @@ Lista todas as saídas que são definidas em um trabalho específico de Stream A
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```powershell
+Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```powershell
+Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
+```
 
 Esse comando do PowerShell retorna informações sobre as saídas definidas no trabalho StreamingJob.
 
@@ -146,11 +167,15 @@ Esse comando do PowerShell retorna informações sobre as saídas definidas no t
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
+```powershell
+Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
+```powershell
+Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
+```
 
 Esse comando do PowerShell retorna informações sobre a saída denominada Output definida no trabalho StreamingJob.
 
@@ -161,11 +186,15 @@ Obtém informações sobre a cota de streaming de unidades em uma região especi
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsQuota –Location "Central US" 
+```powershell
+Get-AzureStreamAnalyticsQuota –Location "Central US" 
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsQuota –Location "Central US" 
+```powershell
+Get-AzureRMStreamAnalyticsQuota –Location "Central US" 
+```
 
 Esse comando do PowerShell retorna informações sobre a cota e o uso de unidades de streaming na região Central dos Estados Unidos.
 
@@ -176,11 +205,15 @@ Obtém informações sobre uma transformação específica definida no trabalho 
 
 Azure PowerShell 0.9.8:  
 
-    Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
+```powershell
+Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
+```
 
 Azure PowerShell 1.0:  
 
-    Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
+```powershell
+Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
+```
 
 Esse comando do PowerShell retorna informações sobre a transformação chamada StreamingJob no trabalho StreamingJob.
 
@@ -199,11 +232,15 @@ Para obter informações detalhadas sobre a estrutura do arquivo JSON e o conte�
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
+```powershell
+New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
+```powershell
+New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
+```
 
 Esse comando do PowerShell cria uma nova entrada do arquivo Input.json. Se uma entrada existente com o nome especificado no arquivo de definição de entrada já estiver definida, o cmdlet perguntará se deseja ou não substituí-la.
 
@@ -211,11 +248,15 @@ Esse comando do PowerShell cria uma nova entrada do arquivo Input.json. Se uma e
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
+```powershell
+New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
+```powershell
+New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
+```
 
 Esse comando do PowerShell cria uma nova entrada no trabalho chamado EntryStream. Se uma entrada existente com esse nome já estiver definida, o cmdlet perguntará se deseja ou não substituí-la.
 
@@ -223,11 +264,15 @@ Esse comando do PowerShell cria uma nova entrada no trabalho chamado EntryStream
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
+```powershell
+New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
+```powershell
+New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
+```
 
 Esse comando do PowerShell substitui a definição da fonte de entrada existente chamada EntryStream com a definição do arquivo.
 
@@ -246,11 +291,15 @@ Para obter informações detalhadas sobre a estrutura do arquivo JSON e o conte�
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
+```powershell
+New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
+```powershell
+New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
+```
 
 Esse comando do PowerShell cria um novo trabalho por meio da definição em JobDefinition.json. Se um trabalho existente com o nome especificado no arquivo de definição de trabalho já estiver definido, o cmdlet perguntará se deseja ou não substituí-lo.
 
@@ -258,11 +307,15 @@ Esse comando do PowerShell cria um novo trabalho por meio da definição em JobD
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
+```powershell
+New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
+```powershell
+New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
+```
 
 Esse comando do PowerShell substitui a definição de trabalho para StreamingJob.
 
@@ -281,11 +334,15 @@ Para obter informações detalhadas sobre a estrutura do arquivo JSON e o conte�
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
+```powershell
+New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
+```powershell
+New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
+```
 
 Esse comando do PowerShell cria uma nova saída chamada "output" no trabalho StreamingJob. Se uma saída existente com esse nome já estiver definida, o cmdlet perguntará se deseja ou não substituí-la.
 
@@ -293,11 +350,15 @@ Esse comando do PowerShell cria uma nova saída chamada "output" no trabalho Str
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
+```powershell
+New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
+```powershell
+New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
+```
 
 Esse comando do PowerShell substitui a definição de “output" no trabalho StreamingJob.
 
@@ -316,11 +377,15 @@ Para obter informações detalhadas sobre a estrutura do arquivo JSON e o conte�
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
+```powershell
+New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
+```powershell
+New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
+```
 
 Esse comando do PowerShell cria uma nova transformação chamada StreamingJobTransform no trabalho StreamingJob. Se uma transformação existente com esse nome já estiver definida, o cmdlet perguntará se deseja ou não substituí-la.
 
@@ -328,11 +393,15 @@ Esse comando do PowerShell cria uma nova transformação chamada StreamingJobTra
 
 Azure PowerShell 0.9.8:  
 
-    New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
+```powershell
+New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
+```
 
 Azure PowerShell 1.0:  
 
-    New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
+```powershell
+New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
+```
 
  Esse comando do PowerShell substitui a definição de StreamingJobTransform no trabalho StreamingJob.
 
@@ -344,11 +413,15 @@ Se você especificar o parâmetro –Force, a entrada será excluída sem confir
 
 Azure PowerShell 0.9.8:  
 
-    Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
+```powershell
+Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
+```
 
 Azure PowerShell 1.0:  
 
-    Remove-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
+```powershell
+Remove-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
+```
 
 Esse comando do PowerShell remove a entrada EventStream do trabalho StreamingJob.  
 
@@ -360,11 +433,15 @@ Se você especificar o parâmetro –Force, o trabalho será excluído sem confi
 
 Azure PowerShell 0.9.8:  
 
-    Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```powershell
+Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```
 
 Azure PowerShell 1.0:  
 
-    Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```powershell
+Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```
 
 Esse comando do PowerShell remove o trabalho StreamingJob.  
 
@@ -376,11 +453,15 @@ Se você especificar o parâmetro –Force, a saída será excluída sem confirm
 
 Azure PowerShell 0.9.8:  
 
-    Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```powershell
+Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```
 
 Azure PowerShell 1.0:  
 
-    Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```powershell
+Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```
 
 Esse comando do PowerShell remove a saída Output do trabalho StreamingJob.  
 
@@ -391,11 +472,15 @@ Implanta de maneira assíncrona e inicia um trabalho do Stream Analytics no Micr
 
 Azure PowerShell 0.9.8:  
 
-    Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+```powershell
+Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+```
 
 Azure PowerShell 1.0:  
 
-    Start-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+```powershell
+Start-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
+```
 
 Esse comando do PowerShell inicia o trabalho StreamingJob com uma hora personalizada de início de saída definida como 12 de dezembro de 2012, 12:12:12 UTC.
 
@@ -406,11 +491,15 @@ Interrompe de maneira assíncrona um trabalho do Stream Analytics para que não 
 
 Azure PowerShell 0.9.8:  
 
-    Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```powershell
+Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```
 
 Azure PowerShell 1.0:  
 
-    Stop-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```powershell
+Stop-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
+```
 
 Esse comando do PowerShell para o trabalho StreamingJob.  
 
@@ -421,11 +510,15 @@ Testa a capacidade do Stream Analytics de se conectar a uma entrada especificada
 
 Azure PowerShell 0.9.8:  
 
-    Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
+```powershell
+Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
+```
 
 Azure PowerShell 1.0:  
 
-    Test-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
+```powershell
+Test-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
+```
 
 Esse comando do PowerShell testa o status de conexão da entrada EntryStream no StreamingJob.  
 
@@ -436,11 +529,15 @@ Testa a capacidade do Stream Analytics de se conectar a uma saída especificada.
 
 Azure PowerShell 0.9.8:  
 
-    Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```powershell
+Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```
 
 Azure PowerShell 1.0:  
 
-    Test-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```powershell
+Test-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
+```
 
 Esse comando do PowerShell testa o status de conexão da entrada Output no StreamingJob.  
 

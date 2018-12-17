@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 2658dcb0d206086aad1443e2dc720b6f1f55906f
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818151"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000211"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações por push ao aplicativo Xamarin.Forms
 
@@ -409,12 +409,12 @@ Saiba mais sobre as notificações por push:
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Notificações remotas com o Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Diagnosticar problemas com notificações por push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
+   há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
 
 Continue também com um dos seguintes tutoriais:
 
 * [Adicionar autenticação ao seu aplicativo](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
+   Saiba como autenticar usuários de seu aplicativo com um provedor de identidade.
 * [Habilitar sincronização offline para seu aplicativo](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Saiba como adicionar suporte offline para o aplicativo usando um back-end dos Aplicativos Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel &mdash; exibindo, adicionando ou modificando dados &mdash; mesmo quando não há nenhuma conexão de rede.
 
@@ -423,4 +423,4 @@ Continue também com um dos seguintes tutoriais:
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns object]: https://go.microsoft.com/fwlink/p/?LinkId=272333

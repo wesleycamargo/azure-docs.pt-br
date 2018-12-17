@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227392"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310072"
 ---
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicar e gerenciar uma oferta no Azure Marketplace
+
 > [!NOTE]
 > Esta documentação não está atualizada e não é precisa. Em vez disso, acesse o [Guia do Vendedor](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) do Microsoft Azure Marketplace para obter orientação sobre como publicar uma oferta do Marketplace.
 
-# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicar e gerenciar uma oferta no Azure Marketplace
 Este artigo é fornecido para ajudar os desenvolvedores a criar, implantar e gerenciar suas soluções listadas no Azure Marketplace para outros clientes e parceiros do Azure as comprarem e usarem.
 
 ## <a name="marketplace-publishing"></a>Publicação do Marketplace
@@ -60,7 +61,7 @@ Registre sua conta da Microsoft como uma [conta Microsoft Developer](marketplace
 Para publicar uma solução para o Marketplace, siga estas etapas:
 1. Atender aos requisitos não técnicos.
 
-    a. Atender aos [pré-requisitos não técnicos](marketplace-publishing-pre-requisites.md).
+     a. Atender aos [pré-requisitos não técnicos](marketplace-publishing-pre-requisites.md).
 
     b. Atender aos [pré-requisitos técnicos de VM](marketplace-publishing-vm-image-creation-prerequisites.md).
 
@@ -68,7 +69,7 @@ Para publicar uma solução para o Marketplace, siga estas etapas:
 
 2. Criar sua oferta.
 
-    a. Criar uma oferta de [máquina virtual](marketplace-publishing-vm-image-creation.md).
+     a. Criar uma oferta de [máquina virtual](marketplace-publishing-vm-image-creation.md).
 
     b. Criar uma oferta de [modelo de solução](marketplace-publishing-solution-template-creation.md).
 
@@ -76,7 +77,7 @@ Para publicar uma solução para o Marketplace, siga estas etapas:
 
 4. Testar sua oferta em preparo.
 
-    a. Testar sua oferta de VM em [preparo](marketplace-publishing-vm-image-test-in-staging.md).
+     a. Testar sua oferta de VM em [preparo](marketplace-publishing-vm-image-test-in-staging.md).
 
     b. Testar sua oferta de modelo de solução em [preparo](marketplace-publishing-solution-template-test-in-staging.md).
 

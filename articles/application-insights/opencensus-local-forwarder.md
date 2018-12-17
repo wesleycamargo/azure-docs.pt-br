@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972820"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970579"
 ---
 # <a name="local-forwarder"></a>Encaminhador local
 
@@ -28,7 +27,7 @@ O encaminhador local é um agente que coleta telemetria do Application Insights 
 
 O encaminhador local é um [projeto de software livre no GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Há várias formas de executar o encaminhador local em várias plataformas.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Windows Service
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Faça o download do arquivo LF.WindowsServiceHost.zip na [página de versão do encaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no GitHub.
 
-    ![Captura de tela da página de download de versões do encaminhador local](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Captura de tela da página de download de versões do encaminhador local](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. Neste exemplo, para facilitar a demonstração, vamos apenas extrair o arquivo .zip no caminho `C:\LF-WindowsServiceHost`.
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Para examinar o novo serviço na GUI do Services, digite ``services.msc``
         
-     ![Captura de tela do serviço do encaminhador local](.\media\opencensus-local-forwarder\002-services.png)
+     ![Captura de tela do serviço do encaminhador local](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Clique com botão direito do mouse** no novo encaminhador local e escolha **Iniciar**. Agora o serviço começará a ser executado.
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Para confirmar se as configurações desejadas estão em vigor e se o encaminhador local está escutando os dados de rastreamento como esperado, verifique o arquivo ``LocalForwarder.log``. Você deve ver resultados semelhantes à imagem abaixo na parte inferior do arquivo:
 
-    ![Captura de tela do arquivo LocalForwarder.log](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Captura de tela do arquivo LocalForwarder.log](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Aplicativo de console
 

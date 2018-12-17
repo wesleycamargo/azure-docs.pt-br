@@ -3,7 +3,7 @@ title: Perguntas frequentes sobre a Escala Elástica SQL do Azure | Microsoft Do
 description: Perguntas frequentes sobre a Escala Elástico do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 52f507d8040f6ad628f7427253ce040ac69978ef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a8a26a0a273c8e3cf1880ce277c2d4b4241e35ee
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250961"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874729"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>FAQ (perguntas frequentes) sobre ferramentas de banco de dados elástico
 
@@ -55,6 +55,6 @@ Sim, um fragmento é um banco de dados individual e, portanto, um fragmento pode
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>O ferramenta de divisão e mesclagem provisiona (ou exclui) um banco de dados durante uma operação de divisão ou mesclagem?
 
-Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
+ Não. Para operações de **divisão** , o banco de dados de destino deve existir com o esquema apropriado e ser registrado com o Gerenciador de mapa do fragmento.  Para operações de **mesclagem** , você deve excluir o fragmento do Gerenciador do mapa de fragmento e, em seguida, excluir o banco de dados.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

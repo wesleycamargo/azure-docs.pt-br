@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624141"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191613"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -31,7 +31,7 @@ Se atividades incomuns que possam indicar acesso não autorizado a algumas das c
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Acesse os usuários sinalizados para o relatório de risco
 
-Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) no portal do Azure. Se você não tiver o Microsoft Azure Active Directory, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+Você pode revisar usuários sinalizados para risco por meio do [usuário no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tiver o Microsoft Azure Active Directory, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 Usuários sinalizados como risco, você pode executar as seguintes ações para cada usuário:
 
@@ -58,9 +58,9 @@ Para acessar os relatórios **Usuários sinalizados para risco** no centro de ad
 
 Execute as seguintes ações para ajudar a corrigir as contas afetadas e proteger seu ambiente:
 
-1.  [Valide as informações corretas](http://aka.ms/MFAValid) para autenticação de vários fatores e redefinição de senha de autoatendimento. 
-2.  [Ative a autenticação multi fator](http://aka.ms/MFAuth) para todos os usuários. 
-3.  Use esta [script de correção](http://aka.ms/remediate) para cada conta afetada, para executar automaticamente as etapas a seguir: 
+1.  [Valide as informações corretas](https://aka.ms/MFAValid) para autenticação de vários fatores e redefinição de senha de autoatendimento. 
+2.  [Ative a autenticação multi fator](https://aka.ms/MFAuth) para todos os usuários. 
+3.  Use esta [script de correção](https://aka.ms/remediate) para cada conta afetada, para executar automaticamente as etapas a seguir: 
 
      a. Redefina a senha para proteger a conta e elimine as sessões ativas.
 
@@ -84,10 +84,10 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
 Além disso, você deve:
 
-- Leia e implemente esta orientação [ sobre o endereçamento de atividades incomuns ](http://aka.ms/fixaccount). 
-- [ Ative o pipeline de auditoria ](http://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](http://aka.ms/sccsearch). 
-- Use este script [para habilitar a auditoria de caixa de correio](http://aka.ms/mailboxaudit1) para todas as suas contas. 
-- Examine as permissões de representante e as regras de encaminhamento para todas as suas caixas de correio de email. Você pode usar este [script do PowerShell](http://aka.ms/delegateforwardrules) para executar a tarefa. 
+- Leia e implemente esta orientação [ sobre o endereçamento de atividades incomuns ](https://aka.ms/fixaccount). 
+- [ Ative o pipeline de auditoria ](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, seu armazenamento de auditoria começa a ser preenchido com logs de atividades. Nesse ponto, você também pode aproveitar o recurso de pesquisa e investigação do [Security e Compliance Center](https://aka.ms/sccsearch). 
+- Use este script [para habilitar a auditoria de caixa de correio](https://aka.ms/mailboxaudit1) para todas as suas contas. 
+- Examine as permissões de representante e as regras de encaminhamento para todas as suas caixas de correio de email. Você pode usar este [script do PowerShell](https://aka.ms/delegateforwardrules) para executar a tarefa. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497751"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015867"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Apache Hive no HDInsight
 [Apache Hive](https://hive.apache.org/) fornece um meio de executar [tarefas Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) através de uma linguagem de script semelhante a SQL chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicado para resumir, consultar e analisar grandes volumes de dados.
@@ -721,9 +721,9 @@ Agora você entende como fazer upload de um arquivo para o armazenamento do Azur
 * [Usar Apache Pig com o HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

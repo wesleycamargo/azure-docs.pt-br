@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391803"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409710"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Cotas e limites da IA do Lote
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Como com outros serviços do Azure, há limites em determinados recursos associados ao serviço da IA do Lote. Na IA do Lote, esses limites são cotas padrão aplicadas no nível da assinatura para cada região em que o serviço está [disponível](https://azure.microsoft.com/global-infrastructure/services/). Este artigo discute esses padrões e como você pode solicitar aumentos de cotas.
 
@@ -66,7 +69,7 @@ Siga estas etapas para solicitar uma um aumento de cota para sua assinatura da I
 2. Clique em **Nova solicitação de suporte** no menu da IA do Lote.
 3. Em **Noções básicas**:
    
-    a. **Tipo de Problema** > **Cota**
+     a. **Tipo de Problema** > **Cota**
    
     b. **Assinatura** > selecione sua assinatura.
    
@@ -77,7 +80,7 @@ Siga estas etapas para solicitar uma um aumento de cota para sua assinatura da I
     Clique em **Próximo**.
 4. Em **Problema**:
    
-    a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
+     a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes da cota**, especifique o local, o tipo de cota e o tipo de recurso. Especifique o novo limite que deseja solicitar. Clique em **Salvar e continuar**.
 
@@ -86,7 +89,7 @@ Siga estas etapas para solicitar uma um aumento de cota para sua assinatura da I
     Clique em **Próximo**.
 5. Em **Informações de contato**:
    
-    a. Selecione um **método de contato preferencial**.
+     a. Selecione um **método de contato preferencial**.
    
     b. Verifique e insira os detalhes de contato necessários.
    

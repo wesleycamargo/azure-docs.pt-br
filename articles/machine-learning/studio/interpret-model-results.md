@@ -4,9 +4,8 @@ description: Como escolher o parâmetro ideal definido para um algoritmo usando 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f8ff93efb74bca427cf74351af9d2442f9ab757
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310262"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276478"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de previsão no Azure Machine Learning Studio. Após treinar um modelo e fazer previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Há quatro tipos principais de modelos de aprendizado de máquina no Azure Machine Learning:
 

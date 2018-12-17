@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d55ff92fcac2d52cd12ae82a7c11f83824b3a201
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b98c75c1fb42c6eec2473dee1d6661d86138bd7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824686"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725668"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Perfis de aplicativos da Web em execução em uma escala de máquina virtual ou máquina virtual do Azure definida com o Application Insights Profiler
 Você também pode implantar o Profiler do Application Insights nesses serviços:
