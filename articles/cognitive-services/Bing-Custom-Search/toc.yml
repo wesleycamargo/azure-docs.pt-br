@@ -3,26 +3,30 @@ items:
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é a Pesquisa Personalizada do Bing?
+  - name: O que é API de Pesquisa Personalizada do Bing?
     href: overview.md
   expanded: true
-- name: Guias de início rápido da API REST
+- name: Guia de início rápido
   items:
-  - name: Criar a primeira instância
+  - name: Criar uma instância de pesquisa personalizada
     href: quick-start.md
-  - name: C#
-    href: call-endpoint-csharp.md
-  - name: Java
-    href: call-endpoint-java.md
-  - name: Node.js
-    href: call-endpoint-nodejs.md
-  - name: Python
-    href: call-endpoint-python.md
+  - name: Obter resultados da pesquisa na instância
+    items:
+    - name: API REST
+      items:
+      - name: Usando C#
+        href: call-endpoint-csharp.md
+      - name: Usando Java
+        href: call-endpoint-java.md
+      - name: Usando o Node.js
+        href: call-endpoint-nodejs.md
+      - name: Usando Python
+        href: call-endpoint-python.md
+    - name: .
+      items:
+      - name: Usando C#
+        href: sdk-csharp-quick-start.md
   expanded: true
-- name: Guias de início rápido do SDK
-  items:
-  - name: Início rápido do SDK do C#
-    href: sdk-csharp-quick-start.md
 - name: Tutoriais
   items:
   - name: Compilar uma página da Web de pesquisa personalizada
@@ -35,21 +39,21 @@ items:
   items:
   - name: Configurar a experiência de pesquisa personalizada
     href: define-your-custom-view.md
-  - name: Chamar pesquisa personalizada
+  - name: Chamar instância de pesquisa personalizada
     href: search-your-custom-view.md
-  - name: Configurar experiência de interface do usuário hospedada
+  - name: Configurar e integrar uma IU hospedada
     href: hosted-ui.md
-  - name: Compartilhar pesquisa personalizada
+  - name: Compartilhar instância de pesquisa personalizada
     href: share-your-custom-search.md
-  - name: Obter imagens de sua instância
+  - name: Obter imagens na instância de pesquisa
     href: get-images-from-instance.md
-  - name: Obter vídeos de sua instância
+  - name: Obter vídeos na instância de pesquisa
     href: get-videos-from-instance.md
-  - name: Configurar experiência de sugestão automática personalizada
+  - name: Configurar uma experiência de sugestão automática personalizada
     href: define-custom-suggestions.md
   - name: Lidar com realce de ocorrências
     href: hit-highlighting.md
-  - name: Páginas da Web para páginas
+  - name: Percorrer páginas da Web
     href: page-webpages.md
 - name: Referência
   items:
@@ -85,9 +89,9 @@ items:
     href: endpoint-custom.md
   - name: Suporte de idioma e região
     href: language-support.md
-ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 81d0d94efc519fa241ab36979506b2baddf50d91
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431963"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555856"

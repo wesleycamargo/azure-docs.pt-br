@@ -19,8 +19,14 @@ items:
         href: data-box-deploy-ordered.md
       - name: 2 - Configurar
         href: data-box-deploy-set-up.md
-      - name: 3 - Copiar dados
-        href: data-box-deploy-copy-data.md
+      - name: 3 - Conectar e copiar
+        items:
+        - name: Via SMB
+          href: data-box-deploy-copy-data.md
+        - name: Via NFS
+          href: data-box-deploy-copy-data-via-nfs.md
+        - name: Via REST
+          href: data-box-deploy-copy-data-via-rest.md
       - name: 4 - Retornar, carregar, verificar
         href: data-box-deploy-picked-up.md
     - name: Conceitos
@@ -28,7 +34,11 @@ items:
       - name: Ler as diretrizes de segurança
         href: data-box-safety.md
       - name: Examinar os requisitos
-        href: data-box-system-requirements.md
+        items:
+        - name: Para o Data Box
+          href: data-box-system-requirements.md
+        - name: Para o armazenamento de Blobs do Data Box
+          href: data-box-system-requirements-rest.md
       - name: Entender os limites
         href: data-box-limits.md
       - name: Analisar segurança
@@ -98,9 +108,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Preço do Data Box Disk
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: bd23df1abd99ba3fd89a4b382c6c5f00c8b80f1f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ca0a1e04f558396cb72b0617c9bee6349a0fe54
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739185"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540513"
