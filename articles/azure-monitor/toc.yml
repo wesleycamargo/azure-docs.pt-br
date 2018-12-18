@@ -71,11 +71,11 @@ items:
     - name: Fontes de dados
       href: platform/data-sources.md
     - name: Fontes de dados do Azure
-      href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-sources-reference.md
     - name: Log de atividades
-      href: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-logs-overview.md
     - name: Logs de diagnóstico
-      href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/diagnostic-logs-overview.md
     - name: Horário da ingestão de dados no log
       href: platform/data-ingestion-time.md
     - name: Métricas personalizadas para o repositório de métricas
@@ -445,13 +445,13 @@ items:
       - name: Arquivar logs de diagnóstico
         href: platform/archive-diagnostic-logs.md
       - name: Armazenar logs de diagnóstico
-        href: ../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostic-logs-stream-log-store.md
       - name: Transmitir log de atividades para Hubs de Eventos
         href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Logs e métricas para o Hub de Eventos
         href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: Logs de diagnóstico para o Hub de Eventos
-        href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Dados de aplicativo para o Log Analytics
         href: platform/app-insights-connector.md
       - name: Exportar dados do aplicativo
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 9be0566a2e0fddc61d5c7028e9ecc7a24930b2f2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 31569287fa00f123d3462d6d3dc5bf35a3650d19
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438380"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549438"
