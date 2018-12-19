@@ -274,7 +274,8 @@
 ##### [Problema ao configurar provisionamento de usuários - aplicativo da galeria](manage-apps/application-provisioning-config-problem.md)
 ##### [Problema para salvar as credenciais de administrador ao configurar o aplicativo da galeria para o provisionamento do usuário](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Os usuários não são provisionados - aplicativo da galeria](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
-##### [Usuários errados provisionados - aplicativo da galeria](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Usuários incorretos provisionados - aplicativo da galeria](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Problemas de compatibilidade SCIM - aplicativo inexistente na Galeria](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Logon único
 ##### [Escolher um método](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Solucionar problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Implantar a Prova de conceito (PoC) do Azure AD
-### [Manual de PoC: introdução](active-directory-playbook-intro.md)
-### [Manual de PoC: ingredientes](active-directory-playbook-ingredients.md)
-### [Manual de PoC: implementação](active-directory-playbook-implementation.md)
-### [Manual de PoC: blocos de construção](active-directory-playbook-building-blocks.md)
+### [Guia estratégico da PoC: Introdução](active-directory-playbook-intro.md)
+### [Guia estratégico da PoC: Ingredientes](active-directory-playbook-ingredients.md)
+### [Guia estratégico da PoC: Implementação](active-directory-playbook-implementation.md)
+### [Guia estratégico da PoC: Blocos de Construção](active-directory-playbook-building-blocks.md)
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)

@@ -94,7 +94,7 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Implantar modelos
     items:
-    - name: Implantar usando o portal
+    - name: Implantar usando o portal do Azure
       href: resource-group-template-deploy-portal.md
     - name: Implantar usando a CLI do Azure
       href: resource-group-template-deploy-cli.md
@@ -123,27 +123,27 @@ items:
       maintainContext: true
   - name: Gerenciar modelos
     items:
-    - name: Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: CLI do Azure
-      href: cli-azure-resource-manager.md
-    - name: Portal do Azure
+    - name: Gerenciar usando o portal do Azure
       href: resource-group-portal.md
-    - name: Usar marcações para organizar recursos
-      href: resource-group-using-tags.md
-    - name: Mover recursos para um novo grupo ou assinatura
+    - name: Gerenciar usando o Azure PowerShell
+      href: powershell-azure-resource-manager.md
+    - name: Gerenciar usando a CLI do Azure
+      href: cli-azure-resource-manager.md
+    - name: Mover recursos
       href: resource-group-move-resources.md
       items:
       - name: Mover suporte por tipo de recurso
         href: move-support-resources.md
+    - name: Organizar os recursos usando as marcas
+      href: resource-group-using-tags.md
+    - name: Bloquear recursos
+      href: resource-group-lock-resources.md
+    - name: API de autenticação para acessar assinaturas
+      href: resource-manager-api-authentication.md
     - name: Criar assinaturas de EA
       href: programmatically-create-subscription.md
     - name: Conceder acesso para criar assinaturas de EA
       href: grant-access-to-create-subscription.md
-    - name: API de autenticação para acessar assinaturas
-      href: resource-manager-api-authentication.md
-    - name: Bloquear recursos
-      href: resource-group-lock-resources.md
   - name: Auditar implantações
     items:
     - name: Exibir logs de atividade
@@ -211,7 +211,7 @@ items:
     href: /rest/api/resources/
   - name: REST - Gerenciador de Implantação
     href: /rest/api/deploymentmanager/
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.resources
   - name: CLI do Azure
     href: /cli/azure/resource
@@ -235,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436782"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600927"

@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6b7e0bf650d46f7e445aacc4bb61efca94510716
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1a16dd52d06e4ee31e6645d6e5a4090afd897de9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538652"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605391"
 documentType: LandingData
-title: Documentação de Aplicativos Web
+title: Documentação do Serviço de Aplicativo
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: Documentação do Aplicativos Web do Azure - Tutoriais, Referência de API
-  meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
+  title: Documentação do Serviço de Aplicativo do Azure – Tutoriais, Referência de API
+  meta.description: Learn how to use App Service to build and host websites and web applications.
   services: app-service
   author: czeumault
   manager: carolz
@@ -21,7 +21,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Os Aplicativos Web do Azure permitem criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório Git. Saiba como usar os Aplicativos Web do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  description: O Serviço de Aplicativo do Azure permite que você crie e hospede aplicativos da Web na linguagem de programação de sua escolha sem gerenciar a infraestrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório Git. Saiba como usar os Aplicativos Web do Azure com nossos guias de início rápido, tutoriais e exemplos.
   aside:
     image:
       alt: 
@@ -35,7 +35,7 @@ sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Aprenda a implantar seu primeiro aplicativo para a nuvem usando Aplicativos Web:'
+    text: 'Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de Aplicativo:'
   - type: list
     style: icon48
     items:
