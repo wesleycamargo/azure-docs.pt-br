@@ -233,7 +233,7 @@ Para verificar a conexão VPN, crie duas VMs: um no Azure e outro no Azure Stack
 6. Fornecer um **assinatura**, **grupo de recursos**, e **local**e, em seguida, selecione **Okey**.
 7. Sobre o **tamanho** seção, para essa instância, selecione um tamanho de máquina virtual e, em seguida, selecione **selecione**.
 8. Sobre o **configurações** seção, aceite os padrões. Certifique-se de que o **Azs-VNet** rede virtual está selecionada. Verificar se a sub-rede é definida como **10.1.0.0/24**. Depois, selecione **OK**.
-9. Sobre o **resumo** seção, examine as configurações e, em seguida, selecione * Okey * *.
+9. Sobre o **resumo** seção, examine as configurações e, em seguida, selecione *Okey*\*.
 
 ## <a name="test-the-connection"></a>Testar a conexão
 
