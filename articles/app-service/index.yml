@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1a16dd52d06e4ee31e6645d6e5a4090afd897de9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 178ae177d3183d492540f03c8dc1dfa064ddeb22
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605391"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652422"
 documentType: LandingData
 title: Documentação do Serviço de Aplicativo
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Documentação do Serviço de Aplicativo do Azure – Tutoriais, Referência de API
-  meta.description: Learn how to use App Service to build and host websites and web applications.
+  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
   services: app-service
   author: czeumault
   manager: carolz
@@ -21,14 +21,14 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: O Serviço de Aplicativo do Azure permite que você crie e hospede aplicativos da Web na linguagem de programação de sua escolha sem gerenciar a infraestrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório Git. Saiba como usar os Aplicativos Web do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  description: O Serviço de Aplicativo do Azure permite que você crie e hospede aplicativos Web, back-ends de dispositivos móveis e APIs RESTful na linguagem de programação de sua escolha sem gerenciar a infraestrutura. Eles oferecem o dimensionamento automático e alta disponibilidade, compatível com Windows e Linux e permite implantações automatizadas do GitHub, Azure DevOps ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250
-    title: Crie um Aplicativo Web com o Node.js e o Serviço de Aplicativo do Azure. (2:41)
+    title: Crie um aplicativo com o Node.js e com o Serviço de Aplicativo do Azure. (2:41)
     href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
