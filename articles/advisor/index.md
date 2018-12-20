@@ -8,16 +8,15 @@ layout: LandingPage
 ms.assetid: ''
 ms.service: advisor
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b7bf7931bcf25e03430218c973ba8e283738d64c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 14ddcea98e2b326437db8f7ddf550f8aba58b628
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148967"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651250"
 ---
 # <a name="azure-advisor-documentation"></a>Documentação do Azure Advisor
 
@@ -86,15 +85,15 @@ O Azure Advisor é um consultor de nuvem personalizado que ajuda a seguir as pr�
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API REST</h3>
-                        <p><a href="/rest/api/advisor">referência da API REST (a página pode estar em inglês)</a></p>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API REST</h3>
+                        <p><a href="/rest/api/advisor">referência da API REST (a página pode estar em inglês)</a></p>
                         <h3>CLI</h3>
-                        <p><a href="/cli/azure/advisor">Referência da CLI</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <p><a href="/cli/azure/advisor">Referência da CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
