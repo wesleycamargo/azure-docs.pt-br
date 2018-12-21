@@ -48,11 +48,11 @@ Os grupos de configurações a seguir estão disponíveis para que os usuários 
 * Preferências de Idioma: dicionário de ortografia, configurações de idioma do sistema 
 * Facilidade de Acesso: narrador, teclado virtual, lente de aumento 
 * Outras Configurações do Windows: veja Detalhes das configurações do Windows
-* Configuração do navegador do Edge: favoritos, lista de leitura e outras configurações do Microsoft Edge
+* Configuração do navegador do Microsoft Edge: favoritos, lista de leitura e outras configurações do Microsoft Microsoft Edge
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
-A sincronização do grupo de configuração (favoritos, lista de leitura) do navegador Edge pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Edge.
+A sincronização do grupo de configuração (favoritos, lista de leitura) do navegador Microsoft Edge pode ser habilitada ou desabilitada por usuários finais por meio da opção de menu Configurações do navegador Microsoft Edge.
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
@@ -93,21 +93,21 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 | **Personalização da área de trabalho**: configurações da barra de tarefas (posição, ocultar automaticamente etc.) |sync |X |Tema |
 | **Personalização da área de trabalho**: iniciar o layout da tela |X |backup | |
 | **Dispositivos**: impressoras compartilhadas às quais você se conectou |X |X |Outros |
-| **Navegador Edge**: lista de leitura |sync |sync |interno |
-| **Navegador Edge**: favoritos |sync |sync |interno |
-| **Navegador Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Navegador Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: lista de leitura |sync |sync |interno |
+| **Navegador Microsoft Edge**: favoritos |sync |sync |interno |
+| **Navegador Microsoft Edge**: principais sites <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: URLs digitadas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: configurações da barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: mostrar o botão home <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: bloquear pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: perguntar-me o que fazer com cada download <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: oferecer para salvar senhas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: enviar solicitações para não rastrear <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: salvar entradas de formulário <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: mostrar sugestões de pesquisa e de site conforme eu digitar <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: preferência de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: permitir que sites salvem licenças de mídia protegida em meu dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Navegador Microsoft Edge**: configuração de leitor de tela <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Alto Contraste**: ativado ou desativado |sync |X |facilidade de acesso |
 | **Alto Contraste**: configurações do Tema |sync |X |facilidade de acesso |
 | **Internet Explorer**: abrir guias (URL e título) |sync |sync |Internet Explorer |

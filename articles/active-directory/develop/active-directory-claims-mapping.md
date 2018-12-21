@@ -327,7 +327,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 |aplicativo, recurso, público-alvo|displayname|Nome de exibição|
 |aplicativo, recurso, público-alvo|objected|ObjectID|
 |aplicativo, recurso, público-alvo|marcas|Marcação da entidade de serviço|
-|Empresa|tenantcountry|País do locatário|
+|Empresa|tenantcountry|País/Região do locatário|
 
 **TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento de origem estiver definido como "transformation".
 
