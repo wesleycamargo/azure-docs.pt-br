@@ -43,7 +43,7 @@ A tabela a seguir fornece definições para muitos dos termos usados no Seller I
 | Cidade do cliente                                    | O nome da cidade fornecido pelo cliente final.                                                                                                  |
 | Idioma de comunicação do cliente                  | O idioma preferido pelo cliente para comunicação.                                                                                    |
 | Nome da empresa do cliente                            | O nome da empresa fornecido pelo cliente final.                                                                                               |
-| País do cliente                                 | O nome do país fornecido pelo cliente final.                                                                                               |
+| País/Região do cliente                                 | O nome do país/região fornecido pelo cliente final.                                                                                               |
 | CC (Moeda do cliente)                           | A moeda preferida pelo cliente para preço e cobrança.                                                                              |
 | Email do cliente                                   | O endereço de email fornecido pelo cliente final.                                                                                              |
 | Nome do cliente                              | O nome do cliente.                                                                                                              |
@@ -63,7 +63,7 @@ A tabela a seguir fornece definições para muitos dos termos usados no Seller I
 | Status da coleção final: reembolso                  | O custo foi reembolsado (o custo total ou um valor parcial).                                                                      |
 | Status da coleção final: baixa               | O custo foi baixado como dívida inválida.                                                                                                      |
 | Cliente IsNew                                   | O cliente implantou esta *SKU* pela primeira vez no mês civil.                                                               |
-| Mercado                                           | O nome do país fornecido pelo cliente final.                                                                                               |
+| Mercado                                           | O nome do país/região fornecido pelo cliente final.                                                                                               |
 | Tipo de licença do Marketplace                         | O método de cobrança da oferta do Marketplace.                                                                                                 |
 | Tipo de licença do Marketplace: cobrado por meio do Azure   | A Microsoft é seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (Cartão de crédito PAYG ou fatura Enterprise)       |
 | Tipo de licença do Marketplace: traga sua própria licença | A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não cobra de clientes pelo uso destas ofertas do Marketplace. |

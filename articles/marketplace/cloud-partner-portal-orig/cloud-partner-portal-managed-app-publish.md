@@ -190,7 +190,7 @@ O formulário do marketplace em uma oferta de Aplicativo Azure solicita campos q
 
 #### <a name="preview-subscription-ids"></a>IDs de assinatura para versão prévia
 
-Insira aqui uma lista de IDs de Assinatura do Azure que você gostaria que tivessem acesso à oferta quando ela for publicada. Essas assinaturas da lista branca permitirão que você teste a oferta visualizada antes de ativá-la. O portal de parceiro permite até 100 assinaturas na lista branca.
+Insira aqui uma lista de IDs de Assinatura do Azure que você gostaria que tivessem acesso à oferta quando ela for publicada. Essas assinaturas da lista de permissões permitirão que você teste a oferta visualizada antes de ativá-la. O portal de parceiro permite até 100 assinaturas na lista de permissões.
 
 #### <a name="suggested-categories"></a>Categorias sugeridas
 
