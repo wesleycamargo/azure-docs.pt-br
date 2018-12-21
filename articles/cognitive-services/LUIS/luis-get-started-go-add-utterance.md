@@ -1,22 +1,25 @@
 ---
-title: Início Rápido da linguagem Go – alterar o modelo e treinar o aplicativo LUIS
-description: Neste início rápido da linguagem Go, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
-titleSuffix: Microsoft Cognitive Services
+title: Alterar, treinar aplicativo, Go
+description: Neste início rápido da linguagem Go, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2cd8c1aa2deb2af97d4f720efa0e40146b15b888
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031859"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100266"
 ---
-# <a name="quickstart-change-model-using-go"></a>Início Rápido: Alterar o modelo usando Go
+# <a name="quickstart-change-model-using-go"></a>Início Rápido: Alterar o modelo usando o Go
+
+Neste início rápido, passe enunciados para um ponto de extremidade LUIS e obtenha intenção e entidades.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -66,7 +69,7 @@ ms.locfileid: "47031859"
 
 2. Execute o aplicativo GO da linha de comando inserindo o texto a seguir no prompt de comando: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -75,7 +78,7 @@ ms.locfileid: "47031859"
 
     Esse prompt de comando exibe os resultados:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

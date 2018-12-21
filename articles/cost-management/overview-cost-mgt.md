@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276662"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997116"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
@@ -29,7 +29,7 @@ Você pode usar o portal do Azure ou várias APIs para automação de exportaç�
 
 ## <a name="plan-and-control-expenses"></a>Plano e controle de despesas
 
-As formas como o Gerenciamento de Custos ajuda você a planejar e controlar seus custos incluem: Análise de custos, orçamentos, recomendações e exportação de dados de gerenciamento de custos.
+As maneiras como o Gerenciamento de Custos o ajuda a planejar e controlar os custos incluem: Análise de custos, orçamentos, recomendações e exportação de dados de gerenciamento de custos.
 
 Você usa a análise de custos para explorar e analisar seus custos organizacionais. Você pode visualizar os custos agregados por organização para entender onde os custos são acumulados e para identificar tendências de gastos. E você pode ver os custos acumulados ao longo do tempo para estimar tendências de custo mensais, trimestrais ou mesmo anuais em comparação a um orçamento.
 

@@ -4,15 +4,15 @@ description: Fornece uma visão geral do serviço Migrações para Azure.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839727"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250562"
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -22,9 +22,9 @@ O serviço Migrações para Azure avalia as cargas de trabalho locais para migra
 
 As Migrações para Azure ajudam você a:
 
-- **Avaliar a preparação para o Azure**: avalie se seus computadores locais são adequados para execução no Azure.
-- **Obter recomendações de tamanho**: obtenha as recomendações de tamanho para VMs do Azure após a migração, com base no histórico de desempenho das VMs locais.
-- **Estimar os custos mensais**: obtenha os custos estimados para execução de máquinas locais no Azure.  
+- **Avaliar a preparação para o Azure**: avalie se os computadores locais são adequados para execução no Azure.
+- **Obter recomendações de tamanho**: obtenha recomendações de tamanho para VMs do Azure com base no histórico de desempenho das VMs locais.
+- **Estimar custos mensais**: obtenha custos estimados para execução de computadores locais no Azure.  
 - **Migrar com confiança alta**: visualize as dependências de computadores locais para criar grupos de computadores que serão avaliados e migrados juntos.
 
 ## <a name="current-limitations"></a>Limitações atuais
@@ -34,10 +34,14 @@ As Migrações para Azure ajudam você a:
 - Você pode encontrar até 1.500 VMs em uma única descoberta e até 1.500 VMs em um único projeto. Além disso, pode estimar até 1.500 VMs em uma única avaliação.
 - Caso deseje descobrir um ambiente maior, você pode dividir a descoberta e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). As Migrações para Azure oferecem suporte a até 20 projetos por assinatura.
 - As Migrações para Azure são compatíveis com discos gerenciados apenas para avaliação de migração.
--  Você só pode criar um projeto das Migrações para Azure na região geográfica dos Estados Unidos. No entanto, você pode planejar uma migração a qualquer local de destino do Azure.
-    - Apenas os metadados descobertos no ambiente local são armazenados na região do projeto de migração.
-    - Os metadados são armazenados em uma das regiões geográficas selecionadas: Centro-oeste dos EUA/Leste dos EUA.
-    - Se você usar a visualização de dependência criando um novo workspace do Log Analytics, ele é criado na mesma região que o projeto.
+-  Você só pode criar um projeto das Migrações para Azure nas seguintes regiões geográficas. No entanto, isso não restringe sua capacidade de criar avaliações para outros locais do Azure de destino.
+    **Geografia** | **Localização de armazenamento**
+    --- | ---
+    Estados Unidos | Centro-oeste dos EUA ou Leste dos EUA
+    Azure Government | Gov. dos EUA – Virgínia
+
+    A geografia associada ao projeto de migração é usada apenas para armazenar os metadados descobertos no ambiente local. Metadados são armazenados em uma das regiões com base na geografia especificada para o projeto de migração. Se você usar a visualização de dependência criando um novo workspace do Log Analytics, ele é criado na mesma região que o projeto.
+- A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pelo que eu preciso pagar?

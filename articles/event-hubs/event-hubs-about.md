@@ -1,5 +1,5 @@
 ---
-title: O que é Hub de Eventos do Azure? | Microsoft Docs
+title: O que é Hub de Eventos do Azure? – um serviço de ingestão de Big Data | Microsoft Docs
 description: Saiba mais sobre Hubs de Eventos do Azure, um serviço de streaming de Big Data que ingere milhões de eventos por segundo.
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,17 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
-ms.custom: mvc
-ms.date: 08/01/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140142"
 ---
-# <a name="what-is-azure-event-hubs"></a>O que é Hub de Eventos do Azure?
+# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de Eventos do Azure – Uma plataforma de streaming de Big Data e um serviço de ingestão de eventos
 
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. 
 
@@ -66,11 +66,11 @@ Com uma enorme variedade disponível em várias [linguagens (.NET, Java, Python,
 
 Os Hubs de Eventos fornecem um recurso de manipulação de fluxo de mensagens, mas têm características que são diferentes das mensagens corporativas tradicionais. Os recursos de Hubs de Eventos são criados em torno de cenários de alta produtividade e de processamento de eventos. Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
 
-- **Produtores de eventos**: Uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
-- **Partições**: Cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens.
-- **Grupos de consumidores**: Uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham um modo de exibição separado do fluxo de eventos e leiam o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
-- **Unidades de produtividade**: Unidades de capacidade que controlam a capacidade de produtividade dos Hubs de Eventos.
-- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados. Todos os consumidores do Kafka se conectam por meio do protocolo Kafka 1.0 e posterior.
+- **Produtores de eventos**: uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
+- **Partições**: cada consumidor lê somente um subconjunto específico ou partição do fluxo de mensagens.
+- **Grupos de consumidores**: uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham um modo de exibição separado do fluxo de eventos e leiam o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
+- **Unidades de produtividade**: unidades de capacidade pré-adquiridas que controlam a capacidade de produtividade dos Hubs de Eventos.
+- **Receptores de eventos**: qualquer entidade que leia dados de eventos de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados. Todos os consumidores do Kafka se conectam por meio do protocolo Kafka 1.0 e posterior.
 
 A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
 
@@ -81,9 +81,9 @@ A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eve
 
 Para começar a usar os Hubs de Eventos, consulte os artigos a seguir:
 
-1. **Criar um hub de eventos**: [portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
-2. **Enviar eventos para um hub de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-3. **Receber eventos para um hub de eventos**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+1. **Criar um hub de eventos**: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Enviar eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Receber eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
 
 Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – impor padrão de semelhança
+title: Exemplo – impor padrão de semelhança
 description: Esta política de exemplo exige que os recursos atendam ao padrão de semelhança das convenções de nomenclatura.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: c895c92617245f8b60daf463798fac78117a36a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 47ade1081317addadb40fca94bd6c3c5de066f74
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955411"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311568"
 ---
 # <a name="enforce-like-pattern-for-naming-conventions"></a>Impor padrão de semelhança das convenções de nomenclatura
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Revisar mais exemplos em [exemplos do Azure Policy](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

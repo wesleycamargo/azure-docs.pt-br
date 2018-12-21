@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 55a651080c4ed1d22901681317046f0853e257f0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636577"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163099"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
-O Barramento de Serviço do Microsoft Azure é um agente de mensagens de integração empresarial totalmente gerenciado. O Barramento de Serviço é mais comumente usado para desacoplar aplicativos e serviços uns dos outros e é uma plataforma confiável e segura para dados assíncronos e transferência de estado. Os dados são transferidos entre diferentes aplicativos e serviços usando *mensagens*. Uma mensagem é em formato binário que pode conter JSON, XML ou apenas texto. 
+O Barramento de Serviço do Microsoft Azure é um agente de mensagens de [integração](http://azure.com/integration) empresarial totalmente gerenciado. O Barramento de Serviço é mais comumente usado para desacoplar aplicativos e serviços uns dos outros e é uma plataforma confiável e segura para dados assíncronos e transferência de estado. Os dados são transferidos entre diferentes aplicativos e serviços usando *mensagens*. Uma mensagem é em formato binário que pode conter JSON, XML ou apenas texto. 
 
 Alguns cenários de sistema de mensagens comuns são:
 

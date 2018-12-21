@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: fazer uma pesquisa com Node.js – API de Pesquisa na Web do Bing'
+title: 'Início Rápido: executar uma pesquisa Web com Node.js – API REST de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a fazer sua primeira chamada à API de Pesquisa na Web do Bing usando Node.js e receber uma resposta JSON.
+description: Use este Início Rápido para enviar solicitações para a API REST de Pesquisa na Web do Bing usando Node.js e receba uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,20 +10,21 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
 ms.author: aahi
-ms.openlocfilehash: 4c6e74d4ce9e3c1f9d81e640f7fa8071f73ec776
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 3d8b323a316dcef10a0d7beb5d1d2dd122b0e2ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309286"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255577"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Início Rápido: usar Node.js para chamar a API de Pesquisa na Web do Bing  
+# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Pesquise na Web usando a API REST de Pesquisa na Web do Bing e Node.js
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:

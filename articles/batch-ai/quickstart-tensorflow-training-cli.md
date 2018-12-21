@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157915"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408061"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Início Rápido: treinar um modelo de aprendizado profundo com a IA do Lote
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Início Rápido: Treinar um modelo de aprendizado profundo com a IA do Lote
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como treinar um modelo de aprendizado profundo de exemplo em uma máquina virtual habilitada para GPU gerenciada pela IA do Lote. A IA do Lote é um serviço gerenciado para que cientistas de dados e pesquisadores de IA possam treinar modelos de IA e de aprendizado de máquina em larga escala em clusters de máquinas virtuais do Azure. 
 

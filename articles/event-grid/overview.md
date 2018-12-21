@@ -1,21 +1,22 @@
 ---
-title: Visão geral da Grade de Eventos do Azure
-description: Descreve a Grade de Eventos do Azure e seus conceitos.
+title: Publicar e assinar eventos de aplicativo – Grade de Eventos do Azure
+description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fbe9b79cd407f74686d572aa1e5c7ac1d837cd25
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: seodec18
+ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223399"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321009"
 ---
-# <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
+# <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
 A Grade de Eventos do Azure permite compilar facilmente aplicativos com as arquiteturas baseadas em evento. Primeiro, selecione o recurso do Azure que você quer assinar e forneça o manipulador de eventos ou o ponto de extremidade do WebHook ao qual enviar o evento. A Grade de Eventos tem suporte interno para eventos provenientes de serviços do Azure, como blobs de armazenamento e grupos de recursos. A Grade de Eventos também tem suporte para seus próprios eventos usando os tópicos personalizados. 
 
@@ -25,9 +26,9 @@ Atualmente, a Grade de Eventos do Azure está disponível em todas as regiões p
 
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
-![Modelo funcional da Grade de Eventos](./media/overview/functional-model.png)
+![Modelo de Grade de Eventos de origens e manipuladores](./media/overview/functional-model.png)
 
-Observação: essa imagem mostra como a Grade de Eventos conecta fontes e manipuladores, mas não fornece uma lista abrangente de integrações com suporte.
+Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis.
 
 ## <a name="event-sources"></a>Origens de eventos
 
@@ -64,7 +65,7 @@ Há cinco conceitos na Grade de Eventos do Azure para sua utilização:
 * **Eventos**: o que aconteceu.
 * **Origens do evento** - Onde o evento ocorreu.
 * **Tópicos**: o ponto de extremidade onde os publicadores enviam eventos.
-* **Assinaturas de evento**: o ponto de extremidade ou o mecanismo interno para encaminhar eventos, às vezes, para vários manipuladores. As assinaturas também são usadas por manipuladores para filtrar de forma inteligente os eventos de entrada.
+* **Assinaturas de evento**: o ponto de extremidade ou o mecanismo interno para encaminhar eventos, às vezes, para mais de um manipulador. As assinaturas também são usadas por manipuladores para filtrar de forma inteligente os eventos de entrada.
 * **Manipuladores de eventos**: o aplicativo ou serviço que reage ao evento.
 
 Para saber mais sobre esses conceitos, confira [Conceitos na Grade de Eventos do Azure](concepts.md).
@@ -75,7 +76,7 @@ Aqui estão alguns dos principais recursos da Grade de Eventos do Azure:
 
 * **Simplicidade**: aponte e clique para direcionar eventos de seus recursos do Azure para qualquer manipulador de eventos ou ponto de extremidade.
 * **Filtragem avançada**: filtre com tipo de evento ou caminho de publicação do evento para garantir que os manipuladores de eventos recebam apenas eventos relevantes.
-* **Fan-out**: inscreva vários pontos de extremidade no mesmo evento para enviar cópias do evento ao máximo de locais possível.
+* **Fan-out**: assine vários pontos de extremidade no mesmo evento para enviar cópias do evento ao máximo de locais possível.
 * **Confiabilidade**: utilize repetição por 24 horas com retirada exponencial para garantir a entrega dos eventos.
 * **Pagamento por evento**: pague apenas pela quantidade usada da Grade de Eventos.
 * **Alta taxa de transferência**: crie cargas de trabalho de alto volume na Grade de Eventos com suporte para milhões de eventos por segundo.
@@ -86,25 +87,25 @@ Para obter uma comparação de Grade de Eventos, Hubs de Eventos e Barramento de
 
 ## <a name="what-can-i-do-with-event-grid"></a>O que posso fazer com a Grade de Eventos?
 
-A Grade de Eventos do Azure fornece vários recursos que melhoram muito o trabalho sem servidor, de automação de operações e de integração: 
+A Grade de Eventos do Azure fornece vários recursos que melhoram muito o trabalho sem servidor, de automação de operações e de [integração](http://azure.com/integration): 
 
 ### <a name="serverless-application-architectures"></a>Arquiteturas de aplicativo sem servidor
 
-![Aplicativo sem servidor](./media/overview/serverless_web_app.png)
+![Arquiteturas de aplicativo sem servidor](./media/overview/serverless_web_app.png)
 
-A Grade de Eventos conecta fontes de dados e manipuladores de eventos. Por exemplo, use a Grade de Eventos para disparar instantaneamente uma função sem servidor para executar a análise de imagem sempre que uma nova foto é adicionada a um contêiner de armazenamento de blobs. 
+A Grade de Eventos conecta fontes de dados e manipuladores de eventos. Por exemplo, use a Grade de Eventos para disparar uma função sem servidor que analisa imagens quando adicionado a um contêiner de Armazenamento de Blobs. 
 
 ### <a name="ops-automation"></a>Automação de operações
 
 ![Automação de operações](./media/overview/Ops_automation.png)
 
-A Grade de Eventos permite que você acelere a automação e simplifique a imposição de políticas. Por exemplo, a Grade de Eventos pode notificar a Automação do Azure quando uma máquina virtual é criada ou um Banco de Dados SQL é criado. Esses eventos podem ser usados para verificar automaticamente se as configurações do serviço estão em conformidade, colocar os metadados em ferramentas de operações, marcar máquinas virtuais ou arquivar itens de trabalho.
+A Grade de Eventos permite que você acelere a automação e simplifique a imposição de políticas. Por exemplo, use a Grade de Eventos para notificar a Automação do Azure quando uma máquina virtual ou um Banco de Dados SQL é criado. Use os eventos para verificar automaticamente se as configurações do serviço estão em conformidade, colocar os metadados em ferramentas de operações, marcar máquinas virtuais ou arquivar itens de trabalho.
 
 ### <a name="application-integration"></a>Integração de aplicativos
 
-![Integração de aplicativos](./media/overview/app_integration.png)
+![Integração de aplicativos com o Azure](./media/overview/app_integration.png)
 
-A Grade de Eventos conecta seu aplicativo a outros serviços. Por exemplo, crie um tópico personalizado para enviar os dados de evento do aplicativo para a Grade de Eventos e aproveite a entrega confiável, o roteamento avançado e a integração com o Azure. Como alternativa, você pode usar a Grade de Eventos com Aplicativos Lógicos para processar dados em qualquer lugar, sem escrever código. 
+A Grade de Eventos conecta seu aplicativo a outros serviços. Por exemplo, crie um tópico personalizado para enviar os dados de evento do aplicativo para a Grade de Eventos e aproveite a entrega confiável, o roteamento avançado e a integração com o Azure. Como alternativa, você pode usar a Grade de Eventos com os Aplicativos Lógicos para processar dados em qualquer lugar, sem escrever código. 
 
 ## <a name="how-much-does-event-grid-cost"></a>Quanto custa a Grade de Eventos?
 
@@ -121,4 +122,4 @@ A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, par
 * [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)  
   Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o SQL Data Warehouse.
 * [Referência da API REST da Grade de Eventos](/rest/api/eventgrid)  
-  Fornece mais informações técnicas sobre a Grade de Eventos do Azure e uma referência para o gerenciamento de assinaturas, roteamento e filtragem de Evento.
+  Fornece conteúdo de referência para o gerenciamento de Assinaturas de Eventos, roteamento e filtragem.

@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 4: Correspondência de texto exata – Entidade de lista do LUIS'
+title: Correspondência exata do texto
 titleSuffix: Azure Cognitive Services
 description: Obtenha dados que correspondam a uma lista predefinida de itens. Cada item na lista pode ter sinônimos que também tenham correspondência exata
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425064"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096682"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: Extrair correspondências de texto exatas
 Neste tutorial, entenda como obter dados que correspondam a uma lista predefinida de itens. Cada item na lista pode incluir uma lista de sinônimos. Para o aplicativo de recursos humanos, um funcionário pode ser identificado com várias partes importantes de informações como nome, email, número de telefone e ID de imposto federal dos EUA. 
@@ -106,11 +107,11 @@ O nome primário, _canônico_, para cada item é o número do funcionário. Para
 
 3. No diálogo pop-up da entidade, insira `Employee` como o nome de entidade e **List** como o tipo de entidade. Selecione **Concluído**.  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Captura de tela do diálogo pop-up de criação de nova entidade")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up de criação de nova entidade](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Captura de tela da caixa de diálogo pop-up de criação de nova entidade")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. Na página da entidade Funcionário, digite `Employee-24612` como o novo valor.
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de tela da inserção do valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![Captura de tela e inserção de valor](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de tela de inserção de valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. Adicione os seguintes valores como Sinônimos:
 
@@ -122,7 +123,7 @@ O nome primário, _canônico_, para cada item é o número do funcionário. Para
     |Número de celular pessoal|425-555-1212|
     |Número do seguro social|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de tela da inserção de sinônimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![Captura de tela de a inserção de sinônimos](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de tela de inserção de sinônimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. Insira o `Employee-45612` como um novo valor.
 
@@ -150,7 +151,7 @@ O nome primário, _canônico_, para cada item é o número do funcionário. Para
 
 2. Vá até o final da URL no endereço e insira `shift 123-45-6789 from Z-1242 to T-54672`. O último parâmetro de querystring é `q`, o enunciado **q**uery. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar a intenção `MoveEmployee` com `Employee` extraído.
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

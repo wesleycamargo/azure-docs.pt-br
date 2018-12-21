@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – impor padrão de correspondência de marcas
+title: Exemplo – impor padrão de correspondência de tags
 description: Esta política de exemplo exige que os recursos atendam ao padrão de semelhança dos valores de marca.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 4de75212567c03b4fd5395818dbeae7644ee4926
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237a5e9a54394f1227e270c0a42a160f9259710a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963229"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313880"
 ---
 # <a name="enforce-tag-match-pattern-for-tag-values"></a>Imponha um padrão de correspondência de marca para valores de marca
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Analisar mais exemplos em [exemplos do Azure Policy](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

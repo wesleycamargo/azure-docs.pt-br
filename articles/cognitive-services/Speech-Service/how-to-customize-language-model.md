@@ -1,21 +1,22 @@
 ---
 title: 'Tutorial: Como criar um modelo de linguagem com o Serviço de Fala'
 titlesuffix: Azure Cognitive Services
-description: Saiba como criar um modelo de linguagem com o Serviço de Fala.
+description: Saiba como criar um modelo de linguagem com o Serviço de Fala. Use esse modelo de linguagem personalizado em conjunto com os modelos de fala existentes e de última geração da Microsoft para adicionar a interação de voz ao seu aplicativo.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468986"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093436"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -48,7 +49,7 @@ As frases não precisam estar completas nem gramaticalmente corretas, mas devem 
 
 Os dados de modelo de linguagem devem ser escritos em BOM para UTF-8. O arquivo de texto deve conter um exemplo (frase, enunciado ou consulta) por linha.
 
-Se você quiser que determinados termos tenham um peso mais alto (importância), poderá adicionar aos seus dados várias declarações que incluam esses termos. 
+Se você quiser que determinados termos tenham um peso mais alto (importância), poderá adicionar aos seus dados várias declarações que incluam esses termos.
 
 Os principais requisitos para os dados de linguagem estão resumidos na tabela a seguir.
 
@@ -75,7 +76,7 @@ Selecione o botão **Importar** na linha **Conjuntos de Dados de Linguagem**; o 
 
 Quando você estiver pronto para importar seu conjunto de dados de linguagem, faça logon no [portal de Serviço de Fala](https://customspeech.ai). Primeiro, selecione o menu suspenso **Fala Personalizada** na faixa de opções superior. Em seguida, selecione **Dados de Adaptação**. Na primeira vez que você tentar fazer upload dados para Serviços de Fala, verá uma tabela vazia chamada **Conjuntos de Dados**.
 
-Para importar um novo conjunto de dados, selecione o botão **Importar** na linha **Conjuntos de Dados de Linguagem**. Em seguida, o site exibe uma página para carregar um novo conjunto de dados. Insira um **Nome** e uma **Descrição** para ajudar a identificar o conjunto de dados no futuro e então escolha a localidade. 
+Para importar um novo conjunto de dados, selecione o botão **Importar** na linha **Conjuntos de Dados de Linguagem**. Em seguida, o site exibe uma página para carregar um novo conjunto de dados. Insira um **Nome** e uma **Descrição** para ajudar a identificar o conjunto de dados no futuro e então escolha a localidade.
 
 Em seguida, use o botão **Escolher Arquivo** para localizar o arquivo de texto dos dados de linguagem. Depois disso, clique em **Importar** e o conjunto de dados será carregado. Dependendo do tamanho do conjunto de dados, a importação pode levar vários minutos.
 
@@ -97,9 +98,9 @@ Depois que seus dados de linguagem estiverem prontos, clique em **Modelos de Lin
 
 A localidade apropriada deve ser selecionada antes de executar qualquer ação. A localidade atual é indicada no título da tabela em todas as páginas de dados, modelo e implantação. Para alterar a localidade, selecione o botão **Alterar Localidade** que está localizado sob o título da tabela.  Isso o leva para uma página de confirmação de localidade. Selecione **OK** para retornar à tabela.
 
-Na página Criar Modelo de Linguagem, insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização. 
+Na página Criar Modelo de Linguagem, insira um **Nome** e uma **Descrição** para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o **Modelo de Linguagem Base** no menu suspenso. Esse modelo é o ponto de partida para sua personalização.
 
-Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. 
+Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões.
 
 O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala que é falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado "Universal" também está disponível ao público geral. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
 

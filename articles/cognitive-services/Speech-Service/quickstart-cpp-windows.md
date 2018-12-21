@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala em C++ no Windows usando o SDK do Serviço de Fala'
+title: 'Início Rápido: Reconhecer fala, C++ (Windows) – Serviços da API de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK do Serviços de Fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218722"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075180"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows usando o SDK de Fala
 
@@ -31,11 +31,11 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
 1. Inicie o Visual Studio 2017.
 
-1. Verifique se a carga de trabalho **Desenvolvimento para Desktop com C++** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Recursos** na barra de menus do Visual Studio para abrir o Instalador do Visual Studio. Se essa carga de trabalho já estiver habilitada, passe para a próxima etapa. 
+1. Verifique se a carga de trabalho **Desenvolvimento para Desktop com C++** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Recursos** na barra de menus do Visual Studio para abrir o Instalador do Visual Studio. Se essa carga de trabalho já estiver habilitada, passe para a próxima etapa.
 
     ![Captura de tela da guia Cargas de Trabalho do Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    Caso contrário, marque a caixa de seleção ao lado de **Desenvolvimento para Desktop com C++**. 
+    Caso contrário, marque a caixa de seleção ao lado de **Desenvolvimento para Desktop com C++**.
 
 1. Verifique se o componente **Gerenciador de pacotes NuGet** está disponível. Mude para a guia **Componentes individuais** da caixa de diálogo do Instalador do Visual Studio e selecione **Gerenciador de pacotes NuGet** se ainda não estiver habilitado.
 

@@ -1,5 +1,5 @@
 ---
-title: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
+title: Explorar a biblioteca de clientes JavaScript do Azure Time Series Insights | Microsoft Docs
 description: Saiba mais sobre a biblioteca de cliente JavaScript do Azure Time Series Insights e seu respectivo modelo de programação.
 author: ashannon7
 manager: cshankar
@@ -8,14 +8,15 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706986"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269967"
 ---
-# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
+# <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
 Para ajudar a consulta de desenvolvedores Web e visualizar dados armazenados no Time Series Insights (TSI), foi desenvolvida a biblioteca de cliente do TSI baseada em JavaScript D3.  Usando um aplicativo Web de exemplo, este tutorial mostrará em detalhes a biblioteca de cliente do TSI e seu respectivo modelo de programação.
 
@@ -82,7 +83,7 @@ Primeiro, vamos visualizar o código-fonte HTML e JavaScript por trás da págin
 
 3. Expanda o elemento `<div class="chartsWrapper">` para descobrir mais elementos filho `<div>`. Esses elementos são usados para posicionar cada exemplo de controle de gráfico. Observe que há vários pares de elementos `<div>`, um para cada exemplo de gráfico:
 
-   - O primeiro elemento (`class="rowOfCardsTitle"`) contém um título descritivo para resumir o que ilustra os gráficos. Por exemplo: "Gráficos de linha estática com legendas em tamanho natural".
+   - O primeiro elemento (`class="rowOfCardsTitle"`) contém um título descritivo para resumir o que ilustra os gráficos. Por exemplo:  “Gráficos de linhas estáticas com legendas em tamanho natural”.
    - O segundo elemento (`class="rowOfCards"`) é um pai, que contém os elementos filho `<div>` que posicionam o controle de gráfico real em uma linha.
 
    ![Elementos do corpo div](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -96,7 +97,7 @@ Primeiro, vamos visualizar o código-fonte HTML e JavaScript por trás da págin
 Embora não a revisemos em detalhes, a biblioteca de cliente TSI **tsclient.js** fornece, basicamente, uma abstração para duas categorias importantes:
 
 - **Métodos de wrapper para chamar as APIs de consulta TSI**: APIs REST que permitem consultar dados TSI usando expressões de agregação. Os métodos estão organizados no namespace `TsiClient.Server` da biblioteca.
-- **Métodos para criar e preencher os vários tipos de controles de gráfico**: métodos usados para renderizar os dados agregados TSI em uma página Web. Os métodos estão organizados no namespace `TsiClient.UX` da biblioteca.
+- **Métodos para criar e popular os vários tipos de controles de criação de gráficos**: métodos que são usados para renderizar o TSI agregam dados em uma página da Web. Os métodos estão organizados no namespace `TsiClient.UX` da biblioteca.
 
 Os conceitos a seguir são aplicáveis e universais para a APIS da biblioteca de cliente TSI m geral.
 
@@ -236,14 +237,14 @@ Observe o código por trás da seção de HTML no comentário `// Example 13/14/
 1. Primeiro, uma série de ações personalizadas são definidas. Cada ação contém uma matriz com um ou mais elementos. Cada elemento define um item de menu de contexto único:
 
    - `barChartActions`: esta ação define o menu de contexto para o gráfico de pizza, que contém um elemento para definir um único item:
-     - `name`: o texto usado para o item de menu: "Imprimir parâmetros no console".
+     - `name`: O texto que é usado para o item de menu: “Parâmetros de impressão para o console”.
      - `action`: a ação associada ao item de menu. A ação é sempre uma função anônima que usa três argumentos com base na expressão de agregação usada para criar o gráfico. Nesse caso, os argumentos são gravados na janela de console do navegador:
        - `ae`: a matriz de expressão de agregação.
        - `splitBy`: o valor de splitBy.
-       - `timestamp`: carimbo de data/hora.
+       - `timestamp`: o carimbo de data/hora.
 
-   - `pieChartActions`: esta ação define o menu de contexto do gráfico de pizza, que contém um elemento para definir um único item. A forma e o esquema são os mesmos que os anteriores `barChartActions`, mas observe que a função `action` é drasticamente diferente, pois cria e processa o gráfico de barras. Observe também que o argumento `ae` é usado para especificar a matriz de expressão de agregação, que é passada no tempo de execução quando o item de menu se abre. A função também define a `ae.contextMenu` propriedade com o `barChartActions` menu de contexto.
-   - `contextMenuActions`: esta ação define o menu de contexto do gráfico de linha, que contém três elementos para definir três itens de menu. A forma e o esquema para cada elemento é o mesmo dos elementos anteriormente descritos. Assim como o elemento `barChartActions`, o primeiro item grava os argumentos das três funções na janela do navegador do console. Semelhante ao elemento `pieChartActions`, os dois itens instanciam e renderizam os gráficos de pizza e de barras, respectivamente. Os dois itens também definem suas `ae.contextMenu` propriedades com o `pieChartActions` e `barChartActions` menus de contexto, respectivamente.
+   - `pieChartActions`: esta ação define o menu de contexto do gráfico de barras, que contém um elemento para definir um único item. A forma e o esquema são os mesmos que os anteriores `barChartActions`, mas observe que a função `action` é drasticamente diferente, pois cria e processa o gráfico de barras. Observe também que o argumento `ae` é usado para especificar a matriz de expressão de agregação, que é passada no tempo de execução quando o item de menu se abre. A função também define a `ae.contextMenu` propriedade com o `barChartActions` menu de contexto.
+   - `contextMenuActions`: esta ação define o menu de contexto do gráfico de linhas, que contém três elementos para definir três itens de menu. A forma e o esquema para cada elemento é o mesmo dos elementos anteriormente descritos. Assim como o elemento `barChartActions`, o primeiro item grava os argumentos das três funções na janela do navegador do console. Semelhante ao elemento `pieChartActions`, os dois itens instanciam e renderizam os gráficos de pizza e de barras, respectivamente. Os dois itens também definem suas `ae.contextMenu` propriedades com o `pieChartActions` e `barChartActions` menus de contexto, respectivamente.
 
 2. Em seguida, duas expressões de agregação são enviadas por push para a matriz de expressão de agregação `aes`, especificando a matriz `contextMenuActions` para cada item. As expressões são usadas com o controle de gráfico de linha.
 
@@ -262,7 +263,7 @@ Os pincéis são usados para examinar um intervalo de tempo para definir ações
 O código usado para ilustrar pincéis também é mostrado no exemplo anterior de “Gráfico de linha com o menu de contexto para criar gráfico de pizza/barra", que descreve os [Menus de contexto pop-up](#popup-context-menus-section).
 
 1. As ações de pincel são semelhantes a um menu de contexto, que definem uma série de ações personalizadas para o pincel. Cada ação contém uma matriz com um ou mais elementos. Cada elemento define um item de menu de contexto único:
-   - `name`: o texto usado para o item de menu: "Imprimir parâmetros no console".
+   - `name`: O texto que é usado para o item de menu: “Parâmetros de impressão para o console”.
    - `action`: a ação associada ao item de menu, que é sempre uma função anônima que usa dois argumentos. Nesse caso, os argumentos são gravados na janela de console do navegador:
       - `fromTime`: o carimbo de data/hora “de” da seleção do pincel.
       - `toTime`: o carimbo de data/hora “para” da seleção do pincel.
@@ -285,6 +286,6 @@ Neste tutorial, você aprendeu como:
 Como discutido, o aplicativo de exemplo TSI usa um conjunto de dados de demonstração. Para saber como você pode criar seu próprio ambiente TSI e o conjunto de dados, vá para o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar um ambiente do Azure Time Series Insights](tutorial-create-populate-tsi-environment.md)
+> [Tutorial: criar um ambiente do Azure Time Series Insights](tutorial-create-populate-tsi-environment.md)
 
 

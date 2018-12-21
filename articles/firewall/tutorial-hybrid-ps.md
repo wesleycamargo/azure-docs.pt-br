@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316388"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435558"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -24,7 +25,7 @@ Para este tutorial, você deve criar três redes virtuais:
 
 - **VNet-Hub**: o firewall está nessa rede virtual.
 - **VNet-Spoke**: a rede virtual spoke representa a carga de trabalho localizada no Azure.
-- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, ela pode ser conectada por VPN ou conexão ExpressRoute. Para simplificar, este tutorial usa uma conexão de gateway de VPN, e uma rede virtual localizada no Azure é usada para representar uma rede local.
+- **VNet-Onprem**: a rede virtual local representa uma rede local. Em uma implantação real, ela pode ser conectada por VPN ou conexão Rota. Para simplificar, este tutorial usa uma conexão de gateway de VPN, e uma rede virtual localizada no Azure é usada para representar uma rede local.
 
 ![Firewall em uma rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -54,6 +55,12 @@ Há três requisitos principais para que este cenário funcione corretamente:
 - Verifique se você definiu **AllowGatewayTransit** ao emparelhar a VNet-Hub com a VNet-Spoke e **UseRemoteGateways** ao emparelhar a VNet-Spoke com a VNet-Hub.
 
 Consulte a seção [Criar Rotas](#create-routes) deste tutorial para ver como essas rotas são criadas.
+
+>[!NOTE]
+>O Firewall do Azure deve ter conectividade direta com a Internet. Se você tiver habilitado o túnel forçado para local por meio do ExpressRoute ou do Gateway de Aplicativo, será necessário configurar a UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** e, em seguida, atribuí-lo a **AzureFirewallSubnet**.
+
+>[!NOTE]
+>O tráfego entre VNets emparelhadas diretamente será roteado diretamente, mesmo se o UDE apontar para o Firewall do Azure como o gateway padrão. Para enviar tráfego de sub-rede para sub-rede para o firewall nesse cenário, a UDR deve conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

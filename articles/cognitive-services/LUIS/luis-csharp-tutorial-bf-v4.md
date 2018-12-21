@@ -1,23 +1,24 @@
 ---
-title: Bot de LUIS com C# – Tutorial – Bot de aplicativo Web – SDK de Bot Framework 4.0
-titleSuffix: Azure Cognitive Services
+title: Bot – C# – v4
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Usando C#, crie um bot de bate-papo integrado com reconhecimento vocal (LUIS). Este chat bot usa o aplicativo de Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com o Bot Framework versão 4 e o bot de aplicativo Web do Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 3ccec4fbd0fd69539e29e2f15f71115444bf0a48
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389282"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138902"
 ---
-# <a name="tutorial-luis-bot-in-c"></a>Tutorial: bot de LUIS em C#
+# <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot do LUIS em C# com o Bot Framework 4.x e o bot de aplicativo Web do Azure
 Usando o C#, é possível criar um chat bot integrado com LUIS (reconhecimento vocal). Este bot usa o aplicativo HomeAutomation para implementar uma solução de bot. O bot é criado no [bot do aplicativo Web](https://docs.microsoft.com/azure/bot-service/) do Azure com o [Bot Framework versão](https://github.com/Microsoft/botbuilder-js) v4.
 
 **Neste tutorial, você aprenderá a:**

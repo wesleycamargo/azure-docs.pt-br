@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: fazer uma pesquisa com Java – API de Pesquisa na Web do Bing'
+title: 'Início Rápido: executar uma pesquisa Web com Java – API REST de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a fazer sua primeira chamada à API de Pesquisa na Web do Bing usando Java e receber uma resposta JSON.
+description: Use este Início Rápido para enviar solicitações para a API REST de Pesquisa na Web do Bing usando Java e receba uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,20 +10,21 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312656"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260966"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Início Rápido: usar Java para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Início Rápido: pesquisar na Web usando a API REST de Pesquisa na Web do Bing e Java
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:

@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo Web Flask com Python e a API do MongoDB do Azure Cosmos DB'
+title: 'O Azure Cosmos DB: compilar um aplicativo Web Flask com Python e a API do MongoDB do Azure Cosmos DB'
 description: Apresenta um exemplo de código Python do Flask que você pode usar para se conectar à API do MongoDB do Azure Cosmos DB e consultá-la
 services: cosmos-db
 author: slyons
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849050"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165105"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: criar um aplicativo Flask com a API do MongoDB
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>O Azure Cosmos DB: compilar um aplicativo Flask com a API do MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -46,7 +46,7 @@ Este guia de início rápido, usa o seguinte [exemplo do Flask](https://github.c
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora vamos clonar um aplicativo de API Flask-MongoDB do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.
+Agora, vamos clonar um aplicativo de API Flask-MongoDB do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -120,7 +120,7 @@ Os snippets de código a seguir são obtidos do arquivo app.py e usam a cadeia d
 
 Se você quiser testar o código em relação a uma conta ativa do Azure Cosmos DB, acesse o portal do Azure para criar uma conta e obter as informações da cadeia de conexão. Em seguida, copie-a no aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o Nome de usuário, Senha e Host para o arquivo Dal.cs na próxima etapa.
 
 2. Abra o arquivo **app.py** no diretório raiz.
 
@@ -149,7 +149,7 @@ Em seguida, você precisa adicionar as suas informações de MONGOURL, MONGO_PAS
 Se você não quiser criar um fork deste repositório, clique no botão Implantar no Azure abaixo. Em seguida, entre no Azure e defina as configurações do aplicativo com as informações da sua conta do Cosmos DB.
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]

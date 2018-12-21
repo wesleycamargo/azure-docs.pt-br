@@ -8,17 +8,17 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850330"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080394"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
-O Azure Cosmos DB dá suporte ao idioma de percurso do grafo do [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) que é uma API do Gremlin para criar entidades de grafo e executar operações de consulta do grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
+O Azure Cosmos DB dá suporte ao idioma de percurso do grafo do [Apache Tinkerpop](https://tinkerpop.apache.org), [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) que é uma API do Gremlin para criar entidades de grafo e executar operações de consulta do grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
-O Azure Cosmos DB traz recursos prontos para empresas para bancos de dados de grafo. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o Azure Cosmos DB dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de grafo sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o Azure Cosmos DB integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+O Azure Cosmos DB traz recursos prontos para empresas para bancos de dados de grafo. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o Azure Cosmos DB dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de grafo sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o Azure Cosmos DB integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
 Neste artigo, fornecemos instruções passo a passo rápidas do Gremlin e enumeramos os recursos e as etapas do Gremlin compatíveis com a API do Gremlin.
 
@@ -29,19 +29,19 @@ Vamos usar um grafo de exemplo para entender como as consultas podem ser express
 
 Este grafo tem os seguintes tipos de vértice (chamados de "rótulo" no Gremlin):
 
-- Pessoas: o grafo tem três pessoas; Robin, Thomas e Ben
-- Interesses: os interesses dessas pessoas, que neste exemplo é o jogo de futebol
-- Dispositivos: os dispositivos que as pessoas usam
-- Sistemas operacionais: os sistemas operacionais que os dispositivos executam
+- Pessoas: O grafo tem três pessoas; Robin, Thomas e Ben
+- Interesses: Os interesses dessas pessoas, que neste exemplo é o jogo de futebol
+- Dispositivos: Os dispositivos que as pessoas usam
+- Sistemas operacionais: Os sistemas operacionais em que os dispositivos executam
 
 Nós representamos as relações entre essas entidades usando os seguintes tipos/rótulos de borda:
 
-- Knows (conhece): por exemplo, "Thomas conhece Robin"
-- Interested (interessado): para representar os interesses das pessoas em nosso grafo, por exemplo, "Ben está interessado em futebol"
-- RunsOS: o laptop executa o sistema operacional Windows
-- Uses (usa): para representar qual dispositivo uma pessoa usa. Por exemplo, Robin usa um telefone Motorola com o número de série 77
+- Conhece: Por exemplo, "Thomas conhece Robin"
+- Interessado: Para representar os interesses das pessoas em nosso grafo, por exemplo, "Ben está interessado em futebol"
+- RunsOS: O laptop executa o sistema operacional Windows
+- Usa: Para representar qual dispositivo uma pessoa usa. Por exemplo, Robin usa um telefone Motorola com o número de série 77
 
-Vamos executar algumas operações nesse grafo usando o [Console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Você também pode executar essas operações usando drivers do Gremlin na plataforma de sua escolha (Java, Node.js, Python ou .NET).  Antes de examinarmos o que tem suporte no BD Cosmos do Azure, vejamos alguns exemplos para nos familiarizarmos com a sintaxe.
+Vamos executar algumas operações nesse grafo usando o [Console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Você também pode executar essas operações usando drivers do Gremlin na plataforma de sua escolha (Java, Node.js, Python ou .NET).  Antes de examinarmos o que tem suporte no BD Cosmos do Azure, vejamos alguns exemplos para nos familiarizarmos com a sintaxe.
 
 Primeiro, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no grafo:
 
@@ -151,46 +151,46 @@ Cada propriedade pode armazenar diversos valores em uma matriz.
 | value | O valor da propriedade
 
 ## <a name="gremlin-steps"></a>Etapas do Gremlin
-Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
+Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](https://tinkerpop.apache.org/docs/current/reference).
 
 | Etapa | DESCRIÇÃO | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
-| `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Adiciona um vértice ao grafo | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Garante que todas as passagens retornem um valor | [e uma etapa](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Um modulador de etapa para atribuir uma variável à saída de uma etapa | [Etapa as](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Um modulador de etapa usado com `group` e `order` | [Etapa by](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Retorna a primeira passagem que retorna um resultado | [Etapa coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Retorna um valor constante. Usada com `coalesce`| [Etapa constant](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Retorna a contagem da passagem | [Etapa count](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Retorna os valores com as duplicatas removidas | [Etapa dedup](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Remove os valores (vértice/borda) | [Etapa drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Atua como uma barreira que calcula o valor agregado dos resultados| [Etapa fold](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Agrupa os valores com base nos rótulos especificados| [Etapa group](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Usada para filtrar propriedades, vértices e bordas. Dá suporte às variantes `hasLabel`, `hasId`, `hasNot` e `has`. | [Etapa has](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Insere valores em um fluxo| [Etapa inject](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Usada para executar um filtro usando uma expressão booliana | [Etapa is](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Usada para limitar o número de itens na passagem| [Etapa limit](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | A etapa local encapsula uma seção de uma passagem, de forma semelhante a uma subconsulta | [Etapa local](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Usada para produzir a negação de um filtro | [Etapa not](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Retorna o resultado da passagem especificada se ela produzir um resultado. Caso contrário, retorna o elemento de chamada | [Etapa optional](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Garante que pelo menos uma das passagens retorne um valor | [Etapa or](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Retorna os resultados na ordem de classificação especificada | [Etapa order](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Retorna o caminho completo da passagem | [Etapa path](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Projeta as propriedades como um mapa | [Etapa project](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Retorna as propriedades para os rótulos especificados | [Etapa properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Filtra para o intervalo de valores especificado| [Etapa range](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Repete a etapa o número de vezes especificado. Usada para efetuar loop | [Etapa repeat](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Usada para fazer a amostragem dos resultados da passagem | [Etapa sample](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Usada para projetar resultados da passagem |  [Etapa select](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Usada para agregações sem bloqueio da passagem | [Etapa store](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Agrega os caminhos de um vértice em uma árvore | [Etapa tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Desenrola um iterador como uma etapa| [Etapa unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Mescla resultados de várias passagens| [Etapa union](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Inclui as etapas necessárias para passagens entre vértices e bordas `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` e `otherV` para | [Etapa vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Usada para filtrar os resultados da passagem. Dá suporte aos operadores `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e `between`  | [Etapa where](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Adiciona um vértice ao grafo | [Etapa addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Garante que todas as passagens retornem um valor | [e uma etapa](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Um modulador de etapa para atribuir uma variável à saída de uma etapa | [Etapa as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Um modulador de etapa usado com `group` e `order` | [Etapa by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Retorna a primeira passagem que retorna um resultado | [Etapa coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Retorna um valor constante. Usada com `coalesce`| [Etapa constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Retorna a contagem da passagem | [Etapa count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Retorna os valores com as duplicatas removidas | [Etapa dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Remove os valores (vértice/borda) | [Etapa drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Atua como uma barreira que calcula o valor agregado dos resultados| [Etapa fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Agrupa os valores com base nos rótulos especificados| [Etapa group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Usada para filtrar propriedades, vértices e bordas. Dá suporte às variantes `hasLabel`, `hasId`, `hasNot` e `has`. | [Etapa has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Insere valores em um fluxo| [Etapa inject](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Usada para executar um filtro usando uma expressão booliana | [Etapa is](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Usada para limitar o número de itens na passagem| [Etapa limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | A etapa local encapsula uma seção de uma passagem, de forma semelhante a uma subconsulta | [Etapa local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Usada para produzir a negação de um filtro | [Etapa not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Retorna o resultado da passagem especificada se ela produzir um resultado. Caso contrário, retorna o elemento de chamada | [Etapa optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garante que pelo menos uma das passagens retorne um valor | [Etapa or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Retorna os resultados na ordem de classificação especificada | [Etapa order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Retorna o caminho completo da passagem | [Etapa path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projeta as propriedades como um mapa | [Etapa project](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Retorna as propriedades para os rótulos especificados | [Etapa properties](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtra para o intervalo de valores especificado| [Etapa range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Repete a etapa o número de vezes especificado. Usada para efetuar loop | [Etapa repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Usada para fazer a amostragem dos resultados da passagem | [Etapa sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Usada para projetar resultados da passagem |  [Etapa select](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | Usada para agregações sem bloqueio da passagem | [Etapa store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Agrega os caminhos de um vértice em uma árvore | [Etapa tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Desenrola um iterador como uma etapa| [Etapa unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Mescla resultados de várias passagens| [Etapa union](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Inclui as etapas necessárias para passagens entre vértices e bordas `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` e `otherV` para | [Etapa vertex](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Usada para filtrar os resultados da passagem. Dá suporte aos operadores `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e `between`  | [Etapa where](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-O mecanismo otimizado para gravação do Azure Cosmos DB dá suporte à indexação automática de todas as propriedades dentro dos vértices e bordas por padrão. Sendo assim, consultas com filtros, consultas de intervalo, classificações ou agregações de qualquer propriedade são processadas no índice e atendidas de modo eficiente. Para obter mais informações sobre como a indexação funciona no BD Cosmos do Azure, consulte nosso artigo sobre [Indexação independente do esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+O mecanismo otimizado para gravação do Azure Cosmos DB dá suporte à indexação automática de todas as propriedades dentro dos vértices e bordas por padrão. Sendo assim, consultas com filtros, consultas de intervalo, classificações ou agregações de qualquer propriedade são processadas no índice e atendidas de modo eficiente. Para obter mais informações sobre como a indexação funciona no BD Cosmos do Azure, consulte nosso artigo sobre [Indexação independente do esquema](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Comece a compilar um aplicativo de grafo [usando nossos SDKs](create-graph-dotnet.md) 

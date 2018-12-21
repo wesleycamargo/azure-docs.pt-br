@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315443"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164660"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação de R paralelo com o Lote do Azure 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralelo com o Lote do Azure 
 
 Execute suas cargas de trabalho R paralelas em larga escala usando [doAzureParallel](http://www.github.com/Azure/doAzureParallel), um pacote em R leve que permite que você use o Lote do Azure diretamente na sessão de R. O pacote doAzureParallel se baseia no pacote popular em R [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel usa cada iteração do loop foreach e o envia como uma tarefa do Lote do Azure.
 
@@ -30,7 +30,7 @@ Este tutorial mostra como implantar um pool do Lote e executar um trabalho de R 
 > * Criar um pool do Lote como um back-end paralelo para a sessão de R
 > * Executar uma simulação paralela do exemplo no pool
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma distribuição [R](https://www.r-project.org/) instalada, como o [Microsoft R Open](https://mran.microsoft.com/open). Use a versão do R 3.3.1 ou posterior.
 
@@ -45,7 +45,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Instalar doAzureParallel
 
-No console do RStudio, instale o [pacote doAzureParallel do Github](http://www.github.com/Azure/doAzureParallel). Os comandos abaixo baixam e instalam o pacote e suas dependências na sessão atual do R: 
+No console do RStudio, instale o [Pacote doAzureParallel do GitHub](http://www.github.com/Azure/doAzureParallel). Os comandos abaixo baixam e instalam o pacote e suas dependências na sessão atual do R: 
 
 ```R
 # Install the devtools package  

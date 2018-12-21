@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287227"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311058"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: conectar usuários e chamar a API do Microsoft Graph em um aplicativo Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Caso esteja desenvolvendo um aplicativo do Android, a Microsoft torna simples e direta a entrada de usuários do Azure Active Directory (Azure AD). O Azure AD permite que seu aplicativo acesse dados de usuário por meio do Microsoft Graph ou sua própria API da Web protegida.
 
-A biblioteca do Android para ADAL (Biblioteca de Autenticação do Azure AD) dá a seu aplicativo a capacidade de começar a usar a [Nuvem do Microsoft Azure](https://cloud.microsoft.com) & [API do Microsoft Graph](https://developer.microsoft.com/graph) dando suporte a [Contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usando o padrão do setor OAuth 2.0 e o OpenID Connect.
+A biblioteca do Android para ADAL (Biblioteca de Autenticação do Azure AD) dá a seu aplicativo a capacidade de começar a usar a [Nuvem do Microsoft Azure](https://cloud.microsoft.com) e a [API do Microsoft Graph](https://developer.microsoft.com/graph) dando suporte a [Contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) usando o padrão do setor OAuth 2.0 e o OpenID Connect.
 
 Neste início rápido, você aprenderá a:
 
@@ -56,18 +56,18 @@ Você pode encontrar o código de exemplo completo [no GitHub](https://github.co
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -95,13 +95,13 @@ Você precisará ter um aplicativo cliente nativo registrado na Microsoft usando
     - Selecione **Adicionar**, e dentro de **Selecionar uma API**, selecione ***Microsoft Graph***.
     - Selecione a permissão **Entrar e ler o perfil de usuário**, depois selecione **Selecionar** para salvar.
         - Essa permissão mapeia para o escopo `User.Read`.
-    - Opcional: em **Permissões necessárias > Windows Azure Active Directory**, remova a permissão selecionada **Entrar e ler o perfil de usuário**. Isso evitará que a página de consentimento do usuário liste a permissão duas vezes.
+    - Opcional: Em **Permissões necessárias > Microsoft Azure Active Directory**, remova a permissão selecionada **Entrar e ler o perfil do usuário**. Isso evitará que a página de consentimento do usuário liste a permissão duas vezes.
 
 4. Parabéns! Seu aplicativo foi configurado com êxito. Na próxima seção, você precisará:
     - `Application ID`
     - `Redirect URI`
 
-## <a name="step-2-get-the-sample-code"></a>Etapa 2: Obter o código de exemplo
+## <a name="step-2-get-the-sample-code"></a>Etapa 2: Obter o código de amostra
 
 1. Clonar o código.
     ```
@@ -110,14 +110,14 @@ Você precisará ter um aplicativo cliente nativo registrado na Microsoft usando
 2. Abrir o exemplo no Android Studio.
     - Selecionar **Abrir um projeto existente do Android Studio**.
 
-## <a name="step-3-configure-your-code"></a>Etapa 3: Configure seu código
+## <a name="step-3-configure-your-code"></a>Etapa 3: Configurar seu código
 
 Você pode encontrar todas as configurações deste exemplo de código no arquivo ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 
 1. Substitua a constante `CLIENT_ID` por `ApplicationID`.
 2. Substitua a constante `REDIRECT URI` pelo `Redirect URI` configurado anteriormente (`http://localhost`).
 
-## <a name="step-4-run-the-sample"></a>Etapa 4: Executar o exemplo
+## <a name="step-4-run-the-sample"></a>Etapa 4: Execute o exemplo
 
 1. Selecione **Compilar > Limpar Projeto**.
 2. Selecione **Executar > Executar aplicativo**.

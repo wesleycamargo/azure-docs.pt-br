@@ -1,21 +1,21 @@
 ---
-title: Tutorial das Instâncias de Contêiner do Azure - Preparar seu aplicativo
-description: Tutorial das Instâncias de Contêiner do Azure parte 1 de 3 – Preparar um aplicativo para implantação nas Instâncias de Contêiner do Azure
+title: Tutorial – Preparar a imagem de contêiner para Instâncias de Contêiner do Azure
+description: Tutorial das Instâncias de Contêiner do Azure, parte 1 de 3 – Preparar um aplicativo em uma imagem de contêiner para implantação nas Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854772"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186405"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutorial: criar contêiner para implantação nas Instâncias de Contêiner do Azure
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contêiner para implantação nas Instâncias de Contêiner do Azure
 
 As Instâncias de Contêiner do Azure permitem a implantação de contêineres do Docker na infraestrutura do Azure sem o provisionamento de quaisquer máquinas virtuais ou a adoção de serviço de nível superior. Neste tutorial, você empacotará um aplicativo Web pequeno no Node.js em uma imagem de contêiner que pode ser executada usando as Instâncias de Contêiner do Azure.
 

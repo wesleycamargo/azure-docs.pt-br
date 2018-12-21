@@ -1,25 +1,25 @@
 ---
-title: Criar fluxos de trabalho para processar emails e anexos – Aplicativo Lógico do Azure | Microsoft Docs
-description: Este tutorial mostra como criar fluxos de trabalho automatizados para que você possa processar emails e anexos com o Aplicativo Lógico do Azure, o Armazenamento do Azure e o Azure Functions
+title: Tutorial – Automatizar o processamento de emails e anexos – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Tutorial – Crie fluxos de trabalho automatizados que manuseiam emails e anexos com os Aplicativos Lógicos do Azure, o Armazenamento do Azure e o Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231961"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140499"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Processar emails e anexos com o Aplicativo Lógico do Azure
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
 
-Os Aplicativos Lógicos do Azure ajudam a automatizar fluxos de trabalho e a integrar os dados entre os serviços do Azure, os serviços da Microsoft, outros aplicativos SaaS (software como serviço) e sistemas locais. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) que trata a emails recebidos e anexos. Esse aplicativo lógico processa esse conteúdo, salva-o no armazenamento do Azure e envia notificações para revisão do conteúdo. 
+Os Aplicativos Lógicos do Azure ajudam a automatizar fluxos de trabalho e a integrar os dados entre os serviços do Azure, os serviços da Microsoft, outros aplicativos SaaS (software como serviço) e sistemas locais. Este tutorial mostra como você pode criar um [aplicativo lógico](../logic-apps/logic-apps-overview.md) que trata a emails recebidos e anexos. Esse aplicativo lógico analisa o conteúdo do email, salva o conteúdo no armazenamento do Azure e envia notificações para revisão do conteúdo. 
 
 Neste tutorial, você aprenderá como:
 
@@ -144,7 +144,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente | 
    | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). | 
    | **Localidade** | Oeste dos EUA | A mesma região que você usou anteriormente | 
-   | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** a conta de armazenamento contém seus aplicativos de funções e é diferente da sua conta de armazenamento criada anteriormente para anexos de email. | 
+   | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para seu aplicativo de funções. Use apenas letras minúsculas e números. <p>**Observação:** a conta de armazenamento contém seus aplicativos de funções e é diferente da conta de armazenamento criada anteriormente para anexos de email. | 
    | **Application Insights** | Desativar | Ativa o monitoramento de aplicativos com o [Application Insights](../application-insights/app-insights-overview.md), mas, para este tutorial, escolha a configuração **Desativado**. | 
    |||| 
 
@@ -246,11 +246,11 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 ## <a name="monitor-incoming-email"></a>Monitorar o recebimento de emails
 
-1. No designer na caixa de pesquisa, digite "quando o novo email chega" como filtro. Selecione este disparador para seu provedor de email: **Quando um novo email é recebido – <*seu-provedor-de-email*>**
+1. No designer na caixa de pesquisa, digite "quando o novo email chega" como filtro. Selecione esse gatilho para seu provedor de email: **Quando um novo email é recebido – <*seu provedor-de-email*>**
 
    Por exemplo: 
 
-   ![Selecionar este disparador para o provedor de email: "Quando um novo email é recebido"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Selecione esse gatilho para o provedor de email: "Quando um novo email é recebido"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Para as contas corporativas ou de estudante do Azure, selecione o Outlook do Office 365. 
    * Para contas pessoais da Microsoft, selecione Outlook.com. 
@@ -313,7 +313,7 @@ Agora, adicione uma condição que seleciona somente emails com anexos.
 
    2. Na caixa do meio, mantenha o operador **é igual a**.
 
-   3. Na caixa à direita, insira **True** como o valor a ser comparado com o valor **Tem Anexo** da propriedade do gatilho.
+   3. Na caixa à direita, insira **true** como o valor a ser comparado com o valor da propriedade **Com Anexo** do gatilho.
 
       ![Condição da compilação](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -328,7 +328,7 @@ Agora, adicione uma condição que seleciona somente emails com anexos.
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,7 +377,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Dentro de "If true", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Na caixa de pesquisa, procure "azure functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
+2. Na caixa de pesquisa, encontre "azure functions" e selecione esta ação: **Escolher uma função do Azure – Azure Functions**
 
    ![Selecionar ação para "Escolher uma função do Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -385,7 +385,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Selecione o aplicativo de funções do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. Agora, selecione a função: **RemoveHTMLFunction**
+4. Selecione sua função: **RemoveHTMLFunction**
 
    ![Selecionar a função do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -572,7 +572,7 @@ Em seguida, adicione uma ação para que seu aplicativo lógico envie email para
 
 ## <a name="send-email-notifications"></a>Enviar notificações por email
 
-1. Na ramificação **if true**, no loop **Para cada anexo de email**, escolha **Adicionar uma ação**. 
+1. No branch **Se verdadeiro**, no loop **Para cada anexo de email**, escolha **Adicionar uma ação**. 
 
    ![Adicionar ação no loop "for each"](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

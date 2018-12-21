@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844831"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437139"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Redefinição de senha do Azure AD a partir da tela de logon
 
@@ -29,8 +29,8 @@ Neste tutorial, você permitirá que os usuários redefinam suas senhas na tela 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Atualização de 10 de abril de 2018 do Windows, ou o cliente mais recente é:
-   * [Ingressado no Azure AD](../device-management-azure-portal.md) ou 
-   * [Ingressado no Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Computador ingressado no Azure AD](../device-management-azure-portal.md) ou
+   * [Computador ingressado no Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md) com conectividade de rede para um controlador de domínio.
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar o link Redefinir senha usando o Intune
@@ -125,7 +125,11 @@ As configurações de política a seguir são conhecidas por interferir com a ca
    * EnableLostMode é definido no dispositivo
    * Explorer.exe é substituído por um shell personalizado
 
+Esse recurso não funciona para redes com autenticação de rede 802.1x implantada e a opção "Executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1x implantada, é recomendável usar a autenticação de computador para habilitar esse recurso.
+
 Se os seus computadores com Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deverá ter permissão.
+
+Para cenários Ingressados em Domínio Híbrido, existe um cenário em que o fluxo de trabalho SSPR será concluído sem necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessária para usar a nova senha pela primeira vez.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623818"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191896"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o SQL Azure
 
@@ -63,6 +63,8 @@ Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Manage
 
 - [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+O BD SQL requer nomes de exibição exclusivos do AAD. Com isso, contas do AAD como usuários, grupos e Entidades de serviço (aplicativos) e nomes de VM habilitados para identidade gerenciada devem ser definidos exclusivamente no AAD com relação a seus nomes de exibição. O BD SQL verifica o nome de exibição do AAD durante a criação do T-SQL desses usuários e, se ele não for exclusivo, o comando falhará solicitando para fornecer um nome de exibição do AAD exclusivo para uma determinada conta.
 
 1.  Inicie o SQL Server Management Studio.
 2.  Na caixa de diálogo **Conectar-se ao servidor**, insira o nome de seu SQL Server no campo **Nome do servidor**.

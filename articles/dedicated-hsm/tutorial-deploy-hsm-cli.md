@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Implantação de HSM dedicado do Azure em uma rede virtual existente usando a CLI | Microsoft Docs
-description: Tutorial que mostra como implantar um HSM dedicado usando a CLI
+title: Tutorial – Implantar em uma rede virtual existente usando a CLI do Azure – HSM Dedicado do Azure | Microsoft Docs
+description: Tutorial mostrando como implantar um HSM dedicado usando a CLI em uma rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679640"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080309"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial – Implantar HSMs em uma rede virtual existente usando a CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI
 
 O HSM dedicado do Azure fornece um dispositivo físico para uso exclusivo do cliente, com controle administrativo e responsabilidade de gerenciamento completos. O uso de dispositivos físicos faz com que a Microsoft precise controlar a alocação de dispositivos para gerenciar a capacidade com eficiência. Como resultado, dentro de uma assinatura do Azure, o serviço HSM dedicado normalmente não estará visível para o provisionamento de recursos. Qualquer cliente do Azure que precise de acesso ao serviço de HSM dedicado deve, primeiro, entrar em contato com o responsável pela conta da Microsoft para solicitar o registro no serviço. O provisionamento será possível depois que esse processo tiver sido concluído com êxito. 
 
@@ -130,7 +130,7 @@ Assim que os valores de parâmetro estiverem definidos, os arquivos precisarão 
 
 O shell de comando tem uma opção de upload/download na barra de ferramentas, e você deve selecionar essa opção para fazer o upload dos arquivos de modelo e parâmetros para seu compartilhamento de arquivos:
 
-![status da assinatura](media/tutorial-deploy-hsm-cli/file-share.png)
+![compartilhamento de arquivos](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Assim que os arquivos forem carregados, você poderá criar recursos. Antes da criação de novos recursos do HSM, alguns recursos de pré-requisito devem estar em uso. Você deve ter uma rede virtual com intervalos de sub-rede para computação, HSMs e gateway. Os comandos a seguir servem como exemplo do que criaria essa rede virtual.
 
@@ -177,7 +177,7 @@ Essa implantação deve levar aproximadamente de 25 a 30 minutos para ser conclu
 
 ![status do provisionamento](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-Após a conclusão bem-sucedida da implantação, a mensagem "provisioningState": "Êxito" será exibida. Você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando a implantação for concluída com êxito, "provisioningState": "êxito" será exibido. Você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificar a implantação
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![status do provisionamento](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![saída do provisionamento](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Agora você também pode ver os recursos usando o [Azure Resource Explorer](https://resources.azure.com/).   Uma vez no Explorer, expanda “Assinaturas” à esquerda, expanda sua assinatura específica do HSM Dedicado, expanda “grupos de recursos”, expanda o grupo de recursos que você usou e, por fim, selecione o item “recursos”.
 

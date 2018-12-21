@@ -1,6 +1,6 @@
 ---
-title: Tutorial do C# de sinônimos no Azure Search | Microsoft Docs
-description: Neste tutorial, adicione o recurso de sinônimos a um índice no Azure Search.
+title: Tutorial de sinônimos do C# – Azure Search
+description: Neste tutorial do C#, adicione o recurso de sinônimos a um índice no Azure Search. Um mapa de sinônimos é uma lista de termos equivalentes. Campos com suporte a sinônimos expandem consultas para incluir o termo fornecido pelo usuário e todos os sinônimos de relacionados.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990554"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309222"
 ---
 # <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: Adicionar sinônimos para o Azure Search em C#
 
@@ -37,7 +38,7 @@ Os requisitos do tutorial incluem o seguinte:
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Serviço do Azure Search](search-create-service-portal.md)
 * [Biblioteca do .NET Microsoft.Azure.Search](https://aka.ms/search-sdk)
-* [Como usar o Azure Search a partir de um Aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Como usar o Azure Search de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## <a name="overview"></a>Visão geral
 
@@ -167,7 +168,7 @@ Você pode encontrar o código-fonte completo do aplicativo de exemplo usado nes
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida para limpar depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
+A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
 
 ## <a name="next-steps"></a>Próximas etapas
 

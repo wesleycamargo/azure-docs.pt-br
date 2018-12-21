@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: executar uma pesquisa com PHP – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a fazer sua primeira chamada à API de Pesquisa na Web do Bing usando PHP e receber uma resposta JSON.
+description: Use este Início Rápido para enviar solicitações para a API REST de Pesquisa na Web do Bing usando PHP e receba uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,20 +10,21 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4338d0703bbe8e55d3bf7c79d9bb30a5089ba6d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314585"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261578"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: Usar PHP para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: usar PHP para chamar a API de Pesquisa na Web do Bing  
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:

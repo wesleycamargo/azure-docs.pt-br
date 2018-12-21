@@ -1,5 +1,5 @@
 ---
-title: Tutorial para indexação de bancos de dados SQL do Azure no Azure Search | Microsoft Docs
+title: Tutorial para indexação de bancos de dados SQL do Azure no portal do Azure – Azure Search
 description: Neste tutorial, rastreie um banco de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988788"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312044"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Rastrear um banco de dados SQL do Azure usando indexadores do Azure Search
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
 
 Este tutorial mostra como configurar um indexador para extrair dados pesquisáveis de um banco de dados SQL do Azure de exemplo. [Indexadores](search-indexer-overview.md) são componentes do Azure Search que rastreiam as fontes de dados externas, preenchendo um [índice de pesquisa](search-what-is-an-index.md) com conteúdo. De todos os indexadores, o indexador do banco de dados SQL do Azure é mais usado. 
 
@@ -114,7 +115,7 @@ Você pode usar o portal do Azure e o arquivo *hotels.sql* de exemplo para criar
 
 O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados existentes e instrui você a criar os dois na etapa 2. Opcionalmente, se você tiver um recurso existente, pode adicionar a tabela hotéis, começando na etapa 4.
 
-1. Entre no [portal do Azure](https://portal.azure.com/). 
+1. Entre no [Portal do Azure](https://portal.azure.com/). 
 
 2. Clique em **Criar um recurso** > **Banco de Dados SQL** para criar um banco de dados, um servidor e um grupo de recursos. Você pode usar os padrões e o tipo de preço com o valor mais baixo. Uma vantagem de criar um servidor é que você pode especificar um nome de usuário e senha do administrador, necessários para criar e carregar tabelas em uma etapa posterior.
 
@@ -272,7 +273,7 @@ Todos os indexadores, incluindo o que você acabou de criar de forma programáti
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A maneira mais rápida para limpar depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
+A maneira mais rápida de fazer a limpeza depois de um tutorial é excluindo o grupo de recursos que contém o serviço Azure Search. Você pode excluir o grupo de recursos agora para excluir permanentemente todo o conteúdo. No portal, o nome do grupo de recursos está na página Visão geral do serviço Azure Search.
 
 ## <a name="next-steps"></a>Próximas etapas
 

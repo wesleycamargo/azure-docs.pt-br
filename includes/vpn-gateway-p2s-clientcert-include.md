@@ -5,30 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/06/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 01a62fe7abb8a79f9afc08c0ff707cdfbb97ddac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44343182"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323609"
 ---
-Cada computador cliente que se conecta a uma rede virtual usando ponto a site deve ter um certificado do cliente instalado. O certificado de cliente é gerado a partir do certificado raiz e instalado em cada computador cliente. Se um certificado de cliente válido não for instalado, e o cliente tentar se conectar à rede virtual, a autenticação falhará.
+Cada computador cliente que você conectar a uma VNet com uma conexão Ponto a Site deve ter um certificado de cliente instalado. Você pode gerá-lo do certificado raiz e instalá-lo em cada computador cliente. Se você não instalar um certificado de cliente válido, a autenticação falhará quando o cliente tenta se conectar à VNet.
 
-Você pode gerar um certificado exclusivo para cada cliente ou pode usar o mesmo certificado para vários clientes. A vantagem da geração de certificados de cliente exclusivos é a capacidade de revogar um único certificado. Caso contrário, se vários clientes estiverem usando o mesmo certificado de cliente e for necessário revogá-lo, você precisará gerar e instalar novos certificados para todos os clientes que usam aquele certificado para autenticação.
+Você pode gerar um certificado exclusivo para cada cliente ou pode usar o mesmo certificado para vários clientes. A vantagem da geração de certificados de cliente exclusivos é a capacidade de revogar um único certificado. Caso contrário, se vários clientes usarem o mesmo certificado de cliente para autenticar e você o revogar, você precisará gerar e instalar novos certificados para cada cliente que usa esse certificado.
 
 Você pode gerar certificados de cliente usando os seguintes métodos:
 
 - **Certificado corporativo:**
 
-  - Se você estiver usando uma solução de certificado corporativo, gere um certificado de cliente com o formato de valor de nome comum 'name@yourdomain.com', em vez do formato 'nome do domínio\nomedeusuário'.
-  - Verifique se o certificado do cliente baseia-se no modelo de certificado 'Usuário' que tem 'Autenticação de cliente' como o primeiro item na lista de uso, em vez de Logon de Cartão Inteligente, etc. Você pode verificar o certificado clicando duas vezes no certificado do cliente e exibindo **Detalhes > Uso Avançado de Chave**.
+  - Se você estiver usando uma solução de certificado empresarial, gere um certificado de cliente com o formato de valor de nome comum *name@yourdomain.com*. Use esse formato, em vez do formato *nome do domínio\nomedeusuário*.
+  - Verifique se o certificado do cliente é baseado em um modelo de certificado de usuário que tenha *Autenticação de Cliente* listada como o primeiro item na lista de usuários. Verifique o certificado clicando duas vezes nele e exibindo **Uso Avançado de Chave** na guia **Detalhes**.
 
-- **Certificado raiz autoassinado:** é importante que você execute as etapas em um dos artigos de certificado de P2S abaixo. Caso contrário, os certificados de cliente criados não serão compatíveis com conexões P2S, e os clientes receberão um erro ao tentar se conectar. As etapas em qualquer um dos artigos a seguir geram um certificado do cliente compatível: 
+- **Certificado raiz autoassinado:** Siga as etapas em um dos seguintes artigos de certificado de P2S para que os certificados de cliente que você cria sejam compatíveis com as conexões P2S. As etapas nesses artigos geram um certificado de cliente compatível: 
 
-  * [Instruções do Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): essas instruções exigem o Windows 10 e o PowerShell para gerar certificados. Os certificados gerados podem ser instalados em qualquer cliente de P2S com suporte.
-  * [Instruções de MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): use MakeCert se você não tiver acesso a um computador com Windows 10 para gerar certificados. MakeCert foi preterido, mas você ainda pode usar o MakeCert para gerar certificados. Os certificados gerados podem ser instalados em qualquer cliente de P2S com suporte.
+  * [Instruções do Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): Essas instruções exigem que o Windows 10 e o PowerShell gerem certificados. Os certificados gerados podem ser instalados em qualquer cliente de P2S com suporte.
+  * [Instruções MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert se você não tiver acesso a um computador com Windows 10 para gerar certificados. Embora o MakeCert tenha sido preterido, você ainda pode usá-lo para gerar certificados. Você pode instalar os certificados gerados em qualquer cliente de P2S com suporte.
   * [Instruções do Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  Ao gerar um certificado do cliente de um certificado raiz autoassinado usando as instruções anteriores, ele é instalado automaticamente no computador que você usou para gerá-lo. Se você quiser instalar um certificado de cliente em outro computador cliente, será necessário exportá-lo como .pfx e junto com toda a cadeia de certificado. Isso cria um arquivo .pfx que contém as informações do certificado raiz necessárias para o cliente autenticar com sucesso. Para obter as etapas de exportação de um certificado, consulte [Certificados - exportar um certificado do cliente](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+  Ao gerar um certificado do cliente de um certificado raiz autoassinado, ele é instalado automaticamente no computador que você usou para gerá-lo. Se você quiser instalar um certificado de cliente em outro computador cliente, exporte-o como arquivo .pfx e junto com toda a cadeia de certificados. Essa ação criará um arquivo .pfx que contém as informações do certificado raiz necessárias para o cliente autenticar. Para obter as etapas exportar um certificado, confira [Gerar e exportar certificados para Ponto a Site usando PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

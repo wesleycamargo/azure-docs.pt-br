@@ -13,12 +13,13 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 3a84f9ed35bac7f56d4a6aa2af94d1c28e335b74
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334203"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093192"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implantação de modelo do Resource Manager
 
@@ -48,7 +49,7 @@ Para concluir este artigo, você precisa do seguinte:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do Gerenciador de Recursos](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para obter mais informações, confira [Tutorial: Integrar o Azure Key Vault na implantação de Modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-the-key-vault"></a>Preparar o Key Vault
 
@@ -81,7 +82,7 @@ Para criar um Key Vault:
 
 1. Selecione a imagem a seguir para entrar no Azure e abrir um modelo. O modelo cria um Key Vault e um segredo do Key Vault.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" /></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Selecione ou insira os seguintes valores.  Não selecione **Compra** depois de inserir os valores.
 
@@ -93,8 +94,8 @@ Para criar um Key Vault:
     * **Nome do Key Vault**: atribua um nome exclusivo. 
     * **Id do locatário**: a função de modelo recupera automaticamente sua ID de locatário.  Não altere o valor padrão
     * **ID de Usuário do AD**: insira sua ID de objeto de usuário do Azure AD que você recuperou do último procedimento.
-    * **Nome do Segredo**: o nome padrão é **vmAdminPassword**. Se você alterar o nome do segredo aqui, precisará atualizar o nome do segredo ao implantar a máquina virtual.
-    * **Valor do Segredo**: insira seu segredo.  O segredo é a senha usada para entrar na máquina virtual. É recomendável usar a senha gerada que você criou no último procedimento.
+    * **Nome do Segredo**: O nome padrão é **vmAdminPassword**. Se você alterar o nome do segredo aqui, precisará atualizar o nome do segredo ao implantar a máquina virtual.
+    * **Valor do Segredo**: Insira seu segredo.  O segredo é a senha usada para entrar na máquina virtual. É recomendável usar a senha gerada que você criou no último procedimento.
     * **Concordo com os termos e condições declarados acima**: selecione.
 3. Selecione **Editar parâmetros** na parte superior para dar uma olhada do modelo.
 4. Navegue até a linha 28 do arquivo JSON do modelo. Essa é a definição de recurso Key Vault.

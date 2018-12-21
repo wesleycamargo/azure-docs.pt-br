@@ -1,6 +1,6 @@
 ---
-title: Como inscrever-se nas edições do Azure Active Directory Premium | Microsoft Docs
-description: Instruções passo a passo sobre como inscrever-se nas edições do Azure Active Directory Premium.
+title: Inscreva-se edições premium – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como inscrever-se nas edições do Azure Active Directory Premium.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394690"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073985"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Como inscrever-se no Azure Active Directory Premium
-Você pode comprar e associar o Azure Active Directory (Azure AD) Premium à sua assinatura do Azure. Se você precisar criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se nas edições do Azure Active Directory Premium
+Você pode comprar e associar as edições do Azure Active Directory (Azure AD) Premium à sua assinatura do Azure. Se você precisar criar uma nova assinatura do Azure, também precisará ativar seu plano de licenciamento e o acesso ao serviço do Azure AD.
 
 > [!NOTE]
->As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não são compatíveis com o serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>As edições Azure AD Premium e Básico estão disponíveis para clientes na China por meio da instância mundial do Azure Active Directory. Atualmente, as edições Azure AD Premium e Básico não têm suporte no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco usando o [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Antes de se inscrever no Active Directory Premium 1 ou Premium 2, primeiro determine qual assinatura existente ou plano você deseja usar:
 

@@ -1,5 +1,5 @@
 ---
-title: Visão Geral do Azure Active Directory | Microsoft Docs
+title: O que é o Active Directory do Azure? | Microsoft Docs
 description: Saiba mais sobre o Azure Active Directory, incluindo a terminologia necessária, o público-alvo, noções básicas de licenciamento e os recursos associados.
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686578"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085919"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure? 
 O Azure AD (Azure Active Directory) é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. O Azure AD ajuda seus funcionários a entrar e a acessar recursos em:
@@ -51,7 +52,7 @@ Para aprimorar a implementação do Azure AD, também é possível adicionar rec
 
 - **Licenças de recurso de "Pagamento conforme o uso".** Você também pode obter licenças de outros recursos, como o Azure Active Directory B2C (Entre empresa e consumidor). O B2C pode ajudar você a fornecer soluções de gerenciamento de acesso e identidade para seus aplicativos voltados ao cliente. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Para saber mais sobre como associar uma assinatura do Azure ao Azure AD, confira [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e, para saber mais sobre como atribuir licenças aos usuários, confira [Como atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
+Para obter mais informações sobre como associar uma assinatura do Azure com o Azure AD, confira [Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) e, para obter mais informações sobre como atribuir licenças aos usuários, confira [Como atribuir ou remover licenças do Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminologia
 Para entender melhor o Azure AD e sua documentação, veja os termos a seguir.

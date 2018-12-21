@@ -1,5 +1,5 @@
 ---
-title: Um início rápido para criar um aplicativo Web Java no Serviço de Aplicativo do Azure no Linux
+title: Criar um aplicativo Web do Java no Linux – Serviço de Aplicativo do Azure
 description: Neste início rápido, você implanta seu primeiro Olá, Mundo em Java no Serviço de Aplicativo do Azure no Linux em minutos.
 services: app-service\web
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247548"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252602"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Início Rápido: criar um aplicativo Web Java no Serviço de Aplicativo do Azure no Linux
+# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Web Java no Serviço de Aplicativo no Linux
 
 O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in do Maven para aplicativos Web do Azure (versão prévia)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (arquivo Web) de aplicativo Web Java.
 
@@ -108,8 +108,10 @@ Após a conclusão da implantação, navegue até o aplicativo implantado usando
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você usou o Maven para criar um aplicativo Web Java, configurou o [Plug-in do Maven para aplicativos Web do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) e, em seguida, implantou um aplicativo Java empacotado como arquivo Web no Serviço de Aplicativo no Linux. Para saber como se conectar bancos de dados, configurar o registro em log e o monitoramento, configurar a segurança e definir opções de tempo de execução, prossiga para o Guia do desenvolvedor de Java para o Serviço de Aplicativo no Linux.
+Neste início rápido, você usou o Maven para criar um aplicativo Web Java, configurou o [Plug-in do Maven para aplicativos Web do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) e, em seguida, implantou um aplicativo Java empacotado como arquivo Web no Serviço de Aplicativo no Linux. Confira os seguintes tutoriais e artigos de instruções para obter mais informações sobre a hospedagem de aplicativos Java no Serviço de Aplicativo no Linux.
 
-> [!div class="nextstepaction"]
-> [Guia do desenvolvedor do Serviço de Aplicativo no Java do Linux](app-service-linux-java.md)
+- [Tutorial: Implantar um aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Configurar uma fonte de dados do Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [CI/CD com Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [Configurar ferramentas de monitoramento de desempenho de aplicativos](how-to-java-apm-monitoring.md)
 

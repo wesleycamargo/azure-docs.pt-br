@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: insira dados usando a biblioteca Python do Data Explorer do Azure'
+title: 'Início Rápido: Ingerir dados usando a biblioteca Python do Azure Data Explorer'
 description: Neste início rápido, você aprenderá a inserir (carregar) dados no Azure Data Explorer usando Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 390cdddf09f6880368d4d199eef41be19b54d9f0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871711"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339239"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Início Rápido: insira dados usando a biblioteca Python do Data Explorer do Azure
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Início Rápido: Ingerir dados usando a biblioteca Python do Azure Data Explorer
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente escalonável para dados de log e telemetria. O Data Explorer do Azure fornece duas bibliotecas de cliente para Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Essas bibliotecas permitem a inclusão de dados (carga) em um cluster e dados de consulta do seu código. Neste início rápido, você primeiro cria uma tabela e o mapeamento de dados em um cluster de teste. Você, em seguida, enfileira ao cluster e valida os resultados.
 
@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-Agora, construa a cadeia de caracteres de conexão. Este exemplo usa a autenticação do dispositivo para acessar o cluster. Você também pode usar o certificado de aplicativo AAD, a chave de aplicativo AAD e o usuário e a senha AAD.
+Agora, construa a cadeia de caracteres de conexão. Este exemplo usa a autenticação do dispositivo para acessar o cluster. Você também pode usar o [certificado de aplicativo AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), a [chave de aplicativo AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) e o [usuário e a senha do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 Criar a tabela de destino e o mapeamento em uma etapa posterior.
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Criar uma tabela em seu cluster de teste
 
-Criar uma tabela que corresponde ao esquema dos dados no arquivo StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem como a seguinte: *Para entrar, use um navegador da web para abrir a página https://microsoft.com/devicelogin e digite o código F3W4VWZDM para autenticar*. Siga as etapas para entrar e retorne para executar o próximo bloco de código. Blocos de código subsequente que compõem uma conexão exigem que você entre novamente.
+Criar uma tabela que corresponde ao esquema dos dados no arquivo StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem semelhante à seguinte: *Para entrar, use um navegador da Web para abrir a página https://microsoft.com/devicelogin e insira o código F3W4VWZDM para autenticar*. Siga as etapas para entrar e retorne para executar o próximo bloco de código. Blocos de código subsequente que compõem uma conexão exigem que você entre novamente.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

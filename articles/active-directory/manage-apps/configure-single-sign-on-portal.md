@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036253"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011970"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar logon único baseado em SAML para um aplicativo com Azure Active Directory
 
-Este tutorial usa o [portal do Azure](https://portal.azure.com) para configurar logon único baseado em SAML para um aplicativo com Azure AD (Azure Active Directory). Use este tutorial para configurar aplicativos que não tenham um [tutorial específico para eles](../saas-apps/tutorial-list.md). 
-
+Este tutorial usa o [portal do Azure](https://portal.azure.com) para configurar logon único baseado em SAML para um aplicativo com Azure AD (Azure Active Directory). Use este tutorial quando um [tutorial específicos do aplicativo](../saas-apps/tutorial-list.md) não estiver disponível. 
 
 Este tutorial usa o portal do Azure para:
 
@@ -36,13 +35,13 @@ Este tutorial usa o portal do Azure para:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-1. Se o aplicativo não tiver sido adicionado a seu locatário do Azure AD, confira [Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD](add-application-portal.md).
+1. Caso o aplicativo não tenha sido adicionado ao seu locatário do Azure AD, confira [Início Rápido: Adicionar um aplicativo ao locatário do Azure AD](add-application-portal.md).
 
 2. Peça a seu fornecedor do aplicativo as informações descritas em [Configurar domínio e URLS](#configure-domain-and-urls).
 
 3. Para testar as etapas deste tutorial, recomendamos o uso de um ambiente que não seja de produção. Se não tiver um ambiente do Azure AD que não seja de produção, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-4. Entre no [portal do Azure](https://portal.azure.com) como administrador global do locatário do Azure AD, administrador do aplicativo de nuvem ou administrador do aplicativo.
+4. Entre no [portal do Azure](https://portal.azure.com) como administrador do aplicativo em nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
 
 ## <a name="select-a-single-sign-on-mode"></a>Selecione um modo de logon único
 
@@ -56,7 +55,7 @@ Para abrir as configurações de logon único:
 
 3. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos**e clique em **Aplicar**.
 
-4. Insira o nome do aplicativo para o qual você deseja configurar o logon único. Escolha seu próprio aplicativo ou use o aplicativo de teste do GitHub que foi adicionado no início rápido [Adicionar aplicativo](add-application-portal.md).
+4. Insira o nome do aplicativo para o qual você deseja configurar o logon único. Escolha seu próprio aplicativo ou insira **GitHub-test** para configurar o aplicativo que você adicionou no início rápido [adicionar aplicativo](add-application-portal.md).
 
 5. Clique em **Logon único**. Em **Modo de Logon Único**, **Logon único baseado em SAML** aparece como a opção padrão. 
 
@@ -72,8 +71,8 @@ Para configurar o domínio e as URLs:
 
     | Parâmetro de configuração | Iniciado por SP | iniciado por idP | DESCRIÇÃO |
     |:--|:--|:--|:--|
-    | URL de logon | Obrigatório | Não especificar | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo no Office 365 e no painel de acesso do Azure AD. Quando está em branco, o Azure AD executa logon único iniciado por idP quando um usuário inicia o aplicativo no Office 365, no painel de acesso do Azure AD ou na URL de logon único do Azure AD.|
-    | Identificador (ID da Entidade) | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo para o qual o logon único está sendo configurado. O Azure AD devolve o identificador para o aplicativo como o parâmetro Audience do token SAML e o aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo.|
+    | URL de logon | Obrigatório | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo no Office 365 ou no painel de acesso do Azure AD. Quando estiver em branco, o Azure AD dependerá do provedor de identidade para iniciar o logon único quando um usuário iniciar o aplicativo.|
+    | Identificador (ID da Entidade) | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo para o qual o logon único está sendo configurado. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. O aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo.|
     | URL de resposta | Opcional | Obrigatório | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). |
     | Estado de Retransmissão | Opcional | Opcional | Especifica para onde o aplicativo deve redirecionar o usuário depois que a autenticação é concluída. Normalmente, o valor é uma URL válida para o aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente. Para obter mais informações, pergunte ao fornecedor do aplicativo.
 
@@ -83,11 +82,11 @@ Para configurar o domínio e as URLs:
 
 3. Na parte superior da folha, clique em **Salvar**.
 
-4. Há um botão **Testar configurações de SAML** nesta seção. Execute este teste posteriormente no tutorial da seção [Testar logon único](#test-single-sign-on).
+4. Há um botão **Testar Configurações de SAML** nesta seção. Execute este teste posteriormente no tutorial da seção [Testar logon único](#test-single-sign-on).
 
 ## <a name="configure-user-attributes"></a>Configurar atributos de usuário
 
-Os atributos de usuário permitem que você controle quais informações o Azure AD envia para o aplicativo. Por exemplo, o Azure AD poderia enviar o nome, o email e a ID de funcionário do usuário para o aplicativo. O Azure AD envia os atributos de usuário para o aplicativo no token SAML sempre que um usuário entra. 
+Atributos de usuário permitem que você controle quais informações o Azure AD envia para o aplicativo no token SAML sempre que um usuário se inscreve. Por exemplo, o Azure AD poderia enviar o nome, o email e a ID de funcionário do usuário para o aplicativo. 
 
 Esses atributos podem ser obrigatórios ou opcionais para que o trabalho de logon único funcione corretamente. Para obter mais informações, confira o [tutorial específico do aplicativo](../saas-apps/tutorial-list.md) ou pergunte ao fornecedor do aplicativo.
 
@@ -115,7 +114,7 @@ O Azure AD usa um certificado para assinar os tokens SAML que ele envia para o a
 
 2. Para configurar um certificado, clique em **Criar novo certificado**.
 
-3. Na folha **Criar novo certificado**, defina a data de expiração e clique em **Salvar**.
+3. Na folha **Criar Novo Certificado**, defina a **data do término** e clique em **Salvar**.
 
 4. Clique em **Ativar novo certificado**.
 
@@ -146,7 +145,7 @@ Você está quase lá.  Como etapa final, você precisa configurar o aplicativo 
     ![Configurar o aplicativo](media/configure-single-sign-on-portal/configure-app.png)
 
 2. Clique em **Configurar aplicativo** no portal e siga as instruções.
-3. Crie as contas de usuário no aplicativo manualmente para testar o logon único. Crie as contas de usuário que você atribuiu ao aplicativo na [seção anterior](#assign-users-to-the-application).   Quando você estiver pronto para distribuir o aplicativo na organização, recomendamos o uso do provisionamento automático de usuários para criar contas de usuário automaticamente no aplicativo.
+3. Crie manualmente as contas de usuário no aplicativo para testar o logon único. Crie as contas de usuário que você atribuiu ao aplicativo na [seção anterior](#assign-users-to-the-application). 
 
 ## <a name="test-single-sign-on"></a>Testar logon único
 
@@ -158,7 +157,7 @@ Você está pronto para testar suas configurações.
 
     ![Testar opções de logon único](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. Clique em **Entrar como o usuário atual**. Isso permite que você veja primeiro se o logon único funciona para você, o administrador.
+3. Clique em **Entrar como o usuário atual**. Esse teste permite que você veja primeiro se o logon único funciona para você, o administrador.
 4. Se houver um erro, uma mensagem de erro será exibida. Copie e cole as informações específicas na caixa **Como é o erro?**.
 
     ![Obter diretrizes de resolução](media/configure-single-sign-on-portal/error-guidance.png)
@@ -174,7 +173,7 @@ Você está pronto para testar suas configurações.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você usou o portal do Azure para configurar o logon único de um aplicativo com o Azure AD. Você encontrou a página de configuração de logon único e definiu as configurações de logon único. Depois de concluir a configuração, você atribuiu um usuário ao aplicativo e configurou o aplicativo para usar o logon único baseado em SAML. Quando todo esse trabalho foi concluído, você verificou se o logon do SAML estava funcionando corretamente.
+Neste tutorial, você definiu as configurações de logon único para um aplicativo. Depois de concluir a configuração, você atribuiu um usuário ao aplicativo e configurou o aplicativo para usar o logon único baseado em SAML. Quando todo esse trabalho foi concluído, você verificou se o logon do SAML estava funcionando corretamente.
 
 Você fez essas coisas:
 > [!div class="checklist"]
@@ -183,10 +182,10 @@ Você fez essas coisas:
 > * Configurou atributos de usuário
 > * Criou um certificado de assinatura de SAML
 > * Atribuiu usuários ou grupos ao aplicativo manualmente
-> * Configurou o aplicativo para logon único
+> * Configurado o aplicativo para usar o Azure AD como um provedor de identidade SAML
 > * Testou o logon único baseado em SAML
 
-Para distribuir o aplicativo para mais usuários em sua organização, recomendamos usar o provisionamento automático.
+Para distribuir o aplicativo para mais usuários em sua organização, recomendamos usar o provisionamento automático de usuário.
 
 > [!div class="nextstepaction"]
 >[Saiba como atribuir usuários com o provisionamento automático](configure-automatic-user-provisioning-portal.md)

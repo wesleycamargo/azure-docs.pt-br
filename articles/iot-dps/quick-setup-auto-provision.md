@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cad0ec8c2e2f8972cd856b34b8abdd5afd3a6316
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515192"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182631"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT com o portal do Azure
 
@@ -36,12 +36,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 3. Forneça as seguintes informações para a nova instância de serviço de provisionamento de dispositivo e clique em **Criar**.
 
-    * **Nome:** forneça um nome exclusivo para sua nova instância de serviço de provisionamento do dispositivo. Caso o nome inserido esteja disponível, uma marca de seleção verde será exibida.
-    * **Assinatura:** escolha a assinatura que você deseja usar para criar essa instância de Serviço de Provisionamento do Dispositivo.
+    * **Nome:** forneça um nome exclusivo para sua nova instância do serviço de provisionamento de dispositivos. Caso o nome inserido esteja disponível, uma marca de seleção verde será exibida.
+    * **Assinatura:** escolha a assinatura que você deseja usar para criar essa instância do serviço de Provisionamento de Dispositivos.
     * **Grupo de recursos:** este campo permite que você crie um novo grupo de recursos ou escolha um existente para conter a nova instância. Escolha o mesmo grupo de recursos que contenha o hub Iot criado acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados em um grupo, você pode gerenciá-los juntos. Por exemplo, a exclusão do grupo de recursos exclui todos os recursos contidos nesse grupo. Para saber mais, veja [Usar os grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-portal.md).
-    * **Local**: selecione o local mais próximo para seus dispositivos.
+    * **Localização:** selecione a localização mais próxima de seus dispositivos.
 
-    ![Inserir as informações básicas sobre sua instância do Serviço Provisionamento de Dispositivos na folha do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![Inserir as informações básicas sobre sua instância do Serviço Provisionamento de Dispositivos na folha do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Clique no botão de notificação para monitorar a criação da instância do recurso. Depois que o serviço é implantado com êxito, clique em **fixar no painel**e então **Ir para o recurso**.
 
@@ -57,11 +57,11 @@ Nesta seção, você adicionará uma configuração para a instância do serviç
 
 3. Sobre o **Adicionar link para o hub IoT**, forneça as informações a seguir para vincular a nova instância de serviço de provisionamento de dispositivo a um hub IoT. Em seguida, clique em **Salvar**. 
 
-    * **Assinatura:** selecione a assinatura que contém o hub IoT que você deseja vincular com a nova instância de serviço de provisionamento do dispositivo.
-    * **Hub Iot:** selecione o hub IoT para vincular com a nova instância de serviço de provisionamento do dispositivo.
-    * **Política de acesso:** selecione **iothubowner** como credenciais para estabelecer o link com o hub IoT.  
+    * **Assinatura:** selecione a assinatura que contém o hub IoT que você deseja vincular com a nova instância do serviço de Provisionamento de Dispositivos.
+    * **Hub IoT:** selecione o hub IoT para vincular com a nova instância do serviço de Provisionamento de Dispositivos.
+    * **Política de acesso:** selecione **iothubowner** como as credenciais para estabelecer o link com o hub IoT.  
 
-    ![Vincular o nome do hub para vincular à instância do serviço de Provisionamento de Dispositivos na folha do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![Vincular o nome do hub para vincular à instância do serviço de Provisionamento de Dispositivos na folha do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Agora você deve ver o hub selecionado na folha **Hubs IoT Vinculados**. Talvez você precise clicar em **Atualizar** para mostrar **Hubs IoT vinculados**.
 

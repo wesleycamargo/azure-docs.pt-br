@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Desenvolver com a API de Tabela no .NET'
-description: Aprenda a desenvolver com a API de Tabela do Azure Cosmos DB usando o .NET
-services: cosmos-db
+title: Desenvolver com a API de Tabela usando o SDK do .NET
+titleSuffix: Azure Cosmos DB
+description: Aprenda a desenvolver com a API de Tabela no Azure Cosmos DB usando o SDK do .NET
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877728"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251174"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabela no .NET
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Desenvolver com a API de Tabela do Azure Cosmos DB usando o SDK do .NET
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB.
 
@@ -77,7 +77,7 @@ Vamos começar criando uma conta do Azure Cosmos DB no portal do Azure.
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para uma pasta para instalar o aplicativo de exemplo. 
 
@@ -97,7 +97,7 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
     Use os botões de cópia no lado direito da tela para copiar a CADEIA DE CONEXÃO PRIMÁRIA.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Esse cliente é inicializado usando os valores de configuração `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` e `TablePreferredLocations` se especificados nas configurações do aplicativo.
 
 ## <a name="create-a-table"></a>Criar uma tabela
-Em seguida, você cria uma tabela usando `CloudTable`. As tabelas no Azure Cosmos DB pode ser dimensionada independentemente em termos de armazenamento e taxa de transferência e o particionamento é tratado automaticamente pelo serviço. O Azure Cosmos DB oferece suporte a tabelas ilimitadas e tamanho fixo. Consulte [Particionamento no Azure Cosmos DB](partition-data.md) para saber detalhes. 
+
+Em seguida, você cria uma tabela usando `CloudTable`. As tabelas no Azure Cosmos DB pode ser dimensionada independentemente em termos de armazenamento e taxa de transferência e o particionamento é tratado automaticamente pelo serviço. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

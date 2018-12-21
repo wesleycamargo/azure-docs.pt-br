@@ -1,21 +1,21 @@
 ---
-title: Integrar o Apache Kafka Connect aos Hubs de Eventos do Azure | Microsoft Docs
-description: Use o Apache Spark com os Hubs de Eventos do Azure para Kafka.
+title: Integrar-se com o Apache Kafka Connect – Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como usar o Apache Spark com Hubs de Eventos do Azure para Kafka.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 11/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9a9972806c9691136bea380f9efd4e0d032deaf2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285077"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091356"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o suporte do Apache Kafka Connect aos Hubs de Eventos do Azure (versão prévia)
 Conforme as necessidades de ingestão das empresas vai aumentando, também vai aumentando a necessidade de fazer a ingestão em vários coletores e fontes externas. O [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornece essa estrutura para conectar e importar/exportar dados de ou para qualquer sistema externo, como o MySQL, o HDFS e o sistema de arquivos, por meio de um cluster do Kafka. Este tutorial explica como usar a estrutura do Kafka Connect com os Hubs de Eventos habilitado para Kafka.
@@ -160,7 +160,7 @@ O Kafka Connect cria tópicos de Hub de Eventos para armazenar status, deslocame
 Para saber mais sobre os Hubs de Eventos e Hubs de Eventos para o Kafka, consulte o tópico a seguir:  
 
 - [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
-- [Hubs de Eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [Hubs de Eventos do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 - [Como criar Hubs de Eventos habilitados para Kafka](event-hubs-create-kafka-enabled.md)
 - [Transmitir para Hubs de Eventos a partir de seus aplicativos Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Espelhar um agente do Kafka em um hub de eventos habilitado para Kafka](event-hubs-kafka-mirror-maker-tutorial.md)

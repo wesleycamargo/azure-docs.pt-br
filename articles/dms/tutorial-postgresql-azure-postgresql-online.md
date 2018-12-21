@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864365"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000906"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para o Banco de Dados do Azure para PostgreSQL online usando o DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do PostgreSQL local para o [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um tempo de inatividade mínimo. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você deve migrar o banco de dados de exemplo **DVD Rental** de uma instância local do PostgreSQL 9.6 para o Banco de Dados do Azure para PostgreSQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará:
 
-- Baixe e instale o [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 ou 10.3. A versão do PostgreSQL Server de origem deve ser 9.5.11, 9.6.7, 10.3 ou posterior. Para ver mais informações, confira [Versões do Banco de Dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Baixe e instale o [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.5, 9.6 ou 10. A versão do PostgreSQL Server de origem deve ser 9.5.11, 9.6.7, 10 ou posterior. Para ver mais informações, confira [Versões do Banco de Dados PostgreSQL com suporte](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Além disso, a versão do PostgreSQL local deve corresponder à versão do Banco de Dados do Azure para PostgreSQL. Por exemplo, o PostgreSQL 9.5.11.5 pode migrar apenas o Banco de Dados do Azure para PostgreSQL 9.5.11, não para a versão 9.6.7.
 
@@ -52,7 +52,7 @@ Para concluir este tutorial, você precisará:
 - Há dois métodos para invocar a CLI:
     - No canto superior direito do portal do Azure, marque o botão Cloud Shell:
  
-       ![Botão Cloud Shell no portal do Azure](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Botão Cloud Shell no portal do Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - Instale e execute a CLI localmente. A CLI 2.0 é a ferramenta de linha de comando para gerenciar recursos do Azure.
      
@@ -188,10 +188,10 @@ Para concluir todos os objetos de banco de dados, como procedimentos armazenados
     ```
 
     Por exemplo, o seguinte comando criará um serviço em:
-    - Localização: Leste dos EUA2
+    - Localização: Leste dos EUA 2
     - Assinatura: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Nome do grupo de recursos: PostgresDemo
-    - Nome do serviço DMS: PostgresCLI
+    - Nome do Grupo de Recursos: PostgresDemo
+    - Nome do Serviço de DMS: PostgresCLI
 
     ```
     az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
@@ -233,9 +233,9 @@ Para concluir todos os objetos de banco de dados, como procedimentos armazenados
     ```
     Por exemplo, o comando abaixo cria um projeto usando estes parâmetros:
 
-      - Localização: Centro-oeste dos EUA
-      - Nome do grupo de recursos: PostgresDemo
-      - Nome do serviço: PostgresCLI
+      - Localização: Centro-Oeste dos EUA
+      - Nome do Grupo de Recursos: PostgresDemo
+      - Nome do Serviço: PostgresCLI
       - Nome do projeto: PGMigration
       - Plataforma de origem: PostgreSQL
       - Plataforma de destino: AzureDbForPostgreSql

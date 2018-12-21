@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115554"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164612"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
@@ -35,7 +35,7 @@ O diagrama a seguir mostra como podemos escalar o script de Python usando o lote
 
 ![Cenário de lote do Azure](./media/batch-nodejs-get-started/BatchScenario.png)
 
-O cliente do Node.js implanta um trabalho em lote com uma tarefa de preparação (explicado em detalhes mais adiante) e um conjunto de tarefas, dependendo do número de contêineres na conta de armazenamento. Você pode baixar os scripts do repositório github.
+O cliente do Node.js implanta um trabalho em lote com uma tarefa de preparação (explicado em detalhes mais adiante) e um conjunto de tarefas, dependendo do número de contêineres na conta de armazenamento. Você pode baixar os scripts do repositório do GitHub.
 
 * [Cliente Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Shell scripts de tarefa de preparação](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -52,7 +52,7 @@ O cliente do Node.js implanta um trabalho em lote com uma tarefa de preparação
 
 Agora, vamos seguir o processo passo a passo na criação do cliente Node.js:
 
-### <a name="step-1-install-azure-batch-sdk"></a>Etapa 1: instalação o SDK do lote do Azure
+### <a name="step-1-install-azure-batch-sdk"></a>Etapa 1: instalar o SDK do Lote do Azure
 
 Você pode instalar o SDK do lote do Azure para Node.js usando o comando npm install.
 
@@ -65,7 +65,7 @@ Este comando instala a versão mais recente do SDK do nó de lote do azure.
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>Etapa 2: criação uma conta de lote do Azure
+### <a name="step-2-create-an-azure-batch-account"></a>Etapa 2: Criar uma Conta de Lote do Azure
 
 Você pode criá-lo no [portal do Azure](batch-account-create-portal.md) ou na linha de comando ([Powershell](batch-powershell-cmdlets-get-started.md) /[CLI do Azure](/cli/azure)).
 
@@ -85,8 +85,8 @@ Cada conta de lote tem suas chaves de acesso correspondentes. Essas chaves são 
 
 Copie e armazene a chave a ser usada nas etapas subsequentes.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Etapa 3: criação um cliente de serviço de lote do Azure
-O trecho de código a seguir primeiro importa o módulo do Node.js do azure batch e, em seguida, cria um cliente de serviço de lote. Primeiro, você precisa criar um objeto SharedKeyCredentials com a chave de conta de lote copiada na etapa anterior.
+### <a name="step-3-create-an-azure-batch-service-client"></a>Etapa 3: criar um cliente de serviço do Lote do Azure
+O snippet de código a seguir primeiro importa o módulo do Node.js do azure batch e, em seguida, cria um cliente de serviço de lote. Primeiro, você precisa criar um objeto SharedKeyCredentials com a chave de conta de lote copiada na etapa anterior.
 
 ```nodejs
 // Initializing Azure Batch variables
@@ -119,7 +119,7 @@ Confira a captura de tela:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Etapa 4: criação de um pool de lote do Azure
+### <a name="step-4-create-an-azure-batch-pool"></a>Etapa 4: criar um pool do Lote do Azure
 Um pool de lote do Azure consiste em várias VMs (também conhecidos como nós de lote). O serviço de lote do Azure implanta as tarefas em nós e os gerencia. Você pode definir os seguintes parâmetros de configuração para o pool.
 
 * Tipo de imagem da máquina virtual
@@ -131,7 +131,7 @@ Um pool de lote do Azure consiste em várias VMs (também conhecidos como nós d
 >
 >
 
-O trecho de código a seguir cria a configuração de objetos de parâmetro.
+O snippet de código a seguir cria a configuração de objetos de parâmetro.
 
 ```nodejs
 // Creating Image reference configuration for Ubuntu Linux VM
@@ -154,7 +154,7 @@ var numVMs = 4
 
 Quando a configuração do pool é definida, você pode criar o pool de lote do Azure. O comando de pool de lote cria nós de máquina virtual do Azure e os prepara para estar pronto para receber as tarefas a serem executadas. Cada pool deve ter um ID exclusivo para referência em etapas subsequentes.
 
-O trecho de código a seguir cria um pool de lote do Azure.
+O snippet de código a seguir cria um pool de lote do Azure.
 
 ```nodejs
 // Create a unique Azure Batch pool ID
@@ -254,7 +254,7 @@ A seguir temos um objeto de resultado de exemplo retornado pela função pool.ge
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Etapa 4: envio de um trabalho de lote do Azure
+### <a name="step-4-submit-an-azure-batch-job"></a>Etapa 4: enviar um trabalho do Lote do Azure
 Um trabalho de lote do Azure é um grupo lógico de tarefas semelhantes. No nosso cenário, é "CSV de processo para JSON". Cada uma dessas tarefas poderia processar arquivos CSV presentes nos contêineres de armazenamento do Azure.
 
 Essas tarefas seriam executadas em paralelo e implantadas em vários nós, orquestrados pelo serviço de lote do Azure.
@@ -283,12 +283,12 @@ Uma tarefa de preparação é especificada durante o envio do trabalho de lote d
 * **commandLine**: linha de comando para executar o executável da tarefa
 * **resourceFiles**: matriz de objetos que fornece detalhes dos arquivos que devem ser baixados para executar essa tarefa.  Seguem as suas opções
     - blobSource: o URI da SAS do arquivo
-    - filePath: o caminho local para fazer o download e salvar o arquivo
-    - fileMode: aplicável somente para nós de Linux, o fileMode está em formato octal com um valor padrão de 0770
+    - filePath: o caminho local para baixar e salvar o arquivo
+    - fileMode: aplicável somente a nós do Linux, fileMode está em formato octal com um valor padrão de 0770
 * **waitForSuccess**: se definido como verdadeiro, a tarefa não é executada quando a tarefa de preparação apresenta falha
-* **runElevated**: defini-lo como verdadeiro se for necessário usar privilégios elevados para executar a tarefa.
+* **runElevated**: definir como verdadeiro se for necessário usar privilégios elevados para executar a tarefa.
 
-O trecho de código a seguir mostra um exemplo de configuração do script da tarefa de preparação:
+O snippet de código a seguir mostra um exemplo de configuração do script da tarefa de preparação:
 
 ```nodejs
 var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
@@ -311,13 +311,13 @@ Se não houver nenhum pré-requisito a ser instalado para executar suas tarefas,
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Etapa 5: enviar tarefas de lote do Azure para um trabalho
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Etapa 5: enviar tarefas do Lote do Azure para um trabalho
 
 Depois de criar o trabalho de CSV do processo, vamos criar as tarefas para esse trabalho. Supondo que temos quatro contêineres, precisamos criar quatro tarefas, uma para cada contêiner.
 
 Ao observar o [script Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), percebemos que ele aceita dois parâmetros:
 
-* nome de contêiner: o contêiner de armazenamento de onde os arquivos são baixados
+* nome do contêiner: o contêiner de Armazenamento do qual os arquivos são baixados
 * padrão: um parâmetro opcional do padrão de nome do arquivo
 
 Supondo que temos quatro contêineres "con1", "con2", "con3" e "con4", o código a seguir mostra o envio de tarefas ao "CSV do processo" do trabalho de lote do Azure que criamos anteriormente.

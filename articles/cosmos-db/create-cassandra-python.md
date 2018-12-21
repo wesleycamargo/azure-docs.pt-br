@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: API do Apache Cassandra com Python – Azure Cosmos DB'
+title: 'Início Rápido: API do Cassandra com Python – Azure Cosmos DB'
 description: Este guia de início rápido mostra como usar a API do Apache Cassandra do Azure Cosmos DB para criar um aplicativo de perfil com Python.
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870309"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253503"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo do Cassandra com o Python e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Início Rápido: Compilar um aplicativo Cassandra com o Python e o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Além disso, você precisa de:
 * Versão v2.7.14 do [Python](https://www.python.org/downloads/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Driver do Python para Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
@@ -47,7 +47,7 @@ Antes de criar um banco de dados de documentos, você precisa criar uma conta Ca
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, vamos clonar um aplicativo da API do Cassandra do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra um prompt de comando. Crie uma pasta chamada `git-samples`. Em seguida, feche o prompt de comando.
 
@@ -138,7 +138,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. A cadeia de conexão permite que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [portal do Azure](http://portal.azure.com/), selecione **Cadeia de Conexão**. 
+1. No [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     Use o ![botão Copiar](./media/create-cassandra-python/copy.png) no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
 

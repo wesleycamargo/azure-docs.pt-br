@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987253"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320771"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -34,7 +34,15 @@ As identidades de gerenciado para a funcionalidade de recursos do Azure é gratu
 > [!NOTE]
 > Identidades gerenciadas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como MSI (Identidade de Serviço Gerenciada).
 
-## Como funciona o recurso?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminologia
+
+Os seguintes termos são usados em todas as identidades gerenciadas do conjunto de documentação de recursos do Azure:
+
+- **ID do cliente**: um identificador exclusivo gerado pelo Azure AD vinculado a um aplicativo e entidade de serviço durante o provisionamento inicial.
+- **ID da entidade de segurança**: a ID de objeto do objeto da entidade de serviço da identidade gerenciada usado para permitir acesso baseado em função a um recurso do Azure.
+- **IMDS (Serviço de Metadados de Instância) do Azure**: um ponto de extremidade REST disponível para todas as VMs de IaaS criadas por meio do Azure Resource Manager. O ponto de extremidade está disponível em um endereço IP não roteável conhecido (169.254.169.254) que pode ser acessado somente de dentro da VM.
+
+## Como as identidades gerenciadas dos recursos do Azure funcionam?<a name="how-does-it-work"></a>
 
 Há dois tipos de identidades gerenciadas:
 

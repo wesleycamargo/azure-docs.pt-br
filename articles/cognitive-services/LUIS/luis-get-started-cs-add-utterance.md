@@ -1,21 +1,22 @@
 ---
-title: Início Rápido do C# – alterar o modelo e treinar o aplicativo LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido de C#, adicione exemplos de enunciados a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+title: Alterar, treinar aplicativo, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido de C#, adicione exemplos de enunciados a um aplicativo Automação de Página Inicial e treine o aplicativo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 23692bd6a0c708b2747a3cc211b8238d30dfe5db
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161739"
 ---
 # <a name="quickstart-change-model-using-c"></a>Início Rápido: Alterar o modelo usando C#
 
@@ -28,7 +29,7 @@ ms.locfileid: "47039965"
 * Linguagem de programação C# instalada.
 * Pacotes do NuGet [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) e [CommandLine](https://www.nuget.org/packages/CommandLineParser/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemplo de arquivo JSON de enunciados
 
@@ -56,7 +57,7 @@ O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParse
 ### <a name="write-the-c-code"></a>Escreva o código C#
 O arquivo **Program.cs** deve seguir a seguinte estrutura:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,9 +99,7 @@ Adicione o método de solicitação POST à classe **Programa**.
 
 Adicionar enunciados de exemplo do método file à classe **Programa**.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 Depois que as alterações forem aplicadas ao modelo, treine o modelo. Adicione o método à classe **Programa**.
 
@@ -128,7 +127,7 @@ Compile o código em Visual Studio.
 
 No diretório /bin/Debug do projeto, execute o aplicativo de uma linha de comando. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413988"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408367"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para implantar aplicativos no Azure. Este artigo mostra como implantar um aplicativo Java em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure.  
@@ -35,7 +35,7 @@ Esta seção ilustra como usar o Ansible para recuperar informações do host pa
 
 Salve o guia estratégico de exemplo a seguir como `get-hosts-tasks.yml`: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Salve o guia estratégico de exemplo a seguir como `get-hosts-tasks.yml`:
 
 Nesta seção, você usa o git para clonar um projeto de exemplo do Java do GitHub e compilar o projeto. Salve o guia estratégico a seguir como `app.yml`:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Execute o guia estratégico de exemplo do Ansible com o seguinte comando:
 
 A saída do comando de guia estratégico do Ansible é exibida com aspecto semelhante ao seguinte, em que você vê que ele compilou o aplicativo de exemplo clonado do GitHub:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ A seção a seguir em um guia estratégico do Ansible instala o JRE (Java Runtim
 
 (Altere o `admin_password` para sua própria senha.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Execute o guia estratégico com o comando a seguir:
 
 A saída resultante da execução do comando de guia estratégico do Ansible indica que o aplicativo Java de exemplo foi instalado no grupo de hosts do conjunto de dimensionamento de máquinas virtuais:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Parabéns! Seu aplicativo está agora em execução no Azure. Agora, você pode 
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"] 
-> [Guia estratégico de exemplo do Ansible para VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais usando o Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

@@ -1,5 +1,5 @@
 ---
-title: Criar seu primeiro aplicativo Web Java no Azure
+title: Criar um aplicativo Web do Java – Serviço de Aplicativo do Azure
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo Java básico.
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283921"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253146"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar seu primeiro aplicativo Web Java no Azure
 
-Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
+Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -41,7 +41,7 @@ Após a conclusão deste guia de início rápido, seu aplicativo será semelhant
 
 Para concluir este guia de início rápido, instale:
 
-* O<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE para desenvolvedores de Java EE</a> gratuito. Este guia de início rápido usa Eclipse Neon.
+* O<a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE para desenvolvedores de Java EE</a> gratuito. Este guia de início rápido usa Eclipse Neon.
 * O <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Kit de Ferramentas do Azure para Eclipse</a>.
 
 > [!NOTE]
@@ -87,7 +87,7 @@ Salve as alterações.
 
 > [!NOTE]
 >
-> Se você vir um erro na linha 1 que faça referência a uma classe de Servlet Java ausente, ignore-o.
+> Se for exibido um erro na linha 1 referente a uma classe de Servlet Java ausente, ignore-o.
 > 
 > ![Erro de servlet Java benigno](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
 >
@@ -122,7 +122,7 @@ Na caixa de diálogo **Criar Serviço de Aplicativo**:
 * Na guia **Plano do serviço de aplicativo**:
 
   * **Criar novo**: mantenha o padrão, que é o nome do plano do Serviço de Aplicativo.
-  * **Local**: selecione **Europa Ocidental** ou um local perto de você.
+  * **Localização**: selecione **Europa Ocidental** ou uma localização perto de você.
   * **Tipo de preço**: selecione a opção gratuita. Para os recursos, consulte [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
    ![Criar a caixa de diálogo Serviço de Aplicativo](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)

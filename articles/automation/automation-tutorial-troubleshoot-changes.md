@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: alteração, controle, automação
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844899"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190009"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -117,7 +117,7 @@ Na janela **Configuração do Workspace**, adicione as chaves do Registro do Win
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos        |
 |Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um arquivo Linux
 
@@ -135,7 +135,7 @@ Na janela **Configuração do Workspace**, adicione as chaves do Registro do Win
 |Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Usar o Sudo     | Essa configuração determina se o Sudo será usado durante a verificação do item.         |
 |Links     | Essa configuração determina como os links simbólicos lidam ao passar diretórios.<br> **Ignorar** - Ignora os links simbólicos e não inclui os arquivos/diretórios referenciados<br>**Seguir** - Segue os links simbólicos durante a recursão e inclui também os arquivos/diretórios referenciados<br>**Gerenciar** - Segue os links simbólicos e permite a alteração do tratamento do conteúdo retornado      |
-|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+|Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
 
    > [!NOTE]
    > A opção "Gerenciar" links não é recomendada. Não há suporte para a recuperação de conteúdo do arquivo.
@@ -177,12 +177,11 @@ Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado
 
 Para adicionar um alerta para um serviço parado, no portal do Azure, vá para **Monitor**. E então, em **Serviços Compartilhados**, selecione **Alertas** e clique em **+ Nova regra de alerta**
 
-Em **1. Defina a condição de alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
+Clique em **Selecionar** para escolher um recurso. Na página **Selecionar um recurso**, selecione **Log Analytics** na lista suspensa **Filtrar por tipo de recurso**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Selecione **+ Adicionar critérios**.
-Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de logs personalizada**. Insira a seguinte consulta na caixa de texto Consulta de pesquisa:
+Clique em **Adicionar condição** e, na página **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de logs personalizada**. Insira a seguinte consulta na caixa de texto Consulta de pesquisa:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Em **Lógica de alerta**, para **Limite**, digite **0**. Quando tiver terminado,
 
 ![Configurar sinal lógico](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o alerta. Defina **Severidade** como **Informativo(Sev 2)**, **Aviso(Sev 1)** ou **Crítico(Sev 0)**.
+Em **Grupos de Ações**, selecione **Criar Novo**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
-![Definir os detalhes do alerta](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Em **3. Defina o grupo de ação** e selecione **Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Em **Detalhes do alerta**, insira um nome e uma descrição para o alerta. Defina **Severidade** como **Informativo(Sev 2)**, **Aviso(Sev 1)** ou **Crítico(Sev 0)**.
 
 Na caixa **Nome do grupo de ação**, digite um nome para o alerta e um nome curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 

@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial: Criar, publicar e responder com a base de dados de conhecimento no portal do QnA Maker'
+title: Criar, publicar e responder no QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Este tutorial baseado no portal guiará você pela criação e publicação programáticas de uma base de dados de conhecimento e pela resposta a uma pergunta com a base de dados de conhecimento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221513"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164425"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento e responder a pergunta por meio do portal do QnA Maker
+# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento e responder perguntas usando o portal do QnA Maker
 
 Este tutorial orienta você pela criação e publicação de uma base de dados de conhecimento e pela resposta a uma pergunta com a base de dados de conhecimento.
 
@@ -30,7 +31,7 @@ Neste tutorial, você aprenderá como:
 * Usar cURL para consultar a base de dados de conhecimento
 
 > [!NOTE] 
-> A versão programática deste tutorial está disponível com uma solução completa [ **Azure-Samples/cognitive-services-qnamaker-csharp** no repositório Github](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> A versão programática deste tutorial está disponível com uma solução completa [ **Azure-Samples/cognitive-services-qnamaker-csharp** no repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +97,7 @@ Selecione o botão **Publicar** no menu superior. Quando você estiver na págin
 
 Depois que a base de dados de conhecimento é publicada, o ponto de extremidade é exibido
 
-![Publicar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Publicar configurações de ponto de extremidade da página](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Usar cURL para consultar uma resposta de Perguntas frequentes
 

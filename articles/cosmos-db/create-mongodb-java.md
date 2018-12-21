@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo de console com Java e a API do MongoDB'
+title: 'O Azure Cosmos DB: Compilar um aplicativo de console com Java e a API do MongoDB'
 description: Apresenta um exemplo de código Java que pode ser usado para se conectar à API do MongoDB do BD Cosmos do Azure e consultá-la
 services: cosmos-db
 author: slyons
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: c77d6610939322fcf258e1b650672f319baf0815
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832404"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162011"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Java e o Portal do Azure
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>O Azure Cosmos DB: Compilar um aplicativo de console da API do MongoDB com Java e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

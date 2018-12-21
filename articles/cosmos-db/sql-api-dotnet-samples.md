@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Exemplos do .NET para a API do SQL'
-description: Encontre exemplos do C# .NET no GitHub para tarefas comuns na Azure Cosmos DB SQL API, incluindo operações CRUD.
+description: Encontre exemplos de .NET C# no GitHub para tarefas comuns na API SQL do Azure Cosmos DB, incluindo operações CRUD.
 keywords: Exemplo de NoSQL
 author: rnagpal
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875256"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166618"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos do .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -37,11 +37,11 @@ Para exemplos de código para o SDK do .NET versão 3.0 (versão prévia), consu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
+- Você pode [ativar benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Todos os meses, sua Assinatura do Visual Studio lhe oferece créditos que podem ser usados para serviços pagos do Azure.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Também é necessário ter o [pacote NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+Também é necessário ter o [pacote NuGet Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
 > Cada exemplo é independente, eles se configuram e fazem a limpeza sozinhos. Assim, os exemplos emitem várias chamadas para CreateDocumentCollectionAsync(). Cada vez que isso é feito, sua assinatura é cobrada por 1 hora de uso por nível de desempenho da coleção que está sendo criada. 
@@ -146,7 +146,7 @@ O exemplo de feed de alteração, [azure-documentdb-dotnet/samples/code-samples/
 | [Ler feed de alteração](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) | 
 | [Ler intervalos de chaves de partição](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync.aspx) | 
 
-O exemplo de processador de feed de alteração: [Ferramenta de migração de feed de alteração](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) demonstra como usar a bibilioteca de processadores de feed de alteração para replicar dados para outra coleção do Cosmos DB.   
+O exemplo de processador do feed de alterações:  [Ferramenta de migração do feed de alterações](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) demonstra como usar a biblioteca de processadores do feed de alterações para replicar dados para outra coleção do Cosmos DB.   
 
 ## <a name="server-side-programming-examples"></a>Exemplos de programação do lado do servidor
 O arquivo de programação do servidor, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como realizar as tarefas a seguir.
@@ -161,7 +161,7 @@ O arquivo de programação do servidor, [azure-documentdb-dotnet/samples/code-sa
 | [Criar um pós-gatilho](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Criar uma UDF (função definida pelo usuário)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Para obter mais informações sobre a programação do lado do servidor, consulte [Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs](programming.md).
+Para obter mais informações sobre a programação do lado do servidor, confira [Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs](programming.md).
 
 ## <a name="user-management-examples"></a>Exemplos de gerenciamento de usuário
 O arquivo de gerenciamento de usuário, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), mostra como realizar as tarefas a seguir.

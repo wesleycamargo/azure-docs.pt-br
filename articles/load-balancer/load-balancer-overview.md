@@ -1,5 +1,6 @@
 ---
-title: Visão geral do Azure Load Balancer | Microsoft Docs
+title: O que é o Azure Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Visão geral dos recursos do Balanceador de Carga do Azure, arquitetura e implementação. Saiba como o Load Balancer funciona e como aproveitá-lo na nuvem.
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219572"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185606"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -86,7 +88,7 @@ O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativo
      
     O Load Balancer fornece [diferentes tipos de sondagem de integridade](load-balancer-custom-probe-overview.md#types) para pontos de extremidade TCP, HTTP e HTTPS.
 
-    Além disso, ao usar os serviços em nuvem Classic, um tipo adicional é permitido: [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser considerado uma investigação de integridade de último caso e não é recomendado quando outras opções são viáveis.
+    Além disso, ao usar os serviços de nuvem Clássicos, um tipo adicional é permitido:  [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser considerado uma investigação de integridade de último caso e não é recomendado quando outras opções são viáveis.
     
 * **Conexões de saída (SNAT)**
 
@@ -142,13 +144,13 @@ Um Load Balancer interno direciona o tráfego apenas para recursos que estão de
 Um Load Balancer interno habilita os seguintes tipos de balanceamento de carga:
 
 * **Dentro de uma rede virtual**: balanceamento de carga de VMs na rede virtual para um conjunto de VMs dentro da mesma rede virtual.
-* **Para uma rede virtual entre instalações**: balanceamento de carga de computadores locais para um conjunto de VMs dentro da mesma rede virtual. 
+* **Para uma rede virtual entre locais**: balanceamento de carga de computadores locais para um conjunto de VMs dentro da mesma rede virtual. 
 * **Para aplicativos de várias camadas**: balanceamento de carga para aplicativos de várias camadas voltados para a Internet em que as camadas de back-end não são voltadas para a Internet. As camadas de back-end requerem balanceamento de carga de tráfego da camada voltada para a Internet (veja a figura a seguir).
-* **Para aplicativos de linha de negócios**: balanceamento de carga para aplicativos de linha de negócios hospedados no Azure sem hardware ou software de balanceador de carga adicional. Esse cenário inclui servidores locais que estão no conjunto de computadores cujo tráfego tem balanceamento de carga.
+* **Para aplicativos de linha de negócios**: Balanceamento de carga para aplicativos de linha de negócios hospedados no Azure sem hardware ou software do balanceador de carga adicional. Esse cenário inclui servidores locais que estão no conjunto de computadores cujo tráfego tem balanceamento de carga.
 
 ![Exemplo de Load Balancer Interno](./media/load-balancer-overview/IC744147.png)
 
-*Figura: balanceamento de carga de aplicativos de várias camadas usando Load Balancers internos e públicos*
+*Figura: balanceamento de carga de aplicativos de várias camadas usando Load Balancer interno e público*
 
 ## <a name="pricing"></a>Preços
 Os encargos do Load Balancer Standard são cobrados com base no número de regras de balanceamento de carga configuradas e na quantidade de dados de entrada e de saída processados. Para obter informações sobre os preços do Load Balancer Standard, visite a página [Preços do Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

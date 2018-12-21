@@ -1,6 +1,6 @@
 ---
-title: Como criar um grupo básico e adicionar membros usando o Azure Active Directory | Microsoft Docs
-description: Aprenda a criar um grupo básico usando o Azure Active Directory.
+title: Criar um grupo básico e adicionar membros – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como criar um grupo básico usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,15 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574905"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105437"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Como criar um grupo básico e adicionar membros usando o Azure Active Directory
-
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros usando o Azure Active Directory
 Você pode criar um grupo básico usando o portal do Azure AD (Azure Active Directory). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam acessar o recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regra, confira a [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
 
 ## <a name="create-a-basic-group-and-add-members"></a>Criar um grupo básico e adicionar membros

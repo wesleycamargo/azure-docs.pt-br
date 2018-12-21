@@ -1,6 +1,6 @@
 ---
-title: Implantar a Visão Personalizada em um dispositivo do Azure IoT Edge | Microsoft Docs
-description: Saiba como fazer um modelo visual computacional ser executado como um contêiner usando o IoT Edge e a Visão Personalizada.
+title: Tutorial de como implantar o classificador de Visão Personalizada em um dispositivo – Azure IoT Edge | Microsoft Docs
+description: Neste tutorial, aprenda a fazer um modelo de pesquisa visual computacional ser executado como um contêiner usando o IoT Edge e a Visão Personalizada.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566475"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075821"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -99,7 +99,7 @@ A criação de um classificador de imagem requer um conjunto de imagens de trein
 
 5. Selecione **Carregar 10 arquivos**. 
 
-   ![Carregar arquivos marcados como hemlock](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Carregar arquivos de hemlock marcados para Visão Personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Quando as imagens forem carregadas com êxito, selecione **Concluído**.
 
@@ -117,7 +117,7 @@ A criação de um classificador de imagem requer um conjunto de imagens de trein
 
 1. Depois de treinar o classificador, selecione **Exportar** na página Desempenho do classificador. 
 
-   ![Exportar o classificador de imagem](./media/tutorial-deploy-custom-vision/export.png)
+   ![Exportar seu classificador de imagens treinado](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Selecione **DockerFile** como a plataforma. 
 
@@ -151,7 +151,7 @@ Uma solução é uma maneira lógica de desenvolver e organizar vários módulos
 
 3. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
-4. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |

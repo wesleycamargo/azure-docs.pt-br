@@ -5,22 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274545"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074870"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: otimizar instâncias reservadas
+# <a name="tutorial-optimize-reserved-instances"></a>Tutorial: Otimizar instâncias reservadas
 
 Neste tutorial, você aprenderá como o Cloudyn pode ajudá-lo a otimizar os custos e o uso da instância reservada para os serviços Azure e AWS (Amazon Web Services). Uma instância reservada com um desses provedores de serviços de nuvem é um compromisso com um contrato de longo prazo em que você se compromete de antemão a usar a VM no futuro. E isso talvez possa trazer uma economia significativa em relação ao modelo de preços de VM padrão com pagamento por uso. A possível economia só ocorre quando você usa totalmente a capacidade das instâncias reservadas.
 
@@ -112,7 +112,7 @@ Por exemplo, se você comprar uma reserva para uma VM do tipo DS1\_v2 no Leste d
 
 No entanto, se ela é executada apenas 50% do tempo, o ponto de neutralização de custo ocorrerá no décimo mês e a economia será de apenas US$ 49,74 por ano. Você pode não se beneficiar com a compra de reserva para esse tipo de instância neste exemplo. Veja a seguinte imagem:
 
-![Ponto de neutralização de custo no Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Exemplo do ponto de equilíbrio para VMs do Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Exibir os custos de RI
 
@@ -127,11 +127,11 @@ Os relatórios Análise de Custo Real e Análise ao Longo do Tempo mostram a qua
 
 Navegue até **Custos** > **Análise de Custo** > no portal do Cloudyn e selecione **Análise de Custo Real** ou **Custo Real ao Longo do Tempo**. Em seguida, defina os filtros. Por exemplo, filtre apenas o serviço da VM/do Azure e agrupe por tipo de recurso e modelo de preço. Veja a seguinte imagem:
 
-![Custo real da instância reservada](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Exemplo do custo real de instâncias reservadas](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 Você pode filtrar por um serviço, **Azure/VM** neste exemplo e agrupar por **modelo de preço** e **tipo de recurso**, conforme mostrado na imagem abaixo:
 
-![Filtros e grupos do relatório de Custo Real](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Exemplo de grupos de relatórios de custo real e filtros agrupados por tipo de recurso e modelo de preço](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 Você também pode analisar os tipos de pagamentos feitos, como tarifas únicas, de uso e de licença.
 
@@ -145,7 +145,7 @@ No relatório de Custo Real, você observou um pico de compra de RI em 16 de nov
 
 Para exibi-la, navegue até **Custos** > **Análise de Custo** > e selecione **Análise de Custo Amortizado** ou **Custo Amortizado ao Longo do Tempo**.
 
-![Custo amortizado de instância reservada](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Relatório de exemplo mostrando o custo de instância reservada amortizado](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>Otimizar os custos de RI do AWS
 
@@ -166,25 +166,25 @@ No menu de relatórios na parte superior do portal, clique em **Otimizador** > *
 
 A imagem a seguir mostra as recomendações de compra do relatório.
 
-![Recomendações de compra](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Exemplo mostrando as recomendações de compra no relatório Recomendações de compra de EC2](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 Neste exemplo, o Cloudyn mostra \_uma conta com 32 recomendações de compra de instância reservada. Se você seguir todas as recomendações de compra, poderia poupar até US$ 137.770 por ano. Tenha em mente que as recomendações de compra fornecidas pelo Cloudyn presumem que o uso de suas cargas de trabalho em execução permanecerão consistentes.
 
 Para exibir detalhes sobre por que cada compra é recomendada, clique no símbolo de adição (**+**) em **Justificativas** . Aqui está um exemplo para a primeira recomendação na lista.
 
-![Justificativas de compra](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Exemplo mostrando detalhes de justificativa de compra](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 O exemplo anterior mostra que a execução da carga de trabalho sob demanda custaria US$ 90.456 por ano. No entanto, se você comprar a reserva com antecedência, a mesma carga de trabalho teria um custo de US$ 56.592 e economizaria US$ 33.864 por ano.
 
 Clique no símbolo de adição ao lado de **Impacto de compra de RI EC2** para exibir o ponto de neutralização de custo durante um ano para ver aproximadamente quando seu investimento de compra se paga. Cerca de oito meses depois da compra o custo acumulado sob demanda começa a exceder o custo acumulado da RI no exemplo abaixo:
 
-![Impacto da compra](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Exemplo mostrando detalhes de impacto de compra](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 Você começa a poupar neste ponto.
 
 Examine as **Instâncias ao Longo do Tempo** para verificar a precisão da recomendação da compra sugerida. Neste exemplo, você pode ver que seis instâncias foram usadas em média para a carga de trabalho no último período de 30 dias.
 
-![Instâncias ao longo do tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Exemplo mostrando o uso histórico de instâncias ao longo do tempo](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>Modificar reservas não utilizadas
 
@@ -196,23 +196,23 @@ No menu de relatórios, na parte superior do portal, clique em **Otimizador** > 
 
 As imagens a seguir mostram o relatório com instâncias reservadas não utilizadas.
 
-![Reservas não utilizadas](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Exemplo mostrando informações resumidas sobre reservas não utilizadas](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Clique no sinal de adição em **Detalhes** para exibir os detalhes de uma reserva específica.
 
-![Detalhes de reservas não utilizadas](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Exemplo mostrando detalhes de reservas não utilizadas](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 No exemplo anterior, há um total de 77 reservas não utilizadas em várias zonas de disponibilidade. A primeira reserva tem 51 instâncias não utilizadas. Procurando mais abaixo na lista, há possíveis modificações de instância de reserva que você pode fazer usando o tipo de instância **m3.2xlarge** na zona de disponibilidade **us-east-1c**.
 
 Clique em **Modificar** na primeira reserva da lista para abrir a página **Modificar RI** que mostra dados sobre a reserva.
 
-![Modificar RI](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Exemplo mostrando reservas que você pode modificar](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 As instâncias de reserva que você pode modificar são listadas. Na imagem de exemplo a seguir, há 51 reservas não utilizadas que você pode modificar, mas há uma necessidade de 54 dentre as duas reservas. Se você modificar suas reservas não utilizadas para usar todas, quatro instâncias continuarão a ser executadas sob demanda. Neste exemplo, divida suas reservas não utilizadas, com a primeira usando 30 e a segunda usando 21.
 
 Clique no símbolo de adição da primeira entrada de reserva e defina a **Quantidade de reserva** como **30**. Para a segunda entrada, defina a quantidade de reserva como **21** e clique em **Aplicar**.
 
-![Alterar a quantidade de reserva](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Exemplo mostrando alterações à quantidade de reserva](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 Todas as instâncias não utilizadas da reserva estão totalmente usadas e 51 instâncias deixaram de ser executadas sob demanda. Neste exemplo, você pode economizar dinheiro reduzindo significativamente o uso sob demanda e usando reservas já pagas.
 

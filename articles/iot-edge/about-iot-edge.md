@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1a1281be1c1b58b21406dad5826e240ccac6c898
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089795"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Azure IoT Edge
 
@@ -71,7 +71,7 @@ O Azure IoT Edge integra-se perfeitamente aos aceleradores da solução Azure Io
 * Enviar uma carga de trabalho para um conjunto de dispositivos.
 * Monitorar cargas de trabalho que estão sendo executadas em dispositivos em campo.
 
-![Coordenar a telemetria, informações e ações de dispositivos com a nuvem](./media/about-iot-edge/cloud-interface.png)
+![Telemetria e ações do dispositivo são coordenadas com a nuvem](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

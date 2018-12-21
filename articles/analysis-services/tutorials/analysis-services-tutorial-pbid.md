@@ -2,19 +2,20 @@
 title: Tutorial – Conectar-se ao Azure Analysis Services com Power BI Desktop | Microsoft Docs
 author: minewiskan
 manager: kfile
+description: Saiba como se conectar ao Azure Analysis Services com o Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426117"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993971"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar com Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar-se com o Power BI Desktop
 
 Neste tutorial, use o Power BI Desktop para se conectar ao modelo de banco de dados do exemplo de adventureworks no seu servidor. As tarefas que você concluir simulam uma conexão típica do usuário para o modelo e criam um relatório básico de dados de modelo.
 
@@ -29,10 +30,10 @@ Neste tutorial, use o Power BI Desktop para se conectar ao modelo de banco de da
 - Ter permissões de [*leitura*](../analysis-services-server-admins.md) para o modelo de banco de dados do exemplo adventureworks.
 - [Instalar o mais recente Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
-Neste tutorial, você faz logon no portal para obter apenas o nome do servidor. Normalmente, os usuários obteriam o nome do servidor do administrador do servidor.
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
+Neste tutorial, você entra no portal para obter apenas o nome do servidor. Normalmente, os usuários obteriam o nome do servidor do administrador do servidor.
 
-Faça logon no [portal](https://portal.azure.com/).
+Entre no [portal](https://portal.azure.com/).
 
 ## <a name="get-server-name"></a>Obter nome do servidor
 Para se conectar ao seu servidor a partir do Power BI Desktop, primeiro é necessário ter o nome do servidor. É possível obter o nome do servidor no portal.
@@ -51,7 +52,7 @@ No **Portal do Azure** > servidor > **Visão geral** > **Nome do servidor**, cop
 
    ![Especificar nome do servidor e o modelo de banco de dados](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. Quando solicitado, insira suas credenciais de logon. A conta que você inserir deve ter pelo menos permissões de leitura para o modelo de banco de dados de exemplo adventureworks.
+3. Insira suas credenciais quando solicitado. A conta que você inserir deve ter pelo menos permissões de leitura para o modelo de banco de dados de exemplo adventureworks.
 
     O modelo de adventureworks é aberto no Power BI Desktop com um relatório em branco na exibição de relatório. A lista de **Campos** exibe todos os objetos de modelo não ocultos. O status de conexão é exibido no canto inferior direito.
 

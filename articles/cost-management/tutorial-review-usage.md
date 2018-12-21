@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275863"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093600"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ Acompanhe a quantia de dinheiro real gasta com uso e custos usando relatórios A
 
 Aqui está um exemplo de relatório:
 
-![relatório de exemplo](./media/tutorial-review-usage/actual-cost01.png)
+![Exemplo de relatório de custo real ao longo do tempo](./media/tutorial-review-usage/actual-cost01.png)
 
 O relatório mostra todos os gastos nos últimos 30 dias. Para exibir apenas os gastos para serviços do Azure, aplique o grupo Serviço e, em seguida, filtre todos os serviços do Azure. A imagem a seguir mostra os serviços filtrados.
 
-![serviços filtrados](./media/tutorial-review-usage/actual-cost02.png)
+![Exemplo mostrando serviços do Azure filtrados](./media/tutorial-review-usage/actual-cost02.png)
 
 No exemplo anterior, menos dinheiro foi gasto a partir de 29/10/2018. No entanto, muitas colunas podem confundir uma tendência óbvia. Você pode alterar o modo de exibição do relatório para um gráfico de linha ou de área para ver os dados exibidos em outros modos de exibição. A imagem a seguir mostra a tendência mais claramente.
 
-![tendência no relatório](./media/tutorial-review-usage/actual-cost03.png)
+![Exemplo mostrando uma tendência de custo decrescente de VM do Azure](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando com o exemplo, você pode ver que o custo da VM do Azure caiu. Os custos para outros serviços do Azure também começaram a cair naquele dia. Portanto, o que causou essa redução de gastos? Neste exemplo, um grande projeto de trabalho foi concluído, de forma que o consumo de vários serviços do Azure também caiu.
 
@@ -77,19 +77,19 @@ O relatório Recomendações de Dimensionamento Econômico identifica a possíve
 
 No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Econômico**. Se for útil, aplique um filtro para reduzir os resultados. Aqui está uma imagem de exemplo.
 
-![VMs do Azure](./media/tutorial-review-usage/sizing01.png)
+![Relatório de recomendações de dimensionamento econômico para VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
 Neste exemplo, é possível economizar US$ 2.382 ao seguir as recomendações para alterar os tipos de instância de VM. Clique no símbolo de adição (+) em **Detalhes** da primeira recomendação. Aqui estão os detalhes sobre a primeira recomendação.
 
-![detalhes de recomendação](./media/tutorial-review-usage/sizing02.png)
+![Exemplo mostrando detalhes da recomendação](./media/tutorial-review-usage/sizing02.png)
 
 Exiba as IDs da instância VM clicando no símbolo de mais ao lado de **Lista de Candidatos**.
 
-![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
+![Exemplo mostrando uma lista de candidatos a VM a redimensionar](./media/tutorial-review-usage/sizing03.png)
 
 Para assistir a um vídeo tutorial sobre como detectar ineficiências de uso, consulte [Otimizando o tamanho da VM no Cloudyn](https://youtu.be/1xaZBNmV704).
 
-O Gerenciamento de Custos do Azure também fornece recomendações de economia de custo para serviços do Azure. Para saber mais, veja [Tutorial: Otimizar os custos das recomendações](tutorial-acm-opt-recommendations.md).
+O Gerenciamento de Custos do Azure também fornece recomendações de economia de custo para serviços do Azure. Para obter mais informações, confira [Tutorial: Otimizar os custos usando recomendações](tutorial-acm-opt-recommendations.md).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Criar alertas para gastos incomuns
 
@@ -99,7 +99,7 @@ Crie um alerta para qualquer gasto usando qualquer relatório de custo. Neste ex
 
 Na caixa Salvar ou Agendar este relatório, use a guia **Agendamento** para enviar o relatório para o seu email usando a frequência desejada. Selecione **Enviar por email**. As marcas, o agrupamento e a filtragem que você usar serão incluídos no relatório por email. Clique na guia **Limite** e selecione **Custo Real versus Limite**. Se você tiver um orçamento total de US$ 20.000 e desejar ser notificado quando os custos se aproximarem da metade, crie um **Alerta vermelho** em US$ 10.000 e um **Alerta amarelo** em US$ 9.000. Não inclua vírgulas nos valores inseridos. Em seguida, escolha o número de alertas consecutivos. Quando você receber o número total de alertas especificado, não será enviado mais nenhum alerta. Salve o relatório agendado.
 
-![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
+![Exemplo mostrando alertas amarelos e vermelhos com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
 Você também pode escolher a métrica de limite Percentual de Custo versus Limite para criar alertas. Com essa métrica, você pode usar porcentagens do orçamento, em vez de valores de moeda.
 

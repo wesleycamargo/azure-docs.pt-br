@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275258"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099436"
 ---
-# <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Atribuir acesso a dados do Cloudyn
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: atribuir acesso aos dados do Cloudyn
 
 Acesso a dados do Cloudyn é fornecido pelo usuário ou o gerenciamento de entidade. As contas de usuário da Cloudyn determinam o acesso a *entidades* e a funções administrativas. Há dois tipos de acesso: administrador e usuário. A menos que seja modificado para cada usuário, o acesso de administrador permite o uso irrestrito de todas as funções no portal da Cloudyn, incluindo: gerenciamento de usuários, gerenciamento de listas de destinatários e acesso de entidade raiz a todos os dados de entidade. O acesso do usuário é indicado para que os usuários finais exibam relatórios e criem relatórios usando o acesso que têm aos dados de entidade.
 
@@ -47,7 +47,7 @@ Embora você já tenha acesso de administrador, os colegas de trabalho em sua or
 Insira as informações necessárias sobre o usuário. A **ID de logon** deve ser um endereço de email válido. Escolha permissões para permitir o Gerenciamento de Usuários para que o usuário possa criar e modificar a outros usuários. O Gerenciamento de Listas de Destinatários permite que o usuário edite listas de destinatários. Um link com informações de entrada é enviado da Cloudyn para o email do usuário quando você seleciona **Notificar usuário por email**. Na primeira entrada, o usuário define uma senha.
 
 Em **Usuário tem acesso de administrador**, a entidade de raiz de sua organização está selecionada. Deixe a raiz selecionada e, em seguida, salve as informações do usuário. Selecionar a entidade raiz permite que o usuário tenha permissão de administrador não apenas para a entidade raiz na árvore, mas também para todas as entidades que residem abaixo dela.  
-  ![Adicionar novo usuário com acesso de administrador](.\media\tutorial-user-access\new-admin-access.png)
+  ![Exemplo mostrando o acesso de administrador na caixa Adicionar novo usuário](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Criar um usuário com acesso de usuário
 Os usuários típicos que precisam acessar dados do Cloudyn, como painéis e relatórios, devem ter acesso de usuário para visualizá-los. Crie um novo usuário com acesso de usuário semelhante ao que você criou com acesso de administrador, com as seguintes diferenças:
@@ -56,7 +56,7 @@ Os usuários típicos que precisam acessar dados do Cloudyn, como painéis e rel
 - Selecione as entidades para as quais o usuário precisa de acesso na lista **Usuário tem acesso de usuário**.
 - Você também pode permitir que o administrador acesse entidades específicas, conforme o necessário.
 
-![adicionar novo usuário com acesso de usuário](.\media\tutorial-user-access\new-user-access.png)
+![Exemplo mostrando o acesso de usuário na caixa Adicionar novo usuário](./media/tutorial-user-access/new-user-access.png)
 
 Para assistir a um vídeo tutorial sobre como adicionar usuários, consulte [Adicionando usuários ao Cloudyn](https://youtu.be/Nzn7GLahx30).
 
@@ -88,11 +88,11 @@ Quando você registrou seu contrato do Azure ou sua conta com a Cloudyn, seus da
 
 No portal da Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Contas do Cloud**. Você começa com uma única entidade (raiz) e cria a árvore de entidade na raiz. Aqui está um exemplo de uma hierarquia de entidades que pode ser semelhante à de muitas organizações de TI após a conclusão da árvore:
 
-![árvore de entidades](.\media\tutorial-user-access\entity-tree.png)
+![Exemplo de uma árvore de entidades mostrada na página Gerenciamento de contas](./media/tutorial-user-access/entity-tree.png)
 
 Ao lado de **Entidades**, clique em **Adicionar Entidade**. Insira informações sobre a pessoa ou o departamento que você deseja adicionar. Os campos **Nome Completo** e **Email** não devem corresponder aos usuários existentes. Se você quiser exibir uma lista de níveis de acesso, pesquise na ajuda o tema *Adicionando uma entidade*.
 
-![Adicionar entidade](.\media\tutorial-user-access\add-entity.png)
+![Exemplo mostrando os níveis de acesso e o nome de entidade na caixa Adicionar entidade](./media/tutorial-user-access/add-entity.png)
 
 Quando terminar, **Salve** a entidade.
 

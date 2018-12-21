@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521893"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189006"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Provisionar o dispositivo para um Hub IoT usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
@@ -40,12 +40,12 @@ Esta etapa envolve adicionar os artefatos de segurança exclusivos do dispositiv
     - A *Chave de Endosso* que é exclusiva para cada chip ou simulação do TPM, obtida do fabricante do chip do TPM.  Leia [Compreender a chave de endosso do TPM](https://technet.microsoft.com/library/cc770443.aspx) para obter mais informações.
     - A *ID do registro* é usada para identificar exclusivamente um dispositivo no namespace/escopo. Essa ID pode ou não ser a mesmo ID do dispositivo. A ID é obrigatória para cada dispositivo. Para dispositivos baseados em TPM, a ID do registro pode ser derivada do TPM em si, por exemplo, um hash SHA-256 da chave de endosso do TPM.
 
-    [![Informações de registro do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
+      [![Informações de registro do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, você precisará do seguinte:
     - O [certificado emitido para o chip ou simulação X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), na forma de um arquivo *.pem* ou um *.cer*. Para o registro individual, você precisa usar o *certificado assinante* por dispositivo para seu sistema X.509; já para grupos de registro, você precisa usar o *certificado raiz*. 
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Adicionar um registro individual para atestado de X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Há duas maneiras de registrar o dispositivo no Serviço de Provisionamento de Dispositivos:
 
@@ -89,7 +89,7 @@ Quando o dispositivo inicializar, as ações a seguir deverão ocorrer:
 
     ![Conexão bem-sucedida ao hub no portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obter mais informações, consulte o aplicativo de exemplo do simulador de TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+Para obter mais informações, confira o exemplo de cliente do dispositivo de provisionamento, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). O exemplo demonstra o provisionamento de um dispositivo simulado usando TPM, certificados X.509 e chaves simétricas. Confira os inícios rápidos do [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), do [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) e da [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) para obter instruções passo a passo sobre como usar o exemplo.
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como:

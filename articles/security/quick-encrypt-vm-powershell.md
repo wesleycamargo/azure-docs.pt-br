@@ -1,6 +1,6 @@
 ---
 title: Início Rápido – Criptografar uma VM de IaaS do Windows com o Azure PowerShell | Microsoft Docs
-description: Neste início rápido, você aprende a usar o Azure PowerShell para criptografar uma máquina virtual Windows.
+description: Neste início rápido, aprenda a usar o Azure PowerShell para criptografar uma VM de IaaS do Windows no Azure.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087851"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Início Rápido: Criptografar uma VM de IaaS do Windows com o Azure PowerShell
 
-O Azure Disk Encryption ajuda você a criptografar seus discos de máquina virtual IaaS Windows e Linux. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar os segredos e as chaves de criptografia de disco. Usando o Azure Disk Encryption, você pode fazer com que suas VMs fiquem protegidas em repouso usando tecnologia de criptografia padrão do setor. Neste início rápido, você criará uma VM do Windows Server 2016 e criptografará o disco do sistema operacional. 
+O Azure Disk Encryption ajuda você a criptografar seus discos de máquina virtual IaaS Windows e Linux. A solução é integrada ao Azure Key Vault para ajudar a controlar e gerenciar os segredos e as chaves de criptografia de disco. Usando o Azure Disk Encryption, você pode fazer com que suas VMs fiquem protegidas em repouso usando tecnologia de criptografia padrão do setor. Neste início rápido, você criará uma VM do Windows Server 2016 e criptografará o disco do sistema operacional.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -54,7 +55,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="bkmk_PrereqScript"></a> Executar o script de pré-requisitos do Azure Disk Encryption
  **ADEPrereqScript.ps1** criará um grupo de recursos e um cofre de chaves e definirá a política de acesso do cofre de chaves. O script também criará um bloqueio de recurso no cofre de chaves para ajudar a protegê-lo contra exclusão acidental.  
 
-1. Na janela **Administrador: ISE do Windows PowerShell**, clique em **Arquivo** e clique em **Abrir**. Navegue até o arquivo **ADEPrereqScript.ps1** e clique duas vezes nele. O script será aberto no painel de script.
+1. Na janela **Administrador: ISE do Windows PowerShell**, clique em **Arquivo** e, em seguida, em **Abrir**. Navegue até o arquivo **ADEPrereqScript.ps1** e clique duas vezes nele. O script será aberto no painel de script.
 2. Clique na seta verde para **Executar Script** ou use F5 para executar o script. 
 3. Digite nomes para um novo **grupo de recursos** e um novo **cofre de chaves**. Não use um grupo de recursos ou um cofre de chaves existente neste início rápido, pois iremos excluir o grupo de recursos mais tarde. 
 4. Digite o local onde você deseja criar os recursos, tais como **EastUS**. Obtenha uma lista de locais com `Get-AzureRMLocation`.

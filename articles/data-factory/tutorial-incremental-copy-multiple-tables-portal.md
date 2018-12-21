@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614507"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969780"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar incrementalmente os dados de várias tabelas no SQL Server para um banco de dados SQL do Azure
 Neste tutorial, você pode criar um Azure Data Factory com um pipeline que carrega dados delta de várias tabelas do SQL Server local para um banco de dados SQL do Azure.    
@@ -61,7 +61,7 @@ Aqui estão as etapas importantes ao criar essa solução:
 
     A seguir está diagrama da solução de alto nível: 
 
-    ![Carregar dados incrementalmente](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![Carregar dados incrementalmente](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -248,7 +248,7 @@ END
 1. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 1. Selecione **Fixar no painel**.     
 1. Clique em **Criar**.      
-1. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+1. No painel, você deve ver o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
@@ -277,7 +277,7 @@ Conforme você move dados de um armazenamento de dados em uma rede privada (loca
 1. Insira **MySelfHostedIR** como **Nome** e clique em **Avançar**. 
 
    ![Nome do IR auto-hospedado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Clique em **Clique aqui para iniciar a instalação expressa para este computador** na seção **Opção 1: instalação Expressa**. 
+1. Clique em **Clique aqui para inicializar a instalação expressa para este computador** na seção **Opção 1: instalação expressa**. 
 
    ![Clique no link de instalação Expressa](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Instalação Expressa do Microsoft Integration Runtime (auto-hospedado)**, clique em **Fechar**. 

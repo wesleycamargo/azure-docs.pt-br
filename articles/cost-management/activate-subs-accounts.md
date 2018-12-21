@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274058"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075974"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar assinaturas e contas do Azure com o Cloudyn
 
@@ -41,7 +41,7 @@ Se sua conta tiver a função **Colaborador**, você não tem a permissão adequ
 3. No Azure Active Directory, selecione **Configurações de Usuário**.
 4. Verifique a opção **Registros do Aplicativo**.
     - Se estiver definido como **Sim**, os usuários não administradores podem registrar aplicativos do AD. Essa configuração significa que qualquer usuário no locatário do Azure AD pode registrar um aplicativo.  
-    ![Registros de aplicativo](./media/activate-subs-accounts/app-register.png)
+    ![selecionar Registros de aplicativo em Configurações do usuário](./media/activate-subs-accounts/app-register.png)
     - Se a opção **Registros do aplicativo** estiver definida como **Não**, apenas os usuários administrativos do locatário podem registrar aplicativos do Active Directory do Azure. Seu administrador de locatário deve registrar o aplicativo CloudynCollector.
 
 
@@ -53,12 +53,12 @@ Quando você adiciona uma assinatura a uma atualização de conta, você concede
 
 1. No portal do Cloudyn, clique no símbolo de engrenagem no canto superior direito e selecione **Contas do Cloud**.
 2. Clique em **Adicionar nova conta** e a caixa **Adicionar nova conta** é exibida. Insira as informações necessárias.  
-    ![Caixa Adicionar nova conta](./media/activate-subs-accounts//add-new-account.png)
+    ![insira as informações necessárias na caixa Adicionar nova conta](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Atualizar uma assinatura
 
 1. Se você quiser atualizar uma assinatura _não ativa_ que já existe no Cloudyn no Gerenciamento de Contas, clique no símbolo de lápis de edição à direita do _GUID de locatário_ pai. As assinaturas são agrupadas em um locatário pai, portanto, evite ativar assinaturas individualmente.
-    ![Redescobrir assinaturas](./media/activate-subs-accounts/existing-sub.png)
+    ![selecione sua ID de locatário na caixa Redescobrir assinaturas](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessário, insira a ID de locatário. Se você não souber sua ID de locatário, use as seguintes etapas para localizá-lo:
     1. Entre no [Portal do Azure](https://portal.azure.com).
     2. No portal do Azure, selecione **Azure Active Directory**.
@@ -106,7 +106,7 @@ Você também precisa conceder permissões para administradores de departamento,
 Somente um administrador de serviços do Azure pode habilitar o Cloudyn. As permissões de coadministrador são insuficientes. No entanto, você pode contornar o requisito do administrador. É possível solicitar que o administrador do Active Directory do Azure conceda permissão para autorizar o **CloudynAzureCollector** com um script do PowerShell. O script a seguir concede permissão para registrar a Entidade de Serviço do Azure Active Directory **CloudynAzureCollector**.
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

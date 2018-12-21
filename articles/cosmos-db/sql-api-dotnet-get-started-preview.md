@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4ac770b58e4a4d9a547916997a8f9d181b2fa895
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 139d7a13b9f6ce6132bffb798aa41b207ebf7929
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852476"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317400"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilar um aplicativo de console do .NET para gerenciar dados na conta da API do SQL do Azure Cosmos DB (SDK versão 3 Versão Prévia)
 
@@ -22,7 +22,7 @@ ms.locfileid: "52852476"
 > * [.NET (Versão prévia)](sql-api-dotnet-get-started-preview.md)
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (Versão prévia)](sql-api-dotnet-core-get-started-preview.md)
+> * [.NET Core (versão prévia)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -53,12 +53,12 @@ Agora vamos começar!
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Etapa 1: Criar uma conta do Azure Cosmos DB
 Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja usar, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS). Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas no [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar seu projeto do Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
-## <a id="SetupVS"></a>Etapa 2: configurar seu projeto do Visual Studio
+## <a id="SetupVS"></a>Etapa 2: Configurar seu projeto do Visual Studio
 1. Abra o **Visual Studio 2017** em seu computador.
 1. No menu **Arquivo**, selecione **Novo** e depois **Projeto**.
 1. Na caixa de diálogo **Novo Projeto**, selecione **Visual C#** / **Aplicativo de Console (.NET Framework)**, nomeie o projeto e clique em **OK**.
@@ -172,8 +172,8 @@ Vamos criar uma conta do Azure Cosmos DB. Se você já tem uma conta que deseja 
 
 Parabéns! Você se conectou com sucesso a uma conta do Azure Cosmos DB. 
 
-## <a name="step-4-create-a-database"></a>Etapa 4: criar um banco de dados
-Um banco de dados pode ser criado usando a função [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) ou [**CreateDatabaseAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) da classe ``CosmosDatabases``. Um banco de dados é o contêiner lógico de itens particionados em contêineres.
+## <a name="step-4-create-a-database"></a>Etapa 4: Criar um banco de dados
+Um banco de dados pode ser criado usando a função [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) ou [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) da classe ``CosmosDatabases``. Um banco de dados é o contêiner lógico de itens particionados em contêineres.
     
 1. Copie e cole o método **CreateDatabase** abaixo do método **GetStartedDemoAsync**. **CreateDatabase** criará um novo banco de dados com a ID ``FamilyDatabase``, caso ela ainda não exista, com a ID especificada do campo ``databaseId``. 
 
@@ -290,7 +290,7 @@ Parabéns! Você criou um banco de dados do Azure Cosmos DB com êxito.
 > 
 > 
 
-Um contêiner pode ser criado usando a função [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) ou [**CreateContainerAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) da classe **CosmosContainers**. Um contêiner é formado por itens (que, no caso da API de SQL, são documentos JSON) e lógica de aplicativo JavaScript associada, por exemplo, procedimentos armazenados, funções definidas pelo usuário e gatilhos.
+Um contêiner pode ser criado usando a função [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) ou [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) da classe **CosmosContainers**. Um contêiner é formado por itens (que, no caso da API de SQL, são documentos JSON) e lógica de aplicativo JavaScript associada, por exemplo, procedimentos armazenados, funções definidas pelo usuário e gatilhos.
 
 1. Copie e cole o método **CreateContainer** abaixo do método **CreateDatabase**. **CreateContainer** criará um novo contêiner com a ID ``FamilyContainer``, caso ela ainda não exista, com a ID especificada do campo ``containerId``. 
 
@@ -325,7 +325,7 @@ Select **F5** to run your application.
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
 1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
@@ -642,7 +642,7 @@ Selecione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um item do Azure Cosmos DB com êxito.
 
-## <a id="DeleteDatabase"></a>Etapa 10: excluir o banco de dados
+## <a id="DeleteDatabase"></a>Etapa 10: Excluir o banco de dados
 Agora, vamos excluir nosso banco de dados. Excluir o banco de dados criado removerá o banco de dados e todos os recursos filho (contêineres, itens e procedimentos armazenados, funções definidas pelo usuário e gatilhos). Também vamos descartar a instância do **CosmosClient**.
 
 1. Copie e cole o método **DeleteDatabaseAndCleanup** abaixo do método **DeleteFamilyItem**.
@@ -684,7 +684,7 @@ Selecione **F5** para executar seu aplicativo.
 
 Parabéns! Você excluiu um banco de dados do Azure Cosmos DB com êxito.
 
-## <a id="Run"></a>Etapa 11: executar o aplicativo de console C# inteiro!
+## <a id="Run"></a>Etapa 11: Executar o aplicativo de console C# inteiro!
 Escolha F5 no Visual Studio para compilar e executar o aplicativo no modo de depuração.
 
 Você deverá ver a saída de todo o aplicativo em uma janela do console. A saída mostrará os resultados das consultas que adicionamos e deverá coincidir com o texto de exemplo abaixo.
@@ -731,7 +731,7 @@ Pronto, compile-o e você pode continuar!
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Quer um tutorial mais complexo do ASP.NET MVC? Confira [Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB](sql-api-dotnet-application-preview.md).
+* Quer um tutorial mais complexo do ASP.NET MVC? Confira o [Tutorial do ASP.NET MVC: Desenvolvimento de aplicativo Web com o Azure Cosmos DB](sql-api-dotnet-application-preview.md).
 * Quer executar testes de desempenho e escala com o Azure Cosmos DB? Confira [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorar solicitações, o uso e o armazenamento do Azure Cosmos DB](monitor-accounts.md).
 * Executar consultas em nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

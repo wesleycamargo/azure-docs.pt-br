@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2a1f79656fa70b4fa895235aff177ca47dc29664
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741395"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413635"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Discos de dados conectados e conjuntos de dimensionamento de máquina virtual do Azure
 Para expandir o armazenamento disponível, os [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure oferecem suporte a instâncias de VM com discos de dados anexados. É possível anexar discos de dados ao criar o conjunto de dimensionamento ou em um já existente.
 
 > [!NOTE]
->  Ao criar um conjunto de dimensionamento com discos de dados anexado, você precisa montar e formatar os discos de dentro de uma VM para usá-los (assim como para VMs autônomas do Azure). Uma maneira conveniente de concluir esse processo é usar uma Extensão de script personalizado que chama um script para particionar e formatar todos os discos de dados em uma VM. Para obter exemplos disso, veja [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) e [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Ao criar um conjunto de dimensionamento com discos de dados anexado, você precisa montar e formatar os discos de dentro de uma VM para usá-los (assim como para VMs autônomas do Azure). Uma maneira conveniente de concluir esse processo é usar uma Extensão de script personalizado que chama um script para particionar e formatar todos os discos de dados em uma VM. Para obter exemplos disso, veja [CLI do Azure](tutorial-use-disks-cli.md#prepare-the-data-disks) e [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Criar e gerenciar discos em um conjunto de dimensionamento
@@ -39,7 +39,7 @@ O restante deste artigo descreve os casos de uso específico, como clusters do S
 
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Criar um cluster do Service Fabric com discos de dados anexados
-Cada [tipo de nó](../service-fabric/service-fabric-cluster-nodetypes.md) em um cluster do [Service Fabric](/azure/service-fabric) sendo executado no Azure é respaldado por um conjunto de dimensionamento de máquinas virtuais.  Usando um modelo do Azure Resource Manager, é possível anexar discos de dados para os conjuntos de dimensionamento que compõem o cluster do Service Fabric. É possível usar um [modelo existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como um ponto de partida. No modelo, inclua uma seção _dataDisks_ no _storageProfile_ dos recursos _Microsoft.Compute/virtualMachineScaleSets_ e implante o modelo. O exemplo a seguir anexa um disco de dados de 128 GB:
+Cada [tipo de nó](../service-fabric/service-fabric-cluster-nodetypes.md) em um cluster do [Service Fabric](/azure/service-fabric) sendo executado no Azure é respaldado por um conjunto de dimensionamento de máquinas virtuais. Usando um modelo do Azure Resource Manager, é possível anexar discos de dados para os conjuntos de dimensionamento que compõem o cluster do Service Fabric. É possível usar um [modelo existente](https://github.com/Azure-Samples/service-fabric-cluster-templates) como um ponto de partida. No modelo, inclua uma seção _dataDisks_ no _storageProfile_ dos recursos _Microsoft.Compute/virtualMachineScaleSets_ e implante o modelo. O exemplo a seguir anexa um disco de dados de 128 GB:
 
 ```json
 "dataDisks": [
@@ -51,19 +51,19 @@ Cada [tipo de nó](../service-fabric/service-fabric-cluster-nodetypes.md) em um 
 ]
 ```
 
-É possível particionar, formatar e montar os discos de dados automaticamente quando o cluster for implantado.  Adicione uma extensão de script personalizada para o _extensionProfile_ do _virtualMachineProfile_ dos conjuntos de dimensionamento.
+É possível particionar, formatar e montar os discos de dados automaticamente quando o cluster for implantado. Adicione uma extensão de script personalizada para o _extensionProfile_ do _virtualMachineProfile_ dos conjuntos de dimensionamento.
 
 Para preparar os discos de dados automaticamente em um cluster do Windows, adicione o seguinte:
 
 ```json
 {
-    "name": "customScript",    
-    "properties": {    
-        "publisher": "Microsoft.Compute",    
-        "type": "CustomScriptExtension",    
-        "typeHandlerVersion": "1.8",    
-        "autoUpgradeMinorVersion": true,    
-        "settings": {    
+    "name": "customScript",
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.8",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
         "fileUris": [
             "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
         ],

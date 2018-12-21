@@ -1,21 +1,21 @@
 ---
 title: Registrar seu Contrato Enterprise do Azure no Gerenciamento de Custo do Azure | Microsoft Docs
-description: Use o seu Enterprise Agreement para se registrar na Cloudyn.
+description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273538"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082316"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar um Contrato Enterprise do Azure e exibir dados de custo
 
@@ -25,22 +25,22 @@ O Gerenciamento de Custos do Azure oferece uma funcionalidade semelhante ao Clou
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em http://portal.azure.com.
+- Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registrar com Cloudyn
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão geral**, clique em **Cloudyn**  
-    ![Página do Cloudyn](./media/quick-register-ea/cost-mgt-billing-service.png)
+    ![Página do Cloudyn mostrada no portal do Azure](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. Sobre o **Cloudyn** página, **ir para o Cloudyn** para abrir a página de registro do Cloudyn em uma nova janela.
 4. Na página de registro de avaliação do portal do Cloudyn, digite o nome de sua empresa e, em seguida, selecione **Administrador de Registro do Azure Enterprise**.  
-    ![registro de avaliação](./media/quick-register-ea/trial-reg.png)
-5. Insira sua chave de API de registro do Enterprise Portal. Caso não tenha a chave em mãos, clique no link do [Enterprise Portal](https://ea.azure.com) e siga as seguintes etapas:
+5. Insira sua chave de API de registro do Enterprise Portal. Caso não tenha a chave em mãos, clique no link do [Enterprise Portal](https://ea.azure.com) e siga as seguintes etapas:  
+    ![Cole sua chave de API na guia Cobrança](./media/quick-register-ea/trial-reg.png)
   1. Entre no site do Azure Enterprise e clique em **Relatórios**, clique em **Chave de Acesso da API** e, em seguida, copie a chave primária.  
-    ![Chave de API do EA](./media/quick-register-ea/ea-key.png)
+    ![Exemplo de uma chave de API de EA no portal do EA](./media/quick-register-ea/ea-key.png)
   3. Volte para a página de registro e cole-a em sua chave de API.
 6. Concorde com os Termos de Uso e valide a chave. Clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
-    ![validação de chave](./media/quick-register-ea/ea-key-validated.png)
+    ![Exemplo de uma validação bem-sucedida de chave de API de EA](./media/quick-register-ea/ea-key-validated.png)
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Dependendo do tamanho do seu registro do Azure, pode levar até 24 horas para todos os seus dados de cobrança serem adicionados ao Cloudyn.
 8. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas de Nuvem**, você deverá ver as informações de sua conta do EA registrada.
 

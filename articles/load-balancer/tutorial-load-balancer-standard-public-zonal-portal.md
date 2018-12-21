@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Balancear carga de VMs em uma zona – portal do Azure | Microsoft Docs'
+title: 'Tutorial: VMs do balanceador de carga em uma zona – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Standard Load Balancer com front-end zonal para balancear carga de VMs em uma zona de disponibilidade usando o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637286"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262088"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
 
 Este tutorial cria uma [instância pública do Standard Load Balancer do Azure](https://aka.ms/azureloadbalancerstandard) com um front-end zonal que usa um endereço IP público padrão usando o portal do Azure. Nesse cenário, você especifica uma zona específica para as instâncias de back-end e front-end, a fim de alinhar o caminho de dados e os recursos com uma zona específica. Você aprenderá como executar as funções a seguir:
 
@@ -53,7 +50,7 @@ O Standard Load Balancer dá suporte somente a um endereço IP público padrão.
 2. Na página **Criar balanceador de carga**, insira estes valores para o balanceador de carga:
     - **myLoadBalancer**, para o nome do balanceador de carga.
     - **Público** para o tipo do balanceador de carga.
-     - **myPublicIPZonal**, para o novo endereço IP público que você cria. Selecione **Escolher um endereço IP público**. Em seguida, selecione **Criar novo**. Para o nome, digite **myPublicIP**. SKU é Standard por padrão. Para **Zona de disponibilidade**, selecione **Zona 1**.
+      - **myPublicIPZonal**, para o novo endereço IP público que você cria. Selecione **Escolher um endereço IP público**. Em seguida, selecione **Criar novo**. Para o nome, digite **myPublicIP**. SKU é Standard por padrão. Para **Zona de disponibilidade**, selecione **Zona 1**.
     - **myResourceGroupZLB**, para o nome do novo grupo de recursos que você cria.
     - **westeurope**, para o local.
 3. Selecione **Criar** para criar o balanceador de carga.
@@ -81,7 +78,7 @@ Nesta seção, você criará uma rede virtual. Além disso, criará duas máquin
     - **myNetworkSecurityGroup**, para o nome do grupo de segurança de rede.
     - **myResourceGroupLBAZ**, para o nome do grupo de recursos existente.
    
-    ![Criar um grupo de segurança de rede](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Criar um grupo de segurança de rede](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>Criar regras NSG
 
@@ -100,7 +97,7 @@ Nesta seção, você criará regras de NSG para permitir conexões de entrada qu
     - **Permitir HTTP**, para **Descrição**.
 4. Selecione **OK**.
  
- ![Criar regras NSG](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Criar regras NSG](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Repita as etapas de 2 a 4 para criar outra regra nomeada **myRDPRule**. Essa regra permite uma conexão RDP de entrada que usa a porta 3389, com os valores a seguir:
     - **Marca de Serviço**, para **Origem**.
@@ -112,7 +109,7 @@ Nesta seção, você criará regras de NSG para permitir conexões de entrada qu
     - **myRDPRule**, para **Nome**.
     - **Permitir RDP**, para **Descrição**.
 
-    ![Criar uma regra de RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Criar uma regra de RDP](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 

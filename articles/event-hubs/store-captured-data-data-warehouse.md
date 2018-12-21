@@ -1,21 +1,22 @@
 ---
-title: Migrar dados dos Hubs de Eventos do Azure para o SQL Data Warehouse | Microsoft Docs
+title: Migrar dados de evento para o SQL Data Warehouse – Hubs de Eventos do Azure | Microsoft Docs
 description: Este tutorial mostra como capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma grade de eventos.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
-ms.date: 08/27/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 9673a7bff8e2d22764be28abef807434c53cc552
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145115"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086276"
 ---
-# <a name="process-and-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Processar e migrar dados de Hubs de Eventos capturados em um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
+# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
 
 A [captura](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você pode processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma [grade de eventos](https://docs.microsoft.com/azure/event-grid/overview).
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582387"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105505"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure
 
@@ -71,7 +71,7 @@ Esta etapa provisiona o grafo espacial dos Gêmeos Digitais com:
 - Um função personalizada. 
 - Uma atribuição de função.
  
-O grafo espacial é provisionado usando o arquivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+O grafo espacial é provisionado usando o arquivo [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml). 
 
 1. Execute `dotnet run ProvisionSample`.
     >[!NOTE]
@@ -88,6 +88,9 @@ O grafo espacial é provisionado usando o arquivo [provisionSample.yaml](https:/
 1. No final da execução, copie a `ConnectionString` do dispositivo para usar no exemplo do simulador de dispositivo. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
     ![Exemplo de provisionamento][1]
+
+    >[!TIP]
+    > É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 ## <a name="send-sensor-data"></a>Enviar dados de sensor
 

@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: eb7959b1a41c602ce4f34750802d962fe4ff84cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839306"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081482"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando Python e o portal do Azure
+# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>O Azure Cosmos DB: Criar um banco de dados de grafo usando o Python e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -42,7 +42,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 Além disso:
 * [Python](https://www.python.org/downloads/) versão v3.5 ou superior
 * [gerenciador de pacotes de pip](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Driver do Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
@@ -101,7 +101,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 
 Agora, volte ao Portal do Azure para obter as informações de conexão e copiá-las para o aplicativo. Essas configurações permitem que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [Portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
 
     Copie a primeira parte do valor do URI.
 

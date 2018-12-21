@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: analisar uma imagem – SDK, C# – Pesquisa Visual Computacional'
+title: 'Início Rápido: Analisar uma imagem – SDK, C# – Pesquisa Visual Computacional'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853924"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413312"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início Rápido: analisar uma imagem usando o SDK da Pesquisa Visual Computacional e C#
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Analisar uma imagem usando o SDK da Pesquisa Visual Computacional e C#
 
 Neste início rápido, você analisa imagens locais e remotas para extrair recursos visuais usando a biblioteca de clientes do Windows de Pesquisa Visual Computacional.
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Uma resposta bem-sucedida exibe a legenda mais relevante para cada imagem.
 
-Veja [Inícios Rápidos da API: Analisar uma imagem local com C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de saída JSON bruta.
+Confira [Inícios Rápidos da API: Analisar uma imagem local com C#](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de saída JSON bruta.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

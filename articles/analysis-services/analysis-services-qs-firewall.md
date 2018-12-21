@@ -8,25 +8,25 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993192"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar firewall do servidor - Portal
+# <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar firewall do servidor – Portal
 
 Este guia de início rápido ajuda você a configurar um firewall para o servidor Azure Analysis Services. Habilitar um firewall e configurar intervalos de endereços IP para somente os computadores que acessam o servidor são uma parte importante para proteger o servidor e os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um servidor do Analysis Services na sua assinatura. Para obter mais informações, consulte [Início Rápido: Criar um servidor - Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)
+- Um servidor do Analysis Services na sua assinatura. Para obter mais informações, confira [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)
 - Um ou mais intervalos de endereços IP para computadores cliente (se necessário).
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure 
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure 
 
-[Faça logon no portal](https://portal.azure.com)
+[Entre no portal](https://portal.azure.com)
 
 ## <a name="configure-a-firewall"></a>Configure um firewall
 

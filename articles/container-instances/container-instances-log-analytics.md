@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613997"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337879"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrar em log uma instância de contêiner com Azure Log Analytics
 
@@ -24,7 +24,7 @@ Para enviar dados da instância de contêiner ao Log Analytics, é necessário c
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
-* [Workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
@@ -44,7 +44,7 @@ Para obter a ID do workspace do Log Analytics e a chave primária:
 
 Agora que você tem a ID e a chave primária do workspace do Log Analytics, você está pronto para criar um grupo de contêineres com registro em log habilitado.
 
-Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e a CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o workspace do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contêiner Fluentd produz várias linhas de saída na configuração padrão. Como essa saída é enviada para o workspace do Log Analytics, ela funciona bem para demonstrar a visualização e a consulta de logs.
 
 ### <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Para obter mais informações sobre como consultar logs e configurar alertas no Azure Log Analytics, consulte:
 
 * [Compreendendo as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorar memória e CPU do contêiner

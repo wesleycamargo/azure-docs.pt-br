@@ -1,6 +1,6 @@
 ---
-title: Criar um modelo do Azure Resource Manager para implantar uma conta de armazenamento criptografada | Microsoft Docs
-description: Use o Visual Studio Code para criar um modelo e implantar uma conta de armazenamento criptografada.
+title: Utilizar a referência de modelo do Azure Resource Manager | Microsoft Docs
+description: Utilize a referência de modelo do Azure Resource Manager para criar um modelo para a implantação de uma conta de armazenamento criptografada.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097583"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>Tutorial: Implantar uma conta do Armazenamento do Azure criptografada com modelo do Resource Manager
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Azure Resource Manager
 
 Saiba como localizar as informações de esquema de modelo e usar as informações para criar modelos do Azure Resource Manager.
 
@@ -77,9 +78,11 @@ Para concluir este artigo, você precisa do seguinte:
 
 1. Navegue até [Modelos do Azure](https://docs.microsoft.com/azure/templates/).
 2. Em **Filtrar por título**, insira **contas de armazenamento**.
-3. Selecione **Referência/Referência de modelo/Armazenamento/Contas de Armazenamento** conforme mostrado na seguinte captura de tela:
+3. Selecione **Referência/Referência de modelo/Armazenamento/<Version>/Contas de Armazenamento** conforme mostrado na seguinte captura de tela:
 
     ![Conta de armazenamento de referência de modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    Se você não souber qual versão escolher, use a versão mais recente.
 
 4. Encontre as informações de definição relacionadas à criptografia.  
 

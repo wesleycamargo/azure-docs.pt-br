@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599877"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340497"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede de exemplo do script de aplicativos de várias camadas
 
@@ -32,10 +32,11 @@ Você pode executar o script do Azure [Cloud Shell](https://shell.azure.com/powe
 
 ## <a name="sample-script"></a>Script de exemplo
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Uma ID de sub-rede é atribuída depois que você cria uma rede virtual. Especificamente, usando o cmdlet New-AzureRmVirtualNetwork com a opção -Subnet. Se você configurar a sub-rede usando o cmdlet New-AzureRmVirtualNetworkSubnetConfig antes da chamada para New-AzureRmVirtualNetwork, não verá a ID de sub-rede até depois de chamar New-AzureRmVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpar a implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados:
 

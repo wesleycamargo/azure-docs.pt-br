@@ -1,20 +1,20 @@
 ---
-title: Script da CLI do Azure - Criar uma conta, um banco de dados e um grafo de API Gremlin do Azure Cosmos DB | Microsoft Docs
+title: Script da CLI do Azure – Criar uma conta, um banco de dados e um grafo da API do Gremlin do Azure Cosmos DB
 description: Exemplo de script da CLI do Azure - Criar uma conta, um banco de dados e um grafo da API do Gremlin do Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: c920fd55442897688fab8c88e599fe4837667cf9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0e870b00cefc235a99c084c5a405b69c07187907
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019527"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956662"
 ---
-# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB: Criar uma conta da API do Gremlin usando a CLI do Azure
+# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>O Azure Cosmos DB: Criar uma conta da API do Gremlin usando a CLI do Azure
 
 Este exemplo de script da CLI cria uma conta, um banco de dados e um grafo da API do Gremlin do Azure Cosmos DB.
 

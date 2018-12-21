@@ -1,17 +1,17 @@
 ---
-title: Script da CLI do Azure – obter chaves de conta para o BD Cosmos do Azure | Microsoft Docs
+title: Script da CLI do Azure – obter chaves da conta para o Azure Cosmos DB
 description: Exemplo de script da CLI do Azure – obter chaves da conta para o BD Cosmos do Azure
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 342c874fc3ada6f9a2480db2632a74cd51031305
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 354184313e541dfa0cbe32c36abbd097c9a97b3c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005166"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965881"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>Obtenha chaves de conta para o BD Cosmos do Azure usando a CLI do Azure
 

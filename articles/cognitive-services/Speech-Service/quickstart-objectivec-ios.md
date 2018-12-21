@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala'
+title: 'Início Rápido: reconhecer API de Fala, Objective-C – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219181"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090187"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Serviço de Fala
 
@@ -25,8 +25,11 @@ Neste artigo, você aprenderá a criar um aplicativo iOS em Objective-C usando o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de assinatura para o serviço de fala. Veja [Experimente o Serviço de Fala gratuitamente](get-started.md).
-* Um Mac com Xcode 9.4.1 instalado como um ambiente de desenvolvimento do iOS. Este tutorial destina-se a versões 11.4 do iOS. Se você ainda não tiver o Xcode, poderá instalá-lo pela [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Antes de começar, aqui está uma lista de pré-requisitos:
+
+* Uma [chave de assinatura](get-started.md) para o Serviço de Fala
+* Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
+* O destino definido para iOS versão 11.4 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Fala para iOS
 
@@ -37,7 +40,7 @@ A versão atual do SDK de Fala dos Serviços Cognitivos é `1.1.0`.
 O SDK de Fala dos Serviços Cognitivos para Mac e iOS atualmente é distribuído como uma Cocoa Framework.
 Ele pode ser baixado de https://aka.ms/csspeech/iosbinary. Baixe o arquivo para seu diretório inicial.
 
-## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode 
+## <a name="create-an-xcode-project"></a>Criar um projeto do Xcode
 
 Inicie o Xcode e iniciar um novo projeto clicando em **Arquivo** > **Novo** > **Projeto**.
 Na caixa de diálogo de seleção de modelo, escolha o modelo "Aplicativo de Exibição Única do iOS ".
@@ -54,7 +57,7 @@ Nas caixas de diálogo que seguem, faça as seguintes seleções:
     1. Escolha seu diretório base no qual colocar o projeto. Isso criará um diretório `helloworld` em seu diretório base contendo todos os arquivos para o projeto do Xcode.
     1. Desabilite a criação de um repositório Git para este projeto de exemplo.
     1. Ajuste os caminhos para o SDK em *Configurações do projeto*.
-        1. Na guia **Geral** no cabeçalho **Binários inseridos**, adicione a biblioteca SDK como uma estrutura: **Adicionar binários inseridos** > **Adicionar outro…** > Navegue até seu diretório base e escolha o arquivo `MicrosoftCognitiveServicesSpeech.framework`. Isso adicionará automaticamente a biblioteca do SDK ao cabeçalho **Framework Vinculado e Bibliotecas**.
+        1. Na guia **Geral** no cabeçalho **Binários Inseridos**, adicione a biblioteca do SDK como uma estrutura: **Adicionar binários inseridos** > **Adicionar outro…** > Navegue até seu diretório inicial e escolha o arquivo `MicrosoftCognitiveServicesSpeech.framework`. Isso adicionará automaticamente a biblioteca do SDK ao cabeçalho **Framework Vinculado e Bibliotecas**.
         ![Estrutura Adicionada](media/sdk/qs-objectivec-framework.png)
         1. Vá para a guia **Configurações de Build** e ative **Todas** as configurações.
         1. Adicione o diretório `$(SRCROOT)/..` a *Caminhos de Pesquisa do Framework* no cabeçalho **Caminhos de Pesquisa**.
@@ -62,7 +65,7 @@ Nas caixas de diálogo que seguem, faça as seguintes seleções:
 
 ## <a name="set-up-the-ui"></a>Configurar a interface do usuário
 
-O aplicativo de exemplo terá uma interface do usuário muito simples: dois botões para iniciar o reconhecimento de fala do arquivo ou de entrada do microfone e um rótulo de texto para exibir o resultado.
+O aplicativo de exemplo terá uma interface do usuário muito simples: Dois botões para iniciar o reconhecimento de fala da entrada do microfone ou do arquivo e um rótulo de texto para exibir o resultado.
 A interface do usuário é configurada no `Main.storyboard` como parte do projeto.
 Abra a exibição XML do storyboard clicando com o botão direito do mouse na entrada `Main.storyboard` na árvore do projeto e selecionando **Abrir como…** > **Código-Fonte**.
 Substitua o XML gerado automaticamente por este:
@@ -103,4 +106,3 @@ Procure esse exemplo na pasta `quickstart/objectivec-ios`.
 
 > [!div class="nextstepaction"]
 > [Obtenha nossas amostras](speech-sdk.md#get-the-samples)
-

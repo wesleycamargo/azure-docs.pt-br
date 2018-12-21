@@ -1,21 +1,22 @@
 ---
-title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de extremidade da Web personalizado | Microsoft Docs
-description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
+title: Enviar eventos de Armazenamento de Blobs do Azure para o ponto de extremidade da Web – CLI do Azure | Microsoft Docs
+description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs. Envie os eventos para um Webhook. Processe os eventos em um aplicativo Web.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735073"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073713"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com CLI do Azure
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início Rápido: Encaminhar eventos de armazenamento para o ponto de extremidade Web com a CLI do Azure
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa a CLI do Azure para assinar eventos de Armazenamento de Blobs e acionar o evento a fim de exibir o resultado.
 
@@ -32,7 +33,7 @@ Quando você concluir as etapas descritas neste artigo, verá que os dados do ev
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que você esteja executando a versão da CLI do Azure mais recente (2.0.24 ou posterior). Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `az login`.
+Caso não esteja usando o Cloud Shell, primeiro você deve entrar usando `az login`.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -117,7 +118,7 @@ touch testfile.txt
 az storage blob upload --file testfile.txt --container-name testcontainer --name testfile.txt
 ```
 
-Você disparou o evento e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
+Você disparou o evento, e a Grade de Eventos enviou a mensagem para o ponto de extremidade configurado durante a assinatura. Exiba seu aplicativo Web para ver o evento que você acabou de enviar.
 
 
 ```json

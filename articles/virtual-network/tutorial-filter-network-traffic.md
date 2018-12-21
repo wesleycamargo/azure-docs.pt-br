@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901391"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385390"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: filtrar tráfego com um grupo de segurança de rede e usando o portal do Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de rede com um grupo de segurança de rede usando o portal do Azure
 
 É possível filtrar o tráfego para entrada e saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Grupos de segurança de rede contêm regras de segurança que filtram o tráfego por endereço IP, porta e protocolo. As regras de segurança são aplicadas aos recursos implantados em uma sub-rede. Neste tutorial, você aprenderá como:
 
@@ -38,9 +38,9 @@ Se preferir, você pode concluir este tutorial usando a [CLI do Azure](tutorial-
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em https://portal.azure.com.
+Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
@@ -54,7 +54,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     | Espaço de endereço           | 10.0.0.0/16                                        |
     | Assinatura            | Selecione sua assinatura.                          |
     | Grupo de recursos          | Selecione **Criar novo** e insira *myResourceGroup*. |
-    | Localização                | Selecione **Leste dos EUA**.                                |
+    | Local padrão                | Selecione **Leste dos EUA**.                                |
     | Sub-rede – Nome            | mySubnet                                           |
     | Sub-rede – Intervalo de endereços  | 10.0.0.0/24                                        |
 
@@ -71,7 +71,7 @@ Um grupo de segurança de aplicativos permite agrupar servidores com funções s
     | NOME           | myAsgWebServers                                               |
     | Assinatura   | Selecione sua assinatura.                                     |
     | Grupo de recursos | Selecione **Usar existente** e depois **myResourceGroup**. |
-    | Localização       | Leste dos EUA                                                       |
+    | Local padrão       | Leste dos EUA                                                       |
 
 4. Conclua a etapa 3 novamente, especificando os seguintes valores:
 
@@ -80,7 +80,7 @@ Um grupo de segurança de aplicativos permite agrupar servidores com funções s
     | NOME           | myAsgMgmtServers                                              |
     | Assinatura   | Selecione sua assinatura.                                     |
     | Grupo de recursos | Selecione **Usar existente** e depois **myResourceGroup**. |
-    | Localização       | Leste dos EUA                                                       |
+    | Local padrão       | Leste dos EUA                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -93,7 +93,7 @@ Um grupo de segurança de aplicativos permite agrupar servidores com funções s
     |NOME|myNsg|
     |Assinatura| Selecione sua assinatura.|
     |Grupo de recursos | Clique em **Usar existente** e selecione *myResourceGroup*.|
-    |Localização|Leste dos EUA|
+    |Local padrão|Leste dos EUA|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associar o grupo de segurança de rede à sub-rede
 
@@ -152,7 +152,7 @@ Crie duas VMs na rede virtual.
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Assinatura| Selecione sua assinatura.|
     |Grupo de recursos| Selecione **Usar existente** e, em seguida, **myResourceGroup**.|
-    |Localização| Selecione **Leste dos EUA**|
+    |Local padrão| Selecione **Leste dos EUA**|
 
 4. Selecione um tamanho para a VM e selecione **Selecionar**.
 5. Em **Configurações**, selecione os valores a seguir, aceite os padrões restantes e, em seguida, selecione **OK**:

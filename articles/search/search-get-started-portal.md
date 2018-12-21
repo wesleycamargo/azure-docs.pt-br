@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre indexação, consulta e filtragem no Azure Search usando o portal | Microsoft Docs
+title: Tutorial sobre indexação, consulta e filtragem no portal do Azure – Azure Search
 description: Neste tutorial, use o portal do Azure e dados de exemplo predefinidos para gerar um índice no Azure Search. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592748"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314016"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Tutorial: Usar ferramentas internas para indexação e consultas do Azure Search
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Tutorial: Usar ferramentas internas do portal para indexação e consultas do Azure Search
 
 Para fazer uma revisão rápida e evoluir nos conceitos do Azure Search, você pode usar as ferramentas internas fornecidas na página do serviço Azure Search no portal do Azure. Essas ferramentas podem não oferecer a funcionalidade completa das APIs do .NET e REST. Mas os assistentes e editores de oferecem uma introdução sem código ao Azure Search, permitindo que você escreva consultas interessantes em um conjunto de dados de exemplo imediatamente.
 
@@ -76,7 +77,7 @@ Para este tutorial, utilizamos um conjunto de dados interno de exemplo que pode 
 
    ![Ignorar etapa de habilidades cognitivas][11]
 
-### <a name="step-2-define-the-index"></a>Etapa 2: definir o índice
+### <a name="step-2-define-the-index"></a>Etapa 2: Definir o índice
 
 Normalmente, a criação do índice é um exercício manual feito com código. Para este tutorial, o assistente pode gerar um índice de qualquer fonte de dados que ele possa rastrear. No mínimo, um índice requer um nome e uma coleção de campos; um dos campos deve estar marcado como a chave do documento para identificar cada documento de forma exclusiva.
 
@@ -92,7 +93,7 @@ Por padrão, o assistente procura na fonte de dados identificadores exclusivos c
 
 Clique em **OK** para criar o índice.
 
-### <a name="step-3-define-the-indexer"></a>Etapa 3: definir o indexador
+### <a name="step-3-define-the-indexer"></a>Etapa 3: Definir o indexador
 
 Ainda no assistente **Importar dados**, clique em **Indexador** > **Nome**e digite um nome para o indexador.
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: ef805ff82b8f44f4caeeafdc8867d851f4501894
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852466"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101323"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutorial: Desenvolver um aplicativo Web ASP.NET MVC com o Azure Cosmos DB usando o SDK da versão prévia do .NET 
 
@@ -47,7 +47,7 @@ Este tutorial abrange:
 
 Antes de seguir as instruções deste artigo, verifique se você tem os seguintes recursos:
 
-* **Uma conta do Azure ativa:** se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+* **Uma conta ativa do Azure:** Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -67,7 +67,7 @@ Vamos começar criando uma conta do Azure Cosmos. Se você já tiver uma conta d
 
 Na próxima seção, você criará um novo aplicativo ASP.NET MVC. 
 
-## <a name="create-a-new-mvc-application"></a>Etapa 2: criar um novo aplicativo ASP.NET MVC
+## <a name="create-a-new-mvc-application"></a>Etapa 2: Criar um novo aplicativo ASP.NET MVC
 
 1. No Visual Studio, no menu **Arquivo**, selecione **Novo** e **Projeto**. A caixa de diálogo **Novo Projeto** aparecerá.
 
@@ -103,7 +103,7 @@ Agora que temos a maior parte do código da estrutura do ASP.NET MVC de que prec
 
 3. Depois de instalar o pacote, sua solução do Visual Studio deverá conter as duas novas referências de biblioteca para o Microsoft.Azure.Cosmos.Client e Newtonsoft.Json.
   
-## <a name="set-up-the-mvc-application"></a>Etapa 4: configurar o aplicativo ASP.NET MVC
+## <a name="set-up-the-mvc-application"></a>Etapa 4: Configurar o aplicativo ASP.NET MVC
 
 Agora vamos adicionar os modelos, as exibições e os controladores ao aplicativo MVC:
 
@@ -244,7 +244,7 @@ Se você compilar e executar esse projeto agora, deverá ver algo parecido com i
 ![Captura de tela do aplicativo Web de lista de tarefas pendentes criado por este tutorial de banco de dados](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
-## <a name="run-the-application"></a>Etapa 6: executar o aplicativo localmente
+## <a name="run-the-application"></a>Etapa 6: Executar o aplicativo localmente
 
 Use as etapas abaixo para testar o aplicativo em seu computador local:
 
@@ -288,8 +288,8 @@ Neste tutorial, você aprendeu a criar um aplicativo Web ASP.NET MVC que pode ac
 > [Criar um aplicativo Java para acessar dados armazenados na conta da API de SQL do Azure Cosmos DB]( sql-api-java-application.md)
 
 
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-todo-app

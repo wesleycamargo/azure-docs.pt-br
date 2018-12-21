@@ -4,17 +4,17 @@ description: O Azure Blueprint é um serviço no Azure usado para criar, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498609"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967684"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -111,7 +111,7 @@ Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes 
 > [!NOTE]
 > Como as atribuições de especificações técnicas são criadas em uma assinatura, atribua o plano gráfico e cancelar a atribuição de permissões devem ser concedidas em um escopo de assinatura ou ser herdadas para um escopo de assinatura.
 
-Além das permissões de atribuição do blueprint, essas permissões estão incluídas na função de **Proprietário** e nas funções de **Colaborador**. Se essas funções internas não se ajustarem às suas necessidades de segurança, considere a criação de uma [função personalizada](../../role-based-access-control/custom-roles.md).
+Todas as permissões acima são incluídas na função **Proprietário**. A função **Colaborador** precisa das permissões para criar blueprint e excluir blueprint, mas não tem permissões de atribuição de blueprint. Se essas funções internas não se ajustarem às suas necessidades de segurança, considere a criação de uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > A entidade de serviço para a especificação técnica do Azure requer o **proprietário** função na assinatura atribuída para habilitar a implantação. Se estiver usando o portal, essa função é concedida automaticamente e revogada para a implantação. Se usando a API REST, essa função deve ser concedida manualmente, mas é revogada ainda automaticamente após a conclusão da implantação.

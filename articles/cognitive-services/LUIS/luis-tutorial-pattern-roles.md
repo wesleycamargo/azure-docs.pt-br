@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial 4: funções de padrão para dados relacionados ao contexto'
+title: Funções de padrão
 titleSuffix: Azure Cognitive Services
 description: Use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427481"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094399"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: extrair padrões relacionados contextualmente
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extrair padrões relacionados contextualmente
 
 Neste tutorial, use um padrão para extrair dados de um enunciado de modelo bem formatado. O enunciado de modelo usa uma entidade simples e funções para extrair dados relacionados, como o local de origem e o local de destino.  Ao usar padrões, menos declarações de exemplo são necessárias para a intenção.
 
@@ -128,7 +129,7 @@ Rotular as entidades nessas etapas pode ser mais fácil se a entidade keyPhrase 
 
 2. Vá até o final da URL no endereço e insira `Move Wayne Berry from Miami to Mount Vernon`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer
 
 2. Vá até o final da URL no endereço e insira `Move wayne berry from miami to mount vernon`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

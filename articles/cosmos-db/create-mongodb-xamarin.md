@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo Xamarin.Forms com o .NET e com a API do MongoDB'
+title: 'O Azure Cosmos DB: Compilar um aplicativo Xamarin.Forms com o .NET e com a API do MongoDB'
 description: Apresenta um exemplo de código Xamarin que pode ser usado para se conectar à API do MongoDB do Azure Cosmos DB e consultá-la
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 4fde6d203999b15f0f60d4879c2fdc595e1fb7e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ece6780803809829e69fccc320ae65a0c7b0f94b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835549"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089251"
 ---
-# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Início rápido: compilar um aplicativo Xamarin.Forms da API do MongoDB com o .NET e o Portal do Azure
+# <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Início Rápido: Compilar um aplicativo Xamarin.Forms da API do MongoDB com o .NET e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -156,7 +156,7 @@ Os trechos de código a seguir foram todos obtidos da classe `MongoService`, enc
 
 Agora, volte ao Portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar a Cadeia de Conexão Primária nas próximas etapas.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Cadeia de Conexão** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar a Cadeia de Conexão Primária nas próximas etapas.
 
 2. Abra o arquivo **APIKeys.cs** no diretório **Auxiliares** do projeto **TaskList.Core**.
 

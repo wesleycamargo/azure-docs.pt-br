@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: gerar uma miniatura – SDK, C# – Pesquisa Visual Computacional'
+title: 'Início Rápido: Gerar uma miniatura – SDK, C# – Pesquisa Visual Computacional'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gera uma miniatura de uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854077"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413278"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Início Rápido: gerar uma miniatura usando C# e o SDK de Pesquisa Visual Computacional
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Gerar uma miniatura usando C# e o SDK de Pesquisa Visual Computacional
 
 Neste início rápido, você gera uma miniatura de uma imagem usando a biblioteca de clientes do Windows de Pesquisa Visual Computacional.
 
@@ -32,7 +32,7 @@ Neste início rápido, você gera uma miniatura de uma imagem usando a bibliotec
 > [!TIP]
 > Obtenha o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens locais e remotas, respectivamente.  Você pode usar esses métodos para gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens locais e remotas, respectivamente.  Você pode usar esses métodos para gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligente e gerar as coordenadas de corte com base nessa região.
 
 Para executar a amostra, siga estas etapas:
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416878"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135331"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
@@ -56,6 +56,10 @@ As seções a seguir descrevem como executar essas etapas necessárias. Execute 
 1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
+
+   > [!NOTE]
+   > Você precisa usar um hub IoT em uma faixa paga para concluir este tutorial. A faixa gratuita só permite que você configure um ponto de extremidade e este tutorial requer vários pontos de extremidade.
+   > 
 
 3. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
 
@@ -308,9 +312,9 @@ Os dados são gravados para armazenamento de blobs no formato Avro.
    
    **Fonte de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista suspensa.
 
-   **Habilitar rota**: habilite essa opção.
+   **Habilitar rota**: habilite esta opção.
    
-   **Consulta de roteamento**: insira `level="storage"` como a cadeia de consulta. 
+   **Consulta de roteamento**: insira `level="storage"` como a cadeia de caracteres de consulta. 
 
    ![Captura de tela mostrando a criação de uma consulta de roteamento para a conta de armazenamento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,11 +334,11 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
 
 4. Preencha os campos:
 
-   **Nome do Ponto de Extremidade**: insira um nome para o ponto de extremidade. Este tutorial usa **CriticalQueue**.
+   **Nome do Ponto de Extremidade**: Insira um nome para o ponto de extremidade. Este tutorial usa **CriticalQueue**.
    
-   **Namespace do Barramento de Serviço**: clique nesse campo para exibir a lista suspensa, selecione o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial usa **ContosoSBNamespace**.
+   **Namespace do Barramento de Serviço**: clique neste campo para exibir a lista suspensa e selecione o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial usa **ContosoSBNamespace**.
 
-   **Fila do Barramento de Serviço**: clique nesse campo para exibir a lista suspensa e selecione a fila do barramento de serviço. Este tutorial usa **contososbqueue**.
+   **Fila do Barramento de Serviço**: clique neste campo para exibir a lista suspensa e selecione a fila do Barramento de Serviço. Este tutorial usa **contososbqueue**.
 
 5. Clique em **Criar** para adicionar o ponto de extremidade da fila do Barramento de Serviço. Você retornará ao painel **Adicionar uma rota**. 
 
@@ -346,7 +350,7 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
 
    **Fonte de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista suspensa.
 
-   **Consulta de roteamento**: insira `level="critical"` como a cadeia de consulta. 
+   **Consulta de roteamento**: insira `level="critical"` como a cadeia de caracteres de consulta. 
 
    ![Captura de tela mostrando a criação de uma consulta de roteamento para a fila do Barramento de Serviço.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -368,13 +372,13 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Acesse o pa
 
    **Nome**: este campo é o nome do aplicativo lógico. Este tutorial usa **ContosoLogicApp**. 
 
-   **Assinatura**: selecione sua assinatura do Azure.
+   **Assinatura**: Selecione sua assinatura do Azure.
 
-   **Grupo de Recursos**: clique em **Usar existente** e selecione seu grupo de recursos. Este tutorial usa **ContosoResources**. 
+   **Grupo de recursos**: clique em **Usar existente** e selecione seu grupo de recursos. Este tutorial usa **ContosoResources**. 
 
-   **Local**: use o seu local. Este tutorial usa **Oeste dos EUA**. 
+   **Localização**: use sua localização. Este tutorial usa **Oeste dos EUA**. 
 
-   **Log Analytics**: essa alternância deve ser desativada. 
+   **Log Analytics**: este controle de alternância deve ser desativado. 
 
    ![Captura de tela mostrando a tela Criar aplicativo lógico.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,11 +428,11 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 2. Insira as seguintes informações para o trabalho.
 
-   **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo. Este tutorial usa **contosoJob**.
+   **Nome do trabalho**: O nome do trabalho. O nome deve ser globalmente exclusivo. Este tutorial usa **contosoJob**.
 
    **Grupo de recursos**: use o mesmo grupo de recursos usado pelo seu Hub IoT. Este tutorial usa **ContosoResources**. 
 
-   **Local**: use o mesmo local usado no script de instalação. Este tutorial usa **Oeste dos EUA**. 
+   **Localização**: use a mesma localização usada no script de instalação. Este tutorial usa **Oeste dos EUA**. 
 
    ![Captura de tela mostrando como criar o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -440,15 +444,15 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 5. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
 
-   **Alias de entrada**: este tutorial usa **contosoinputs**.
+   **Alias de entrada**: Este tutorial usa **contosoinputs**.
 
-   **Assinatura**: selecione sua assinatura.
+   **Assinatura**: Selecione sua assinatura.
 
    **Hub IoT**: selecione o Hub IoT. Este tutorial usa **ContosoTestHub**.
 
    **Ponto de extremidade**: selecione **Mensagens**. (Se você selecionar Monitoramento de Operações, você obtém dados de telemetria sobre o Hub IoT em lugar dos dados que você está enviando.) 
 
-   **Nome da política de acesso compartilhado**: selecione **iothubowner**. O portal preenche a chave de política de acesso compartilhado para você.
+   **Nome da política de acesso compartilhado**: Selecione **iothubowner**. O portal preenche a chave de política de acesso compartilhado para você.
 
    **Grupo de consumidores**: selecione o grupo de consumidores criado anteriormente. Este tutorial usa **contosoconsumers**.
    

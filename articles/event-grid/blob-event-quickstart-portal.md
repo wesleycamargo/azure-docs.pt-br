@@ -1,6 +1,6 @@
 ---
-title: Eventos de armazenamento de Blobs para a Grade de Eventos do Azure com o portal do Azure | Microsoft Docs
-description: Use a Grade de Eventos do Azure e o portal do Azure para criar a conta de armazenamento de Blobs e faça uma assinatura dos seus respectivos eventos.
+title: Enviar eventos de Armazenamento de Blobs para o ponto de extremidade da Web – portal | Microsoft Docs
+description: Use a Grade de Eventos do Azure e o portal do Azure para criar a conta de armazenamento de Blobs e faça uma assinatura dos seus respectivos eventos. Envie os eventos para um Webhook.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404215"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086956"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados de armazenamento de Blobs com o portal do Azure e a Grade de Eventos
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início Rápido: Encaminhar eventos de Armazenamento de Blobs para o ponto de extremidade da Web com o portal do Azure
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa o portal do Azure para criar uma conta de armazenamento de Blobs, faz uma assinatura para os eventos desse mesmo armazenamento de Blobs e dispara um evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 

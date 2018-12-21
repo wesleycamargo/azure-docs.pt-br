@@ -1,6 +1,6 @@
 ---
-title: Use o Visual Studio e o .NET para consultar o Banco de Dados SQL do Azure | Microsoft Docs
-description: Este tópico mostra como usar o Visual Studio para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
+title: Usar o Visual Studio com o .NET e o C# para consultar o Banco de Dados SQL do Azure | Microsoft Docs
+description: Use o Visual Studio para criar um aplicativo C# que se conecta a um Banco de Dados SQL do Azure e o consulta com instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,127 +11,121 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 5b458c881496a887d1415e115bf2b94c674be029
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/11/2018
+ms.openlocfilehash: 04a0abd0fba7ec53aebeb481ac80d36653d118b6
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911754"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384929"
 ---
-# <a name="quickstart-use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Início Rápido: Usar o .NET (C#) com o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Início Rápido: Use .NET e C# com o Visual Studio para se conectar e consultar um Banco de Dados SQL do Azure
 
-Este início rápido demonstra como usar o [.NET Framework](https://www.microsoft.com/net/) a fim de criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este início rápido mostra como usar o [.NET Framework](https://www.microsoft.com/net/) e o código C# no Visual Studio para consultar um Banco de Dados SQL do Azure com instruções Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, tenha o seguinte:
+Para concluir este início rápido, você precisa de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  
+- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para permitir o endereço IP público do computador que você usa.
+  
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional ou Enterprise Edition.
 
-- Uma [regra de firewall no nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que usou para este início rápido.
-
-- Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
-
-## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>Para ADO.NET
+## <a name="create-code-to-query-the-sql-database"></a>Criar código para consultar o Banco de Dados SQL
 
-1. Para continuar, clique em **Mostrar cadeias de conexão do banco de dados**.
-
-2. Examine a cadeia de conexão completa do **ADO.NET**.
-
-    ![Cadeia de conexão do ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-
-> [!IMPORTANT]
-> Você deve ter uma regra de firewall em vigor para o endereço IP público do computador em que você executa este tutorial. Se você estiver em um computador diferente ou se tiver um endereço IP público diferente, crie uma [regra de firewall no nível de servidor usando o portal do Azure](sql-database-get-started-portal-firewall.md). 
->
-  
-## <a name="create-a-new-visual-studio-project"></a>Criar um novo projeto do Visual Studio
-
-1. No Visual Studio, escolha **Arquivo**, **Novo**, **Projeto**. 
-2. No diálogo **Novo Projeto** e expanda **Visual C#**.
-3. Selecione **Aplicativo de Console** e insira *sqltest* como o nome do projeto.
-4. Clique em **OK** para criar e abrir o novo projeto no Visual Studio
-4. No Gerenciador de Soluções, clique com o botão direito do mouse em **sqltest** e clique em **Gerenciar Pacotes NuGet**. 
-5. Na guia **Procurar**, pesquise ```System.Data.SqlClient``` e quando encontrar, selecione.
-6. Na página **System.Data.SqlClient**, clique em **Instalar**.
-7. Quando a instalação for concluída, revise as alterações e então clique em **OK** para fechar a janela **Visualização**. 
-8. Se uma janela **Aceitação da Licença** for exibida, clique em **Aceito**.
-
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
-1. Alternar para (ou abrir, se necessário) **Program.cs**
-
-2. Substitua o conteúdo de **Program.cs** pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
-
-```csharp
-using System;
-using System.Data.SqlClient;
-using System.Text;
-
-namespace sqltest
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            try 
-            { 
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("\nQuery data example:");
-                    Console.WriteLine("=========================================\n");
-                    
-                    connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                            }
-                        }
-                    }                    
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            Console.ReadLine();
-        }
-    }
-}
-```
+1. No Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**. 
+   
+1. Na caixa de diálogo **Novo Projeto**, selecione **Visual C#** e, em seguida, selecione **Aplicativo de Console (.NET Framework)**.
+   
+1. Insira *sqltest* para o nome do projeto e selecione **OK**. Quando um novo projeto é criado. 
+   
+1. Selecione **Projeto** > **Gerenciar Pacotes do NuGet**. 
+   
+1. Na **Gerenciador de Pacotes do NuGet**, selecione a guia **Procurar** e, em seguida, pesquise e selecione **System.Data.SqlClient**.
+   
+1. Na página **System.Data.SqlClient**, selecione **Instalar**. 
+   - Se solicitado, selecione **OK** para continuar com a instalação. 
+   - Se uma janela **Aceitação da Licença** for exibida, selecione **Aceito**.
+   
+1. Quando a instalação for concluída, você poderá fechar **Gerenciador de Pacotes NuGet**. 
+   
+1. No editor de códigos, substitua o conteúdo de **Program.cs** pelo código a seguir. Substitua os valores para `<server>`, `<username>`, `<password>` e `<database>`.
+   
+   >[!IMPORTANT]
+   >O código neste exemplo usa os dados de exemplo AdventureWorksLT, que você pode escolher como fonte durante a criação de seu banco de dados. Se o banco de dados tiver dados diferentes, use tabelas de seu próprio banco de dados na consulta SELECT. 
+   
+   ```csharp
+   using System;
+   using System.Data.SqlClient;
+   using System.Text;
+   
+   namespace sqltest
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               try 
+               { 
+                   SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                   builder.DataSource = "<server>.database.windows.net"; 
+                   builder.UserID = "<username>";            
+                   builder.Password = "<password>";     
+                   builder.InitialCatalog = "<database>";
+   
+                   using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                   {
+                       Console.WriteLine("\nQuery data example:");
+                       Console.WriteLine("=========================================\n");
+                       
+                       connection.Open();       
+                       StringBuilder sb = new StringBuilder();
+                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+                       sb.Append("JOIN [SalesLT].[Product] p ");
+                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+                       String sql = sb.ToString();
+   
+                       using (SqlCommand command = new SqlCommand(sql, connection))
+                       {
+                           using (SqlDataReader reader = command.ExecuteReader())
+                           {
+                               while (reader.Read())
+                               {
+                                   Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                               }
+                           }
+                       }                    
+                   }
+               }
+               catch (SqlException e)
+               {
+                   Console.WriteLine(e.ToString());
+               }
+               Console.ReadLine();
+           }
+       }
+   }
+   ```
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Pressione **F5** para executar o aplicativo.
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
+1. Para executar o aplicativo, selecione **Depurar** > **Iniciar Depuração** ou **Iniciar** na barra de ferramentas ou pressione **F5**.
+1. Verifique se as primeiras 20 linhas de Categoria/Produto do banco de dados são retornadas e, em seguida, feche a janela do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [se conectar e consultar um banco de dados SQL do Azure usando o .NET core](sql-database-connect-query-dotnet-core.md) no Windows/Linux/macOS.  
+- Saiba como [se conectar e consultar um Banco de Dados SQL do Azure usando o .NET Core](sql-database-connect-query-dotnet-core.md) no Windows/Linux/macOS.  
 - Saiba mais sobre a [Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba como [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md) ou [Projetar seu primeiro banco de dados SQL do Azure usando o .NET](sql-database-design-first-database-csharp.md).
 - Para saber mais sobre o .NET, veja a [documentação do .NET](https://docs.microsoft.com/dotnet/).
-- [Exemplo de lógica de repetição: Conectar-se de forma resiliente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- Exemplo de lógica de repetição: [Conecte-se de modo resiliente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

@@ -1,6 +1,6 @@
 ---
-title: Início rápido para acessar o Azure Active Directory e criar um novo locatário | Microsoft Docs
-description: Início rápido com as etapas para localizar o Azure Active Directory e como criar um novo locatário para a organização.
+title: Início Rápido para acessar e criar um novo locatário – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como localizar o Azure Active Directory e como criar um novo locatário para a organização.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023526"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083250"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Início rápido: acessar o Azure Active Directory para criar um novo locatário
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
 
 Neste início rápido, você aprenderá a acessar o portal do Azure e o Azure Active Directory e a criar um locatário básico para a organização.

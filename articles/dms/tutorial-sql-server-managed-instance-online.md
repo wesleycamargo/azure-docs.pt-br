@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874746"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956696"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar SQL Server para Instância Gerenciada do Banco de Dados SQL do Azure online usando DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure online usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para uma [Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance.md) com tempo de inatividade mínimo. Para métodos adicionais que possam exigir algum esforço manual, consulte o artigo [Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
 
 >[!IMPORTANT]
@@ -64,24 +64,24 @@ Para concluir este tutorial, você precisará:
 
 1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas**.
 
-    ![Mostrar assinaturas do portal](media\tutorial-sql-server-to-managed-instance-online\portal-select-subscriptions.png)        
+    ![Mostrar assinaturas do portal](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
 2. Selecione a assinatura na qual você deseja criar a instância do Serviço de Migração do Banco de Dados do Azure e, em seguida, selecione **Provedores de recursos**.
 
-    ![Exibir provedores de recursos](media\tutorial-sql-server-to-managed-instance-online\portal-select-resource-provider.png)
+    ![Exibir provedores de recursos](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. Pesquise por migração e, em seguida, à direita do **Microsoft.DataMigration**, selecione **Registrar**.
 
-    ![Registrar provedor de recursos](media\tutorial-sql-server-to-managed-instance-online\portal-register-resource-provider.png)   
+    ![Registrar provedor de recursos](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância do Serviço de Migração de Banco de Dados do Azure
 
 1. No portal do Azure, selecione + **Criar um recurso**, pesquise **Serviço de Migração de Banco de Dados do Azure** e, em seguida, selecione **Serviço de Migração de Banco de Dados do Azure** na lista suspensa.
 
-     ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance-online\portal-marketplace.png)
+     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
 2. Na tela **Serviço de Migração de Banco de Dados do Azure**, selecione **Criar**.
 
-    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media\tutorial-sql-server-to-managed-instance-online\dms-create1.png)
+    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance-online/dms-create1.png)
 
 3. Na tela **Criar Serviço de Migração**, especifique um nome para o serviço, a assinatura e um grupo de recurso novo ou existente.
 
@@ -102,7 +102,7 @@ Para concluir este tutorial, você precisará:
    
     Para obter mais informações sobre os custos e camadas de preços, consulte a [página de preços](https://aka.ms/dms-pricing).
    
-    ![Criar o serviço DMS](media\tutorial-sql-server-to-managed-instance-online\dms-create-service3.png)
+    ![Criar o serviço DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
 7.  Selecione **Criar** para criar a conta.
 
@@ -112,7 +112,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Faça logon no portal do Azure, selecione **+ criar um recurso**, procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
 
-    ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media\tutorial-sql-server-to-managed-instance-online\dms-search.png)
+    ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. Na tela **Serviço de Migração de Banco de Dados do Azure**, procure o nome da instância que você criou e, em seguida, selecione-a.
  
@@ -120,7 +120,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 4. Na tela **Novo projeto de migração**, especifique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**; na caixa de texto **Tipo de servidor de destino**, selecione **Instância Gerenciada do Banco de Dados SQL do Azure** e, em **Escolher tipo de atividade**, selecione **Migração de dados online (versão prévia)**.
 
-   ![Criar projeto do DMS](media\tutorial-sql-server-to-managed-instance-online\dms-create-project3.png)
+   ![Criar projeto do DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Selecione **Criar e executar atividade** para criar o projeto.
 
@@ -135,7 +135,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     > [!CAUTION]
     > As conexões SSL que são criptografadas usando um certificado autoassinado não fornecem alta segurança. Elas são suscetíveis a ataques “man-in-the-middle”. Você não deve confiar no SSL usando certificados autoassinados em um ambiente de produção ou em servidores conectados à Internet.
 
-   ![Detalhes da origem](media\tutorial-sql-server-to-managed-instance-online\dms-source-details2.png)
+   ![Detalhes da origem](media/tutorial-sql-server-to-managed-instance-online/dms-source-details2.png)
 
 3. Clique em **Salvar**.
 
@@ -151,7 +151,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 3. Forneça o **Usuário do SQL** e **Senha** para se conectar à instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure.
 
-    ![Selecionar o destino](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Selecionar o destino](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
 2.  Clique em **Salvar**.
 
@@ -159,7 +159,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Na tela **Selecionar bancos de dados de destino**, selecione o banco de dados de origem que você deseja migrar.
 
-    ![Selecionar bancos de dados de origem](media\tutorial-sql-server-to-managed-instance-online\dms-select-source-databases2.png)
+    ![Selecionar bancos de dados de origem](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Clique em **Salvar**.
 
@@ -175,7 +175,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     |**Assinatura da Conta de Armazenamento do Azure** | Selecione a assinatura que contém a Conta de Armazenamento do Azure. |
     |**Conta de Armazenamento do Azure** | Selecione a Conta de Armazenamento do Azure da qual o DMS pode fazer upload dos arquivos de backup para o compartilhamento de rede do SMB e usá-los para a migração de banco de dados.  É recomendável selecionar a Conta de Armazenamento na mesma região que o serviço do DMS para um desempenho ideal de upload de arquivo. |
     
-    ![Definir as configurações de migração](media\tutorial-sql-server-to-managed-instance-online\dms-configure-migration-settings4.png)
+    ![Definir as configurações de migração](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. Clique em **Salvar**.
  
@@ -185,7 +185,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 2. Analise e verifique os detalhes associados ao projeto de migração.
  
-    ![Resumo do projeto de migração](media\tutorial-sql-server-to-managed-instance-online\dms-project-summary3.png)
+    ![Resumo do projeto de migração](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>Executar e monitorar a migração
 
@@ -193,11 +193,11 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 2. Na tela da atividade de migração, selecione **Atualizar** para atualizar a exibição.
  
-   ![Atividade de migração em andamento](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration2.png)
+   ![Atividade de migração em andamento](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     É possível expandir ainda mais as categorias de logon e banco de dados para monitorar o status da migração dos respectivos objetos de servidor.
 
-   ![Atividade de migração em andamento](media\tutorial-sql-server-to-managed-instance-online\dms-monitor-migration-extend2.png)
+   ![Atividade de migração em andamento](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Executar a substituição de migração
 
@@ -213,11 +213,11 @@ Depois que o backup do banco de dados completo for restaurado na instância de d
 
 4.  Selecione **Confirmar**e, em seguida, **Aplicar**.
 
-    ![Preparar para a substituição completa](media\tutorial-sql-server-to-managed-instance-online\dms-complete-cutover.png)
+    ![Preparar para a substituição completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
 5.  Quando o status de migração de banco de dados mostrar **Concluído**, conecte seus aplicativos à nova instância de destino da Instância Gerenciada do Banco de Dados SQL do Azure.
 
-    ![Substituição concluída](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
+    ![Substituição concluída](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

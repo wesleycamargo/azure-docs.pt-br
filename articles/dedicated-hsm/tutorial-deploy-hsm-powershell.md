@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Implantando HSMs dedicados do Azure em uma rede virtual existente usando o PowerShell | Microsoft Docs
-description: Implantar HSMs em uma rede virtual existente usando o PowerShell
+title: Tutorial – Implantar em uma rede virtual existente usando o PowerShell – HSM Dedicado do Azure | Microsoft Docs
+description: Tutorial mostrando como implantar um HSM dedicado usando o PowerShell em uma rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086293"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -37,7 +37,7 @@ Este tutorial se concentra na integração de alguns HSMs e do Gateway do Expres
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Atualmente, o HSM Dedicado do Azure não está disponível no portal do Azure e, portanto, toda a interação com o serviço será pela linha de comando ou usando o PowerShell. Este tutorial usará o PowerShell no Azure Cloud Shell. Caso não esteja familiarizado com o PowerShell, siga instruções de introdução apresentadas aqui: [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+Atualmente, o HSM Dedicado do Azure não está disponível no portal do Azure e, portanto, toda a interação com o serviço será pela linha de comando ou usando o PowerShell. Este tutorial usará o PowerShell no Azure Cloud Shell. Se você for novo no PowerShell, execute as instruções de introdução aqui: [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Suposições:
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ Esse comando deve levar aproximadamente 20 minutos para ser concluído. A opç�
 
 ![status do provisionamento](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Quando concluído com êxito, exibido como “provisioningState”: “Succeeded”, você poderá entrar em sua máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando concluído com êxito, mostrado por "provisioningState": "êxito", você pode se conectar à máquina virtual existente e usar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificar a implantação
 

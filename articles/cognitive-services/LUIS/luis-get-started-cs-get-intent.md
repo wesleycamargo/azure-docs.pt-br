@@ -1,23 +1,24 @@
 ---
-title: Início Rápido do C# – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando C#, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
+title: Obter a intenção, C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido de C#, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035837"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141757"
 ---
-# <a name="quickstart-get-intent-using-c"></a>Início Rápido: Obter a intenção usando o C#
+# <a name="quickstart-get-intent-using-c"></a>Início Rápido: Obter a intenção usando C#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -46,11 +47,11 @@ Use C# para consultar a [API](https://westus.dev.cognitive.microsoft.com/docs/se
 
 1. Crie um novo aplicativo de console no Visual Studio. 
 
-    ![Acesso ao menu de configurações de usuário do LUIS](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Crie um novo aplicativo de console no Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. No projeto do Visual Studio, no Gerenciador de Soluções, selecione **Adicionar referência** e, em seguida, selecione **System.Web** na guia de Assemblies.
 
-    ![Acesso ao menu de configurações de usuário do LUIS](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![Selecione Adicionar referência e, em seguida, selecione System.Web na guia Assemblies](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Substitua Program.cs pelo código a seguir:
     

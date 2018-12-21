@@ -1,20 +1,20 @@
 ---
-title: Script da CLI do Azure - Criar uma conta, um banco de dados e uma tabela de API de Tabela do Azure Cosmos DB | Microsoft Docs
+title: Script da CLI do Azure – Criar uma conta, um banco de dados e uma tabela da API de Tabela Azure Cosmos DB
 description: Exemplo de script da CLI do Azure - Criar uma conta, um banco de dados e uma tabela da API de Tabela do Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 178ecfe6971a47009781d8866986d936f8e3a5d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5e9cd406f02ea17c4d91e316cbd3f0cc937f6afc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019524"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957565"
 ---
-# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: criar uma conta de API de Tabela usando a CLI do Azure
+# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>O Azure Cosmos DB: Criar uma conta da API de Tabela usando a CLI do Azure
 
 Este exemplo de CLI cria uma conta, um banco de dados e uma tabela da API de Tabela do Azure Cosmos DB.
 

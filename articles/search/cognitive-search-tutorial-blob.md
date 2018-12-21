@@ -1,5 +1,5 @@
 ---
-title: Tutorial para chamar APIs de pesquisa cognitiva no Azure Search | Microsoft Docs
+title: Tutorial para chamar APIs de Pesquisa Cognitiva – Azure Search
 description: Neste tutorial, percorra um exemplo de extração de dados, o idioma natural e o processamento de imagem AI na indexação do Azure Search para transformação e extração de dados.
 manager: pablocas
 author: luiscabrer
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730657"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386223"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivas pesquisar APIs (visualização)
+# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de Pesquisa Cognitiva (Versão Prévia)
 
 Neste tutorial, você aprenderá a mecânica de programação enriquecimento de dados no Azure Search usando *habilidades cognitivas*. Habilidades cognitivas são processamento de linguagem natural (NLP) e a imagem de operações de análise que extrair texto e representações de texto de uma imagem, detectar idioma, entidades, frases-chave e muito mais. O resultado final é rico conteúdo adicional em um índice do Azure Search, criado por um pipeline de indexação de pesquisa cognitivas. 
 
@@ -34,7 +35,9 @@ Saída é um índice de pesquisa de texto completo no Azure Search. Você pode a
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Posteriormente, os preços dessas funcionalidades serão anunciados. 
+> Iniciando em 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos com um conjunto de habilidades do Azure Search. Isso nos permitirá a começar a avançar para a execução do conjunto de habilidades. Nessa data, também começaremos a cobrar para extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+>
+> A execução do conjunto de qualificações será cobrada com o [Preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagem será cobrado com o preço da versão prévia, o que está descrito na [página de preço do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,30 +55,31 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Clique em **Criar um recurso**, pesquise por Azure Search e clique em **Criar**. Consulte [Criar um serviço do Azure Search no portal de](search-create-service-portal.md) se você estiver configurando um serviço de pesquisa pela primeira vez.
 
-  ![Portal Dashboard](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Criar um serviço de Azure Search no portal")
+  ![Portal Dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar um serviço de Azure Search no portal")
 
 1. Para o grupo de recursos, crie um grupo de recursos para conter todos os recursos que você cria neste tutorial. Isso torna mais fácil limpar os recursos, depois de concluir o tutorial.
 
-1. Para o Local, escolha ou **EUA Centro Sul** ou **Europa Ocidental**. Atualmente, a visualização está disponível apenas nessas regiões.
+1. Para o local, escolha uma das [regiões com suporte](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) para Pesquisa Cognitiva.
 
 1. Para a camada de preços, você pode criar um serviço **Livre** para completar tutoriais e guias de início rápido. Para uma investigação mais detalhada usando seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** ou **Standard**. 
 
   Um serviço gratuito está limitado a 3 índices, tamanho máximo do blob de 16 MB e 2 minutos de indexação, o que não é suficiente para exercer todos os recursos de pesquisa cognitiva. Para examinar os limites para as diferentes camadas, consulte [Limites de Serviço](search-limits-quotas-capacity.md).
 
-  > [!NOTE]
-  > A pesquisa cognitiva está na visualização pública. Execução do conjunto de qualificações está disponível em todas as camadas, incluindo livre. Posteriormente, o preço desse recurso será anunciado.
+  ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definição de serviço no portal")
+  ![Página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definição de serviço no o portal")
 
+ 
 1. Fixe o serviço no painel de controle para acesso rápido a informações de serviço.
 
-  ![Página de definição de Serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Página de definição de Serviço no portal")
+  ![Página de definição de Serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definição de Serviço no portal")
 
-1. Depois que o serviço é criado, colete as seguintes informações: **URL** da página de visão geral, e **chave de api** (primário ou secundário) da página de chaves.
+1. Depois que o serviço é criado, colete as seguintes informações: **URL** na página de Visão Geral e **api-key** (primária ou secundária) na página Chaves.
 
   ![Informações de ponto de extremidade e a chave no portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "ponto de extremidade e informações de chave no portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço de Blob do Azure e carregar dados de amostra
 
-O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
+O pipeline de enriquecimento extrai de fontes de dados do Azure. Fonte de dados deve originar-se de um tipo de fonte de dados com suporte de um [indexador do Azure Search](search-indexer-overview.md). Observe que não há suporte para o Armazenamento de Tabelas do Azure para Pesquisa Cognitiva. Para este exercício, usamos o armazenamento de blob para apresentar múltiplos tipos de conteúdo.
 
 1. [Baixe os dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Dados de exemplo consistem em um conjunto de pequenos arquivos de tipos diferentes. 
 
@@ -127,9 +131,9 @@ Como esta é sua primeira solicitação, verifique o portal do Azure para confir
 Se você receber um erro 403 ou 404, verifique a construção da solicitação: `api-version=2017-11-11-Preview` deve ser no ponto de extremidade, `api-key` deve estar no cabeçalho após `Content-Type`, e seu valor deve ser válido para um serviço de pesquisa. Você pode reutilizar o cabeçalho para as etapas restantes neste tutorial.
 
 > [!TIP]
-> Agora, antes de você fazer muito trabalho, é um bom momento para verificar se o serviço de pesquisa está em execução em um dos locais com suporte, fornecendo o recurso de visualização: Centro Sul dos EUA ou Europa Ocidental.
+> Agora, antes de você fazer muito trabalho, é um bom momento para verificar se o serviço de pesquisa está em execução em um dos locais com suporte, fornecendo a versão prévia do recurso: Centro-Sul dos EUA ou Europa Ocidental.
 
-## <a name="create-a-skillset"></a>Criar um conjunto de qualificações
+## <a name="create-a-skillset"></a>Criar um conjunto de habilidades
 
 Nesta etapa, você deve definir um conjunto de etapas de enriquecimento que você deseja aplicar aos seus dados. Chamar cada etapa enriquecimento um *habilidade*e o conjunto de etapas de enriquecimento um *conjunto de qualificações*. Este tutorial usa [predefinidos habilidades cognitivas](cognitive-search-predefined-skills.md) para o conjunto de qualificações:
 
@@ -523,7 +527,7 @@ Reindexar seus documentos com as novas definições:
 2. Modificar uma definição de conjunto de qualificações e índice.
 3. Recrie um índice e um indexador no serviço para executar o pipeline. 
 
-Você pode usar o portal para excluir o índices e indexadores. Conhecimentos só podem ser excluídos por meio de um comando HTTP, caso você decida excluí-lo.
+Você pode usar o portal para excluir índices, indexadores e Conjuntos de habilidades.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview

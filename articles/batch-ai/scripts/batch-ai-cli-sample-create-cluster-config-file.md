@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232793"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407806"
 ---
-# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Exemplo da CLI: criar um cluster de IA do Lote usando um arquivo de configuração do cluster
+# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>Exemplo de CLI: Criar um cluster de IA do Lote usando um arquivo de configuração do cluster
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Esse script demonstra como usar um arquivo de configuração JSON para especificar configurações para um cluster de IA do Lote. Use essas configurações em vez de parâmetros de linha de comando correspondentes para `az batchai cluster create`. Um arquivo de configuração é útil quando você precisa montar vários sistemas de arquivos em nós de cluster ou quiser usar uma configuração idêntica em vários clusters.
 

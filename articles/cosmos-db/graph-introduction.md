@@ -8,29 +8,29 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9e0d2f452a21f2da29568b953238318cb4477df
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077437"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
 O [Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft para aplicativos de missão crítica. Ele é um banco de dados multimodelo e dá suporte a modelos de dados de colunas, grafo, valores-chave e documentos. A API Gremlin do Azure Cosmos DB é usada para armazenar e operar com dados de grafo. A API Gremlin oferece suporte à modelagem de dados de grafo e fornece APIs para percorrer os dados de grafo.
 
-Este artigo fornece uma visão geral da API do Gremlin do Azure Cosmos DB e explica como você pode usá-lo para armazenar grandes grafos com bilhões de vértices e bordas. Você pode consultar os grafos com latência de milissegundo e desenvolver a estrutura do grafo e o esquema facilmente. Para consultar o Azure Cosmos DB, você pode usar a linguagem transversal de grafo [Apache TinkerPop](http://tinkerpop.apache.org) ou [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
+Este artigo fornece uma visão geral da API do Gremlin do Azure Cosmos DB e explica como você pode usá-lo para armazenar grandes grafos com bilhões de vértices e bordas. Você pode consultar os grafos com latência de milissegundo e desenvolver a estrutura do grafo e o esquema facilmente. Para consultar o Azure Cosmos DB, você pode usar a linguagem transversal de grafo [Apache TinkerPop](https://tinkerpop.apache.org) ou [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 
 ## <a name="what-is-a-graph-database"></a>O que é um banco de dados de grafo
 Os dados da forma como aparecem no mundo real são conectados naturalmente. A modelagem de dados tradicional se concentra em entidades. Para muitos aplicativos, também há a necessidade de modelar as relações e as entidades.
 
-Um [grafo](http://mathworld.wolfram.com/Graph.html) é uma estrutura composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [bordas](http://mathworld.wolfram.com/GraphEdge.html). Os vértices e as bordas podem ter um número arbitrário de propriedades. 
+Um [grafo](https://mathworld.wolfram.com/Graph.html) é uma estrutura composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [bordas](http://mathworld.wolfram.com/GraphEdge.html). Os vértices e as bordas podem ter um número arbitrário de propriedades. 
 
 * **Vértices** - os vértices denotam objetos individuais, como uma pessoa, um lugar ou um evento. 
 
 * **Bordas** - as bordas indicam relações entre os vértices. Por exemplo, uma pessoa pode conhecer a outra pessoa, estar envolvida em um evento e foi recentemente a um local. 
 
-* **Propriedades** - as propriedades expressam informações sobre os vértices e as bordas. Os exemplos de propriedades incluem um vértice que tem o nome e a idade. E uma borda que tem um carimbo de data/hora ou um peso. Mais formalmente, esse modelo é conhecido como um [grafo de propriedade](http://tinkerpop.apache.org/docs/current/reference/#intro). O Azure Cosmos DB dá suporte ao modelo de grafo da propriedade.
+* **Propriedades** - as propriedades expressam informações sobre os vértices e as bordas. Os exemplos de propriedades incluem um vértice que tem o nome e a idade. E uma borda que tem um carimbo de data/hora ou um peso. Mais formalmente, esse modelo é conhecido como um [grafo de propriedade](https://tinkerpop.apache.org/docs/current/reference/#intro). O Azure Cosmos DB dá suporte ao modelo de grafo da propriedade.
 
 Por exemplo, o grafo de exemplo a seguir mostra as relações entre pessoas, dispositivos móveis, interesses e sistemas de operação:
 
@@ -80,18 +80,18 @@ O Azure Cosmos DB também possibilita usar vários modelos, como documento e gra
 
 ## <a name="get-started"></a>Introdução
 
-Você pode usar a interface de linha de comando (CLI) do Azure, o Azure PowerShell ou o portal do Azure para criar e acessar contas da API Gremlin no Azure Cosmos DB. Após criar uma conta, acesse os bancos de dados de grafo na conta usando um ponto de extremidade de serviço da API Gremlin `https://<youraccount>.gremlin.cosmosdb.azure.com` que fornece um front-end do WebSocket para Gremlin. Você pode configurar suas ferramentas compatíveis com TinkerPop, como o [Console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para se conectar a esse ponto de extremidade e criar aplicativos no Java, Node.js ou qualquer driver de cliente Gremlin.
+Você pode usar a interface de linha de comando (CLI) do Azure, o Azure PowerShell ou o portal do Azure para criar e acessar contas da API Gremlin no Azure Cosmos DB. Após criar uma conta, acesse os bancos de dados de grafo na conta usando um ponto de extremidade de serviço da API Gremlin `https://<youraccount>.gremlin.cosmosdb.azure.com` que fornece um front-end do WebSocket para Gremlin. Você pode configurar suas ferramentas compatíveis com TinkerPop, como o [Console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para se conectar a esse ponto de extremidade e criar aplicativos no Java, Node.js ou qualquer driver de cliente Gremlin.
 
 A tabela a seguir mostra drivers Gremlin populares que você pode usar com o BD Cosmos do Azure:
 
 | Baixar | Documentação | Introdução | Versão do conector com suporte |
 | --- | --- | --- | --- |
-| [.NET](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Grafo usando .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](http://tinkerpop.apache.org/javadocs/current/full/) | [Criar Grafo usando Java](create-graph-java.md) | 3.2.0+ |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Grafo usando .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Criar Grafo usando Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/jbmusso/gremlin-javascript) | [Criar Grafo usando Node.js](create-graph-nodejs.md) | 2.6.0|
-| [Python](http://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Grafo usando Python](create-graph-python.md) | 3.2.7 |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Grafo usando Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP no GitHub](https://github.com/PommeVerte/gremlin-php) | [Criar Grafo usando PHP](create-graph-php.md) | 3.1.0 |
-| [Console do Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documentos do TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar Grafo usando Console do Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
+| [Console do Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documentos do TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar Grafo usando Console do Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="graph-database-design-considerations"></a>Considerações de design de banco de dados de grafo
 

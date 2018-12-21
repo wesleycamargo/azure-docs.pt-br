@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – negar camadas de acesso esporádico para contas de armazenamento
+title: Exemplo – negar camadas de acesso esporádico para contas de armazenamento
 description: Essa política de exemplo proíbe o uso de camadas de acesso esporádico para contas de armazenamento de blobs.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: dedf280a6aa704971d54de4677f90685dfccbdb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6b8e293b42d209a8556e85c4348596023dd3fdf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946044"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308542"
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>Negar camadas de acesso esporádico para contas de armazenamento
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Analisar mais exemplos em [exemplos do Azure Policy](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

@@ -1,20 +1,21 @@
 ---
-title: Tutorial - Configurar a lição de tutorial de funções de usuário e administrador do servidor do Azure Analysis Services | Microsoft Docs
+title: Tutorial – Configurar funções de usuário e administrador do Azure Analysis Services | Microsoft Docs
+description: Saiba como configurar as funções do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929222"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000640"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de usuário e administrador do servidor
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
 
  Neste tutorial, você usa o SSMS (SQL Server Management Studio) para conectar o servidor no Azure para configurar as funções de modelo de banco de dados e administrador do servidor. Você também é apresentado à [TMSL (Linguagem de Scripts de Modelo de Tabela)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). A TMSL é uma linguagem de scripts baseada em JSON para modelos tabulares nos níveis de compatibilidade 1200 e superior. Ela pode ser utilizada para automatizar muitas tarefas de modelagem de tabela. A TMSL é frequentemente utilizada com o PowerShell mas, neste tutorial, você usará o editor de consulta XMLA no SSMS. Com este tutorial, você concluirá estas tarefas: 
   
@@ -27,7 +28,7 @@ ms.locfileid: "37929222"
 
 Para saber mais sobre segurança do usuário no Azure Analysis Services, consulte [Autenticação e permissões de usuário](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Um Azure Active Directory em sua assinatura.
 - Um [servidor do Azure Analysis Services](../analysis-services-create-server.md) criado em sua assinatura.
@@ -35,9 +36,9 @@ Para saber mais sobre segurança do usuário no Azure Analysis Services, consult
 - [Adicione o modelo de exemplo adventureworks](../analysis-services-create-sample-model.md) ao servidor.
 - [Instale a última versão do SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça logon no [portal](https://portal.azure.com/).
+Entre no [portal](https://portal.azure.com/).
 
 ## <a name="get-server-name"></a>Obter nome do servidor
 Para conectar o servidor a partir do SSMS, primeiro é necessário o nome do servidor. É possível obter o nome do servidor no portal.
@@ -143,5 +144,5 @@ Quando não forem mais necessárias, exclua as funções e as contas de grupo e 
 Neste tutorial, você aprendeu como conectar o servidor de sistema autônomo do Azure e a explorar os modelos de banco de dados de exemplo adventureworks no SSMS. Você também aprendeu a usar scripts SSMS e TMSL para adicionar usuários ou grupos a funções existentes e novas. Agora que você tem permissões de usuário configuradas para o servidor e modelo de banco de dados de exemplo, você e outros usuários poderão conectar-se a ele usando aplicativos clientes, como o Power BI. Para saber mais, continue no próximo tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conectar com Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutorial: Conectar-se com o Power BI Desktop](analysis-services-tutorial-pbid.md)
 

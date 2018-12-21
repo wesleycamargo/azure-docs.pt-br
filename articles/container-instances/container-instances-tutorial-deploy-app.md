@@ -1,21 +1,21 @@
 ---
-title: Tutorial de Instâncias de Contêiner do Azure – implantar aplicativo
-description: Tutorial de Instâncias de Contêiner do Azure parte 3 de 3 – implantar aplicativo
+title: Tutorial – Implantar aplicativo contêiner em Instâncias de Contêiner do Azure
+description: Tutorial das Instâncias de Contêiner do Azure, parte 3 de 3 – Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863713"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191080"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Tutorial: implantar um contêiner em Instâncias de Contêiner do Azure
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 
 Este é o tutorial final de uma série de três partes. Anteriormente na série, [uma imagem de contêiner foi criada](container-instances-tutorial-prepare-app.md) e [enviada por push ao Registro de Contêiner do Azure](container-instances-tutorial-prepare-acr.md). Este artigo conclui a série implantando o contêiner em Instâncias de Contêiner do Azure.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Detecção de Anomalias, Python'
+title: 'Tutorial: Detecção de anomalias, Python'
 titlesuffix: Azure Cognitive Services
 description: Explore um notebook do Python que usa a API de Detecção de Anomalias. Envie os pontos de dados originais para a API e obtenha os pontos de anomalias e o valor esperado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887744"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164799"
 ---
-# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Detecção de Anomalias com aplicativo Python
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Detecção de anomalias com aplicativo Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -31,7 +31,7 @@ O tutorial mostra como usar a API de Detecção de Anomalias em Python e como vi
 
 ## <a name="download-the-example-code"></a>Baixar o exemplo de código
 
-1. Navegue até o [tutorial de bloco de anotações no Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Navegue para o [bloco de anotações de tutorial no GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Clique no botão verde para clonar ou baixar o tutorial. 
 
 ## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Abrir o tutorial de bloco de anotações em Jupyter

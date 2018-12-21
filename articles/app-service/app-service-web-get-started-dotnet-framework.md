@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web ASP.NET Framework do C# no Azure | Microsoft Docs
+title: Criar um aplicativo Web ASP.NET Framework do C# – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure com a implantação do aplicativo Web do ASP.NET no C# padrão.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: 5f32ed74086b26f91f3ab24cd619bb117d497012
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053771"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251259"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 

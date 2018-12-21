@@ -1,5 +1,5 @@
 ---
-title: Compare as opções de produto de aprendizado de máquina da Microsoft – Azure | Microsoft Docs
+title: Compare as opções do produto de aprendizado de máquina na Microsoft
 description: Compare a variedade de produtos da Microsoft para compilar, implantar e gerenciar seus modelos de machine learning. Decida quais produtos escolher para sua solução.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274098"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Quais são as opções do produto de aprendizado de máquina da Microsoft?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizado de máquina na Microsoft?
 
 A Microsoft fornece uma variedade de opções de produto para compilar, implantar e gerenciar seu modelos de aprendizado de máquina. Compare esses produtos e escolha o que você precisa para desenvolver com mais eficiência soluções de aprendizado de máquina.
 
@@ -41,8 +41,7 @@ O [serviço do Azure Machine Learning](overview-what-is-azure-ml.md) é um servi
 
 Use os serviços do Azure Machine Learning para treinar, implantar e gerenciar modelos de ML usando Python e CLI em escala de nuvem.
 
->[!Note]
-> Você pode experimentar o Azure Machine Learning gratuitamente. Não é necessário nenhum cartão de crédito ou assinatura do Azure. Comece agora mesmo. https://azure.microsoft.com/free/
+Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

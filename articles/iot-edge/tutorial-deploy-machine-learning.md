@@ -1,5 +1,5 @@
 ---
-title: Implantar o Azure Machine Learning com o Azure IoT Edge | Microsoft Docs
+title: Tutorial para implantar o Azure Machine Learning em um dispositivo – Azure IoT Edge | Microsoft Docs
 description: Neste tutorial, você implantará o Azure Machine Learning como um módulo em um dispositivo de borda
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977193"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344004"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Machine Learning como um módulo do IoT Edge (versão prévia)
 
@@ -115,7 +115,7 @@ Verifique se a imagem de seu contêiner foi criada com êxito e armazenada no Re
 
 1. Na seção **Configurações do registro**, adicione as credenciais que você copiou de seu registro de contêiner do Azure. 
 
-   ![Adicionar credenciais de registro](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![Adicionar credenciais de Registro ao manifesto](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. Se você implantou o módulo tempSensor no seu dispositivo IoT Edge, talvez ele seja automaticamente populado. Se ainda não estiver na lista de módulos, adicioná-lo.
 
@@ -174,7 +174,7 @@ Se você executar esses comandos em um dispositivo do Linux, você precisará us
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Exibir dados que chegam ao seu Hub IoT
 
-Você pode exibir as mensagens de dispositivo para a nuvem que o hub IoT recebe usando a [extensão do Kit de ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+Você pode exibir as mensagens do dispositivo para nuvem recebidas pelo Hub IoT usando a [extensão do Kit de Ferramentas do Hub IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente, extensão do Kit de Ferramentas do Azure IoT).
 
 As etapas a seguir mostram como configurar o Visual Studio Code para monitorar mensagens de dispositivo para a nuvem que chegam em seu Hub IoT. 
 
@@ -182,7 +182,7 @@ As etapas a seguir mostram como configurar o Visual Studio Code para monitorar m
 
 2. Selecione **...** , em seguida, selecione **Definir cadeia de Conexão de Hub IoT** no menu.
 
-   ![Dispositivos de Hub IoT mais menu](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![Definir cadeia de conexão do Hub IoT](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. Na caixa de texto que é aberta na parte superior da página, insira a cadeia de caracteres de conexão iothubowner para seu Hub IoT. Seu dispositivo Edge IoT deverá aparecer na lista de dispositivos de Hub IoT.
 

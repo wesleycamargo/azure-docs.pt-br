@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: executar uma pesquisa com Ruby – API de Pesquisa na Web do Bing'
+title: 'Início Rápido: Executar uma pesquisa na Web com Ruby – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a fazer sua primeira chamada à API de Pesquisa na Web do Bing usando Ruby e receber uma resposta JSON.
+description: Use este início rápido para enviar solicitações para a API REST de Pesquisa na Web do Bing usando Ruby e receba uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 41ca3c0c4b80cb3d53a0910afaadd00166d8b9f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 911d90229473d6972f07ed0a75af487a27008fa5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315759"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249661"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Início Rápido: Usar Ruby para chamar a API de Pesquisa na Web do Bing  
 
@@ -23,7 +24,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa na W
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:

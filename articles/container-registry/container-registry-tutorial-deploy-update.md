@@ -1,21 +1,21 @@
 ---
-title: Tutorial do Registro de Contêiner do Azure – Enviar por push uma imagem atualizada para implantações regionais
-description: Envie por push uma imagem do Docker modificada para o Registro que contém o Azure com replicação geográfica e veja as alterações implantadas automaticamente nos aplicativos Web em execução em várias regiões. Parte três de uma série de três partes.
+title: Tutorial – imagem de contêiner atualizada por push para implantações de aplicativo regionais do Azure
+description: Envie por push uma imagem do Docker modificada para o Registro de Contêiner do Azure com replicação geográfica e veja as alterações implantadas automaticamente nos aplicativos Web em execução em várias regiões. Parte três de uma série de três partes.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855503"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256614"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: enviar por push uma imagem atualizada para implantações regionais
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: enviar por push uma imagem de contêiner atualizada para um registro de contêiner com replicação geográfica para implantações de aplicativos Web regionais
 
 Esta é a parte três de uma série de tutoriais de três partes. No [tutorial anterior](container-registry-tutorial-deploy-app.md), a replicação geográfica foi configurada para duas implantações de aplicativo Web regionais diferentes. Neste tutorial, você primeiro modifica o aplicativo, em seguida, cria uma nova imagem de contêiner e envia por push para o Registro com replicação geográfica. Por fim, você exibe a alteração, implantada automaticamente pelos webhooks de Registro de Contêiner do Azure, em ambas as instâncias do aplicativo Web.
 
@@ -133,7 +133,7 @@ Com um único `docker push`, você atualizou automaticamente o aplicativo web em
 
 Neste tutorial, você atualizou e enviou por push uma nova versão do contêiner de aplicativo Web para seu Registro com replicação geográfica. Os webhooks no Registro de Contêiner do Azure notificavam o Aplicativos Web para Contêineres sobre a atualização, que disparou um pull local da réplica do registro mais próximo.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: Compilação automatizada de imagem e dos patches
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: criação automatizada de imagem e patch
 
 Além de replicação geográfica, o ACR Build é outro recurso de Registro de Contêiner do Azure que pode ajudar a otimizar seu pipeline de implantação do contêiner. Iniciar com a visão geral de ACR Build para ter uma ideia de seus recursos:
 

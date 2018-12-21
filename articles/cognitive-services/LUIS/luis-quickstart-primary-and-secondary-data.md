@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 7: lista de entidades com frases simples no LUIS'
+title: Entidade simples, lista de frases
 titleSuffix: Azure Cognitive Services
-description: Extrair dados de aprendizado de máquina de um enunciado
+description: Neste tutorial, extraia dados de aprendizado de máquina de um nome de cargo de um enunciado usando a entidade Simples. Para aumentar a precisão da extração, adicione uma lista de frases de termos específicos para a entidade simples.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425234"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166261"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: extrair os nomes com uma lista de entidades e frases simples
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes com uma entidade simples e uma lista de frases
 
 Neste tutorial, extraia dados de aprendizado de máquina de um nome de cargo de um enunciado usando a entidade **Simples**. Para aumentar a precisão da extração, adicione uma lista de frases de termos específicos para a entidade simples.
 
@@ -92,7 +93,7 @@ Após as entidades serem marcadas nos enunciados de exemplo, é importante adici
 
 3. No enunciado, `I want to apply for the new accounting job`, selecione `accounting`, digite `Job` no campo superior do menu pop-up, depois selecione **Criar nova entidade** no menu pop-up. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de tela do LUIS com intenção de “ApplyForJob” com as etapas para criar a entidade realçadas")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Captura de tela do LUIS com a intenção “ApplyForJob” com as etapas para criar a entidade realçadas](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de tela do LUIS com a intenção “ApplyForJob” com as etapas para criar a entidade realçadas")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Na janela pop-up, verifique o nome e o tipo da entidade e selecione **Concluído**.
 
@@ -100,7 +101,7 @@ Após as entidades serem marcadas nos enunciados de exemplo, é importante adici
 
 5. No enunciado, `Submit resume for engineering position`, rotule a palavra `engineering` como uma entidade Job. Selecione a palavra `engineering`, depois selecione **Job** no menu pop-up. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela do LUIS rotulando a entidade Job realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Captura de tela da entidade de trabalho de rotulagem do LUIS realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de tela da entidade de trabalho de rotulagem do LUIS realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Todos os enunciados são rotulados, mas cinco enunciados não são suficientes para ensinar o LUIS sobre palavras e frases relacionadas a trabalho. Os trabalhos que usam o valor de número não precisam de mais exemplos porque usam uma entidade de expressão regular. Os trabalhos que são palavras ou frases precisam de pelo menos mais 15 exemplos. 
 
@@ -157,7 +158,7 @@ Ao rotular, ou _marcar_, a entidade mostra ao LUIS em que local a entidade está
 
 2. Vá até o final da URL no endereço e insira `Here is my c.v. for the programmer job`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `ApplyForJob`.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ O aplicativo LUIS encontrou a intenção correta com alta confiança e extraiu o
 
 No JSON a seguir, o LUIS responde com a intenção correta, `ApplyForJob`, mas não extrai o nome de trabalho `lead welder`. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -283,7 +284,7 @@ Como um nome pode ser qualquer coisa, o LUIS prevê as intenções mais precisam
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de frases
 
-Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) do repositório Github LUIS-Samples. A lista tem mais de mil palavras de trabalho e frases. Examine a lista de palavras em busca de palavras de trabalho que sejam significativas para você. Se suas palavras ou frases não estiverem na lista, adicione suas próprias.
+Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) do repositório do GitHub LUIS-Samples. A lista tem mais de mil palavras de trabalho e frases. Examine a lista de palavras em busca de palavras de trabalho que sejam significativas para você. Se suas palavras ou frases não estiverem na lista, adicione suas próprias.
 
 1. Na seção **Compilar** do aplicativo LUIS, selecione **Listas de frase**, encontrada no menu **Melhorar o desempenho do aplicativo**.
 
@@ -291,13 +292,13 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
 
 3. Nomeie a nova lista de frase como `Job` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Valores**. Selecione enter. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura da caixa de diálogo pop-up Criar nova lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Se você quiser adicionar mais palavras à lista de frases, revise os **Valores Relacionados** e adicione os que forem relevantes. 
 
 4. Selecione **Salvar** para ativar a lista de frases.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa Valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de tela da caixa de diálogo pop-up Criar nova lista de frases com palavras na caixa de valores da lista de frases")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Treine](#train) e [publique](#publish) o aplicativo novamente para usar a lista de frases.
 
@@ -305,7 +306,7 @@ Abra o [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/mas
 
     A resposta JSON inclui a entidade extraída:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

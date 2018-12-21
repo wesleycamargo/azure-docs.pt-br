@@ -1,5 +1,5 @@
 ---
-title: Usando ACR com um cluster DC/OS do Azure
+title: (PRETERIDO) Usando ACR com um cluster DC/OS do Azure
 description: Usar um Registro de Contêiner do Azure com um cluster DC/OS no Serviço de Contêiner do Azure
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986618"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996342"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usar ACR com um cluster DC/OS para implantar seu aplicativo
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(PRETERIDO) Usar ACR com um cluster DC/OS para implantar seu aplicativo
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Neste artigo, exploraremos como usar o Registro de Contêiner do Azure com um cluster de DC/SO. Usar o ACR permite armazenar e gerenciar imagens de contêiner de forma privada. Este tutorial cobre as seguintes tarefas:
 

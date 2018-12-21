@@ -1,5 +1,5 @@
 ---
-title: Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres – Azure | Microsoft Docs
+title: Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, contêiner
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432599"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256070"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres
 
@@ -292,7 +292,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Para que 
     > [!NOTE]
     > Essa configuração não permite conexões externas com o contêiner. O SSH está disponível apenas por meio do Site do Kudu/SCM. O site do Kudu/SCM é autenticado com as credenciais de publicação.
 
-* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que instrui o mecanismo do Docker para copiar o arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O arquivo de configuração deve ser baseado [nesse arquivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que instrui o mecanismo do Docker para copiar o arquivo [sshd_config](https://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O arquivo de configuração deve ser baseado [nesse arquivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/

@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 8: Extração de frases-chave no LUIS'
+title: Extração de frases-chave
 titleSuffix: Azure Cognitive Services
 description: Use a entidade pré-criada keyPhrase para extrair o assunto dos enunciados. Não é necessário rotular nenhum enunciado com as entidades pré-criadas. A entidade é detectada automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096920"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: Extrair frases-chave do enunciado
 Neste tutorial, use a entidade keyPhrase pré-criada para extrair o assunto principal dos enunciados. Não é necessário rotular nenhum enunciado com as entidades pré-criadas. A entidade é detectada automaticamente.
@@ -31,7 +32,6 @@ O aplicativo cliente pode usar esses valores, junto com outras entidades extraí
 
 **Neste tutorial, você aprenderá a:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usar o aplicativo do tutorial existente
 > * Adicionar entidade KeyPhrase 
@@ -84,7 +84,7 @@ Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
 
 2. Vá até o final da URL no endereço e insira `does form hrf-123456 cover the new dental benefits and medical plan`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

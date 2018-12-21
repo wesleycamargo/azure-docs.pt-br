@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957020"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a API da Pesquisa Visual Computacional versão 1.0?
 
@@ -38,13 +38,13 @@ A API da Pesquisa Visual Computacional baseada em nuvem fornece aos desenvolvedo
 * [Cortar as fotos a serem usadas como miniaturas.](#Thumbnails)
 
 ## <a name="requirements"></a>Requisitos
-* Métodos de entrada compatíveis: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem.
-* Formatos de imagem compatíveis: JPEG, PNG, GIF e BMP.
-* Tamanho do arquivo de imagem: inferior a 4 MB.
-* Dimensão da imagem: superior a 50 x 50 pixels.
+* Suporte para métodos de entrada: binário da imagem bruta na forma de um aplicativo/fluxo de octeto ou uma URL da imagem.
+* Formatos de imagem com suporte: JPEG, PNG, GIF, BMP.
+* Tamanho do arquivo de imagem: Menos de 4 MB.
+* Dimensões da imagem: Maior que 50 x 50 pixels.
 
 ## <a name="tagging-images"></a>Marcando imagens
-A API da Pesquisa Visual Computacional retorna marcas com base em mais de 2.000 objetos reconhecíveis, seres vivos, cenários e ações. Quando as marcações são ambíguas ou pertencem a um conhecimento não comum, a resposta da API fornece 'dicas' para esclarecer o significado da marcação no contexto de um cenário conhecido. As marcas não são organizadas como uma taxonomia e não existe nenhuma hierarquia de herança. Uma coleção de marcas de conteúdo constitui a base para uma 'description' de imagem exibida como uma linguagem legível por humanos formatada em frases completas. Observe que, no momento, para a descrição da imagem, o inglês é o único idioma compatível.
+A API da Pesquisa Visual Computacional retorna marcas com base em milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as marcações são ambíguas ou pertencem a um conhecimento não comum, a resposta da API fornece 'dicas' para esclarecer o significado da marcação no contexto de um cenário conhecido. As marcas não são organizadas como uma taxonomia e não existe nenhuma hierarquia de herança. Uma coleção de marcas de conteúdo constitui a base para uma 'description' de imagem exibida como uma linguagem legível por humanos formatada em frases completas. Observe que, no momento, para a descrição da imagem, o inglês é o único idioma compatível.
 
 Após o upload de uma imagem ou a especificação de uma URL de imagem, os algoritmos da API da Pesquisa Visual Computacional geram marcas com base nos objetos, em seres vivos e nas ações identificadas na imagem. A marcação não está limitada ao assunto principal, como uma pessoa em primeiro plano, mas também inclui o cenário (interno ou externo), móveis, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
@@ -250,7 +250,7 @@ A precisão do reconhecimento de texto depende da qualidade da imagem. Uma leitu
 - Letras maiúsculas muito grandes ou ausentes no início das palavras
 - Texto subscrito, sobrescrito ou tachado.
 
-Limitações: nas fotos em que o texto é dominante, falsos positivos podem ser obtidos de palavras parcialmente reconhecidas. Em algumas fotos, especialmente, em fotos sem nenhum texto, a precisão pode variar muito dependendo do tipo de imagem.
+ Limitações: Em fotos em que o texto é dominante, falsos positivos podem vir de palavras reconhecidas parcialmente. Em algumas fotos, especialmente, em fotos sem nenhum texto, a precisão pode variar muito dependendo do tipo de imagem.
 
 ## <a name="recognize-handwritten-text"></a>Reconhecer texto manuscrito
 Essa tecnologia permite que você detecte e extraia um texto manuscrito de anotações, cartas, dissertações, quadros brancos, formulários, etc. Ela funciona em diferentes superfícies e telas de fundo, como papel em branco, notas autoadesivas amarelas e quadros brancos.
@@ -258,7 +258,7 @@ Essa tecnologia permite que você detecte e extraia um texto manuscrito de anota
 O reconhecimento de texto manuscrito economiza tempo e esforço e pode torná-lo mais produtivo, permitindo que você extraia imagens de textos, em vez de precisar transcrevê-los. Ele possibilita a digitalização de anotações. Essa digitalização permite que você implemente uma pesquisa rápida e fácil. Também reduz a desorganização de papéis.
 
 Requisitos de entrada:
-- Formatos de imagem compatíveis: JPEG, PNG e BMP.
+- Formatos de imagem com suporte: JPEG, PNG e BMP.
 - O tamanho do arquivo de imagem precisa ter menos de 4 MB.
 - As dimensões da imagem precisam ser, no mínimo, 40 x 40 e, no máximo, 3200 x 3200.
 
@@ -267,12 +267,12 @@ Observação: atualmente, essa tecnologia está em versão prévia e disponível
 ## <a name="generating-thumbnails"></a>Gerando miniaturas
 Uma miniatura é uma representação pequena de uma imagem em tamanho original. Dispositivos variados, como telefones, tablets e computadores, criam uma necessidade de diferentes layouts de experiência do usuário e tamanhos de miniatura. Usando o corte inteligente, esse recurso da API da Pesquisa Visual Computacional ajuda a resolver o problema.
 
-Após o upload de uma imagem, uma miniatura de alta qualidade é gerada e o algoritmo da API da Pesquisa Visual Computacional analisa os objetos na imagem. Ele então corta a imagem para atender aos requisitos da ROI (região de interesse). A saída é exibida em uma estrutura especial, conforme visto na ilustração abaixo. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original para atender às necessidades do usuário.
+Após o upload de uma imagem, uma miniatura de alta qualidade é gerada e o algoritmo da API da Pesquisa Visual Computacional analisa os objetos na imagem. Ele então corta a imagem para atender aos requisitos da "área de interesse". A saída é exibida em uma estrutura especial, conforme visto na ilustração abaixo. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original para atender às necessidades do usuário.
 
 O algoritmo de miniatura funciona da seguinte maneira:
 
-1. Remove da imagem os elementos que causam distração e reconhece o objeto principal, a ROI (região de interesse).
-2. Corta a imagem com base na região de interesse identificada.
+1. Remove da imagem os elementos que causam distração e reconhece o objeto principal, a "área de interesse".
+2. Corta a imagem com base na área de interesse identificada.
 3. Altera a taxa de proporção para se ajustar às dimensões da miniatura de destino.
 
 ![Miniaturas](./Images/thumbnail-demo.png)

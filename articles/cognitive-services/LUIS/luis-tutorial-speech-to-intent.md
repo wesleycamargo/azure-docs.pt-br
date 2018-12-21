@@ -1,21 +1,22 @@
 ---
-title: Usar o SDK de Fala C# com o LUIS
+title: Usar o SDK de Fala em C#
 titleSuffix: Azure Cognitive Services
-description: O serviço de Fala permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão do LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote NuGet de Fala, já incluído como uma referência.
+description: O serviço de Fala permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão do LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162624"
 ---
 # <a name="integrate-speech-service"></a>Integrar Serviço de Fala
 O [Serviço de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite que você use uma única solicitação para receber áudio e retornar objetos JSON de previsão LUIS. Neste artigo, você pode baixar e usar um projeto C# no Visual Studio para falar uma expressão em um microfone e receber informações de previsão LUIS. O projeto usa o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Fala, já está incluído como referência. 
@@ -26,7 +27,7 @@ Para este artigo, você precisa de uma conta de website gratuita de [LUIS][LUIS]
 No portal do Azure, [crie](luis-how-to-azure-subscription.md#create-luis-endpoint-key) uma chave de **Serviço Inteligente de Reconhecimento Vocal** (LUÍS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar aplicativo LUIS de Recursos Humanos
-As intenções e expressões para este artigo são do aplicativo LUIS de Recursos Humanos disponível no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Baixe o arquivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salve-o com a extensão `.json` e [importe](luis-how-to-start-new-app.md#import-new-app)-o no LUIS. 
+As intenções e expressões deste artigo são do aplicativo LUIS de Recursos Humanos disponível no repositório do GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Baixe o arquivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), salve-o com a extensão `.json` e [importe](luis-how-to-start-new-app.md#import-new-app)-o no LUIS. 
 
 Este aplicativo tem intenções, entidades e expressões relacionadas com o domínio Recursos Humanos. Expressões de exemplo incluem:
 
@@ -65,7 +66,7 @@ Este artigo usa o dispositivo de áudio no seu computador. Isso pode ser um fone
 
 O SDK de Fala já está incluído como uma referência. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de tela do Visual Studio 2017 exibindo o pacote NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Captura de tela do Visual Studio 2017 exibindo o pacote NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de tela do Visual Studio 2017 exibindo o pacote NuGet Microsoft.CognitiveServices.Speech")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modifique o código C#
 Abra o arquivo `Program.cs` e altere as variáveis a seguir:

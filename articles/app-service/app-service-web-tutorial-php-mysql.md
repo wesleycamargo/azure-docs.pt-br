@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Web PHP e MySQL no Azure | Microsoft Docs
+title: Criar aplicativo PHP com MySQL – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como fazer com que um aplicativo PHP funcione no Azure com conexão a um banco de dados MySQL.
 services: app-service\web
 documentationcenter: php
@@ -14,15 +14,15 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291276"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251667"
 ---
-# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web PHP e MySQL no Azure
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web PHP e MySQL no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Criar um aplicativo Web PHP e MySQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-php-mysql-app.md).
@@ -49,9 +49,9 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial:
 
 * [Instalar o Git](https://git-scm.com/)
-* [Instalar o PHP 5.6.4 ou posterior](http://php.net/downloads.php)
+* [Instalar o PHP 5.6.4 ou posterior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
-* Habilite as seguintes extensões do PHP de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Habilite as seguintes extensões de PHP de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparar o MySQL local
@@ -66,7 +66,7 @@ Em uma janela de terminal, conecte-se ao servidor MySQL local. Você pode usar e
 mysql -u root -p
 ```
 
-Se for solicitada uma senha, insira a senha da conta `root`. Caso não se lembre da senha de sua conta raiz, consulte [MySQL: como redefinir a senha raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Se for solicitada uma senha, insira a senha da conta `root`. Caso não se lembre da senha de sua conta raiz, confira [MySQL: como redefinir a senha raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se o comando for executado com êxito, o MySQL Server estará em execução. Caso contrário, veja se o servidor MySQL local foi iniciado seguindo as [Etapas pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
@@ -598,9 +598,9 @@ Depois que o streaming de log for iniciado, atualize o aplicativo Web do Azure n
 Para interromper o streaming de log a qualquer momento, digite `Ctrl`+`C`.
 
 > [!TIP]
-> Um aplicativo PHP pode usar o [error_log()](http://php.net/manual/function.error-log.php) padrão para gerar a saída para o console. O aplicativo de exemplo usa essa abordagem em _app/Http/routes.php_.
+> Um aplicativo PHP pode usar o [error_log()](https://php.net/manual/function.error-log.php) padrão para gerar a saída para o console. O aplicativo de exemplo usa essa abordagem em _app/Http/routes.php_.
 >
-> Como uma estrutura da Web, o [Laravel usa o Monolog](https://laravel.com/docs/5.4/errors) como provedor de logs. Para saber como fazer com que o Monolog gere mensagens de saída para o console, consulte [PHP: como usar o Monolog para se registrar no console (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Como uma estrutura da Web, o [Laravel usa o Monolog](https://laravel.com/docs/5.4/errors) como provedor de logs. Para saber como fazer com que o Monolog produza mensagens para o console, confira [PHP: como usar o Monolog para registrar no console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

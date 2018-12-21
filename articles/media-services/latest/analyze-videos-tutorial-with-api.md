@@ -1,5 +1,5 @@
 ---
-title: Analisar os vídeos com os Serviços de Mídia do Azure | Microsoft Docs
+title: Analisar vídeos com os Serviços de Mídia – Azure | Microsoft Docs
 description: Siga as etapas deste tutorial para analisar vídeos usando os Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612745"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133886"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3 usando as APIs
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3 usando APIs
 
 Este tutorial mostra como analisar vídeos com os Serviços de Mídia do Azure. Há muitos cenários em que você talvez queira obter ideias profundas sobre vídeos gravados ou conteúdo de áudio. Por exemplo, para obter maior satisfação do cliente, as organizações podem executar processamento de fala para texto para converter gravações de suporte do cliente em um catálogo pesquisável com índices e painéis. Em seguida, podem obter ideias sobre seus negócios como uma lista de reclamações comuns, fontes de tais reclamações e outras informações úteis.
 
@@ -115,7 +115,7 @@ Ao criar uma **Transformação**, você deverá verificar primeiro se já existe
 
 #### <a name="job"></a>Trabalho
 
-Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar o local do seu vídeo usando: URLs HTTPS, URLs da SAS ou ativos que estão em sua conta de Serviço de Mídia. 
+Conforme mecionado acima, o objeto de [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e um [Trabalho](https://docs.microsoft.com/rest/api/media/jobs) é a solicitação real para os Serviços de Mídia para aplicar a **Transformação** a um determinado conteúdo de vídeo ou áudio de entrada. O **Trabalho** especifica informações como o local da entrada vídeo e o local da saída. Você pode especificar a localização do vídeo usando: URLs HTTPS, URLs SAS ou Ativos que fazem parte de sua conta do Serviço de Mídia. 
 
 Neste exemplo, a entrada de trabalho é um vídeo local.  
 
@@ -129,7 +129,7 @@ Sondagem não é uma prática recomendada para aplicativos de produção devido 
 
 A Grade de Eventos foi projetada para alta disponibilidade, desempenho consistente e dimensionamento dinâmico. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. A manipulação de eventos simples e reativa baseada em HTTP ajuda você a criar soluções eficientes por meio da filtragem e do roteamento de eventos. Consulte [Rotear eventos para um ponto de extremidade personalizado de web](job-state-events-cli-how-to.md).
 
-O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Em fila**, **Processamento**, **Concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
+O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfileirado**, **Processando**, **Concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 

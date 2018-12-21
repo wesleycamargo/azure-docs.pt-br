@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: extrair detalhes da imagem usando C# – API de Pesquisa de Imagem do Bing'
+title: 'Tutorial: extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing e C#'
 titleSuffix: Azure Cognitive Services
 description: Use este artigo para criar um aplicativo em C# para extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/14/2018
 ms.author: aahi
-ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 36996ebed25d159cdc2a1908b5c9f1f5447c823f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297649"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259759"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: extrair detalhes da imagem usando a API de Pesquisa de Imagem do Bing e C#
 
