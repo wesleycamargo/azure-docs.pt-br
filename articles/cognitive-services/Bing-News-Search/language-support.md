@@ -118,7 +118,7 @@ Para obter uma lista de códigos de país/região que podem ser especificados no
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Códigos de país  
+### <a name="country-codes"></a>Códigos de país/região  
 
 A seguir, são apresentados os códigos de país/região que podem ser especificados no parâmetro de consulta `cc`. A lista está sujeita a alterações.  
 

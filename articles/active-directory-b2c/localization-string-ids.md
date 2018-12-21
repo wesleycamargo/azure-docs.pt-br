@@ -184,7 +184,7 @@ A seguir, estão as IDs de uma definição de conteúdo com uma ID de `api.phone
 | **intro_entry_mixed** | Insira um número abaixo para que possamos enviar um código via SMS ou ligar para autenticá-lo. |
 | **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ |
 | **intro_sms_p** |Temos os seguintes números no registro para você. Escolha um número para que possamos ou enviar um código via SMS para autenticá-lo. |
-| **requiredField_countryCode** | Selecione o código do seu país |
+| **requiredField_countryCode** | Selecione o código do seu país/região |
 | **requiredField_number** | Insira seu número de telefone |
 | **country_code_input_placeholder_text** |País ou região |
 | **number_label** | Número do telefone |

@@ -219,7 +219,7 @@ customEvents
 
 A consulta exibirá os resultados da seguinte maneira:
 
-![Menu suspenso de país](./media/app-insights-usage-workbooks/012-country-dropdown.png)
+![Menu suspenso de país/região](./media/app-insights-usage-workbooks/012-country-dropdown.png)
 
 Os menus suspensos são ferramentas incrivelmente poderosas para personalizar e criar relatórios interativos.
 
@@ -233,7 +233,7 @@ Tipos de parâmetro de intervalo de tempo têm intervalos padrão de 15 que vão
 
 O tipo de parâmetro de seletor de recurso fornece a capacidade de definir o escopo de seu relatório para determinados tipos de recursos. Um exemplo de pasta de trabalho predefinido que aproveita o tipo de seletor de recurso é a pasta de trabalho do **Failure Insights**.
 
-![Menu suspenso de país](./media/app-insights-usage-workbooks/013-resource-picker.png)
+![Menu suspenso de país/região](./media/app-insights-usage-workbooks/013-resource-picker.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvando e compartilhando pastas de trabalho com sua equipe
 

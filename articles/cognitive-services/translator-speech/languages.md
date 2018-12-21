@@ -32,7 +32,7 @@ Os idiomas a seguir são compatíveis com tradução de fala. Se ambos os idioma
 | Alemão      |
 | Italiano      |
 | Japonês      |
-| Português (brasileiro)     |
+| Português (Brasil)     |
 | Russo      |
 | Espanhol      | 
 

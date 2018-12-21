@@ -442,7 +442,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
@@ -566,7 +566,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
@@ -682,7 +682,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
@@ -759,7 +759,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
@@ -822,7 +822,7 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 - Endereço IP do Cliente
 - Parâmetro de Cookie
 - Regex de Parâmetro de Cookie
-- País
+- País/Região
 - Dispositivo
 - Cname de Borda
 - Domínio de Referência
