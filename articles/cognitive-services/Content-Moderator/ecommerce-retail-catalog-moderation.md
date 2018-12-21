@@ -66,7 +66,7 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 > [!NOTE]
 > O tutorial foi desenvolvido para usar chaves de assinatura nas regiões visíveis nos seguintes pontos de extremidade. Certifique-se de corresponder suas chaves de API com a região de Uris; caso contrário, as chaves podem não funcionar com os pontos de extremidade a seguir:
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 4. Para fazer logon, escolha na lista de contas de Internet disponíveis.
 5. Observe as chaves de API exibidas na página de serviço.
     
-   ![Chaves da API da Pesquisa Visual Computacional](images/tutorial-computer-vision-keys.PNG)
+   　![Chaves da API da Pesquisa Visual Computacional](images/tutorial-computer-vision-keys.PNG)
     
 6. Consulte o código de origem do projeto para a função que examina a imagem com a API da Pesquisa Visual Computacional.
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 
 1. [Fazer logon](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) na [versão prévia da API de Visão Personalizada](https://www.customvision.ai/).
 2. Use o [Início Rápido](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) para criar a classificação personalizada para detectar a presença potencial de sinalizadores, brinquedos e canetas.
-   ![Imagens de Treinamento de Visão Personalizada](images/tutorial-ecommerce-custom-vision.PNG)
+   　![Imagens de Treinamento de Visão Personalizada](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Obter a URL de ponto de extremidade de previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) para sua classificação personalizada.
 4. Consulte o código-fonte para ver a função que chama seu ponto de extremidade de previsão de classificação personalizada para verificar sua imagem.
 
@@ -179,13 +179,15 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }       
+        }
  
 ## <a name="reviews-for-human-in-the-loop"></a>Revisões humanas no loop
 
 1. Nas seções anteriores, você verificou as imagens de entrada para adulto e obsceno (Content Moderator), as celebridades (Pesquisa Visual Computacional) e sinalizadores (Visão Personalizada).
 2. Com base em nossos limites de correspondência para cada exame, verifique os casos matizados disponíveis para revisão humana na ferramenta de análise.
-        bool estático público CreateReview (cadeia de caracteres ImageUrl, KeyValuePair [] metadados) {
+
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
+        {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -207,7 +209,10 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 
 1. Este tutorial pressupõe um diretório "C:Test" com um arquivo de texto que tem uma lista de Urls de imagem.
 2. O código a seguir verifica a existência do arquivo e lê todas as Urls na memória.
-            // Check for a test directory for a text file with the list of Image URLs to scan var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // Check for a test directory for a text file with the list of Image URLs to scan
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +229,12 @@ No nosso caso, definimos essas marcas personalizadas (**celebridade**, **sinaliz
 
 1. Essa função de nível superior percorre todas as URLs de imagem no arquivo de texto que mencionamos anteriormente.
 2. Ela verifica-os com cada API e se a pontuação de confiabilidade de correspondência cair dentro de nossos critérios, cria uma revisão para moderadores humanos.
-             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // for each image URL in the file...
+            foreach (var Url in Urls)
+            {
+                // Initiatize a new review tags array
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
