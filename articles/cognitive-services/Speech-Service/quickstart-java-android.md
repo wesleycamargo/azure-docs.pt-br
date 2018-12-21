@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer fala em Java no Android usando SDK de Serviço de Fala'
+title: 'Início Rápido: Reconhecer fala, Java (Android) – Serviços da API de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer fala em Java no Android usando SDK do Serviço de Fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219419"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090101"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
 
@@ -42,7 +42,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
    ![Captura de tela do assistente Criar Novo Projeto](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. Na tela **Dispositivos Android de Destino**, selecione apenas **Telefone e Tablet**. Na lista suspensa abaixo dele, escolha **API 23: Android 6.0 (Marshmallow)** e selecione **Próximo**.
+1. Na tela **Dispositivos Android de Destino**, selecione apenas **Telefone e Tablet**. Na lista suspensa abaixo dele, escolha **API 23: Android 6.0 (Marshmallow)** e selecione **Avançar**.
 
    ![Captura de tela do assistente Criar Novo Projeto](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ A versão atual do SDK de Fala dos Serviços Cognitivos é `1.1.0`.
 O SDK de Fala para Android é empacotado como um [AAR (Biblioteca Android)](https://developer.android.com/studio/projects/android-library), que inclui as bibliotecas necessárias, bem como as permissões necessárias do Android para usá-lo.
 Está hospedado em um repositório Maven em https://csspeechstorage.blob.core.windows.net/maven/.
 
-Configure seu projeto para usar o SDK de Fala. Abra a janela de estrutura do projeto escolhendo **Arquivo** > **Estrutura do Projeto** na barra de menus do Android Studio. Na janela Estrutura do Projeto, faça as seguintes alterações: 
+Configure seu projeto para usar o SDK de Fala. Abra a janela de estrutura do projeto escolhendo **Arquivo** > **Estrutura do Projeto** na barra de menus do Android Studio. Na janela Estrutura do Projeto, faça as seguintes alterações:
 
 1. Na lista no lado esquerdo da janela, selecione **Projeto**. Edite as configurações de **Repositório de Biblioteca Padrão** anexando uma vírgula e nossa URL do repositório Maven entre aspas simples. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * O método `onCreate` inclui código que solicita permissões de microfone e Internet, além de inicializar a associação de plataforma nativa. Só é necessário configurar as associações de plataforma nativa uma vez. Isso deve ser feito no início, durante a inicialização do aplicativo.
-   
+
    * O método `onSpeechButtonClicked` é, conforme observado anteriormente, o manipulador de clique do botão. Um pressionamento de botão aciona a transcrição de conversão de fala em texto.
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
