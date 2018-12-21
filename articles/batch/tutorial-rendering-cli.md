@@ -2,21 +2,21 @@
 title: Renderizar uma cena na nuvem com o Lote do Azure
 description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure'
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 10/24/2018
-ms.author: danlep
+ms.date: 12/11/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0b9f6e440140edbec59d1bf837a0dfb16ab44d5f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024385"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323415"
 ---
-# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: renderizar uma cena com o Lote do Azure 
+# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
 O Lote do Azure fornece recursos de renderização em escala de nuvem com pagamento baseado no uso. O Lote do Azure oferece suporte a aplicativos de renderização incluindo Autodesk Maya, 3ds Max, Arnold, e V-Ray. Este tutorial mostra as etapas para renderizar uma cena pequena com o Lote usando a CLI do Azure. Você aprenderá como:
 
@@ -124,7 +124,7 @@ Criar um pool do Lote para renderização usando o comando [az batch pool create
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.2.1"
+      "version": "1.3.1"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },

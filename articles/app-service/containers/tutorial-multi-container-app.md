@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
+title: Criar um aplicativo multicontêiner no Aplicativo Web para Contêineres – Serviço de Aplicativo do Azure
 description: Saiba como usar vários contêineres no Azure com os arquivos de configuração do Kubernetes e Docker Compose, com um aplicativo MySQL e WordPress.
 keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compor, multicontêiner, vários contêineres, aplicativo web para contêineres, vários contêineres, contêiner, kubernetes, wordpress, banco de dados do azure para mysql, banco de dados de produção com contêineres
 services: app-service
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 7feb168d9cbcb9fc19e6fcd320bbf87c15077a50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390203"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251633"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres
 
@@ -235,7 +235,7 @@ Quando o banco de dados for criado, o Cloud Shell mostrará informações semelh
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configurar variáveis de banco de dados no WordPress
 
-Para conectar o aplicativo WordPress a esse novo servidor MySQL, você configurará algumas variáveis de ambiente específicas do WordPress, incluindo o caminho de AC do SSL definido por `MYSQL_SSL_CA`. O [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) da [DigiCert](http://www.digicert.com/) é fornecido na [imagem personalizada](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) abaixo.
+Para conectar o aplicativo WordPress a esse novo servidor MySQL, você configurará algumas variáveis de ambiente específicas do WordPress, incluindo o caminho de AC do SSL definido por `MYSQL_SSL_CA`. O [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) da [DigiCert](https://www.digicert.com/) é fornecido na [imagem personalizada](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) abaixo.
 
 Para fazer essas alterações, use o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. As configurações do aplicativo diferenciam maiúsculas de minúsculas e são separadas por espaços.
 

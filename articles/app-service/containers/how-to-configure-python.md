@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicativos Python para o Serviço de Aplicativo do Azure no Linux
+title: Configurar aplicativos Python no Linux – Serviço de Aplicativo do Azure
 description: Este tutorial descreve as opções para criar e configurar aplicativos Python do Serviço de Aplicativo do Azure no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633641"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249627"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar seu aplicativo do Python para o Serviço de Aplicativo do Azure no Linux
 
@@ -28,7 +28,7 @@ Este artigo descreve como o [Serviço de Aplicativo do Azure no Linux](app-servi
 
 ## <a name="set-python-version"></a>Definir versão do Python
 
-Estão disponíveis duas imagens base: Python 3.6 e Python 3.7. Você pode criar um aplicativo com a imagem desejada baseada em Python. Por exemplo, para criar um aplicativo com Python 3.7, execute o seguinte comando no Cloud Shell:
+Há duas imagens base disponíveis: Python 3.6 e Python 3.7. Você pode criar um aplicativo com a imagem desejada baseada em Python. Por exemplo, para criar um aplicativo com Python 3.7, execute o seguinte comando no Cloud Shell:
 
 ```azurecli-interactive
 az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
@@ -48,7 +48,7 @@ Os aplicativos Python implantados no Serviço de Aplicativo no Linux são execut
 
 Esse contêiner tem as seguintes características:
 
-- Aplicativos são executados usando o [Gunicorn WSGI HTTP Server](http://gunicorn.org/) com os argumentos adicionais `--bind=0.0.0.0 --timeout 600`.
+- Aplicativos são executados usando o [Gunicorn WSGI HTTP Server](https://gunicorn.org/) com os argumentos adicionais `--bind=0.0.0.0 --timeout 600`.
 
 - Por padrão, a imagem base inclui a estrutura Web do Flask, mas o contêiner dá suporte a outras estruturas em conformidade com WSGI e compatíveis com Python 3.7, como Django.
 
@@ -59,9 +59,9 @@ Esse contêiner tem as seguintes características:
 Durante a inicialização, o Serviço de Aplicativo no contêiner do Linux executa as seguintes etapas:
 
 1. Verificar e aplicar um comando de inicialização personalizados se fornecido.
-1. Verificar a existência de um arquivo *wsgi.py* do aplicativo Django e, se houver, inicializar Gunicorn usando o arquivo.
-1. Verificar se há um arquivo chamado *application.py* e, se houver, inicialize Gunicorn usando `application:app` supondo um aplicativo Flask.
-1. Se nenhum outro aplicativo for encontrado, inicie um aplicativo padrão criado no contêiner.
+2. Verificar a existência de um arquivo *wsgi.py* do aplicativo Django e, se houver, inicializar Gunicorn usando o arquivo.
+3. Verificar se há um arquivo chamado *application.py* e, se houver, inicialize Gunicorn usando `application:app` supondo um aplicativo Flask.
+4. Se nenhum outro aplicativo for encontrado, inicie um aplicativo padrão criado no contêiner.
 
 As seções a seguir fornecem detalhes adicionais para cada opção.
 
@@ -100,7 +100,7 @@ Se seu módulo principal estiver em uma subpasta, como `website`, especifique a 
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Você também pode adicionar quaisquer argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Como executar o Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Você também pode adicionar quaisquer argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Como executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 Para fornecer um comando personalizado, siga estas etapas:
 

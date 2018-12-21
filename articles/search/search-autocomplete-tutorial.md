@@ -1,5 +1,5 @@
 ---
-title: Tutorial para adição de preenchimento automático à caixa de pesquisa usando o Azure Search | Microsoft Docs
+title: Tutorial para adição de preenchimento automático à caixa de pesquisa – Azure Search
 description: Exemplos de como melhorar a experiência do usuário final de seus aplicativos centrados em dados usando o preenchimento automático do Azure Search e as APIs de sugestões.
 manager: pablocas
 author: mrcarter8
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578167"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316175"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático à caixa de pesquisa usando o Azure Search
 
@@ -126,7 +127,7 @@ Agora que examinamos o código JavaScript para o exemplo, vamos examinar o códi
 
 1. Abra o arquivo HomeController.cs no diretório Controllers. 
 
-1. A primeira coisa que você pode notar é um método na parte superior da classe chamada InitSearch.  Isso cria um cliente de índice HTTP autenticado para o serviço Azure Search.  Se você quiser saber mais sobre como isso funciona, visite o tutorial a seguir: [Como usar o Azure Search em um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. A primeira coisa que você pode notar é um método na parte superior da classe chamada InitSearch.  Isso cria um cliente de índice HTTP autenticado para o serviço Azure Search.  Se você quiser saber mais sobre como isso funciona, acesse o tutorial a seguir: [Como usar o Azure Search de um aplicativo .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Mude para a função Suggest.
 

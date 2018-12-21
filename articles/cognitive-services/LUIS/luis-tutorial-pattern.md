@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 3: padrões para aprimorar previsões do LUIS'
+title: Padrões
 titleSuffix: Azure Cognitive Services
 description: Use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo. O padrão é fornecido por meio de um exemplo de enunciado de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138320"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075515"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: adicionar formatos de enunciados comuns
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos comuns de enunciados
 
 Neste tutorial, use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo. O padrão é fornecido por meio de um exemplo de enunciado de modelo, que inclui sintaxe para identificar entidades e texto ignorável. Um padrão é uma combinação da correspondência entre expressões e o aprendizado de máquina.  O exemplo de enunciado de modelo, junto com os enunciados de intenções, fornecem ao LUIS uma melhor compreensão de quais enunciados se encaixam na intenção. 
 
@@ -106,7 +107,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 
 2. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ Neste tutorial, adicione duas novas intenções: `OrgChart-Manager` e `OrgChart-
 
 Depois que o LUIS retornar uma previsão para o aplicativo cliente, o nome da intenção poderá ser usado como um nome de função no aplicativo cliente e a entidade Funcionário poderá ser usada como um parâmetro para essa função.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Lembre-se de que os funcionários foram criados no [tutorial da entidade de list
 
 3. Vá até o final da URL no endereço e insira `Who is the boss of Jill Jones?` como o enunciado. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -390,11 +391,11 @@ O uso da sintaxe de colchetes, opcional `[]`, facilita esse texto opcional adici
 
 **Pergunta: Por que não foi possível as declarações de dois últimos exemplo combinar em uma declaração de modelo único?** O modelo padrão não oferece suporte a sintaxe de OR. Para capturar tanto a versão `in` como a versão `on`, cada um deve ser uma expressão de modelo separado.
 
-**Pergunta: Por que são todas as `w` letras, a primeira letra de cada expressão de modelo, em minúsculas? Eles não devem ser opcionalmente letras maiusculas ou minúsculas?** A expressão enviado para o ponto de extremidade da consulta pelo aplicativo cliente, é convertida em minúsculas. A expressão de modelo pode ser em maiusculas ou minúsculas e a expressão de ponto de extremidade também pode ser qualquer uma. A comparação sempre é feita após a conversão em letras minúsculas.
+**Pergunta: Por que todas as letras `w`, a primeira letra de cada expressão de modelo, são minúsculas? Eles não devem ser opcionalmente letras maiusculas ou minúsculas?** A expressão enviado para o ponto de extremidade da consulta pelo aplicativo cliente, é convertida em minúsculas. A expressão de modelo pode ser em maiusculas ou minúsculas e a expressão de ponto de extremidade também pode ser qualquer uma. A comparação sempre é feita após a conversão em letras minúsculas.
 
-**Pergunta: Por que há um número predefinido faz parte do modelo de expressão se 3 de março é prevista como número `3` e a data `March 3`?** A expressão de modelo contextualmente está usando uma data, ou, literalmente, como em `March 3` ou abstraída como `in a month`. Uma data pode conter um número, mas um número necessariamente não pode ser visto como uma data. Sempre use a entidade que melhor representa o tipo que você deseja que seja retornado nos resultados da previsão de JSON.  
+**Pergunta: Por que um número predefinido não faz parte do modelo de expressão se 3 de março está previsto tanto como número `3` quanto como data `March 3`?** A expressão de modelo contextualmente está usando uma data, ou, literalmente, como em `March 3` ou abstraída como `in a month`. Uma data pode conter um número, mas um número necessariamente não pode ser visto como uma data. Sempre use a entidade que melhor representa o tipo que você deseja que seja retornado nos resultados da previsão de JSON.  
 
-**Pergunta: E expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS.
+**Pergunta: E quanto a expressões mal formuladas como `Who will {Employee}['s] manager be on March 3?`.** Tempos verbais gramaticalmente diferentes, como este, em que o `will` e `be` são separados precisarão ser uma nova declaração de modelo. A expressão de modelo existente não coincida com isso. Embora a intenção da declaração não foi alterada, o posicionamento da palavra na declaração foi alterada. Essa alteração afeta a previsão no LUIS.
 
 **Lembre-se: entidades encontram-se em primeiro lugar, em seguida, o padrão é correspondido.**
 

@@ -1,5 +1,5 @@
 ---
-title: Configure seu Ambiente do Serviço de Aplicativo do Azure para ser forçado em túnel
+title: Configure seu Ambiente do Serviço de Aplicativo para ser forçado em túnel – Azure
 description: Habilite o Ambiente do Serviço de Aplicativo para trabalhar quando é realizado o túnel forçado do tráfego de saída
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.custom: seodec18
+ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024038"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272721"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurar seu Ambiente de Serviço de Aplicativo com tunelamento forçado
 
@@ -105,13 +105,13 @@ Para encapsular todo o tráfego de saída de seu ASE, exceto o que vai para o Ar
 
 3. Obtenha os endereços que serão usados para todo o tráfego de saída do seu Ambiente de Serviço de Aplicativo com a Internet. Se você estiver roteando o tráfego no local, esses endereços serão seus IPs de gateway ou NATs. Se desejar rotear o tráfego de saída do Ambiente do Serviço de Aplicativo por meio de uma NVA, o endereço de saída será o IP público da NVA.
 
-4. _Para definir os endereços de saída em um Ambiente de Serviço de Aplicativo existente:_ Vá para resource.azure.com e acesse Subscription/\<id da assinatura>/resourceGroups/\<grupo de recursos do ase>/providers/Microsoft.Web/hostingEnvironments/\<nome do ase>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar**. Role até a parte inferior. Altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
+4. _Para definir os endereços de saída em um Ambiente do Serviço de Aplicativo existente:_ Vá para resource.azure.com e acesse Subscription/\<ID da assinatura>/resourceGroups/\<grupo de recursos do ASE>/providers/Microsoft.Web/hostingEnvironments/\<nome do ASE>. Em seguida, será possível ver o JSON que descreve o Ambiente do Serviço de Aplicativo. Certifique-se de que consta **leitura/gravação** na parte superior. Selecione **Editar**. Role até a parte inferior. Altere o valor **userWhitelistedIpRanges** de **nulo** para algo semelhante ao seguinte. Use os endereços que você deseja definir como o intervalo de endereços de saída. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Selecione **PUT** na parte superior. Essa opção dispara uma operação de dimensionamento no Ambiente do Serviço de Aplicativo e ajusta o firewall.
 
-_Para criar seu ASE com os endereços de saída_: siga as instruções em [Criar um Ambiente de Serviço de Aplicativo com um modelo][template] e baixe o modelo apropriado.  Edite a seção "recursos" no arquivo azuredeploy.json, mas não no bloco "propriedades" e inclua uma linha para **userWhitelistedIpRanges** com seus valores.
+_Para criar seu ASE com os endereços de saída_: siga as instruções em [Criar um Ambiente do Serviço de Aplicativo com um modelo][template] e baixe o modelo apropriado.  Edite a seção "recursos" no arquivo azuredeploy.json, mas não no bloco "propriedades" e inclua uma linha para **userWhitelistedIpRanges** com seus valores.
 
     "resources": [
       {

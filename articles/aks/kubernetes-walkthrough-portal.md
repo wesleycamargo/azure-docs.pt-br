@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833625"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437343"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implantar um cluster do AKS (Serviço de Kubernetes do Azure)
 
 Neste guia de início rápido, implante um cluster AKS usando o Portal do Azure. Um aplicativo de vários contêineres composto por um front-end da Web e uma instância Redis é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
 
@@ -36,27 +36,27 @@ No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > 
 Para criar um cluster do AKS, conclua as seguintes etapas:
 
 1. **Noções básicas** – Configure as seguintes opções:
-    - *DETALHES DO PROJETO*: selecione uma assinatura do Azure e selecione ou crie um grupo de recursos do Azure, por exemplo, *myResourceGroup*. Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*.
-    - *DETALHES DO CLUSTER*: selecione uma região, a versão do Kubernetes e o prefixo de nome DNS para o cluster do AKS.
-    - *ESCALA*: selecione um tamanho de VM para os nós de AKS. O tamanho da VM **não pode** ser alterado após a implantação de um cluster AKS.
+    - *DETALHES DO PROJETO*: Selecione uma assinatura do Azure e selecione ou crie um grupo de recursos do Azure, por exemplo, *myResourceGroup*. Insira um **nome do cluster do Kubernetes**, como *myAKSCluster*.
+    - *DETALHES DO CLUSTER*: Selecione uma região, a versão do Kubernetes e o prefixo de nome DNS para o cluster do AKS.
+    - *SCALE*: Selecione um tamanho de VM para os nós de AKS. O tamanho da VM **não pode** ser alterado após a implantação de um cluster AKS.
         - Selecione o número de nós para implantação no cluster. Para este início rápido, defina **Contagem de nós** como *1*. A contagem de nós **pode** ser ajustada após a implantação do cluster.
     
     ![Criar cluster do AKS – fornecer informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Selecione **Avançar: Autenticação** ao concluir.
 
-1. **Autenticação** – Configure as seguintes opções:
+1. **Autenticação**: Configure as seguintes opções:
     - Crie uma nova entidade de serviço ou use a opção *Configurar* para usar uma existente. Ao usar um SPN existente, você precisa fornecer a ID e segredo de cliente do SPN.
     - Habilite a opção para RBAC (controle de acesso baseado em função) do Kubernetes. Esses controles fornecem controle mais refinado sobre o acesso aos recursos do Kubernetes implantados no cluster do AKS.
 
-    Selecione **Próximo: Rede** quando concluir.
+    Selecione **Avançar: Rede** ao concluir.
 
-1. **Rede** – Configure as seguintes opções de rede, que devem ser definidas como padrão:
+1. **Rede**: Configure as seguintes opções de rede:
     
     - **Encaminhamento de aplicativo HTTP**: selecione **Sim** para configurar um controlador de entrada integrado com criação automática de nome DNS público. Para saber mais sobre o roteamento de Http, consulte [Roteamento de HTTP AKS e DNS][http-routing].
     - **Configuração de rede**: selecione a configuração de rede **Básica** usando o plug-in Kubernetes [kubenet][kubenet] em vez da configuração de rede avançada usando a [CNI do Azure][azure-cni]. Para saber mais sobre as opções de rede, confira a [Visão geral da rede AKS][aks-network].
     
-    Selecione **Próximo: Monitoramento** quando concluir.
+    Selecione **Avançar: Monitoramento** ao concluir.
 
 1. Ao implantar um cluster do AKS, o Azure Monitor para contêineres pode ser configurado para monitorar a integridade do cluster do AKS e dos pods em execução no cluster. Para saber mais sobre o monitoramento de integridade do contêiner, confira [Integridade do Serviço Kubernetes do Monitor do Azure][aks-monitor].
 
@@ -88,7 +88,7 @@ Para verificar a conexão ao seu cluster, use o comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-A saída de exemplo a seguir mostra o único nó criado nas etapas anteriores.
+A saída de exemplo a seguir mostra o único nó criado nas etapas anteriores. Verifique se que o status do nó é "Pronto".
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

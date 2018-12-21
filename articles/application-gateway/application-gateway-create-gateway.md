@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: a1cfd42f5b1c31b911005b2539047630c6d320dd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 862d587442b4d3b752092810c33a197ba15a6b51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771182"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994086"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Criar, iniciar ou excluir um gateway de aplicativo com o PowerShell 
 
@@ -48,13 +48,13 @@ Quando você usa o comando `New-AzureApplicationGateway` para criar o gateway de
 
 Os valores são:
 
-* **Pool de servidores back-end:** a lista de endereços IP dos servidores back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
-* **Configurações do pool de servidores back-end:** cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
-* **Porta front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
+* **Pool de servidores de back-end:** a lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um IP/VIP público.
+* **Configurações do pool de servidores de back-end:** Cada pool tem configurações como porta, protocolo e afinidade baseada em cookie. Essas configurações são vinculadas a um pool e aplicadas a todos os servidores no pool.
+* **Porta de front-end:** essa porta é a porta pública aberta no gateway de aplicativo. O tráfego atinge essa porta e é redirecionado para um dos servidores back-end.
 * **Ouvinte:** o ouvinte tem uma porta front-end, um protocolo (HTTP ou HTTPS, esses valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (caso esteja configurando o descarregamento SSL).
 * **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico.
 
-## <a name="create-an-application-gateway"></a>Criar um Application Gateway
+## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
 Para criar um Application Gateway:
 
@@ -116,7 +116,7 @@ Copie o seguinte texto no bloco de notas.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendPorts>
         <FrontendPort>
             <Name>(name-of-your-frontend-port)</Name>
@@ -168,7 +168,7 @@ O exemplo a seguir mostra como usar um arquivo de configuração para configurar
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendPorts>
         <FrontendPort>
             <Name>FrontendPort1</Name>

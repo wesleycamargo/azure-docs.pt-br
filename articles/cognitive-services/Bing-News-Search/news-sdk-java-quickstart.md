@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, Java'
+title: 'Início Rápido: Executar uma pesquisa de notícias – SDK de Pesquisa de Notícias do Bing para Java'
 titleSuffix: Azure Cognitive Services
-description: Saiba como configurar o aplicativo de console do SDK de Pesquisa de Notícias do Bing.
+description: Use este Início Rápido para pesquisar notícias usando o SDK de Pesquisa de Notícias do Bing para Java e processar a resposta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 056d75a1039e805786b14aa19c896bda78d04150
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316864"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251582"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Java
 
-O SDK de Pesquisa de Notícias do Bing fornece a funcionalidade da API REST para consultas de notícias e resultados de análise.  Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+O SDK de Pesquisa de Notícias do Bing fornece a funcionalidade da API REST para consultas de notícias e resultados de análise.  Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 O [código-fonte para amostras de SDK de Pesquisa de Notícias do Bing em Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) está disponível no GitHub.
 

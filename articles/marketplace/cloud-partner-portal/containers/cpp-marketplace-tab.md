@@ -40,7 +40,7 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos.
 | **Resumo longo**          | Mais Resumo da oferta (embora pudesse ser igual a **resumo**).  O comprimento máximo é de 256 caracteres. |
 | **Descrição**           | Descrição da oferta.  O comprimento máximo é de 3000 caracteres, suporta formatação HTML simples.
 | **Identificador de marketing**  | Um URL exclusivo para associar a essa oferta, que normalmente inclui sua organização e o nome da solução. O comprimento máximo é de 50 caracteres.   |
-| **Visualizar Ids de assinatura** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista branca terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
+| **Visualizar Ids de assinatura** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

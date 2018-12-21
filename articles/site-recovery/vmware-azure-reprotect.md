@@ -40,7 +40,7 @@ Se você usou um modelo para criar suas máquinas virtuais, verifique se cada m�
 
     ![Portas para failover e failback](./media/vmware-azure-reprotect/failover-failback.png)
 
-- Leia todo o [pré-requisitos para portas e lista branca de URL](vmware-azure-deploy-configuration-server.md#prerequisites).
+- Leia todo o [pré-requisitos para portas e lista de permissão de URL](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implantar um servidor em processo no Azure
 

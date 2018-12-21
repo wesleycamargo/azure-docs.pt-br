@@ -1,5 +1,5 @@
 ---
-title: Armazenar dados com o módulo do SQL do Azure IoT Edge | Microsoft Docs
+title: Tutorial para armazenar dados com o módulo do SQL – Azure IoT Edge | Microsoft Docs
 description: Saiba como armazenar dados localmente no seu dispositivo IoT Edge com um módulo do SQL Server
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833986"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163405"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -163,7 +163,7 @@ As etapas a seguir mostram como criar uma função do IoT Edge usando o Visual S
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -251,7 +251,7 @@ Um [Manifesto de implantação](module-composition.md) declara quais módulos o 
    }
    ```
 
-   ![Adicionar contêiner do SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Adicionar o módulo do SQL Server ao manifesto](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Dependendo do tipo de contêineres do Docker em seu dispositivo IoT Edge, atualize os parâmetros do módulo **sql** com o código a seguir:
    * Contêineres do Windows:
@@ -416,7 +416,7 @@ De dentro da ferramenta de comando do SQL, execute o seguinte comando para exibi
    GO
    ```
 
-   ![Exibir dados locais](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Exibir o conteúdo do banco de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

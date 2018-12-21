@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure IoT Edge + Linux | Microsoft Docs
-description: Neste início rápido, aprenda a implantar código pré-compilado remotamente em um dispositivo IoT Edge.
+title: Início Rápido para criar um dispositivo do Azure IoT Edge no Linux | Microsoft Docs
+description: Neste início rápido, aprenda a criar um dispositivo IoT Edge e então implantar o código pré-compilado remotamente do portal do Azure.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 4e53d0d492213373794821e14d4c08ec9db2ad5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495454"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339494"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: Implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
 O Azure IoT Edge leva o poder da nuvem para seus dispositivos Internet das Coisas. Neste início rápido, aprenda a usar a interface de nuvem para implantar remotamente um código pré-compilado em um dispositivo IoT Edge.
 
@@ -27,7 +27,7 @@ Neste guia de início rápido, você aprende a:
 3. Instale e inicie o tempo de execução do IoT Edge no dispositivo.
 4. Implantar um módulo em um dispositivo IoT Edge remotamente.
 
-![Arquitetura do início rápido](./media/quickstart-linux/install-edge-full.png)
+![Diagrama – Início Rápido da arquitetura para dispositivo e nuvem](./media/quickstart-linux/install-edge-full.png)
 
 Este guia de início rápido transforma seu computador máquina virtual Linux em um dispositivo IoT Edge. Em seguida, você pode implantar um módulo do portal do Azure em seu dispositivo. O módulo implantado neste guia de início rápido é um sensor simulado que gera dados de temperatura, umidade e pressão. Os outros tutoriais do Azure IoT Edge se baseiam no trabalho feito aqui com a implantação de módulos que analisam os dados simulados para obter informações de negócios.
 
@@ -67,7 +67,7 @@ Dispositivo IoT Edge:
 
 Comece o início rápido criando o Hub IoT com a CLI do Azure.
 
-![Criar Hub IoT](./media/quickstart-linux/create-iot-hub.png)
+![Diagrama – Criar um hub IoT na nuvem](./media/quickstart-linux/create-iot-hub.png)
 
 O nível gratuito do Hub IoT funciona para este guia de início rápido. Se você tiver usado o Hub IoT antes e já tiver um hub disponível criado, você pode usar esse Hub IoT. Cada assinatura pode ter somente um hub IoT gratuito. 
 
@@ -82,7 +82,7 @@ O código a seguir cria um hub **F1** gratuito no grupo de recursos **IoTEdgeRes
 ## <a name="register-an-iot-edge-device"></a>Registrar um dispositivo IoT Edge
 
 Registre um dispositivo IoT Edge no Hub IoT recém-criado.
-![Registrar um dispositivo](./media/quickstart-linux/register-device.png)
+![Diagrama – Registrar um dispositivo com uma identidade do Hub IoT](./media/quickstart-linux/register-device.png)
 
 Crie uma identidade de dispositivo para seu dispositivo simulado para que ele possa se comunicar com o hub IoT. A identidade do dispositivo reside na nuvem e você usa uma cadeia de conexão de dispositivo exclusiva para associar um dispositivo físico a uma identidade do dispositivo. 
 
@@ -107,7 +107,7 @@ Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentement
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o tempo de execução do IoT Edge
 
 Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo IoT Edge. 
-![Registrar um dispositivo](./media/quickstart-linux/start-runtime.png)
+![Diagrama – Iniciar o tempo de execução no dispositivo](./media/quickstart-linux/start-runtime.png)
 
 O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
 
@@ -228,7 +228,7 @@ Seu dispositivo IoT Edge agora está configurado. Ele está pronto para executar
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
 Gerencie o dispositivo Azure IoT Edge na nuvem para implantar um módulo que enviará dados telemétricos ao Hub IoT.
-![Registrar um dispositivo](./media/quickstart-linux/deploy-module.png)
+![Diagrama – Implantar o módulo da nuvem para dispositivo](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -254,7 +254,7 @@ Exiba as mensagens que estão sendo enviadas do módulo tempSensor:
 
 O módulo de sensor de temperatura poderá estar aguardando para se conectar ao Hub do Edge se a última linha que você vê no log for `Using transport Mqtt_Tcp_Only`. Tente eliminar o módulo e deixar que o agente do Edge o reinicie. Você pode encerrá-la com o comando `sudo docker stop tempSensor`.
 
-Você também pode exibir as mensagens que são recebidas pelo seu Hub IoT usando a [Extensão de Kit de Ferramentas do Azure IoT para o Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Você também pode inspecionar as mensagens chegam ao hub IoT usando a [Extensão do Kit de Ferramentas do Hub IoT do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecida como extensão do Kit de Ferramentas do Azure IoT). 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

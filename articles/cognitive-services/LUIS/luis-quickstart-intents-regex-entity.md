@@ -1,37 +1,37 @@
 ---
-title: 'Tutorial 3: dados correspondidos de expressão regular – extrair dados bem formatados'
+title: Entidade de expressão regular
 titleSuffix: Azure Cognitive Services
 description: Extrair dados formatados consistentemente de um enunciado usando a entidade de Expressão Regular.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135569"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: extrair dados bem formatados
+# <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extrair dados bem formatados
 Neste tutorial, modifique o aplicativo de recursos humanos para extrair dados formatados consistentemente de um enunciado usando a entidade de **Expressão Regular**.
 
 A finalidade de uma entidade é extrair dados importantes contidos no enunciado. O uso da entidade de expressão regular pelo aplicativo é para obter números formatados de formulário de RH (recursos humanos) de um enunciado. Embora a intenção do enunciado sempre seja determinada com aprendizado de máquina, esse tipo de entidade específico não é de aprendizado de máquina. 
 
 **Enunciados de exemplo incluem:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Exemplo de enunciados|
+|--|
+|Onde está o HRF-123456?|
+|Quem criou o HRF-123234?|
+|O HRF-456098 foi publicado em francês?|
+|HRF-456098|
+|Data do HRF-456098?|
  
 Uma expressão regular é uma boa escolha para esse tipo de dados quando:
 
@@ -129,7 +129,7 @@ Crie uma entidade de expressão regular para informar ao LUIS o que é um format
 
 2. Vá até o final da URL no endereço e insira `When were HRF-123456 and hrf-234567 published in the last year?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `FindForm` com os números de formulário de `HRF-123456` e `hrf-234567`.
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

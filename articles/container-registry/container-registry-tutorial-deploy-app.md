@@ -1,21 +1,21 @@
 ---
-title: Tutorial do Registro de Contêiner do Azure - Implantar o aplicativo Web do Registro de Contêiner do Azure
-description: Implante um aplicativo Web baseado em Linux usando uma imagem de contêiner de um registro de contêiner do Azure replicado geograficamente. Parte dois de uma série de três partes.
+title: Tutorial – implantar o aplicativo do registro do Docker com replicação geográfica no Azure
+description: Implante um aplicativo Web baseado em Linux para duas regiões diferentes do Azure usando uma imagem de contêiner de um Registro de Contêiner do Azure com replicação geográfica. Parte dois de uma série de três partes.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853854"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253826"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implantar aplicativo Web do Registro de Contêiner do Azure
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: implantar um aplicativo Web de um Registro de Contêiner do Azure com replicação geográfica
 
 Esta é a parte três de uma série de tutoriais de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registro de contêiner replicado geograficamente privado, e uma imagem de contêiner foi criada da origem e enviado por push para o registro. Neste artigo, você aproveita o aspecto de fechamento de rede do registro replicado geograficamente implantando o contêiner para instâncias de aplicativo Web em duas regiões diferentes do Azure. Cada instância, em seguida, obtém a imagem de contêiner do registro mais próximo.
 

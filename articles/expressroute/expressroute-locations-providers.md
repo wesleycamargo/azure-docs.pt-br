@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 12/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 66fdf1a4e683d87bc6c6c0376fda9a36c939b354
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275846"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410220"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -42,16 +42,16 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 
 | **Região Geopolítica** | **Zona** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- | --- |
-| **Governo da Austrália** |Zona 1 | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
-| **Europa** |Zona 1 |França Central, Sul da França, Norte da Europa, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Amsterdã2, Dublin, Londres, Marselha, Newport (Gales), Paris |
-| **América do Norte** |Zona 1 |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, Vale do Silício, Washington D.C., Montreal, Cidade de Quebec, Toronto |
-| **Ásia** |Zona 2 |Ásia Oriental, Sudeste Asiático |Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
-| **Austrália** |Zona 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney | 
-| **Índia** |Zona 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japão** |Zona 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
-| **Coreia do Sul** |Zona 2 |Coreia Central, Sul da Coreia |Busan, Seul|
-| **África do Sul** |Zona 3 |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
-| **América do Sul** |Zona 3 |Sul do Brasil |São Paulo |
+| **Governo da Austrália** | 1 | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
+| **Europa** | 1 |França Central, Sul da França, Norte da Europa, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Amsterdã2, Dublin, Londres, Marselha, Newport (Gales), Paris |
+| **América do Norte** | 1 |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver+, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, Vale do Silício, Washington D.C., Montreal, Cidade de Quebec, Toronto |
+| **Ásia** | 2 |Ásia Oriental, Sudeste Asiático |Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
+| **Austrália** | 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney | 
+| **Índia** | 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japão** | 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
+| **Coreia do Sul** | 2 |Coreia Central, Sul da Coreia |Busan, Seul|
+| **África do Sul** | 3 |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
+| **América do Sul** | 3 |Sul do Brasil |São Paulo |
 
  **+** indica que haverá em breve
 
@@ -62,8 +62,8 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- |
 | **Nuvem do Governo dos EUA** |Gov. EUA - Arizona, US Gov Iowa, US Gov - Texas, US Gov Virginia, US DoD Central, US DoD Leste  |Chicago, Dallas, Nova York, Phoenix, San Antonio, Seattle, Vale do Silício, Washington DC |
-| **Leste da China** |Leste da China, Leste da China2 |Xangai |
-| **Norte da China** |Norte da China, Norte da China2 |Pequim |
+| **Leste da China** |Leste da China, Leste da China2 |Shanghai, Shanghai2 |
+| **Norte da China** |Norte da China, Norte da China2 |Beijing, Beijing2 |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
 Não há suporte para conectividade entre regiões geopolíticas no SKU de ExpressRoute padrão. Você precisará habilitar o complemento premium de ExpressRoute para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
@@ -138,7 +138,9 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Localidade** | **Provedores de Serviço** |
 | --- | --- |
 | **Pequim** |China Telecom |
+| **Beijing2** | GDS |
 | **Xangai** |China Telecom |
+| **Shanghai2** | GDS |
 
 Para saber mais, consulte [ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/)
 

@@ -92,7 +92,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
 
-Também é possível baixar a extensão para Chrome e Edge diretamente pelos links abaixo:
+Também é possível baixar a extensão para Chrome e Microsoft Edge diretamente pelos links abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 

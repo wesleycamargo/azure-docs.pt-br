@@ -1,30 +1,22 @@
 ---
-title: Início Rápido sem servidor do Azure SignalR Service – JavaScript | Microsoft Docs
+title: Início Rápido do Serviço do Azure SignalR sem servidor – JavaScript
 description: Um início rápido para usar o Azure SignalR Service e o Azure Functions para criar uma sala de chat.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.tgt_pltfrm: Node.js
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 12ac64a89f27744e1e731633d784135c97c423e0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991021"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252449"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início Rápido: crie uma sala de chat com o Azure Functions e o SignalR Service usando o JavaScript
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando JavaScript
 
 O Azure SignalR Service permite adicionar facilmente a funcionalidade em tempo real ao seu aplicativo. O Azure Functions é uma plataforma sem servidor que permite executar seu código sem gerenciar qualquer infraestrutura. Neste início rápido, saiba como usar o SignalR Service e o Functions para criar um aplicativo de chat em tempo real e sem servidor.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,16 +30,13 @@ Para instalar extensões, o Azure Functions Core Tools atualmente exige o [SDK d
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar o aplicativo do Azure Functions
 
@@ -86,9 +75,7 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
     ![Criar Serviço SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429432"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970188"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -23,13 +23,13 @@ O Azure Analysis Services é uma PaaS (plataforma como serviço) totalmente gere
 
 ![Fontes de dados](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Vídeo:** fazer check-out [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
+**Vídeo:** Confira a [Visão geral do Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) para saber como o Azure Analysis Services ajusta-se nos recursos gerais de BI da Microsoft.
 
 ## <a name="get-up-and-running-quickly"></a>Entre rapidamente em funcionamento
 
 No Portal do Azure, você pode [criar um servidor](analysis-services-create-server.md) em questão de minutos. E com os [modelos](../azure-resource-manager/resource-manager-create-first-template.md) do Azure Resource Manager e PowerShell, você pode criar servidores usando um modelo declarativo. Com um único modelo, é possível implantar recursos do servidor junto com outros componentes do Azure, como contas de armazenamento e Azure Functions. 
 
-**Vídeo:** confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível utilizar a Automação do Azure para acelerar a criação de servidor.
+**Vídeo:** Confira [Automatizar implantação](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) para saber mais sobre como é possível usar a Automação do Azure para acelerar a criação de servidor.
 
 O Azure Analysis Services integra-se com vários serviços do Azure, permitindo que você crie soluções sofisticadas de análise. A integração com o [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) fornece acesso seguro e baseado em função para seus dados críticos. Integre com pipelines do [Azure Data Factory](../data-factory/introduction.md), incluindo uma atividade que carrega dados no modelo. A [Automação do Azure](../automation/automation-intro.md) e o [Azure Functions](../azure-functions/functions-overview.md) podem ser usados para coordenação leve de modelos usando código personalizado. 
 
@@ -182,7 +182,7 @@ As entidades de serviço são um recurso de aplicativo do Azure Active Directory
 
 ### <a name="azure-governance"></a>Governança do Azure
 
-O Azure Analysis Services é regido pelos [Termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e pela [Política de Privacidade da Microsoft](https://privacy.microsoft.com/privacystatement).
+O Azure Analysis Services é regido pelos [Termos do Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e pela [Política de Privacidade da Microsoft](https://privacy.microsoft.com/privacystatement).
 Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter).
 
 ## <a name="use-the-tools-you-already-know"></a>Use as ferramentas que você já conhece
@@ -251,7 +251,7 @@ O Analysis Services tem uma comunidade de usuários vibrante. Participe das conv
 > [Inscrever-se para um teste gratuito do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar um servidor - Portal](analysis-services-create-server.md)   
+> [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar um servidor - PowerShell](analysis-services-create-powershell.md)  
+> [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)  

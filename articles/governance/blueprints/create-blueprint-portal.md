@@ -1,5 +1,5 @@
 ---
-title: Criar um Blueprint do Azure no portal
+title: Criar um blueprint no portal
 description: Use o Blueprint do Azure para criar, definir e implantar artefatos.
 services: blueprints
 author: DCtheGeek
@@ -8,15 +8,15 @@ ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092120"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315291"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um blueprint do Azure no portal
+# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um Azure Blueprint no portal
 
 Aprender a criar e atribuir blueprints permite definir padrões comuns para desenvolver configurações reutilizáveis e que podem ser implantadas rapidamente com base em modelos do Resource Manager, políticas, segurança e muito mais. Neste tutorial, você aprenderá a usar o Blueprint do Azure para executar algumas das tarefas comuns relacionadas à criação, publicação e atribuição de um blueprint dentro de sua organização, como:
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 A primeira etapa na definição de um padrão padrão para conformidade é compor um blueprint a partir dos recursos disponíveis. Neste exemplo, crie um novo blueprint chamado 'MyBlueprint' para configurar atribuições de função e política para a assinatura, adicione um novo grupo de recursos e crie um modelo de Gerenciador de Recursos e uma atribuição de função no novo grupo de recursos.
 
-1. Clique em **Todos os serviços**; procure e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **definições de plantas** da página à esquerda e clique no **+ criar Blueprint** botão na parte superior da página.
 
@@ -49,20 +49,20 @@ A primeira etapa na definição de um padrão padrão para conformidade é compo
 
 1. Verifique se as informações estão corretas (os campos **Blueprint Name** e **Definition Location** não podem ser alterados mais tarde) e clique em **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
-1. Adicionar atribuição de função na assinatura: clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura** e a janela "Adicionar artefato" é aberta no lado direito do navegador. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Papel_, selecione 'Colaborador' e deixe o campo _Adicionar Usuário, Aplicativo ou Grupo_ com a caixa de seleção indicando um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
+1. Adicionar atribuição de função na assinatura: Clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura** e a janela "Adicionar artefato" é aberta no lado direito do navegador. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Papel_, selecione 'Colaborador' e deixe o campo _Adicionar Usuário, Aplicativo ou Grupo_ com a caixa de seleção indicando um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
 
    ![Artefato - atribuição de função](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > A maioria dos artefatos _suporta_ parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um **parâmetro estático**. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um **parâmetro dinâmico**. Para obter mais informações, consulte [parâmetros de plano gráfico](./concepts/parameters.md).
+   > A maioria dos artefatos _suporta_ parâmetros. Um parâmetro atribuído a um valor durante a criação do blueprint é um **parâmetro estático**. Se o parâmetro for atribuído durante a atribuição de blueprint, ele será um **parâmetro dinâmico**. Para obter mais informações, consulte [parâmetros de blueprint](./concepts/parameters.md).
 
 1. Adicionar designação de política na assinatura: Clique com o botão esquerdo na linha **+ Adicionar artefato...** diretamente sob a **Assinatura**. Selecione 'Atribuição de Política' para _tipo de Artefato_. Altere _tipo_ para "Incorporado" e em _Pesquise_ insira "tag". Clique fora da _pesquisa_ para a filtragem ocorra. Selecione "Aplicar tag e seu valor padrão aos grupos de recursos" clicando nele. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
 
 1. Clique na linha da designação de política 'Aplicar tag e seu valor padrão aos grupos de recursos'. A janela para fornecer parâmetros para o artefato como parte da definição do blueprint é aberta e permite configurar os parâmetros para todas as atribuições (**parâmetros estáticos**) com base nesse blueprint em vez de durante a atribuição (**parâmetros dinâmicos**). Este exemplo usa **parâmetros dinâmicos** durante a atribuição do blueprint e, portanto, deixe os padrões e clique em **Cancelar**.
 
-1. Adicionar grupo de recursos na assinatura: clique com o botão esquerdo na linha **+ Adicionar artefato...** em **Assinatura**. Selecione 'Grupo de recursos' _tipo de artefato_. Deixe os campos _Nome do grupo de recursos_ e _Local_ em branco, mas verifique se a caixa de seleção está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
+1. Adicionar o grupo de recursos na assinatura: Clique com o botão esquerdo na linha **+ Adicionar artefato...** sob a **Assinatura**. Selecione 'Grupo de recursos' _tipo de artefato_. Deixe os campos _Nome do grupo de recursos_ e _Local_ em branco, mas verifique se a caixa de seleção está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
-1. Adicionar modelo ao grupo de recursos: clique com o botão esquerdo do mouse no **+ Adicionar artefato.** linha diretamente sob o **ResourceGroup** entrada. Selecione 'Modelo do Azure Resource Manager' para _Tipo de artefato_, defina _Nome de exibição do artefato_ como 'StorageAccount' e deixe _Descrição_ em branco. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, clique na guia **Parâmetros** e observe que o parâmetro **storageAccountType** e o valor padrão **Standard_LRS** foram automaticamente detectados e preenchidos, mas configurados como **parâmetro dinâmico**. Remova a marca da caixa de seleção e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
+1. Adicionar modelo sob o grupo de recursos: Clique com o botão esquerdo na linha **+ Adicionar Artefato...** linha diretamente sob o **ResourceGroup** entrada. Selecione 'Modelo do Azure Resource Manager' para _Tipo de artefato_, defina _Nome de exibição do artefato_ como 'StorageAccount' e deixe _Descrição_ em branco. Na guia **Template** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, clique na guia **Parâmetros** e observe que o parâmetro **storageAccountType** e o valor padrão **Standard_LRS** foram automaticamente detectados e preenchidos, mas configurados como **parâmetro dinâmico**. Remova a marca da caixa de seleção e observe que a lista suspensa contém apenas valores incluídos no modelo do Resource Manager em **allowedValues**. Verifique a caixa para defini-lo de volta para um **parâmetro dinâmico**. Clique em **adicionar** para adicionar este artefato para o plano gráfico.
 
    > [!IMPORTANT]
    > Se estiver importando o modelo, verifique se o arquivo é apenas JSON e não inclui HTML. Ao apontar para uma URL no GitHub, assegure-se de ter clicado em **RAW** para obter o arquivo JSON puro e não aquele envolvido com HTML para exibição no GitHub. Um erro ocorrerá se o modelo importado não for puramente JSON.
@@ -127,9 +127,9 @@ Em [Criar um blueprint](#create-a-blueprint), uma Descrição não foi fornecida
 
 1. Na **Descrição do Blueprint**, forneça algumas informações sobre o blueprint e os artefatos que o compõem.  Nesse caso, insira algo como: "Este blueprint define a atribuição de política e de atribuição de tag na assinatura, cria um ResourceGroup e implementa um modelo de recurso e uma atribuição de função para esse ResourceGroup".
 
-1. Clique em **Próximo: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
+1. Clique em **Avançar: Artefatos** na parte inferior da página ou na guia **Artefatos** na parte superior da página.
 
-1. Adicionar atribuição de função no grupo de recursos: Clique com o botão esquerdo na linha **+ Adicionar artefato...** diretamente na entrada **ResourceGroup**. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Função_, selecione "Proprietário" e remova a verificação do campo _Adicionar Usuário, Aplicativo ou Grupo_ e pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Esse artefato usa um **parâmetro static** definido igualmente em todas as atribuições deste projeto. Clique em **adicionar** para adicionar este artefato para o blueprint.
+1. Adicionar atribuição de função sob o grupo de recursos: Clique com o botão esquerdo na linha **+ Adicionar artefato...**, diretamente sob a entrada **ResourceGroup**. Selecione 'Atribuição de Função' para _tipo de Artefato_. Em _Função_, selecione "Proprietário" e remova a verificação do campo _Adicionar Usuário, Aplicativo ou Grupo_ e pesquise e selecione um usuário, aplicativo ou grupo para adicionar. Esse artefato usa um **parâmetro static** definido igualmente em todas as atribuições deste projeto. Clique em **adicionar** para adicionar este artefato para o blueprint.
 
    ![Artifact - Role Assignment #2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -173,7 +173,7 @@ Depois que um blueprint for publicado, ele poderá ser atribuído a uma assinatu
 
 1. Para **Atribuição de Bloqueio**, deixe o padrão de **Não Bloquear**. Para obter mais informações, consulte [bloqueio de recursos de projetos](./concepts/resource-locking.md).
 
-1. Para a atribuição de função no nível da assinatura **[Grupo de usuários ou nome do aplicativo]: Colaborador**, pesquise e selecione um usuário, aplicativo ou grupo.
+1. Para a atribuição de função de nível de assinatura **[Grupo de usuários ou nome do aplicativo]: Colaborador**, procure e selecione um usuário, aplicativo ou grupo.
 
 1. Para a atribuição de política em nível de assinatura, defina o **Nome da Tag** como 'CostCenter' e o **Tag Value** como 'ContosoIT'.
 

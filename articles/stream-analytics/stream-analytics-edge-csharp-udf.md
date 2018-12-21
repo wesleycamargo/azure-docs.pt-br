@@ -4,21 +4,21 @@ description: Aprenda a escrever em c# funções definidas pelo usuário para tra
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389061"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086889"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Tutorial: Escrever uma c#-função definida pelo usuário para um trabalho do Azure Stream Analytics Edge no Visual Studio (versão prévia)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>Tutorial: Gravar uma função C# definida pelo usuário para um trabalho do Azure Stream Analytics Edge (versão prévia)
 
-C#-funções definidas pelo usuário (UDFs) criados no Visual Studio permitem que você estender a linguagem de consulta do Azure Stream Analytics com suas próprias funções. Você pode reutilizar o código existente (incluindo DLLs) e usar a lógica de matemática ou complexa com o c#. Há três maneiras de implementar UDFs: arquivos code-behind em um projeto do Stream Analytics, UDFs de um projeto c# local ou UDFs de um pacote existente de uma conta de armazenamento. Este tutorial usa o método de code-behind para implementar uma função c# básica. O recurso UDF para trabalhos de borda do Stream Analytics está atualmente em visualização e não deve ser usado nas cargas de trabalho de produção.
+C#-funções definidas pelo usuário (UDFs) criados no Visual Studio permitem que você estender a linguagem de consulta do Azure Stream Analytics com suas próprias funções. Você pode reutilizar o código existente (incluindo DLLs) e usar a lógica de matemática ou complexa com o c#. Há três maneiras de implementar UDFs: Arquivos CodeBehind em um projeto do Stream Analytics, UDFs de um projeto C# local ou UDFs de um pacote existente de uma conta de armazenamento. Este tutorial usa o método de code-behind para implementar uma função c# básica. O recurso UDF para trabalhos de borda do Stream Analytics está atualmente em visualização e não deve ser usado nas cargas de trabalho de produção.
 
 Neste tutorial, você aprenderá como:
 
@@ -115,11 +115,11 @@ Um arquivo CodeBehind é um arquivo C # associado a um único script de consulta
 
 2. Na **Gerenciador de soluções**, expanda **entradas**, clique com botão direito **Input**e selecione **Adicionar entrada Local**.
 
-   ![Adicionar entrada local para o trabalho do Azure Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![Adicionar entrada local para o trabalho do Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. Especifique o caminho do arquivo de entrada local para os dados de exemplo que você baixou e **salvar**.
 
-    ![Configuração de entrada de local de trabalho do Azure Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Configuração de entrada de local de trabalho do Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. Clique em **executar localmente** no editor de scripts. Quando a execução local tiver salvo com sucesso os resultados de saída, pressione qualquer tecla para ver os resultados no formato de tabela. 
 
@@ -134,11 +134,11 @@ Você pode depurar seu c# UDF localmente da mesma maneira que você depura o có
 
 1. Adicione pontos de interrupção na função do c#.
 
-    ![Adicionar pontos de interrupção para a função definida pelo usuário do Azure Stream Analytics para o trabalho do Edge no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![Adicionar pontos de interrupção para a função definida pelo usuário do Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. Pressione **F5** para iniciar a depuração. O programa irá parar em seus pontos de interrupção conforme o esperado.
 
-    ![Exibir a função definida pelo usuário o Azure Stream Analytics para o trabalho de borda em resultados de depuração do Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![Exibir resultados de depuração da função de definida pelo usuário no Stream Analytics](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>Publicar seu trabalho no Azure
 Depois de testar sua consulta localmente, selecione **enviar para o Azure** no editor de scripts para publicar o trabalho no Azure.
@@ -155,4 +155,4 @@ Neste tutorial, você criou uma simples em C#-função definida pelo usuário us
 Para saber mais sobre as diferentes maneiras de usar funções c# definidas pelo usuário para trabalhos de borda do Stream Analytics, vá para este artigo:
 
 > [!div class="nextstepaction"]
-> [Escrever funções definidas pelo usuário em c# para o Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+> [Gravar funções C# para o Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)

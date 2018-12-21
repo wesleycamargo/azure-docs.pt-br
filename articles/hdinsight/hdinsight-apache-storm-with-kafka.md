@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Apache Kafka com o Apache Storm no HDInsight – Azure '
+title: 'Tutorial: Usar o Apache Storm para ler e gravar dados com o Apache Kafka – Azure HDInsight'
 description: Saiba como criar um pipeline de streaming usando o Apache Storm e o Apache Kafka no HDInsight. Neste tutorial, você usará os componentes KafkaBolt e KafkaSpout para transmitir dados do Kafka.
 services: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496621"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166567"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -65,19 +65,19 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 
 O Apache Storm fornece vários componentes para trabalhar com o Apache Kafka. Os componentes a seguir são usados neste tutorial:
 
-* `org.apache.storm.kafka.KafkaSpout`: Esse componente lê dados do Kafka. Este componente conta com os seguintes componentes:
+* `org.apache.storm.kafka.KafkaSpout`: esse componente lê dados do Kafka. Este componente conta com os seguintes componentes:
 
-    * `org.apache.storm.kafka.SpoutConfig`: Fornece a configuração do componente spout.
+    * `org.apache.storm.kafka.SpoutConfig`: fornece a configuração do componente spout.
 
-    * `org.apache.storm.spout.SchemeAsMultiScheme` e `org.apache.storm.kafka.StringScheme`: Como os dados do Kafka são transformados em uma tupla do Storm.
+    * `org.apache.storm.spout.SchemeAsMultiScheme` e `org.apache.storm.kafka.StringScheme`: como os dados do Kafka são transformados em uma tupla do Storm.
 
-* `org.apache.storm.kafka.bolt.KafkaBolt`: Esse componente grava dados no Kafka. Este componente conta com os seguintes componentes:
+* `org.apache.storm.kafka.bolt.KafkaBolt`: Este componente grava dados no Kafka. Este componente conta com os seguintes componentes:
 
-    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: Descreve o tópico ao qual é gravado.
+    * `org.apache.storm.kafka.bolt.selector.DefaultTopicSelector`: descreve o tópico ao qual é gravado.
 
-    * `org.apache.kafka.common.serialization.StringSerializer`: Configura o bolt para serializar os dados como valor de cadeia de caracteres.
+    * `org.apache.kafka.common.serialization.StringSerializer`: configura o bolt para serializar os dados como valor de cadeia de caracteres.
 
-    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Mapas da estrutura de dados de tupla usada dentro da topologia do Storm para os campos armazenados no Kafka.
+    * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: mapeia da estrutura de dados de tupla usada dentro da topologia do Storm para os campos armazenados no Kafka.
 
 Esses componentes estão disponíveis no pacote `org.apache.storm : storm-kafka`. Use a versão do pacote que corresponde à versão do Storm. Para HDInsight 3.6, a versão do Storm é a 1.1.0.
 Também é necessário o pacote `org.apache.kafka : kafka_2.10`, que contém componentes adicionais do Kafka. Use a versão do pacote que corresponda à versão do Kafka. Para HDInsight 3.6, a versão do Kafka é a 0.10.0.0.
@@ -120,9 +120,9 @@ O código usado neste documento está disponível em [https://github.com/Azure-S
 
 Existem duas topologias fornecidas com esse tutorial:
 
-* Gravador de Kafka: Gera sentenças aleatórias e armazena-as no Kafka.
+* Gravador de Kafka: gera sentenças aleatórias e as armazena no Kafka.
 
-* Leitor de Kafka: Lê dados do Kafka e, em seguida, armazena-os no repositório de arquivo compatível com HDFS para o cluster Storm.
+* Leitor de Kafka: lê dados do Kafka e, em seguida, os armazena no repositório de arquivos compatível com HDFS para o cluster Storm.
 
     > [!WARNING] 
     > Para habilitar o Storm para funcionar com o armazenamento compatível com HDFS usado pelo HDInsight, é necessária uma ação de script. O script instala vários arquivos jar no caminho `extlib` para o Storm. O modelo neste tutorial usa o script automaticamente durante a criação do cluster.
@@ -139,11 +139,11 @@ Os seguintes parâmetros são definidos em tempo de execução para essas topolo
 
 * `${kafka.broker.hosts}`: os hosts no qual os agentes do Kafka são executados. As informações de agente são usadas pelo KafkaBolt ao gravar no Kafka.
 
-* `${kafka.zookeeper.hosts}`: os hosts nos quais o Zookeeper é executado no cluster Kafka.
+* `${kafka.zookeeper.hosts}`: os hosts nos quais o ZooKeeper é executado no cluster Kafka.
 
-* `${hdfs.url}`: A URL do sistema de arquivos para o componente HDFSBolt. Indica se os dados são gravados para uma conta do Armazenamento do Azure ou Azure Data Lake Store.
+* `${hdfs.url}`: a URL do sistema de arquivos para o componente HDFSBolt. Indica se os dados são gravados para uma conta do Armazenamento do Azure ou Azure Data Lake Store.
 
-* `${hdfs.write.dir}`: O diretório ao qual os dados são gravados.
+* `${hdfs.write.dir}`: o diretório no qual os dados são gravados.
 
 Para obter mais informações sobre topologias de Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 

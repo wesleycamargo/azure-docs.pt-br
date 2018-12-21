@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: e11ac1c7d813dce069523104955b885b7b857937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ed9bcfc52d4403213583b65a18f5066d6a2c4f75
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841975"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090188"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o Java e o portal do Azure
+# <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>O Azure Cosmos DB: Criar um banco de dados de grafo usando o Java e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -30,7 +30,7 @@ ms.locfileid: "52841975"
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. Usando o Azure Cosmos DB, você pode criar e consultar rapidamente documentos, tabelas e bancos de dados de grafo gerenciados. 
 
-Este guia de início rápido cria um banco de dados de grafos simples usando as ferramentas do Portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados da [API do Gremlin](graph-introduction.md) com o driver [Apache TinkerPop](http://tinkerpop.apache.org/) do OSS. Estas instruções podem ser seguidas em qualquer sistema operacional compatível com Java. Este guia de início rápido familiariza você com a criação e a modificação dos grafos na interface do usuário ou programaticamente, o que for sua preferência. 
+Este guia de início rápido cria um banco de dados de grafos simples usando as ferramentas do Portal do Azure para o Azure Cosmos DB. Este início rápido também mostra como criar rapidamente um aplicativo de console do Java usando um banco de dados da [API do Gremlin](graph-introduction.md) com o driver [Apache TinkerPop](https://tinkerpop.apache.org/) do OSS. Estas instruções podem ser seguidas em qualquer sistema operacional compatível com Java. Este guia de início rápido familiariza você com a criação e a modificação dos grafos na interface do usuário ou programaticamente, o que for sua preferência. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -40,7 +40,7 @@ Além disso:
 * [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
-* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário [Maven](https://maven.apache.org/)
     * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
@@ -108,7 +108,7 @@ Os snippets de código a seguir são todos obtidos do arquivo C:\git-samples\azu
 
 Agora, volte ao Portal do Azure para obter as informações de conexão e copiá-las para o aplicativo. Essas configurações permitem que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [Portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
 
     Copie a primeira parte do valor do URI.
 

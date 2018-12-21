@@ -1,6 +1,7 @@
 ---
-title: 'Início Rápido: fazer uma pesquisa de imagem com Ruby – API de Pesquisa de Imagem do Bing'
-description: Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do Ruby envia uma consulta de pesquisa para a API e exibe os resultados brutos.
+title: 'Início Rápido: Pesquisar imagens – API de Pesquisa de Imagem do Bing e Ruby'
+titleSuffix: Azure Cognitive Services
+description: Use este Início Rápido para enviar solicitações de pesquisa de imagens para a API REST de Pesquisa de Imagem do Bing usando Ruby e receba respostas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: d5772b46c167b873ed4f5d60a110d31a5c8308a5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4a5b0c6e67ce4d7a533ad35023261a3c02601a83
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315929"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257651"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Início Rápido: enviar consultas de pesquisa usando a API REST e Ruby
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Início Rápido: pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Ruby
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do Ruby envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
@@ -30,7 +32,7 @@ O código-fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 

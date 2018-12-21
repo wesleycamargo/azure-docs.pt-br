@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246881"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966850"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -70,7 +70,7 @@ A criação de um novo namespace gera automaticamente uma regra de SAS (assinatu
 1. Clique em **Todos os recursos** e depois clique no nome do namespace recém-criado.
 2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
 3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
-4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária**, para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+4. Na janela **Política: RootManageSharedAccessKey**, clique no botão **Copiar** próximo à **Cadeia de Conexão Primária** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
 
     ![connection-string][connection-string]
 5. Repita a etapa anterior, copiando e colando o valor de **chave primária** para um local temporário para uso posterior.
@@ -91,7 +91,7 @@ Para criar um tópico de Barramento de Serviço, especifique o namespace sob o q
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro nas assinaturas
 
-Depois que o namespace e tópicos/assinaturas forem provisionados e você tiver as credenciais necessárias, você está pronto para criar regras de filtro nas assinaturas e depois enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
+Depois que o namespace e tópicos/assinaturas forem provisionados e você tiver as credenciais necessárias, você está pronto para criar regras de filtro nas assinaturas e depois enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters).
 
 ### <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 

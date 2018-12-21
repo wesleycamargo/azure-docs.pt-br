@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Ruby'
+title: 'Início Rápido: Executar uma pesquisa de notícias com Ruby – API REST de Pesquisa de Notícias do Bing'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Notícias do Bing.
+description: Use este Início Rápido para enviar uma solicitação para a API REST de Pesquisa de Notícias do Bing usando Ruby e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 714f28166b8d24a5b8a69fe4f76ba1737de56e1d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 02b603c0a7e1f84b2677511f73f96eee20a613d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315079"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250222"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Início Rápido para a API de Pesquisa de Notícias do Bing com o Ruby
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando Ruby e a API REST de Pesquisa de Notícias do Bing
 
 Este artigo mostra como usar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize o Ruby, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
@@ -27,7 +28,7 @@ Veja a [referência de API](https://docs.microsoft.com/rest/api/cognitiveservice
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará da chave de acesso fornecida quando ativar sua avaliação gratuita. Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisará da chave de acesso fornecida quando ativar sua avaliação gratuita. Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
 

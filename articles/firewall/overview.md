@@ -8,12 +8,13 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
-ms.openlocfilehash: b90496b0ccc6c8243c2d1b3ead1e7c4faa4801ec
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
+ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582030"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413023"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -69,7 +70,9 @@ O Firewall do Azure tem os seguintes problemas conhecidos:
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com o SNAT para seu endereço IP público. Protocolos não TCP/UDP têm suporte entre VNets e sub-redes spoke.|O Firewall do Azure usa o Standard Load Balancer [que não dá suporte a SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos explorando as opções para dar suporte a esse cenário em uma versão futura.|
 |Suporte do PowerShell e da CLI ausente para ICMP|O Azure PowerShell e a CLI do Azure não dão suporte ao ICMP como um protocolo válido nas regras de rede.|Ainda é possível usar o ICMP como protocolo por meio do portal e da API REST. Estamos trabalhando para adicionar o ICMP no PowerShell e na CLI em breve.|
 |As marcas de FQDN requerem que um protocolo:porta seja definido|As regras de aplicativo com marcas de FQDN exigem a definição de um protocolo:porta.|Você pode usar **HTTPS** como o valor de porta:protocolo. Estamos trabalhando para tornar esse campo opcional quando marcas de FQDN são usadas.|
-|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso roteiro. Para mover um firewall para um grupo de recursos ou uma assinatura diferente, você precisa excluir a instância atual e recriá-la no novo grupo de recursos ou na nova assinatura.|
+|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente|Não há suporte para a movimentação de um firewall para um grupo de recursos ou uma assinatura diferente.|O suporte a essa funcionalidade está em nosso roteiro. Para mover um firewall para um grupo de recursos ou uma assinatura diferente, você precisa excluir a instância atual e recriá-la no novo grupo de recursos ou na nova assinatura.|
+|Intervalo de portas em regras de rede e de aplicativo|As portas são limitadas a 64 mil, uma vez que as portas altas estão reservadas para gerenciamento e investigações de integridade. |Estamos trabalhando para melhorar essa limitação.|
+|
 
 ## <a name="next-steps"></a>Próximas etapas
 

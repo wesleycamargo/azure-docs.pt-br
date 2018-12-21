@@ -1,6 +1,6 @@
 ---
-title: Visão geral do Azure Notebooks | Microsoft Docs
-description: Execute os notebooks Jupyter na nuvem usando o serviço gratuito Azure Notebooks.
+title: Visão geral do Azure Notebooks
+description: Execute Jupyter Notebooks na nuvem usando o serviço gratuito Azure Notebooks, em que não é necessária nenhuma instalação ou configuração.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853189"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085392"
 ---
 # <a name="overview-of-azure-notebooks"></a>Visão geral do Azure Notebooks
 
-O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](http://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
+O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de código-fonte aberto que permite que você combine facilmente um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma única tela compartilhável chamada de *notebook* (imagem cortesia de jupyter.org):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Notebooks Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
 
@@ -51,7 +51,7 @@ Como o Azure Notebooks é um código geral de criação, execução e o comparti
 Em resumo, o Azure Notebooks ajuda a realizar seu trabalho com mais eficiência e, portanto, a realizar mais.
 
 > [!Note]
-> Mais informações sobre o Jupyter em si podem ser encontradas em [jupyter.org](http://jupyter.org/) e nas [documentações do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Mais informações sobre o Jupyter em si podem ser encontradas em [jupyter.org](https://jupyter.org/) e nas [documentações do Jupyter](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Preços e cotas
 
@@ -71,7 +71,7 @@ Para cada notebook, selecione o kernel (ou seja, o ambiente de tempo de execuç�
 
 O Azure Notebooks também inclui pacotes extras, além de distribuições de base. Os kernels do Python, por exemplo, incluem as bibliotecas numpy, pandas, scikit-saber, matplotlib e bokeh.
 
-Também é possível personalizar um projeto para criar um ambiente para todos os notebooks do projeto. Para obter mais informações, confira [Início Rápido: Criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+Também é possível personalizar um projeto para criar um ambiente para todos os notebooks do projeto. Para saber mais, confira [Início Rápido: Criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
 
 Além das distribuições de base, o Azure Notebooks vem pré-instalado com muitos pacotes extras que são úteis para os cientistas de dados. Também é possível instalar seus próprios pacotes usando o processo típico para cada linguagem.
 

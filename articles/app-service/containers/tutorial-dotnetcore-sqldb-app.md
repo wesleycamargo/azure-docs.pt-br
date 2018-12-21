@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux | Microsoft Docs
+title: Criar um aplicativo .NET Core com o Banco de Dados SQL no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como executar um aplicativo .NET Core no Serviço de Aplicativo do Azure no Linux, com uma conexão com um Banco de Dados SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: ddea4621277303dd6c153205b683b4eea0151db0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: cb81699671bd2a0e86838d043ad0a4442eb79a6c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432255"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254234"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux
 
@@ -330,7 +330,7 @@ Localize o elemento `<td>` que contém os auxiliares de marcação `asp-action`.
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

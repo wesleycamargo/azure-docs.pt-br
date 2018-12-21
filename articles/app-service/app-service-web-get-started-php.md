@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web PHP no Azure | Microsoft Docs
+title: Criar um aplicativo Web Python no PHP – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Implante seu primeiro Olá, Mundo em PHP no aplicativo Web do Serviço de Aplicativo do Azure em minutos.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin;cfowler
-ms.custom: mvc
-ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 02c80f3b3883af4b32b5bc0fb837680dad1e0ecf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884957"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261544"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Criar um aplicativo Web do PHP no Azure
 
@@ -41,7 +41,7 @@ Você pode seguir as etapas aqui usando um computador Mac, Windows ou Linux. A c
 Para concluir este guia de início rápido:
 
 * <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
-* <a href="http://php.net/manual/install.php" target="_blank">Instalar o PHP</a>
+* <a href="https://php.net/manual/install.php" target="_blank">Instalar o PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Baixar o exemplo localmente
 

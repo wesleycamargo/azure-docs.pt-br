@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822344"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087926"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerenciar dados exportados
+# <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
 Se leu o tutorial de análise de custo, você está familiarizado com o download manual dos dados do Gerenciamento de Custos. No entanto, você pode criar uma tarefa recorrente que exporta automaticamente seus dados de Gerenciamento de Custos para o Armazenamento do Azure com uma frequência diária, semanal ou mensal. Os dados exportados estão no formato CSV e contém todas as informações que são coletadas pelo Gerenciamento de Custos. Em seguida, você pode usar os dados exportados no Armazenamento do Azure com sistemas externos e combiná-los com seus próprios dados personalizados. Você também pode usar os dados exportados em um sistema externo, tal como um painel ou outro sistema financeiro.
 
@@ -50,11 +50,11 @@ Gerenciamento de Custos + Cobrança &gt; Gerenciamento de Custos &gt; selecione 
 
 Digite um nome para a exportação e selecione a opção "Exportação diária de custos do mês atual". Clique em **Próximo**.
 
-![Nova exportação: tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
+![Novo exemplo de exportação mostrando o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 
 Especifique a assinatura da sua conta de Armazenamento do Azure e, depois, selecione sua conta de armazenamento.  Especifique o contêiner de armazenamento e o caminho do diretório para o qual você gostaria de enviar o arquivo de exportação.  Clique em **Próximo**.
 
-![Nova exportação: armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
+![Novo exemplo de exportação mostrando detalhes da conta de armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
 
 Revise os detalhes da exportação e clique em **Criar**.
 
@@ -68,15 +68,15 @@ Você pode verificar facilmente se os dados do Gerenciamento de Custos estão se
 
 Na lista de exportação, clique no nome da conta de armazenamento. Na página da conta de armazenamento, clique em Abrir no Gerenciador. Se você vir uma caixa de confirmação, clique em **Sim** para abrir o arquivo no Gerenciador de Armazenamento do Azure.
 
-![Página da conta de armazenamento](./media/tutorial-export-acm-data/storage-account-page.png)
+![Página de conta de armazenamento mostrando informações de exemplo e link para abrir no Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 
 No Gerenciador de Armazenamento, navegue até o contêiner que você deseja abrir e selecione a pasta que corresponde ao mês atual. É mostrada uma lista de arquivos CSV. Selecione um deles e clique em **Abrir**.
 
-![Gerenciador de Armazenamento](./media/tutorial-export-acm-data/storage-explorer.png)
+![Informações de exemplo mostradas no Gerenciador de Armazenamento](./media/tutorial-export-acm-data/storage-explorer.png)
 
 O arquivo é aberto com o programa ou aplicativo que está configurado para abrir as extensões de arquivo CSV. Aqui está um exemplo no Excel.
 
-![Dados de exportação de exemplo](./media/tutorial-export-acm-data/example-export-data.png)
+![Exemplo de dados CSV exportados mostrados no Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>Acessar dados exportados de outros sistemas
 

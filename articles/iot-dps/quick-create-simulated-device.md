@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157846"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189295"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo TPM simulado usando o SDK de C do IoT do Azure
 
@@ -25,8 +25,8 @@ Neste início rápido, você aprenderá a criar e a executar um simulador de dis
 Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. 
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
 
 Este artigo irá demonstrar registros individuais.
 
@@ -142,15 +142,15 @@ Nesta seção, você compilará e executará um exemplo que lerá a ID do regist
 
 3. Em **Adicionar registro**, insira as informações a seguir e clique no botão **Salvar**.
 
-    - **Mecanismo:** selecione **TPM** como o *Mecanismo* do atestado de identidade.
+    - **Mecanismo:** Selecione **TPM** como o atestado de identidade *Mecanismo*.
     - **Chave de endosso:** insira a *Chave de endosso* gerada para seu dispositivo TPM executando o projeto *tpm_device_provision*.
-    - **ID do Registro:** insira a *ID de Registro* gerada para seu dispositivo TPM executando o projeto *tpm_device_provision*.
-    - **Dispositivo IoT Edge:** selecione **Desabilitar**.
-    - **ID do dispositivo Hub IoT:** insira **test-docs-device** para dar uma ID ao dispositivo.
+    - **ID de registro:** insira a *ID de registro* gerada para seu dispositivo TPM executando o projeto *tpm_device_provision*.
+    - **Dispositivo IoT Edge:** Selecione **Desabilitar**.
+    - **ID do Dispositivo de Hub IoT:** insira **test-docs-device** para dar uma ID ao dispositivo.
 
-    ![Inserir informações de registro de dispositivo no portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Inserir informações de registro de dispositivo no portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo será exibida na lista na guia *Registros Individuais*. 
+      Em caso de registro bem-sucedido, a *ID de Registro* do seu dispositivo será exibida na lista na guia *Registros Individuais*. 
 
 
 <a id="firstbootsequence"></a>

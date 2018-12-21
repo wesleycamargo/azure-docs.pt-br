@@ -1,6 +1,6 @@
 ---
-title: Criar um serviço do Azure Search no portal | Microsoft Azure
-description: Provisionar um serviço do Azure Search no portal.
+title: Criar um serviço do Azure Search no portal – Azure Search
+description: Provisionar um serviço do Azure Search no portal do Azure. Escolha os grupos de recursos, as regiões, o SKU ou o tipo de preço.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713920"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315971"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
@@ -28,7 +29,7 @@ Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/res
 Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Todos os meses, uma assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure. 
 
 ## <a name="find-azure-search"></a>Encontrar o Azure Search
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de adição ("+ Criar Recurso") no canto superior esquerdo.
 3. Selecione **Web** > **Azure Search**.
 
@@ -58,7 +59,7 @@ Um grupo de recursos é uma coleção de serviços e recursos do Azure que são 
 Como um serviço do Azure, a Azure Search pode ser hospedado em datacenters em todo o mundo. Observe que os [preços podem variar](https://azure.microsoft.com/pricing/details/search/) de acordo com a geografia.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um tipo de preço (SKU)
-[A Azure Search é oferecida atualmente em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Standard. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
+[O Azure Search é oferecido em vários tipos de preço no momento](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico ou Padrão. Cada tipo tem sua própria [capacidade e limites](search-limits-quotas-capacity.md). Confira [Escolher um tipo de preço ou SKU](search-sku-tier.md) para obter orientações.
 
 Geralmente, o Standard é escolhido para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Gratuito.
 

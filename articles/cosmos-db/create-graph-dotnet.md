@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 132e13f213a681b2e6e8581200070fb316e7b582
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847092"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407670"
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: compilar um aplicativo .NET Framework ou Core usando a API do Gremlin
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>O Azure Cosmos DB: Compilar um aplicativo .NET Framework ou Core usando a API do Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console do Gremlin](create-graph-gremlin-console.md)
@@ -30,7 +30,7 @@ ms.locfileid: "52847092"
 
 O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta da [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, um banco de dados e um grafo (contêiner) usando o portal do Azure. Depois, compile e execute um aplicativo de console criado usando o driver de código-aberto [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+Este início rápido demonstra como criar uma conta da [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, um banco de dados e um grafo (contêiner) usando o portal do Azure. Depois, compile e execute um aplicativo de console criado usando o driver de código-aberto [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -142,14 +142,13 @@ Todos os snippets de código a seguir são retirados do arquivo Program.cs.
 * Execute cada consulta Gremlin usando o objeto `GremlinClient` com uma tarefa assíncrona (linha 63). Isso lerá as consultas Gremlin do dicionário definido acima (linha 26):
 
     ```csharp
-    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
-    task.Wait();
+    var results = await gremlinClient.SubmitAsync<dynamic>(query.Value);
     ```
 
 * Recupere o resultado e leia os valores, que são formatados como um dicionário, usando a classe `JsonSerializer` do Newtonsoft.Json:
 
     ```csharp
-    foreach (var result in task.Result)
+    foreach (var result in results)
     {
         // The vertex results are formed as dictionaries with a nested dictionary for their properties
         string output = JsonConvert.SerializeObject(result);
@@ -161,7 +160,7 @@ Todos os snippets de código a seguir são retirados do arquivo Program.cs.
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [portal do Azure](http://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral**, você pode ver dois pontos de extremidade - 
+1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de banco de dados do gráfico. Na guia **Visão geral**, você pode ver dois pontos de extremidade - 
  
    **.NET SDK URI** - esse valor é usado quando você se conectar à conta do graph usando a biblioteca Microsoft.Azure.Graphs. 
 

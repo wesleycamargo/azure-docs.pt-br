@@ -2,7 +2,6 @@
 title: Carregar dados de imagem na nuvem com o Armazenamento do Azure | Microsoft Docs
 description: Use o armazenamento de blobs do Azure com um aplicativo Web para armazenar dados de aplicativo
 services: storage
-documentationcenter: ''
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 371a679978c501c71da6e8360d7541c31a6a720f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c55e63d813c462db8a6c404894b8754f4130d935
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097940"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com o Armazenamento do Azure
 
@@ -114,7 +113,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 O aplicativo Web fornece um espaço de hospedagem para o código do aplicativo de exemplo que é implantado do repositório de exemplo do GitHub. Crie um [aplicativo Web](../../app-service/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#az_webapp_create).  
 
-No comando a seguir, substitua `<web_app>` por um nome exclusivo. Os caracteres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for exclusivo, você receberá a mensagem de erro: _O site com o nome `<web_app>` fornecido já existe._ A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
+No comando a seguir, substitua `<web_app>` por um nome exclusivo. Os caracteres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` for não exclusivo, você receberá a mensagem de erro: _O site com o nome `<web_app>` atribuído já existe._ A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan

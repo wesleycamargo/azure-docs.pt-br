@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 clicktale: true
 ms.date: 04/10/2018
-ms.openlocfilehash: a41042dc72fc7883d5b3185453eab446a1378ce4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d8869d21be84ea886dd2ea7db48c60b1a308f807
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832302"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098110"
 ---
-# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Início Rápido: compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL e o Portal do Azure
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Início Rápido: Compilar um aplicativo Web do .NET com o Azure Cosmos DB usando a API do SQL e o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -120,7 +120,7 @@ Todos os snippets de código a seguir são retirados do arquivo DocumentDBReposi
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [portal do Azure](http://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, selecione **Chaves** e, em seguida, selecione **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo web.config na próxima etapa.
+1. No [portal do Azure](https://portal.azure.com/), na sua conta do Azure Cosmos DB, no painel de navegação esquerdo, selecione **Chaves** e, em seguida, selecione **Chaves de leitura/gravação**. Você usará os botões de cópia no lado direito da tela para copiar o URI e a Chave Primária para o arquivo web.config na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-dotnet/keys.png)
 

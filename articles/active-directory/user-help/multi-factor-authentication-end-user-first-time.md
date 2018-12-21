@@ -68,7 +68,7 @@ Usar esse método requer que você instale um aplicativo autenticador em seu tel
    ![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Após digitar o PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
-9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país na lista suspensa e insira o número de seu telefone celular na caixa ao lado do país. Selecione **Avançar**.
+9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país/região na lista suspensa e insira o número de seu telefone celular na caixa ao lado do país/região. Selecione **Avançar**.
 10. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.
 11. Se estiver usando esses aplicativos, copie a senha de aplicativo fornecida e cole-a no aplicativo no lugar de sua senha regular. Você pode usar a mesma senha de aplicativo para vários aplicativos. Para obter mais informações, [ajuda com senhas de aplicativo].
 12. Clique em **Concluído**.
@@ -86,7 +86,7 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 1. Selecione **Telefone de Autenticação** na lista suspensa.  
 
     ![Configuração](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Escolha o seu país na lista suspensa e insira o número do celular.
+2. Escolha o seu país/região na lista suspensa e insira o número do celular.
 3. Selecione o método que você prefere usar com o celular – texto ou ligação.
 4. Selecione **Contate-me** para verificar seu número de telefone. Dependendo do modo selecionado, podemos lhe enviar uma mensagem de texto ou fazer uma chamada. Siga as instruções fornecidas na tela e selecione **Verificar**.
 5. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.

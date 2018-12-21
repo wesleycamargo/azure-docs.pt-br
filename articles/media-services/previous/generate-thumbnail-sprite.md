@@ -70,7 +70,7 @@ Veja um exemplo:
 
 1.  Não é possível gerar uma imagem de sprite com uma única linha de imagens (SpriteColumn = 1 resulta em uma imagem com uma única coluna).
 2.  Ainda não há compatibilidade com o agrupamento de imagens de sprite em imagens JPEG de tamanho moderado. Portanto, é preciso ter cuidado para limitar o número de miniaturas e o tamanho delas, para que o sprite de miniatura costurado resultante seja cerca de 8M pixels ou menos.
-3.  O Player de Mídia do Azure é compatível com sprites nos navegadores Edge, Chrome e Firefox. A análise de VTT não é compatível com o IE11.
+3.  O Player de Mídia do Azure é compatível com sprites nos navegadores Microsoft Edge, Chrome e Firefox. A análise de VTT não é compatível com o IE11.
 
 ## <a name="next-steps"></a>Próximas etapas
 

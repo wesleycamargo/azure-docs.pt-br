@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855006"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438465"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para o Serviço de Aplicativo do Azure com implantação e integração contínua do Jenkins
 
@@ -43,7 +43,7 @@ Para concluir este tutorial, você precisará destes itens:
 
 * Um servidor [Jenkins](https://jenkins.io/) com as ferramentas do JDK (Java Development Kit) e o Maven instalado em uma VM Linux do Azure
 
-  Se você não tiver um servidor Jenkins, conclua estas etapas agora no portal do Azure: [Criar servidor Jenkins em uma VM Linux do Azure](/azure/jenkins/install-jenkins-solution-template)
+  Se você não tiver um servidor Jenkins, conclua estas etapas agora no portal do Azure: [Criar servidor Jenkins em uma VM do Linux do Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Uma conta do [GitHub](https://github.com) para que você possa obter uma cópia funcional ([fork](#fork)) do aplicativo Web Java de exemplo. 
 
@@ -92,7 +92,7 @@ Para que o Jenkins monitore o GitHub e responda quando novas confirmações fore
 > 
 > Estas etapas criam credenciais de token de acesso pessoal para o Jenkins trabalhar com o GitHub usando seu nome de usuário e senha do GitHub. 
 > No entanto, se sua conta do GitHub usa a autenticação de dois fatores, crie o token no GitHub e configure o Jenkins para usar esse token. 
-> Para obter mais informações, confira a documentação sobre o [plug-in GitHub do Jenkins](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
+> Para obter mais informações, confira a documentação sobre o [plug-in GitHub do Jenkins](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin).
 
 1. Na página **Gerenciar o Jenkins**, escolha **Configurar Sistema**. 
 
@@ -164,7 +164,7 @@ Veja a saída gerada pelo comando **`create-for-rbac`**:
 
    | Propriedade | Valor | DESCRIÇÃO | 
    |----------|-------|-------------| 
-   | **ID da assinatura** | <*yourAzureSubscription-ID*> | O valor do GUID da assinatura do Azure <p>**Dica**: se você não sabe sua ID de assinatura do Azure, execute este comando da CLI do Azure na linha de comando ou no Cloud Shell e, em seguida, use o valor do GUID `id`: <p>`az account list` | 
+   | **ID da assinatura** | <*yourAzureSubscription-ID*> | O valor do GUID da assinatura do Azure <p>**Dica**: Se não souber sua ID de assinatura do Azure, execute este comando da CLI do Azure na linha de comando ou no Cloud Shell e, em seguida, use o valor do GUID `id`: <p>`az account list` | 
    | **ID do Cliente** | <*yourAzureServicePrincipal-ID*> | O valor do GUID `appId` gerado anteriormente para a entidade de serviço do Azure | 
    | **Segredo do Cliente** | <*yourSecurePassword*> | O valor `password` ou "segredo" fornecido para a entidade de serviço do Azure | 
    | **ID do locatário** | <*yourAzureActiveDirectoryTenant-ID*> | O valor do GUID `tenant` do locatário do Azure Active Directory | 

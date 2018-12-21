@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990154"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278501"
 ---
-# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar Íris - Preparar os dados
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar Íris – preparando os dados
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -45,11 +45,11 @@ Para concluir este tutorial, você deve ter:
 - Uma conta de Experimentação do Azure Machine Learning
 - O Azure Machine Learning Workbench instalado
 
-Caso ainda não tenha esses pré-requisitos, siga as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md) para configurar suas contas e instalar o aplicativo Azure Machine Learning Workbench. 
+Se você ainda não tiver esses pré-requisitos, siga as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md) para configurar suas contas e instalar o aplicativo do Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Criar um novo projeto no Workbench
 
-Se você seguiu as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md), já deve ter este projeto e pode ir para a próxima seção.
+Se você seguiu as etapas no artigo [Início Rápido: instalar e iniciar](quickstart-installation.md), você já deve ter este projeto e pode ir para a próxima seção.
 
 1. Abra o aplicativo Azure Machine Learning Workbench e faça logon se necessário. 
    
@@ -152,7 +152,7 @@ Posteriormente, esse pacote de preparação de dados pode ser entregue para a ex
    1. Clique com o botão direito do mouse para selecioná-la. 
    1. Selecione **Contagens de valor** no menu suspenso. 
 
-   O painel **Inspetores** é aberto abaixo dos dados. Um histograma com quatro barras é exibido. A coluna de destino possui quatro valores distintos: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** e um valor **(nulo)**.
+   O painel **Inspetores** é aberto abaixo dos dados. Um histograma com quatro barras é exibido. A coluna de destino tem quatro valores distintos: **Iris-virginica**, **Iris-versicolor**, **Iris-setosa** e um valor **(nulo)**.
 
    ![Selecione Contagens de valor](media/tutorial-classifying-iris/value_count.png)
 

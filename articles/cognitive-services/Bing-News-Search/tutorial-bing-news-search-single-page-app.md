@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: aplicativo de página única de Pesquisa de Notícias do Bing'
+title: 'Tutorial: criar um aplicativo Web de página única – API de Pesquisa de Notícias do Bing'
 titlesuffix: Azure Cognitive Services
-description: Explica como usar a API de Pesquisa de Notícias do Bing em um aplicativo Web de página única.
+description: Use este tutorial para criar um aplicativo Web de página única que pode enviar consultas de pesquisa para a API Bing Notícias e exiba os resultados na página da Web.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803640"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262037"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Tutorial: Aplicativo de Pesquisa de Notícias de página única
+# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
+
 A API de Pesquisa de Notícias do Bing permite que você faça pesquisas na Web e obtenha resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa de Notícias do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until we can replace it with sanitized copy

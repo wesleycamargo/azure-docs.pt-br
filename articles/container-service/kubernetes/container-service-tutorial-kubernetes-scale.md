@@ -1,5 +1,5 @@
 ---
-title: Tutorial do Serviço de Contêiner do Azure – dimensionar aplicativo
+title: (PRETERIDO) Tutorial do Serviço de Contêiner do Azure – dimensionar aplicativo
 description: Tutorial do Serviço de Contêiner do Azure – dimensionar aplicativo
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429875"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993065"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(PRETERIDO) Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada deste tutorial que usa o Serviço de Kubernetes do Azure, confira [Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Se você esteve seguindo os tutoriais, você tem um cluster de Kubernetes operacional no Serviço de Contêiner do Azure e você implantou o aplicativo Azure Voting. 
 

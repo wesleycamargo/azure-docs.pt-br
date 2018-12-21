@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL | Microsoft Docs
+title: Criar um aplicativo ASP.NET com o Banco de Dados SQL – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como implantar um aplicativo C# ASP.NET com um banco de dados SQL Server no Azure.
 services: app-service\web
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353809"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257770"
 ---
-# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: compilar um aplicativo ASP.NET no Azure com o Banco de Dados SQL
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Compilar um aplicativo ASP.NET no Azure com Banco de Dados SQL
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como implantar um aplicativo Web ASP.NET controlado por dados no Azure e conectá-lo ao [Banco de Dados SQL do Azure](../sql-database/sql-database-technical-overview.md). Quando terminar, você terá um aplicativo ASP.NET em execução no Azure e conectado ao Banco de Dados SQL.
 

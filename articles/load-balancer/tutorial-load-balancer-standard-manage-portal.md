@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Balancear a carga de tráfego de Internet para VMs - portal do Azure | Microsoft Docs'
+title: 'Tutorial: Balancear tráfego de carga da Internet para VMs – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial mostra como criar e gerenciar um Standard Load Balancer usando o Portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687293"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259997"
 ---
-# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala distribuindo as solicitações de entrada entre várias máquinas virtuais. Neste tutorial, você aprenderá sobre os diferentes componentes do Standard Load Balancer do Azure que distribuem o tráfego de Internet para VMs e fornecem alta disponibilidade. Você aprenderá como:
 
@@ -101,8 +98,8 @@ Nesta seção, você criará uma regra NSG para permitir conexões de entrada us
 1. Clique em **Todos os recursos** no menu da esquerda e, depois, na lista de recursos, clique em **myNetworkSecurityGroup**, que está localizado no grupo de recursos **myResourceGroupSLB**.
 2. Em **Configurações**, clique em **Regras de segurança de entrada**, depois clique em **Adicionar**.
 3. Insira esses valores para a regra de segurança de entrada denominada *myHTTPRule* para permitir conexões de entrada HTTP usando a porta 80:
-    - *Service Tag* – para **Origem**.
-    - *Internet* – para **Marca de serviço de origem**
+    - *Service Tag* – para **Fonte**.
+    - *Internet* – para **Marca de serviço de fonte**
     - *80* - para os **Intervalos de porta de destino**
     - *TCP* – para **Protocolo**
     - *Allow* – para **Ação**

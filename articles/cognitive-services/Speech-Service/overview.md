@@ -1,38 +1,37 @@
 ---
 title: O que é o Serviço de Fala?
 titleSuffix: Azure Cognitive Services
-description: 'O Serviço de Fala, parte dos Serviços Cognitivos do Azure, une vários serviços de fala que estavam disponíveis anteriormente de forma separada: Fala do Bing (que inclui o reconhecimento de fala e a conversão de texto em fala), Fala Personalizada e Tradução de Fala.'
+description: 'O Serviço de Fala, parte dos serviços Cognitivos do Azure, reúne diversos serviços de fala que antes estavam disponíveis separadamente: API de Fala do Bing (incluindo reconhecimento de fala e conversão de texto em fala), Serviço de Fala Personalizada e Tradução de Fala.'
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e86adfd4e832e6b9514e4813ddd4a942b07ca624
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470439"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336587"
 ---
-# <a name="what-is-the-speech-service"></a>O que é o Serviço de Fala?
+# <a name="what-is-speech-services"></a>O que são Serviços de Fala?
 
+Como outros serviços de fala do Azure, os Serviço de Fala são alimentados pelas tecnologias de fala usadas em produtos como o Cortana e o Microsoft Office.
 
-Como outros serviços de fala do Azure, o serviço de Fala é alimentado pelas tecnologias de fala usadas em produtos como o Cortana e o Microsoft Office.
+Os Serviços de Fala unem os recursos de fala do Azure disponíveis anteriormente por meio dos serviços [API de Fala do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Tradução de Fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Fala Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) e [Voz Personalizada](http://customvoice.ai/). Agora, uma assinatura fornece acesso a todos esses recursos.
 
-O serviço de Fala une os recursos de fala do Azure disponíveis anteriormente por meio dos serviços [API de Fala do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Tradução de Fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Fala Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) e [ Voz Personalizada](http://customvoice.ai/). Agora, uma assinatura fornece acesso a todos esses recursos.
+## <a name="main-speech-services-functions"></a>Principais funções de Serviço de Fala
 
-## <a name="main-speech-service-functions"></a>Principais funções do serviço de Fala
-
-As principais funções do serviço de Fala são Conversão de Fala em Texto (também chamado de reconhecimento de fala ou transcrição), Conversão de Texto em Fala (síntese de fala) e Tradução de Fala.
+As principais funções dos Serviços de Fala são conversão de fala em texto (também chamada de reconhecimento de fala ou transcrição), conversão de texto em fala (síntese de fala) e tradução de fala.
 
 |Função|Recursos|
 |-|-|
-|[Conversão de Fala em Texto](speech-to-text.md)| <li>Transcreve fala em tempo real contínua em texto.<li>Pode transcrever em lotes fala de gravações de áudio. <li>Dá suporte a resultados intermediários, detecção de final de fala, formatação automática de texto e mascaramento de conteúdo ofensivo. <li>Pode chamar [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) (Reconhecimento vocal) para avaliar a intenção do usuário a partir da fala transcrita.\*|
-|[Conversão de Texto em Fala](text-to-speech.md)| <li>Converte o texto em fala que soa natural. <li>Oferece vários gêneros e/ou dialetos para muitos idiomas com suporte. <li>Dá suporte à entrada de texto sem formatação ou a SSML (Speech Synthesis Markup Language). |
-|[Tradução de Fala](speech-translation.md)| <li>Converte o fluxo de áudio em tempo quase real.<li> Também pode processar fala gravada.<li>Fornece resultados como texto ou fala sintetizada. |
+|[Conversão de fala em texto](speech-to-text.md)| <li>Transcreve fala em tempo real contínua em texto.<li>Pode transcrever em lotes fala de gravações de áudio. <li>Dá suporte a resultados intermediários, detecção de final de fala, formatação automática de texto e mascaramento de conteúdo ofensivo. <li>Pode chamar [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) (Reconhecimento vocal) para avaliar a intenção do usuário a partir da fala transcrita.\*|
+|[Conversão de Texto em Fala](text-to-speech.md)| <li>**NOVO**: Fornece as vozes de conversão de texto em fala neural quase indistinguíveis da voz humana (em inglês). <li>Converte o texto em fala que soa natural. <li>Oferece vários gêneros e/ou dialetos para muitos idiomas com suporte. <li>Dá suporte à entrada de texto sem formatação ou a SSML (Speech Synthesis Markup Language). |
+|[Tradução de fala](speech-translation.md)| <li>Converte o fluxo de áudio em tempo quase real.<li> Também pode processar fala gravada.<li>Fornece resultados como texto ou fala sintetizada. |
 
 
 ## <a name="customize-speech-features"></a>Personalizar os recursos de fala
@@ -41,10 +40,10 @@ Você pode usar seus próprios dados para treinar os modelos que dão suporte ao
 
 |Recurso|Modelo|Finalidade|
 |-|-|-|
-|Conversão de Fala em Texto|[Modelo acústico](how-to-customize-acoustic-models.md)|Ajuda a transcrever falantes e ambientes específicos, como carros ou fábricas.|
+|Conversão de fala em texto|[Modelo acústico](how-to-customize-acoustic-models.md)|Ajuda a transcrever falantes e ambientes específicos, como carros ou fábricas.|
 ||[Modelo de linguagem](how-to-customize-language-model.md)|Ajuda a transcrever vocabulário e gramática específicos de campo, como jargão médico ou de TI.|
 ||[Modelo de pronúncia](how-to-customize-pronunciation.md)|Ajuda a transcrever abreviações e acrônimos, como "IOU" para "I owe you" (Sou grato a você). |
-|Texto em fala|[Fonte de voz](how-to-customize-voice-font.md)|Dá a seu aplicativo uma voz própria treinando o modelo com amostras de fala humana.|
+|Conversão de texto em fala|[Fonte de voz](how-to-customize-voice-font.md)|Dá a seu aplicativo uma voz própria treinando o modelo com amostras de fala humana.|
 
 Você pode usar seus modelos personalizados em qualquer lugar em que usaria os modelos padrão na funcionalidade de Conversão de Fala em Texto ou Conversão de Texto em Fala do seu aplicativo.
 
@@ -52,18 +51,18 @@ Você pode usar seus modelos personalizados em qualquer lugar em que usaria os m
 
 Para simplificar o desenvolvimento de aplicativos habilitados para fala, a Microsoft fornece o [SDK de Fala](speech-sdk.md) para uso com o serviço de Fala. O SDK de Fala fornece APIs de Conversão de Fala em Texto e APIs de Tradução de Fala nativas consistentes para C#, C++ e Java. Se você desenvolver em uma dessas linguagens, o SDK de Fala facilitará o desenvolvimento lidando com os detalhes da rede para você.
 
-O serviço de Fala também possui uma [API REST](rest-apis.md) que funciona com qualquer linguagem de programação que possa fazer solicitações HTTP. A interface REST não oferece a funcionalidade de streaming em tempo real do SDK.
+Os Serviços de Fala também têm uma [API REST](rest-apis.md) que funciona com qualquer linguagem de programação que pode fazer solicitações HTTP. A interface REST não oferece a funcionalidade de streaming em tempo real do SDK.
 
 |<br>Método|Fala<br>em Texto|Texto em<br>Fala|Fala<br>Tradução|<br>DESCRIÇÃO|
 |-|-|-|-|-|
 |[SDK da fala](speech-sdk.md)|SIM|Não |SIM|APIs nativas para C#, C++ e Java a fim de simplificar o desenvolvimento.|
-|[REST](rest-apis.md)|SIM|sim|Não |Uma API simples baseada em HTTP que facilita a adição de fala a seus aplicativos.|
+|[APIs REST](rest-apis.md)|SIM|sim|Não |Uma API simples baseada em HTTP que facilita a adição de fala a seus aplicativos.|
 
 ### <a name="websockets"></a>WebSockets
 
-O serviço de Fala também tem protocolos WebSocket para transmitir Conversão de Fala em Texto e Tradução de Fala. Os SDKs de Fala usam esses protocolos para se comunicar com o serviço de Fala. Use o SDK de Fala em vez de tentar implementar sua própria comunicação WebSocket com o serviço de Fala.
+Os Serviço de Fala também têm protocolos WebSocket para transmitir conversão de fala em texto e tradução de fala. Os SDKs de Fala usam esses protocolos para se comunicar com o serviço de Fala. Use o SDK de Fala em vez de tentar implementar sua própria comunicação WebSocket com o serviço de Fala.
 
-Se você já tiver código que use a Fala do Bing ou a API de Fala de Tradução de Fala via WebSockets, poderá atualizá-las para usar o serviço de Fala. Os protocolos WebSocket são compatíveis, somente os pontos de extremidade são diferentes.
+Se você já tiver código que use a Fala do Bing ou a API de Fala de Tradução de Fala via WebSockets, poderá atualizá-las para usar os Serviços de Fala. Os protocolos WebSocket são compatíveis, porém, os pontos de extremidade são diferentes.
 
 ### <a name="speech-devices-sdk"></a>SDK de Dispositivos de Fala
 
@@ -72,7 +71,7 @@ O [SDK de Dispositivos de Fala](speech-devices-sdk.md) é uma plataforma integra
 
 ## <a name="speech-scenarios"></a>Cenários de Fala
 
-Casos de uso para o serviço de Fala incluem:
+Casos de uso para Serviços de Fala incluem:
 
 > [!div class="checklist"]
 > * Criar aplicativos acionados por voz
@@ -85,15 +84,15 @@ A entrada de voz é uma ótima maneira de tornar seu aplicativo flexível, não 
 
 Se seu aplicativo se destina ao uso pelo público em geral, você pode usar os modelos de reconhecimento de fala padrão. Eles reconhecem uma ampla variedade de falantes em ambientes comuns.
 
-Se o aplicativo é usado em um domínio específico, por exemplo, medicina ou IT, você pode criar uma [modelo de linguagem](how-to-customize-language-model.md). Você pode usar esse modelo para ensinar o serviço de Fala sobre a terminologia especial usada pelo seu aplicativo.
+Se o aplicativo é usado em um domínio específico, por exemplo, medicina ou IT, você pode criar uma [modelo de linguagem](how-to-customize-language-model.md). Você pode usar esse modelo para ensinar os Serviços de Fala sobre a terminologia especial usada pelo seu aplicativo.
 
-Se o aplicativo for usado em um ambiente barulhento, como uma fábrica, você poderá criar um [modelo acústico](how-to-customize-acoustic-models.md) personalizado. Esse modelo ajuda o serviço de Fala para distinguir fala de ruído.
+Se o aplicativo for usado em um ambiente barulhento, como uma fábrica, você poderá criar um [modelo acústico](how-to-customize-acoustic-models.md) personalizado. Esse modelo ajuda os Serviço de Fala a distinguir fala de ruído.
 
 ### <a name="call-center-transcription"></a>Transcrição de call center
 
 Muitas vezes, as gravações de call center serão consultadas apenas se surgir um problema com uma chamada. Com o serviço de Fala, é fácil transcrever cada gravação em texto. Você pode facilmente indexar o texto para [pesquisa de texto completo](https://docs.microsoft.com/azure/search/search-what-is-azure-search) ou aplicar [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) para detectar o sentimento, a linguagem e as frases-chave.
 
-Se as gravações do call center envolvem terminologia especializada, como nomes de produto ou jargões de TI, você pode criar um [modelo de linguagem](how-to-customize-language-model.md) para ensinar esse vocabulário ao serviço de Fala. Um [modelo acústico](how-to-customize-acoustic-models.md) personalizado pode ajudar o serviço de Fala a entender as conexões de telefone abaixo do ideal.
+Se as gravações do call center envolvem terminologia especializada, como nomes de produto ou jargões de TI, você pode criar um [modelo de linguagem](how-to-customize-language-model.md) para ensinar esse vocabulário aos Serviço de Fala. Um [modelo acústico](how-to-customize-acoustic-models.md) personalizado pode ajudar os Serviços de Fala a entender as conexões de telefone abaixo do ideal.
 
 Para obter mais informações sobre esse cenário, leia mais sobre [transcrição em lote](batch-transcription.md) com o serviço de Fala.
 
@@ -105,7 +104,7 @@ Para adicionar uma personalidade exclusiva ao seu bot habilitado para voz, você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Obtenha uma chave de assinatura para o serviço de Fala.
+Obtenha uma chave de assinatura para os Serviços de Fala.
 
 > [!div class="nextstepaction"]
-> [Experimente o serviço de Fala gratuitamente](get-started.md)
+> [Experimente os Serviços de Fala gratuitamente](get-started.md)

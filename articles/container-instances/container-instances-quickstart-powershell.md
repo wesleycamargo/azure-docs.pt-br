@@ -1,21 +1,21 @@
 ---
-title: Início Rápido – Executar um aplicativo em Instâncias de Contêiner do Azure
-description: Neste Início Rápido, você usará o Azure PowerShell para implantar um aplicativo em execução em um contêiner do Docker para Instâncias de Contêiner do Azure
+title: Início Rápido – Executar um aplicativo nas Instâncias de Contêiner do Azure – PowerShell
+description: Neste início rápido, você usará o Azure PowerShell para implantar um aplicativo de contêiner do Docker nas Instâncias de Contêiner do Azure com o Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854636"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183940"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar um aplicativo em Instâncias de Contêiner do Azure
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Início Rápido: Executar um aplicativo de contêiner nas Instâncias de Contêiner do Azure com o Azure PowerShell
 
 Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner do Windows no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Alguns segundos depois de executar um comando único de implantação, é possível navegar para o aplicativo em execução:
 

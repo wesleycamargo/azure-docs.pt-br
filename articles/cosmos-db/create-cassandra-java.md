@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1683bdcdac5f34b4dd0795befe0b87d6ba1278b0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ba2143847d51bda7bc15c0c93835c758505cd0b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421366"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089166"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guia de início rápido: Compilar um aplicativo Web do Cassandra com o Java e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Início Rápido: Compilar um aplicativo Web do Cassandra com o Java e o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -39,7 +39,7 @@ Além disso, você precisa de:
 * [Java Development Kit (JDK) 1.7 +](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
-* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário [Maven](https://maven.apache.org/)
     * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/)
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
@@ -152,7 +152,7 @@ Os trechos de código a seguir são do arquivo `src/main/java/com/azure/cosmosdb
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Os detalhes da cadeia de conexão permitem que o aplicativo se comunique com o banco de dados hospedado.
 
-1. No [portal do Azure](http://portal.azure.com/), selecione **Cadeia de Conexão**. 
+1. No [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     ![Exibir e copiar um nome de usuário do Portal do Azure, página Cadeia de Conexão](./media/create-cassandra-java/keys.png)
 

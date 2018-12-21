@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c27f436b726290c6a3af0956b956e1c351a729a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231542"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956169"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao armazenamento de Fila do Azure usando o .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -33,7 +33,7 @@ Este tutorial mostra como gravar código .NET para alguns cenários comuns usand
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca do Cliente de Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
-* [Gerenciador de Configurações do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* [Gerenciador de Configurações do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * [Uma conta do Armazenamento do Azure](../common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]

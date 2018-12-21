@@ -1,5 +1,5 @@
 ---
-title: API RESTful com CORS no Serviço de Aplicativo do Azure | Microsoft Docs
+title: Hospedar API RESTful com CORS – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como o Serviço de Aplicativo do Azure ajuda a hospedar suas APIs RESTful com suporte a CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445422"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261561"
 ---
-# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](app-service-web-overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Além disso, o Serviço de Aplicativo tem suporte interno a [CORS (Compartilhamento de Recursos entre Origens)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) para APIs RESTful. Este tutorial mostra como implantar um aplicativo de API do ASP.NET Core no Serviço de Aplicativo com suporte a CORS. Configure o aplicativo usando as ferramentas de linha de comando e implante o aplicativo usando o Git. 
 
@@ -58,7 +58,7 @@ Execute o comando a seguir para clonar o repositório de exemplo.
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Esse repositório contém um aplicativo que é criado com base neste tutorial: [Páginas de Ajuda da API Web do ASP.NET Core usando Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Ele usa um gerador de Swagger para servir a [interface do usuário do Swagger](https://swagger.io/swagger-ui/) e o ponto de extremidade JSON do Swagger.
+Esse repositório contém um aplicativo que é criado com base no seguinte tutorial: [Páginas de ajuda da API Web do ASP.NET Core usando o Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Ele usa um gerador de Swagger para servir a [interface do usuário do Swagger](https://swagger.io/swagger-ui/) e o ponto de extremidade JSON do Swagger.
 
 ### <a name="run-the-application"></a>Executar o aplicativo
 

@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e7b4bc51ab71fa1043afdab019d27fd089d0356c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980076"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251038"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Início Rápido: Compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -36,7 +36,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Além disso, você precisa de:
 * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -46,7 +46,7 @@ Antes de criar um banco de dados de documentos, você precisa criar uma conta Ca
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora vamos clonar um aplicativo de API Cassandra do github, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, vamos clonar um aplicativo da API do Cassandra do GitHub, definir a cadeia de conexão e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra um prompt de comando. Crie uma pasta chamada `git-samples`. Em seguida, feche o prompt de comando.
 
@@ -158,7 +158,7 @@ Esta etapa é opcional. Se você estiver interessado em aprender como o código 
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. A cadeia de conexão permite que seu aplicativo se comunique com o banco de dados hospedado.
 
-1. No [portal do Azure](http://portal.azure.com/), selecione **Cadeia de Conexão**. 
+1. No [portal do Azure](https://portal.azure.com/), selecione **Cadeia de Conexão**. 
 
     Use o ![botão Copiar](./media/create-cassandra-nodejs/copy.png) no lado direito da tela para copiar o valor superior, o PONTO DE CONTATO.
 

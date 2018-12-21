@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Obter lista de idiomas compatíveis, Python - API de Tradução de Texto'
+title: 'Início Rápido: Obter lista de idiomas compatíveis, Python – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Python.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 4c261a46b96865900a92bc53e4973fa3df094289
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8b78ec4e358f654342140df1491e19d3fc62fee7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246551"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992389"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte usando o Python
 
@@ -67,7 +67,7 @@ else:
 Atualmente, um ponto de extremidade está disponível para a Tradução de Texto, e está definido como a `base_url`. `path` define a rota `languages` e identifica que queremos usar a versão 3 da API.
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -215,7 +215,7 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="see-also"></a>Consulte também
 
-Além da transliteração de texto, saiba como usar a API de Tradução de Texto para:
+Saiba como usar a API de Tradução de Texto para:
 
 * [Traduzir o texto](quickstart-python-translate.md)
 * [Transliteração de texto](quickstart-python-transliterate.md)

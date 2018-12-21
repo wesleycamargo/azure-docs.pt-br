@@ -39,7 +39,7 @@ A tabela a seguir descreve o objetivo e o conteúdo desses campos.
 | **Resumo longo**          | Finalidade ou a função da solução.  Comprimento máximo de 256 caracteres. |
 | **Descrição**           | Descrição da solução  Comprimento máximo de 3000 caracteres, suporta formatação HTML simples. |
 | **Identificador de marketing**  | Um URL exclusivo para associar a essa oferta geralmente inclui sua organização e o nome da solução, com um comprimento máximo de 50 caracteres.  Por exemplo:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista branca terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
+| **Visualizar códigos de inscrição** | Adicione de um a 100 identificadores de assinatura de pré-visualizadores. Essas assinaturas listadas na lista de permissões terão acesso à oferta assim que forem publicadas antes de serem publicadas. |
 | **Links úteis**          | Adicione URLs a documentações, notas de versão, perguntas frequentes e assim por diante. |
 | **Categorias sugeridas (máximo 5)** | A seleção múltipla de categorias comerciais e técnicas que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
 |  |  |

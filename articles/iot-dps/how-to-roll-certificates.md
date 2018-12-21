@@ -52,7 +52,7 @@ Quando um dispositivo for inicialmente provisionado por meio do provisionamento 
 
 Depois que um novo certificado de folha for revertido para o dispositivo, ele pode não mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro do dispositivo para a conta para o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro de dispositivo Hub IoT conforme necessário, quando o dispositivo for provisionado novamente. 
 
-Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se este cenário surgir como reação a uma violação de segurança, você deve pelo menos colocar na lista negra dos certificados de dispositivo específico no grupo que são considerados para serem violados. Para obter mais informações, consulte [Dispositivos específicos de lista negra em um grupo de certificado](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se este cenário surgir como reação a uma violação de segurança, você deve pelo menos colocar na lista de bloqueios dos certificados de dispositivo específico no grupo que são considerados para serem violados. Para obter mais informações, consulte [Dispositivos específicos de lista de bloqueios em um grupo de certificado](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 Atualização das entradas de registro para certificados implantados é realizada na página **Gerenciar Registros**. Para acessar essa página, siga essas etapas:
 
@@ -198,9 +198,9 @@ Outra maneira são os antigos e os novos certificados para que seja válido a um
 Depois que o reprovisionamento for concluído, os dispositivos poderão se conectar ao Hub IoT usando os novos certificados.
 
 
-## <a name="blacklist-certificates"></a>Certificados de lista negra
+## <a name="blacklist-certificates"></a>Certificados de lista de bloqueios
 
-Em resposta a uma violação de segurança, talvez seja necessário um certificado de dispositivo. Para um certificado de dispositivo de lista de bloqueios, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte dispositivos na lista negra no artigo [Gerenciar o Cancelamento do Registro](how-to-revoke-device-access-portal.md).
+Em resposta a uma violação de segurança, talvez seja necessário um certificado de dispositivo. Para um certificado de dispositivo de lista de bloqueios, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte dispositivos na lista de bloqueios no artigo [Gerenciar o Cancelamento do Registro](how-to-revoke-device-access-portal.md).
 
 Depois que um certificado é incluído como parte de uma entrada de registro desabilitado, qualquer tentativa de registrar com um hub IoT usando esses certificados falhará mesmo se ela estiver habilitada como parte de outra entrada de registro.
  

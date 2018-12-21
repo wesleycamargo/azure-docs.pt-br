@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582291"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080582"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial
 
@@ -163,6 +163,9 @@ O arquivo **provisionSample.yaml** contém os seguintes nós:
     > Verifique se as chaves `dataType` e `hardwareId` também estão alinhadas com as instruções acima desse trecho de código. Verifique também se o editor não substitui espaços por tabulações. 
 
 Salve e feche o arquivo provisionSample.yaml. No próximo tutorial, você adicionará outras informações a esse arquivo e provisionará o prédio de exemplo dos Gêmeos Digitais do Azure.
+
+> [!TIP]
+> É possível exibir e modificar seu grafo espacial usando o [Visualizador de Grafos dos Gêmeos Digitais do Azure](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

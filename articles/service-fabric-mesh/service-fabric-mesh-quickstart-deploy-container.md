@@ -9,12 +9,12 @@ ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: ce3001a2984726332b036eea69d4e18e3d7d300b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890425"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088352"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
 
@@ -48,10 +48,10 @@ az group create --name myResourceGroup --location eastus
 Criar seu aplicativo no grupo de recursos usando o comando `az mesh deployment create`.  Execute o seguinte:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-O comando anterior implanta um aplicativo Linux usando o [modelo mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Se você desejar implantar um aplicativo do Windows, use o [modelo mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Imagens de contêiner do Windows são maiores do que as imagens de contêiner do Linux e podem levar mais tempo para implantar.
+O comando anterior implanta um aplicativo Linux usando o [modelo linux.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json). Se desejar implantar um aplicativo do Windows, use o [modelo windows.json](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json). Imagens de contêiner do Windows são maiores do que as imagens de contêiner do Linux e podem levar mais tempo para implantar.
 
 Este comando produzirá um trecho JSON mostrado abaixo. Na seção ```outputs``` da saída JSON, copie a propriedade ```publicIPAddress```.
 

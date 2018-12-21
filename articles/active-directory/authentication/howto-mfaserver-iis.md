@@ -71,4 +71,4 @@ Os IPs Confiáveis permitem que os usuários ignorem a Autenticação Multifator
 1. Na seção Autenticação IIS, clique na guia **IPs Confiáveis**.
 2. Clique em **Adicionar**.
 3. Quando a caixa de diálogo Adicionar IPs Confiáveis aparecer, selecione o botão de opção **IP Único**, **Intervalo de IP** ou **Sub-rede**.
-4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se for inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique em **OK**. A lista de autorizados agora foi adicionada.
+4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista de permissões. Se for inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique em **OK**. A lista de autorizados agora foi adicionada.

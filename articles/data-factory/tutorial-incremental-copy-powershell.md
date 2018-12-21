@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 08bce244dc4eafcd423123b1230fe4aa8b4ed04e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 09ba81e4d895afeccf41617039732ae3e72147d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092032"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972415"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -37,7 +37,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 ## <a name="overview"></a>Visão geral
 A seguir está diagrama da solução de alto nível: 
 
-![Carregar dados incrementalmente](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![Carregar dados incrementalmente](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 Aqui estão as etapas importantes ao criar essa solução: 
 
@@ -188,7 +188,7 @@ Observe os seguintes pontos:
     ```
 
 * Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções colaborador ou proprietário, ou um administrador da assinatura do Azure.
-* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [ Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
+* Para obter uma lista de regiões do Azure no qual o Data Factory está disponível no momento, selecione as regiões que relevantes para você na página a seguir e, em seguida, expanda **Análise** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os armazenamentos de dados (Armazenamento, Banco de Dados SQL, etc.) e serviços de computação (Azure HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
@@ -329,7 +329,7 @@ Nesta etapa, você cria conjuntos de dados para representar dados de origem e de
     ```
 
     > [!IMPORTANT]
-    > Esse trecho de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. A pasta de saída `incrementalcopy` será criada automaticamente se o contêiner não existir. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+    > Esse snippet de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. A pasta de saída `incrementalcopy` será criada automaticamente se o contêiner não existir. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Para criar o conjunto de dados SinkDataset, execute o cmdlet **Set-AzureRmDataFactoryV2Dataset**.
     

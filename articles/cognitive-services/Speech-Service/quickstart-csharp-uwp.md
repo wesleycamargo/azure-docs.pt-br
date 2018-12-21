@@ -1,21 +1,22 @@
 ---
-title: 'Início Rápido: Reconhecer a fala em C# em um aplicativo UWP usando o SDK do Serviço de Fala'
+title: 'Início Rápido: Reconhecer fala, C# (UWP) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer a fala em um aplicativo UWP usando o SDK do Serviço de Fala
+description: Neste artigo, você criará um aplicativo UWP (Plataforma Universal do Windows) em C# usando o SDK de Fala dos Serviços Cognitivos. Você transcreverá a fala em texto em tempo real por meio do microfone do dispositivo. O aplicativo é criado com o pacote NuGet do SDK de Fala e o Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218881"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104622"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de Fala
 
@@ -34,7 +35,7 @@ Você precisa de uma chave de assinatura do serviço de Fala para concluir este 
 
 1. Inicie o Visual Studio 2017.
 
-1. Verifique se a carga de trabalho **Desenvolvimento da Plataforma Universal do Windows** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Recursos** na barra de menus do Visual Studio para abrir o Instalador do Visual Studio. Se essa carga de trabalho já estiver habilitada, feche a caixa de diálogo. 
+1. Verifique se a carga de trabalho **Desenvolvimento da Plataforma Universal do Windows** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Recursos** na barra de menus do Visual Studio para abrir o Instalador do Visual Studio. Se essa carga de trabalho já estiver habilitada, feche a caixa de diálogo.
 
     ![Captura de tela do Instalador do Visual Studio, com a guia Cargas de Trabalho realçada](media/sdk/vs-enable-uwp-workload.png)
 

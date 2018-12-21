@@ -1,6 +1,6 @@
 ---
-title: O que é a classificação de segurança de identidade no Azure AD? - versão prévia | Microsoft Docs
-description: Saiba como você pode usar a classificação de segurança de identidade para melhorar a postura de segurança do seu locatário do Azure AD.
+title: O que é Classificação de segurança de identidade? – Azure Active Directory (versão prévia pública) | Microsoft Docs
+description: Instruções sobre como você pode usar a classificação de segurança de identidade para melhorar a postura de segurança do seu locatário do Azure AD.
 services: active-directory
 keywords: classificação de segurança de identidade, Azure AD, acesso seguro aos recursos da empresa
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224130"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092054"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>O que é classificação de segurança de identidade no Azure AD? - versão prévia
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>O que é a classificação de segurança de identidade no Azure Active Directory? (Versão prévia pública)
 
 Quão seguro é seu locatário do Azure AD? Se você não sabe como responder a essa pergunta, leia este artigo para saber como a classificação de segurança da identidade ajuda a monitorar e a melhorar sua postura de segurança de identidade. 
 

@@ -1,25 +1,24 @@
 ---
-title: 'Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks'
+title: 'Tutorial: Análise de sentimento em dados de transmissão usando o Azure Databricks'
 description: Aprenda a usar o Azure Databricks com os Hubs de Eventos e a API dos Serviços Cognitivos para executar a análise de sentimento nos dados de streaming em tempo quase real.
 services: azure-databricks
 author: lenadroid
+ms.author: alehall
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 10/23/2018
-ms.author: alehall
-ms.openlocfilehash: cf396dea6ee467267ea73379ea04026fc8cc53b2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 12/07/2018
+ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636570"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100167"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de streaming usando o Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimento em dados de transmissão usando o Azure Databricks
 
-Neste tutorial, você aprenderá a executar a análise de sentimento em dados de streaming em tempo quase real usando o Azure Databricks. Configure o sistema de ingestão de dados usando os Hubs de Eventos do Azure. Você pode consumir as mensagens dos Hubs de Eventos no Azure Databricks usando o conector de Hubs de Eventos do Spark. Finalmente, você deve usar as APIs dos Serviços Cognitivos da Microsoft para executar a análise de sentimento nos dados de streaming.
+Neste tutorial, você aprenderá a executar a análise de sentimento quase em tempo real em um fluxo dados usando o Azure Databricks. Configure o sistema de ingestão de dados usando os Hubs de Eventos do Azure. Você pode consumir as mensagens dos Hubs de Eventos no Azure Databricks usando o conector de Hubs de Eventos do Spark. Finalmente, você deve usar as APIs dos Serviços Cognitivos da Microsoft para executar a análise de sentimento nos dados de streaming.
 
 No final deste tutorial, você terá transmitido tweets do Twitter que têm o termo "Azure" neles e executado análise de sentimento nos tweets.
 
@@ -151,7 +150,7 @@ Neste tutorial, você usará as APIs do Twitter para enviar tweets aos Hubs de E
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obter uma chave de acesso dos Serviços Cognitivos
 
-Neste tutorial, você deve usar as [APIs de Análise de Texto dos Serviços Cognitivos da Microsoft](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimento em um fluxo de tweets em tempo quase real. Antes de usar as APIs, você deve criar uma conta dos Serviços Cognitivos da Microsoft no Azure e recuperar uma chave de acesso para usar as APIs de Análise de Texto.
+Neste tutorial, você usará as [APIs de Análise de Texto dos Serviços Cognitivos da Microsoft](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimento em um fluxo de tweets em tempo quase real. Antes de usar as APIs, é necessário criar uma conta dos Serviços Cognitivos da Microsoft no Azure e recuperar uma chave de acesso para usar as APIs de Análise de Texto.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -169,7 +168,7 @@ Neste tutorial, você deve usar as [APIs de Análise de Texto dos Serviços Cogn
     - Selecione a assinatura do Azure na qual a conta é criada.
     - Selecione um local do Azure.
     - Selecione um tipo de preço para o serviço. Para saber mais sobre preços dos Serviços Cognitivos, confira a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Especifique se deseja criar um novo grupo de recursos ou selecionar um existente.
+    - Especifique se deseja criar um grupo de recursos ou selecionar um existente.
 
     Selecione **Criar**.
 
@@ -206,7 +205,7 @@ Nesta seção, você criará dois blocos de notas no workspace do Databricks com
 
 ## <a name="send-tweets-to-event-hubs"></a>Enviar tweets para Hubs de Eventos
 
-No bloco de notas de **SendTweetsToEventHub**, cole o código a seguir e substitua o espaço reservado por valores do namespace de Hubs de Eventos e do aplicativo do Twitter que você criou anteriormente. Esse bloco de anotações transmite tweets com a palavra-chave “Azure” para os Hubs de Eventos em tempo real.
+No notebook **SendTweetsToEventHub**, cole o código a seguir e substitua o espaço reservado por valores do namespace de Hubs de Eventos e do aplicativo do Twitter criado anteriormente. Esse bloco de anotações transmite tweets com a palavra-chave “Azure” para os Hubs de Eventos em tempo real.
 
 ```scala
 import java.util._
@@ -313,7 +312,7 @@ val customEventhubParameters =
   EventHubsConf(connectionString)
   .setMaxEventsPerTrigger(5)
 
-val incomingStream = spark.readStream.format("eventhubs").option(customEventhubParameters.toMap).load()
+val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
 incomingStream.printSchema
 
@@ -396,7 +395,7 @@ Agora a saída é semelhante ao seguinte snippet de código:
     ...
     ...
 
-Agora transmitiu dados dos Hubs de Eventos do Azure para o Azure Databricks quase em tempo real usando o conector dos Hubs de Eventos para o Apache Spark. Para obter mais informações sobre como usar o conector dos Hubs de Eventos para o Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Agora você transmitiu dados dos Hubs de Eventos do Azure para o Azure Databricks quase em tempo real usando o conector dos Hubs de Eventos para o Apache Spark. Para obter mais informações sobre como usar o conector dos Hubs de Eventos para o Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Executar análise de sentimento em tweets
 
@@ -571,7 +570,7 @@ Você deverá algo semelhante ao seguinte snippet:
 
 Um valor perto **1** na coluna **Sentimento** sugere uma ótima experiência com o Azure. Um valor perto de **0** sugere problemas que os usuários enfrentam ao trabalhar com o Microsoft Azure.
 
-É isso! Usando o Azure Databricks, você transmitiu com êxito dados para os Hubs de eventos do Azure, consumiu os dados de streaming usando o conector dos Hubs de Eventos e executou análise de sentimento nos dados de streaming em tempo quase real.
+É isso! Usando o Azure Databricks, você transmitiu com êxito dados para os Hubs de Eventos do Azure, consumiu os dados de fluxo usando o conector dos Hubs de Eventos e executou análise de sentimento nos dados de streaming quse em tempo real.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

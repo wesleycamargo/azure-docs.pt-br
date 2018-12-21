@@ -1,6 +1,7 @@
 ---
-title: 'Início rápido: realizar uma pesquisa de imagem com Python – API de Pesquisa de Imagem do Bing'
-description: Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do Python envia uma consulta de pesquisa para a API e exibe os resultados brutos.
+title: 'Início Rápido: Pesquisar imagens – API REST de Pesquisa de Imagem do Bing e Python'
+titleSuffix: Azure Cognitive Services
+description: Use este Início Rápido para enviar solicitações de pesquisa de imagens para a API REST de Pesquisa de Imagem do Bing usando Python e receba respostas JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: a93a044279cccd883de5f946bb236cad4b088ae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314381"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261970"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Início Rápido: enviar consultas de pesquisa usando a API REST e Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Início Rápido: pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Python
 
 Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Imagem do Bing e receber uma resposta JSON. Este aplicativo simples do Python envia uma consulta de pesquisa para a API e exibe os resultados brutos.
 
@@ -33,7 +35,7 @@ Além disso, o código-fonte deste exemplo está disponível [no GitHub](https:/
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-quickstart"></a>Executando o início rápido
 

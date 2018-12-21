@@ -14,12 +14,12 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208859"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273112"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 
@@ -64,7 +64,7 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
 
 3. Siga as etapas em [cmdlets do Azure Active Directory para definir as configurações de grupo](groups-settings-cmdlets.md) para criar configurações de grupo para este locatário.
 
-### <a name="step-2-view-the-current-settings"></a>Etapa 2: exibir as configurações atuais
+### <a name="step-2-view-the-current-settings"></a>Etapa 2: Exiba as configurações atuais
 
 1. Exiba as configurações de política de nomenclatura atuais.
   
@@ -80,7 +80,7 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
   
 ### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Etapa 3: definir a política de nomenclatura e quaisquer palavras bloqueadas personalizadas
 
-1. Defina os prefixos e sufixos de nome de grupo no Azure AD PowerShell.
+1. Defina os prefixos e sufixos de nome de grupo no Azure AD PowerShell. Para o recurso funcionar corretamente, [GroupName] deve ser incluído na configuração.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -102,19 +102,19 @@ Se você for solicitado sobre como acessar um repositório não confiável, digi
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-1. Defina os prefixos e sufixos de nome de grupo no Azure AD PowerShell.
+1. Esvazie os prefixos e sufixos de nome de grupo no Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Defina as palavras bloqueadas personalizadas que você deseja restringir. O exemplo a seguir ilustra como você pode adicionar suas próprias palavras personalizadas.
+2. Esvazie as palavras bloqueadas personalizadas.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Salve as configurações para a nova política ser efetivada, como no exemplo a seguir.
+3. Salve as configurações.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

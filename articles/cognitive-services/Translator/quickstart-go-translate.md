@@ -1,113 +1,170 @@
 ---
-title: 'Início Rápido: Traduzir texto, Go - API de Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, Go – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com Go.
+description: Neste início rápido, você traduzirá texto de um idioma para outro usando a API de Tradução de Texto com Go em menos de 10 minutos.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/29/2018
+ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 53ca6c830d4e4fb80a47d498e4b033cee0f6f7a7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 21794d0a728e7baed7ec392fa448c98eb519576c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648302"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000403"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-go"></a>Início Rápido: Traduzir texto com a API REST de Tradução de Texto (Go)
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando Go
 
-Neste início rápido, você traduz o texto de um idioma para outro usando a API de Tradução de Texto.
+Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Go e a API REST de Tradução de Texto.
+
+Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará instalar a [distribuição do Go](https://golang.org/doc/install) para executar esse código. O exemplo de código usa apenas bibliotecas **principais**, portanto, não há dependências externas.
+Este início rápido requer:
 
-Para usar a API de Tradução de Texto, você também precisa de uma chave de assinatura. Veja [Como se inscrever para a API de Tradução de Texto](translator-text-how-to-signup.md).
+* [Go](https://golang.org/doc/install)
+* Uma chave de assinatura do Azure para a Tradução de Texto
 
-## <a name="translate-request"></a>Solicitação de Traduzir
+## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
-O código a seguir converte o texto de origem de um idioma para outro usando o método [Traduzir](./reference/v3-0-translate.md).
+Crie um novo projeto Go usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código para seu projeto em um arquivo denominado `translate-text.go`.
 
-1. Crie um novo projeto Go em seu editor de código favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
-4. Salve o arquivo com uma extensão ".go".
-5. Abra um prompt de comando em um computador com o Go instalado.
-6. Crie o arquivo, por exemplo: 'go build quickstart-translate.go'.
-7. Execute o arquivo, por exemplo: 'quickstart-translate'.
-
-```golang
-package translate
+```go
+package main
 
 import (
+    "bytes"
     "encoding/json"
     "fmt"
-    "io/ioutil"
+    "log"
     "net/http"
-    "strconv"
-    "strings"
-    "time"
+    "net/url"
+    "os"
 )
+```
 
+## <a name="create-the-main-function"></a>Criar a função principal
+
+Este exemplo tentará ler a chave da sua assinatura de Tradução de Texto da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se você não estiver familiarizado com as variáveis de ambiente,poderá definir `subscriptionKey` como uma cadeia de caracteres e comentar a instrução condicional.
+
+Copie este código em seu projeto:
+
+```go
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    const uriBase = "https://api.cognitive.microsofttranslator.com"
-    const uriPath = "/translate?api-version=3.0"
-
-    // Translate to German and Italian
-    const params = "&to=de&to=it"
-
-    const uri = uriBase + uriPath + params
-
-    const text = "Hello, world!"
-
-    r := strings.NewReader("[{\"Text\" : \"" + text + "\"}]")
-
-    client := &http.Client{
-        Timeout: time.Second * 2,
+    /*
+     * Read your subscription key from an env variable.
+     * Please note: You can replace this code block with
+     * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+     * want to use env variables.
+     */
+    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
+    if subscriptionKey == "" {
+       log.Fatal("Environment variable TRANSLATOR_TEXT_KEY is not set.")
     }
-
-    req, err := http.NewRequest("POST", uri, r)
-    if err != nil {
-        fmt.Printf("Error creating request: %v\n", err)
-        return
-    }
-
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.FormatInt(req.ContentLength, 10))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-
-    resp, err := client.Do(req)
-    if err != nil {
-        fmt.Printf("Error on request: %v\n", err)
-        return
-    }
-    defer resp.Body.Close()
-
-    body, err := ioutil.ReadAll(resp.Body)
-    if err != nil {
-        fmt.Printf("Error reading response body: %v\n", err)
-        return
-    }
-
-    var f interface{}
-    json.Unmarshal(body, &f)
-
-    jsonFormatted, err := json.MarshalIndent(f, "", "  ")
-    if err != nil {
-        fmt.Printf("Error producing JSON: %v\n", err)
-        return
-    }
-    fmt.Println(string(jsonFormatted))
+    /*
+     * This calls our translate function, which we'll
+     * create in the next section. It takes a single argument,
+     * the subscription key.
+     */
+    translate(subscriptionKey)
 }
 ```
 
-## <a name="translate-response"></a>Resposta de Traduzir
+## <a name="create-a-function-to-translate-text"></a>Criar uma função para traduzir texto
+
+Vamos criar uma função para traduzir texto. Esta função usará um único argumento, sua chave de assinatura de Tradução de Texto.
+
+```go
+func translate(subscriptionKey string) {
+    /*  
+     * In the next few sections, we'll add code to this
+     * function to make a request and handle the response.
+     */
+}
+```
+
+Em seguida, vamos construir a URL. A URL é criada usando os métodos `Parse()` e `Query()`. Você observará que os parâmetros são adicionados com o método `Add()`. Neste exemplo, você está traduzindo de inglês para alemão e italiano: `de` e `it`.
+
+Copie este código para a função `translate`.
+
+```go
+// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/translate?api-version=3.0")
+q := u.Query()
+q.Add("to", "de")
+q.Add("to", "it")
+u.RawQuery = q.Encode()
+```
+
+>[!NOTE]
+> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Traduzir](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+
+## <a name="create-a-struct-for-your-request-body"></a>Criar um struct para o corpo da solicitação
+
+Em seguida, crie uma estrutura anônima para o corpo da solicitação e codifique-o como JSON com `json.Marshal()`. Adicione este código à função `translate`.
+
+```go
+// Create an anonymous struct for your request body and encode it to JSON
+body := []struct {
+    Text string
+}{
+    {Text: "Hello, world!"},
+}
+b, _ := json.Marshal(body)
+```
+
+## <a name="build-the-request"></a>Criar a solicitação
+
+Agora que você codificou o corpo da solicitação como JSON, pode criar sua solicitação POST e chamar a API de Tradução de Texto.
+
+```go
+// Build the HTTP POST request
+req, err := http.NewRequest("POST", u.String(), bytes.NewBuffer(b))
+if err != nil {
+    log.Fatal(err)
+}
+// Add required headers to the request
+req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Content-Type", "application/json")
+
+// Call the Translator Text API
+res, err := http.DefaultClient.Do(req)
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+## <a name="handle-and-print-the-response"></a>Processar e imprimir a resposta
+
+Adicione este código à função `translate` para decodificar a resposta JSON e, em seguida, formate e imprima o resultado.
+
+```go
+// Decode the JSON response
+var result interface{}
+if err := json.NewDecoder(res.Body).Decode(&result); err != nil {
+    log.Fatal(err)
+}
+// Format and print the response to terminal
+prettyJSON, _ := json.MarshalIndent(result, "", "  ")
+fmt.Printf("%s\n", prettyJSON)
+```
+
+## <a name="put-it-all-together"></a>Colocar tudo isso junto
+
+É isso; você montou um programa simples que chamará a API de Tradução de Texto e retornará uma resposta JSON. Agora é hora de executar o programa:
+
+```console
+go run translate-text.go
+```
+
+Se você quiser comparar seu código com o nosso, o exemplo completo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
+## <a name="sample-response"></a>Resposta de exemplo
 
 Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo:
 
@@ -138,3 +195,13 @@ Explore pacotes Go para APIs de Serviços Cognitivos do [SDK do Azure para lingu
 
 > [!div class="nextstepaction"]
 > [Explore pacotes Go no GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+
+## <a name="see-also"></a>Consulte também
+
+Saiba como usar a API de Tradução de Texto para:
+
+* [Transliteração de texto](quickstart-go-transliterate.md)
+* [Identificar a linguagem pela entrada](quickstart-go-detect.md)
+* [Obter traduções alternativas](quickstart-go-dictionary.md)
+* [Obter uma lista de idiomas com suporte](quickstart-go-languages.md)
+* [Determinar o comprimento da frase em uma entrada](quickstart-go-sentences.md)

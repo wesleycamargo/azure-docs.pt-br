@@ -1,21 +1,22 @@
 ---
-title: Início Rápido do Python – alterar o modelo e treinar o aplicativo LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido do Python, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+title: Alterar, treinar aplicativo, Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido do Python, adicione enunciados de exemplo a um aplicativo de Automação Residencial e treine o aplicativo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6d05859977a7cba385877298405b9ce77034da68
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040169"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166346"
 ---
 # <a name="quickstart-change-model-using-python"></a>Início Rápido: Alterar o modelo usando Python
 
@@ -27,7 +28,7 @@ ms.locfileid: "47040169"
 * [Python 3.6](https://www.python.org/downloads/) ou posterior.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemplo de arquivo JSON de enunciados
 
@@ -46,7 +47,7 @@ Execute o aplicativo a partir de uma linha de comando com o Python 3.6.
 
 Chamar a API para adicionar enunciados sem argumentos adiciona um enunciado ao aplicativo sem treiná-lo.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ O exemplo a seguir mostra o resultado de uma solicitação bem-sucedida para tre
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {

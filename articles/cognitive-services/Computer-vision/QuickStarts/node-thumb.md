@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: gerar uma miniatura – REST, Node.js – Pesquisa Visual Computacional'
+title: 'Início Rápido: Gerar uma miniatura – REST, Node.js – Pesquisa Visual Computacional'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com Node.js.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 940d5f87e8e411d520c3d30f3e9f08e982162748
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d92849eae64e48cb2052b233b89c96ad702e622
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338583"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971055"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início Rápido: gerar uma miniatura usando a API REST e Node.js na Pesquisa Visual Computacional
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e Node.js na Pesquisa Visual Computacional
 
-Neste início rápido, você gerará uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+Neste início rápido, você gerará uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965540"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -43,7 +43,7 @@ Neste tutorial, você realizará os seguintes procedimentos:
 ## <a name="overview"></a>Visão geral
 A seguir está diagrama da solução de alto nível: 
 
-![Carregar dados incrementalmente](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Carregar dados incrementalmente](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Aqui estão as etapas importantes ao criar essa solução: 
 
@@ -172,7 +172,7 @@ END
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
-8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+8. No painel, você deve ver o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
@@ -287,7 +287,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 27. Na guia **Conexão**, siga estas etapas:
 
     1. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**. 
-    2. Para a parte da **pasta** do campo **Caminho do arquivo**, insira **adftutorial/fromonprem**. **adftutorial** é o nome do contêiner de blobs e **incrementalcopy** é o nome da pasta. Esse trecho de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy** se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob. .RunId, '.txt')`.
+    2. Para a parte da **pasta** do campo **Caminho do arquivo**, insira **adftutorial/fromonprem**. **adftutorial** é o nome do contêiner de blobs e **incrementalcopy** é o nome da pasta. Esse snippet de código supõe que você tenha um contêiner de blob denominado adftutorial no Armazenamento de Blobs. Crie o contêiner caso ele não exista ou defina-o com o nome de um contêiner existente. O Azure Data Factory cria automaticamente a pasta de saída **incrementalcopy** se ela não existir. Você também pode usar o botão **Procurar** para o **Caminho de arquivo** para navegar até uma pasta em um contêiner de blob. .RunId, '.txt')`.
     3. Para a parte do **nome do arquivo** do campo **Caminho do arquivo**, digite `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. Neste tutorial, o nome do arquivo é gerado dinamicamente pelo uso da expressão. Cada execução de pipeline possui uma ID exclusiva. A atividade de Cópia usa a ID de execução para gerar o nome do arquivo. 
 
         ![Conjunto de dados do coletor - configurações de conexão](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)

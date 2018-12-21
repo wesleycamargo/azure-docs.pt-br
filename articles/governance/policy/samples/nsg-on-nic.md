@@ -1,5 +1,5 @@
 ---
-title: Exemplo de política do Azure - NSG x em cada NIC
+title: Amostra – NSG X em cada NIC
 description: Essa política de amostra requer que um grupo de segurança de rede específico seja usado com todas as interfaces de rede virtual.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948291"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313472"
 ---
 # <a name="nsg-x-on-every-nic"></a>NSG x em cada NIC
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Revise mais amostras em [amostras da Política do Azure](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

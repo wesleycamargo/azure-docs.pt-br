@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web de página única do Azure Time Series Insights
+title: Criar um aplicativo Web de página única do Azure Time Series Insights | Microsoft Docs
 description: Saiba como criar um aplicativo Web de página única que consulta e processa dados de um ambiente TSI.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626748"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275832"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar um aplicativo Web de página única do Azure Time Series Insights
 
@@ -34,7 +35,7 @@ Você também precisará instalar o Visual Studio se ainda não o fez. Para este
 Conforme mencionado, o aplicativo de exemplo do TSI fornece a base para o design e o código usados neste tutorial. O código inclui o uso da biblioteca JavaScript de cliente do TSI. A biblioteca de cliente do TSI fornece uma abstração para duas categorias principais de API:
 
 - **Métodos de wrapper para chamar as APIs de consulta TSI**: APIs REST que permitem consultar dados TSI usando expressões baseadas em JSON. Os métodos estão organizados no namespace `TsiClient.server` da biblioteca.
-- **Métodos para criar e preencher os vários tipos de controles de gráfico**: métodos usados para visualizar os dados TSI em uma página Web. Os métodos estão organizados no namespace `TsiClient.ux` da biblioteca.
+- **Métodos para criar e popular os vários tipos de controles de criação de gráficos**: Métodos que são usados para visualizar os dados de TSI em uma página da Web. Os métodos estão organizados no namespace `TsiClient.ux` da biblioteca.
 
 Este tutorial também usa os dados do ambiente de TSI do aplicativo de exemplo. Para obter detalhes sobre a estrutura do aplicativo de exemplo do TSI e seu uso da biblioteca de cliente do TSI, consulte o tutorial [Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
@@ -103,7 +104,7 @@ Antes de compilar o aplicativo, você precisará registrá-lo no Azure AD. O reg
 
 1. Antes de publicar o aplicativo, você precisará atualizar partes do código JavaScript em **index.html**: 
 
-   a. Primeiro, altere os caminhos da referência do JavaScript e dos arquivos de folha de estilos no elemento `<head>`. Abra o arquivo **index.html** na solução do Visual Studio e localize as linhas de código JavaScript a seguir. Remova marcas de comentário nas três linhas abaixo de "LINKS DE RECURSOS DE PRODUÇÃO" e comente as três linhas abaixo de "LINKS DE RECURSOS DE DESENVOLVIMENTO":
+    a. Primeiro, altere os caminhos da referência do JavaScript e dos arquivos de folha de estilos no elemento `<head>`. Abra o arquivo **index.html** na solução do Visual Studio e localize as linhas de código JavaScript a seguir. Remova marcas de comentário nas três linhas abaixo de "LINKS DE RECURSOS DE PRODUÇÃO" e comente as três linhas abaixo de "LINKS DE RECURSOS DE DESENVOLVIMENTO":
    
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
@@ -139,7 +140,7 @@ Antes de compilar o aplicativo, você precisará registrá-lo no Azure AD. O reg
    > [!NOTE]
    > Vários campos nas caixas de diálogo a seguir são preenchidos com dados de sua assinatura do Azure. Por conta disso, pode levar alguns segundos até cada diálogo carregar completamente e você poder continuar.  
 
-   a. Clique com o botão direito do mouse no nó do projeto de site da Web no **Gerenciador de Soluções** e selecione **Publicar Aplicativo Web**:  
+    a. Clique com o botão direito do mouse no nó do projeto de site da Web no **Gerenciador de Soluções** e selecione **Publicar Aplicativo Web**:  
 
       ![VS – Publicar aplicativo Web no Gerenciador de Soluções](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
 
@@ -177,8 +178,8 @@ Antes de compilar o aplicativo, você precisará registrá-lo no Azure AD. O reg
 
 Condição/código de erro | DESCRIÇÃO
 ---------------------| -----------
-*AADSTS50011: nenhum endereço de resposta está registrado para o aplicativo.* | O registro do Azure AD não tem a propriedade "URL de resposta". Vá para a página **Configurações** / **URLs de Resposta** do registro de seu aplicativo do Azure AD. Verifique se a URL de **Logon** especificada na etapa 3 de [Registrar o aplicativo no Azure AD](#register-the-application-with-azure-ad) está presente. 
-*AADSTS50011: a URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: '<Application ID GUID>'.* | O `postLogoutRedirectUri` especificado na etapa 4.b de [Compilar e publicar o aplicativo Web](#build-and-publish-the-web-application) deve corresponder ao valor especificado na propriedade **Configurações** / **URLs de Resposta** no registro de seu aplicativo do Azure AD. Altere também a **URL de Destino** para usar `https` de acordo com a etapa 5.e de [Compilar e publicar o aplicativo Web](#build-and-publish-the-web-application).
+*AADSTS50011: Nenhum endereço de resposta está registrado para o aplicativo.* | O registro do Azure AD não tem a propriedade "URL de resposta". Vá para a página **Configurações** / **URLs de Resposta** do registro de seu aplicativo do Azure AD. Verifique se a URL de **Logon** especificada na etapa 3 de [Registrar o aplicativo no Azure AD](#register-the-application-with-azure-ad) está presente. 
+*AADSTS50011: A URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: '<Application ID GUID>'.* | O `postLogoutRedirectUri` especificado na etapa 4.b de [Compilar e publicar o aplicativo Web](#build-and-publish-the-web-application) deve corresponder ao valor especificado na propriedade **Configurações** / **URLs de Resposta** no registro de seu aplicativo do Azure AD. Altere também a **URL de Destino** para usar `https` de acordo com a etapa 5.e de [Compilar e publicar o aplicativo Web](#build-and-publish-the-web-application).
 O aplicativo Web é carregado, mas tem uma página de entrada somente texto e sem estilo, com uma tela de fundo branca. | Verifique se os caminhos discutidos na etapa 4.a de [Compilar e publicar o aplicativo Web](#build-and-publish-the-web-application) estão corretos. Se o aplicativo Web não puder localizar os arquivos .css, a página não será estilizada corretamente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

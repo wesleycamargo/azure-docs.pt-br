@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052692"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408044"
 ---
 # <a name="what-is-azure-batch-ai"></a>O que é a IA do Lote do Azure?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 A IA do Lote do Azure é um serviço gerenciado para ajudar cientistas de dados e pesquisadores de IA a treinar e testar o aprendizado de máquina e modelos de inteligência artificial em escala no Azure – sem precisar gerenciar uma infraestrutura complexa. Descreva os recursos de computação, os trabalhos que você deseja executar e onde armazenar as entradas e saídas do modelo, e a IA do Lote cuidará do resto.
 
@@ -49,13 +52,13 @@ Quando terminar de treinar um modelo, use a IA do Lote para testá-lo, se isso n
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Use os SDKs da IA do Lote, os scripts de linha de comando ou o portal do Azure para gerenciar recursos de computação e agendar trabalhos de treinamento e teste de IA: 
+Use os SDKs da IA do Lote, os scripts de linha de comando ou o portal do Azure para gerenciar recursos de computação e agendar trabalhos de treinamento e teste de IA: 
 
 * **Provisionar e dimensionar clusters de VMs** – escolha o número de nós (VMs) e selecione uma VM habilitada para GPU ou outro tamanho de VM que atenda às necessidades de treinamento. Aumente ou reduza o número de nós automaticamente ou manualmente para que você use recursos somente quando necessário. 
 
 * **Gerenciar dependências e contêineres** – por padrão, os clusters da IA do Lote executam imagens de VM do Linux que têm dependências previamente instaladas para executar estruturas de treinamento baseadas em contêiner em GPUs ou CPUs. Para uma configuração adicional, use imagens personalizadas ou execute scripts de inicialização.
 
-* **Distribuir dados** – escolha uma ou várias opções de armazenamento para gerenciar scripts e dados de entrada e saídas de trabalho: Arquivos do Azure, Armazenamento de Blobs do Azure ou um servidor NFS gerenciado. A IA do Lote também dá suporte a soluções de armazenamento personalizado, incluindo sistemas de arquivos paralelos de alto desempenho. Monte sistemas de arquivos de armazenamento nos nós de cluster e nos contêineres de trabalho usando arquivos de configuração simples.
+* **Distribuir dados** – escolha uma ou várias opções de armazenamento para gerenciar scripts e dados de entrada e saída de trabalho: Arquivos do Azure, Armazenamento de Blobs do Azure ou um servidor NFS gerenciado. A IA do Lote também dá suporte a soluções de armazenamento personalizado, incluindo sistemas de arquivos paralelos de alto desempenho. Monte sistemas de arquivos de armazenamento nos nós de cluster e nos contêineres de trabalho usando arquivos de configuração simples.
 
 * **Agendar trabalhos** – envie trabalhos para uma fila de trabalhos baseada em prioridades, a fim de compartilhar recursos de cluster e tirar proveito das VMs de baixa prioridade e das instâncias reservadas.
 

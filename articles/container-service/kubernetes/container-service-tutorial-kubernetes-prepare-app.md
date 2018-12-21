@@ -1,24 +1,27 @@
 ---
-title: Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo
+title: (PRETERIDO) Tutorial do Serviço de Contêiner do Azure – preparar aplicativo
 description: Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992373"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Criar imagens de contêiner a serem usadas com o Serviço de Contêiner do Azure
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(PRETERIDO) Criar imagens de contêiner a serem usadas com o Serviço de Contêiner do Azure
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada deste tutorial que usa o Serviço de Kubernetes do Azure, confira [Tutorial: Preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Neste tutorial, parte um de sete, um aplicativo de vários contêineres é preparado para uso em Kubernetes. As etapas concluídas incluem:  
 

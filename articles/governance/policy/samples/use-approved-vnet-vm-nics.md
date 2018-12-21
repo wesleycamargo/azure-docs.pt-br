@@ -1,5 +1,5 @@
 ---
-title: Amostra de Política do Azure - Use vNet aprovada para interfaces de rede de VM
+title: Exemplo – usar uma VNet aprovada para adaptadores de rede de VMs
 description: Essa política de amostra requer que as interfaces de rede usem uma rede virtual aprovada.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 2a0b3ac82d6ff8e7c6df850e5303c342cc269834
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9e99e6614a5ddfb1f692e5db99c95b3907051fa5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959165"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308781"
 ---
 # <a name="use-approved-vnet-for-vm-network-interfaces"></a>Usar vNet aprovada para adaptadores de rede de VM
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Revise mais amostras em [amostras da Política do Azure](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

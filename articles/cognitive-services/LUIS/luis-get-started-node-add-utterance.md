@@ -1,21 +1,22 @@
 ---
-title: Início Rápido do Node.js – alterar o modelo e treinar o aplicativo LUIS
+title: Alterar, treinar aplicativo, Node.js
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido do Node.js, adicione enunciados de exemplo a um aplicativo Automação de Página Inicial e treine o aplicativo. Exemplos de enunciados consistem em texto de conversa do usuário mapeado para uma intenção. Ao mostrar exemplos de enunciados para intenções, você ensina o LUIS quais tipos de textos fornecidos pelo usuário pertencem a qual intenção.
+description: Neste início rápido do Node.js, adicione enunciados de exemplo a um aplicativo Automação de Página Inicial e treine o aplicativo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036143"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164459"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Início Rápido: Alterar o modelo usando Node.js
 
@@ -28,7 +29,7 @@ ms.locfileid: "47036143"
 * Dependências NPM para este artigo: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemplo de arquivo JSON de enunciados
 
@@ -78,7 +79,7 @@ Execute o aplicativo a partir de uma linha de comando com Node.js.
 
 Chamar `npm start` adiciona enunciados, treina e obtém o status de treinamento.
 
-```CMD
+```console
 > npm start 
 ```
 

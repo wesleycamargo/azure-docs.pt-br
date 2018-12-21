@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure | Microsoft Docs
+title: Criar um aplicativo .NET Core com o Banco de Dados SQL – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como executar um aplicativo .NET Core no Serviço de Aplicativo do Azure, com uma conexão com um Banco de Dados SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,15 +13,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678654"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261000"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Criar um aplicativo Web .NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Compilar um aplicativo Web .NET Core e com Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-dotnetcore-sqldb-app.md).

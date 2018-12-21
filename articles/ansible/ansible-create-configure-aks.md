@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810813"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257532"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Serviço de Kubernetes do Azure no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar seu AKS (Serviço de Contêiner do Azure). Este artigo mostra como usar o Ansible para criar e configurar um cluster do Serviço de Kubernetes do Azure.
@@ -79,7 +79,7 @@ Para criar o cluster do AKS com o Ansible, salve o guia estratégico de exemplo 
 
 A saída do comando **ansible-playbook* é semelhante ao seguinte, mostrando que o cluster do AKS foi criado com êxito:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Para dimensionar o cluster do serviço Kubernetes do Azure com o Ansible, salve 
 
 A saída a seguir mostra que o cluster do AKS foi criado com êxito:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Para excluir o cluster do Serviço de Kubernetes do Azure com o Ansible, salve o
   ```
 
 A saída a seguir mostra que o cluster do AKS foi excluído com êxito:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************

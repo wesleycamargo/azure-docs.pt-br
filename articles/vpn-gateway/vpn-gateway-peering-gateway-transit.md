@@ -1,5 +1,5 @@
 ---
-title: 'Configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual: Azure Resource Manager | Microsoft Docs'
+title: 'Configure o tráfego do gateway de VPN para o emparelhamento de rede virtual: Azure Resource Manager | Microsoft Docs'
 description: Configure o tráfego do gateway de VPN para o emparelhamento de rede virtual.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195763"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098025"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual
 
@@ -79,7 +79,7 @@ Siga as instruções para criar ou atualizar os emparelhamentos de rede virtual 
     - Definir a opção "**Usar gateways remotos**"
     - Clique em "OK"
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. Se o emparelhamento já foi criado, navegue para o recurso de emparelhamento e, em seguida, habilite a opção "**Usar gateways remotos**" semelhante à captura de tela mostrada na etapa (1)
 
@@ -90,7 +90,7 @@ Siga as instruções para criar ou atualizar os emparelhamentos de rede virtual 
     - Definir a opção "**Permitir tráfego de gateway**"
     - Clique em "OK"
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. Se o emparelhamento já foi criado, navegue para o recurso de emparelhamento e, em seguida, habilite a opção "**Permitir tráfego de gateway**" semelhante à captura de tela mostrada na etapa (3)
 

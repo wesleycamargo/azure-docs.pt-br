@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854517"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995530"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
@@ -31,7 +31,7 @@ Para concluir este guia de início rápido:
 
 * Siga as instruções em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md) e não realize a etapa **Limpar recursos**. Este início rápido cria o aplicativo de funções e a função que você usa aqui.
 
-* Instale o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). Esta é uma ferramenta que você usará para examinar a fila de mensagens cuja sua associação de saída cria.
+* Instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). Esta é uma ferramenta que você usará para examinar a fila de mensagens cuja sua associação de saída cria.
 
 ## <a name="add-binding"></a>Adicionar uma associação de saída
 
@@ -67,7 +67,7 @@ Agora que você tem uma associação de saída definida, você precisa atualizar
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicionar o código que usa a associação de saída
 
-Nesta seção, você adiciona o código que grava uma mensagem na fila de saída. A mensagem inclui o valor que é passado para o gatilho HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta inclui `name=Azure`, a mensagem da fila será *Nome transmitido para a função: Azure*.
+Nesta seção, você adiciona o código que grava uma mensagem na fila de saída. A mensagem inclui o valor que é passado para o gatilho HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta incluir `name=Azure`, a mensagem da fila será *Nome transmitido para a função: Azure*.
 
 1. Selecione sua função para exibir o código de função no editor.
 
@@ -122,7 +122,7 @@ Uma nova fila denominada **outqueue** é criada na sua conta de armazenamento pe
 
 Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o conectado à conta de armazenamento sendo usada neste guia de início rápido.
 
-2. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), selecione o ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e selecione **Avançar**.
+2. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e selecione **Avançar**.
 
     ![Execute a ferramenta Gerenciador de Conta de Armazenamento.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ Ignore esta seção caso já tenha instalado o Gerenciador de Armazenamento e o 
 
 1. Expanda o nó **Filas** e selecione a fila denominada **outqueue**. 
 
-   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você invocou a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
+   A fila contém a mensagem que a associação de saída de fila criou quando você executou a função disparada por HTTP. Se você tiver invocado a função com o valor `name` padrão do *Azure*, a mensagem da fila será *Nome transmitido à função: Azure*.
 
     ![Mensagem da fila mostrada no Gerenciador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

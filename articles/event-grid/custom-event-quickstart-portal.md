@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados para a Grade de Eventos do Azure com o portal do Azure | Microsoft Docs
-description: Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento.
+title: Enviar eventos personalizados para o ponto de extremidade Web – Grade de Eventos, portal do Azure
+description: Use a Grade de Eventos do Azure e o portal do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040619"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093433"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados ao ponto de extremidade Web com o portal do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o portal do Azure para criar um tópico personalizado, assinar o tópico personalizado e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
@@ -45,7 +46,7 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 
    ![Etapas de início](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
+1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome – ele deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-". Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
 
    ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

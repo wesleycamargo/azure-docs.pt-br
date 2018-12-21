@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: gerar uma miniatura – REST, Python – Pesquisa Visual Computacional'
+title: 'Início Rápido: Gerar uma miniatura – REST, Python – Pesquisa Visual Computacional'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: b07c1f1556e69e95b2cd27f94423a6fb09fc44d4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d674b3aae171ff1c590724720a0e6ee3761e80ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853856"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956067"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: gerar uma miniatura usando a API REST e Python na Pesquisa Visual Computacional
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e Python na Pesquisa Visual Computacional
 
-Neste início rápido, você gerará uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a região de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
+Neste início rápido, você gerará uma miniatura de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), é possível gerar uma miniatura de uma imagem. Você especifica a altura e largura, que podem ser diferentes da proporção da imagem de entrada. A Pesquisa Visual Computacional usa o corte inteligente para identificar a área de interesse de modo inteligência e gerar as coordenadas de corte com base nessa região.
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 

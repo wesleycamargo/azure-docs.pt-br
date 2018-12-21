@@ -3,18 +3,18 @@ title: Visão geral dos Gêmeos Digitais do Azure | Microsoft Docs
 description: Saiba mais sobre os Gêmeos Digitais do Azure, uma solução de IoT do Azure para inteligência espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287363"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437105"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Visão geral dos Gêmeos Digitais do Azure
 
@@ -27,12 +27,12 @@ Com os Gêmeos Digitais do Azure, você pode consultar dados de um espaço físi
 - Otimizar o uso de espaço disponível de um escritório.
 
 Os Gêmeos Digitais do Azure se aplicam a todos os tipos de ambientes. Alguns exemplos incluem armazéns, escritórios, escolas, hospitais e bancos. Eles ainda podem ser usados em estádios, fábricas, estacionamentos, parques, grades inteligentes e cidades. Os Gêmeos Digitais do Azure podem ser usados nos seguintes cenários de exemplo para:
- 
-- Controlar a temperatura diária em vários estados. 
+
+- Controlar a temperatura diária em vários estados.
 - Monitorar caminhos de drone ocupados.
-- Identificar veículos autônomos. 
-- Analisar os níveis de ocupação de um prédio. 
-- Localizar a caixa registradora mais usada na sua loja. 
+- Identificar veículos autônomos.
+- Analisar os níveis de ocupação de um prédio.
+- Localizar a caixa registradora mais usada na sua loja.
 
 Seja qual for seu cenário comercial no mundo real, uma instância digital correspondente pode ser provisionada com os Gêmeos Digitais do Azure.
 
@@ -94,7 +94,7 @@ Os Gêmeos Digitais do Azure são úteis para representar o mundo físico e suas
 
 Os Gêmeos Digitais do Azure usam o Hub IoT do Azure para conectar os dispositivos de IoT e os sensores que mantêm tudo atualizado com o mundo físico. O diagrama abaixo mostra como os Gêmeos Digitais do Azure se relacionam com outros serviços de IoT do Azure.
 
-![Os Gêmeos Digitais do Azure são um serviço baseado no Hub IoT do Azure](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Os Gêmeos Digitais do Azure são um serviço baseado no Hub IoT do Azure][1]
 
 Para obter mais informações sobre o IoT, confira [Tecnologias e soluções de IoT do Azure](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -102,15 +102,18 @@ Para obter mais informações sobre o IoT, confira [Tecnologias e soluções de 
 
 Vá para uma breve demonstração sobre os Gêmeos Digitais do Azure:
 
-> [!div class="nextstepaction"]
-> [Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Início Rápido: Encontrar salas disponíveis usando os Gêmeos Digitais do Azure](./quickstart-view-occupancy-dotnet.md)
 
 Examine em detalhes um aplicativo de gerenciamento de instalações usando os Gêmeos Digitais do Azure:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial](./tutorial-facilities-setup.md)
 
 Saiba mais sobre os principais conceitos dos Gêmeos Digitais do Azure:
 
-> [!div class="nextstepaction"]
-> [Noções básicas sobre modelo de objeto e grafo de inteligência espacial dos Gêmeos Digitais](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Noções básicas sobre modelo de objeto e grafo de inteligência espacial dos Gêmeos Digitais](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

@@ -1,5 +1,5 @@
 ---
-title: Tutorial do Registro de Contêiner do Azure – Preparar um Registro de contêiner do Azure com replicação geográfica
+title: Tutorial – criar um registro do Docker com replicação geográfica no Azure
 description: Crie um Registro de contêiner do Azure, configure a replicação geográfica, prepare uma imagem do Docker e implante-a no Registro. Parte um de uma série de três partes.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854296"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261306"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: preparar um registro de contêiner do Azure com replicação geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um Registro de contêiner do Azure com replicação geográfica
 
 Um Registro de contêiner do Azure é um Registro do Docker privado implantado no Azure que você pode manter perto da rede para suas implantações. Nesse conjunto de três artigos tutoriais, você aprenderá a usar a replicação geográfica para implantar um aplicativo Web ASP.NET Core em execução em um contêiner do Linux em duas instâncias de [Aplicativos Web para Contêineres](../app-service/containers/index.yml). Você verá como o Azure implanta automaticamente a imagem em cada instância de aplicativo Web do repositório com replicação geográfica mais próximo.
 
@@ -49,7 +49,7 @@ Selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do 
 
 Configure seu novo Registro com as seguintes configurações:
 
-* **Nome do Registro**: crie um nome para o Registro exclusivo globalmente dentro do Azure e que contenha de 5 a 50 caracteres alfanuméricos
+* **Nome do registro**: crie um nome para o registro exclusivo globalmente dentro do Azure e que contenha de 5 a 50 caracteres alfanuméricos
 * **Grupo de recursos**: **Criar novo** > `myResourceGroup`
 * **Local**: `West US`
 * **Usuário administrador**: `Enable` (necessário para o aplicativo Web para os Contêineres efetuarem pull das imagens)

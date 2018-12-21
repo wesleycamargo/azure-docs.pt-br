@@ -4,17 +4,17 @@ description: Use a Política do Azure para impor padrões, atender requisitos de
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583073"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087024"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -52,19 +52,19 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 1. Selecione a reticências **Definição de política** para abrir a lista de definições. Você pode filtrar a definição da política **Tipo** para *Interna* para exibir todas as políticas e ler suas descrições.
 
-1. Selecione **Solicitar SQL Server versão 12.0**. Se você não conseguir localizá-la imediatamente, digite **exigir SQL Server versão 12.0** na caixa de pesquisa e pressione ENTER. Clique em **Selecionar** na parte inferior da página **Definições** depois de ter encontrado e selecionado a definição de política.
+1. Selecione **Solicitar SQL Server versão 12.0**. Se você não conseguir localizá-la imediatamente, digite **require sql server** na caixa de pesquisa, pressione ENTER e clique fora da caixa de pesquisa. Clique em **Selecionar** na parte inferior da página **Definições** depois de ter encontrado e selecionado a definição de política.
 
    ![Localizar uma política](../media/create-and-manage/select-available-definition.png)
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política selecionada, mas você pode alterá-lo. Para este exemplo, use *Exigir SQL Server versão 12.0*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre essa atribuição de política.  **Atribuído por** é preenchido automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
 
-1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Ela _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este tutorial, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Esta caixa _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists). Já que a política usada para este tutorial não tem esse efeito, deixe em branco. Para obter mais informações, confira [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Clique em **Atribuir**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementar uma nova política personalizada
 
-Agora que você atribuiu uma definição de política interna, você pode fazer muito mais com o Azure Policy. Em seguida, crie uma nova política personalizada para economizar custos, garantindo que as VMs criadas em seu ambiente não podem estar na série G. Dessa forma, sempre que um usuário na sua organização tentar criar uma VM na série G, a solicitação é negada.
+Agora que você atribuiu uma definição de política interna, você pode fazer muito mais com o Azure Policy. Em seguida, crie uma nova política personalizada para economizar custos, validando que as VMs criadas em seu ambiente não podem estar na série G. Dessa forma, sempre que um usuário na sua organização tentar criar uma VM na série G, a solicitação é negada.
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
@@ -72,7 +72,7 @@ Agora que você atribuiu uma definição de política interna, você pode fazer 
 
 1. Selecione **+ Definição de política** na parte superior da página. Isso abre a página **Definição de política**.
 
-1. Insira o seguinte:
+1. Insira as seguintes informações:
 
    - O grupo de gerenciamento ou a assinatura em que a definição de política é salva. Selecione usando o botão de reticências no **local da definição**.
 
@@ -110,7 +110,7 @@ Agora que você atribuiu uma definição de política interna, você pode fazer 
     }
     ```
 
-    O valor da *propriedade de campo* na política de regra deve ser um dos seguintes: Nome, Tipo, Local, Marcas ou um alias. Um exemplo de um alias pode ser `"Microsoft.Compute/VirtualMachines/Size"`.
+    A propriedade *field* na regra de política deve ser um dos seguintes valores: Nome, Tipo, Localização, Tags ou um alias. Um exemplo de um alias pode ser `"Microsoft.Compute/VirtualMachines/Size"`.
 
     Para exibir mais exemplos de política do Azure, confira [Exemplos do Azure Policy](../samples/index.md).
 
@@ -158,7 +158,7 @@ Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Criar uma definição de política com o PowerShell
 
-Antes de continuar com o exemplo do PowerShell, certifique-se de ter instalado a versão mais recente do Azure PowerShell. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornam um erro indicando que o parâmetro não pode ser encontrado.
+Antes de continuar com o exemplo do PowerShell, certifique-se de ter instalado a versão mais recente do Azure PowerShell. Parâmetros de política foram adicionados na versão 3.6.0. Se você tiver uma versão mais antiga, os exemplos retornarão um erro indicando que o parâmetro não pode ser encontrado.
 
 Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`.
 
@@ -322,7 +322,7 @@ Ele retorna todas as definições de política disponíveis, incluindo política
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Criar e atribuir uma definição de iniciativa
 
-Com uma definição de iniciativa, você pode agrupar várias definições de política para alcançar uma meta geral. Você cria uma definição de iniciativa para garantir que os recursos dentro do escopo da definição fiquem em conformidade com as definições de política que compõem a definição da iniciativa. Para obter mais informações sobre definições de iniciativas, consulte [Visão Geral da Política do Azure](../overview.md).
+Com uma definição de iniciativa, você pode agrupar várias definições de política para alcançar uma meta geral. Você cria uma definição de iniciativa para validar que os recursos dentro do escopo da definição fiquem em conformidade com as definições de política que compõem a definição da iniciativa. Para obter mais informações sobre definições de iniciativas, consulte [Visão Geral da Política do Azure](../overview.md).
 
 ### <a name="create-an-initiative-definition"></a>Criar uma definição de iniciativa
 
@@ -338,7 +338,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Insira o  **Nome** e a **Descrição** da iniciativa.
 
-   Este exemplo garante os recursos estão em conformidade com as definições de política sobre como ficar seguro. Atribua à iniciativa o nome de **Manter Segurança** e defina a descrição como: **Esta iniciativa foi criada para lidar com todas as definições de política associadas à proteção de recursos**.
+   Este exemplo valida os recursos estão em conformidade com as definições de política sobre como ficar seguro. Dê à iniciativa o nome **Ficar seguro** e defina a descrição como: **Esta iniciativa foi criada para lidar com todas as definições de política associadas à proteção de recursos**.
 
 1. Para a **Categoria**, escolha entre as opções existentes ou crie uma nova categoria.
 
@@ -354,7 +354,7 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
    ![Definições de iniciativa](../media/create-and-manage/initiative-definition-2.png)
 
-1. Se uma definição de política sendo adicionada à iniciativa tiver parâmetros, eles serão mostrados sob o nome da política na área **Políticas e Parâmetros**. O _valor_ pode ser definido como 'Definir valor' (embutido em código para todas as atribuições dessa iniciativa) ou 'Usar a iniciativa de parâmetro' (definir durante cada atribuição de iniciativa). Se 'Definir valor' for selecionado, a lista suspensa à direita de _Valores_ permitirá inserir ou selecionar os valores desejados. Se 'Usar Parâmetro de Iniciativa' estiver selecionado, uma nova seção de **Parâmetros de iniciativa** será exibida, permitindo que você defina o parâmetro que será definido durante a atribuição de iniciativa. Os valores permitidos nesse parâmetro de iniciativa podem restringir ainda mais o que pode ser definido durante a atribuição da iniciativa.
+1. Se uma definição de política sendo adicionada à iniciativa tiver parâmetros, eles serão mostrados sob o nome da política na área **Políticas e Parâmetros**. O _valor_ pode ser definido como 'Definir valor' (embutido em código para todas as atribuições dessa iniciativa) ou 'Usar a iniciativa de parâmetro' (definir durante cada atribuição de iniciativa). Se 'Definir valor' for selecionado, a lista suspensa à direita de _Valores_ permitirá inserir ou selecionar os valores. Se 'Usar Parâmetro de Iniciativa' estiver selecionado, uma nova seção de **Parâmetros de iniciativa** será exibida, permitindo que você defina o parâmetro que será definido durante a atribuição de iniciativa. Os valores permitidos nesse parâmetro de iniciativa podem restringir ainda mais o que pode ser definido durante a atribuição da iniciativa.
 
    ![Parâmetros da definição de iniciativa](../media/create-and-manage/initiative-definition-3.png)
 
@@ -367,23 +367,23 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 1. Selecione **Definições** em **Criação** no lado esquerdo da página Azure Policy.
 
-1. Localize a definição de iniciativa **Manter Segurança** que você criou anteriormente e clique nela. Selecione **Atribuir** na parte superior da página para abrir a página **Manter Segurança: atribuir iniciativa**.
+1. Localize a definição de iniciativa **Manter Segurança** que você criou anteriormente e clique nela. Selecione **Atribuir** na parte superior da página para abrir a página **Ficar seguro: atribuir iniciativa**.
 
    ![Atribuir uma definição](../media/create-and-manage/assign-definition.png)
 
-   Como alternativa, você pode clicar com o botão direito na linha selecionada ou clicar nas reticências no final da linha de um menu contextual.  Em seguida, selecione **Atribuir**.
+   Você também pode clicar com o botão direito do mouse na linha selecionada ou clicar nas reticências no final da linha de um menu contextual.  Em seguida, selecione **Atribuir**.
 
    ![Clique com o botão direito em uma linha](../media/create-and-manage/select-right-click.png)
 
-1. Preencha a página **Fique seguro: Atribuir iniciativa**, inserindo as informações de exemplo a seguir. Você pode usar suas próprias informações.
+1. Preencha a página **Ficar seguro: atribuir iniciativa** inserindo as informações de exemplo a seguir. Você pode usar suas próprias informações.
 
-   - Escopo: O grupo de gerenciamento ou a assinatura na qual você salvou a iniciativa se torna o padrão.  Você pode alterar o escopo para atribuir a iniciativa para um grupo de recursos ou assinatura dentro do local de salvamento.
+   - Escopo: o grupo de gerenciamento ou a assinatura na qual você salvou a iniciativa se torna o padrão.  Você pode alterar o escopo para atribuir a iniciativa para um grupo de recursos ou assinatura dentro do local de salvamento.
    - Exclusões: configure todos os recursos dentro do escopo para evitar que a atribuição iniciativa seja aplicada a eles.
-   - Definição de iniciativa e o nome de atribuição: Fique seguro (preenchido como nome da iniciativa que está sendo atribuída).
-   - Descrição: esta atribuição de iniciativa é voltada para impor este grupo de definições de política à assinatura.
+   - Definição de iniciativa e o nome da Atribuição: Ficar seguro (previamente preenchido como nome da iniciativa que está sendo atribuída).
+   - Descrição: essa atribuição de iniciativa é voltada para impor este grupo de definições de política à assinatura.
    - Atribuído por: preenchido automaticamente com base em quem está conectado. Esse campo é opcional, portanto, valores personalizados podem ser inseridos.
 
-1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Ela _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este tutorial, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Esta caixa _precisa_ ser marcada quando a política ou iniciativa que está sendo atribuída inclui uma política com o efeito [deployIfNotExists](../concepts/effects.md#deployifnotexists). Já que a política usada para este tutorial não tem esse efeito, deixe em branco. Para obter mais informações, confira [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Clique em **Atribuir**.
 
@@ -403,20 +403,20 @@ Com uma definição de iniciativa, você pode agrupar várias definições de po
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Isentar um recurso negado ou sem conformidade usando a Exclusão
 
-Seguindo o exemplo acima, após atribuir a definição de política para exigir o SQL Server versão 12.0, um SQL Server criado com uma versão diferente da 12.0 seria recusado. Nesta seção, você verá como resolver uma tentativa negada de criar um SQL Server solicitando a exclusão de um grupo de recurso único. A exclusão impede a imposição da política (ou iniciativa) desse recurso.
+Seguindo o exemplo acima, após atribuir a definição de política para exigir o SQL Server versão 12.0, um SQL Server criado com uma versão diferente da 12.0 seria recusado. Nesta seção, você verá como resolver uma solicitação negada de criar um SQL Server solicitando a exclusão de um grupo de recursos único. A exclusão impede a imposição da política (ou iniciativa) desse recurso.
 No exemplo a seguir, qualquer versão do SQL Server pode ser em um único grupo de recursos. Uma exclusão pode ser aplicada a uma assinatura, um grupo de recursos, ou você pode restringir a exclusão a recursos individuais.
 
-Uma implantação impedida devido a uma política atribuída ou iniciativa pode ser exibida em dois locais:
+Uma implantação impedida por uma política atribuída ou iniciativa pode ser exibida em dois locais:
 
-- No grupo de recursos direcionado pela implantação: selecione **Implantações** no lado esquerdo da página e clique em **Nome da implantação** da implantação com falha. O recurso que foi negado é listado com um status de _Proibido_. Para determinar a política ou iniciativa e atribuição que negou o recurso, clique em **Falhou. Clique aqui para obter detalhes ->** na página Visão geral da implantação. Uma janela será aberta no lado direito da página com as informações do erro. Em **Detalhes do Erro** estão os GUIDs dos objetos da política selecionada.
+- No grupo de recursos direcionado pela implantação: Selecione **Implantações** no lado esquerdo da página e, em seguida, clique no **Nome da Implantação** da implantação com falha. O recurso que foi negado é listado com um status de _Proibido_. Para determinar a política ou iniciativa e atribuição que negou o recurso, clique em **Falhou. Clique aqui para obter detalhes ->** na página Visão geral da implantação. Uma janela será aberta no lado direito da página com as informações do erro. Em **Detalhes do Erro** estão os GUIDs dos objetos da política selecionada.
 
   ![Implantação negada pela atribuição de política](../media/create-and-manage/rg-deployment-denied.png)
 
-- Na página de política do Azure: selecione **Conformidade** no lado esquerdo da página e clique em **Exigir SQL Server política versão 12.0**. Na página que é aberta, você verá um aumento na conta **Negar**. Na guia **Eventos**, você também observa a tentativa de implantação que foi negada pela política.
+- Na página do Azure Policy: selecione **Conformidade** no lado esquerdo da página e clique em **Exigir SQL Server política versão 12.0**. Na página que é aberta, você verá um aumento na conta **Negar**. Na guia **Eventos**, você também observa a tentativa de implantação que foi negada pela política.
 
   ![Visão geral de conformidade de uma política atribuída](../media/create-and-manage/compliance-overview.png)
 
-Neste exemplo, Trent Baker, um dos especialistas em Virtualização da Contoso, estava fazendo o trabalho necessário. É necessário conceder a ele uma exceção, mas nós não desejamos  servidores que não sejam da versão 12.0 SQL em qualquer grupo de recursos. Criamos um novo grupo de recursos, **SQLServers_Excluded** e agora concederão uma exceção a essa atribuição de política.
+Neste exemplo, Trent Baker, um dos especialistas de virtualização sênior da Contoso, estava fazendo o trabalho necessário. É necessário conceder a Trent uma exceção, mas nós não desejamos servidores que não sejam da versão 12.0 SQL em qualquer grupo de recursos. Criamos um novo grupo de recursos, **SQLServers_Excluded** e agora concederão uma exceção a essa atribuição de política.
 
 ### <a name="update-assignment-with-exclusion"></a>Atribuição de atualização com exclusão
 
@@ -433,11 +433,11 @@ Neste exemplo, Trent Baker, um dos especialistas em Virtualização da Contoso, 
 
 1. Clique em **Selecionar** e em **Salvar**.
 
-Nesta seção, você verá como resolver uma tentativa negada de criar um SQL Server solicitando a exclusão de um grupo de recurso único.
+Nesta seção, você resolveu a solicitação negada criando uma exclusão em um único grupo de recursos.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuções ou definições criadas acima:
+Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seguir para excluir qualquer uma das atribuições ou definições criadas acima:
 
 1. Selecione **Definições** (ou **Atribuições** se você estiver tentando excluir uma atribuição) em **Criação** no lado esquerdo da página Azure Policy.
 
@@ -447,7 +447,7 @@ Se você estiver trabalhando com os recursos deste tutorial, use as etapas a seg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você fez o seguinte com sucesso:
+Neste tutorial, você realizou as seguintes tarefas com sucesso:
 
 > [!div class="checklist"]
 > - Atribuiu uma política para impor uma condição para os recursos que você criar no futuro

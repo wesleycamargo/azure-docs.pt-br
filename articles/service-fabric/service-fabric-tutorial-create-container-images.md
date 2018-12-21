@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947526"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313778"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster do Service Fabric do Linux
 
@@ -208,7 +208,7 @@ Na conclusão do tutorial, a imagem de contêiner foi armazenada em uma instânc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, foi efetuado pull de um aplicativo do Github e as imagens de contêiner foram criadas e enviadas por push para um Registro. As etapas a seguir foram concluídas:
+Neste tutorial, foi efetuado pull de um aplicativo do GitHub e as imagens de contêiner foram criadas e enviadas por push para um Registro. As etapas a seguir foram concluídas:
 
 > [!div class="checklist"]
 > * Clonar a origem do aplicativo do GitHub

@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058066"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408622"
 ---
 # <a name="tutorial-train-a-distributed-model-with-horovod"></a>Tutorial: Treinar um modelo distribuído com o Horovod
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Neste tutorial, você treinará um modelo de aprendizado profundo distribuído executando-o em paralelo por vários nós em um cluster da IA do Lote. A IA do Lote é um serviço gerenciado para treinar modelos de IA e de aprendizado de máquina em grande escala em clusters de GPUs do Azure. 
 

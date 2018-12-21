@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679895"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184977"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -82,48 +82,24 @@ Clique em qualquer lugar na atualização para abrir o painel **Pesquisa de Logs
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Nesta etapa, você aprende a configurar um alerta para informar quando atualizações tiverem sido implantadas com êxito por meio de uma consulta do Log Analytics ou do acompanhamento do runbook mestre para o Gerenciamento de Atualizações para as implantações que falharam.
+Nesta etapa, você aprenderá a configurar um alerta para informar o status da implantação de uma atualização.
 
 ### <a name="alert-conditions"></a>Condições de alerta
 
-Para cada tipo de alerta, há condições diferentes que precisam ser definidas.
+Em sua Conta de Automação, em **Monitoramento**, acesse **Alertas** e, em seguida, clique em **+ Nova regra de alerta**.
 
-#### <a name="log-analytics-query-alert"></a>Alerta de consulta do Log Analytics
+Sua Conta de Automação já está selecionada como o recurso. Se quiser alterá-lo, você poderá clicar em **Selecionar** e, na página **Selecionar um recurso**, selecionar **Contas de Automação** na lista suspensa **Filtrar por tipo de recurso**. Selecione sua Conta de automação, depois selecione **Concluído**.
 
-Para implantações bem-sucedidas, é possível criar um alerta com base em uma consulta do Log Analytics. Para implantações com falha, é possível usar as etapas do [Alerta do runbook](#runbook-alert) para alertar quando o runbook mestre que orquestra as implantações de atualização falhar. Você pode programar uma consulta personalizada para outros alertas a fim de atender a vários cenários diferentes.
+Clique em **Adicionar condição** para selecionar o sinal adequado para sua implantação de atualização. A tabela a seguir mostra os detalhes dos dois sinais disponíveis para implantações de atualização:
 
-No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**.
+|Nome do sinal|Dimensões|DESCRIÇÃO|
+|---|---|---|
+|**Total de execuções da implantação de atualização**|– Nome da implantação de atualização</br>– Status|Esse sinal é usado para alertar quanto ao status geral de uma implantação de atualização.|
+|**Total de execuções de computador da implantação de atualização**|– Nome da implantação de atualização</br>– Status</br>– Computador de destino</br>– ID de execução da implantação de atualização|Esse sinal é usado para alertar quanto ao status de uma implantação de atualização voltada para computadores específicos.|
 
-Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu workspace do Log Analytics e selecione **Concluído**.
-
-![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
-
-Selecione **Adicionar critérios**.
-
-Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de logs personalizada**. Insira a seguinte consulta na caixa de texto **Consulta de pesquisa**:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Essa consulta retorna os computadores e a atualização, execute o nome que foi concluída no período de tempo especificado.
-
-Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado, selecione **Concluído**.
+Para os valores de dimensão, selecione um valor válido na lista. Se o valor que você está procurando não estiver na lista, clique no sinal **\+** ao lado da dimensão e digite o nome personalizado. Em seguida, você pode selecionar o valor desejado a ser procurado. Se quiser selecionar todos os valores de uma dimensão, clique no botão **Selecionar \***. Se você não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
 
 ![Configurar sinal lógico](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Alerta de runbook
-
-Para implantações com falha, você deve alertar sobre a falha do runbook mestre.
-No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**.
-
-Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de automação**. Selecione sua Conta de automação, depois selecione **Concluído**.
-
-Para **Nome do Runbook**, clique no sinal **\+** entre e insira **MicrosoftOMSComputers Patch** como um nome personalizado. Para **Status**, escolha **Falha** ou clique no sinal **\+** para inserir a **Falha**.
-
-![Configurar a lógica de sinal para runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado, selecione **Concluído**.
 
@@ -133,7 +109,7 @@ Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o
 
 ![Configurar sinal lógico](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Em **3. Defina o grupo de ação** e selecione **Novo grupo de ação**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Em **Grupos de ações**, selecione **Criar Novo**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
 Na caixa **Nome do grupo de ação**, digite um nome para o alerta e um nome curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 
@@ -155,13 +131,13 @@ Para agendar uma nova implantação de atualização para a VM, vá para **Geren
 
 Em **Nova implantação de atualização**, especifique as seguintes informações:
 
-* **Nome**: insira um nome exclusivo para a implantação da atualização.
+* **Nome**: insira um nome exclusivo para a implantação de atualização.
 
-* **Sistema operacional**: escolha o sistema operacional de destino para a implantação de atualização.
+* **Sistema operacional**: selecione o sistema operacional de destino para a implantação de atualização.
 
-* **Grupos para atualizar (versão prévia)**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+* **Grupos para atualizar (versão prévia)**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 
-* **Computadores para atualização**: selecione uma Pesquisa salva, um Grupo importado ou selecione Computador na lista suspensa e selecione computadores individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
 
 * **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluiu na implantação. Para este tutorial, deixe todos os tipos selecionados.
 
@@ -174,16 +150,16 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
    Para obter uma descrição dos tipos de classificação, consulte [classificações de atualização](automation-update-management.md#update-classifications).
 
-* **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
+* **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para mais informações sobre como a inclusão é tratada, consulte o [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
-* **Agendar configurações**: isso abre o painel **Agendar configurações**. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
+* **Configurações da agenda**: O painel **Configurações da agenda** é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
    Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e selecione **OK**. Isso configura um agendamento recorrente.
 
-* **Pré-scripts + pós-scripts**: selecione os scripts a serem executados antes e após sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
-* **Janela de manutenção (minutos)**: deixe o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
+* **Pré-scripts + pós-scripts**: Selecione os scripts a serem executados antes e depois de sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
+* **Janela de manutenção (minutos)**: Mantenha o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
-* **Opções de reinicialização**: essa configuração determina como a reinicializações deve ser tratada. As opções disponíveis são:
+* **Opções de reinicialização**: essa configuração determina como reinicializações devem ser tratadas. As opções disponíveis são:
   * Reinicialização, se necessário (Padrão)
   * Sempre reinicializar
   * Nunca reinicializar
@@ -210,9 +186,9 @@ Em **Resultados da atualização** há um resumo do número total de atualizaç�
 
 A lista a seguir mostra os valores disponíveis:
 
-* **Não foi tentada**: a atualização não foi instalada devido a tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Nenhuma tentativa**: a atualização não foi instalada devido a tempo suficiente disponível com base na duração da janela de manutenção definida.
 * **Êxito**: a atualização foi bem-sucedida.
-* **Falha**: a atualização falhou.
+* **Falha**: falha na atualização.
 
 Selecione **Todos os logs** para ver todas as entradas de log que a implantação criou.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Python'
+title: 'Início Rápido: Executar uma pesquisa de notícias com Python – API REST de Pesquisa de Notícias do Bing'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Notícias do Bing.
+description: Use este Início Rápido para enviar uma solicitação para a API REST de Pesquisa de Notícias do Bing usando Python e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 738b139cb2070f2244442311d3670757caac6541
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 8ce8353df9a6f8354c56d9c9115645c0b7f2136a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308810"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251650"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-python"></a>Início Rápido para a API de Pesquisa de Notícias do Bing com o Python
+# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando Python e a API REST de Pesquisa de Notícias do Bing
+
 Este passo a passo demonstra um exemplo simples de como chamar a API de Pesquisa de Notícias do Bing e o pós-processamento do objeto JSON resultante. Para obter mais informações, confira [Documentação da Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
 
 Execute este exemplo como um Jupyter Notebook em [MyBinder](https://mybinder.org) clicando na notificação de inicialização do Associador: 
@@ -26,7 +28,7 @@ Execute este exemplo como um Jupyter Notebook em [MyBinder](https://mybinder.org
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisa da chave de acesso fornecida quando ativar sua avaliação gratuita.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Você precisa da chave de acesso fornecida quando ativar sua avaliação gratuita.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-walkthrough"></a>Executando o passo a passo
 Primeiro, defina `subscription_key` com a chave de API do serviço de API do Bing.

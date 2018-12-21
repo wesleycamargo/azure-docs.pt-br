@@ -128,7 +128,7 @@ A nova seção tem preços nessas novas moedas. Depois que todos os clientes for
 
 Você tem até 1º de novembro de 2018 para definir um novo preço para as regiões nas quais a moeda de liquidação está mudando. Você não poderá aumentar o preço para as regiões nas quais a moeda de liquidação não está sendo alterada. A seguir estão as regiões nas quais a moeda está sendo alterada:
 
-| País                  | Código ISO2 | Moeda de cobrança simplificada |
+| País/Região                  | Código ISO2 | Moeda de cobrança simplificada |
 |--------------------------|-----------|-----------------------------|
 | **Argélia**              | DZ        | USD                         |
 | **Argentina**            | AR        | USD                         |

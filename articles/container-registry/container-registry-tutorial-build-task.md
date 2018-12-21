@@ -1,21 +1,21 @@
 ---
-title: Tutorial – Automatizar builds de imagem de contêiner com as Tarefas do Registro de Contêiner do Azure
-description: Neste tutorial, você aprenderá como configurar uma tarefa para disparar builds de imagem de contêiner automaticamente na nuvem quando você confirmar o código-fonte em um repositório Git.
+title: Tutorial – automatizar builds de imagem de contêiner – Tarefas do Registro de Contêiner do Azure
+description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registro de Contêiner do Azure para disparar builds de imagem de contêiner automaticamente na nuvem quando você confirmar o código-fonte em um repositório Git.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857220"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436238"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Tutorial: automatizar builds de imagem de contêiner com as Tarefas do Registro de Contêiner do Azure
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar builds de imagem de contêiner na nuvem ao confirmar o código-fonte
 
 Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as Tarefas do ACR são compatíveis com builds de imagem de contêiner do Docker com a *tarefa de build*. Neste tutorial, você usará a CLI do Azure para criar uma tarefa que dispara automaticamente os builds de imagem na nuvem quando você confirma o código-fonte em um repositório Git.
 
@@ -41,7 +41,7 @@ Este tutorial presume que você já tenha concluído as tarefas no [tutorial ant
 
 ### <a name="container-registry"></a>Registro de contêiner
 
-Você deve ter um registro de contêiner do Azure em sua assinatura do Azure para concluir este tutorial. Se você precisar de um registro, consulte o [tutorial anterior](container-registry-tutorial-quick-task.md) ou [Início Rápido: criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md).
+Você deve ter um registro de contêiner do Azure em sua assinatura do Azure para concluir este tutorial. Se você precisar de um registro, confira o [tutorial anterior](container-registry-tutorial-quick-task.md) ou o [Início Rápido: Criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>Visão geral das Tarefas do ACR
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

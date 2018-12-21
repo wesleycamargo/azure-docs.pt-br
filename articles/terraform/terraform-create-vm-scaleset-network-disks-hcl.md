@@ -9,22 +9,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4784672364e2bdf44f0415ab4e1e386a5a80076b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228395"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313047"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
-O [conjunto de dimensionamento de máquinas virtuais do Azure](/azure/virtual-machine-scale-sets) permite criar e gerenciar um grupo de máquinas virtuais com balanceamento de carga idênticas, onde o número de instâncias de máquinas virtuais pode aumentar ou diminuir automaticamente em resposta à demanda ou a um cronograma definido. 
+O [conjunto de dimensionamento de máquinas virtuais do Azure](/azure/virtual-machine-scale-sets) permite criar e gerenciar um grupo de máquinas virtuais com balanceamento de carga idênticas, onde o número de instâncias de máquinas virtuais pode aumentar ou diminuir automaticamente em resposta à demanda ou a um cronograma definido.
 
 Neste tutorial, você aprenderá como usar o [Azure Cloud Shell](/azure/cloud-shell/overview) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Configurar uma implantação do Terraform
-> * Usar variáveis e saídas para a implantação do Terraform 
+> * Usar variáveis e saídas para a implantação do Terraform
 > * Criar e implantar a infraestrutura de rede
 > * Criar e implantar um conjunto de dimensionamento de máquinas virtuais e anexá-lo à rede
 > * Criar e implantar um jumpbox para se conectar às VMs via SSH
@@ -34,11 +34,11 @@ Neste tutorial, você aprenderá como usar o [Azure Cloud Shell](/azure/cloud-sh
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Instale o Terraform**: siga as instruções no artigo, [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Instalar o Terraform**: Siga as instruções no artigo [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Crie um par de chaves SSH**: se você ainda não tiver um par de chaves SSH, siga as instruções no artigo, [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Crie um par de chaves SSH**: Se você ainda não tiver um par de chaves SSH, siga as instruções no artigo, [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Crie a estrutura de diretórios
 
@@ -122,7 +122,8 @@ No Azure Cloud Shell, execute as seguintes etapas:
 
 1. Entre no modo de inserção selecionando a tecla I.
 
-1. Cole o código a seguir no editor para expor o FQDN (nome de domínio totalmente qualificado) para as máquinas virtuais. :
+1. Cole o código a seguir no editor para expor o FQDN (nome de domínio totalmente qualificado) para as máquinas virtuais.
+:
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,9 +140,9 @@ No Azure Cloud Shell, execute as seguintes etapas:
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>Definir a infraestrutura de rede em um modelo
-Nesta seção, você cria a infraestrutura de rede a seguir em um novo grupo de recursos do Azure: 
+Nesta seção, você cria a infraestrutura de rede a seguir em um novo grupo de recursos do Azure:
 
-  - Uma VNET (rede virtual) com o espaço de endereço de 10.0.0.0/16 
+  - Uma VNET (rede virtual) com o espaço de endereço de 10.0.0.0/16
   - Uma sub-rede com o espaço de endereço de 10.0.2.0/24
   - Dois endereços IP públicos. Um usado pelo balanceador de carga do conjunto de dimensionamento de máquinas virtuais, outro usado para conectar ao jumpbox SSH.
 
@@ -155,7 +156,7 @@ No Azure Cloud Shell, execute as seguintes etapas:
 
 1. Entre no modo de inserção selecionando a tecla I.
 
-1. Cole o código a seguir no final do arquivo para expor o FQDN (nome de domínio totalmente qualificado) para as máquinas virtuais. 
+1. Cole o código a seguir no final do arquivo para expor o FQDN (nome de domínio totalmente qualificado) para as máquinas virtuais.
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -210,7 +211,7 @@ Usando o Azure Cloud Shell no diretório em que você criou os arquivos de confi
 1. Inicialize o Terraform.
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. Execute o comando a seguir para implantar a infraestrutura definida no Azure.
@@ -235,8 +236,8 @@ Usando o Azure Cloud Shell no diretório em que você criou os arquivos de confi
 Nesta seção, você aprende como adicionar os seguintes recursos ao modelo:
 
 - Um Azure Load Balancer e regras para atender o aplicativo e anexá-lo ao endereço IP público configurado anteriormente neste artigo
-- Um pool de endereços de back-end do Azure e atribuí-lo ao balanceador de carga 
-- Uma porta de investigação de integridade usada pelo aplicativo e configurada no balanceador de carga 
+- Um pool de endereços de back-end do Azure e atribuí-lo ao balanceador de carga
+- Uma porta de investigação de integridade usada pelo aplicativo e configurada no balanceador de carga
 - Um conjunto de dimensionamento de máquinas virtuais localizado por trás do balanceador de carga em execução na VNET implantada anteriormente neste artigo
 - [Nginx](http://nginx.org/) nos nós do conjunto de dimensionamento de máquinas virtuais usando [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
 
@@ -359,7 +360,7 @@ No Cloud Shell, execute as seguintes etapas:
     :wq
     ```
 
-1. Crie um arquivo nomeado `web.conf` para servir como a configuração cloud-init para as máquinas virtuais que fazem parte do conjunto de dimensionamento. 
+1. Crie um arquivo nomeado `web.conf` para servir como a configuração cloud-init para as máquinas virtuais que fazem parte do conjunto de dimensionamento.
 
     ```bash
     vi web.conf
@@ -407,7 +408,7 @@ No Cloud Shell, execute as seguintes etapas:
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. Saia do modo de inserção selecionando a tecla Esc.
 
@@ -430,14 +431,14 @@ No Cloud Shell, execute as seguintes etapas:
 1. Implante os novos recursos no Azure.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   A saída do comando deve ser semelhante à captura de tela a seguir:
 
   ![Terraform grupo de recursos do conjunto de dimensionamento de máquinas virtuais](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Abra um navegador e conecte-se ao FQDN que foi retornado pelo comando. 
+1. Abra um navegador e conecte-se ao FQDN que foi retornado pelo comando.
 
   ![Resultados da navegação para FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -545,7 +546,7 @@ Um *jumpbox* do SSH é um servidor único pelo qual ocorre "jump" para acessar o
 1. Implante o jumpbox.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 Depois que a implantação for concluída, o conteúdo do grupo de recursos será semelhante ao mostrado na captura de tela a seguir:
@@ -555,7 +556,7 @@ Depois que a implantação for concluída, o conteúdo do grupo de recursos ser�
 > [!NOTE]
 > A capacidade de fazer logon com uma senha é desabilitada no jumpbox e no conjunto de dimensionamento de máquinas virtuais que você implantou. Faça logon com SSH para acessar a(s) máquina(s) virtual(is).
 
-## <a name="environment-cleanup"></a>Limpeza do ambiente 
+## <a name="environment-cleanup"></a>Limpeza do ambiente
 
 Para excluir os recursos do Terraform que foram criados neste tutorial, digite o comando a seguir no Cloud Shell:
 
@@ -566,9 +567,9 @@ terraform destroy
 O processo de destruição pode demorar vários minutos para ser concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu como usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure: 
+Neste artigo, você aprendeu como usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure. A seguir são apresentados alguns recursos adicionais para ajudá-lo a saber mais sobre o Terraform no Azure:
 
- [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentação do provedor do Terraform do Azure](https://aka.ms/terraform)  
- [Origem do provedor do Terraform do Azure](https://aka.ms/tfgit)  
- [Módulos do Terraform do Azure](https://aka.ms/tfmodules)
+[Hub do Terraform em Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+[Documentação do provedor do Terraform do Azure](https://aka.ms/terraform)
+[Fonte do provedor do Terraform do Azure](https://aka.ms/tfgit)
+[Módulos do Terraform do Azure](https://aka.ms/tfmodules)

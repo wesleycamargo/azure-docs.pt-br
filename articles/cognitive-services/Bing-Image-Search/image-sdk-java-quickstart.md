@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para Java'
+title: 'Início Rápido: pesquisar imagens – SDK de Pesquisa de Imagem do Bing para Java'
 description: Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do Java envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem retornada.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 81bd7356579b3e4f7b82497bb2163c85374fd0d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 810cdc2029462b225b5d53634f1730cbcbb8d785
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316320"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254880"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Início Rápido: pesquisar imagens com o SDK de Pesquisa de Imagem do Bing e Java
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Início Rápido: pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para Java
 
 Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo simples do Java envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem retornada.
 
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) com anotações e tratamentos de erro adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Obtenha uma [chave de acesso de Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisar**.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 A versão mais recente do JDK [(Java Development Kit)](https://aka.ms/azure-jdks)
 

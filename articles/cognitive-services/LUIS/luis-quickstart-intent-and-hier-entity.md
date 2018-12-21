@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 5: Relações de pai/filho – entidade hierárquica do LUIS para dados aprendidos contextualmente'
+title: Entidade hierárquica
 titleSuffix: Azure Cognitive Services
 description: Localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424690"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104400"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: Extrair dados relacionados contextualmente
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e de destino de uma mudança física de um edifício e escritório para outro estão relacionados. Para gerar uma ordem de trabalho, ambas as partes de dados podem ser necessárias e elas estão relacionadas umas às outras.  
@@ -32,7 +33,6 @@ A entidade hierárquica é uma boa opção para esse tipo de dado porque as duas
 
 **Neste tutorial, você aprenderá a:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Usar o aplicativo do tutorial existente
 > * Adicionar intenção 
@@ -55,7 +55,7 @@ Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seg
 3. Na seção **Gerenciar**, na guia **Versões**, clone a versão e nomeie-a como `hier`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Remover entidade número predefinida do aplicativo
-Para ver a expressão inteira e marcar os filhos hierárquicos, remova temporariamente a entidade de número predefinida.
+Para ver a declaração inteira e marcar os filhos hierárquicos, [remova temporariamente a entidade de número predefinida](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS precisa entender o que é um local rotulando a origem e o destino nos enunc
 
 Considere o enunciado a seguir:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Se apenas um filho (origem ou destino) de uma entidade hierárquica estiver pres
 
 1. No enunciado, `Displace 425-555-0000 away from g-2323 toward hh-2345`, selecione a palavra `g-2323`. Um menu suspenso é exibido com uma caixa de texto na parte superior. Insira o nome da entidade `Locations` na caixa de texto, selecione **Criar nova entidade** no menu suspenso. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Captura de tela da criação de nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Captura de tela da criação da nova entidade na página de intenção](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Captura de tela da criação da nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Na janela pop-up, selecione o tipo de entidade **Hierárquica** com `Origin` e `Destination` como as entidades filho. Selecione **Concluído**.
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Captura de tela do diálogo pop-up de criação de entidade para a nova entidade de Local")
+    ![Captura de tela da caixa de diálogo pop-up de criação de entidade para a nova entidade Location](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Captura de tela da caixa de diálogo pop-up de criação de entidade para a nova entidade Location")
 
 3. O rótulo de `g-2323` está marcado como `Locations` porque o LUIS não sabe se o termo foi a origem, o destino ou nenhum deles. Selecione `g-2323`; em seguida, selecione **Locais**, siga o menu à direita e selecione `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Captura de tela do diálogo pop-up de rotulação de entidade para alterar o filho da entidade Locais")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Captura de tela da caixa de diálogo pop-up de rotulação de entidade para alterar localizações da entidade child")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Rotule os outros locais em todos os outros enunciados selecionando o prédio e a sala no enunciado, selecionando Locais e seguindo o menu à direita para selecionar `Origin` ou `Destination`. Quando todos os locais estiverem rotulados, os enunciados no **Modo de Exibição de Tokens** começará a mostrar um padrão. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Captura de tela da entidade Locais rotulada nos enunciados")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Captura de tela da entidade Locais rotulada em declarações](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Captura de tela da entidade Locais rotulada em declarações")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Adicionar entidade de número predefinida ao aplicativo
 Adicione a entidade numérica predefinida novamente ao aplicativo.
@@ -140,7 +140,7 @@ Adicione a entidade numérica predefinida novamente ao aplicativo.
 
 2. Vá até o final da URL na barra de endereços e insira `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `MoveEmployee` com a entidade hierárquica extraída.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

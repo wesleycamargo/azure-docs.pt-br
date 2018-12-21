@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957914"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106066"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
 Você pode iniciar um [fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-overview.md) automatizado quando eventos específicos ocorrem em recursos do Azure ou de terceiros. Esses recursos podem publicar esses eventos em uma [Grade de Eventos do Azure](../event-grid/overview.md). Por sua vez, a grade de eventos envia os eventos aos assinantes com filas, webhooks, ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos de extremidade. Como um assinante, o seu aplicativo lógico pode aguardar os eventos da grade de eventos antes de executar fluxos de trabalho automatizados para realizar tarefas - sem escrever qualquer código.
 
@@ -81,9 +81,9 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
    Agora, o Designer de Aplicativos Lógicos mostra os [*conectores*](../connectors/apis-list.md) e os [*gatilhos*](../logic-apps/logic-apps-overview.md#logic-app-concepts) que podem ser usados para iniciar seu aplicativo lógico, além de ações que podem ser adicionadas depois do gatilho para desempenhar tarefas. Um gatilho é um evento que cria uma instância do aplicativo lógico e inicia o fluxo de trabalho do aplicativo lógico. 
    O primeiro item do aplicativo lógico deve ser um gatilho.
 
-6. Insira "grade de eventos" como filtro na caixa de pesquisa. Selecione este gatilho: **Grade de Eventos do Azure - em um evento de recurso**
+6. Insira "grade de eventos" como filtro na caixa de pesquisa. Selecione este gatilho: **Grade de Eventos do Azure – Em um evento de recursos**
 
-   ![Selecione este gatilho: "Grade de Eventos do Azure - em um evento de recurso"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Selecione este gatilho: “Grade de Eventos do Azure – Em um evento de recursos”](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. Quando receber a solicitação, entre na Grade de Eventos do Azure com suas credenciais do Azure.
 
@@ -101,7 +101,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
    | **Assinatura** | *{assinatura de máquina virtual do Azure}* | Selecione a assinatura do Azure do publicador do evento. Para este tutorial, selecione a assinatura do Azure de sua máquina virtual. | 
    | **Tipo de recurso** | Microsoft.Resources.resourceGroups | Selecione o tipo de recurso do publicador do evento. Para este tutorial, selecione o valor especificado para que seu aplicativo lógico monitore somente os grupos de recursos. | 
    | **Nome do recurso** | *{nome do grupo de recursos da máquina virtual}* | Selecione o nome do recurso do publicador. Para este tutorial, selecione o nome do grupo de recursos para sua máquina virtual. | 
-   | Para acessar as configurações opcionais, escolha **Mostrar opções avançadas**. | *{consulte as descrições}* | * **Filtro do prefixo**: para este tutorial, deixe essa configuração em branco. O comportamento padrão corresponde a todos os valores. No entanto, você pode especificar uma cadeia de caracteres de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Filtro de sufixo**: para este tutorial, deixe essa configuração em branco. O comportamento padrão corresponde a todos os valores. No entanto, você pode especificar uma cadeia de caracteres de sufixo como filtro, por exemplo, uma extensão de nome de arquivo, quando quiser tipos específicos de arquivo.<p>* **Nome da Assinatura**: forneça um nome exclusivo para a assinatura de evento. |
+   | Para acessar as configurações opcionais, escolha **Mostrar opções avançadas**. | *{consulte as descrições}* | * **Filtro de prefixo**: para este tutorial, deixe essa configuração em branco. O comportamento padrão corresponde a todos os valores. No entanto, você pode especificar uma cadeia de caracteres de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Filtro de sufixo**: para este tutorial, deixe essa configuração em branco. O comportamento padrão corresponde a todos os valores. No entanto, você pode especificar uma cadeia de caracteres de sufixo como filtro, por exemplo, uma extensão de nome de arquivo, quando quiser tipos específicos de arquivo.<p>* **Nome da assinatura**: Forneça um nome exclusivo para a assinatura de evento. |
    | | | 
 
    Quando terminar, seu gatilho da grade de eventos poderá parecer com este exemplo:
@@ -183,7 +183,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
    | ------- | --------------- | ----------- | 
    | **Para** | *{endereço de email do destinatário}* |Insira o endereço de email do destinatário. Para fins de teste, você pode usar seu próprio endereço de email. | 
    | **Assunto** | Recurso atualizado: **Assunto**| Insira o conteúdo do assunto do email. Para este tutorial, insira o texto sugerido e selecione o campo **Assunto** do evento. Aqui, o assunto do email inclui o nome do recurso atualizado (máquina virtual). | 
-   | **Corpo** | Grupo de recursos: **Tópico** <p>Tipo de evento: **Tipo de Evento**<p>ID do evento: **ID**<p>Hora: **Hora do Evento** | Insira o conteúdo do corpo do email. Para este tutorial, insira o texto sugerido e selecione os campos **Tópico**, **Tipo de Evento**, **ID** e **Hora do Evento** para que seu email inclua o nome do grupo de recursos, o tipo de evento, o carimbo de data/hora do evento e a ID do evento para a atualização. <p>Para adicionar linhas em branco em seu conteúdo, pressione Shift + Enter. | 
+   | **Corpo** | Grupo de recursos: **Tópico** <p>Tipo de evento: **tipo do evento**<p>ID de evento: **ID**<p>Horário: **horário do evento** | Insira o conteúdo do corpo do email. Para este tutorial, insira o texto sugerido e selecione os campos **Tópico**, **Tipo de Evento**, **ID** e **Hora do Evento** para que seu email inclua o nome do grupo de recursos, o tipo de evento, o carimbo de data/hora do evento e a ID do evento para a atualização. <p>Para adicionar linhas em branco em seu conteúdo, pressione Shift + Enter. | 
    | | | 
 
    > [!NOTE] 

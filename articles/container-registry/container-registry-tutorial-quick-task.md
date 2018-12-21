@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Compilar imagens de contêiner na nuvem com as Tarefas do Registro de Contêiner do Azure
+title: Tutorial – criar imagens de contêiner na nuvem – Tarefas do Registro de Contêiner do Azure
 description: Neste tutorial, você aprenderá como criar uma imagem de contêiner de Docker no Azure com as Tarefas do ACR (Tarefas do Registro de Contêiner do Azure) e implantá-la em Instâncias de Contêiner do Azure.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854721"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256682"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: compilar imagens de contêiner na nuvem com as Tarefas do Registro de Contêiner do Azure
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: criar e implantar imagens de contêineres na nuvem com as Tarefas do Registro de Contêiner do Azure
 
 As **Tarefas do ACR** são um pacote de recursos no Registro de Contêiner do Azure que fornece builds de imagem de contêiner do Docker aprimorados e eficientes no Azure. Neste artigo, você aprenderá a usar o recurso *tarefa rápida* das Tarefas do ACR.
 

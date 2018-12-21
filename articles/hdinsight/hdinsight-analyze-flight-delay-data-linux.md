@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Realizar operações de extração, transformação e carregamento (ETL) usando o Hive no HDInsight - Azure '
+title: 'Tutorial: Realizar operações de ETL (extração, transformação e carregamento) usando o Hive no HDInsight – Azure '
 description: Saiba como extrair dados de um conjunto de dados CSV brutos, transformá-los usando o Hive no HDInsight e, em seguida, carregar os dados transformados no banco de dados SQL do Azure usando o Apache Sqoop.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: fa84d5a09eab56dc01a6e841323ca11d12886582
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495505"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015034"
 ---
-# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
 Neste tutorial, você pega um arquivo de dados CSV brutos, importa-o em um armazenamento de cluster do HDInsight e, em seguida, transforma os dados usando o [Apache Hive](https://hive.apache.org/) no Azure HDInsight. Depois que os dados são transformados, você carrega esses dados em um banco de dados SQL do Azure usando o [Apache Sqoop](http://sqoop.apache.org/). Neste artigo, use os dados de voo disponíveis publicamente.
 
@@ -315,8 +315,8 @@ Neste tutorial, você aprendeu como realizar as operações de extração, trans
 
 Para aprender mais formas de trabalhar usando dados no HDInsight, consulte os seguintes artigos:
 
-* [Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
-* [Usar o Apache Hive com o HDInsight][hdinsight-use-hive]
+* [Tutorial: Extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
+* [Usar o Apache Hive com HDInsight][hdinsight-use-hive]
 * [Usar o Apache Pig com o HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para o Apache Hadoop no HDInsight][hdinsight-develop-mapreduce]
 * [Desenvolver programas MapReduce de streaming do Python para o HDInsight][hdinsight-develop-streaming]
@@ -325,13 +325,13 @@ Para aprender mais formas de trabalhar usando dados no HDInsight, consulte os se
 
 
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md

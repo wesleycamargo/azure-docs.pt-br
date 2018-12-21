@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure'
+title: 'Início Rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure'
 description: O início rápido mostra como usar o Portal do Azure para criar um workspace do Azure Databricks, um cluster do Apache Spark e executar um trabalho do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568947"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259538"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início Rápido: Executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
 O início rápido mostra como criar um workspace do Azure Databricks e um cluster do Apache Spark dentro desse workspace. Por fim, você sabe como executar um trabalho do Spark no cluster do Databricks. Para obter mais informações sobre o Azure Databricks, consulte [O que é o Azure Databricks?](what-is-azure-databricks.md)
 
@@ -86,12 +86,12 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
 ## <a name="download-a-sample-data-file"></a>Baixar um arquivo de dados de exemplo
 Baixe um arquivo de dados JSON de exemplo e salve-o no armazenamento de Blobs do Azure.
 
-1. Baixe este arquivo de dados JSON de exemplo [do Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) no seu computador local. Clique com o botão direito e em salvar como para salvar o arquivo bruto localmente.
+1. Baixe este arquivo de dados JSON de exemplo [do GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) no seu computador local. Clique com o botão direito e em salvar como para salvar o arquivo bruto localmente.
 
 2. Se você ainda não tiver uma conta de armazenamento, crie uma.
     - No Portal do Azure, selecione **Criar um recurso**. Selecione a categoria **Armazenamento** e selecione **Contas de armazenamento**
     - Forneça um nome exclusivo para a conta de armazenamento.
-    - Selecione **Tipo de conta**: **Armazenamento de Blobs**
+    - Selecione **Tipo de Conta**: **Armazenamento de Blobs**
     - Selecione um nome para o **Grupo de recursos**. Use o mesmo grupo de recursos no qual o workspace do Databricks foi criado.
     
     Para saber mais informações, consulte [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md).

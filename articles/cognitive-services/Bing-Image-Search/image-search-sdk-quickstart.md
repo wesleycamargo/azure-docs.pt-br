@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing para C#'
+title: 'Início Rápido: Pesquisar imagens – SDK de Pesquisa de Imagem do Bing para C#'
 description: Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo C# simples envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 2d81c7b22e5d7cae0beb8a549d4e44f3a1ebc132
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316779"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261238"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Início Rápido: pesquise por imagens com o SDK de Pesquisa de Imagem do Bing e C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Início Rápido: Pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para C#
 
 Use este início rápido para fazer sua primeira pesquisa de imagem usando o SDK de Pesquisa de Imagem do Bing, que é um wrapper para a API e contém os mesmos recursos. Esse aplicativo C# simples envia uma consulta de pesquisa de imagem, analisa a resposta JSON e exibe a URL da primeira imagem devolvida.
 
@@ -31,7 +32,7 @@ Para instalar o SDK de Pesquisa de Imagem do Bing no Visual Studio, use a opçã
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Veja também [Preços dos Serviços Cognitivos - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
@@ -53,8 +54,12 @@ string subscriptionKey = "ENTER YOUR KEY HERE";
 Images imageResults = null;
 // the image search term to be used in the query
 string searchTerm = "canadian rockies";
+
 //initialize the client
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+
+var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 ```
 
 ## <a name="send-a-search-query-using-the-client"></a>Envie uma consulta de pesquisa usando o cliente

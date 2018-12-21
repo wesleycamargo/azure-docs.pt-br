@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: funções definidas pelo usuário do JavaScript do Azure Stream Analytics | Microsoft Docs '
+title: 'Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure | Microsoft Docs '
 description: Neste tutorial, execute o mecanismo de consulta avançada com funções definidas pelo usuário do JavaScript
 keywords: javascript, funções definidas pelo usuário, udf
 services: stream-analytics
@@ -13,14 +13,14 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088867"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo usuário do JavaScript do Stream Analytics do Azure
  
 O Stream Analytics do Azure dá suporte a funções definidas pelo usuário gravadas em JavaScript. Com o conjunto avançado dos métodos **String**, **RegExp**, **Math**, **Array** e **Date** fornecidos pelo JavaScript, as transformações de dados complexas com trabalhos do Stream Analytics se tornam mais fáceis de serem criadas.
 
@@ -58,7 +58,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 4.  Na folha **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. Um modelo de função padrão aparece no editor.
 5.  Para o **alias da UDF**, insira **hex2Int** e altere a implementação da função, conforme mostrado a seguir:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Para criar uma função definida pelo usuário do JavaScript simples em um traba
 1. No editor de consulta, em **TOPOLOGIA DO TRABALHO**, selecione **Consulta**.
 2.  Edite sua consulta e, em seguida, chame a função definida pelo usuário da seguinte forma:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Se você tiver uma etapa de processamento de acompanhamento que usa a saída de 
 
 **Definição de funções definidas pelo usuário de JavaScript:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Consulta de exemplo:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262447"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409829"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Consultar contêineres no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Este artigo explica como consultar um contêiner (coleção, grafo, tabela) no A
 
 ## <a name="in-partition-query"></a>Consulta na partição
 
-Quando você consulta dados de contêineres, o Azure Cosmos DB encaminha automaticamente a consulta para as partições que correspondem aos valores de chave de partição especificados no filtro (se houver). Por exemplo, esta consulta é roteada para apenas a partição que contém a chave de partição "XMS-0001".
+Quando você consulta dados de contêineres, se a consulta tem um filtro de chave de partição especificado, o Azure Cosmos DB roteia automaticamente a consulta para as partições que correspondem aos valores das chaves de partição especificados no filtro. Por exemplo, a consulta a seguir é roteada para a partição de DeviceId que contém todos os documentos correspondente ao valor de chave de partição "XMS-0001".
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -58,9 +58,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- **MaxDegreeOfParallelism**: define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o grau de paralelismo será gerenciado pelo SDK. Se o MaxDegreeOfParallelism não for especificado nem definido como 0, que é o valor padrão, haverá uma única conexão de rede com as partições do contêiner.
+- **MaxDegreeOfParallelism**: Define o número máximo de conexões de rede simultâneas com as partições do contêiner. Se você definir essa propriedade como -1, o grau de paralelismo será gerenciado pelo SDK. Se o MaxDegreeOfParallelism não for especificado nem definido como 0, que é o valor padrão, haverá uma única conexão de rede com as partições do contêiner.
 
-- **MaxBufferedItemCount**: negocia a latência da consulta em comparação com a utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
+- **MaxBufferedItemCount**: Troca latência de consulta versus utilização de memória do lado do cliente. Se a opção for omitida ou definida como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
 
 Tendo o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem de uma execução serial. Ao executar uma consulta entre partições que inclui operadores de classificação (ORDER BY e/ou TOP), o SDK do Azure Cosmos DB emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
 

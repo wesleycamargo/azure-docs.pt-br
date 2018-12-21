@@ -1,25 +1,20 @@
 ---
-title: Script do Azure PowerShell – obter chaves de conta para o Banco de Dados Cosmos | Microsoft Docs
-description: Exemplo de script do Azure PowerShell – obter chaves da conta para o Banco de Dados Cosmos
+title: Script do Azure PowerShell – obter chaves da conta para o Azure Cosmos DB
+description: Exemplo de script do Azure PowerShell – obter chaves da conta para o Azure Cosmos DB
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 4ae2b185d5fd25f9d8e0949f956ca4d14e502bd6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4eaf50a2e1ce86353bcaa514c26b517c8d448959
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917886"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970868"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>Obtenha chaves de conta para o BD Cosmos do Azure usando o PowerShell
 

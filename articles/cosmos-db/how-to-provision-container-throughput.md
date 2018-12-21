@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262413"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097658"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Provisionar taxa de transferência de um contêiner do Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Este artigo explica como provisionar a taxa de transferência de um contêiner (
 
    * Crie um novo banco de dados ou use um existente.
    * Insira uma ID de coleção (ou tabela, grafo).
+   * Insira um valor de chave de partição, por exemplo `/userid`.
    * Insira uma taxa de transferência, por exemplo, 1000 RUs.
    * Selecione **OK**.
 

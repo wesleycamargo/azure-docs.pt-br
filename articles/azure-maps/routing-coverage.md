@@ -29,7 +29,7 @@ Fazer check-out de cobertura para [ **Renderização**](render-coverage.md).
 |--------------------|----------------------------------------|
 | ✓                  | País fornecido com dados detalhados.   |
 | Ø                  | País fornecido com dados simplificados. |
-| País faltando | Os dados do país não foram fornecidos.          |
+| País/região faltando | Os dados do país/região não foram fornecidos.          |
 
 <br>  
 

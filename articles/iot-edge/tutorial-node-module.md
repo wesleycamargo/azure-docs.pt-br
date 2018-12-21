@@ -1,5 +1,5 @@
 ---
-title: Tutorial de Node.js do Azure IoT Edge | Microsoft Docs
+title: Tutorial para criar módulo personalizado do Node.js – Azure IoT Edge | Microsoft Docs
 description: Este tutorial mostra como criar um módulo do IoT Edge com código em Node.js e implantá-lo em um dispositivo de borda
 services: iot-edge
 author: shizn
@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 12ba0ba4addd882d82007df34b79d5f13f6b1ec6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309565"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344050"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -92,7 +92,7 @@ Use **npm** para criar um modelo de solução em Node.js para usar de base.
 
 3. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
-3. Na paleta de comandos, digite e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
+3. Na paleta de comandos, digite e execute o comando **Azure: Entrar** e siga as instruções para entrar na conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
 
 4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Siga os prompts na paleta de comandos para criar sua solução.
 
@@ -221,7 +221,7 @@ Você pode obter o endereço de imagem de contêiner completo com marca no coman
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 
-O artigo de início rápido que você usou para configurar seu dispositivo do IoT Edge, você implantou um módulo usando o portal do Azure. Também é possível implantar módulos usando a extensão Kit de ferramentas do Azure IoT para Visual Studio Code. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json**. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
+O artigo de início rápido que você usou para configurar seu dispositivo do IoT Edge, você implantou um módulo usando o portal do Azure. Você também pode implantar módulos usando a extensão do Kit de Ferramentas do Hub IoT do Azure (anteriormente conhecida como extensão do Kit de Ferramentas do Azure IoT) para Visual Studio Code. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json**. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
 
 1. Na paleta de comandos do VS Code, execute **Hub IoT do Azure: selecionar Hub IoT**. 
 
@@ -252,7 +252,7 @@ Você pode exibir as mensagens que chegam ao Hub IoT usando o Visual Studio Code
 
 1. Para monitorar dados que chegam ao hub IoT, clique em **...** e selecione **Iniciar Monitoramento de Mensagens D2C**.
 2. Para monitorar a mensagem D2C para um dispositivo específico, clique com o botão direito do mouse no dispositivo na lista e selecione **Iniciar Monitoramento de Mensagens D2C**.
-3. Para interromper o monitoramento de dados, execute o comando **Hub IoT do Azure: Parar o monitoramento de mensagens D2C** na paleta de comandos. 
+3. Para interromper o monitoramento de dados, execute o comando **Hub IoT do Azure: Parar de monitorar mensagem de D2C** na paleta de comandos. 
 4. Para exibir ou atualizar módulos gêmeos, clique com o botão direito do mouse no módulo na lista e selecione **Editar módulo gêmeo**. Para atualizar o módulo gêmeo, salve o arquivo JSON gêmeo, clique com o botão direito do mouse na área do editor e selecione **Atualizar Módulo Gêmeo**.
 5. Para exibir logs do Docker, você pode instalar o [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para VS Code e localizar os módulos de execução localmente no explorador do Docker. No menu de contexto, clique em **Mostrar Logs** para exibi-los no terminal integrado. 
 

@@ -63,7 +63,7 @@ Por exemplo, uma regra de filtragem geográfica para bloquear o caminho */Fotos/
 *http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>Definir os países
-Na lista **CÓDIGOS DO PAÍS**, selecione os países que você quer bloquear ou permitir para o caminho. 
+Na lista **CÓDIGOS DE PAÍS/REGIÃO**, selecione os países que você quer bloquear ou permitir para o caminho. 
 
 Após concluir a seleção dos países, selecione **Salvar** para ativar a nova regra de filtragem geográfica. 
 
@@ -77,11 +77,11 @@ Para perfis**CDN Premium do Azure da Verizon**, a interface do usuário para cri
 
 1. No menu superior do perfil da CDN do Azure, selecione **Gerenciar**.
 
-2. No portal da Verizon, selecione **HTTP Grande** e, em seguida, selecione **Filtragem por País**.
+2. No portal da Verizon, selecione **HTTP Grande** e, em seguida, selecione **Filtragem por País/Região**.
 
     ![Filtragem geográfica Standard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
-3. Selecione **Adicionar Filtro por País**.
+3. Selecione **Adicionar Filtro por País/Região**.
 
     A página **Etapa Um:** aparece.
 
@@ -91,7 +91,7 @@ Para perfis**CDN Premium do Azure da Verizon**, a interface do usuário para cri
 
 5. Selecione um ou mais países da lista e, em seguida, selecione **Concluir** para ativar a regra. 
     
-    A nova regra aparece na tabela na página **Filtragem por País**.
+    A nova regra aparece na tabela na página **Filtragem por País/Região**.
 
     ![Regras de filtragem geográfica](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 

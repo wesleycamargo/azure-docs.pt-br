@@ -1,20 +1,20 @@
 ---
-title: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure | Microsoft Docs
+title: Visualizar anomalias de dados nos eventos em tempo real – Hubs de Eventos do Azure | Microsoft Docs
 description: Tutorial – Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Microsoft Azure
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004106"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091672"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -174,13 +174,13 @@ Agora você pode transmitir dados para seu hub de eventos. Para usar esses dados
 
 2. Insira as seguintes informações para o trabalho:
 
-   **Nome do trabalho**: use **contosoEHjob**. Esse campo é o nome do trabalho e deve ser globalmente exclusivo.
+   **Nome do trabalho**: Use **contosoEHjob**. Esse campo é o nome do trabalho e deve ser globalmente exclusivo.
 
-   **Assinatura**: selecione sua assinatura.
+   **Assinatura**: Selecione sua assinatura.
 
    **Grupo de recursos**: use o mesmo grupo de recursos usado pelo hub de eventos (**ContosoResourcesEH**).
 
-   **Local**: use o mesmo local usado no script de instalação (**Oeste dos EUA**).
+   **Localização**: use a mesma localização usado no script de instalação (**Oeste dos EUA**).
 
    ![Captura de tela mostrando como criar um novo trabalho do Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -199,17 +199,17 @@ As entradas para o trabalho do Stream Analytics são as transações de cartão 
 
 2. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione os Hubs de Eventos. Na tela que aparece, preencha os seguintes campos:
 
-   **Alias de entrada**: use **contosoinputs**. Esse campo é o nome do fluxo de entrada usado ao definir a consulta para os dados.
+   **Alias de entrada**: Use **contosoinputs**. Esse campo é o nome do fluxo de entrada usado ao definir a consulta para os dados.
 
-   **Assinatura**: selecione sua assinatura.
+   **Assinatura**: Selecione sua assinatura.
 
-   **Namespace dos Hubs de Eventos**: selecione o namespace do Hub de eventos ($**eventHubNamespace**). 
+   **Namespace do Hubs de Eventos**: Selecione seu namespace do Hub de eventos ($**eventHubNamespace**). 
 
-   **Nome do Hub de eventos**: clique em **Usar existente** e selecione seu hub de eventos ($**eventHubName**).
+   **Nome do Hub de Eventos**: clique em **Usar existente** e selecione seu hub de eventos ($**eventHubName**).
 
-   **Nome da política dos Hubs de Eventos**: selecione **RootManageSharedAccessKey**.
+   **Nome da política de Hubs de Eventos**: Selecione **RootManageSharedAccessKey**.
 
-   **Grupo de consumidores dos Hubs de Eventos**: deixe esse campo em branco para usar o grupo de consumidores padrão.
+   **Grupo de consumidores de Hubs de Eventos**: Deixe esse campo em branco para usar o grupo de consumidores padrão.
 
    Aceite os padrões para o restante dos campos.
 
@@ -223,11 +223,11 @@ As entradas para o trabalho do Stream Analytics são as transações de cartão 
 
 2. No painel **Saídas**, clique em **Adicionar** e, em seguida, selecione **Power BI**. Na tela que aparece, preencha os seguintes campos:
 
-   **Alias de saída**: use **contosooutputs**. Esse campo é o alias exclusivo da saída. 
+   **Alias de saída**: Use **contosooutputs**. Esse campo é o alias exclusivo da saída. 
 
-   **Nome do conjunto de dados**: use **contosoehdataset**. Esse campo é o nome do conjunto de dados a ser usado no Power BI. 
+   **Nome do conjunto de dados**: Use **contosoehdataset**. Esse campo é o nome do conjunto de dados a ser usado no Power BI. 
 
-   **Nome da tabela**: use **contosoehtable**. Esse campo é o nome da tabela a ser usada no Power BI. 
+   **Nome da tabela**: Use **contosoehtable**. Esse campo é o nome da tabela a ser usada no Power BI. 
 
    Aceite os padrões para o restante dos campos.
 

@@ -1,6 +1,6 @@
 ---
-title: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure no Linux | Microsoft Docs
-description: Saiba como usar o recurso de autenticação e autorização do Serviço de Aplicativo de para proteger seus aplicativos do Serviço de Aplicativo, incluindo o acesso a APIs remotas.
+title: Autenticar e autorizar usuários de ponta a ponta no Linux – Serviço de Aplicativo do Azure | Microsoft Docs
+description: Saiba como usar o recurso de autenticação e autorização do Serviço de Aplicativo de para proteger seus aplicativos do Serviço de Aplicativo em execução no Linux, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicativo, serviço de aplicativo do azure, authN, authZ, proteger, segurança, várias camadas, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766352"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409370"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure no Linux
 
@@ -50,7 +51,7 @@ Você pode seguir as etapas deste tutorial no macOS, no Linux e no Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -237,11 +238,11 @@ Navegue até `http://<back_end_app_name>.azurewebsites.net` para ver os itens ad
 
 Nesta etapa, habilite o recurso de autenticação e autorização para os dois aplicativos. Você também pode configurar o aplicativo front-end para gerar um token de acesso que pode ser usado para fazer chamadas autenticadas para o aplicativo de back-end.
 
-Use o Azure Active Directory como o provedor de identidade. Para saber mais, confira [Configurar a autenticação do Azure Active Directory para seu aplicativo do Serviços de Aplicativo](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Use o Azure Active Directory como o provedor de identidade. Para saber mais, confira [Configurar a autenticação do Azure Active Directory para seu aplicativo do Serviços de Aplicativo](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitar autenticação e autorização para o aplicativo de back-end
 
-No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<nome\_aplicativo\_back\_end>_.
+No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 

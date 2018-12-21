@@ -1,21 +1,21 @@
 ---
 title: Registre sua assinatura do Azure no Cloudyn | Microsoft Docs
-description: Use sua assinatura do Azure para registrar-se no Cloudyn.
+description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/07/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b5975f3d11a76d7713928ab008dbd9ec19b85738
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276390"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082571"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar uma assinatura individual do Azure e exibir dados de custo
 
@@ -23,23 +23,23 @@ Você pode usar sua assinatura do Azure para registrar com Cloudyn. O registro f
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em http://portal.azure.com.
+- Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registrar com Cloudyn
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão geral**, clique em **Cloudyn**  
-    ![Página do Cloudyn](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![Página do Cloudyn mostrada no portal do Azure](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. Sobre o **gerenciamento de custos** , clique em **ir para o Cloudyn** para abrir a página de registro do Cloudyn em uma nova janela.
 4. Na página de registro de avaliação do portal do Cloudyn, digite o nome de sua empresa e, em seguida, selecione **Proprietário da Assinatura Individual do Azure** e, em seguida, clique em **Avançar**. O nome da conta e a ID de Locatário são automaticamente adicionados ao formulário.  
-    ![registro de avaliação](./media/quick-register-azure-sub/trial-reg-ind.png)
+    ![Página de registro de avaliação em que você insere suas informações de registro](./media/quick-register-azure-sub/trial-reg-ind.png)
 5. Selecione a **ID da Oferta – Nome** associada à sua assinatura. Caso não tenha certeza de qual é sua ID de Taxa da assinatura, exiba sua fatura do Azure e procure **ID da Oferta**.
 6. Concorde com os Termos de Uso e valide as informações e, em seguida, clique em **Avançar**.
 7. Na página **Coletar dados adicionais**, clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
-    ![Coletar dados adicionais](./media/quick-register-azure-sub/gather-additional.png)
+    ![Coletar a página de dados adicionais em que você autoriza o Cloudyn](./media/quick-register-azure-sub/gather-additional.png)
 8. O navegador levará você à página de entrada do Cloudyn. Entre com suas credenciais de assinatura do Azure.
 9. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas**, você deverá ver as informações de sua conta de assinatura do Azure.  
-    ![Gerenciamento de Contas](./media/quick-register-azure-sub/accounts-mgt.png)
+    ![Página Gerenciamento de Contas mostrando informações de assinatura do Azure](./media/quick-register-azure-sub/accounts-mgt.png)
 
 Para assistir a um vídeo de tutorial sobre como registrar sua assinatura do Azure, consulte [localizar o GUID do diretório e a ID de taxa para uso no Cloudyn](https://youtu.be/PaRjnyaNGMI).
 

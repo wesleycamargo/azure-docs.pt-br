@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918568"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409372"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar o VMSS (conjunto de dimensionamento de máquinas virtuais) no Azure, da mesma forma como você gerenciaria qualquer outro recurso do Azure. Este artigo mostra como usar o Ansible para criar e expandir um conjunto de dimensionamento de máquinas virtuais. 
@@ -37,7 +37,7 @@ Esta seção apresenta um guia estratégico de exemplo do Ansible que define os 
 
 Insira sua senha para o valor *admin_password*.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Para executar o Guia estratégico do Ansible, use o comando **ansible-playbook**
 
 Depois de executar o guia estratégico, uma saída semelhante ao exemplo a seguir mostra que o conjunto de dimensionamento de máquinas virtuais foi criado com êxito:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Você verá resultados semelhantes à seguinte saída:
 
 Agora, expandiremos de duas instâncias para três instâncias. O código de guia estratégico do Ansible a seguir recupera informações sobre o conjunto de dimensionamento de máquinas virtuais e altera sua capacidade de duas para três. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ O comando a seguir executará o guia estratégico:
 
 A saída da execução do guia estratégico do Ansible mostra que o conjunto de dimensionamento de máquinas virtuais foi expandido com êxito:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Os resultados de executar o comando no Cloud Shell mostram que agora existem tr�
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"] 
-> [Guia estratégico de exemplo do Ansible para VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais usando o Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais usando o Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

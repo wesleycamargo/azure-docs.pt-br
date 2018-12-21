@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853142"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076994"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Início Rápido: Criar um aplicativo em Python para detectar e enquadrar faces em uma imagem
 
@@ -28,14 +28,18 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 - Uma chave de assinatura da API de Detecção Facial. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar o serviço API de Detecção Facial e obter sua chave.
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
 - Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
-- O SDK de Python da API de Detecção Facial. Instale-o executando o seguinte comando:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Obter o SDK de Detecção Facial
+
+Instale o SDK do Python de Detecção Facial abrindo o prompt de comando e executando o seguinte comando:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Detectar faces em uma imagem
 
-Crie um novo script em Python _FaceQuickstart.py_. Adicione os códigos a seguir. Essa é a principal funcionalidade da detecção facial. Será necessário substituir `<Subscription Key>` pelo valor da sua chave. Talvez também seja necessário alterar o valor de `BASE_URL` para usar o identificador de região correto para sua chave (confira os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região). As chaves de assinatura de avaliação gratuita são geradas na região **westus**. Opcionalmente, defina `img_url` como a URL de qualquer imagem que você queira usar.
+Crie um novo script do Python chamado _FaceQuickstart.py_ e adicione o código a seguir. Essa é a principal funcionalidade da detecção facial. Será necessário substituir `<Subscription Key>` pelo valor da sua chave. Talvez também seja necessário alterar o valor de `BASE_URL` para usar o identificador de região correto para sua chave (confira os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região). As chaves de assinatura de avaliação gratuita são geradas na região **westus**. Opcionalmente, defina `img_url` como a URL de qualquer imagem que você queira usar.
 
 O script detectará faces chamando o método **cognitive_face.face.detect**, que encapsula a API REST [Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e retorna uma lista de faces.
 

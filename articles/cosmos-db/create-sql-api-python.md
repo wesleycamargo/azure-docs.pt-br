@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo com Python e com a API do SQL'
+title: 'O Azure Cosmos DB: Compilar um aplicativo com Python e a API do SQL'
 description: Apresenta um exemplo de código Python que pode ser usado para se conectar à API do SQL do Azure Cosmos DB e consultá-la
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: a12107fe0dd25a383e7be1adbc717c7c1c654fa5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846531"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094229"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: compilar um aplicativo de API do SQL com o Python e com o Portal do Azure
+# <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>O Azure Cosmos DB: Compilar um aplicativo de API do SQL com o Python e com o portal do Azure
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -153,7 +153,7 @@ Todos os snippets de código a seguir são retirados do arquivo `CosmosGetStarte
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), em sua conta do Azure Cosmos DB, clique em **Chaves** no painel de navegação esquerdo. Você usará os botões de cópia no lado direito da tela para copiar o **URI** e a **Chave Primária** para o arquivo `CosmosGetStarted.py` na próxima etapa.
+1. No [Portal do Azure](https://portal.azure.com/), em sua conta do Azure Cosmos DB, clique em **Chaves** no painel de navegação esquerdo. Você usará os botões de cópia no lado direito da tela para copiar o **URI** e a **Chave Primária** para o arquivo `CosmosGetStarted.py` na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-dotnet/keys.png)
 
@@ -173,7 +173,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. No Visual Studio Code, selecione **Exibir**>**Paleta de Comandos**. 
 
-2. No prompt, insira **Python: Selecionar Interpretador** e, em seguida, selecione a versão do Python que você quer usar.
+2. No prompt, digite **Python: Selecione Interpretador** e, em seguida, selecione a versão do Python a ser usada.
 
     O Rodapé no Visual Studio Code é atualizado para indicar o interpretador selecionado. 
 

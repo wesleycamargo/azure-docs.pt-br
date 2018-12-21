@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados para a Grade de Eventos do Azure com o PowerShell | Microsoft Docs
-description: Use a Grade de Eventos do Azure e o PowerShell para publicar um tópico e assinar esse evento.
+title: Enviar eventos personalizados para o ponto de extremidade Web – Grade de Eventos, PowerShell
+description: Use o PowerShell e a Grade de Eventos do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 13620fbd6393c747285574cf16b519b9b6a1f324
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.custom: seodec18
+ms.openlocfilehash: 46278d0663cd748f88fcfa13d0688ec89a17bd89
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096664"
 ---
-# <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Criar e encaminhar eventos personalizados com o Azure PowerShell e a Grade de Eventos do Azure
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o ponto de extremidade da Web com o PowerShell e com a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você pode usar o Azure PowerShell para criar um tópico personalizado, assinar o tópico e disparar o evento para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
@@ -43,7 +44,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o tópico. O nome do tópico deve ser exclusivo, pois é parte de uma entrada DNS.
+Um tópico de grade de evento fornece um ponto de extremidade definido pelo usuário no qual você posta seus eventos. O exemplo a seguir cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o tópico. O nome do tópico deve ser exclusivo, pois é parte de uma entrada DNS. Além disso, ela deve ter entre 3 e 50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

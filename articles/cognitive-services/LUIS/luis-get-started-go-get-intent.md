@@ -1,23 +1,26 @@
 ---
-title: Início Rápido da linguagem Go – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando Go, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
+title: Obter a intenção, Go
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido do Go, use um aplicativo LUIS público disponível para determinar a intenção de um usuário do texto de conversa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9768e7945a94c5b28a1f28ea0264108cd47865d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032726"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104706"
 ---
-# <a name="quickstart-get-intent-using-go"></a>Início Rápido: Obter a intenção usando o Go
+# <a name="quickstart-get-intent-using-go"></a>Início Rápido: Obter intenção usando o Go
+
+Neste início rápido, passe enunciados para um ponto de extremidade LUIS e obtenha intenção e entidades.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

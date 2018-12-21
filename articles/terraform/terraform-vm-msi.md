@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242085"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971157"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual do Terraform do Linux com identidades gerenciadas para recursos do Azure
 
@@ -37,7 +37,7 @@ A seguir são apresentadas as etapas para criar uma instância de uma maquina vi
 
 3. Na guia de detalhes do Terraform na parte inferior direita, selecione o botão **Criar**.
 
-    ![Criar uma máquina virtual do Terraform](media\terraformmsi.png)
+    ![Criar uma máquina virtual do Terraform](media/terraformmsi.png)
 
 4. As seções a seguir fornecem entradas para cada uma das etapas no assistente para criar a máquina virtual do Terraform Linux. A seção a seguir lista as entradas que são necessárias para configurar cada uma dessas etapas.
 
@@ -47,17 +47,17 @@ Digite os seguintes detalhes na guia **Criar Terraform**:
 
 1. **Noções básicas**
     
-   * **Nome**: o nome da máquina virtual do Terraform.
-   * **Nome de Usuário**: a primeira ID de entrada da conta.
-   * **Senha**: a primeira senha da conta. (Você pode usar uma chave pública SSH, em vez de senha).
-   * **Assinatura**: a assinatura na qual a máquina será criada e cobrada. Você deve ter privilégios de criação de recurso nessa assinatura.
-   * **Grupo de recursos**: um grupo de recursos novo ou existente.
-   * **Local**: o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para oferecer acesso mais rápido à rede.
+   * **Nome**: O nome da sua máquina virtual Terraform.
+   * **Nome de usuário**: A primeira ID de entrada da conta.
+   * **Senha**: A primeira senha da conta. (Você pode usar uma chave pública SSH, em vez de senha).
+   * **Assinatura**: A assinatura na qual o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+   * **Grupo de recursos**: Um grupo de recursos novo ou existente.
+   * **Localização**: O datacenter que é mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para oferecer acesso mais rápido à rede.
 
 2. **Configurações adicionais**
 
-   * **Tamanho**: o tamanho da máquina virtual. 
-   * **Tipo de disco da VM**: SSD ou HDD.
+   * **Tamanho**: Tamanho da máquina virtual. 
+   * **Tipo de disco da VM**: SSD ou HD.
 
 3. **Resumo do Terraform**
 

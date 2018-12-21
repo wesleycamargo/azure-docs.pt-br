@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104655"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
 A [Grade de Eventos do Azure](overview.md) é um serviço de eventos para a nuvem. A Grade de Eventos permite criar assinaturas em eventos gerados pelos serviços do Azure ou por recursos de terceiros.  
 
-Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenamento. Ele estende o [tutorial anterior sobre o Armazenamento][previous-tutorial] para adicionar a geração automática de miniaturas sem servidor usando a Grade de Eventos do Azure e o Azure Functions. A Grade de Eventos permite que o [Azure Functions](..\azure-functions\functions-overview.md) responda aos eventos do [armazenamento de Blobs do Azure](..\storage\blobs\storage-blobs-introduction.md) e gere miniaturas das imagens carregadas. Uma assinatura de evento é criada no evento de criação do armazenamento de Blobs. Quando um blob é adicionado a um contêiner de armazenamento de Blobs específico, um ponto de extremidade de função é chamado. Os dados passados para a associação de função da Grade de Eventos são usados para acessar o blob e gerar a imagem em miniatura.
+Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenamento. Ele estende o [tutorial anterior sobre o Armazenamento][previous-tutorial] para adicionar a geração automática de miniaturas sem servidor usando a Grade de Eventos do Azure e o Azure Functions. A Grade de Eventos permite que o [Azure Functions](../azure-functions/functions-overview.md) responda aos eventos do [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md) e gere miniaturas das imagens carregadas. Uma assinatura de evento é criada no evento de criação do armazenamento de Blobs. Quando um blob é adicionado a um contêiner de armazenamento de Blobs específico, um ponto de extremidade de função é chamado. Os dados passados para a associação de função da Grade de Eventos são usados para acessar o blob e gerar a imagem em miniatura.
 
 Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a um aplicativo de upload de imagens existente.
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial:
 
-Você deve ter concluído o tutorial anterior sobre o armazenamento de Blobs: [Carregar dados de imagem na nuvem com o Armazenamento do Azure][previous-tutorial].
+É necessário concluir o tutorial de Armazenamento de Blobs anterior: [Carregar dados de imagem na nuvem com o Armazenamento do Azure][previous-tutorial].
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -200,6 +200,6 @@ Avance até a terceira parte da série de tutoriais sobre o Armazenamento para s
 > [Proteger o acesso aos dados de um aplicativo na nuvem](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Para saber mais sobre a Grade de Eventos, consulte [Uma introdução à Grade de Eventos do Azure](overview.md). 
-+ Para experimentar outro tutorial que mostra o Azure Functions, consulte [Criar uma função que é integrada aos Aplicativos Lógicos do Azure](..\azure-functions\functions-twitter-email.md). 
++ Para experimentar outro tutorial que mostra o Azure Functions, consulte [Criar uma função que é integrada aos Aplicativos Lógicos do Azure](../azure-functions/functions-twitter-email.md). 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

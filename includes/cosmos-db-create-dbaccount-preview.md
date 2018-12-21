@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
-ms.openlocfilehash: 6169821d0e81f0af108dccbfa761f5512e352628
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853185"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53285936"
 ---
 1. Em uma nova janela do navegador, entre no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
@@ -26,8 +26,8 @@ ms.locfileid: "52853185"
     ---|---|---
     Assinatura|*Sua assinatura*|Selecione a assinatura do Azure que você deseja usar para essa conta do Azure Cosmos DB. 
     Grupo de recursos|Criar Novo<br><br>*Insira um nome exclusivo*|Selecione **Criar Novo**, em seguida, insira um novo nome de grupo de recursos para sua conta. Para simplificar, você pode usar um nome igual ao Nome da Conta. 
-    Nome da conta|*Insira um nome exclusivo*|Insira um nome exclusivo para identificar a conta do Azure Cosmos DB. Como *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, use uma ID exclusiva.<br><br>A ID pode conter apenas letras minúsculas, números e hifens (-), e deve conter de 3 a 50 caracteres.
-    API|Núcleo (SQL)|A API determina o tipo de conta a ser criada. O Azure Cosmos DB oferece cinco APIs: SQL (banco de dados do documento), Gremlin (banco de dados do grafo), MongoDB (banco de dados do documento), API de Tabela e API do Cassandra. No momento, cada API requer que você crie uma conta separada. <br><br>Selecione **Núcleo (SQL)** porque neste artigo você criará um banco de dados de documentos e fará consultas usando a sintaxe SQL. <br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
+    Nome da conta|*Insira um nome exclusivo*|Insira um nome exclusivo para identificar a conta do Azure Cosmos DB. Como *documents.Azure.com* é acrescentado à ID que você fornece para criar o URI, use uma ID exclusiva.<br><br>A ID pode conter apenas letras minúsculas, números e hifens (-), e deve conter de 3 a 31 caracteres.
+    API|Núcleo (SQL)|A API determina o tipo de conta a ser criada. O Azure Cosmos DB fornece cinco APIs: SQL (banco de dados do documento), Gremlin (banco de dados de grafo), MongoDB (banco de dados do documento), API de Tabela e API do Cassandra. No momento, cada API requer que você crie uma conta separada. <br><br>Selecione **Núcleo (SQL)** porque neste artigo você criará um banco de dados de documentos e fará consultas usando a sintaxe SQL. <br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
     Local padrão|*Selecione a região mais próxima de seus usuários*|Selecione uma localização geográfica para hospedar a sua conta do Azure Cosmos DB. Use o local mais próximo dos usuários para fornecer a eles acesso mais rápido aos dados.
     Habilitar a redundância geográfica| Deixar em branco | Isso cria uma versão replicada do banco de dados em uma segunda região (par). Deixe em branco.  
     Gravações de várias regiões| Deixar em branco | Isso permite que cada uma das suas regiões de banco de dados seja uma região de leitura e gravação. Deixe em branco.  

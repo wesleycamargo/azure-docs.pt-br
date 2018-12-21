@@ -10,14 +10,14 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: aad21bd4003f789a0a315d6514bf428a4ef3f9f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157234"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187330"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Início Rápido: Registrar dispositivos X.509 para o Serviço de Provisionamento de Dispositivos usando Python
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos usando Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
@@ -48,13 +48,13 @@ Para usar essas ferramentas de teste para gerar certificados, execute as seguint
  
 1. Abra um prompt de comando ou shell do Git Bash e altere para uma pasta de trabalho em seu computador. Execute o seguinte comando para clonar o repositório do GitHub [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  Atualmente, o tamanho desse repositório está em torno de 220 MB. Essa operação deve demorar alguns minutos.
+   Atualmente, o tamanho desse repositório está em torno de 220 MB. Essa operação deve demorar alguns minutos.
 
-  As ferramentas de teste estão localizadas em *azure-iot-sdk-c/tools/CACertificates* do repositório clonado.    
+   As ferramentas de teste estão localizadas em *azure-iot-sdk-c/tools/CACertificates* do repositório clonado.    
 
 2. Siga as etapas em [Gerenciar certificados de Autoridade de Certificação de teste para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 

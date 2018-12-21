@@ -36,7 +36,7 @@ As definições dos valores de métrica no arquivo de transação são encontrad
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulte os detalhes do cliente de transações pelas quais eu já paguei
 -------------------------------------------------------------
 
-Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status do pagamento** e aplique o filtro para exibir apenas o valor "Pago". As colunas a seguir serão exibidas, contendo os detalhes do cliente: **Nome da empresa**, **Email do cliente**, **País do cliente**, **Estado do cliente** e **Código postal do cliente**.
+Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status do pagamento** e aplique o filtro para exibir apenas o valor "Pago". As colunas a seguir serão exibidas, contendo os detalhes do cliente: **Nome da empresa**, **Email do cliente**,  **do cliente**, **Estado do cliente** e **Código postal do cliente**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcular o valor a receber pelas minhas contas abertas

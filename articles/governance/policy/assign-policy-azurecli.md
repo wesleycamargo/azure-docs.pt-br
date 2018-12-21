@@ -1,21 +1,22 @@
 ---
-title: Use a CLI do Azure para criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
-description: Use o PowerShell para criar uma atribuição de Política do Azure para identificar recursos sem conformidade.
+title: Criar uma política para identificar recursos sem conformidade com a CLI do Azure
+description: Use a CLI do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 4954ca42af1755ea62e7142048d48805397b6a0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968469"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315805"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Crie uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure com a CLI do Azure
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Criar uma atribuição de política para identificar recursos sem conformidade na CLI do Azure
 
 A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos.
 Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
@@ -32,7 +33,7 @@ Este início rápido exige a execução da CLI do Azure versão 2.0.4 ou posteri
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Registre o provedor de recursos Informações de Política usando a CLI do Azure. O registro do provedor de recursos garante o funcionamento da assinatura com ele. Para registrar um provedor de recursos, você deve ter permissão para executar a operação de ação de registro para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
+Registre o provedor de recursos Informações de Política usando a CLI do Azure. O registro do provedor de recursos garante o funcionamento da assinatura com ele. Para registrar um provedor de recursos, você deve ter permissão para registrar a operação do provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Execute o seguinte comando para registrar o provedor de recursos:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -44,18 +45,18 @@ Caso ainda não tenha feito, instale o [ARMClient](https://github.com/projectkud
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, crie uma atribuição de política e atribua a definição **Auditar VMs que não usam discos gerenciados**. Esta definição de política identifica recursos que não são compatíveis com as condições configuradas na definição de política.
+Neste guia de início rápido, crie uma atribuição de política e atribua a definição **Auditar VMs que não usam discos gerenciados**. Esta definição de política identifica recursos que não estão em conformidade com as condições configuradas na definição de política.
 
 Execute o comando a seguir para criar uma atribuição de política:
 
 ```azurecli-interactive
-az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 O comando anterior usa as seguintes informações:
 
 - **Nome** - O nome real da atribuição.  Neste exemplo, usamos *audit-vm-manageddisks*.
-- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando *Auditar Máquinas Virtuais sem atribuição de Managed Disks*.
+- **DisplayName** - O nome de exibição da atribuição de política. Nesse caso, você está usando *Auditar VMs sem atribuição de discos gerenciados*.
 - **Política**: a ID de definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a ID da definição de política *Auditar VMs que não usam discos gerenciados*. Para obter a ID de definição da política, execute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Escopo**: um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Substitua o &lt;escopo&gt; pelo nome do seu grupo de recursos.
 
@@ -64,7 +65,7 @@ O comando anterior usa as seguintes informações:
 Para exibir os recursos que não são compatíveis com essa nova atribuição, obtenha a ID de atribuição de política executando os comandos a seguir:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +107,7 @@ Os resultados são comparáveis aos que você geralmente vê listados em **Recur
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Outros guias desta coleção dão continuidade a este guia de início rápido. Se você planeja continuar trabalhando com os tutoriais mais recentes, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, exclua a atribuição criada executando este comando:
+Use o seguinte comando para remover a atribuição criada:
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -116,7 +117,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 Neste guia de início rápido, você atribuiu uma definição de política para identificar recursos sem conformidade em seu ambiente do Azure.
 
-Para saber mais sobre a atribuição de políticas e para garantir que os recursos que você criar no **futuro** estejam em conformidade, continue com o tutorial:
+Para saber mais sobre a atribuição de políticas para validar que novos recursos estejam em conformidade, continue com o tutorial para:
 
 > [!div class="nextstepaction"]
 > [Criando e gerenciando políticas](./tutorials/create-and-manage.md)

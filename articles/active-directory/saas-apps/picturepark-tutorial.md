@@ -233,7 +233,7 @@ Para permitir que os usuários do AD do Azure façam logon no Picturepark, eles 
    
     e. Na caixa de texto **Empresa**, digite o **Nome da empresa** do usuário. 
    
-    f. Na caixa de texto **País**, selecione o **País** do usuário.
+    f. Na caixa de texto **País/Região**, selecione o **País/Região** do usuário.
   
     g. Na caixa de texto **CEP**, digite o **CEP** da cidade.
    

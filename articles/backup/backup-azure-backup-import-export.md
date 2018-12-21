@@ -109,7 +109,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
     * O computador de cópia pode acessar o local de preparo para o fluxo de trabalho de propagação offline usando o mesmo caminho de rede fornecido no fluxo de trabalho de **Iniciar o backup offline** .
     * O BitLocker está habilitado no computador de cópia.
     * O Azure PowerShell 3.7.0 está instalado.
-    * Os navegadores com suporte mais recentes (Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
+    * Os navegadores com suporte mais recentes (Microsoft Edge ou Internet Explorer 11) estão instalados e se o JavaScript está habilitado. 
     * O computador de cópia pode acessar o portal do Azure. Se necessário, o computador de cópia também pode ser o computador de origem.
     
     > [!IMPORTANT] 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634321"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963208"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -35,14 +35,16 @@ A Pesquisa Visual Computacional pode fazer as seguintes ações ao analisar uma 
 
 | Ação | DESCRIÇÃO |
 | ------ | ----------- |
-|**[Marcar recursos visuais](concept-tagging-images.md)**|Identificar e marcar recursos visuais em uma imagem, com base em mais de 2 mil objetos, seres, cenários e ações reconhecíveis. Quando as marcações são ambíguas ou pertencem a um conhecimento não comum, a resposta fornece 'dicas' para esclarecer o significado da marcação no contexto de um cenário conhecido. A marcação não está limitada ao assunto principal, como uma pessoa em primeiro plano, mas também inclui cenário (interno ou externo), móveis, ferramentas, plantas, animais, acessórios, gadgets e outros.|
+|**[Marcar recursos visuais](concept-tagging-images.md)**|Identificar e marcar recursos visuais em uma imagem, de um conjunto de milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando as marcas são ambíguas ou pertencem a um conhecimento não comum, a resposta da API fornece "dicas" para esclarecer o significado da tag no contexto de um cenário conhecido. A marcação não está limitada ao assunto principal, como uma pessoa em primeiro plano, mas também inclui cenário (interno ou externo), móveis, ferramentas, plantas, animais, acessórios, gadgets e outros.|
+|**[Detectar objetos](concept-object-detection.md)**| A detecção de objetos é semelhante à marcação, mas a API retorna as coordenadas da caixa delimitadora para cada tag aplicada. Por exemplo, se uma imagem contiver um cachorro, um gato e uma pessoa, a operação Detect listará esses objetos junto com as coordenadas na imagem. Você pode usar essa funcionalidade para processar ainda mais as relações entre os objetos em uma imagem. Também permite que você saiba quando há várias instâncias da mesma tag em uma imagem.|
 |**[Categorizar uma imagem](concept-categorizing-images.md)**|Identifique e categorize uma imagem inteira usando uma [taxonomia de categoria](Category-Taxonomy.md) com hierarquias hereditárias de pai/filho. As categorias podem ser usadas autonomamente ou com nossos novos modelos de marcação.<br/>Atualmente, o inglês é o único idioma com suporte para a marcação e categorização de imagens.|
 |**[Descrever uma imagem](concept-describing-images.md)**|Gere uma descrição de uma imagem inteira em linguagem compreendida por humanos, usando frases completas. Os algoritmos da Pesquisa Visual Computacional geram várias descrições baseadas nos objetos identificados na imagem. Cada uma das descrições é avaliada e uma pontuação de confiança é gerada. Uma lista é então retornada, ordenada pela pontuação de confiança mais alta à mais baixa.|
 |**[Detectar rostos](concept-detecting-faces.md)** |Detecte rostos em uma imagem e forneça informações sobre cada rosto detectado. A Pesquisa Visual Computacional retorna as coordenadas, o retângulo, o sexo e a idade de cada rosto detectado.<br/>A Pesquisa Visual Computacional oferece um subconjunto da funcionalidade que pode ser encontrado na [Detecção Facial](/azure/cognitive-services/face/), e você pode usar o serviço Detecção Facial para uma análise mais detalhada, como identificação facial e detecção de pose.|
 |**[Detectar tipos de imagem](concept-detecting-image-types.md)**|Detecte características sobre uma imagem, por exemplo, se uma imagem é um desenho de linha se é, possivelmente, um clip-art.|
 |**[Detectar conteúdo específico de um domínio](concept-detecting-domain-content.md)**|Use modelos de domínio para detectar e identificar conteúdo específico de um assunto em uma imagem, como celebridades e pontos turísticos. Por exemplo, se uma imagem contém pessoas, a Pesquisa Visual Computacional pode usar um modelo de domínio para celebridades incluído com o serviço para determinar se as pessoas detectadas na imagem correspondem a celebridades conhecidas.|
 |**[Detectar o esquema de cores](concept-detecting-color-schemes.md)**|Analise o uso de cores em uma imagem. A Pesquisa Visual Computacional pode determinar se uma imagem está em preto e branco ou em cores e, para imagens com cores, identificar as cores dominantes e de detalhes.|
-|**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Pesquisa Visual Computacional primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *ROI* (região de interesse). A Pesquisa Visual Computacional corta a imagem para atender aos requisitos da região de interesse. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original, dependendo de suas necessidades.|
+|**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Pesquisa Visual Computacional primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. A Pesquisa Visual Computacional corta a imagem para atender aos requisitos da área de interesse. A miniatura gerada pode ser apresentada usando uma taxa de proporção diferente da taxa de proporção da imagem original, dependendo de suas necessidades.|
+|**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analise o conteúdo de uma imagem para retornar as coordenadas da *área de interesse*. Essa é a mesma função usada para gerar uma miniatura, porém, em vez de cortar a imagem, a Pesquisa Visual Computacional retorna as coordenadas da caixa delimitadora da região para que o aplicativo de chamada possa modificar a imagem original conforme desejado.|
 
 ## <a name="extracting-text-from-images"></a>Extraindo texto de imagens
 

@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: bb3ddb0ffe16746a44318ea8d0bf0f1e3b3c3de1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b5de5ccdf98d6d0a2952a694a253feaac9d6e07d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705575"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413618"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introdução ao Azure Dev Spaces com .NET Core
 
@@ -31,7 +31,7 @@ Neste guia, você aprenderá a:
 Agora você está pronto para criar um espaço de desenvolvimento baseado em Kubernetes no Azure.
 
 ## <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
-O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu espaço de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Seu computador local pode executar Windows, Mac ou Linux. Para o Linux, há suporte para as seguintes distribuições: Ubuntu (18.04, 16.04 e 14.04), Debian 8 e 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 e SLES 12.
+O Azure Dev Spaces requer somente uma configuração mínima do computador local. A maior parte da configuração do seu espaço de desenvolvimento é armazenada na nuvem e pode ser compartilhada com outros usuários. Seu computador local pode executar Windows, Mac ou Linux. Para Linux, há suporte para as seguintes distribuições: Ubuntu (18.04, 16.04 e 14.04), Debian 8 e 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 e SLES 12.
 
 Comece baixando e executando a [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 Crie um cluster Kubernetes com o seguinte comando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 São necessários alguns minutos para criar o cluster.

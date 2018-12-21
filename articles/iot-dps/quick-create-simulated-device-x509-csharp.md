@@ -10,23 +10,23 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d9b4777067ed1ee9f253714bc82c2a20aaa0d127
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156452"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997037"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo C# para o Serviço de Provisionamento do Dispositivo Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Estas etapas mostram como o [SDK C# do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) simulou o exemplo do dispositivo X.509 em uma computador de desenvolvimento com o SO Windows e conectou o dispositivo simulado com o Serviço de Provisionamento de Dispositivos e o seu hub IoT.
+Estas etapas mostram como usar [Exemplos de IoT do Azure para C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp) para simular um dispositivo X.509 em um computador de desenvolvimento executando o sistema operacional Windows. O exemplo também conecta o dispositivo simulado a um Hub IoT usando o Serviço de Provisionamento de Dispositivos.
 
 Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
 
 Este artigo irá demonstrar registros individuais.
 
@@ -35,14 +35,14 @@ Este artigo irá demonstrar registros individuais.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento 
 
-1. Verifique se você tem o [SDK do .NET Core](https://www.microsoft.com/net/download/windows) instalado no computador. 
+1. Verifique se você tem o [SDK do .Net Core 2.1 ou posterior](https://www.microsoft.com/net/download/windows) instalado em seu computador. 
 
 1. Verifique se o `git` está instalado em seu computador e é adicionado às variáveis de ambiente que podem ser acessadas pela janela de comando. Confira [ferramentas de cliente Git do Software Freedom Conservancy](https://git-scm.com/download/) para obter a versão mais recente das ferramentas `git` a serem instaladas, que inclui o **Git Bash**, o aplicativo de linha de comando que você pode usar para interagir com seu repositório Git local. 
 
-4. Abra um prompt de comando ou o Bash do Git. Clone o repositório GitHub do [SDK para C# de IoT do Azure](https://github.com/Azure/azure-iot-sdk-csharp):
+1. Abra um prompt de comando ou o Bash do Git. Clonar Amostras GitHub do Azure IoT para repositório GitHub em C#:
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Criar um certificado de dispositivo X.509 autoassinado e entrada de registro individual
@@ -52,13 +52,13 @@ Nesta seção, você usará um certificado X.509 autoassinado, é importante ter
 * Os certificados autoassinados são somente para teste e não devem ser usados em produção.
 * A data de validade padrão para um certificado autoassinado é de um ano.
 
-Você usará o código de exemplo do [SDK do Azure IoT para .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
+Você usará o código de exemplo de [Exemplo de Cliente do Dispositivo de Provisionamento – Atestado de X.509](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) para criar o certificado a ser usado com a entrada de registro individual para o dispositivo simulado.
 
 
 1. No prompt de comando, altere os diretórios para o diretório do projeto de exemplo de provisionamento do dispositivo X.509.
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
 2. O código de exemplo está configurado para usar os certificados X.509 armazenados em um arquivo formatado PKCS12 protegido por senha (certificate.pfx). Além disso, você precisa de um arquivo de certificado de chave pública (certificate.cer) para criar um registro individual mais tarde neste Guia de Início Rápido. Para gerar um certificado autoassinado e seus arquivos .cer e .pfx associados, execute o seguinte comando:

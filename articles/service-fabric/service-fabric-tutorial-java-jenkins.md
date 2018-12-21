@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124973"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162215"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar o CI/CD para um aplicativo Java no Service Fabric
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para habilitar a CI/CD para um aplicativo Java no Service Fabric
 
-Este tutorial é a parte cinco de uma série. Ele mostra como usar o Jenkins para implantar atualizações em seu aplicativo. Neste tutorial, o plug-in Jenkins do Service Fabric é usado junto com um repositório Github que hospeda o aplicativo Voting para implantar o aplicativo em um cluster.
+Este tutorial é a parte cinco de uma série. Ele mostra como usar o Jenkins para implantar atualizações em seu aplicativo. Neste tutorial, o plug-in Jenkins do Service Fabric é usado com um repositório do GitHub que hospeda o aplicativo Voting para implantar o aplicativo em um cluster.
 
 Na parte cinco da série, você aprende a:
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar um trabalho do Jenkins
 
-1. Primeiro, se você não tiver um repositório que possa usar para hospedar o projeto do Voting no Github, crie um. O repositório será chamado de **dev_test** no restante deste tutorial.
+1. Primeiro, se você não tiver um repositório que possa usar para hospedar o projeto do Voting no GitHub, crie um. O repositório será chamado de **dev_test** no restante deste tutorial.
 
 1. Crie um **novo item** no painel do Jenkins. em ``http://<HOST-IP>:8080``.
 
@@ -181,7 +181,7 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
     </CodePackage>
     ```
 
-1. Para inicializar um trabalho do Jenkins que execute uma atualização do aplicativo, efetue push das suas novas alterações para seu repositório do Github.
+1. Para inicializar um trabalho do Jenkins que execute uma atualização do aplicativo, envie por push suas novas alterações para o repositório do GitHub.
 
 1. No Service Fabric Explorer, clique na lista suspensa **Aplicativos**. Para ver o status da atualização, clique na guia **Atualizações em Andamento**.
 

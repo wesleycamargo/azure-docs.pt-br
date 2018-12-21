@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095503"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957258"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -171,7 +171,7 @@ Instale os módulos mais recentes do Azure PowerShell seguindo as instruções e
 5. Selecione o **local** do data factory. Apenas os locais com suporte são exibidos na lista suspensa. Os armazenamentos de dados (Armazenamento do Azure, Banco de Dados SQL do Azure, etc.) e serviços de computação (HDInsight, etc.) usados pelo data factory podem estar em outras regiões.
 6. Selecione **Fixar no painel**.     
 7. Clique em **Criar**.      
-8. No painel, você vê o seguinte bloco com status: **Implantando data factory**. 
+8. No painel, você deve ver o seguinte bloco com status: **Implantando data factory**. 
 
     ![implantando bloco data factory](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Após a criação, a página do **Data Factory** será exibida conforme mostrado na imagem.
@@ -322,7 +322,7 @@ Clique em **Gatilho** na barra de ferramentas para o pipeline e clique em **Disp
 ### <a name="review-the-results"></a>Revise os resultados
 Você verá um arquivo chamado `incremental-<GUID>.txt` na pasta `incchgtracking` do contêiner `adftutorial`. 
 
-![Arquivo de saída da cópia completa](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Arquivo de saída da cópia completa](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 O arquivo deve ter os dados do Banco de Dados SQL do Azure:
 
@@ -445,7 +445,7 @@ Nesta etapa, você cria um pipeline com as seguintes atividades e execute-o peri
 ### <a name="review-the-results"></a>Revise os resultados
 Você verá o segundo arquivo na pasta `incchgtracking` do contêiner `adftutorial`. 
 
-![Arquivo de saída da cópia incremental](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Arquivo de saída da cópia incremental](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 O arquivo deve ter apenas os dados delta do Banco de Dados SQL do Azure. O registro com `U` é a linha atualizada no banco de dados, e `I` é aquele adicionado à linha. 
 
@@ -453,7 +453,7 @@ O arquivo deve ter apenas os dados delta do Banco de Dados SQL do Azure. O regis
 1,update,10,2,U
 6,new,50,1,I
 ```
-As três primeiras colunas são dados alterados do data_source_table. As duas últimas colunas são os metadados da tabela do sistema de controle de alterações. A quarta coluna é SYS_CHANGE_VERSION de cada linha alterada. A quinta coluna é a operação: U = atualização, I = inserir.  Para obter detalhes sobre as informações de controle de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+As três primeiras colunas são dados alterados do data_source_table. As duas últimas colunas são os metadados da tabela do sistema de controle de alterações. A quarta coluna é SYS_CHANGE_VERSION de cada linha alterada. A quinta coluna é a operação:  U = atualizar, I = inserir.  Para obter detalhes sobre as informações de controle de alterações, consulte [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

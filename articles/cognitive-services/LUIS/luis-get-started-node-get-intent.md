@@ -1,23 +1,26 @@
 ---
-title: Início Rápido do Node.js – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando Node.js, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público. No ponto de extremidade, LUIS aplica o modelo do aplicativo público para analisar o texto de idioma natural quanto ao significado, determinando a intenção geral e extraindo dados relevantes para o domínio do assunto do aplicativo.
+title: Obter a intenção, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção do usuário do texto de conversa. Usando Node.js, envie a intenção do usuário como texto para o ponto de extremidade de previsão de HTTP do aplicativo público.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038911"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162657"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Início Rápido: Obter a intenção usando o Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Início Rápido: Obter a intenção usando Node.js
+
+Neste início rápido, passe enunciados para um ponto de extremidade LUIS e obtenha intenção e entidades.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038911"
 
 
 > [!NOTE] 
-> A solução Node.js completa está disponível nos [**exemplos de LUIS** no repositório Github](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> A solução Node.js completa está disponível nos [**exemplos de LUIS** no repositório do GitHub](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 

@@ -165,7 +165,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 1. Abra uma nova guia no seu navegador e faça login na sua conta de administrador do Meta Networks Connector.
     
     > [!NOTE]
-    > O Meta Networks Connector é um sistema seguro. Portanto, antes de acessar o portal precisa obter sua lista de permissões de endereços IP pública em seu lado. Para obter seu endereço IP público, siga o link especificado abaixo [aqui](https://whatismyipaddress.com/). Enviar seu endereço IP para o [equipe de suporte do cliente de conector de redes de Meta](mailto:support@metanetworks.com) para obter seu endereço IP na lista branca.
+    > O Meta Networks Connector é um sistema seguro. Portanto, antes de acessar o portal precisa obter sua lista de permissões de endereços IP pública em seu lado. Para obter seu endereço IP público, siga o link especificado abaixo [aqui](https://whatismyipaddress.com/). Enviar seu endereço IP para o [equipe de suporte do cliente de conector de redes de Meta](mailto:support@metanetworks.com) para obter seu endereço IP na lista de permissões.
     
 1. Vá para **Administrator** e selecione **configurações**.
     

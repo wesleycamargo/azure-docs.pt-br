@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a547e52fffb981747c2a752778cbf187d37549d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 870b07013aa279a20dd231fecc83775fd1aebc5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841278"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166091"
 ---
-# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Início rápido: compilar um aplicativo de API de Tabela com Node.js e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo de API de Tabela com Node.js e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -38,7 +38,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 Além disso:
 
 * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -58,7 +58,7 @@ Além disso:
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -82,7 +82,7 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
     ![Exibir e copiar as informações necessárias da cadeia de conexão do painel da Cadeia de Conexão](./media/create-table-nodejs/connection-string.png)
 

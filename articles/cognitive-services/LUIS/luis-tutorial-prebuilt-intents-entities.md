@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 2: Intenções e entidades pré-criadas – usar enunciados comuns pré-criados – extrair dados comuns no LUIS'
+title: Intenções e entidades predefinidas
 titleSuffix: Azure Cognitive Services
 description: Adicione intenções e entidades predefinidas ao aplicativo de tutorial de Recursos Humanos para adquirir rapidamente previsão de intenção e extração de dados. Não é necessário rotular nenhum enunciado com as entidades pré-criadas. A entidade é detectada automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422415"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074054"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutorial 2: Identificar intenções e entidades comuns
 Neste tutorial, modifique o aplicativo de recursos humanos. Adicione intenções e entidades predefinidas ao aplicativo de tutorial de Recursos Humanos para adquirir rapidamente previsão de intenção e extração de dados. Não é necessário rotular os enunciados com as entidades pré-criadas, porque a entidade é detectada automaticamente.
@@ -90,7 +91,7 @@ O LUIS fornece várias entidades predefinidas para extração de dados comuns.
 
 2. Acesse o fim da URL na barra de endereço do navegador e insira `I want to cancel on March 3`. O último parâmetro da cadeia de consulta é `q`, a declaração **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

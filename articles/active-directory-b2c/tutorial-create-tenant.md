@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 3. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 4. Pesquise e selecione **Active Directory B2C**; depois, clique em **Criar**.
-5. Escolha **Criar um novo locatário do Azure AD B2C**, insira um nome de organização e nome de domínio inicial, que é usado no nome do locatário, selecione o país (não pode ser alterado depois) e, em seguida, clique em **Criar**.
+5. Escolha **Criar um novo locatário do Azure AD B2C**, insira um nome de organização e nome de domínio inicial, que é usado no nome do locatário, selecione o país/região (não pode ser alterado depois) e, em seguida, clique em **Criar**.
 
     ![Criar um locatário](./media/tutorial-create-tenant/create-tenant.png)
 

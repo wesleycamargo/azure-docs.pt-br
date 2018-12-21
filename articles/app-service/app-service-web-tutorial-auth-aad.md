@@ -1,5 +1,5 @@
 ---
-title: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure | Microsoft Docs
+title: Autenticar e autorizar usuários de ponta a ponta – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como usar o recurso de autenticação e autorização do Serviço de Aplicativo de para proteger seus aplicativos do Serviço de Aplicativo, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicativo, serviço de aplicativo do azure, authN, authZ, proteger, segurança, várias camadas, azure active directory, azure ad
 services: app-service\web
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416147"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408840"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -213,11 +214,11 @@ Navegue até `http://<back_end_app_name>.azurewebsites.net` para ver os itens ad
 
 Nesta etapa, habilite o recurso de autenticação e autorização para os dois aplicativos. Você também pode configurar o aplicativo front-end para gerar um token de acesso que pode ser usado para fazer chamadas autenticadas para o aplicativo de back-end.
 
-Use o Azure Active Directory como o provedor de identidade. Para saber mais, confira [Configurar a autenticação do Azure Active Directory para seu aplicativo do Serviços de Aplicativo](app-service-mobile-how-to-configure-active-directory-authentication.md).
+Use o Azure Active Directory como o provedor de identidade. Para saber mais, confira [Configurar a autenticação do Azure Active Directory para seu aplicativo do Serviços de Aplicativo](configure-authentication-provider-aad.md).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitar autenticação e autorização para o aplicativo de back-end
 
-No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<nome\_aplicativo\_back\_end>_.
+No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 

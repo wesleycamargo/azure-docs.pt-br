@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecimento e transcrição de fala, .NET Framework (Windows) - Serviço de Fala'
+title: 'Início Rápido: Reconhecer fala, .NET Framework (Windows) – Serviços da API de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de console de conversão de fala em texto usando o .NET Framework para Windows e o SDK de Fala. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683484"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074888"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Início Rápido: Reconhecimento e transcrição de fala usando o SDK de Fala e o .NET Framework (Windows)
 

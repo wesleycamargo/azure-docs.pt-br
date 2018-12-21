@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: af8b2c3f0b319ce9769e9789f6639e1d5eb266f6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865209"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081893"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web do Python Flask usando o Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 * [Compilador do Microsoft Visual C++ para Python 2.7](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>Etapa 1: Criar uma conta de banco de dados do Azure Cosmos DB
-Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o Emulador do Azure Cosmos DB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo web do Python Flask](#step-2-create-a-new-python-flask-web-application).
+Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma conta ou se estiver usando o Emulador do Azure Cosmos DB para este tutorial, pule para a [Etapa 2: Criar um novo aplicativo Web Python Flask](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -349,7 +349,7 @@ def vote():
    
     ![Captura de tela da janela do Gerenciador de Soluções do Visual Studio](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
-## <a name="step-4-run-your-web-application-locally"></a>Etapa 4: executar o aplicativo localmente
+## <a name="step-4-run-your-web-application-locally"></a>Etapa 4: Executar o aplicativo Web localmente
 1. Crie a solução ao pressionar **Ctrl**+**Shift**+**B**.
 2. Se a compilação for bem-sucedida, inicie o site pressionando **F5**. Você deverá ver o seguinte na tela.
    
@@ -436,4 +436,4 @@ Para incluir funcionalidade adicional no aplicativo Web, examine as APIs dispon�
 
 Para saber mais sobre o Azure, o Visual Studio e o Python, consulte o [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/). 
 
-Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+Para obter outros tutoriais do Python Flask, confira [The Flask Mega-Tutorial, Part I: Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) (O megatutorial do Flask, Parte I: Olá, Mundo!). 

@@ -1,23 +1,24 @@
 ---
-title: 'Início Rápido: Publicar uma base de dados de conhecimento - REST, C# – QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: Este início rápido com base em REST orienta você na publicação de sua base de dados conhecimento, que envia por push a última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento publicada. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
+title: Publicar base de dados de conhecimento, REST, C#
+titleSuffix: QnA Maker- Azure Cognitive Services
+description: Este início rápido com base em REST em C# orienta você na publicação de sua base de dados conhecimento, que envia por push a última versão da base de dados de conhecimento testada para um índice do Azure Search dedicado que representa a base de dados de conhecimento publicada. Isso também cria um ponto de extremidade que pode ser chamado no aplicativo ou chat bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/18/2018
 ms.author: diberry
-ms.openlocfilehash: e48f493c08ee96b75c1d418fdbef1d36672a48a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 678b5d340fc81ad917e42e9b8e80051cc511da87
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163887"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162606"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: publicar uma base de dados de conhecimento no QnA Maker usando C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: Publicar uma base de dados de conhecimento no QnA Maker usando C#
 
 Esse início rápido baseado em REST orienta você durante a publicação programática de sua KB (base de dados de conhecimento). A publicação envia por push a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto de extremidade que pode ser chamado em seu aplicativo ou chat bot.
 
@@ -32,10 +33,10 @@ Este início rápido chama as APIs de QnA Maker:
 
     ![ID da base de dados de conhecimento do QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se você não tiver uma base de dados de conhecimento, pode criar uma de amostra para usar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+    Se ainda não tiver uma base de dados de conhecimento, você poderá criar uma de exemplo para usar neste início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> Os arquivos da solução completa estão disponíveis no repositório GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Os arquivos da solução completa estão disponíveis no repositório do GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Criar projeto da base de dados de conhecimento
 

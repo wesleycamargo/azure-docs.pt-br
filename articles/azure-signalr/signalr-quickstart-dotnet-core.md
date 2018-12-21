@@ -1,27 +1,20 @@
 ---
-title: Início Rápido para aprender a usar o Serviço Azure SignalR | Microsoft Docs
+title: Início Rápido para aprender a usar o Serviço do Azure SignalR
 description: Um início rápido sobre como usar o Serviço Azure SignalR para criar uma sala de chat com aplicativos MVC do ASP.NET Core.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959471"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260609"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: Criar uma sala de chat com o Serviço SignalR
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: criar uma sala de chat com o Serviço do SignalR
 
 
 O Serviço Azure SignalR é um serviço do Azure que ajuda os desenvolvedores a criarem facilmente aplicativos Web com recursos em tempo real. Esse serviço tem base no [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -41,7 +34,7 @@ O código para este tutorial está disponível para download no [repositório Az
 ## <a name="prerequisites"></a>pré-requisitos
 
 * Instalar o [SDK do .NET Core](https://www.microsoft.com/net/download/windows)
-* Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do github. 
+* Faça o download ou clone o repositório [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) do GitHub. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Criar um recurso do Azure SignalR
 

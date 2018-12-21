@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do ASP.NET MVC para Azure Cosmos DB: desenvolvimento de aplicativo Web'
+title: 'Tutorial do ASP.NET MVC para o Azure Cosmos DB: Desenvolvimento de aplicativo Web'
 description: Tutorial do ASP.NET MVC para criar um aplicativo Web MVC usando o Azure Cosmos DB. Você armazenará o JSON e acessará dados de um aplicativo de lista de tarefas pendentes hospedado em sites do Azure ‒ tutorial passo a passo do ASP NET MVC.
 keywords: tutorial do asp.net mvc, desenvolvimento de aplicativos web, aplicativo web mvc, passo a passo do tutorial do asp net mvc
 services: cosmos-db
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b0c8d46e74eec4bad7b7e664682c97eb0f0068b6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868711"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098719"
 ---
-# <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativo Web com o Azure Cosmos DB
+# <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativo Web com o Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -61,7 +61,7 @@ Vamos começar criando uma conta do Azure Cosmos DB. Se você já tiver uma cont
 <br/>
 Agora vamos abordar como criar um novo aplicativo ASP.NET MVC desde o início. 
 
-## <a name="_Toc395637762"></a>Etapa 2: criar um novo aplicativo ASP.NET MVC
+## <a name="_Toc395637762"></a>Etapa 2: Criar um novo aplicativo ASP.NET MVC
 
 1. No Visual Studio, no menu **Arquivo**, aponte para **Novo** e clique em **Projeto**. A caixa de diálogo **Novo Projeto** aparecerá.
 
@@ -106,7 +106,7 @@ Agora que cuidamos da maioria dos detalhes técnicos do ASP.NET MVC necessários
    
     ![Captura de tela das duas referências adicionadas ao projeto de dados JSON no Gerenciador de Soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>Etapa 4: configurar o aplicativo ASP.NET MVC
+## <a name="_Toc395637763"></a>Etapa 4: Configurar o aplicativo ASP.NET MVC
 Agora vamos adicionar os modelos, as exibições e os controladores a este aplicativo MVC:
 
 * [Adicionar um modelo](#_Toc395637764).
@@ -414,9 +414,9 @@ Vamos adicionar um código a DBRepository e ItemController do Cosmos do Azure pa
    
     Esse código chama o DocumentDBRepository e usa o método CreateItemAsync para manter o novo item de todo no banco de dados. 
    
-    **Observação de segurança**: o atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação entre sites forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, veja [Preventing Cross-Site Request Forgery (Prevenindo solicitação intersite forjada)][Preventing Cross-Site Request Forgery]. O código-fonte fornecido no [GitHub][GitHub] tem a implementação completa estabelecida.
+    **Observação de Segurança**: O atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação intersite forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, veja [Preventing Cross-Site Request Forgery (Prevenindo solicitação intersite forjada)][Preventing Cross-Site Request Forgery]. O código-fonte fornecido no [GitHub][GitHub] tem a implementação completa estabelecida.
    
-    **Observação de segurança**: também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][Basic CRUD Operations in ASP.NET MVC].
+    **Observação de Segurança**: Também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][Basic CRUD Operations in ASP.NET MVC].
 
 Isso conclui o código exigido para adicionar novos itens ao nosso banco de dados.
 
@@ -494,7 +494,7 @@ Existe uma última ação para realizarmos, que é adicionar a capacidade de edi
 
 Ou seja, isso é tudo que precisamos para executar nosso aplicativo, listar **Itens** incompletos, adicionar novos **Itens** e editar **Itens**.
 
-## <a name="_Toc395637773"></a>Etapa 6: executar o aplicativo localmente
+## <a name="_Toc395637773"></a>Etapa 6: Executar o aplicativo localmente
 Para testar o aplicativo em seu computador local, faça o seguinte:
 
 1. Pressione F5 no Visual Studio para compilar o aplicativo no modo de depuração. Ele deve compilar o aplicativo e iniciar um navegador com a página de grade vazia que vimos anteriormente:
@@ -516,7 +516,7 @@ Para testar o aplicativo em seu computador local, faça o seguinte:
     ![Captura de tela da exibição Índice com a caixa Concluído marcada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Depois de testar o aplicativo, pressione Ctrl + F5 para parar a depuração do aplicativo. Você está pronto para implantar!
 
-## <a name="_Toc395637774"></a>Etapa 7: implantar o aplicativo no Serviço de Aplicativo do Azure 
+## <a name="_Toc395637774"></a>Etapa 7: Implantar o aplicativo no Serviço de Aplicativo do Azure 
 Agora que você tem o aplicativo completo funcionando corretamente no Azure Cosmos DB, vamos implantar esse aplicativo Web no Serviço de Aplicativo do Azure.  
 
 1. Para publicar esse aplicativo, basta clicar com o botão direito do mouse no projeto no **Gerenciador de Soluções** e clicar em **Publicar**.
@@ -545,8 +545,8 @@ Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP .NET MVC usa
 Para adicionar outras funcionalidades a seu aplicativo, examine as APIs disponíveis na [Biblioteca .NET do Azure Cosmos DB](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app

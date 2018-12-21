@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 1: Encontrar intenções no aplicativo LUIS personalizado'
+title: Prever intenções
 titleSuffix: Azure Cognitive Services
 description: Crie um aplicativo personalizado que prevê a intenção de um usuário. Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai vários elementos de dados do texto do enunciado, como endereços de email ou datas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426852"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097787"
 ---
-# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Criar um aplicativo personalizado para determinar as intenções do usuário
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Compilar um aplicativo personalizado para determinar as intenções do usuário
 
 Neste tutorial, você criará um aplicativo personalizado de RH (Recursos Humanos) que prevê a intenção de um usuário com base no enunciado (texto). Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
 
@@ -43,11 +44,11 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 
 2. Selecione **Criar novo aplicativo**.  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Captura de tela da página Meus Aplicativos do LUIS (Reconhecimento vocal)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Captura de tela da página Meus Aplicativos do LUIS (Reconhecimento Vocal)](media/luis-quickstart-intents-only/app-list.png "Captura de tela da página Meus Aplicativos do LUIS (Reconhecimento Vocal)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. Na caixa de diálogo pop-up, insira o nome `HumanResources` e mantenha a cultura padrão, **Inglês**. Deixe a descrição em branco.
 
-    ![Novo aplicativo LUIS](./media/luis-quickstart-intents-only/create-app.png)
+    ![Criar novo aplicativo HumanResources LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
     Em seguida, o aplicativo mostra a página **Intenções** com a Intenção **Nenhuma**.
 
@@ -55,7 +56,7 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 
 1. Selecione **Criar nova intenção**. Insira o nome da nova intenção `GetJobInformation`. Essa intenção é prevista sempre que um usuário deseja obter informações sobre vagas abertas na empresa.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Captura de tela da caixa de diálogo Nova Intenção do LUIS (Reconhecimento vocal)")
+    ![Captura de tela da caixa de diálogo de Nova intenção do LUIS (Reconhecimento Vocal)](media/luis-quickstart-intents-only/create-intent.png "Captura de tela da caixa de diálogo de Nova intenção do LUIS (Reconhecimento Vocal)")
 
 2. Fornecendo _enunciados de exemplo_, você está treinando o LUIS nos tipos de enunciados que devem ser previstos para essa intenção. Adicione vários enunciados de exemplo a essa intenção a qual você espera que um usuário solicite, por exemplo:
 
@@ -69,7 +70,7 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
     |Novas vagas?|
     |Existe alguma nova vaga no escritório de Seattle?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de tela da inserção de novos enunciados para o MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Captura de tela da inserção de novas declarações para intenção de MyStore](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de tela da inserção de novas declarações para intenção de MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Retorne ao site do LUIS e crie uma intenção para determinar se o enunciado do 
     |Este é o meu CV para a vaga 654234|
     |Vaga 567890 e minha papelada|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de tela da inserção de novos enunciados para a intenção ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Captura de tela da inserção de novas declarações para intenção ApplyForJob](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de tela da inserção de novas declarações para intenção ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     A intenção rotulada é contornada em vermelho porque LUIS não está certo de que esta é a intenção correta. Treinar o aplicativo informa LUIS que os enunciados estão na intenção correta. 
 
@@ -168,7 +169,7 @@ Retorne ao site do LUIS e crie uma intenção para determinar se o enunciado do 
 
 2. Na nova janela do navegador, digite `Can I submit my resume for job 235986` no final da URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

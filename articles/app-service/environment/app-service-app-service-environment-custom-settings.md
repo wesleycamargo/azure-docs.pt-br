@@ -1,5 +1,5 @@
 ---
-title: Configurações personalizadas para Ambientes de Serviço de Aplicativo
+title: Configurações personalizadas para Ambientes do Serviço de Aplicativo – Azure
 description: Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 services: app-service
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.custom: mvc
-ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: seodec18
+ms.openlocfilehash: de68c59987a7ec1198c344cc22978ebed09c75e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129508"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271344"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Definições de configuração personalizadas para Ambientes de Serviço de Aplicativo
 ## <a name="overview"></a>Visão geral
@@ -30,7 +30,7 @@ Se você não tiver um Ambiente do Serviço de Aplicativo, consulte [Como criar 
 
 Você pode armazenar as personalizações de Ambiente de Serviço de Aplicativo usando uma matriz no novo atributo **clusterSettings** . Esse atributo é encontrado no dicionário de "Propriedades" da entidade do Azure Resource Manager *hostingEnvironments* .
 
-O trecho de código de modelo do Resource Manager abreviado a seguir mostra o atributo **clusterSettings** :
+O snippet de código de modelo do Resource Manager abreviado a seguir mostra o atributo **clusterSettings** :
 
     "resources": [
     {

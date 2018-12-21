@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy - impor padrão de correspondência
+title: Exemplo – impor padrão de correspondência
 description: Essa política de exemplo exige que os recursos atendam ao padrão de correspondência para convenções de nomenclatura.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: da2b4621604a29d9104669e4f0a0c40cc44ca319
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0b202f8fd348feaa87b9a9409180e22b0781f4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999555"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311959"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>Imponha padrão de semelhança das convenções de nomenclatura
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine mais amostras em [Exemplos do Azure Policy](index.md)
+- Examine mais exemplos nos [exemplos do Azure Policy](index.md)

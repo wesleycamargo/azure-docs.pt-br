@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 70a7f17ed0ecb78337d13f68a260fc9f860e3a4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 046c8f79ceea9ce40b5a60f720f205157110789e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837011"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161558"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com Python e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo de API de Tabela com Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -58,7 +58,7 @@ Além disso:
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
+Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -84,7 +84,7 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
     ![Exiba e copie a CADEIA DE CONEXÃO no painel Cadeia de Conexão](./media/create-table-python/connection-string.png)
 

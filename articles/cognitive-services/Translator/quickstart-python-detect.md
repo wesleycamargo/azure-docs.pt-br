@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993824"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com Python
 
@@ -163,7 +163,7 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="see-also"></a>Consulte também
 
-Além da detecção de idioma, saiba como usar a API de Tradução de Texto para:
+Saiba como usar a API de Tradução de Texto para:
 
 * [Traduzir o texto](quickstart-python-translate.md)
 * [Transliteração de texto](quickstart-python-transliterate.md)

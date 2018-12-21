@@ -100,7 +100,7 @@ Para adicionar um dispositivo individual à lista de bloqueios em um grupo de re
 
     Carregue o certificado do dispositivo e insira a ID do dispositivo para ser adicionada à lista de bloqueios. Para o certificado, use o certificado de entidade final assinado instalado no dispositivo. O dispositivo usa o certificado de entidade final assinado para autenticação.
 
-    ![Definir as propriedades do dispositivo para o dispositivo incluído na lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+    ![Definir as propriedades do dispositivo para o dispositivo incluído na lista de bloqueios](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
 
 6. Role até a parte inferior da página **Adicionar registro** e selecione **Desabilitar** na opção **Habilitar entrada** e, em seguida, selecione **Salvar**. 
 

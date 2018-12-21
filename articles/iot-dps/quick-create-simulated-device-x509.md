@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8b7848392ebd8ec44dcf646b13911aaafe905ae3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 16942e183152720dc958b6c0ccecde1dee2e5cde
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185164"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo X.509 simulado usando o SDK de C do IoT do Azure
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo simulado X.509 usando o SDK de C do IoT do Azure
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
@@ -25,8 +25,8 @@ Neste início rápido, você aprenderá a criar e executar um simulador de dispo
 Se você não estiver familiarizado com o processo de provisionamento automático, analise os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar com este início rápido. 
 
 O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registro](concepts-service.md#enrollment-group): usados para registrar vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para registrar um único dispositivo.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
 
 Este artigo irá demonstrar registros individuais.
 
@@ -137,13 +137,13 @@ Você usará o código de exemplo do SDK de C do IoT do Azure para criar o certi
 
 3. Em **Adicionar registro**, insira as informações a seguir e clique no botão **Salvar**.
 
-    - **Mecanismo:** selecione **X.509** como o *Mecanismo* de atestado de identidade.
+    - **Mecanismo:** Selecione **X.509** como o *Mecanismo* de atestado de identidade.
     - **Arquivo .pem ou .cer de certificado primário:** clique em **Selecionar um arquivo** para selecionar o arquivo de certificado X509testcert.pem que você criou anteriormente.
-    - **ID do dispositivo Hub IoT:** insira **test-docs-cert-device** para dar uma ID ao dispositivo.
+    - **ID do Dispositivo de Hub IoT:** insira **test-docs-cert-device** para dar uma ID ao dispositivo.
 
-    [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
-    No registro bem-sucedido, o dispositivo X.509 é exibido como **riot-device-cert** na coluna *ID do Registro* na guia o *Registros Individuais*. 
+      No registro bem-sucedido, o dispositivo X.509 é exibido como **riot-device-cert** na coluna *ID do Registro* na guia o *Registros Individuais*. 
 
 
 

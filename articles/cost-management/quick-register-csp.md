@@ -1,21 +1,21 @@
 ---
 title: Registrar-se usando as informações do parceiro CSP com a Cloudyn no Azure | Microsoft Docs
-description: Use as informações do Parceiro CSP registrar-se com o Cloudyn.
+description: Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
-ms.custom: ''
+ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 7d89446869815e5fb33ed0f95739054552268fae
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0cded27e5c7a7105c3e22f55fa02394572d0932f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274748"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099867"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -33,13 +33,13 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em http://portal.azure.com.
+- Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="register-with-cloudyn"></a>Registrar com Cloudyn
 
 1. No portal do Azure, clique em **Gerenciamento de Custo + Cobrança** na lista de serviços.
 2. Em **Visão geral**, clique em **Cloudyn**  
-    ![Página do Cloudyn](./media/quick-register-csp/cost-mgt-billing-service.png)
+    ![Página do Cloudyn mostrada no portal do Azure](./media/quick-register-csp/cost-mgt-billing-service.png)
 3. Na página **Cloudyn**, clique em **Ir para o Cloudyn** para abrir a página de registro do Cloudyn em uma nova janela.
 4. Na página de registro de avaliação do portal do Cloudyn, digite o nome de sua empresa, selecione **Administrador do Microsoft CSP Partner Program** e, em seguida, clique em **Avançar**.  
 5. Insira uma **ID do Aplicativo**, **ID de Comércio**, **Chave secreta do aplicativo** e selecione o **Plano de Preços Padrão**. Caso não tenha as informações em mãos, entre no portal do Partner Center em [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) com sua conta principal de administrador e execute as seguintes etapas:
@@ -48,9 +48,9 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
   3. Copie o GUID da **ID do Aplicativo** do aplicativo Web.
   4. Copie o GUID da **ID do comércio** do aplicativo Web.
   5. Selecione a duração da validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e salve o valor da chave secreta.  
-    ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
+    ![Painel de parceiros no qual você copia informações de credenciais](./media/quick-register-csp/csp-partner-center.png)
   6. Volte para a página de registro do Cloudyn e cole as informações.  
-      ![Credenciais da conta do CSP](./media/quick-register-csp/csp-reg.png)
+      ![Colar informações de credenciais na página de registro Cloudyn](./media/quick-register-csp/csp-reg.png)
 6. Concorde com os Termos de Uso e, em seguida, valide as informações. Clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Leva cerca de duas horas para que todos os seus dados de cobrança sejam adicionados ao Cloudyn.
 8. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas de Nuvem**, você deverá ver as informações de sua conta do CSP registrada.
@@ -59,7 +59,7 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
 
 Por padrão, a API do Partner Center só está acessível a CSPs diretos. No entanto, um provedor de CSP direto pode configurar o acesso para seus clientes ou parceiros de CSP indireto usando grupos de entidades em Cloudyn.
 
-Para habilitar o acesso para clientes ou parceiros de CSP indireto, siga as etapas em [Criar um registro de avaliação](#create-a-trial-registration) para configurar um registro de avaliação. Em seguida, conclua estas etapas para segmentar dados de CSP indireto usando grupos de entidades Cloudyn. Em seguida, atribua as permissões de usuário apropriadas para os grupos de entidades.
+Para habilitar o acesso para clientes ou parceiros CSP indiretos, siga as etapas em [Registrar com o Clouydn](#register-with-cloudyn) para configurar um registro de avaliação gratuita. Em seguida, conclua estas etapas para segmentar dados de CSP indireto usando grupos de entidades Cloudyn. Em seguida, atribua as permissões de usuário apropriadas para os grupos de entidades.
 
 1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-and-manage-entities).
 2. Siga as etapas em [Atribuir assinaturas a Entidades de Custo](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associe a conta do cliente de CSP indireto e suas assinaturas do Azure para a entidade que você criou anteriormente.

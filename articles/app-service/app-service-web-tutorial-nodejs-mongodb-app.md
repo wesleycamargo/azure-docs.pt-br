@@ -1,5 +1,5 @@
 ---
-title: Compilar um aplicativo Web Node.js e MongoDB no Azure | Microsoft Docs
+title: Criar aplicativo Node.js com MongoDB – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como fazer com que um aplicativo Node.js funcione no Azure, com conexão a um BD Cosmos com uma cadeia de conexão MongoDB.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,21 +14,21 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364278"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251497"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Node.js e MongoDB no Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Compilar um aplicativo Web Node.js e MongoDB no Azure
 
 > [!NOTE]
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar no Serviço de Aplicativo no _Linux_, consulte [Criar um aplicativo Web Node.js e MongoDB no Serviço de Aplicativo do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Os aplicativos Web do Azure fornecem um serviço de hospedagem na Web altamente escalonável, com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Web Node.js no Azure e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) executando em [Serviço de Aplicativo do Azure](app-service-web-overview.md). Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](http://meanjs.org/).
+Os aplicativos Web do Azure fornecem um serviço de hospedagem na Web altamente escalonável, com aplicação automática de patches. Este tutorial mostra como criar um aplicativo Web Node.js no Azure e conectá-lo a um banco de dados MongoDB. Quando terminar, você terá um aplicativo MEAN (MongoDB, Express, AngularJS e Node.js) executando em [Serviço de Aplicativo do Azure](app-service-web-overview.md). Para simplificar, o aplicativo de exemplo usa a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicativo MEAN.js em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -49,10 +49,10 @@ O que você aprenderá:
 Para concluir este tutorial:
 
 1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o Node.js e o NPM](https://nodejs.org/)
-1. [Instale o Bower](https://bower.io/) (exigido pelo [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Instale o Gulp.js](http://gulpjs.com/) (exigido pelo [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Instale e execute o MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+2. [Instalar o Node.js e o NPM](https://nodejs.org/)
+3. [Instale o Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Instale o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+5. [Instale e execute o MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Testar o MongoDB local
 
@@ -310,10 +310,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
-É possível notar que o processo de implantação executa [Gulp](http://gulpjs.com/) após `npm install`. O Serviço de Aplicativo não executa tarefas Gulp ou Grunt durante a implantação, portanto, esse repositório de exemplo possui dois arquivos adicionais em seu diretório raiz para habilitá-lo: 
+É possível notar que o processo de implantação executa [Gulp](https://gulpjs.com/) após `npm install`. O Serviço de Aplicativo não executa tarefas Gulp ou Grunt durante a implantação, portanto, esse repositório de exemplo possui dois arquivos adicionais em seu diretório raiz para habilitá-lo: 
 
 - _.deployment_ – este arquivo instrui o Serviço de Aplicativo a executar `bash deploy.sh` como o script de implantação personalizado.
 - _deploy.sh_ – o script de implantação personalizado. Se você revisar o arquivo, verá que ele executa `gulp prod` após `npm install` e `bower install`. 

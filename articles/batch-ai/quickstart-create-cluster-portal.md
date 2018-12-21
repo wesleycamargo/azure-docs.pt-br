@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057403"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408928"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início Rápido: criar um cluster para trabalhos de treinamento da IA do Lote usando o portal do Azure
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Início Rápido: Criar um cluster para trabalhos de treinamento da IA do Lote usando o portal do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como usar o portal do Azure para criar um cluster da IA do Lote que você pode usar para treinar modelos de IA e de aprendizado de máquina. A IA do Lote é um serviço gerenciado para que cientistas de dados e pesquisadores de IA possam treinar modelos de IA e de aprendizado de máquina em larga escala em clusters de máquinas virtuais do Azure.
 
@@ -91,7 +94,7 @@ As etapas a seguir criam um cluster com um único nó de GPU. O nó do cluster e
    |**Tamanho da VM**     |Standard NC6|
    |**Número de nós de destino**     |1|
 
-3. Insira um **Nome de usuário de administrador** e copie o conteúdo do arquivo de chave pública SSH em **Chave SSH**. Aceite os padrões para os valores restantes nesta página e selecione **Avançar: Instalação do nó**.
+3. Insira um **Nome de usuário de administrador** e copie o conteúdo do arquivo de chave pública SSH em **Chave SSH**. Aceite os padrões para os valores restantes nesta página e selecione **Avançar: Instalação do Node**.
 
    ![Inserir informações de cluster básicas](./media/quickstart-create-cluster-portal/create-cluster.png)
 

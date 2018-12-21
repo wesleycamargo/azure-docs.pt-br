@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247782"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963242"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -31,8 +31,8 @@ O Armazenamento do Azure inclui esses serviços de dados:
 
 - [Blobs do Azure](../blobs/storage-blobs-introduction.md): um repositório de objetos altamente escalonável para texto e dados binários.
 - [Arquivos do Azure](../files/storage-files-introduction.md): compartilhamentos de arquivos gerenciados para implantações locais e em nuvem.
-- [Filas do Azure](../queues/storage-queues-introduction.md): um armazenamento de mensagens para um sistema de mensagens confiável entre componentes do aplicativo. 
-- [Tabelas do Azure](../tables/table-storage-overview.md): Um armazenamento NoSQL para um armazenamento sem esquemas de dados estruturados.
+- [Filas do Azure](../queues/storage-queues-introduction.md): Um armazenamento de mensagens para mensagens confiáveis entre componentes do aplicativo. 
+- [Tabelas do Azure](../tables/table-storage-overview.md): um armazenamento NoSQL para um armazenamento sem esquemas de dados estruturados.
 
 Cada serviço é acessado através de uma conta de armazenamento. Para usá-los, consulte [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -50,7 +50,7 @@ O armazenamento de Blobs é ideal para:
 
 Os objetos no armazenamento de Blobs podem ser acessados de qualquer lugar no mundo via HTTP ou HTTPS. Usuários ou aplicativos cliente podem acessar blobs por meio de URLs, da [API REST do Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), do [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), da [CLI do Azure](https://docs.microsoft.com/cli/azure/storage) ou de uma biblioteca de cliente de Armazenamento do Azure. As bibliotecas de clientes de armazenamento estão disponíveis para várias linguagens, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](http://azure.github.io/azure-storage-php/) e [Ruby](http://azure.github.io/azure-storage-ruby).
 
-Para mais informações sobre o Armazenamento de Blobs do Azure, confira [Introdução ao armazenamento de objetos no Azure](../blobs/storage-blobs-introduction.md).
+Para mais informações sobre o Armazenamento de Blobs, confira [Introdução ao Armazenamento de Blobs](../blobs/storage-blobs-introduction.md).
 
 ## <a name="azure-files"></a>Arquivos do Azure
 Os [Arquivos do Azure](../files/storage-files-introduction.md) permite que você configure compartilhamentos de arquivo por rede altamente disponíveis que podem ser acessados usando o protocolo SMB (Server Message Block) padrão. Isso significa que várias VMs podem compartilhar os mesmos arquivos com acesso de leitura e gravação. Você também pode ler os arquivos usando a interface REST ou as bibliotecas de cliente de armazenamento.

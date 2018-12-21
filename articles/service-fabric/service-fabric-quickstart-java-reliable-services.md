@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7e71b4f93f3b890ea73e36052570f9047fc8f32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43a059e13945be3e39f65995e18ccd552727b874
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228225"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312558"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início Rápido: implantar um aplicativo de serviços confiáveis do Service Fabric em Java
+# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo Reliable Services em Java no Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços.
 
@@ -67,7 +67,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Abra o Eclipse.
 3. Clique em Arquivo -> Importar -> Gradle -> Projeto Existente do Gradle e siga o assistente.
-4. Clique em Diretório e escolha o diretório `Voting` na pasta `service-fabric-java-quickstart` clonada do Github. Clique em Concluir. 
+4. Clique em Diretório e escolha o diretório `Voting` na pasta `service-fabric-java-quickstart` clonada do GitHub. Clique em Concluir.
 
     ![Caixa de diálogo Importação do Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -116,9 +116,9 @@ Para usar o Service Fabric Explorer, você precisa importar o arquivo PFX do cer
 
 Use qualquer método com o qual você está mais familiarizado para importar o certificado em seu sistema. Por exemplo: 
 
-* No Windows: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell nas instruções **Leiame**.
-* No Mac: clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
-* No Ubuntu: o Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
+* No Windows: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado em seu armazenamento pessoal, `Certificates - Current User\Personal\Certificates`. Como alternativa, você pode usar o comando do PowerShell nas instruções **Leiame**.
+* No Mac: Clique duas vezes no arquivo PFX e siga os prompts para instalar o certificado no conjunto de chaves.
+* No Ubuntu: O Mozilla Firefox é o navegador padrão no Ubuntu 16.04. Para importar o certificado para o Firefox, clique no botão de menu no canto superior direito do seu navegador e clique em **Opções**. Na página **Preferências**, use a caixa de pesquisa para procurar por "certificados". Clique em **Exibir Certificados**, selecione a guia **Seus Certificados**, clique em **Importar** e siga os prompts para importar o certificado.
 
    ![Instalar certificado no Firefox](./media/service-fabric-quickstart-java/install-cert-firefox.png)
 
@@ -132,7 +132,7 @@ A impressão digital do certificado precisa ser adicionada ao seu aplicativo por
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. No arquivo `Voting/VotingApplication/ApplicationManifest.xml`, adicione o snippet de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula). 
+2. No arquivo `Voting/VotingApplication/ApplicationManifest.xml`, adicione o snippet de código a seguir sob da marca **ApplicationManifest**. O **X509FindValue** deve ser a impressão digital da etapa anterior (sem ponto e vírgula).
 
     ```xml
     <Certificates>

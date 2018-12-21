@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057412"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407126"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Início Rápido: Criar um cluster para trabalhos de treinamento da IA do Lote usando a CLI do Azure
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Este início rápido mostra como usar a CLI do Azure para criar um cluster da IA do Lote que você pode usar para treinar modelos de IA e de aprendizado de máquina. A IA do Lote é um serviço gerenciado para que cientistas de dados e pesquisadores de IA possam treinar modelos de aprendizado de máquina e de IA em larga escala em clusters de máquinas virtuais do Azure.
 
@@ -153,7 +156,7 @@ az batchai cluster resize \
     --target 0
 ```
 
-Depois, redimensione-o para um ou mais nós a fim de executar os trabalhos. Quando você não precisar mais de um cluster, exclua-o com o comando `az batchai cluster delete`:
+Depois, redimensione para um ou mais nós a fim de executar os trabalhos. Quando você não precisar mais de um cluster, exclua-o com o comando `az batchai cluster delete`:
 
 ```azurecli-interactive
 az batchai cluster delete \

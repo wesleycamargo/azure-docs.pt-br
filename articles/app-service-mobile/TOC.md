@@ -2,7 +2,7 @@
 
 # Visão geral
 ## [O que são Aplicativos Móveis?](app-service-mobile-value-prop.md)
-## [Planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Planos do Serviço de Aplicativo](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Guia de início rápido
 ## [Android](app-service-mobile-android-get-started.md)
@@ -19,8 +19,8 @@
 ### [Autenticação e Autorização nos Aplicativos Móveis do Azure](app-service-mobile-auth.md)
 ### [Sincronização de dados offline em Aplicativos Móveis do Azure](app-service-mobile-offline-data-sync.md)
 ### [Práticas Recomendadas para o Serviço de Aplicativo do Azure](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Detalhes dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Hospedagem de alta densidade](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Detalhes dos planos do Serviço de Aplicativo](../app-service/overview-hosting-plans.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Hospedagem de alta densidade](../app-service/manage-scale-per-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Desenvolver
@@ -81,7 +81,7 @@
 ## Implantar
 ### [Implantação de sincronização da nuvem](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Implantação contínua](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Ambientes de preparo](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Ambientes de preparo](../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Implantação do Git local](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Implantação do Azure Resource Manager](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -95,14 +95,14 @@
 ## Gerenciar
 ### [Configurar](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Domínios personalizados
-#### [Comprar e configurar domínios personalizados](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Comprar e configurar domínios personalizados](../app-service/manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Mapear seu próprio domínio personalizado](../app-service/app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Domínios personalizados com o Gerenciador de Tráfego](../app-service/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### [Clonar um aplicativo existente](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Grupos de recursos](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
-#### [Executar tarefas em segundo plano com o WebJobs](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Executar tarefas em segundo plano com o WebJobs](../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 #### [Configurar](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Definições de configuração personalizadas](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -136,24 +136,24 @@
 #### [Conectar-se a recursos de back-end com segurança](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Backup
-### [Fazer backup de seu aplicativo no Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Fazer backup de seu aplicativo no Azure](../app-service/manage-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## [Monitorar](../app-service/web-sites-monitor.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Habilitar o registro em log de diagnóstico](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Solucionar problemas usando o Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Habilitar o registro em log de diagnóstico](../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Solucionar problemas usando o Visual Studio](../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Integração
 ### [Como enviar emails usando o SendGrid com o Azure](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Exportar para o PowerApps e para o Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Usar Identidade Gerenciada](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Usar Identidade Gerenciada](../app-service/overview-managed-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Solucionar problemas
 ### Solução de problemas geral para Aplicativos Móveis
 #### [Back-end do .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Back-end do Node.JS](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
-### [Habilitar o registro em log de diagnóstico](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Solucionar problemas usando o Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Habilitar o registro em log de diagnóstico](../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Solucionar problemas usando o Visual Studio](../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referência
 ## [SDK de back-end do .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)

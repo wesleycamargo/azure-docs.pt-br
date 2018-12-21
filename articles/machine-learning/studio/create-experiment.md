@@ -1,13 +1,12 @@
 ---
-title: Um teste simples no Machine Learning Studio | Microsoft Docs
+title: Experimento simples – Azure Machine Learning Studio | Microsoft Docs
 description: Este tutorial de aprendizado de máquina percorre um teste de ciência de dados. Vamos prever o preço de um carro usando um algoritmo de regressão.
 keywords: teste,regressão linear,algoritmos de aprendizado de máquina,tutorial de aprendizado de máquina,técnicas de modelos de previsão, teste de ciência de dados
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425703"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262411"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizado de máquina: Crie sua primeira experiência no Azure Machine Learning Studio
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial: crie seu primeiro experimento no de ciência de dados no Azure Machine Learning Studio
 
 Se você nunca usou o **Azure Machine Learning Studio** antes, este tutorial é para você.
 
@@ -41,7 +40,7 @@ Neste tutorial, vamos examinar como usar o Studio pela primeira vez para criar u
 - [Conceitos básicos de machine learning com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md) – Este infográfico é útil se você quiser saber mais sobre os diferentes tipos de algoritmos de machine learning incluídos no Machine Learning Studio.
 - [Guia do Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) – Este guia aborda informações semelhantes às do infográfico acima, mas em um formato interativo.
 - [Roteiro do algoritmo de machine learning](algorithm-cheat-sheet.md) e [Como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md) – Este pôster para download e o artigo que o acompanha abordam os algoritmos do Studio detalhadamente.
-- [Machine Learning Studio: ajuda de algoritmo e módulo](https://msdn.microsoft.com/library/azure/dn905974.aspx) – Essa é a referência completa para todos os módulos do Studio, incluindo algoritmos de machine learning
+- [Machine Learning Studio: ajuda de algoritmo e módulo](https://msdn.microsoft.com/library/azure/dn905974.aspx) – Essa é a referência completa para todos os módulos do Studio, incluindo algoritmos de aprendizado de máquina,
 
 
 
@@ -67,19 +66,19 @@ Para uma introdução ao Studio, vá para [https://studio.azureml.net](https://s
 Neste tutorial de machine learning, você seguirá cinco etapas básicas para criar um experimento no Machine Learning Studio para criar, treinar e pontuar o seu modelo:
 
 - **Criar um modelo**
-    - [Etapa 1: Obter dados]
-    - [Etapa 2: Preparar os dados]
-    - [Etapa 3: Definir recursos]
+    - [Etapa 1: obter dados]
+    - [Etapa 2: preparar os dados]
+    - [Etapa 3: definir recursos]
 - **Treinar o modelo**
-    - [Etapa 4: Escolher e aplicar um algoritmo de aprendizado]
+    - [Etapa 4: escolher e aplicar um algoritmo de aprendizado]
 - **Pontuar e testar o modelo**
-    - [Etapa 5: Prever novos preços de automóveis]
+    - [Etapa 5: prever novos preços de automóveis]
 
-[Etapa 1: Obter dados]: #step-1-get-data
-[Etapa 2: Preparar os dados]: #step-2-prepare-the-data
-[Etapa 3: Definir recursos]: #step-3-define-features
-[Etapa 4: Escolher e aplicar um algoritmo de aprendizado]: #step-4-choose-and-apply-a-learning-algorithm
-[Etapa 5: Prever novos preços de automóveis]: #step-5-predict-new-automobile-prices
+[Etapa 1: obter dados]: #step-1-get-data
+[Etapa 2: preparar os dados]: #step-2-prepare-the-data
+[Etapa 3: definir recursos]: #step-3-define-features
+[Etapa 4: escolher e aplicar um algoritmo de aprendizado]: #step-4-choose-and-apply-a-learning-algorithm
+[Etapa 5: prever novos preços de automóveis]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
 > Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu workspace do Machine Learning Studio.
@@ -186,7 +185,7 @@ Tudo o que fizemos no experimento até esse ponto é limpar os dados. Se desejar
 
 Agora que os dados estão limpos, estamos prontos para especificar quais recursos usaremos no modelo preditivo.
 
-## <a name="step-3-define-features"></a>Etapa 3: Definir recursos
+## <a name="step-3-define-features"></a>Etapa 3: definir recursos
 
 No aprendizado de máquina, *recursos* são propriedades individuais mensuráveis de algo em que você está interessado. Em nosso conjunto de dados, cada linha representa um automóvel e cada coluna é um recurso desse automóvel.
 
@@ -219,7 +218,7 @@ Vamos criar um modelo que usa um subconjunto dos recursos em nosso conjunto de d
 
 Isso produz um conjunto de dados filtrado que contém somente os recursos que desejamos passar para o algoritmo de aprendizado que usaremos na próxima etapa. Posteriormente, é possível retornar e tentar novamente com uma seleção diferente de recursos.
 
-## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Etapa 4: Escolher e aplicar um algoritmo de aprendizado
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>Etapa 4: escolher e aplicar um algoritmo de aprendizado
 
 Agora que os dados estão prontos, construir um modelo preditivo consiste em treinamento e teste. Vamos usar nossos dados para treinar o modelo e depois testar o modelo para ver com que proximidade ele é capaz de prever os preços.
 <!-- For now, don't worry about *why* we need to train and then test a model.-->
@@ -273,7 +272,7 @@ Agora temos um modelo de regressão treinado que pode ser usado para pontuar nov
 <br/>
 ***Depois da execução, o experimento agora deve ser semelhante a***
 
-## <a name="step-5-predict-new-automobile-prices"></a>Etapa 5: Prever novos preços de automóveis
+## <a name="step-5-predict-new-automobile-prices"></a>Etapa 5: prever novos preços de automóveis
 
 Agora que treinamos o modelo usando 75% de nossos dados, podemos usá-lo para classificar os outros 25% dos dados e ver se nosso modelo funciona bem.
 
@@ -304,11 +303,11 @@ Execute o experimento e exiba a saída do módulo [Modelo de Avaliação][evalua
 
 As estatísticas a seguir são mostradas para nosso modelo:
 
-- **Média de erros absolutos** (MAE) - A média de erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
-- **Raiz quadrada dos erros ao quadrado** (RMSE) - A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados de teste.
-- **Erro absoluto relativo**- A média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de valores reais.
-- **Erro ao quadrado relativo**- A média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
-- **Coeficiente de Determinação** – Também conhecido como o **Valor quadrado R**, esta é uma métrica estatística que indica se o modelo se encaixa bem nos dados.
+- **MAE** (Média de erros absolutos): a média de erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
+- **RMSE** (Raiz quadrada dos erros ao quadrado): a raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados de teste.
+- **Erro absoluto relativo**: a média de erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+- **Erro ao quadrado relativo**: a média de erros quadrados relativos à diferença quadrada entre os valores reais e a média de todos os valores reais.
+- **Coeficiente de determinação**: também conhecido como o **Valor quadrado R**, esta é uma métrica estatística que indica se o modelo se encaixa bem nos dados.
 
 Para cada estatística de erro, menos é melhor. Um valor menor indica que as previsões se aproximam mais dos valores reais. Para **Coeficiente de Determinação**, quanto mais próximo o valor estiver de um (1,0), melhores as previsões.
 

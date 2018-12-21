@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Criar um balanceador de carga interno Básico usando o portal do Azure | Microsoft Docs'
+title: 'Tutorial: criar um balanceador de carga interno – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial mostra como criar um Balanceador de carga interno Básico usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839238"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262343"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: balancear carga de tráfego interna com um balanceador de carga Básico no portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala com a distribuição das solicitações recebidas entre VMs (máquinas virtuais). Você pode usar o portal do Azure para criar um balanceador de carga Básico e balancear tráfego interno entre VMs. Este tutorial mostra como criar e configurar um balanceador de carga interno, servidores back-end e recursos de rede no tipo de preço Básico.
 
@@ -44,9 +41,9 @@ Primeiro, crie uma rede virtual (Vnet). Na rede virtual, crie duas VMs para usar
    
 1. No painel **Criar rede virtual**, insira ou selecione estes valores:
    
-   - **Nome**: digite *MyVnet*.
+   - **Nome**: digite *MyVNet*.
    - **ResourceGroup**: selecione **Criar novo**, insira *MyResourceGroupLB* e selecione **OK**. 
-   - **Sub-rede** > **Nome**: insira *MyBackendSubnet*.
+   - **Sub-rede** > **Nome**: digite *MyBackendSubnet*.
    
 1. Selecione **Criar**.
 
@@ -58,18 +55,15 @@ Primeiro, crie uma rede virtual (Vnet). Na rede virtual, crie duas VMs para usar
    
 1. Em **Criar uma máquina virtual**, insira ou selecione os seguintes valores na guia **Configurações básicas**:
    - **Assinatura** > **Grupo de Recursos**: abra a lista suspensa e selecione **MyResourceGroupLB**.
-   - **Detalhes da Instância** > **Nome da máquina virtual**: insira *MyVM1*.
+   - **Detalhes da Instância** > **Nome da máquina virtual**: digite *MyVM1*.
    - **Detalhes da Instância** > **Opções de Disponibilidade**: 
      1. Abra a lista suspensa e selecione **Conjunto de disponibilidade**. 
      2. Selecione **Criar novo**, insira *MyAvailabilitySet* e selecione **OK**.
-   - **Conta de Administrador** > **Nome de usuário**: insira *azureuser*.
-   - **Conta de administrador** > **Senha**: insira *Azure1234567*. 
-     Digite a senha novamente no campo **Confirmar senha**.
    
-1. Selecione a guia **Rede** ou selecione **Avançar: discos** e **Avançar: rede**. 
+1. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**. 
    
    Selecione os itens abaixo:
-   - **Rede virtual**: **MyVnet**
+   - **Rede virtual**: **MyVNet**
    - **Sub-rede**: **MyBackendSubnet**
    
    Em **Grupo de Segurança de Rede**:
@@ -94,12 +88,12 @@ Crie um balanceador de carga interno Básico usando o portal. O nome e o endere�
    
 1. No painel **Criar balanceador de carga**, insira ou selecione estes valores:
    
-   - **Nome**: insira *MyLoadBalancer*.
+   - **Nome**: digite *MyLoadBalancer*.
    - **Tipo**: selecione **Interno**. 
-   - **SKU**: selecione **Básico**.
+   - **SKU**: Selecione **Basic**.
    - **Rede virtual**: selecione **Escolher uma rede virtual**e **MyVNet**.
    - **Sub-rede**: selecione **Escolher uma sub-rede**e **MyBackendSubnet**.
-   - **Atribuição de endereço IP**: selecione **Estático** se já não estiver selecionado.
+   - **Atribuição de endereço IP**: selecione **Estático** se não selecionado.
    - **Endereço IP privado**: digite um endereço que está no espaço de endereço de sua rede virtual e sub-rede, por exemplo, *10.3.0.7*.
    - **ResourceGroup**: abra a lista suspensa **Selecionar existente** e selecione **MyResourceGroupLB**. 
    
@@ -123,8 +117,8 @@ Para distribuir o tráfego para as VMs, o balanceador de carga usa um pool de en
    
 1. Na página **Adicionar um pool de back-end**, insira ou selecione os seguintes valores:
    
-   - **Nome**: insira *MyBackEndPool*.
-   - **Associado a**: abra a lista suspensa e selecione **Conjunto de disponibilidade**.
+   - **Nome**: digite *MyBackendPool*.
+   - **Associado a**: Abra a lista suspensa e selecione **Conjunto de disponibilidade**.
    - **Conjunto de disponibilidade**: selecione **MyAvailabilitySet**.
    
 1. Selecione **Adicionar uma configuração de IP de rede de destino**. 
@@ -154,10 +148,10 @@ Para permitir que o balanceador de carga monitore o status da VM, use uma invest
    
    - **Nome**: insira *MyHealthProbe*.
    - **Protocolo**: abra a lista suspensa e selecione **HTTP**. 
-   - **Porta**: insira *80*. 
+   - **Porta**: digite *80*. 
    - **Caminho**: aceite */* como o URI padrão. Você pode substituir esse valor por qualquer outro URI. 
-   - **Intervalo**: insira *15*. O intervalo é o número de segundos entre as tentativas de investigação.
-   - **Limite não íntegro**: insira *2*. Esse valor é a quantidade de falhas de investigação consecutivas que ocorrem antes que uma VM seja considerada não íntegra.
+   - **Intervalo**: digite *15*. O intervalo é o número de segundos entre as tentativas de investigação.
+   - **Limite não íntegro**: digite *2*. Esse valor é a quantidade de falhas de investigação consecutivas que ocorrem antes que uma VM seja considerada não íntegra.
    
 1. Selecione **OK**.
    
@@ -177,11 +171,11 @@ A regra de balanceador de carga chamada **MyLoadBalancerRule** escuta a porta 80
    
 1. Na página **Adicionar regra de balanceamento de carga**, digite ou selecione os seguintes valores, se ainda não existirem:
    
-   - **Nome**: insira *MyLoadBalancerRule*.
-   - **Endereço IP de Frontend:** insira *LoadBalancerFrontEnd* se não houver nenhum.
+   - **Nome**: digite *MyLoadBalancerRule*.
+   - **Endereço IP de front-end:** digite *LoadBalancerFrontEnd* se não houver nenhum.
    - **Protocolo**: selecione **TCP**.
-   - **Porta**: insira *80*.
-   - **Porta de back-end**: insira *80*.
+   - **Porta**: digite *80*.
+   - **Porta de back-end**: digite *80*.
    - **Pool de back-end**: selecione **MyBackendPool**.
    - **Investigação de integridade**: selecione **MyHealthProbe**. 
    
@@ -212,7 +206,7 @@ Primeiro, conecte-se às três VMs com a RDP (Área de Trabalho Remota).
    
 1. Na tela Segurança do Windows, selecione **Mais opções** e depois **Usar uma conta diferente**. 
    
-   Insira o nome de usuário *azureuser* e a senha *Azure1234567* e selecione **OK**.
+   Insira o nome de usuário e a senha e, em seguida, selecione **OK**.
    
 1. Responda **Sim** a qualquer solicitação de certificado. 
    

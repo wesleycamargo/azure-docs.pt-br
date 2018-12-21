@@ -1,21 +1,21 @@
 ---
-title: Início Rápido – Executar um aplicativo em Instâncias de Contêiner do Azure
-description: Neste Início Rápido, você usará o portal do Azure para implantar um aplicativo em execução em um contêiner do Docker para Instâncias de Contêiner do Azure
+title: Início Rápido – Executar um aplicativo nas Instâncias de Contêiner do Azure – Portal
+description: Neste início rápido, você usará o portal do Azure para implantar um aplicativo de contêiner do Docker para execução em um contêiner isolado nas Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857713"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190281"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar um aplicativo em Instâncias de Contêiner do Azure
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Início Rápido: Executar um aplicativo de contêiner nas Instâncias de Contêiner do Azure no portal do Azure
 
 Use as Instâncias de Contêiner do Azure para executar contêineres do Docker no Azure de maneira simples e rápida. Não é necessário implantar máquinas virtuais nem usar uma plataforma de orquestração de contêiner completa, como o Kubernetes. Neste início rápido, você usará o portal do Azure para criar um contêiner no Azure e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Após definir algumas configurações e implantar o contêiner, você poderá navegar até o aplicativo em execução:
 

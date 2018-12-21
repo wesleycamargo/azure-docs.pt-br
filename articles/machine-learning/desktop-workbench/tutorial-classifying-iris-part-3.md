@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946605"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270154"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris – implantar um modelo
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris: Implantar um modelo
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -70,7 +70,7 @@ Na parte anterior do tutorial, o script **iris_sklearn.py** foi executado localm
    
    Quando você executou o script **iris_sklearn.py**, o arquivo de modelo foi gravado na pasta **outputs** com o nome **model.pkl**. Essa pasta existe no ambiente de execução em que você opta por executar o script e não na pasta local do projeto. 
    
-   a. Para localizar o arquivo, selecione o botão **Execuções** (ícone de relógio) na barra de ferramentas para abrir a lista de **Todas as Execuções**. 
+    a. Para localizar o arquivo, selecione o botão **Execuções** (ícone de relógio) na barra de ferramentas para abrir a lista de **Todas as Execuções**. 
 
    b. A guia **Todas as Execuções** será aberta. Na tabela de execuções, selecione uma das execuções recentes em que o destino era **local** e o nome do script era **iris_sklearn.py**. 
 
@@ -168,7 +168,7 @@ Você pode usar o _modo local_ para desenvolvimento e teste. O mecanismo do Dock
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   A terceira linha da saída exibe **"registrationState": "Registrar"**. Aguarde alguns minutos e repita o comando **show** até que a saída exiba **"registrationState": "Registrado"**.
+   A terceira linha da saída exibe **"registrationState": "Registrando"**. Aguarde alguns minutos e repita o comando **show** até que a saída exiba **"registrationState": "Registrado"**.
 
    >[!NOTE] 
    Se você estiver implantando em um cluster ACS, precisará registrar o provedor de recursos **Microsoft.ContainerService** também usando exatamente a mesma abordagem.
@@ -244,14 +244,14 @@ Agora você está pronto para criar o serviço Web em tempo real.
 
    * `-r`: o tempo de execução do modelo. Nesse caso, é um modelo de Python. Os tempos de execução válidos são `python` e `spark-py`.
 
-   * `--collect-model-data true`: isso habilita a coleta de dados.
+   * `--collect-model-data true`: essa opção habilita a coleta de dados.
 
-   * `-c`: caminho para o arquivo de dependências conda onde os pacotes adicionais são especificados.
+   * `-c`: caminho para o arquivo de dependências Conda no qual os pacotes adicionais são especificados.
 
    >[!IMPORTANT]
    >O nome do serviço, que também é o novo nome de imagem do Docker, deverá ser composto somente de letras minúsculas. Caso contrário, você obterá um erro. 
 
-1. Quando você executar o comando, o modelo e o arquivo de pontuação serão carregados para a conta de armazenamento que você criou como parte da configuração do ambiente. O processo de implantação cria uma imagem do Docker com o modelo, o esquema e o arquivo de pontuação e envia-o por push para o registro de contêiner do Azure: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
+1. Quando você executar o comando, o modelo e o arquivo de pontuação serão carregados para a conta de armazenamento que você criou como parte da configuração do ambiente. O processo de implantação cria uma imagem do Docker com o modelo, o esquema e o arquivo de pontuação e envia-o por push para o Registro de Contêiner do Azure: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
 
    O comando efetua pull dessa imagem localmente para seu computador e inicia um contêiner do Docker com base nessa imagem. Se seu ambiente estiver configurado no modo de cluster, o contêiner do Docker será implantado no cluster Kubernetes dos Serviços de Nuvem do Azure em vez disso.
 

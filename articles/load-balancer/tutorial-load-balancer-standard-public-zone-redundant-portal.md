@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: Balancear a carga de VMs entre zonas de disponibilidade – portal do Azure | Microsoft Docs'
+title: 'Tutorial: VMs do balanceador de carga entre zonas de disponibilidade – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância de zona para balancear a carga de VMs entre zonas de disponibilidade usando o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304453"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255322"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear a carga de VMs entre zonas de disponibilidade com um Balanceador de Carga Standard usando o portal do Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs entre zonas de disponibilidade com um Load Balancer Standard utilizando o Portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade, distribuindo as solicitações de entrada em várias máquinas virtuais. Este tutorial descreve as etapas necessárias para criar um Balanceador de Carga Standard público que balanceia a carga de VMs entre zonas de disponibilidade. Isso ajuda a proteger seus aplicativos e dados contra uma improvável falha ou perda de um datacenter inteiro. Com redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados sobrevive, desde que uma zona da região permaneça íntegra. Você aprenderá como:
 
@@ -169,7 +166,7 @@ Nesta seção, você define as configurações do balanceador de carga para um p
 
 Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de back-end contém os endereços IP das NICs virtuais conectadas ao balanceador de carga. Crie o pool de endereços de back-end *myBackendPool* para incluir *VM1*, *VM2* e *VM3*.
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
 2. Em **Configurações**, clique em **Pools de back-end** e clique em **Adicionar**.
 3. Na página **Adicionar um pool de back-end**, faça o seguinte:
     - Para nome, digite *myBackEndPool*, como o nome do pool de back-end.
@@ -187,7 +184,7 @@ Para distribuir o tráfego para as máquinas virtuais, um pool de endereços de 
 
 Para permitir que o balanceador de carga monitore o status de seu aplicativo, use uma investigação de integridade. A investigação de integridade adiciona ou remove dinamicamente VMs da rotação do balanceador de carga com base na resposta às verificações de integridade. Crie uma investigação de integridade *myHealthProbe* para monitorar a integridade das VMs.
 
-1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** na lista de recursos.
+1. Clique em **Todos os recursos** no menu esquerdo e depois clique em **myLoadBalancer** da lista de recursos.
 2. Em **Configurações**, clique em **Investigação de integridade** e clique em **Adicionar**.
 3. Use estes valores para criar a investigação de integridade:
     - *myHealthProbe* – para o nome da investigação de integridade.

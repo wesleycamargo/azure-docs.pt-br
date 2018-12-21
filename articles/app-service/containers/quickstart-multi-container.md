@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo multicontêiner (versão prévia) no Aplicativo Web para Contêineres do Azure usando uma configuração de Docker Compose
+title: Criar aplicativo com vários contêineres usando o Docker Compose – Serviço de Aplicativo do Azure
 description: Implantar seu primeiro aplicativo multicontêiner no Aplicativo Web para Contêineres do Azure em minutos
 keywords: serviço de aplicativo do azure, aplicativo web, linux, docker, compor, multicontêiner, vários contêineres, aplicativo web para contêineres, vários contêineres, contêiner, kubernetes, wordpress, banco de dados do azure para mysql, banco de dados de produção com contêineres
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576775"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316566"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Criar um aplicativo multicontêiner (versão prévia) usando Aplicativo Web para Contêineres do Azure
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo multicontêiner (versão prévia) usando uma configuração do Docker Compose
 
 O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece uma maneira flexível de usar imagens do Docker. Este guia de início rápido mostra como implantar um aplicativo multicontêiner para o Aplicativo Web para Contêineres no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) usando uma configuração do Docker Compose. Para Kubernetes e uma solução completa usando o BD do Azure para MySQL, siga o [tutorial sobre multicontêiner](tutorial-multi-container-app.md).
 

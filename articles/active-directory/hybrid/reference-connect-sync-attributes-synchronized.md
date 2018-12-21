@@ -46,7 +46,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | objectSID |X |propriedade mecânica. Identificador de usuário do AD usado para manter a sincronização entre o AD do Azure e o AD. |
 | pwdLastSet |X |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -167,7 +167,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | userSMIMECertificates |X |X | | |
@@ -251,7 +251,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -300,7 +300,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -317,7 +317,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. |
 | securityEnabled | | |X |Derivado de groupType. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |Este UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="intune"></a>Intune
@@ -336,7 +336,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | securityEnabled | | |X |Derivado de groupType |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -369,7 +369,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="3rd-party-applications"></a>aplicativos de terceira parte
@@ -395,7 +395,7 @@ Esse é um conjunto de atributos que poderão ser usados se o diretório do Azur
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="windows-10"></a>Windows 10

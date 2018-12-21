@@ -1,7 +1,7 @@
 ---
-title: O que é a Pesquisa de Notícias do Bing?
+title: O que é a API de Pesquisa de Notícias do Bing?
 titlesuffix: Azure Cognitive Services
-description: Mostra como usar a API de Pesquisa de Notícias do Bing para pesquisar notícias na Web.
+description: Saiba como usar a API de Pesquisa de Notícias do Bing para pesquisar na Web por manchetes atuais em várias categorias, incluindo manchetes e tópicos populares.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 17383d38b1401149003ad9d1794b3e69284f9033
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227851"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253078"
 ---
-# <a name="what-is-bing-news-search"></a>O que é a Pesquisa de Notícias do Bing?
+# <a name="what-is-the-bing-news-search-api"></a>O que é a API de Pesquisa de Notícias do Bing?
 
 A API de Pesquisa de Notícias do Bing fornece uma experiência semelhante (mas não igual) à do [Bing Notícias](https://www.bing.com/news). A API de Pesquisa de Notícias do Bing permite enviar uma consulta de pesquisa ao Bing e obter uma lista de artigos de notícias relevantes.
 

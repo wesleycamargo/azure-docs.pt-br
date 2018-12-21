@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning'
+title: 'Tutorial de classificação de imagens: Treinar modelos'
+titleSuffix: Azure Machine Learning service
 description: Este tutorial mostra como usar o serviço Azure Machine Learning para treinar um modelo de classificação de imagem com scikit-learn em um Jupyter Notebook Python. Este tutorial é parte de uma série de duas partes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879478"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310106"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial nº 1: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
 
 Neste tutorial, você treina um modelo de aprendizado de máquina localmente e em recursos de computador remotos. Você usará o fluxo de trabalho de treinamento e implantação para o serviço de aprendizado de máquina do Azure em um bloco de anotações Jupyter do Python.  Você pode usar o notebook como um modelo para treinar seu próprio modelo de aprendizado de máquina com seus próprios dados. Este tutorial é **parte uma de uma série de tutoriais de duas partes**.  
 
@@ -33,7 +35,7 @@ Saiba como:
 
 Você aprenderá como selecionar um modelo e implementá-lo em [parte dois deste tutorial](tutorial-deploy-models-with-aml.md) depois. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
 > O código deste artigo foi testado com a versão 1.0.2 do SDK do Azure Machine Learning
@@ -386,11 +388,11 @@ Aqui está o que está acontecendo enquanto espera:
 
   Este estágio ocorre uma vez para cada ambiente Python, pois o contêiner é armazenado em cache para execuções subsequentes.  Durante a criação da imagem, os logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da criação da imagem usando esses registros.
 
-- **Dimensionamento**: se o cluster remoto requer mais nós para executar a execução que está disponível, mais nós são adicionados automaticamente. O dimensionamento normalmente leva **cerca de 5 minutos.**
+- **Dimensionamento**: Se o cluster remoto exigir mais nós para executar a execução que está disponível, mais nós serão adicionados automaticamente. O dimensionamento normalmente leva **cerca de 5 minutos.**
 
-- **Executando**: Neste estágio, os scripts e arquivos necessários são enviados para o destino de computação, em seguida, os armazenamentos de dados são montados / copiados e, em seguida, o entry_script é executado. Enquanto o trabalho está em execução, o stdout e o diretório ./logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da corrida usando esses registros.
+- **Executando**: Neste estágio, os scripts e arquivos necessários são enviados para o destino de computação, em seguida, os armazenamentos de dados são montados/copiados e, em seguida, o entry_script é executado. Enquanto o trabalho está em execução, o stdout e o diretório ./logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da corrida usando esses registros.
 
-- **Pós-processamento**: o diretório ./outputs da execução é copiado para o histórico de execução em sua área de trabalho para que você possa acessar esses resultados.
+- **Pós-processamento**: O diretório ./outputs da execução é copiado para o histórico de execução em seu workspace para que você possa acessar esses resultados.
 
 
 Você pode verificar o andamento de um trabalho em execução de várias maneiras. Este tutorial usa um widget do Jupyter, bem como a `wait_for_completion` método. 

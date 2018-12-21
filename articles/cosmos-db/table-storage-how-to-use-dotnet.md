@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880192"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102989"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao Armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB usando .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -78,7 +78,7 @@ Há três pacotes recomendados que você precisará referenciar em seu projeto p
 
 * [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático aos recursos de dados em sua conta de Armazenamento de Tabelas do Azure ou em sua conta de API de Tabela do Azure Cosmos DB. Essa biblioteca só está disponível atualmente para o .NET Standard, ela ainda não está disponível para o .NET Core.
 
-* [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente de onde o aplicativo está sendo executado.
+* [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este pacote fornece uma classe para analisar uma cadeia de conexão em um arquivo de configuração, independentemente do local em que o aplicativo está sendo executado.
 
 Para obter os pacotes do NuGet, execute estas etapas:
 
@@ -88,7 +88,7 @@ Para obter os pacotes do NuGet, execute estas etapas:
 4. Pesquise online por "WindowsAzure.ConfigurationManager" e clique em **Instalar** para instalar a Biblioteca do Gerenciador de Configurações do Microsoft Azure.
 
 > [!NOTE]
-> As dependências do ODataLib na Biblioteca Comum de Armazenamento para .NET são resolvidas por pacotes do ODataLib disponíveis no NuGet, não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes específicos do ODataLib usados pela Biblioteca de Cliente de Armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](http://nuget.org/packages/System.Spatial/). Embora essas bibliotecas sejam usadas pelas classes de armazenamento de tabela do Azure, elas são dependências necessárias para a programação com a Biblioteca Comum de Armazenamento.
+> As dependências do ODataLib na Biblioteca Comum de Armazenamento para .NET são resolvidas por pacotes do ODataLib disponíveis no NuGet, não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes específicos do ODataLib usados pela Biblioteca de Cliente de Armazenamento são [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](https://nuget.org/packages/System.Spatial/). Embora essas bibliotecas sejam usadas pelas classes de armazenamento de tabela do Azure, elas são dependências necessárias para a programação com a Biblioteca Comum de Armazenamento.
 > 
 > 
 
@@ -453,7 +453,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
-Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna somente os endereços de email das entidades na tabela. Isso é feito por meio de uma consulta de [DynamicTableEntity][dotnet_DynamicTableEntity] e também de [EntityResolver][dotnet_EntityResolver]. Saiba mais sobre projeção na [postagem de blog Apresentando a projeção de upsert e de consulta][blog_post_upsert]. A projeção não tem suporte pelo emulador de armazenamento e, portanto, esse código é executado somente ao usar uma conta no serviço Tabela.
+Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna somente os endereços de email das entidades na tabela. Isso é feito por meio de uma consulta de [DynamicTableEntity][dotnet_DynamicTableEntity] e também de [EntityResolver][dotnet_EntityResolver]. A projeção não tem suporte pelo emulador de armazenamento e, portanto, esse código é executado somente ao usar uma conta no serviço Tabela.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -576,9 +576,6 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 * [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) para armazenar dados relacionais.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx

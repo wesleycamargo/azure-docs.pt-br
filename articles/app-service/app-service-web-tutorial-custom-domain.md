@@ -1,5 +1,5 @@
 ---
-title: Mapear um nome DNS personalizado existente para aplicativos Web do Azure | Documentos do Microsoft
+title: Mapear um nome DNS personalizado existente – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Saiba como adicionar um nome de domínio DNS personalizado existente (domínio intuitivo) a um aplicativo Web, back-end de aplicativo móvel ou aplicativo de API no Serviço de Aplicativo do Azure.
 keywords: serviço do aplicativo, serviço do aplicativo do azure, mapeamento de domínio, nome de domínio, domínio existente, nome de host
 services: app-service\web
@@ -15,15 +15,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664880"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270256"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: mapear um nome DNS personalizado existente para os Aplicativos Web do Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Mapear um nome DNS personalizado existente para aplicativos Web do Azure
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este tutorial mostra como mapear um nome DNS personalizado existente para os Aplicativos Web do Azure.
 
@@ -52,7 +52,7 @@ Para concluir este tutorial:
 
 ## <a name="prepare-the-app"></a>Preparar o aplicativo
 
-Para mapear um nome DNS personalizado para um aplicativo Web, o [plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do aplicativo Web deve ser uma camada paga (**Compartilhado**, **Básico**, **Standard** ou **Premium**). Nesta etapa, você verifica se o aplicativo do Serviço de Aplicativo está no tipo de preço com suporte.
+Para mapear um nome DNS personalizado para um aplicativo Web, o [plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do aplicativo Web deve ser uma camada paga (**Compartilhado**, **Básico**, **Standard**, **Premium** ou **Consumo** para o Azure Functions). Nesta etapa, você verifica se o aplicativo do Serviço de Aplicativo está no tipo de preço com suporte.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

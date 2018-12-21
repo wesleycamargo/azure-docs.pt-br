@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: compilar um aplicativo de tarefas pendentes com o Xamarin'
+title: 'O Azure Cosmos DB: Compilar um aplicativo de tarefas pendentes com o Xamarin'
 description: Apresenta um exemplo de código do Xamarin que pode ser usado para se conectar ao Azure Cosmos DB e consultá-lo
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838558"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252619"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilar um aplicativo de tarefas pendentes com o Xamarin
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>O Azure Cosmos DB: Compilar um aplicativo de tarefas pendentes com o Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -64,7 +64,7 @@ Se estiver usando um Mac, você pode baixar o [Visual Studio para Mac](https://w
 
 ## <a name="clone-the-sample-application"></a>Clonar o aplicativo de exemplo
 
-Agora vamos clonar o aplicativo de API do SQL Xamarin no github: revise o código, obtenha as chaves de API e execute-o. Você verá como é fácil trabalhar usando dados de forma programática.
+Agora, vamos clonar o aplicativo de API do SQL Xamarin no GitHub, revisar o código, obter as chaves de API e executá-lo. Você verá como é fácil trabalhar usando dados de forma programática.
 
 1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
 
@@ -90,7 +90,7 @@ Agora vamos clonar o aplicativo de API do SQL Xamarin no github: revise o códig
 
 Volte ao Portal do Azure para obter as informações da sua chave de API e copie-as para o aplicativo.
 
-1. No [Portal do Azure](http://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
+1. No [Portal do Azure](https://portal.azure.com/), na sua conta de API do SQL do Azure Cosmos DB, no painel de navegação esquerdo, clique em **Chaves** e, em seguida, clique em **Chaves de leitura/gravação**. Você usará os botões de cópia do lado direito da tela para copiar o URI e a Chave Primária para o arquivo APIKeys.cs na próxima etapa.
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-sql-api-xamarin-dotnet/keys.png)
 
@@ -114,7 +114,7 @@ Esta solução demonstra como criar um aplicativo de tarefas pendentes usando a 
 
 O código na solução ToDoItems contém:
 
-* ToDoItems.Core: trata-se de um projeto .NET Standard contendo um projeto Xamarin.Forms e o código de lógica de aplicativo compartilhado que mantém os itens de tarefas pendentes no Azure Cosmos DB.
+* ToDoItems.Core: trata-se de um projeto .NET Standard contendo um projeto Xamarin.Forms e o código da lógica de aplicativo compartilhado que mantém os itens de tarefas pendentes no Azure Cosmos DB.
 * ToDoItems.Android: este projeto contém o aplicativo Android.
 * ToDoItems.iOS: este projeto contém o aplicativo iOS.
 

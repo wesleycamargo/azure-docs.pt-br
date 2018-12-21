@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure) com os serviços do Azure Machine Learning'
-description: Este tutorial mostra como usar os serviços do Azure Machine Learning para implantar um modelo de classificação de imagem com scikit-learn em um Python Jupyter Notebook.  Este tutorial é parte dois de uma série de duas partes.
+title: 'Tutorial de classificação de imagens: Implantar modelos'
+titleSuffix: Azure Machine Learning service
+description: Este tutorial mostra como usar os serviços do Azure Machine Learning para implantar um modelo de classificação de imagem com scikit-learn em um Python Jupyter Notebook. Este tutorial é a segunda de uma série de duas partes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,18 +10,19 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864053"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312163"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial nº 2: Implantar um modelo de classificação de imagem na ACI (Instância de Contêiner do Azure)
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Tutorial:  Implantar um modelo de classificação de imagem na Instância de Contêiner do Azure
 
 Este tutorial é **parte dois de uma série de tutoriais de duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), você treinou modelos de machine learning e, depois, registrou um modelo no workspace na nuvem.  
 
-Agora, você está pronto para implantar o modelo como um serviço Web na [ACI](https://docs.microsoft.com/azure/container-instances/) (Instâncias de Contêiner do Azure). Um serviço Web é uma imagem, nesse caso uma imagem do Docker, que encapsula a lógica de pontuação e o próprio modelo. 
+Agora, você está pronto para implantar o modelo como um serviço Web na [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/). Um serviço Web é uma imagem, nesse caso uma imagem do Docker, que encapsula a lógica de pontuação e o próprio modelo. 
 
 Nessa parte do tutorial, você usará o serviço do Azure Machine Learning para:
 
@@ -28,23 +30,23 @@ Nessa parte do tutorial, você usará o serviço do Azure Machine Learning para:
 > * Configurar o ambiente de teste
 > * Recuperar o modelo do workspace
 > * Testar o modelo localmente
-> * Implantar o modelo para ACI
+> * Implantar o modelo nas Instâncias de Contêiner
 > * Testar o modelo implantado
 
-A ACI não é ideal para implantações de produção, mas é ótima para testar e compreender o fluxo de trabalho. Para implantações de produção escalonável, considere usar o [Serviço de Kubernetes do Azure](how-to-deploy-to-aks.md).
+As Instâncias de Contêiner não são ideais para implantações de produção, mas são ótimas para testar e compreender o fluxo de trabalho. Para implantações de produção escalonável, considere usar o Serviço de Kubernetes do Azure. Para obter mais informações, confira [Como e em que local implantar](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Obter o bloco de anotações
 
-Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Execute o Notebook `tutorials/img-classification-part2-deploy.ipynb` em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
+Para sua conveniência, este tutorial está disponível como um [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Execute o `tutorials/img-classification-part2-deploy.ipynb` Notebook em Azure Notebooks ou em seu próprio servidor de Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.0.2 do SDK do Azure Machine Learning
+> O código deste artigo foi testado com a versão 1.0.2 do SDK do Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o treinamento do modelo no [Tutorial nº 1: treinar um modelo de classificação de imagem com o notebook do serviço do Azure Machine Learning](tutorial-train-models-with-aml.md).  
+Conclua o treinamento do modelo no seguinte notebook: [Tutorial 1: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
@@ -145,10 +147,10 @@ A saída mostra a matriz de confusão:
     Overall accuracy: 0.9204
    
 
-Use `matplotlib` para exibir a matriz de confusão como um grafo. Neste grafo, o eixo X representa os valores reais e o eixo Y representa os valores previstos. A cor em cada grade representa a taxa de erro. Quanto mais clara a cor, maior é a taxa de erro. Por exemplo, muitos 5's são classificados incorretamente como 3'. Portante, você vê uma grade brilhante em (5,3).
+Use `matplotlib` para exibir a matriz de confusão como um grafo. Neste grafo, o eixo X representa os valores reais e o eixo Y representa os valores previstos. A cor em cada grade representa a taxa de erro. Quanto mais clara a cor, maior é a taxa de erro. Por exemplo, muitos 5's são classificados incorretamente como 3'. Portanto, você vê uma grade brilhante em (5,3).
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -168,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![matriz de confusão](./media/tutorial-deploy-models-with-aml/confusion.png)
+![Matriz de confusão de exibição de gráfico](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>Implantar como serviço Web
 
-Após testar o modelo e ficar satisfeito com os resultados, implante o modelo como um serviço Web hospedado na ACI. 
+Após testar o modelo e ficar satisfeito com os resultados, implante o modelo como um serviço Web hospedado nas Instâncias de Contêiner. 
 
-Para compilar o ambiente correto para ACI, forneça o seguinte:
+Para compilar o ambiente correto para Instâncias de Contêiner, forneça o seguinte:
 * Um script de pontuação para mostrar como usar o modelo
 * Um arquivo de ambiente para mostrar quais pacotes precisam ser instalados
-* Um arquivo de configuração para construir a ACI
+* Um arquivo de configuração para criar a instância de contêiner
 * O modelo que você treinou antes
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Criar script de pontuação
 
-Crie o script de pontuação, chamado score.py, usado pela chamada de serviço Web para mostrar como usar o modelo.
+Crie o script de pontuação, chamado score.py. A chamada de serviço Web utiliza para mostrar como usar o modelo.
 
 É necessário incluir duas funções exigidas no script de pontuação:
 * A função `init()`, que normalmente carrega o modelo em um objeto global. Essa função é executada apenas uma vez quando o contêiner do Docker é iniciado. 
@@ -239,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>Criar arquivo de configuração
 
-Crie um arquivo de configuração de implantação e especifique o número de CPUs e gigabytes de RAM necessários para o contêiner de ACI. Embora dependa do modelo, o padrão de 1 núcleo e 1 gigabyte de RAM geralmente é suficiente para muitos modelos. Se você achar que precisará de mais posteriormente, será necessário recriar a imagem e reimplantar o serviço.
+Crie um arquivo de configuração de implantação e especifique o número de CPUs e gigabytes de RAM necessários para o contêiner das Instâncias de Contêiner. Embora dependa do modelo, o padrão de 1 núcleo e 1 gigabyte de RAM geralmente é suficiente para muitos modelos. Se você achar que precisará de mais posteriormente, será necessário recriar a imagem e reimplantar o serviço.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -250,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>Implantar em ACI
+### <a name="deploy-in-container-instances"></a>Implantar em Instâncias de Contêiner
 Tempo estimado para conclusão: **aproximadamente de 7a 8 minutos**
 
 Configure a imagem e implante. O código a seguir passa por estas etapas:
 
 1. Crie uma imagem usando:
-   * O arquivo de pontuação (`score.py`)
-   * O arquivo de ambiente (`myenv.yml`)
-   * O arquivo de modelo
+   * O arquivo de pontuação (`score.py`).
+   * O arquivo de ambiente (`myenv.yml`).
+   * o arquivo de modelo.
 1. Registre essa imagem no workspace. 
-1. Envie a imagem para o contêiner de ACI.
-1. Inicie um contêiner na ACI usando a imagem.
+1. Envie a imagem para o contêiner das Instâncias de Contêiner.
+1. Inicie um contêiner em Instâncias de Contêiner usando a imagem.
 1. Obtenha o terminal HTTP do serviço Web.
 
 
@@ -284,7 +286,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Obtenha o ponto de extremidade HTTP do serviço Web de pontuação, que aceita chamadas do cliente REST. Esse ponto de extremidade pode ser compartilhado com qualquer pessoa que queira testar o serviço Web ou integrá-lo a um aplicativo. 
+Obtenha o ponto de extremidade HTTP do serviço Web de pontuação, que aceita chamadas do cliente REST. Você pode compartilhar esse ponto de extremidade com qualquer pessoa que queira testar o serviço Web ou integrá-lo a um aplicativo. 
 
 ```python
 print(service.scoring_uri)
@@ -296,9 +298,9 @@ print(service.scoring_uri)
 Anteriormente, você marcou todos os dados de teste com a versão local do modelo. Agora, você pode testar o modelo implantado com uma amostra aleatória de 30 imagens dos dados de teste.  
 
 O código a seguir passa por estas etapas:
-1. Envie os dados como uma matriz JSON para o serviço Web hospedado na ACI. 
+1. Envie os dados como uma matriz JSON para o serviço Web hospedado nas Instâncias de Contêiner. 
 
-1. Use a API `run` do SDK para invocar o serviço. Também é possível fazer chamadas brutas usando qualquer ferramenta HTTP, como curl.
+1. Use a API `run` do SDK para invocar o serviço. Também é possível fazer chamadas brutas usando qualquer ferramenta HTTP, assim como curl.
 
 1. Imprima as previsões retornadas e plote-as junto com as imagens de entrada. A fonte vermelha e a imagem inversa (branco sobre preto) são usadas para realçar as amostras classificadas incorretamente. 
 
@@ -337,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-A seguir, está o resultado de uma amostra aleatória de imagens de teste: ![resultados](./media/tutorial-deploy-models-with-aml/results.png)
+A seguir, está o resultado de uma amostra aleatória de imagens de teste: ![Gráfico mostrando resultados](./media/tutorial-deploy-models-with-aml/results.png)
 
 Também é possível enviar uma solicitação HTTP bruta para testar o serviço Web.
 
@@ -365,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para manter o grupo de recursos e o workspace para outros tutoriais e exploração, você pode excluir apenas a implantação da ACI usando esta chamada à API:
+Para manter o grupo de recursos e o workspace para outros tutoriais e exploração, você pode excluir apenas a implantação das Instâncias de Contêiner usando esta chamada à API:
 
 ```python
 service.delete()
@@ -376,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial do serviço do Azure Machine Learning, você usou o Python para:
++ Saiba mais sobre todas as [opções de implantação para o serviço do Azure Machine Learning](how-to-deploy-and-where.md), incluindo ACI, Serviço de Kubernetes do Azure, FPGAs e IoT Edge.
 
-> [!div class="checklist"]
-> * Configurar o ambiente de teste
-> * Recuperar o modelo do workspace
-> * Testar o modelo localmente
-> * Implantar o modelo para ACI
-> * Testar o modelo implantado
- 
-Você também pode experimentar o tutorial [Seleção automática de algoritmo](tutorial-auto-train-models.md) para ver como o serviço do Azure Machine Learning pode selecionar e ajustar automaticamente o melhor algoritmo para o modelo e compilar esse modelo para você.
++ Confira como o serviço do Azure Machine Learning pode selecionar e ajustar automaticamente o melhor algoritmo para o modelo e compilar esse modelo para você. Experimente o tutorial [Seleção automática de algoritmo](tutorial-auto-train-models.md). 

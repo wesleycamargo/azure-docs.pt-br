@@ -1,5 +1,5 @@
 ---
-title: Balancear carga de contêineres em um cluster DC/SO do Azure
+title: (PRETERIDO) Balancear carga de contêineres em um cluster DC/SO do Azure
 description: Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure DC/OS.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964353"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993544"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Balancear a carga de contêineres em um cluster de controlador de domínio/sistema operacional do Serviço de Contêiner do Azure
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Neste artigo, exploramos como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/SO usando o Marathon-LB. Essa configuração permite que você dimensione seus aplicativos horizontalmente. Também permite que você aproveite os clusters de agentes públicos e privados colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado. Neste tutorial, você:
 
@@ -27,7 +29,7 @@ Neste artigo, exploramos como criar um balanceador de carga interno em um Servi�
 
 É necessário um cluster de DC/SO do ACS para concluir as etapas neste tutorial. Se necessário, [este exemplo de script](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) pode criar um para você.
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se precisar de uma atualização, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

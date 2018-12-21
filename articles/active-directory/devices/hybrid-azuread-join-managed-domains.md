@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887790"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435422"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
 De maneira semelhante a um usuário, um dispositivo está se tornando outra identidade que você deseja proteger e também usa para proteger seus recursos a qualquer hora e local. É possível atingir essa meta, colocando as identidades dos dispositivos no Azure AD usando um dos métodos a seguir:
 
@@ -53,7 +53,11 @@ Este tutorial assume que você está familiarizado com:
 -  [Como controlar o ingresso no Azure AD híbrido de seus dispositivos](hybrid-azuread-join-control.md)
   
 
-Para configurar o cenário neste artigo, é necessário que a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou posterior) esteja instalada. 
+Para configurar o cenário neste artigo, é necessário ter:
+
+- Um AD (Active Directory) local com um nível de esquema de 85 ou posterior. Para saber mais, confira [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema) (Atualizar o esquema do Active Directory).
+
+- A [versão mais recente do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou superior) a ser instalada. 
 
 Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você deseja ser o Azure AD híbrido para o Azure AD. Se os objetos de computador pertencem a unidades organizacionais (OU) específicas, essas OUs precisam ser configuradas para sincronização no Azure AD Connect também.
 
@@ -153,7 +157,7 @@ Para registrar os dispositivos de nível inferior do Windows, será necessário 
 
 
     
-A política a seguir deve ser definida como **Todos** : **os usuários podem registrar seus dispositivos com o Azure AD**
+A política a seguir deve ser definida como **Tudo**: **Os usuários podem registrar seus dispositivos com o Azure AD**
 
 ![Registrar dispositivos](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +176,7 @@ Além disso, é necessário habilitar **Permitir atualizações na barra de stat
 
 ### <a name="configure-seamless-sso"></a>Configurar SSO contínuo
 
-Para concluir a junção híbrida do Azure AD de seus dispositivos de nível inferior do Windows em um domínio gerenciado usando Autenticação de Passagem (PTA) ou Sincronização de Hash de Senha (PHS) como o método de autenticação de nuvem do Azure AD, você deve também [configurar o SSO contínuo](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Para concluir a junção híbrida do Azure AD de seus dispositivos de nível inferior do Windows em um domínio gerenciado usando Autenticação de Passagem (PTA) ou Sincronização de Hash de Senha (PHS) como o método de autenticação de nuvem do Azure AD, você deve também [configurar o SSO contínuo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows 

@@ -162,7 +162,7 @@ Use a visualização do Marketplace para configurar os campos exibidos para a of
 
 ### <a name="preview-subscription-ids"></a>Visualizar IDs de assinatura
 
-A lista de IDs de assinatura do Azure que você quer que tenham acesso à oferta quando ela for publicada. Essas assinaturas da lista branca permitirão que você teste a oferta em versão prévia antes de ativá-la. O portal de parceiro permite até 100 assinaturas na lista branca.
+A lista de IDs de assinatura do Azure que você quer que tenham acesso à oferta quando ela for publicada. Essas assinaturas da lista de permissões permitirão que você teste a oferta em versão prévia antes de ativá-la. O portal de parceiro permite até 100 assinaturas na lista de permissões.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 
