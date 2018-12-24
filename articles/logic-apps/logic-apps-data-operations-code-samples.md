@@ -1,6 +1,6 @@
 ---
-title: Exemplos de operação de dados - Aplicativo Lógico do Azure | Microsoft Docs
-description: Exemplos de código para definições de ação de operação de dados no Aplicativo Lógico do Azure
+title: Exemplos de operação de dados -Aplicativos Lógicos do Azure | Microsoft Docs
+description: Exemplos de código para definições de ação de operação de dados nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50229956"
 ---
-# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplo de código de operação de dados para Aplicativo Lógico do Azure
+# <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplo de código de operação de dados para Aplicativos Lógicos do Azure
 
 A seguir, estão os exemplos de código para as definições de ação de operação de dados no artigo, [Executar operações de dados](../logic-apps/logic-apps-perform-data-operations.md). É possível usar esses exemplos para quando quiser experimentar os exemplos com sua própria definição de fluxo de trabalho subjacente do aplicativo lógico, assinatura do Azure e conexões de API. Basta copiar e colar essas definições de ação no editor de exibição de código para a definição de fluxo de trabalho do aplicativo lógico e modificar as definições do fluxo de trabalho específico. 
 

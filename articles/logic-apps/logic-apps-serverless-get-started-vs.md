@@ -1,6 +1,6 @@
 ---
 title: Construir aplicativos sem servidor com o Visual Studio | Microsoft Docs
-description: Construir, implantar e gerenciar seu primeiro aplicativo sem servidor com o Aplicativo Lógico do Azure e o Azure Functions no Visual Studio
+description: Construir, implantar e gerenciar seu primeiro aplicativo sem servidor com os Aplicativos Lógicos do Azure e o Azure Functions no Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 09/10/2018
 ms.locfileid: "44297461"
 ---
-# <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Construir seu primeiro aplicativo sem servidor com o Aplicativo Lógico do Azure e o Azure Functions - Visual Studio
+# <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Construir seu primeiro aplicativo sem servidor com os Aplicativos Lógicos do Azure e o Azure Functions - Visual Studio
 
-É possível rapidamente desenvolver e implantar aplicativos de nuvem usando as ferramentas sem servidor e os recursos no Azure, como [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) e [Azure Functions](../azure-functions/functions-overview.md). Este artigo mostra como começar a construir um aplicativo sem servidor, o qual usa um aplicativo lógico que chama uma função do Azure, no Visual Studio. Para saber mais sobre as soluções sem servidor no Azure, consulte [Azure sem servidor com funções e aplicativos lógicos](../logic-apps/logic-apps-serverless-overview.md).
+É possível rapidamente desenvolver e implantar aplicativos de nuvem usando as ferramentas sem servidor e os recursos no Azure, como [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Azure Functions](../azure-functions/functions-overview.md). Este artigo mostra como começar a construir um aplicativo sem servidor, o qual usa um aplicativo lógico que chama uma função do Azure, no Visual Studio. Para saber mais sobre as soluções sem servidor no Azure, consulte [Azure sem servidor com funções e aplicativos lógicos](../logic-apps/logic-apps-serverless-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Para construir um aplicativo sem servidor no Visual Studio, serão necessários 
 
 * [Ferramentas de Aplicativo Lógico do Azure para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) ou a [Versão do Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
 
-  Você pode baixar e instalar as Ferramentas de Aplicativo Lógico do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+  Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
   Reinicie o Visual Studio após concluir a instalação. 
 
 * [Ferramentas Básicas do Azure Functions](https://www.npmjs.com/package/azure-functions-core-tools) para depurar Funções localmente
@@ -48,7 +48,7 @@ Para construir um aplicativo sem servidor no Visual Studio, serão necessários 
 
 ## <a name="create-resource-group-project"></a>Criar um projeto do grupo de recursos
 
-Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para o aplicativo sem servidor. No Azure, você cria recursos dentro de um grupo de recursos, que é uma coleção lógica utilizada para organizar, gerenciar e implementar recursos em um aplicativo inteiro como um único ativo. Para um aplicativo sem servidor no Azure, o grupo de recursos contém recursos para o Aplicativo Lógico do Azure e Azure Functions. Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para o aplicativo sem servidor. No Azure, você cria recursos dentro de um grupo de recursos, que é uma coleção lógica utilizada para organizar, gerenciar e implementar recursos em um aplicativo inteiro como um único ativo. Para um aplicativo sem servidor no Azure, o grupo de recursos contém recursos para os Aplicativos Lógicos do Azure e Azure Functions. Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 1. Inicie o Visual Studio e entre com sua conta do Azure. 
 

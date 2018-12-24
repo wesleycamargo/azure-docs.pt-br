@@ -1,6 +1,6 @@
 ---
-title: Monitorar mensagens B2B com o Log Analytics – Aplicativo Lógico do Azure | Microsoft Docs
-description: Monitore mensagens de AS2, X12 e EDIFACT para contas de integração e o Aplicativo Lógico do Azure e configure o log de diagnósticos com o Azure Log Analytics
+title: Monitorar mensagens B2B com o Log Analytics – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Monitore mensagens de AS2, X12 e EDIFACT para contas de integração e os Aplicativos Lógicos do Azure e configure o log de diagnósticos com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 12/14/2018
 ms.locfileid: "53385458"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorar mensagens B2B com o Log Analytics do Azure no Aplicativo Lógico do Azure
+# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorar mensagens B2B com o Log Analytics do Azure nos Aplicativos Lógicos do Azure
 
 Após você configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros poderão trocar mensagens uns com os outros. Para verificar se a comunicação funciona da forma esperada, você pode monitorar as mensagens de AS2, X12 e EDIFACT e configurar o log de diagnósticos da conta de integração com o [Log Analytics do Azure](../log-analytics/log-analytics-overview.md). Esse serviço monitora seus ambientes locais e na nuvem, ajudando a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Também é possível [usar esses dados com outros serviços](#extend-diagnostic-data), como o Armazenamento do Azure e os Hubs de Eventos do Azure.
 

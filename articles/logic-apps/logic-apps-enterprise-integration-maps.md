@@ -1,6 +1,6 @@
 ---
-title: Transformar XML com mapas XSLT – Aplicativo Lógico do Azure | Microsoft Docs
-description: Adicionar mapas XSLT que transformam XML no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Transformar XML com mapas XSLT – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Adicionar mapas XSLT que transformam XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123549"
 ---
-# <a name="add-maps-for-xml-transformation-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar mapas para transformação de XML no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="add-maps-for-xml-transformation-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar mapas para transformação de XML nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 A integração do Enterprise usa mapas para transformar dados XML entre formatos. Um mapa é um documento XML que define os dados em um documento que devem ser transformados em outro formato. 
 

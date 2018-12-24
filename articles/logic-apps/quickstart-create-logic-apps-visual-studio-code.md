@@ -1,5 +1,5 @@
 ---
-title: Crie e gerencie fluxos de trabalho automatizados com o código do Visual Studio - Azure Logic Apps | Microsoft Docs
+title: Crie e gerencie fluxos de trabalho automatizados com o Visual Studio Code - Aplicativos Lógicos do Azure | Microsoft Docs
 description: Início rápido sobre como criar e gerenciar aplicativos lógicos com JSON no VS Code (Visual Studio Code)
 services: logic-apps
 ms.service: logic-apps
@@ -41,12 +41,12 @@ Antes de começar, verifique se você possui estes itens:
 
   * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code versão 1.25.1 ou posterior</a>, que é gratuito
 
-  * Extensão de código do Visual Studio para aplicativos de lógica do Azure
+  * Extensão do Visual Studio Code para Aplicativos Lógicos do Azure
 
     É possível baixar e instalar essa extensão do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) ou diretamente do Visual Studio Code. 
     Certifique-se de recarregar o código do Visual Studio após a instalação. 
 
-    ![Encontre "Extensão de código do Visual Studio para aplicativos de lógica do Azure"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
+    ![Encontre "Extensão do Visual Studio Code para Aplicativos Lógicos do Azure"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
 
     Para verificar se a extensão foi instalada corretamente, o ícone do Azure aparece na barra de ferramentas do código do Visual Studio. 
 
@@ -126,7 +126,7 @@ Antes de começar, verifique se você possui estes itens:
 
    ![Nova definição de fluxo de trabalho do aplicativo lógico](./media/create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
 
-1. No arquivo de modelo de definição de fluxo de trabalho do aplicativo lógico, comece a criar a definição de fluxo de trabalho do seu aplicativo lógico. Para referência técnica, consulte o [esquema de linguagem de definição de fluxo de trabalho para aplicativos de lógica do Azure](../logic-apps/logic-apps-workflow-definition-language.md).
+1. No arquivo de modelo de definição de fluxo de trabalho do aplicativo lógico, comece a criar a definição de fluxo de trabalho do seu aplicativo lógico. Para referência técnica, consulte o [esquema de linguagem de definição de fluxo de trabalho para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-workflow-definition-language.md).
 
    Aqui está um exemplo de definição de lógica. Geralmente, os elementos JSON aparecem em ordem alfabética em cada seção, mas essa amostra mostra esses elementos aproximadamente na ordem em que as etapas do aplicativo lógico aparecem no designer.
 

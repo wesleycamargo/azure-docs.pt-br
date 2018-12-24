@@ -1,5 +1,5 @@
 ---
-title: Integração empresarial com o Aplicativo Lógico do Azure | Microsoft Docs
+title: Integração empresarial com os Aplicativos Lógicos do Azure | Microsoft Docs
 description: Esta visão geral descreve como você pode criar soluções de integração empresarial por tarefas de automação, fluxos de trabalho e processos de negócios que se integram a aplicativos, dados, serviços e sistemas em empresas e organizações. Crie soluções para cenários de integração de dados, de sistemas, EAI (integração de aplicativos empresariais) e de orquestração.
 services: logic-apps
 ms.service: logic-apps
@@ -29,7 +29,7 @@ Por exemplo, eis algumas cargas de trabalho que você pode automatizar com aplic
 * Mova arquivos carregados de um servidor SFTP ou FTP para o Armazenamento do Azure. 
 * Monitore tweets sobre um assunto específico, analise o sentimento e crie alertas ou tarefas de itens que exigem revisão.
 
-Para criar soluções de integração empresarial com o Aplicativo Lógico do Azure, você pode escolha de uma galeria cada vez maior que já conta com [mais de 200 conectores](../connectors/apis-list.md), que inclui serviços como o Barramento de Serviço do Azure, Functions e Armazenamento; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. [Conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
+Para criar soluções de integração empresarial com os Aplicativos Lógicos do Azure, você pode escolha de uma galeria cada vez maior que já conta com [mais de 200 conectores](../connectors/apis-list.md), que inclui serviços como o Barramento de Serviço do Azure, Functions e Armazenamento; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. [Conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 

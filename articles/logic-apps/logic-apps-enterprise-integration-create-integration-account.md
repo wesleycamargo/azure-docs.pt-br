@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar contas de integração para soluções B2B – Aplicativo Lógico do Azure | Microsoft Docs
+title: Criar e gerenciar contas de integração para soluções B2B – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Criar, vincular, mover e excluir contas de integração para soluções de B2B e integração empresarial com Aplicativos Lógicos do Azure
 services: logic-apps
 documentationcenter: ''

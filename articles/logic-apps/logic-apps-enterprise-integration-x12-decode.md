@@ -1,6 +1,6 @@
 ---
-title: Decodificar mensagens X12 - Aplicativo Lógico do Azure | Microsoft Docs
-description: Validar EDI e gerar confirmações com o decodificador de mensagem X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Decodificar mensagens X12 - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Validar EDI e gerar confirmações com o decodificador de mensagem X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43121638"
 ---
-# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificar mensagens X12 no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificar mensagens X12 nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Com o conector de mensagem Decodificar X12, você pode validar o envelope no acordo entre parceiros comerciais, validar o EDI e propriedades específicas ao parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios inteiros e gerar confirmações para transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
 

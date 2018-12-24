@@ -165,7 +165,7 @@ items:
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Funções do Azure
       href: logic-apps-azure-functions.md
-    - name: Aplicativo Lógico do Azure
+    - name: Aplicativos Lógicos do Azure
       href: logic-apps-http-endpoint.md
     - name: Barramento de Serviço do Azure
       href: ../connectors/connectors-create-api-servicebus.md
@@ -351,7 +351,7 @@ items:
       href: logic-apps-track-integration-account-custom-tracking-schema.md
 - name: Recursos
   items:
-  - name: Roteiro do Aplicativo Lógico do Azure
+  - name: Roteiro dos Aplicativos Lógicos do Azure
     href: https://aka.ms/logicappsroadmap/
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/

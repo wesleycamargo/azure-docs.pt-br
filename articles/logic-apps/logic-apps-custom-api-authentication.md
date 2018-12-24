@@ -1,6 +1,6 @@
 ---
 title: Adicionar a autenticação a APIs personalizadas – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Configurar a autenticação para chamadas a APIs personalizadas do Aplicativo Lógico do Azure
+description: Configurar a autenticação para chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50087501"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas do Aplicativo Lógico do Azure
+# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas dos Aplicativos Lógicos do Azure
 
 Para proteger chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (Azure AD) no portal do Azure para que não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
 

@@ -1,6 +1,6 @@
 ---
-title: Rastrear mensagens B2B com o Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Rastrear comunicação B2B para sua conta de integração e o Aplicativo Lógico do Azure com o Azure Log Analytics
+title: Rastrear mensagens B2B com o Log Analytics - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Rastrear comunicação B2B para sua conta de integração e os Aplicativos Lógicos do Azure com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

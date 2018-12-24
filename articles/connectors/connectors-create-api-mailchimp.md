@@ -1,6 +1,6 @@
 ---
-title: Conectar ao MailChimp – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar e gerenciar emails de marketing com as APIs REST do MailChimp e o Aplicativo Lógico do Azure
+title: Conectar ao MailChimp – Aplicativos Lógicos do Azure| Microsoft Docs
+description: Criar e gerenciar emails de marketing com as APIs REST do MailChimp e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

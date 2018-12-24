@@ -1,6 +1,6 @@
 ---
-title: Mensagens XML para Enterprise Integration B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Processar, validar, transformar e enriquecer mensagens XML para soluções B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Mensagens XML para Enterprise Integration B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Processar, validar, transformar e enriquecer mensagens XML para soluções B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43124528"
 ---
-# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Ao utilizar aplicativos lógicos, você tem a capacidade de processar as mensagens XML que você envia e recebe. Esse recurso está incluído no Enterprise Integration Pack. Para os usuários com uma tela de fundo do BizTalk Server, o Enterprise Integration Pack fornece recursos semelhantes para transformar e validar mensagens, trabalhar com arquivos simples e até mesmo usar o XPath para enriquecer ou extrair propriedades específicas de uma mensagem. 
 

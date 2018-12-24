@@ -1,6 +1,6 @@
 ---
-title: Conectar à Caixa - Azure Logic Apps | Microsoft Docs
-description: Criar e gerenciar arquivos com APIs REST de caixa e aplicativos de lógica do Azure
+title: Conectar à Caixa - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar e gerenciar arquivos com APIs REST de caixa e Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50229055"
 ---
-# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Criar e gerenciar arquivos no Box com o Aplicativo Lógico do Azure
+# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Criar e gerenciar arquivos no Box com os Aplicativos Lógicos do Azure
 
 Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de dentro de um aplicativo lógico com o conector do Box. Dessa forma, você pode criar aplicativos lógicos que automatizam tarefas e fluxos de trabalho para gerenciar seus arquivos e outras ações, por exemplo:
 
@@ -40,7 +40,7 @@ Este artigo mostra como você pode criar e gerenciar seus arquivos no Box de den
 * O aplicativo lógico no qual você deseja acessar a conta do Box. Para iniciar seu aplicativo lógico com um gatilho do Box, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que é o Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md).
+Se ainda não estiver familiarizado com o Aplicativo Lógico, veja [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md).
 
 ## <a name="connector-reference"></a>Referência de conector
 

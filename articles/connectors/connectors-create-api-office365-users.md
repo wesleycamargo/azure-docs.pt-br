@@ -1,6 +1,6 @@
 ---
-title: Conectar aos Usuários do Office 365 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar perfis de usuário com as APIs REST dos Usuários do Office 365 e o Aplicativo Lógico do Azure
+title: Conectar aos Usuários do Office 365 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar perfis de usuário com as APIs REST dos Usuários do Office 365 e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

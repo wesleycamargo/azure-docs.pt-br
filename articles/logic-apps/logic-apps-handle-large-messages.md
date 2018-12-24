@@ -1,6 +1,6 @@
 ---
-title: Tratar mensagens grandes - Aplicativo Lógico do Azure | Microsoft Docs
-description: Saiba como tratar tamanhos de mensagens grandes com agrupamentos no Aplicativo Lógico do Azure
+title: Tratar mensagens grandes - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Saiba como tratar tamanhos de mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -21,7 +21,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50085761"
 ---
-# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos no Aplicativo Lógico do Azure
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
 Ao processar mensagens, os Aplicativos Lógicos limitam o conteúdo da mensagem para um tamanho máximo. Esse limite ajuda a reduzir a sobrecarga criada por armazenar e processar mensagens grandes. Para processar mensagens maiores que esse limite, os Aplicativos Lógicos podem *dividir* uma mensagem grande em mensagens menores. Dessa forma, você ainda pode transferir arquivos grandes usando Aplicativos Lógicos em condições específicas. Ao se comunicar com outros serviços por meio de conectores ou HTTP, os Aplicativos Lógicos podem consumir mensagens grandes, mas *apenas* em partes. Esta condição significa que os conectores também precisam ser compatíveis com a divisão em partes ou a troca de mensagens HTTP subjacente entre os Aplicativos Lógicos e esses serviços devem usar a divisão em partes.
 

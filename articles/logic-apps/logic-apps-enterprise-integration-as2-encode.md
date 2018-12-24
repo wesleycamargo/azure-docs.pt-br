@@ -1,6 +1,6 @@
 ---
-title: Codificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Codificar mensagens AS com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+title: Codificar mensagens AS2 – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Codificar mensagens AS com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43122706"
 ---
-# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar mensagens AS2 com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar mensagens AS2 com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
 Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector de mensagem AS2 de codificação. Ele fornece a assinatura digital, criptografia e confirmações por meio de Notificações de Disposição de Mensagem (MDN), o que também leva a suporte para Não Repúdio.
 

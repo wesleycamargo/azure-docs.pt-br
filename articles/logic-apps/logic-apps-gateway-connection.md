@@ -1,5 +1,5 @@
 ---
-title: Acessar fontes de dados locais para Aplicativo Lógico do Azure | Microsoft Docs
+title: Acessar fontes de dados locais para Aplicativos Lógicos do Azure | Microsoft Docs
 description: Criar e configurar o gateway de dados local para poder acessar fontes de dados locais de aplicativos lógicos
 services: logic-apps
 ms.service: logic-apps
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50413699"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Conectar a fontes de dados locais do Aplicativo Lógico do Azure com gateway de dados local
+# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Conectar a fontes de dados locais dos Aplicativos Lógicos do Azure com gateway de dados local
 
 Para acessar fontes de dados locais dos aplicativos lógicos, é possível criar um recurso de gateway de dados no Azure para que os aplicativos lógicos possam usar [conectores locais](../logic-apps/logic-apps-gateway-install.md#supported-connections). Este artigo mostra como criar o recurso de gateway do Azure *após* você [baixar e instalar o gateway no computador local](../logic-apps/logic-apps-gateway-install.md). 
 

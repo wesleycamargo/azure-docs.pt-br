@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao Salesforce do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatizar tarefas e fluxos de trabalho que monitoram, criam e gerenciam trabalhos e registros do Salesforce usando o Aplicativo Lógico do Azure
+title: Conectar-se ao Salesforce dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que monitoram, criam e gerenciam trabalhos e registros do Salesforce usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233830"
 ---
-# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do Salesforce usando o Aplicativo Lógico do Azure
+# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do Salesforce usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Salesforce, você pode criar fluxos de trabalho e tarefas automatizadas para os recursos do Salesforce, tais como registros, trabalhos e objetos, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do Salesforce, você pode criar fluxos de trabalho e tarefas automatizadas para os recursos do Salesforce, tais como registros, trabalhos e objetos, por exemplo:
 
 * Monitore quando registros são criados ou alterados. 
 * Crie, obtenha e gerencie trabalhos e registros, incluindo as ações de inserção, atualização e exclusão.

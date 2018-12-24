@@ -1,6 +1,6 @@
 ---
-title: Conectores para Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatizar fluxos de trabalho com conectores para o Aplicativo Lógico do Azure, incluindo conectores internos, locais, de conta de integração e conectores empresariais
+title: Conectores para Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatizar fluxos de trabalho com conectores para os Aplicativos Lógicos do Azure, incluindo conectores internos, locais, de conta de integração e conectores empresariais
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -18,7 +18,7 @@ ms.locfileid: "52635434"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
-Conectores têm um papel integral quando você cria fluxos de trabalho automatizados com Aplicativos Lógico do Azure. Ao usar conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos locais e na nuvem para executar tarefas com os dados que você cria e já tem. 
+Conectores têm um papel integral quando você cria fluxos de trabalho automatizados com os Aplicativos Lógicos do Azure. Ao usar conectores em seus aplicativos lógicos, você expande os recursos para seus aplicativos locais e na nuvem para executar tarefas com os dados que você cria e já tem. 
 
 Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.microsoft.com/connectors), este arquivo descreve conectores mais comuns que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Os conectores estão disponíveis como conectores internos ou gerenciados. 
 

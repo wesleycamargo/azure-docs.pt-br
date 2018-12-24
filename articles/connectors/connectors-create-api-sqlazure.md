@@ -1,6 +1,6 @@
 ---
 title: Conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Como acessar e gerenciar bancos de dados SQL locais ou de nuvem automatizando fluxos de trabalho com os Aplicativo Lógico do Azure
+description: Como acessar e gerenciar bancos de dados SQL locais ou de nuvem automatizando fluxos de trabalho com os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

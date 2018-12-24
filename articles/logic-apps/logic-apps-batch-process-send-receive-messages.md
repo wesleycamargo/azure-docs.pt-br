@@ -1,6 +1,6 @@
 ---
 title: Processar mensagens em lote como um grupo ou uma coleção – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Enviar e receber mensagens como lotes em aplicativos de lógica do Azure
+description: Enviar e receber mensagens como lotes em Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 09/27/2018
 ms.locfileid: "47410146"
 ---
-# <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos aplicativos de lógica do Azure
+# <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos Aplicativos Lógicos do Azure
 
 Para enviar e processar mensagens juntas de uma maneira específica como grupos, você pode criar uma solução de lotes que coleta mensagens em um *lote* até que os critérios especificados sejam atendidos para liberar e processar as mensagens em lote. Os lotes podem reduzir a frequência com que seu aplicativo lógico processa mensagens. Este artigo mostra como criar uma solução em lotes criando dois aplicativos lógicos dentro da mesma assinatura do Azure, região do Azure e seguindo essa ordem específica: 
 
@@ -36,7 +36,7 @@ Para seguir este exemplo, você precisa destes itens:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Uma conta de email com qualquer [provedor de email com suporte do Aplicativo Lógico do Azure](../connectors/apis-list.md)
+* Uma conta de email com qualquer [provedor de email com suporte dos Aplicativos Lógicos do Azure](../connectors/apis-list.md)
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 

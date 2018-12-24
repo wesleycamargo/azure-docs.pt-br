@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Google Drive – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar e gerenciar arquivos com as APIs REST do Google Drive e o Aplicativo Lógico do Azure
+title: Conectar ao Google Drive – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar e gerenciar arquivos com as APIs REST do Google Drive e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

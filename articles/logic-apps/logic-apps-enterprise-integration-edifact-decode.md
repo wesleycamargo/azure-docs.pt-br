@@ -1,6 +1,6 @@
 ---
-title: Decodificar mensagens EDIFACT - Aplicativo Lógico do Azure | Microsoft Docs
-description: Validar EDI e gerar confirmações com o decodificador de mensagem EDIFACT para Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Decodificar mensagens EDIFACT - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Validar EDI e gerar confirmações com o decodificador de mensagem EDIFACT para Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43125345"
 ---
-# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Com o conector Decodificar mensagem EDIFACT, você pode validar EDI e propriedades específicas de parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios inteiros e gerar confirmações para transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
 

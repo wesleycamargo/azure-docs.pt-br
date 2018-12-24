@@ -1,6 +1,6 @@
 ---
-title: Criar ou unir branches paralelos – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar ou unir branches paralelos para fluxos de trabalho no Aplicativo Lógico do Azure
+title: Criar ou unir branches paralelos – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Como criar ou unir branches paralelos para fluxos de trabalho nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233116"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho no Aplicativo Lógico do Azure
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou unir branches paralelos para ações de fluxo de trabalho nos Aplicativos Lógicos do Azure
 
 Por padrão, suas ações nos fluxos de trabalho de aplicativo lógico são executadas sequencialmente. Para executar ações independentes ao mesmo tempo, você pode criar [Branches paralelos](#parallel-branches) e, em seguida, [unir esses branches](#join-branches) posteriormente no seu fluxo. 
 

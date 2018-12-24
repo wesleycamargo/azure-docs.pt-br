@@ -1,6 +1,6 @@
 ---
 title: Instalar gateway de dados local - Aplicativos Lógicos do Azure | Microsoft Docs
-description: Antes de poder acessar dados nas instalações do Azure Logic Apps, baixe e instale o gateway de dados local
+description: Antes de poder acessar dados nas instalações dos Aplicativos Lógicos do Azure, baixe e instale o gateway de dados local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,15 +16,15 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/31/2018
 ms.locfileid: "50420091"
 ---
-# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para aplicativos de lógica do Azure
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
-Antes de poder se conectar a fontes de dados locais do Azure Logic Apps, baixe e instale o gateway de dados local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre as fontes de dados locais (fora da nuvem) e os aplicativos lógicos. Este artigo mostra como você pode baixar, instalar e configurar o gateway de dados local. 
+Antes de poder se conectar a fontes de dados locais dos Aplicativos Lógicos do Azure, baixe e instale o gateway de dados local em um computador local. O gateway funciona como uma ponte que fornece transferência de dados rápida e criptografia entre as fontes de dados locais (fora da nuvem) e os aplicativos lógicos. Este artigo mostra como você pode baixar, instalar e configurar o gateway de dados local. 
 
 É possível usar a mesma instalação do gateway com outros serviços, como o Power BI, Microsoft Flow, PowerApps e o Azure Analysis Services. Saiba mais sobre [como o gateway de dados funciona](#gateway-cloud-service).
 
 <a name="supported-connections"></a>
 
-O gateway dá suporte a [conectores locais](../connectors/apis-list.md#on-premises-connectors) no Aplicativo Lógico do Azure para essas fontes de dados:
+O gateway dá suporte a [conectores locais](../connectors/apis-list.md#on-premises-connectors) nos Aplicativos Lógicos do Azure para essas fontes de dados:
 
 *   BizTalk Server 2016
 *   Sistema de Arquivos

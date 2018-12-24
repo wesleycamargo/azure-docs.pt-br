@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Dynamics 365 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar e gerenciar registros com as APIs REST do Dynamics 365 (online) e o Aplicativo Lógico do Azure
+title: Conectar ao Dynamics 365 – Aplicativos Lógicos do Azure| Microsoft Docs
+description: Criar e gerenciar registros com as APIs REST do Dynamics 365 (online) e os Aplicativos Lógicos do Azure
 author: Mattp123
 ms.author: matp
 ms.service: logic-apps
@@ -17,9 +17,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50231247"
 ---
-# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com o Aplicativo Lógico do Azure
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Dynamics 365, é possível criar tarefas e fluxos de trabalho automatizados com base nos recursos no Dynamics 365. Os fluxos de trabalho podem criar registros, atualizar itens, retornar registros e muito mais na sua conta do Dynamics 365. É possível incluir ações nos seus aplicativos lógicos que obtêm respostas do Dynamics 365 e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, você pode enviar um email usando o Office 365.
+Com os Aplicativos Lógicos do Azure e o conector do Dynamics 365, é possível criar tarefas e fluxos de trabalho automatizados com base nos recursos no Dynamics 365. Os fluxos de trabalho podem criar registros, atualizar itens, retornar registros e muito mais na sua conta do Dynamics 365. É possível incluir ações nos seus aplicativos lógicos que obtêm respostas do Dynamics 365 e disponibilizam a saída para outras ações. Por exemplo, quando um item é atualizado no Dynamics 365, você pode enviar um email usando o Office 365.
 
 Este tópico mostra como criar um aplicativo lógico que cria uma tarefa no Dynamics 365 sempre que um novo registro de cliente potencial é criado no Dynamics 365.
 Se ainda não estiver familiarizado com aplicativos lógicos, leia [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Contratos de comunicação B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar contratos para comunicação de parceiros comerciais B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+title: Contratos de comunicação B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar contratos para comunicação de parceiros comerciais B2B com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43128820"
 ---
-# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos entre parceiros para comunicação B2B com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos entre parceiros para comunicação B2B com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
 Os contratos permitem que entidades de negócios se comuniquem diretamente usando protocolos padrão da indústria e são a base da comunicação B2B (entre empresas). Ao habilitar cenários B2B para aplicativos lógicos com o Enterprise Integration Pack, um contrato é um acordo de comunicação entre parceiros comerciais B2B. Esse contrato se baseia na comunicação que os dois parceiros desejam estabelecer e é específico com relação a transporte ou protocolo.
 

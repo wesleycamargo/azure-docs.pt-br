@@ -1,6 +1,6 @@
 ---
-title: Conectar ao servidor MQ – Aplicativo Lógico do Azure | Microsoft Docs
-description: Enviar e recuperar mensagens com um servidor MQ do Azure ou local e o Aplicativo Lógico do Azure
+title: Conectar ao servidor MQ – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Enviar e recuperar mensagens com um servidor MQ do Azure ou local e os Aplicativos Lógicos do Azure
 author: valthom
 manager: jeconnoc
 ms.author: valthom

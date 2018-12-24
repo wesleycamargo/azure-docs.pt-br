@@ -1,6 +1,6 @@
 ---
-title: Criar tarefas e fluxos de trabalho de execução regular com o Aplicativo Lógico do Azure| Microsoft Docs
-description: Automatizar tarefas e fluxos de trabalho que são executados em uma agenda com o Conector de recorrência no Aplicativo Lógico do Azure
+title: Criar tarefas e fluxos de trabalho de execução regular com os Aplicativos Lógicos do Azure| Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que são executados em uma agenda com o Conector de recorrência nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43127047"
 ---
-# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com o Aplicativo Lógico do Azure
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com os Aplicativos Lógicos do Azure
 
 Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
 

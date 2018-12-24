@@ -1,6 +1,6 @@
 ---
-title: Adicionar parceiros comerciais para integrações B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar parceiros comerciais para a conta de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Adicionar parceiros comerciais para integrações B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar parceiros comerciais para a conta de integração nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43125254"
 ---
-# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar parceiros comerciais para contas de integração no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Adicionar parceiros comerciais para contas de integração nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Os parceiros são as entidades que participam de mensagens e transações B2B (entre empresas). Antes de criar os parceiros que representam você e a outra organização nessas transações, é necessário que ambas as partes compartilhem informações que identificam e validam as mensagens enviadas. Após a discussão desses detalhes e o início da relação de negócios, é possível criar parceiros em sua conta de integração para representar as duas partes.
 

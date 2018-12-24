@@ -1,6 +1,6 @@
 ---
-title: Adicionar escopos que executam ações com base no status do grupo – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar escopos que executam ações de fluxo de trabalho com base no status da ação de grupo no Aplicativo Lógico do Azure
+title: Adicionar escopos que executam ações com base no status do grupo – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Como criar escopos que executam ações de fluxo de trabalho com base no status da ação de grupo nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

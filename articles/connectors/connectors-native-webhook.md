@@ -1,6 +1,6 @@
 ---
-title: Criar ações ou fluxos de trabalho baseados em eventos – Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatizar ações ou fluxos de trabalho baseados em evento usando webhooks e o Aplicativo Lógico do Azure
+title: Criar ações ou fluxos de trabalho baseados em eventos – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatizar ações ou fluxos de trabalho baseados em evento usando webhooks e os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43126580"
 ---
-# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar ações ou fluxos de trabalho baseados em evento usando webhooks e o Aplicativo Lógico do Azure
+# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Criar ações ou fluxos de trabalho baseados em evento usando webhooks e os Aplicativos Lógicos do Azure
 
 Com a ação e o gatilho do webhook, você pode disparar, pausar e retomar fluxos para realizar estas tarefas:
 

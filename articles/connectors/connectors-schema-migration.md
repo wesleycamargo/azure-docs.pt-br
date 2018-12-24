@@ -1,5 +1,5 @@
 ---
-title: Migrar aplicativos para o esquema mais recente – Aplicativo Lógico do Azure | Microsoft Docs
+title: Migrar aplicativos para o esquema mais recente – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Como migrar os aplicativos lógicos para a última versão do esquema
 services: logic-apps
 ms.service: logic-apps
@@ -25,7 +25,7 @@ Para mover os aplicativos lógicos existentes para o esquema mais recente, siga 
 2. No menu do aplicativo lógico, escolha **Visão geral**. Na barra de ferramentas, escolha **Atualizar esquema**.
 
    > [!NOTE]
-   > Quando você seleciona **Atualizar esquema**, o Aplicativo Lógico do Azure executa automaticamente as etapas de migração e informa a você a saída do código. Você pode usar essa saída para atualizar sua definição de aplicativo lógico. No entanto, certifique-se de seguir as práticas recomendadas, conforme descrito na seção **Práticas recomendadas** a seguir.
+   > Quando você seleciona **Atualizar esquema**, os Aplicativos Lógicos do Azure executam automaticamente as etapas de migração e informa a você a saída do código. Você pode usar essa saída para atualizar sua definição de aplicativo lógico. No entanto, certifique-se de seguir as práticas recomendadas, conforme descrito na seção **Práticas recomendadas** a seguir.
 
    ![Atualizar esquema](./media/connectors-schema-migration/update-schema.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o Twitter do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam tweets, além de obter dados sobre seguidores, usuários seguidos, outros usuários, linhas do tempo e mais em sua conta do Twitter usando o Aplicativo Lógico do Azure
+title: Conectar-se com o Twitter dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam tweets, além de obter dados sobre seguidores, usuários seguidos, outros usuários, linhas do tempo e mais em sua conta do Twitter usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230651"
 ---
-# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando o Aplicativo Lógico do Azure
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Twitter, é possível criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam dados importantes para você no Twitter, como tweets, seguidores, usuários e usuários seguidos, linhas do tempo e muito mais, bem como outras ações como:
+Com os Aplicativos Lógicos do Azure e o conector do Twitter, é possível criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam dados importantes para você no Twitter, como tweets, seguidores, usuários e usuários seguidos, linhas do tempo e muito mais, bem como outras ações como:
 
 * Monitorar, postar e pesquisar tweets.
 * Obter dados como seguidores, usuários seguidos, linhas do tempo e muito mais.

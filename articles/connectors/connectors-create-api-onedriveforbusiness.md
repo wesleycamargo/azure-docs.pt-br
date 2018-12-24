@@ -1,6 +1,6 @@
 ---
-title: Conectar ao OneDrive for Business – Aplicativo Lógico do Azure | Microsoft Docs
-description: Carregar e gerenciar arquivos com as APIs REST do OneDrive for Business e o Aplicativo Lógico do Azure
+title: Conectar ao OneDrive for Business – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Carregar e gerenciar arquivos com as APIs REST do OneDrive for Business e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

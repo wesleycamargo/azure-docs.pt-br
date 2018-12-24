@@ -1,6 +1,6 @@
 ---
 title: Proteger o acesso aos Aplicativos Lógicos do Azure | Microsoft Docs
-description: Proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços em fluxos de trabalho para o Aplicativo Lógico do Azure
+description: Proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços em fluxos de trabalho para os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50232589"
 ---
-# <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Aplicativo Lógico do Azure
+# <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso nos Aplicativos Lógicos do Azure
 
 Aqui estão algumas maneiras pelas quais você pode proteger o acesso a diferentes componentes em seu aplicativo lógico:
 

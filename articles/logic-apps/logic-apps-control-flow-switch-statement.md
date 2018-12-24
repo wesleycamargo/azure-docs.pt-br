@@ -1,6 +1,6 @@
 ---
-title: Adicionar instruções switch a fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos no Aplicativo Lógico do Azure
+title: Adicionar instruções switch a fluxos de trabalho – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Como criar instruções switch que controlam as ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -16,7 +16,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50232436"
 ---
-# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos no Aplicativo Lógico do Azure
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar instruções switch que executam ações de fluxo de trabalho com base em valores específicos nos Aplicativos Lógicos do Azure
 
 Para executar ações específicas com base nos valores de objetos, expressões ou tokens, adicione uma instrução *switch*. Essa estrutura avalia o objeto, a expressão ou o token, escolhe o caso que coincide com o resultado e executa ações específicas apenas para esse caso. Apenas um caso deve corresponder ao resultado quando a instrução switch for executada.
 

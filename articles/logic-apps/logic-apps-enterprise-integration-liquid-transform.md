@@ -1,5 +1,5 @@
 ---
-title: Converter dados JSON com transformações de Liquid – Aplicativo Lógico do Azure | Microsoft Docs
+title: Converter dados JSON com transformações de Liquid – Aplicativos Lógicos do Azure | Microsoft Docs
 description: Crie transformações ou mapas para transformações avançadas de JSON usando o Aplicativo Lógico do Azure e o modelo Liquid
 services: logic-apps
 ms.service: logic-apps

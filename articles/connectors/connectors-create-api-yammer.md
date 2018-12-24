@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o Yammer do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que monitoram, postam e gerenciam mensagens, feeds e muito mais no Yammer usando o Aplicativo Lógico do Azure
+title: Conectar-se com o Yammer dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que monitoram, postam e gerenciam mensagens, feeds e muito mais no Yammer usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233320"
 ---
-# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitore e gerencie sua conta do Yammer usando o Aplicativo Lógico do Azure
+# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitore e gerencie sua conta do Yammer usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do Yammer, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam mensagens, feeds e mais em sua conta do Yammer, bem como outras ações, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do Yammer, você pode criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam mensagens, feeds e mais em sua conta do Yammer, bem como outras ações, por exemplo:
 
 * Monitorar quando novas mensagens aparecem em feeds e grupos seguidos.
 * Obter detalhes de usuários, mensagens, grupos e redes, entre outros.

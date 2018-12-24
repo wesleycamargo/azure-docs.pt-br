@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Microsoft Translator – Aplicativo Lógico do Azure | Microsoft Docs
-description: Traduzir texto e executar outras tarefas de linguagem com APIs REST do Microsoft Translator e o Aplicativo Lógico do Azure
+title: Conectar ao Microsoft Translator – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Traduzir texto e executar outras tarefas de linguagem com APIs REST do Microsoft Translator e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

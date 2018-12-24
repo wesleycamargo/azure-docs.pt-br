@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Office 365 Outlook – Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar emails, contatos e calendários com as APIs REST do Office 365 e o Aplicativo Lógico do Azure
+title: Conectar ao Office 365 Outlook – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar emails, contatos e calendários com as APIs REST do Office 365 e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

@@ -1,6 +1,6 @@
 ---
-title: Conectar Hubs de Eventos do Azure - Aplicativo Lógico do Azure | Microsoft Docs
-description: Gerenciar e monitorar eventos com Hubs de Eventos do Azure e Aplicativo Lógico do Azure
+title: Conectar Hubs de Eventos do Azure - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Gerenciar e monitorar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -18,7 +18,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50230311"
 ---
-# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativo Lógico do Azure 
+# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure 
 
 Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. 
 

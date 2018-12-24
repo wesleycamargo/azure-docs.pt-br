@@ -229,4 +229,4 @@ Neste tópico, você aprendeu a:
 
 Para saber mais sobre o PowerApps, consulte [Introdução ao PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Para saber mais sobre outros cenários interessantes que usam Azure Functions, consulte [Chamar uma função do Microsoft Flow](functions-flow-scenario.md) e [Criar uma função que se integre ao Aplicativo Lógico do Azure](functions-twitter-email.md).
+Para saber mais sobre outros cenários interessantes que usam Azure Functions, consulte [Chamar uma função do Microsoft Flow](functions-flow-scenario.md) e [Criar uma função que se integre aos Aplicativos Lógicos do Azure](functions-twitter-email.md).

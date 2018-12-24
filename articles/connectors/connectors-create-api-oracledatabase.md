@@ -1,6 +1,6 @@
 ---
-title: Conectar ao Oracle Database – Aplicativo Lógico do Azure | Microsoft Docs
-description: Inserir e gerenciar registros com APIs REST do Oracle Database e o Aplicativo Lógico do Azure
+title: Conectar ao Oracle Database – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Inserir e gerenciar registros com APIs REST do Oracle Database e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

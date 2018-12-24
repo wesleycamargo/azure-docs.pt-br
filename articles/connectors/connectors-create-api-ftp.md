@@ -1,6 +1,6 @@
 ---
-title: Conectar ao servidor FTP - Azure Logic Apps | Microsoft Docs
-description: Crie, monitore e gerencie arquivos em um servidor FTP com o Azure Logic Apps
+title: Conectar ao servidor FTP - Aplicativos Lógicos do Azure | Microsoft Docs
+description: Crie, monitore e gerencie arquivos em um servidor FTP com os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -19,7 +19,7 @@ ms.locfileid: "50232810"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorar e gerenciar arquivos FTP usando Aplicativos Lógicos do Azure
 
-Com o conector FTP e de Aplicativo Lógico do Azure, você pode criar tarefas automatizadas e fluxos de trabalho que criar, monitoram, enviam e recebem arquivos por meio de sua conta em um servidor FTP, juntamente com outras ações, por exemplo:
+Com o conector FTP e dos Aplicativos Lógicos do Azure, você pode criar tarefas automatizadas e fluxos de trabalho que criar, monitoram, enviam e recebem arquivos por meio de sua conta em um servidor FTP, juntamente com outras ações, por exemplo:
 
 * Monitorar quando arquivos são adicionados ou alterados.
 * Obter, criar, copiar, atualizar, lista e excluir arquivos.

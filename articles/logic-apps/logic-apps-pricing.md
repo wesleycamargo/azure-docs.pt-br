@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 11/17/2018
 ms.locfileid: "51854111"
 ---
-# <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para Aplicativo Lógico do Azure
+# <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
 
-Você pode criar e executar fluxos de trabalho de integração automatizados que podem ser redimensionados na nuvem quando você usa o Aplicativo Lógico do Azure. Aqui estão os detalhes sobre como cobrança e preços funcionam para Aplicativos Lógicos. 
+Você pode criar e executar fluxos de trabalho de integração automatizados que podem ser redimensionados na nuvem quando você usa os Aplicativos Lógicos do Azure. Aqui estão os detalhes sobre como cobrança e preços funcionam para Aplicativos Lógicos. 
 
 <a name="consumption-pricing"></a>
 

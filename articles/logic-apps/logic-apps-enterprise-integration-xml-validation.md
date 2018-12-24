@@ -1,6 +1,6 @@
 ---
-title: Validar XML para Enterprise Integration B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Validar XML com esquemas para soluções B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Validar XML para Enterprise Integration B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Validar XML com esquemas para soluções B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43121106"
 ---
-# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML para Enterprise Integration B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML para Enterprise Integration B2B nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 Geralmente, em cenários B2B, os parceiros de um contrato devem garantir que as mensagens trocadas entre eles são válidas antes de iniciar o processamento de dados. É possível validar documentos com um esquema predefinido usando o conector de Validação de XML do Enterprise Integration Pack.
 

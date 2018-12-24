@@ -1,6 +1,6 @@
 ---
-title: Conectar ao GitHub – Aplicativo Lógico do Azure | Microsoft Docs
-description: Monitorar eventos do GitHub com as APIs REST do GitHub e o Aplicativo Lógico do Azure
+title: Conectar ao GitHub – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Monitorar eventos do GitHub com as APIs REST do GitHub e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
 ms.author: estfan

@@ -1,6 +1,6 @@
 ---
-title: Recuperação de desastre para contas de integração B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Preparar-se para recuperação de desastre entre regiões no Aplicativo Lógico do Azure
+title: Recuperação de desastre para contas de integração B2B – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Preparar-se para recuperação de desastre entre regiões nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123897"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastre entre regiões para contas de integração B2B no Aplicativo Lógico do Azure
+# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastre entre regiões para contas de integração B2B nos Aplicativos Lógicos do Azure
 
 As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e faturas. Durante um evento de desastre, é essencial que uma empresa se recupere rapidamente para atender aos SLAs no nível de negócios definidos com seus parceiros. Este artigo demonstra como criar um plano de continuidade dos negócios para cargas de trabalho B2B. 
 
@@ -45,7 +45,7 @@ As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e fatur
 
 5. A recomendação é implantar todos os recursos da região primária em uma região secundária também. 
 
-   Os recursos da região primária incluem o Banco de Dados SQL do Azure ou o Azure Cosmos DB, o Barramento de Serviço do Azure e os Hubs de Eventos do Azure usados para o mensagens, o Gerenciamento de API do Azure e o recurso Aplicativo Lógico do Azure do Serviço de Aplicativo do Azure.   
+   Os recursos da região primária incluem o Banco de Dados SQL do Azure ou o Azure Cosmos DB, o Barramento de Serviço do Azure e os Hubs de Eventos do Azure usados para o mensagens, o Gerenciamento de API do Azure e o recursos dos Aplicativos Lógicos do Azure do Serviço de Aplicativo do Azure.   
 
 6. Estabeleça uma conexão de uma região primária para uma região secundária. Para efetuar pull do status de execução de uma região primária, crie um aplicativo lógico em uma região secundária. 
 

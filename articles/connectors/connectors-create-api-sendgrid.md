@@ -1,6 +1,6 @@
 ---
-title: Conectar-se com o SendGrid do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que enviam emails e gerenciam listas de endereçamento no SendGrid usando o Aplicativo Lógico do Azure
+title: Conectar-se com o SendGrid dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que enviam emails e gerenciam listas de endereçamento no SendGrid usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50228849"
 ---
-# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envie emails e gerencie listas de endereçamento no SendGrid usando o Aplicativo Lógico do Azure
+# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Envie emails e gerencie listas de endereçamento no SendGrid usando os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do SendGrid, você pode criar fluxos de trabalho e tarefas automatizadas que enviam emails e gerenciam listas de destinatários, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do SendGrid, você pode criar fluxos de trabalho e tarefas automatizadas que enviam emails e gerenciam listas de destinatários, por exemplo:
 
 * Enviar email.
 * Adicionar destinatários a listas.

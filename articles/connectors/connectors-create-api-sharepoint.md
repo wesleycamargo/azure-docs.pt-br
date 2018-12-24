@@ -1,6 +1,6 @@
 ---
-title: Conectar-se à conta do SharePoint do Aplicativo Lógico do Azure | Microsoft Docs
-description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam recursos no SharePoint Online ou SharePoint Server local usando o Aplicativo Lógico do Azure
+title: Conectar-se à conta do SharePoint dos Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que monitoram e gerenciam recursos no SharePoint Online ou SharePoint Server local usando os Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -18,9 +18,9 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/30/2018
 ms.locfileid: "50233252"
 ---
-# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorar e gerenciar recursos do SharePoint com o Aplicativo Lógico do Azure
+# <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorar e gerenciar recursos do SharePoint com os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do SharePoint, você pode criar tarefas e fluxos de trabalho automatizados que monitoram e gerenciam recursos, como arquivos, pastas, listas, itens, pessoas e assim por diante, no SharePoint Online ou no SharePoint Server local, por exemplo:
+Com os Aplicativos Lógicos do Azure e o conector do SharePoint, você pode criar tarefas e fluxos de trabalho automatizados que monitoram e gerenciam recursos, como arquivos, pastas, listas, itens, pessoas e assim por diante, no SharePoint Online ou no SharePoint Server local, por exemplo:
 
 * Monitorar quando arquivos ou itens são criados, alterados ou excluídos.
 * Criar, obter, atualizar ou excluir itens.
