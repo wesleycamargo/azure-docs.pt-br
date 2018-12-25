@@ -1,6 +1,6 @@
 ---
-title: Codificar ou decodificar arquivos simples – Aplicativo Lógico do Azure | Microsoft Docs
-description: Codificar ou decodificar arquivos simples para Enterprise Integration com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+title: Codificar ou decodificar arquivos simples – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Codificar ou decodificar arquivos simples para Enterprise Integration com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43123921"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples com os Aplicativos Lógicos do Azure e o Enterprise Integration Pack
 
 Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, veja o [documentação dos aplicativos lógicos](logic-apps-overview.md "Saiba mais sobre os Aplicativos Lógicos").  
 
@@ -29,7 +29,7 @@ Execute estas etapas para adicionar um conector de codificação de arquivo simp
    ![Captura de tela do gatilho a ser selecionado](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. Adicione uma ação de codificação de arquivo simples, desta maneira:
    
-    a. Selecione o sinal de **mais** .
+     a. Selecione o sinal de **mais** .
    
     b. Selecione o link **Adicionar uma ação** (que aparece após a seleção do sinal de adição).
    
@@ -59,7 +59,7 @@ Agora você pode testar seu conector fazendo uma solicitação ao ponto de extre
    ![Captura de tela do gatilho a ser selecionado](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. Adicione a ação de decodificação de arquivo simples, desta maneira:
    
-    a. Selecione o sinal de **mais** .
+     a. Selecione o sinal de **mais** .
    
     b. Selecione o link **Adicionar uma ação** (que aparece após a seleção do sinal de adição).
    

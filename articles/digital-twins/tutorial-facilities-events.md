@@ -20,7 +20,7 @@ Depois de implantar sua instância dos Gêmeos Digitais do Azure, provisionar se
 
 No [primeiro tutorial](tutorial-facilities-setup.md), você configurou o grafo espacial de um prédio imaginário. Uma sala no prédio contém sensores de temperatura, dióxido de carbono e movimento. No [segundo tutorial](tutorial-facilities-udf.md), você provisionou o grafo e uma função definida pelo usuário para monitorar esses valores de sensor e disparar notificações quando a sala está vazia e a temperatura e o nível de dióxido de carbono estão em um patamar confortável. 
 
-Este tutorial mostra como você pode integrar essas notificações ao Aplicativo Lógico do Azure para enviar emails quando uma sala assim está disponível. Um administrador do escritório pode usar essas informações para tornar a reserva de salas de reunião pelos funcionários mais eficiente. 
+Este tutorial mostra como você pode integrar essas notificações aos Aplicativos Lógicos do Azure para enviar emails quando uma sala assim está disponível. Um administrador do escritório pode usar essas informações para tornar a reserva de salas de reunião pelos funcionários mais eficiente. 
 
 Neste tutorial, você aprenderá como:
 
@@ -98,7 +98,7 @@ Os [tópicos da grade de eventos](../event-grid/concepts.md#topics) fornecem uma
 
 
 ## <a name="notify-events-with-logic-apps"></a>Notificar eventos com o Aplicativo Lógico
-Você pode usar o serviço [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) a fim de criar tarefas automatizadas para eventos recebidos de outros serviços. Nesta seção, você configura o Aplicativo Lógico para criar notificações por email para eventos roteados a partir de seus sensores espaciais, com a ajuda de um [tópico da grade de eventos](../event-grid/overview.md).
+Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) a fim de criar tarefas automatizadas para eventos recebidos de outros serviços. Nesta seção, você configura o Aplicativo Lógico para criar notificações por email para eventos roteados a partir de seus sensores espaciais, com a ajuda de um [tópico da grade de eventos](../event-grid/overview.md).
 
 1. No painel esquerdo do [portal do Azure](https://portal.azure.com), selecione **Criar um recurso**.
 
