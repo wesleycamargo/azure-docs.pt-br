@@ -1,6 +1,6 @@
 ---
-title: Transformar XML entre formatos – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar transformações ou mapas que convertem dados XML entre formatos no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+title: Transformar XML entre formatos – Aplicativos Lógicos do Azure | Microsoft Docs
+description: Criar transformações ou mapas que convertem dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -17,7 +17,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2018
 ms.locfileid: "43125288"
 ---
-# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
 O conector de Transformação da integração corporativa converte dados de um formato para outro formato. Por exemplo, talvez você tenha uma mensagem de entrada contendo a data atual no formato AnoMêsDia. Você pode usar uma transformação para reformatar a data para o formato MêsDiaAno.
 
