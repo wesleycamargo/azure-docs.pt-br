@@ -1,6 +1,6 @@
 ---
-title: Política de gerenciamento de API do Azure de exemplo – adicionar recursos a um serviço de back-end | Microsoft Docs
-description: Política de gerenciamento de API do Azure de exemplo – demonstra como adicionar recursos a um serviço de back-end. Por exemplo, aceitar um nome do local em vez de latitude e longitude em uma API de previsão do tempo.
+title: Exemplo de política de gerenciamento de API do Azure - Adicionar recursos a um serviço de back-end | Microsoft Docs
+description: Exemplo de política de gerenciamento de API do Azure - Demonstra como adicionar recursos a um serviço de back-end. Por exemplo, aceitar um nome do local em vez de latitude e longitude em uma API de previsão do tempo.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: a019eb4556dc7cde34d51af6858f576e8ea9abcf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 7c9edbf4b2d231453cd336521a04ba6b7714b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284524"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873812"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>Adicionar recursos a um serviço de back-end
 

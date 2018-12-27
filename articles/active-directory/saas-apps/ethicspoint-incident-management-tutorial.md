@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao EthicsPoint Incident Management (EPIM) | Microsoft Azure'
+title: 'Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management) | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o EthicsPoint Incident Management (EPIM).
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: c38c751701b323bf1c985a4127d0e9deac2c8eaa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c72ed655166dc1fe8045f5b9fdc7221cdf24d567
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446014"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850985"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: integração do Azure Active Directory ao EthicsPoint Incident Management (EPIM)
+# <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management)
 
 Neste tutorial, você aprenderá a integrar o EthicsPoint Incident Management (EPIM) ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o EthicsPoint Incident Management (EPIM) da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,7 +112,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/ethicspoint-incident-management-tutorial/tutorial_ethicspoint_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
@@ -123,7 +123,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<servername>.navexglobal.com/adfs/ls/`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do EPIM (EthicsPoint Incident Management)](http://www.navexglobal.com/company/contact-us) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta, o Identificador e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do EPIM (EthicsPoint Incident Management)](https://www.navexglobal.com/company/contact-us) para obter esses valores. 
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -133,10 +133,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/ethicspoint-incident-management-tutorial/tutorial_general_400.png)
     
-1. Para configurar o logon único no lado do **EPIM (EthicsPoint Incident Management)**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do EPIM (EthicsPoint Incident Management)](http://www.navexglobal.com/company/contact-us).
+1. Para configurar o logon único no lado do **EPIM (EthicsPoint Incident Management)**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do EPIM (EthicsPoint Incident Management)](https://www.navexglobal.com/company/contact-us).
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -162,7 +162,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/ethicspoint-incident-management-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -172,7 +172,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-ethicspoint-incident-management-epim-test-user"></a>Criando um usuário de teste do EPIM (EthicsPoint Incident Management)
 
-Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no EthicsPoint Incident Management (EPIM). Trabalhe com a [equipe de suporte do EPIM (EthicsPoint Incident Management)](http://www.navexglobal.com/company/contact-us) para adicionar os usuários à plataforma EPIM (EthicsPoint Incident Management).
+Nesta seção, você deve criar uma usuária chamada Brenda Fernandes no EthicsPoint Incident Management (EPIM). Trabalhe com a [equipe de suporte do EPIM (EthicsPoint Incident Management)](https://www.navexglobal.com/company/contact-us) para adicionar os usuários à plataforma EPIM (EthicsPoint Incident Management).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

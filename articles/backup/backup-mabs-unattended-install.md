@@ -2,18 +2,18 @@
 title: Instalação silenciosa do Servidor de Backup do Azure V2
 description: Use um script do PowerShell para instalar silenciosamente o Servidor de Backup do Azure V2. Esse tipo de instalação também é chamado de uma instalação autônoma.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal
-ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: raynew
+ms.openlocfilehash: dd66710a24ca28b78c6b3e0a8197a078f17524db
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612688"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868133"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
@@ -56,9 +56,9 @@ Essas etapas não serão aplicáveis se você estiver instalando o Servidor de B
 
 Você pode usar esses sinalizadores para a instalação:</br>
 **/f**: .ini caminho do arquivo</br>
-**/l**: caminho do log</br>
-**/i**: caminho de instalação</br>
-**/x**: desinstalar o caminho</br>
+**/l**: Caminho do log</br>
+**/i**: Caminho de instalação</br>
+**/x**: Caminho de desinstalação</br>
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de instalar o Servidor de Backup, saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho.

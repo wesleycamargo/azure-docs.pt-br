@@ -5,20 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/12/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 80ae3d2603cbb1c52c5bbe5e72ef7880cf0da6eb
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: fbe1cfdcfb1b5ec295748c3c77030df45323ee54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984582"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434317"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
-Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
+Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. 
+
+## <a name="access-reviews"></a>Análises de acesso
+É possível usar as revisões de acesso para verificar periodicamente se usuários convidados ainda precisam acessar os recursos. O recurso **Revisões de acesso** está disponível no **Azure Active Directory** em **Gerenciar** > **Relações Organizacionais**. (Também é possível procurar por "revisões de acesso" em **Todos os serviços** no portal do Azure.) Para saber como usar as revisões de acesso, consulte [Gerenciar acesso de convidado com revisões de acesso do Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+
+## <a name="audit-logs"></a>Logs de auditoria
+
+Os logs de auditoria do Azure AD fornecem registros das atividades do usuário e do sistema, incluindo atividades iniciadas por usuários convidados. Para acessar os logs de auditoria, no **Azure Active Directory**, em **monitoramento**, selecione **Logs de auditoria**. Este é um exemplo do histórico de convites e resgates do convidado Davi Barros:
 
 ![log de auditoria](./media/auditing-and-reporting/audit-log.png)
 

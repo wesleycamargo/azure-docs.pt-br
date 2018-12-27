@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427532"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955217"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como usar o Twilio para funcionalidades de voz e SMS do Azure
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -44,15 +44,15 @@ A API usa os verbos do Twilio; por exemplo, o verbo **&lt;Say&gt;** instrui o Tw
 
 A seguir está uma lista de verbos do Twilio.  Saiba mais sobre os outros verbos e recursos na [Documentação da linguagem de marcação da Twilio](https://www.twilio.com/docs/api/twiml).
 
-* `<Dial>`: conecta o chamador a outro telefone.
+* `<Dial>`: Conecta o chamador a outro telefone.
 * `<Gather>`: Coleta os dígitos numéricos inseridos no teclado do telefone.
-* `<Hangup>`: Termina uma chamada.
+* `<Hangup>`: Encerra uma chamada.
 * `<Play>`: Reproduz um arquivo de áudio.
 * `<Pause>`: Espera silenciosamente por um número especificado de segundos.
 * `<Record>`: Grava a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* `<Redirect>`: Transfere o controle de uma chamada ou SMS para TwiML em uma URL diferente.
-* `<Reject>`: Rejeita uma chamada recebida para o número do Twilio sem cobrar você
-* `<Say>`: Converte o texto em fala que é feito em uma chamada.
+* `<Redirect>`: Transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* `<Reject>`: Rejeita uma chamada recebida para o número do Twilio sem cobrança
+* `<Say>`: Faz conversão de texto em fala realizada em uma chamada.
 * `<Sms>`: Envia uma mensagem SMS.
 
 ### <a name="twiml"></a>TwiML
@@ -115,7 +115,7 @@ Por padrão, o Microsoft Visual Studio 2010 instala a versão 1.2 do NuGet. As b
 5. Na caixa Pesquisar Online, digite *tiwlio*.
 6. Clique em **Instalar** no pacote Twilio.
 
-## <a id="howto_make_call"></a>Como fazer uma chamada externa
+## <a id="howto_make_call"></a>Como: Como fazer uma chamada de saída
 A seguir é demonstrado como fazer uma chamada externa usando a classe **CallResource**. Esse código também usa um site fornecido pelo Twilio para retornar a resposta TwiML (Linguagem de Marcação do Twilio). Substitua os valores dos números telefônicos **para** e **de** e certifique-se de verificar o número telefônico **de** da sua conta do Twilio antes de executar o código.
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 Para obter mais informações sobre os parâmetros passados para o método **CallResource.Create**, consulte [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
-Como mencionado, esse código utiliza um site fornecido pelo Twilio para retornar a resposta de TwiML. Em vez disso, você pode usar seu próprio site para fornecer a resposta TwiML. Para obter mais informações, consulte [Como fornecer respostas do TwiML de seu próprio site](#howto_provide_twiml_responses).
+Como mencionado, esse código utiliza um site fornecido pelo Twilio para retornar a resposta de TwiML. Em vez disso, você pode usar seu próprio site para fornecer a resposta TwiML. Para obter mais informações, consulte [Como: Fornecer respostas TwiML de seu próprio site](#howto_provide_twiml_responses).
 
-## <a id="howto_send_sms"></a>Como enviar uma mensagem de SMS
+## <a id="howto_send_sms"></a>Como: Enviar uma mensagem SMS
 A seguinte captura de tela mostra como enviar uma mensagem de SMS usando a classe **MessageResource**. O número **de** é fornecido pelo Twilio para contas de avaliação para envio de mensagens SMS. O número **para** deve ser verificado para sua conta de Twilio antes de você executar o código.
 
 ```csharp
@@ -172,8 +172,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>Como fornecer respostas TwiML de seu próprio site
-Quando o aplicativo iniciar uma chamada para a API do Twilio, por exemplo, por meio do método **CallResource.Create**, o Twilio enviará a solicitação para uma URL que deverá retornar uma resposta em TwiML. O exemplo na [como: fazer uma chamada externa](#howto_make_call) usa a URL fornecida pelo Twilio [ https://twimlets.com/message ] [ twimlet_message_url] para retornar a resposta.
+## <a id="howto_provide_twiml_responses"></a>Como: Fornecer respostas TwiML de seu próprio site
+Quando o aplicativo iniciar uma chamada para a API do Twilio, por exemplo, por meio do método **CallResource.Create**, o Twilio enviará a solicitação para uma URL que deverá retornar uma resposta em TwiML. O exemplo em [Como: Fazer uma chamada externa](#howto_make_call) usa a URL fornecida pelo Twilio [https://twimlets.com/message][twimlet_message_url] para retornar a resposta.
 
 > [!NOTE]
 > Enquanto TwiML destina-se ao uso pelos serviços Web, é possível exibir o TwiML no seu navegador. Por exemplo, clique em [https://twimlets.com/message][twimlet_message_url] para ver um vazio `<Response>` elemento; como outro exemplo, clique em [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um `<Response>` elemento que contém um &lt;Say&gt; elemento.
@@ -277,7 +277,7 @@ Para obter mais informações sobre como usar o Twilio no Azure com o ASP.NET, c
 
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[vs_project]:https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 [nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

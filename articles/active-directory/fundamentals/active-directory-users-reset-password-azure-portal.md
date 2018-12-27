@@ -1,6 +1,6 @@
 ---
-title: Como redefinir a senha de um usuário no Active Directory | Microsoft Docs
-description: Saiba como redefinir a senha de um usuário usando o Azure Active Directory.
+title: Redefinir a senha de um usuário - Azure Active Directory | Microsoft Docs
+description: Instruções sobre como redefinir a senha de um usuário usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736065"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103343"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Como redefinir a senha de um usuário usando o Azure Active Directory
-É possível redefinir a senha de um usuário se a senha for esquecida, se o usuário for bloqueado de um dispositivo ou se o usuário nunca recebeu uma senha.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Redefinir a senha de um usuário usando o Azure Active Directory
+Como um administrador, você pode redefinir a senha de um usuário se a senha for esquecida, se o usuário for bloqueado em um dispositivo ou se o usuário nunca recebeu uma senha.
 
 >[!Note]
 >A menos que o locatário do Azure AD seja o diretório base de um usuário, você não poderá redefinir a senha. Isso significa que, se o usuário estiver conectado na organização usando uma conta de outra organização, uma conta Microsoft ou uma conta do Google, você não poderá redefinir a senha.<br><br>Se o usuário tiver uma fonte de autoridade, como Windows Server Active Directory, somente será possível redefinir a senha se você ativar o write-back de senha.<br><br>Se o usuário tiver uma fonte de autoridade como Azure AD Externo, não será possível redefinir a senha. Somente o usuário, ou um administrador no Azure AD Externo, pode redefinir a senha.
+
+>[!Note]
+>Se você não for um administrador e estiver procurando para obter instruções sobre como redefinir sua própria senha corporativa ou de estudante, consulte [Redefinir a senha corporativa ou de estudante](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Para redefinir uma senha
 

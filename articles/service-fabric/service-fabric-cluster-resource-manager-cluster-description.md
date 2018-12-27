@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 13ee238580d645f3e727090bc0e0275b36bdb225
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208804"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834580"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Cluster Resource Manager usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster. Ao aplicar essas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -54,7 +54,7 @@ Durante o tempo de execução, o Gerenciador de Recursos de Cluster do Service F
 
 O Cluster Resource Manager do Service Fabric não se importa com quantas camadas existem na hierarquia de domínio de falha. No entanto, ele tenta assegurar que a perda de qualquer parte da hierarquia não afete os serviços em execução nela. 
 
-É melhor se houver o mesmo número de nós em cada nível de profundidade na hierarquia de domínio de falha. Se a "árvore" de domínios de falha estiver desequilibrada em seu cluster, será mais difícil para o Gerenciador de Recursos de Cluster calcular a melhor alocação dos serviços. Layouts de domínios de falha desequilibrados significam que a perda de alguns domínios afeta a disponibilidade de serviços mais do que outros domínios. Como resultado, o Gerenciador de Recursos de Cluster fica dividido entre dois objetivos: ele quer usar os computadores nesse domínio “pesado” colocando serviços neles e quer posicionar serviços em outros domínios de forma que a perda de um domínio não cause problemas. 
+É melhor se houver o mesmo número de nós em cada nível de profundidade na hierarquia de domínio de falha. Se a "árvore" de domínios de falha estiver desequilibrada em seu cluster, será mais difícil para o Gerenciador de Recursos de Cluster calcular a melhor alocação dos serviços. Layouts de domínios de falha desequilibrados significam que a perda de alguns domínios afeta a disponibilidade de serviços mais do que outros domínios. Como resultado, o Gerenciador de Recursos de Cluster fica dividido entre as duas metas: Ele quer usar os computadores nesse domínio “pesado” colocando serviços neles e quer posicionar serviços em outros domínios para que a perda de um domínio não cause problemas. 
 
 Qual é a aparência de um domínio desequilibrado? No diagrama abaixo, mostramos dois layouts de cluster diferentes. No primeiro exemplo, os nós estão distribuídos uniformemente entre os domínios de falha. No segundo exemplo, um domínio de falha tem muito mais nós do que o outro. 
 
@@ -97,7 +97,7 @@ O modelo mais comum é a matriz de FD/UD, em que os FDs e os UDs formam uma tabe
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restrições de domínio de falha e de atualização e o comportamento resultante
 ### <a name="default-approach"></a>*Abordagem padrão*
-Por padrão, o Gerenciador de Recursos de Cluster mantém os serviços balanceados entre os Domínios de Falha e de Atualização. Isso é modelado como uma [restrição](service-fabric-cluster-resource-manager-management-integration.md). O estado das restrições do Domínio de Falha e de Atualização: “para uma partição de serviço específica, nunca deve haver uma diferença maior que um no número de objetos de serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre dois domínios no mesmo nível de hierarquia”. Digamos que essa restrição forneça uma garantia de “diferença máxima”. A restrição de Domínio de Falha e de Atualização impede determinadas movimentações ou disposições que violam a regra mencionada acima. 
+Por padrão, o Gerenciador de Recursos de Cluster mantém os serviços balanceados entre os Domínios de Falha e de Atualização. Isso é modelado como uma [restrição](service-fabric-cluster-resource-manager-management-integration.md). Os estados de restrição do domínio de falha e de atualização: “Para uma partição de serviço específica, nunca deve haver uma diferença maior que um no número de objetos de serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre dois domínios no mesmo nível de hierarquia”. Digamos que essa restrição forneça uma garantia de “diferença máxima”. A restrição de Domínio de Falha e de Atualização impede determinadas movimentações ou disposições que violam a regra mencionada acima. 
 
 Vejamos um exemplo. Digamos que temos um cluster com seis nós, configurados com cinco domínios de falha e cinco domínios de atualização.
 
@@ -176,10 +176,10 @@ Por outro lado, essa abordagem pode ser muito restrita e não permitir que o clu
 
 ### <a name="alternative-approach"></a>*Abordagem alternativa*
 
-O Gerenciador de Recursos de Cluster é compatível com a outra versão da restrição de Domínio de Falha e de Atualização que permite o posicionamento e também garante um nível mínimo de segurança. A restrição alternativa de Domínio de Falha e de Atualização pode ser declarada da seguinte maneira: “para determinada partição de serviço, a distribuição de réplica entre domínios deve garantir que a partição não sofra uma perda de quorum”. Digamos que essa restrição forneça uma garantia de “segurança de quorum”. 
+O Gerenciador de Recursos de Cluster é compatível com a outra versão da restrição de Domínio de Falha e de Atualização que permite o posicionamento e também garante um nível mínimo de segurança. A restrição alternativa de domínio de falha e de atualização pode ser especificada da seguinte maneira: “Para determinada partição de serviço, a distribuição de réplica entre domínios deve garantir que a partição não sofra uma perda de quorum”. Digamos que essa restrição forneça uma garantia de “segurança de quorum”. 
 
 > [!NOTE]
->Para um serviço com estado, definimos *perda de quorum* em uma situação em que a maioria das réplicas de partição estão inativas ao mesmo tempo. Por exemplo, se TargetReplicaSetSize for cinco, um conjunto de quaisquer três réplicas representará um quorum. Da mesma forma, se TargetReplicaSetSize for 6, quatro réplicas serão necessárias para o quorum. Em ambos os casos, no máximo duas réplicas podem ficar inativas ao mesmo tempo se a partição deve continuar funcionando normalmente. Para um serviço sem estado, não existe *perda de quorum*, pois os serviços sem monitoração continuarão a funcionar normalmente mesmo se a maioria das instâncias ficarem inativas ao mesmo tempo. Portanto, enfocaremos os serviços com estado no restante do texto.
+>Para um serviço com estado, definimos *perda de quorum* em uma situação em que a maioria das réplicas de partição estão inativas ao mesmo tempo. Por exemplo, se TargetReplicaSetSize for cinco, um conjunto de quaisquer três réplicas representará um quorum. Da mesma forma, se TargetReplicaSetSize for 6, quatro réplicas serão necessárias para o quorum. Em ambos os casos, no máximo duas réplicas podem ficar inativas ao mesmo tempo se a partição deve continuar funcionando normalmente. Para um serviço sem estado, não existe *perda de quorum*, pois os serviços sem estado continuarão a funcionar normalmente mesmo se a maioria das instâncias ficarem inativas ao mesmo tempo. Portanto, enfocaremos os serviços com estado no restante do texto.
 >
 
 Voltar para o exemplo anterior. Com a versão “segurança de quórum” da restrição, todos os três layouts em questão seriam válidos. Isso ocorre porque, mesmo em caso de falha de FD0 no segundo layout ou UD1 no terceiro layout, a partição ainda teria quorum (a maioria dessas réplicas ainda estariam operantes). Com esta versão da restrição, N6 poderia ser utilizado quase sempre.
@@ -192,7 +192,7 @@ Como ambas as abordagens têm vantagens e desvantagens, apresentamos uma abordag
 > [!NOTE]
 >Esse será o comportamento padrão a começar do Service Fabric versão 6.2. 
 >
-A abordagem adaptável usa a lógica “diferença máxima” por padrão e muda para a lógica “segurança de quorum” somente quando necessário. O Gerenciador de Recursos de Cluster decide automaticamente qual estratégia é necessária examinando como o cluster e os serviços são configurados. Para um dado serviço: *se o TargetReplicaSetSize for divisível pelo número de Domínios de Falha e o número de Domínios de Atualização **e** o número de nós for menor ou igual ao (número de Domínios de Falha) \* (o número de Domínios de Atualização), o Gerenciador de Recursos de Cluster deverá usar a lógica “baseado em quorum” para o serviço.* Tenha em mente que o Gerenciador de Recursos de Cluster usará essa abordagem para serviços com e sem estado, apesar da perda de quorum não ser relevante para os serviços sem estado.
+A abordagem adaptável usa a lógica “diferença máxima” por padrão e muda para a lógica “segurança de quorum” somente quando necessário. O Gerenciador de Recursos de Cluster decide automaticamente qual estratégia é necessária examinando como o cluster e os serviços são configurados. Para um determinado serviço: *Se o TargetReplicaSetSize for uniformemente divisível pelo número de Domínios de Falha e o número de Domínios de Atualização **e** o número de nós for menor ou igual ao (número de Domínios de Falha) * (o número de Domínios de Atualização), o Gerenciador de Recursos de Cluster deverá usar a lógica “baseado em quorum” para o serviço.* Tenha em mente que o Gerenciador de Recursos de Cluster usará essa abordagem para serviços com e sem estado, apesar da perda de quorum não ser relevante para os serviços sem estado.
 
 Voltemos para o exemplo anterior e consideremos que um cluster agora tem oito nós (o cluster ainda está configurado com cinco Domínios de Falha, cinco Domínios de Atualização e TargetReplicaSetSize de um serviço hospedado no cluster que permanece cinco). 
 

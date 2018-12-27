@@ -1,5 +1,5 @@
 ---
-title: CI/CD com o Mecanismo do Serviço de Contêiner do Azure e o modo Swarm
+title: (PRETERIDO) CI/CD com o Mecanismo do Serviço de Contêiner do Azure e o modo Swarm
 description: Usar o Mecanismo do Serviço de Contêiner do Azure com o Docker Swarm Mode, um Registro de Contêiner do Azure e o Azure DevOps para fornecer continuamente um aplicativo .NET Core com vários contêineres
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299569"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995062"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e Docker Swarm Mode usando o Azure DevOps
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(PRETERIDO) Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Mecanismo do ACS e Docker Swarm Mode usando o Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *Este artigo tem base na documentação [Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Docker Swarm usando o Azure DevOps](container-service-docker-swarm-setup-ci-cd.md)*
 
@@ -106,7 +108,7 @@ Nesta etapa, você configura um pipeline de build para seu projeto do Azure DevO
 
     ![Azure DevOps – Novo pipeline de build vazio](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/create-empty-build-vsts.PNG)
 
-4. Depois, clique na guia **Variáveis** e crie duas novas variáveis: **RegistryURL** e **AgentURL**. Cole os valores de seu Registro e do DNS de Agentes do Cluster.
+4. Em seguida, clique na guia **Variáveis** e crie duas novas variáveis: **RegistryURL** e **AgentURL**. Cole os valores de seu Registro e do DNS de Agentes do Cluster.
 
     ![Azure DevOps – Configuração das variáveis de build](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-variables.png)
 

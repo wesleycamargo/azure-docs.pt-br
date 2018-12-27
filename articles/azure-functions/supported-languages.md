@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957305"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835413"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguagens com suporte no Azure Functions
 
@@ -37,11 +37,9 @@ Há três níveis de suporte:
 
 ### <a name="experimental-languages"></a>Linguagens experimentais
 
-As linguagens experimentais na versão 1.x não escalam bem e não oferecem suporte a todas as associações. Por exemplo, o Python 1.x é lento porque o tempo de execução de Funções é executado *python.exe* com cada chamada de função. E, embora o Python seja compatível com associações de HTTP, não é possível acessar o objeto de solicitação.
+As linguagens experimentais na versão 1.x não escalam bem e não oferecem suporte a todas as associações. Por exemplo, o suporte experimental para o PowerShell em 1.x é limitado à versão 5.1, por ser instalado por padrão nas VMs nas quais os aplicativos de função são executados. Se desejar executar scripts do PowerShell, considere a [Automação do Azure](https://azure.microsoft.com/services/automation/).
 
-O suporte experimental para o PowerShell no 1.x é limitado à versão 5.1, porque é o que é instalado por padrão nas VMs nas quais os aplicativos de função são executados. Se desejar executar scripts do PowerShell, considere a [Automação do Azure](https://azure.microsoft.com/services/automation/).
-
-Não use linguagens experimentais para qualquer coisa em que você confia, pois não há suporte oficial para elas. Não devem ser abertos casos de suporte para problemas com linguagens experimentais. 
+Não use recursos experimentais para algo em que você confia, pois não há suporte oficial para eles. Não devem ser abertos casos de suporte para problemas com linguagens experimentais. 
 
 O tempo de execução versão 2.x não oferece suporte a linguagens experimentais. O suporte para novos idiomas é adicionado somente quando o idioma pode ter suporte em produção. 
 
@@ -64,3 +62,6 @@ Para saber mais sobre como usar uma das linguagens GA ou em versão prévia no A
 
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
+
+> [!div class="nextstepaction"]
+> [Python](functions-reference-python.md)

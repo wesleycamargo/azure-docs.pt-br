@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c11013c926e77447a69ce0dfe697fdda1ecc2b8c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284839"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879631"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -21,7 +21,7 @@ Você pode encontrar erros ao integrar soluções como o Gerenciamento de Atuali
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="computer-grou-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -55,7 +55,7 @@ Para implantar a solução com êxito, você precisa considerar alterar a polít
   * Refazer a segmentação da política para um recurso específico (como para uma conta de automação específica).
   * Revisando o conjunto de recursos ao qual a política foi configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém sua conta de automação e selecione **Implantações** em **Configurações** para exibir a implantação com falha. Para saber mais sobre o Azure Policy, consulte: [Visão geral do Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal do Azure ou navegue para o grupo de recursos que contém sua conta de automação e selecione **Implantações** em **Configurações** para exibir a implantação com falha. Para saber mais sobre o Azure Policy visite: [Visão geral do Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>falhas de extensão do MMA
 
@@ -67,7 +67,7 @@ A instalação do Agente MMA ou do Log Analytics para Linux pode falhar por dive
 
 A seção a seguir descreve vários problemas que você pode encontrar durante a integração que causam uma falha na implantação da extensão MMA.
 
-### <a name="webclient-exception"></a>Cenário: ocorreu uma exceção durante uma solicitação de WebClient
+### <a name="webclient-exception"></a>Cenário: Ocorreu uma exceção durante uma solicitação do WebClient
 
 A extensão do MMA na máquina virtual não consegue se comunicar com recursos externos e a implantação falha.
 
@@ -95,7 +95,7 @@ Algumas causas possíveis para esse erro são:
 
 Certifique-se de ter as portas e os endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte [planejando sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Cenário: a instalação falhou devido a problemas ambientais transitórios
+### <a name="transient-environment-issue"></a>Cenário: A instalação falhou devido a problemas transitórios de ambiente
 
 A instalação da extensão do Microsoft Monitoring Agent falhou durante a implantação devido a outra instalação ou ação bloqueando a instalação
 
@@ -126,7 +126,7 @@ Algumas causas possíveis para esse erro são:
 
 Este erro é um erro transitório na natureza. Repita a implantação para instalar a extensão.
 
-### <a name="installation-timeout"></a> Cenário: tempo limite de instalação
+### <a name="installation-timeout"></a>Cenário: Tempo limite de instalação
 
 A instalação da extensão MMA não foi concluída devido a um tempo limite.
 

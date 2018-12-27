@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar e solucionar problemas do SDK do Java Assíncrono do Azure Cosmos DB| Microsoft Docs
+title: Diagnosticar e solucionar problemas do SDK Assíncrono do Java do Azure Cosmos DB
 description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas do Azure Cosmos DB.
 services: cosmos-db
 author: moderakh
@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 951c26ea5b5c77cf205e7793834d564889b9a635
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820232"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876096"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>A solução de problemas ao usar o SDK do Java Assíncrono com as contas de API do Azure Cosmos DB SQL
 Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas ao usar do [SDK do Java Assíncrono](sql-api-sdk-async-java.md) com contas da API Azure Cosmos DB SQL.
@@ -63,7 +63,7 @@ Se o seu aplicativo for desenvolvido nas Máquinas Virtuais do Microsoft Azure s
 Se você usar um proxy HTTP, certifique-se que pode suportar o número de conexões configuradas no SDK `ConnectionPolicy`.
 Caso contrário, você enfrentará problemas de conexão.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação inválido: bloqueio do thread de E/S do Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação inválido: Bloqueio do thread de E/S do Netty
 
 O SDK usa a biblioteca de E/S [Netty](https://netty.io/) biblioteca para se comunicar com o Azure Cosmos DB. O SDK tem APIs assíncronas e usas as APIs de E/S sem bloqueio do Netty. O trabalho de E/S do SDK é executado em threads de Netty de E/S. O número de threads de E/S Netty está configurado para ser igual ao número de núcleos da CPU no computador do aplicativo. 
 

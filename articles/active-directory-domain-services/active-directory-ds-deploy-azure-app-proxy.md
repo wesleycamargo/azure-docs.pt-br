@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840292"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implantar o Proxy de Aplicativo do Azure AD em um domínio gerenciado do Azure AD Domain Services
 O Proxy de Aplicativo do Active Directory (AD) do Azure o ajuda a dar suporte a funcionários remotos publicando aplicativos locais para serem acessados via Internet. Com o Azure AD Domain Services, agora você pode usar modelo lift-and-shift em aplicativos herdados executados localmente para os Serviços de Infraestrutura do Azure. Depois, publique esses aplicativos usando o Proxy de Aplicativo do Azure AD, a fim de fornecer acesso remoto seguro aos usuários em sua organização.
 
-Se você for um novo usuário do Proxy de Aplicativo do Azure AD, aprenda mais sobre este recurso com o artigo: [Como fornecer acesso remoto seguro a aplicativos locais](../active-directory/manage-apps/application-proxy.md).
+Se você for um novo usuário do Proxy de Aplicativo do Azure AD, saiba mais sobre esse recurso com o artigo a seguir: [Como fornecer acesso remoto seguro para aplicativos locais](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Tarefa 1: Habilitar o Proxy de Aplicativo do Azure AD para o diretório do Azure AD
 Execute as etapas a seguir para habilitar o Proxy de Aplicativo do Azure AD para seu diretório do Azure AD.
 
-1. Entre como administrador no [Portal do Azure](http://portal.azure.com).
+1. Entre como administrador no [Portal do Azure](https://portal.azure.com).
 
 2. Clique em **Azure Active Directory** para exibir a visão geral do diretório. Clique em **Aplicativos empresariais**.
 
@@ -96,9 +96,9 @@ Antes, você provisionou uma máquina virtual com Windows Server e ingressou no 
 ## <a name="next-steps"></a>Próximas etapas
 Você configurou o Proxy de Aplicativo do Azure AD e o integrou a seu domínio gerenciado do Azure AD Domain Services.
 
-* **Migrar seus aplicativos para máquinas virtuais do Azure:** use o modelo lift-and-shift para migrar seus aplicativos de servidores locais para máquinas virtuais do Azure ingressadas em seu domínio gerenciado. Isso ajuda você a se livrar dos custos com infraestrutura gerados pela execução de servidores localmente.
+* **Migrar seus aplicativos para máquinas virtuais do Azure:** Use lift-and-shift para migrar os aplicativos de servidores locais para máquinas virtuais do Azure ingressadas em seu domínio gerenciado. Isso ajuda você a se livrar dos custos com infraestrutura gerados pela execução de servidores localmente.
 
-* **Publicar aplicativos usando o Proxy de Aplicativo do Azure AD:** publique aplicativos em execução em suas máquinas virtuais do Azure usando o Proxy de Aplicativo do Azure AD. Para saber mais, confira [publicar aplicativos usando o Proxy de Aplicativo do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Publicar aplicativos usando o Proxy de Aplicativo do Azure AD:** Publique aplicativos em execução nas máquinas virtuais do Azure usando o Proxy de Aplicativo do Azure AD. Para saber mais, confira [publicar aplicativos usando o Proxy de Aplicativo do Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota sobre a implantação: publique aplicativos IWA (Autenticação Integrada do Windows) usando o Proxy de Aplicativo do Azure AD

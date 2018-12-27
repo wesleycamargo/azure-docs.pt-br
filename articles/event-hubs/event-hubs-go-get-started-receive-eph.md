@@ -1,20 +1,21 @@
 ---
-title: Receber eventos de Hubs de Eventos do Azure usando o Go | Microsoft Docs
-description: Comece a receber de Hubs de Eventos usando Go
+title: Receber eventos usando Go - Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece um passo a passo para a criação de um aplicativo Go que recebe eventos dos Hubs de Eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239484"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084984"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Receber eventos de Hubs de Eventos usando o Go
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>Criar uma entidade de serviço
 
-Criar um entidade de serviço seguindo as instruções em [Criar uma entidade de serviço com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salve as credenciais fornecidas no seu ambiente com os seguintes nomes: os pacotes de Hubs de Eventos e SDK do Azure para linguagem Go são pré-configurados para procurar esses nomes de variável.
+Criar um entidade de serviço seguindo as instruções em [Criar uma entidade de serviço com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Salve as credenciais fornecidas no ambiente com os nomes a seguir: O SDK do Azure para linguagem Go e os pacotes de Hubs de Eventos são pré-configurados para procurar esses nomes de variáveis.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -98,7 +99,7 @@ if err != nil {
 }
 ```
 
-## <a name="get-metadata-struct"></a>Obter struc de metadados
+## <a name="get-metadata-struct"></a>Obter struct de metadados
 
 Obtenha um struct com metadados sobre seu ambiente do Azure usando o SDK Go do Azure. Operações posteriores usam esse struct para localizar pontos de extremidade corretos.
 

@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 7ae8a79ac04e1d5263e084d6be4b27f303bd5848
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5ad49c8e28f0e91b18af6dc485489d11464fbc0d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006780"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413380"
 ---
-# <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight
+# <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar um cluster Apache Hadoop com contas de armazenamento de transferência segura no Azure HDInsight
 
-O recurso [Transferência segura exigida](../storage/common/storage-require-secure-transfer.md) aprimora a segurança de sua conta de Armazenamento do Azure aplicando todas as solicitações à sua conta por meio de uma conexão segura. Esse recurso e o esquema wasbs só têm suporte da versão 3.6 ou mais recente do cluster HDInsight. 
+O recurso [Transferência segura exigida](../storage/common/storage-require-secure-transfer.md) aprimora a segurança de sua conta de Armazenamento do Azure aplicando todas as solicitações à sua conta por meio de uma conexão segura. Esse recurso e o esquema wasbs só têm suporte da versão 3.6 ou mais recente do cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deverá ter o seguinte:
 
-* **Assinatura do Azure**: para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Assinatura do Azure**: Para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Uma conta de Armazenamento do Azure com transferência segura habilitada**. Para obter as instruções, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Exigir transferência segura](../storage/common/storage-require-secure-transfer.md).
-* **Um contêiner de Blob na conta de armazenamento**. 
+* **Um contêiner de Blob na conta de armazenamento**.
 
 ## <a name="create-cluster"></a>Criar cluster
 
@@ -34,18 +34,18 @@ Antes de começar este tutorial, você deverá ter o seguinte:
 
 Nesta seção, você criará um cluster Hadoop no HDInsight usando um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo está localizado no [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Não é necessário ter experiência com o modelo do Resource Manager para seguir este tutorial. Para obter outros métodos de criação de cluster e Noções básicas sobre as propriedades usadas neste tutorial, confira [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Clique na imagem a seguir para entrar no Azure e abra o modelo do Resource Manager no Portal do Azure. 
-   
+1. Clique na imagem a seguir para entrar no Azure e abra o modelo do Resource Manager no Portal do Azure.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Siga as instruções para criar o cluster com as seguintes especificações: 
 
-    - Especifique o HDInsight versão 3.6.  É necessário ter a versão 3.6 ou mais recente.
+    - Especifique o HDInsight versão 3.6. É necessário ter a versão 3.6 ou mais recente.
     - Especifique uma conta de armazenamento com transferência segura habilitada.
     - Use um nome curto para a conta de armazenamento.
-    - A conta de armazenamento e o contêiner de blob devem ser criados com antecedência. 
+    - A conta de armazenamento e o contêiner de blob devem ser criados com antecedência.
 
-    Para obter as instruções, confira [Criar cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
+      Para obter as instruções, confira [Criar cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 Se você usar ação de script para fornecer seus próprios arquivos de configuração, use wasbs nas seguintes configurações:
 
@@ -59,17 +59,17 @@ Há várias opções para adicionar outras contas de armazenamento com transfer�
 
 - Modifique o modelo do Azure Resource Manager na última seção.
 - Crie um cluster usando o [Portal do Azure](https://portal.azure.com) e especifique a conta de armazenamento vinculada.
-- Use ações de script para adicionar outras contas de armazenamento com transferência segura habilitada a um cluster existente do HDInsight.  Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md).
+- Use ações de script para adicionar outras contas de armazenamento com transferência segura habilitada a um cluster existente do HDInsight. Para saber mais, confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a criar um cluster do HDInsight e a habilitar a transferência segura para as contas de armazenamento.
 
 Para saber mais sobre como analisar dados com o HDInsight, consulte os seguintes artigos:
 
-* Para saber mais sobre como usar o Hive com HDInsight, inclusive como executar consultas de Hive do Visual Studio, consulte [usar o Hive com HDInsight][hdinsight-use-hive].
-* Para saber mais sobre o Pig, uma linguagem usada para transformar dados, consulte [Usar o Pig com o HDInsight][hdinsight-use-pig].
-* Para saber mais sobre o MapReduce, uma maneira de gravar programas que processam dados no Hadoop, consulte [Usar o MapReduce com HDInsight][hdinsight-use-mapreduce].
-* Para saber mais sobre como usar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Introdução às ferramentas do Hadoop do Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* Para saber mais sobre como usar o [Apache Hive](https://hive.apache.org/) com o HDInsight, incluindo como executar consultas do Hive no Visual Studio, consulte [Usar o Apache Hive com o HDInsight][hdinsight-use-hive].
+* Para saber mais sobre o [Apache Pig](https://pig.apache.org/), uma linguagem usada para transformar dados, consulte [Usar o Apache Pig com o HDInsight][hdinsight-use-pig].
+* Para saber mais sobre o [MapReduce do Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), uma maneira de escrever programas que processam dados no Hadoop, consulte [Usar o MapReduce do Apache Hadoop com o HDInsight][hdinsight-use-mapreduce].
+* Para saber mais sobre como usar as Ferramentas do HDInsight para Visual Studio, consulte [Introdução ao uso das ferramentas do Apache Hadoop do Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 Para saber mais sobre como o HDInsight armazena dados, ou como inserir os dados no HDInsight, consulte os artigos a seguir:
 
@@ -80,11 +80,11 @@ Para saber mais sobre como criar ou gerenciar um cluster do HDInsight, consulte 
 
 * Para saber mais sobre como gerenciar o cluster HDInsight baseado em Linux, consulte [Gerenciar clusters HDInsight usando o Ambari](hdinsight-hadoop-manage-ambari.md).
 * Para saber mais sobre as opções que você pode selecionar ao criar um cluster HDInsight, confira [Como criar o HDInsight no Linux usando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
-* Se você estiver familiarizado com o Linux e o Hadoop, mas quiser obter informações específicas sobre o Hadoop no HDInsight, consulte [Trabalhando com o HDInsight no Linux](hdinsight-hadoop-linux-information.md). Este artigo oferece informações como:
-  
-  * URLs para serviços hospedados no cluster, como Ambari e WebHCat
-  * O local dos arquivos do Hadoop e exemplos no sistema de arquivos local
-  * O uso do Azure Storage (WASB) em vez de HDFS como armazenamento de dados padrão
+* Se você estiver familiarizado com o Linux, e Apache Hadoop, mas quiser obter informações específicas sobre o Hadoop no HDInsight, consulte [Trabalhar com o HDInsight no Linux](hdinsight-hadoop-linux-information.md). Este artigo oferece informações como:
+
+  * URLs para serviços hospedados no cluster, como [Apache Ambari](https://ambari.apache.org/) e [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
+  * O local dos arquivos do [Apache Hadoop](https://hadoop.apache.org/) e exemplos no sistema de arquivos local
+  * O uso do Armazenamento do Azure (WASB) em vez de [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) como armazenamento de dados padrão
 
 [1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 

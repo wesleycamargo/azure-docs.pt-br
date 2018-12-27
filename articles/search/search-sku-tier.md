@@ -1,6 +1,6 @@
 ---
-title: Escolher um bloco de preço ou SKU para o serviço Azure Search | Microsoft Docs
-description: 'O Azure Search pode ser provisionada nestes SKUs: Gratuito, Básico e Standard, sendo que o Standard está disponível em várias configurações de recursos e níveis de capacidade.'
+title: Escolher um tipo de preço ou SKU para o serviço Azure Search - Azure Search
+description: 'O Azure Search pode ser provisionado nestes SKUs: Gratuito, Básico e Padrão, sendo que o Padrão está disponível em várias configurações de recursos e níveis de capacidade.'
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785300"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315546"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
@@ -43,7 +44,7 @@ No Azure Search, o conceito de cobrança mais importante a ser entendido é o de
 
 UA é o produto da *réplica* e das *partições* usadas por um serviço: **`(R X P = SU)`**
 
-Cada serviço começa com 1 UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é de 36 UAs, que pode ser obtido de várias maneiras: 6 partições x 6 réplicas ou 3 partições x 12 réplicas, para citar algumas. 
+Cada serviço começa com 1 UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo para qualquer serviço é 36 SUs, o que pode ser obtido de várias maneiras: 6 partições x 6 ou réplicas ou 3 partições x 12 réplicas, para citar alguns. 
 
 É comum usar menos do que a capacidade total. Por exemplo, um serviço de 3 réplicas e 3 partições cobrado como 9 UAs. 
 

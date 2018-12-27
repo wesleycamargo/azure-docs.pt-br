@@ -1,11 +1,13 @@
 ---
-title: Introdução à Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica – Azure | Microsoft Docs
-description: Descrever a Máquiana Virtual de Ciência de Dados de IA Geográfica e os componentes.
+title: Visão geral da Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica
+titleSuffix: Azure
+description: A Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica fornece ArcGIS Pro para trabalhar com dados geográficos. Ela também fornece toolkits de ciência de dados, Python e R para trabalhar com aprendizado de máquina e inteligência artificial.
 keywords: aprendizado profundo, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2fb49212b8480fa550558e14e890cbf7395406da
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0152056dcb8716a407e022d2b30c48e6b534b2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074563"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introdução à Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica
 

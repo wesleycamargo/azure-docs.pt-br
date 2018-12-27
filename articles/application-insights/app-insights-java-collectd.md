@@ -9,21 +9,20 @@ ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: fd8c45bf3d7fd9e392d55a82001aa8768fcce8ba
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096592"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995042"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Métricas de desempenho do Linux no Application Insights
 
 
-Para explorar as métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
+Para explorar as métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [collectd](https://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
 Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
 
@@ -39,7 +38,7 @@ Faça uma cópia da chave de instrumentação que identifica o recurso.
 ## <a name="install-collectd-and-the-plug-in"></a>Instalar o plug-in e collectd
 Em seus computadores com o servidor Linux:
 
-1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
+1. Instale [collectd](https://collectd.org/) versão 5.4.0 ou posterior.
 2. Baixe o [plug-in do gravador collectd do Application Insights](https://aka.ms/aijavasdk). Observe o número de versão.
 3. Copie o plug-in JAR em `/usr/share/collectd/java`.
 4. Edite `/etc/collectd/collectd.conf`:
@@ -129,9 +128,9 @@ Diretivas separadas por uma nova linha.
 
 O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
 
-Sintoma: o log coletado mostra erros que incluem "AI: ... SyntaxError: token N" inexperado.
+Sintoma: O log collectd mostra erros que incluem "AI: ... SyntaxError: Token N inesperado".
 
-Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
+Solução alternativa: Exclua dados coletados pelos plugins de Gravação com problema. 
 
 <!--Link references-->
 

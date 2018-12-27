@@ -3,7 +3,7 @@ title: Usando a biblioteca de cliente de banco de dados elástico com o Dapper |
 description: Usar a biblioteca de cliente de banco de dados elástico com Dapper.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866297"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de cliente do banco de dados elástico com Dapper
 Este documento é destinado aos desenvolvedores que usam Dapper na compilação de aplicativos, mas que também desejam adotar as [ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md) para criar aplicativos que implementam a fragmentação para escalar horizontalmente sua camada de dados.  Este documento ilustra as alterações em aplicativos baseados em Dapper que são necessários para integrar as ferramentas de banco de dados elástico. Nosso foco é em criar o gerenciamento de fragmento de banco de dados elástico e o roteamento dependente de dados com o Dapper. 
 
-**Código de exemplo**: [ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Código de exemplo**: [Ferramentas de banco de dados elástico para o Banco de Dados SQL do Azure - integração com o Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 É muito fácil integrar o **Dapper** e **DapperExtensions** com a biblioteca de cliente de banco de dados elástico do Banco de Dados SQL do Azure. Seus aplicativos podem usar roteamento dependente de dados alterando a criação e abertura de novos objetos [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) para usar a chamada [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) na [biblioteca de cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Isso limita as alterações em seu aplicativo apenas quando novas conexões forem criadas e abertas. 
 
@@ -49,9 +49,9 @@ Em vez de usar a maneira tradicional de criar conexões para Dapper, precisamos 
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para a integração do Dapper
 Ao trabalhar com a biblioteca de cliente do banco de dados elástico e as APIs do Dapper, queremos manter as seguintes propriedades:
 
-* **Escala horizontal**: queremos adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. 
-* **Consistência**: como nosso aplicativo é dimensionado horizontalmente com o uso de fragmentação, é necessário executar roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Você deseja reter especialmente a validação e garantir a consistência fornecida pelas conexões intermediadas por meio do gerenciador de mapa de fragmentos para evitar corrompimento ou resultados de consulta incorretos. Isso garante que conexões para um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet é movido num momento para um fragmento diferente usando APIs de divisão/mesclagem.
-* **Mapeamento de objetos**: queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre classes no aplicativo e as estruturas de banco de dados subjacente. 
+* **Expandir**: Queremos adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário, para as demandas de capacidade do aplicativo. 
+* **Consistência**: Como o aplicativo é expandido com o uso de fragmentação, é necessário executar roteamento dependente de dados. Queremos usar os recursos de roteamento dependentes de dados da biblioteca para fazer isso. Você deseja reter especialmente a validação e garantir a consistência fornecida pelas conexões intermediadas por meio do gerenciador de mapa de fragmentos para evitar corrompimento ou resultados de consulta incorretos. Isso garante que conexões para um determinado shardlet sejam rejeitadas ou interrompidas se (por exemplo) o shardlet é movido num momento para um fragmento diferente usando APIs de divisão/mesclagem.
+* **Mapeamento de objeto**: Queremos manter a conveniência dos mapeamentos fornecidos pelo Dapper para converter entre as classes no aplicativo e as estruturas de banco de dados subjacente. 
 
 A seção a seguir fornece diretrizes para esses requisitos de aplicativos com base em **Dapper** e **DapperExtensions**.
 
@@ -137,7 +137,7 @@ E aqui está o exemplo de código para a consulta:
     }
 
 ### <a name="handling-transient-faults"></a>Tratamento de falhas transitórias
-A equipe Microsoft Patterns & Practices publicou o [Bloco de aplicativos de tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuarem condições de falha transitória comuns encontradas durante a execução na nuvem. Para obter mais informações, consulte [Perseverança, segredo de todos os triunfos: usando o bloco de aplicativos de tratamento de falhas temporárias](https://msdn.microsoft.com/library/dn440719.aspx).
+A equipe Microsoft Patterns & Practices publicou o [Bloco de aplicativos de tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh680934.aspx) para ajudar os desenvolvedores de aplicativos a atenuarem condições de falha transitória comuns encontradas durante a execução na nuvem. Para obter mais informações, consulte [Perseverança, segredo de todos os triunfos: Usando o bloco de aplicativos de tratamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719.aspx).
 
 O código de exemplo se baseia na biblioteca de falha transitória para proteger contra falhas transitórias. 
 

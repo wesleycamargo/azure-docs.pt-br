@@ -9,16 +9,15 @@ ms.assetid: ''
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 42db55fbca1bcc4d0d0d1e22dd41636d1dbdaeff
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14ec93a6dfb6608550fc49c9bde11925715feb2b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417694"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722030"
 ---
 # <a name="preview-upcoming-changes-to-azure-application-insights"></a>Visualizar as alterações futuras no Azure Application Insights 
 
@@ -32,9 +31,9 @@ A imagem a seguir ilustra como definir suas preferências de versão prévia.
 
 Na folha Versão Prévia, selecione uma das opções a seguir para quando as versões prévias são mostradas.
 
-- Sempre: você vê as experiências de Versão Prévia assim que estiverem disponíveis.
-- Automático: você vê as experiências de Versão Prévia recomendadas pela Microsoft para sua conta. 
-- Nunca: você verá apenas as experiências de Versão Prévia selecionadas. 
+- Sempre: Você vê as experiências de Versão Prévia assim que estiverem disponíveis.
+- Automático: Você vê as experiências de Versão Prévia recomendadas pela Microsoft para sua conta. 
+- Nunca: Você verá apenas as experiências de Versão Prévia que selecionar. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

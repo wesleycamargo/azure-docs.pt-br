@@ -1,5 +1,5 @@
 ---
-title: Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
+title: Controlar o tráfego de entrada para um ambiente do Serviço de Aplicativo - Azure
 description: Saiba mais sobre como configurar regras de segurança de rede para controlar o tráfego de entrada para um ambiente de serviço de aplicativo.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ed72bf3202d6cb2d2161bc0df693d3e6a1fc58ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271947"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral
@@ -38,16 +39,16 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A seguir está uma lista de portas usadas por um Ambiente de Serviço de Aplicativo. Todas as portas são **TCP**, a menos que indicado o claramente contrário:
 
-* 454: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 455: **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
-* 443: porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
-* 21: canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
-* 990: canal de controle para FTPS.  Essa porta poderá ser bloqueada com segurança se o FTPS não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
-* 10001-10020: canais de dados para FTP.  Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
-* 4016: usado para depuração remota com o Visual Studio 2012.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
-* 4018: usado para depuração remota com o Visual Studio 2013.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
-* 4020: usado para depuração remota com o Visual Studio 2015.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 454:  **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 455:  **Porta requerida** usada pela infraestrutura do Azure para gerenciamento e manutenção de Ambientes de Serviço de Aplicativo via SSL.  Não bloqueie o tráfego para essa porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 80:  Porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 443: Porta padrão para tráfego SSL de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 21:  Canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não está sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+* 990:  Canal de controle para FTPS.  Essa porta poderá ser bloqueada com segurança se o FTPS não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
+* 10001-10020: Canais de dados para FTP.  Assim como acontece com o canal de controle, essas portas podem ser bloqueadas com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB do ASE.
+* 4016: Usado para depuração remota com o Visual Studio 2012.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 4018: Usado para depuração remota com o Visual Studio 2013.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
+* 4020: Usado para depuração remota com o Visual Studio 2015.  Essa porta pode ser bloqueada com segurança se o recurso não está sendo usado.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 
 ## <a name="outbound-connectivity-and-dns-requirements"></a>Requisitos de DNS e conectividade de saída
 Para que um Ambiente de Serviço de Aplicativo funcione corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE está na seção "Conectividade de rede necessária" do artigo [Configuração de rede para o ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) .
@@ -59,7 +60,7 @@ Também é recomendável que todos os servidores DNS personalizados na rede virt
 ## <a name="creating-a-network-security-group"></a>Criando um grupo de segurança de rede
 Para saber mais sobre como funcionam os grupos de segurança de rede, veja as seguintes [informações][NetworkSecurityGroups].  O exemplo de Gerenciamento do Serviço do Azure abaixo mostra alguns destaques sobre os grupos de segurança de rede, concentrando-se em como configurar e aplicar um grupo de segurança de rede a uma sub-rede que contém um Ambiente de Serviço de Aplicativo.
 
-**Observação:** os grupos de segurança de rede podem ser configurados graficamente usando o [Portal do Azure](https://portal.azure.com) ou por meio do Azure PowerShell.
+**Observação:** Os grupos de segurança de rede podem ser configurados graficamente usando o [portal do Azure](https://portal.azure.com) ou por meio do Azure PowerShell.
 
 Grupos de segurança de rede são criados pela primeira vez como uma entidade autônoma associada a uma assinatura. Como os grupos de segurança de rede são criados em uma região do Azure, certifique-se de que o grupo de segurança de rede é criado na mesma região que o ambiente de serviço de aplicativo.
 

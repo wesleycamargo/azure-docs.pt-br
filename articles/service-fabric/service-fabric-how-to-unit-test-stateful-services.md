@@ -1,6 +1,6 @@
 ---
 title: Desenvolver testes de unidade para serviços com estado no Azure Service Fabric | Microsoft Docs
-description: Aprenda a desenvolver testes de unidade para serviços com estado de serviço de malha.
+description: Saiba como desenvolver testes de unidade para serviços com estado do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: charleszipp
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703238"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413550"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Criar testes de unidade para serviços com estado
 Testes de unidade Os serviços com informações de estado do Service Fabric descobrem erros comuns que não necessariamente seriam detectados pelo aplicativo convencional ou pelo teste de unidade específica do domínio. Ao desenvolver testes de unidade para serviços com estado, há algumas considerações especiais que devem ser mantidas em mente.
@@ -33,8 +33,8 @@ Este artigo presume que [Unit testando serviços com estado no Service Fabric](s
 ## <a name="the-servicefabricmocks-library"></a>A biblioteca ServiceFabric.Mocks
 A partir da versão 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fornece uma API para zombar tanto da orquestração das réplicas quanto do gerenciamento de estado. Isso será usado nos exemplos.
 
-[NuGet](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks não é de propriedade nem mantido pela Microsoft. No entanto, atualmente, é recomendado a biblioteca de serviços com monitoração de estado de teste de unidade da Microsoft.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

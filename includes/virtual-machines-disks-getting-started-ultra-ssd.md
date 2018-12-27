@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010384"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381354"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Habilitando os SSDs Ultra do Azure
 
@@ -31,7 +31,7 @@ A resposta será semelhante à forma abaixo, em que X é a zona a ser usada para
 
 |ResourceType  |NOME  |Local padrão  |Zonas  |Restrição  |Recurso  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
-|discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 Se não houve resposta do comando, significa que seu registro no recurso ainda está pendente ou não foi aprovado ainda.
 
@@ -81,9 +81,9 @@ Depois que a VM for provisionada, será possível particionar e formatar os disc
 
 - Durante a criação da VM, os SSDs Ultra podem ser criados implicitamente também. No entanto, esses discos receberão um valor padrão de IOPS (500) e taxa de transferência (8 MiB/s).
 - Outros SSDs Ultra podem ser anexados às VMs compatíveis com o SSD Ultra.
-- O SSD Ultra dá suporte ao ajuste dos atributos de desempenho do disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento do desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração entre em vigor efetivamente.
+- O SSD Ultra dá suporte ao ajuste dos atributos de desempenho do disco (IOPS e taxa de transferência) em tempo de execução sem desanexar o disco da máquina virtual. Depois que uma operação de redimensionamento de desempenho do disco tiver sido emitida em um disco, poderá levar até uma hora para que a alteração entre em vigor efetivamente.
 - O aumento da capacidade do disco requer que uma máquina virtual seja desalocada.
 
-# <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Se desejar experimentar o novo tipo de disco e ainda não tiver inscrito na versão prévia, [solicite o acesso por meio desta pesquisa](https://aka.ms/UltraSSDPreviewSignUp).

@@ -1,20 +1,19 @@
 ---
-title: Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB | Microsoft Docs
+title: Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB
 description: Use o Azure Key Vault para armazenar e acessar cadeias de conexão, chaves e URIs do Azure Cosmos DB.
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053077"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837385"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Use o Key Vault para armazenar e acessar chaves do Azure Cosmos DB
 
@@ -33,8 +32,8 @@ As etapas a seguir são necessárias para armazenar e ler as chaves de acesso do
 1. Entre no [portal do Azure](https://portal.azure.com/).  
 2. Selecione **Criar um recurso > Segurança > Key Vault**.  
 3. A seção **Criar cofre de chaves** fornece as seguintes informações:  
-   * **Nome:** forneça um nome exclusivo para seu Key Vault.  
-   * **Assinatura:** escolha a assinatura que você usará.  
+   * **Nome:** Forneça um nome exclusivo para seu Key Vault.  
+   * **Assinatura:** Escolha a assinatura que você usará.  
    * Em **Grupo de Recursos**, escolha **Criar novo** e digite um nome para o grupo de recursos.  
    * No menu suspenso Local, escolha um local.  
    * Deixe as outras opções com os padrões.  

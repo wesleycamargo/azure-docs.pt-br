@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
-title: Pontos de Extremidade de Serviço de VNET para Azure Key Vault | Microsoft Docs
-description: Visão geral dos Pontos de Extremidade de Serviço de Rede Virtual para Key Vault
+title: Pontos de extremidade de serviço de rede virtual para o Azure Key Vault | Microsoft Docs
+description: Visão geral dos pontos de extremidade de serviço de rede Virtual para Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -10,71 +10,74 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246647"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681510"
 ---
-# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de Extremidade de Serviço de Rede Virtual para Azure Key Vault
+# <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
-Os Pontos de Extremidade de Serviço de Rede Virtual para Key Vault permitem restringir o acesso à Rede Virtual especificada e/ou a uma lista de intervalos de endereços IPv4 (protocolo IP versão 4). Qualquer chamador que conecte o cofre de chaves de fora dessas origens terá acesso negado. Se o cliente tiver optado por permitir "Serviços confiáveis da Microsoft", como Office 365 Exchange Online, Office 365 SharePoint Online, Azure, Azure Resource Manager, Azure Backup etc., as conexões desses serviços passarão pelo firewall. Certamente, será necessário ainda que esses chamadores apresentem um token AAD válido e tenham permissões (configuradas como políticas de acesso) para executar a operação solicitada. Leia mais detalhes técnicos sobre [Pontos de Extremidade de Serviço de Rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
+Os pontos de extremidade de serviço de rede virtual para o Azure Key Vault permitem restringir o acesso a uma rede virtual especificada. Os pontos de extremidade também permitem restringir o acesso a uma lista de intervalos de endereços IPv4 (protocolo de Internet versão 4). Qualquer usuário que conecte o cofre de chaves de fora dessas fontes terá acesso negado.
+
+Há uma exceção importante para essa restrição. Se um usuário tiver optado por permitir serviços confiáveis da Microsoft, as conexões a partir desses serviços serão permitidas através do firewall. Por exemplo, esses serviços incluem o Office 365 Exchange Online, Office 365 SharePoint Online, Computação do Azure, Azure Resource Manager e o Backup do Azure. Esses usuários ainda devem apresentar um token do Azure Active Directory válido e ter permissões (configuradas como políticas de acesso) para executar a operação solicitada. Para obter detalhes, consulte [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Cenários de uso
 
-É possível configurar [redes virtuais e firewalls do Key Vault](key-vault-network-security.md) para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet), por padrão. O acesso pode ser concedido ao tráfego de redes virtuais específicas do Azure e/ou intervalos de endereços IP da Internet públicos, permitindo que você crie um limite de rede seguro para os aplicativos.
+Por padrão, é possível configurar [redes virtuais e firewalls do Key Vault](key-vault-network-security.md) para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). É possível conceder acesso ao tráfego de redes virtuais específicas do Azure e intervalos de endereços IP públicos de Internet, permitindo criar um limite de rede seguro para os aplicativos.
 
 > [!NOTE]
-> Os firewalls do Key Vault e as regras de rede virtual aplicam-se SOMENTE ao [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control). Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, configurar políticas de acesso, configurar firewalls e regras de rede virtual) não são afetadas por firewalls e regras de rede virtual.
+> As regras de rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras de rede virtual) não são afetadas por regras de rede virtual e firewalls.
 
-Por exemplo,
-* Se você estiver usando o Key Vault para armazenar chaves de criptografia, segredos do aplicativo, certificados e quer bloquear o acesso ao seu cofre de chaves da Internet pública.
-* Você quer bloquear o acesso ao cofre de chaves para que apenas seu aplicativo ou uma pequena lista de hosts designados possa conectar o cofre de chaves
-* Você tem um aplicativo executando na VNET (rede virtual) do Azure e essa VNET é bloqueada para todo o tráfego de entrada e saída. O aplicativo ainda precisa conectar o cofre de chaves para obter segredos ou certificados ou usar chaves criptográficas.
+Seguem alguns exemplos de como é possível usar pontos de extremidade de serviço:
+* Se você estiver usando o Key Vault para armazenar chaves de criptografia, segredos do aplicativo e certificados, e quer bloquear o acesso ao seu cofre de chaves da Internet pública.
+* Você quer bloquear o acesso ao seu cofre de chaves para que apenas o seu aplicativo ou uma pequena lista de hosts designados possa conectar o cofre de chaves.
+* Você tem um aplicativo executando na rede virtual do Azure e essa rede virtual é bloqueada para todo o tráfego de entrada e saída. O aplicativo ainda precisa conectar ao Key Vault para efetuar fetch de segredos ou certificados ou usar chaves de criptografia.
 
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Key Vault
 
-Aqui estão as etapas necessárias para configurar redes virtuais e firewalls. Essas etapas permanecem as mesmas, independentemente de qual interface (portal do Azure, PowerShell, CLI) você usará para configurar as regras de rede virtual e firewall.
-1. Opcional, mas altamente recomendável: habilite o [registro em log do cofre de chaves](key-vault-logging.md) para ver os logs de acesso detalhados. Isso irá ajudá-lo nos diagnósticos, quando os firewalls e as regras de rede virtual impedirem o acesso a um cofre de chaves.
-2. Habilite 'pontos de extremidade de serviço para o cofre de chaves' para redes virtuais de destino e sub-redes
-3. Defina regras de rede virtual e firewalls para um cofre de chaves para restringir o acesso a esse cofre de chaves de redes virtuais específicas, sub-redes e intervalos de endereços IPv4.
-4. Se esse cofre de chaves precisar ser acessado por qualquer serviço confiável da Microsoft, será necessário habilitar a opção para permitir que o 'Serviço Confiável do Azure' conecte o cofre de chaves.
+Aqui estão as etapas necessárias para configurar redes virtuais e firewalls. Essas etapas se aplicam se você estiver usando o PowerShell, a CLI do Azure ou o portal do Azure.
+1. Habilite [registro em log do Key Vault](key-vault-logging.md) para ver os logs de acesso detalhados. Isso ajuda nos diagnósticos, quando as regras de rede virtual e firewalls impedirem o acesso a um cofre de chaves. (Esta etapa é opcional, mas altamente recomendada.)
+2. Habilite **pontos de extremidade de serviço para o cofre de chaves** para redes virtuais e sub-redes de destino.
+3. Defina regras de rede virtual e firewalls para um cofre de chaves para restringir o acesso a esse cofre de chaves a partir de redes virtuais, sub-redes e intervalos de endereços IPv4 específicos.
+4. Se esse cofre de chaves precisar estar acessível por qualquer serviço confiável da Microsoft, habilite a opção para permitir que **Serviços Confiáveis do Azure** conectem o cofre de chaves.
 
-Consulte [Configurar Redes Virtuais e Firewalls do Azure Key Vault](key-vault-network-security.md) para obter instruções detalhadas passo a passo.
+Para obter mais detalhes, consulte [Configurar as redes virtuais e firewalls do Azure Key Vault](key-vault-network-security.md).
 
 > [!IMPORTANT]
-> Depois que as regras de firewall estiverem ativas, todas as operações do [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) SOMENTE poderão ser executadas quando as solicitações do chamador originarem-se de redes virtuais ou intervalos de endereços IPV4 permitidos. Para saber mais sobre o plano de gerenciamento vs. o plano de dados, leia [isto](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control). Aplica-se também a acessar o cofre de chaves do portal do Azure. Embora um usuário possa navegar em um cofre de chaves do portal do Azure, talvez ele não consiga listar chaves/segredos/certificados, se o computador cliente não estiver na lista permitida. Isso também afeta o 'Seletor do Cofre de Chaves' de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
+> Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
 
 
 > [!NOTE]
-> * Um máximo de 127 regras de VNET e 127 regras de IPv4 são permitidas. 
-> * Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte. Esses intervalos devem ser configurados usando regras de endereço IP individuais.
-> * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que iniciam com *10.*\*, *172.16.*\* e *192.168.*\*. 
+> Esteja ciente das seguintes limitações de configuração:
+> * Um máximo de 127 regras de rede virtual e 127 regras de IPv4 são permitidas. 
+> * Intervalos de endereços pequenos que usam tamanhos de prefixo "/31" ou "/32" não têm suporte. Em vez disso, esses intervalos devem ser configurados usando regras de endereço IP individuais.
+> * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.**, **172.16.** e **192.168.**. 
 > * Atualmente, somente há suporte para endereços IPv4.
 
 ## <a name="trusted-services"></a>Serviços confiáveis
-Aqui, é apresentada uma lista de serviços confiáveis que poderão acessar um cofre de chaves se a opção 'Permitir serviços confiáveis' estiver habilitada.
+Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves se a opção **Permitir serviços confiáveis** estiver habilitada.
 
 |Serviço confiável|Cenários de uso|
 | --- | --- |
-|Serviço de implantação de Máquinas Virtuais do Microsoft Azure|[Implantar certificados para VMs a partir do Key Vault gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
-|Serviço de implantação de modelo do Azure Resource Manager|[Transmitir valores seguros durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
-|Serviço de criptografia de volume do Azure Disk Encryption|Permitir acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da VM para habilitar o [Azure Disk Encryption](../security/azure-security-disk-encryption.md)|
-|Serviço de Backup do Azure|Permitir backup e restauração de chaves e segredos relevantes durante o backup de VM do Azure, usando o [Backup do Azure](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online e SharePoint Online|Permitir acesso à chave de cliente para Criptografia do Serviço com [Chave de Cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Serviço de implantação de Máquinas Virtuais do Microsoft Azure|[Implanta certificados para VMs a partir do Key Vault gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Serviço de implantação de modelo do Azure Resource Manager|[Transmite valores seguros durante a implantação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Serviço de criptografia de volume do Azure Disk Encryption|Permite acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da máquina virtual. Isso habilita o [Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
+|Serviço de Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../backup/backup-introduction-to-azure-backup.md).|
+|Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Proteção de Informações do Azure|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Serviços de Aplicativos|[Implantar Certificado do Aplicativo Web do Azure por meio do Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
-|SQL do Azure|[Transparent Data Encryption com suporte Bring Your Own Key para Data Warehouse e Banco de Dados SQL do Azure](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|
-|Armazenamento do Azure|[Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md)|
-|Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com chave gerenciada pelo cliente|
+|Serviço de aplicativo do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Banco de Dados SQL do Azure|[Transparent Data Encryption com suporte Bring Your Own Key para Data Warehouse e Banco de Dados SQL do Azure](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Armazenamento do Azure|[Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 
 
 
 > [!NOTE]
-> As políticas relevantes de acesso ao cofre de chaves devem ser definidas para permitir que os serviços correspondentes tenham acesso ao cofre de chaves.
+> Você deve configurar as políticas relevantes de acesso ao cofre de chaves para permitir que os serviços correspondentes tenham acesso ao Key Vault.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Proteger seu cofre de chaves](key-vault-secure-your-key-vault.md)
-* [Configurar Redes Virtuais e Firewalls do Azure Key Vault](key-vault-network-security.md)
+* [Configurar redes virtuais e firewalls do Azure Key Vault](key-vault-network-security.md)

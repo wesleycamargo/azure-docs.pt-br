@@ -1,5 +1,5 @@
 ---
-title: Monitorar um cluster Kubernetes do Azure com o CoScale
+title: (PRETERIDO) Monitorar um cluster Kubernetes do Azure com o CoScale
 description: Monitorar um cluster Kubernetes no Serviço de Contêiner do Azure usando CoScale
 services: container-service
 author: fryckbos
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: e9896a34e835646e17328482c07d8031c624e858
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544023"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000201"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure usando CoScale
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(PRETERIDO) Monitorar um cluster Kubernetes do Serviço de Contêiner do Azure com o CoScale
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-Neste artigo, mostramos como implantar o agente [CoScale](https://www.coscale.com/) para monitorar todos os nós e contêineres em seu cluster Kubernetes do Serviço de Contêiner do Azure. Você precisa de uma conta com CoScale para essa configuração. 
+Neste artigo, mostramos como implantar o agente [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) para monitorar todos os nós e contêineres em seu cluster Kubernetes do Serviço de Contêiner do Azure. Você precisa de uma conta com CoScale para essa configuração. 
 
 
 ## <a name="about-coscale"></a>Sobre o CoScale 
@@ -34,7 +34,7 @@ Conforme mostra este artigo, você pode instalar agentes em um cluster Kubernete
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro, você precisa [criar uma conta do CoScale](https://www.coscale.com/free-trial).
+Primeiro, você precisa [criar uma conta do CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
 
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
@@ -81,5 +81,5 @@ O agente do CoScale é implantado automaticamente em novas máquinas no cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte a [documentação do CoScale](http://docs.coscale.com/) e [blog](https://www.coscale.com/blog) para obter mais informações sobre soluções de monitoramento CoScale. 
+Consulte a [documentação do CoScale](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) e [blog](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog) para obter mais informações sobre soluções de monitoramento CoScale. 
 

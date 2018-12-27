@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300448"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720110"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure
 
@@ -36,15 +36,15 @@ Neste artigo, você aprenderá a criar, listar, excluir ou atribuir uma função
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
-Para criar uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Para criar uma identidade gerenciada atribuída pelo usuário, sua conta precisa da atribuição de função [Administrador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para criar a identidade gerenciada atribuída ao usuário.
 2. Na caixa de pesquisa, digite *Identidades Gerenciadas*e, em **Serviços**, clique em **Identidades Gerenciadas**.
 3. Clique em **Adicionar** e insira valores nos campos a seguir no painel **Criar identidade gerenciada atribuída ao usuário**:
-   - **Nome do Recurso**: esse é o nome da identidade gerenciada atribuída ao usuário, por exemplo, UAI1.
-   - **Assinatura**: escolha a assinatura para criar a identidade gerenciada atribuída ao usuário
-   - **Grupo de Recursos**: crie um novo grupo de recursos para conter a identidade gerenciada atribuída ao usuário ou escolha **Usar existente** para criar a identidade gerenciada atribuída ao usuário em um grupo de recursos existente.
-   - **Local**: escolha um local para implantar a identidade gerenciada atribuída ao usuário, por exemplo **Oeste dos EUA**.
+   - **Nome do Recurso**: Esse é o nome da identidade gerenciada atribuída ao usuário, por exemplo, UAI1.
+   - **Assinatura**: Escolha a assinatura para criar a identidade gerenciada atribuída ao usuário
+   - **Grupo de Recursos**: Crie um novo grupo de recursos para conter a identidade gerenciada atribuída ao usuário ou escolha **Usar existente** para criar a identidade gerenciada atribuída ao usuário em um grupo de recursos existente.
+   - **Localização**: Escolha um local para implantar a identidade gerenciada atribuída ao usuário, por exemplo **Oeste dos EUA**.
 4. Clique em **Criar**.
 
 ![Criar uma identidade gerenciada atribuída ao usuário](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
@@ -69,18 +69,18 @@ Para excluir uma identidade gerenciada atribuída ao usuário, a conta precisa d
 
 ![Excluir identidade gerenciada atribuída ao usuário](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função a uma identidade gerenciada atribuída pelo usuário
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função a uma identidade gerenciada atribuída pelo usuário 
 
 Para atribuir uma função a uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Administrador de Acesso do Usuário](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure para listar as identidades gerenciadas atribuídas ao usuário.
 2. Na caixa de pesquisa, digite *Identidades Gerenciadas*e, em Serviços, clique em **Identidades Gerenciadas**.
 3. Uma lista de identidades gerenciadas atribuídas ao usuário para a sua assinatura é retornada.  Selecione a identidade gerenciada atribuída pelo usuário à qual você deseja atribuir uma função.
-4. Selecione **Controle de Acesso (IAM)** e, em seguida, selecione **Adicionar**.
+4. Selecione **Controle de Acesso (IAM)** e, em seguida, selecione **Adicionar atribuição de função**.
 
    ![Início da identidade gerenciada atribuída pelo usuário](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Na folha Adicionar permissões, configure os seguintes valores e, em seguida, clique em **Salvar**:
+5. Na folha Adicionar atribuição de função, configure os seguintes valores e, em seguida, clique em **Salvar**:
    - **Função** – a função a ser atribuída
    - **Atribuir acesso a** – o recurso ao qual a identidade gerenciada atribuída pelo usuário será atribuída
    - **Selecione** – o membro ao qual o acesso será atribuído

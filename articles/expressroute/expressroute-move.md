@@ -1,18 +1,19 @@
 ---
-title: Movendo os circuitos da ExpressRoute do clássico para o Gerenciador de Recursos | Microsoft Docs
-description: Esta página fornece uma visão geral do que você precisa saber ao fazer uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos.
+title: 'Mover circuitos do clássico para o Resource Manager - ExpressRoute: Azure | Microsoft Docs'
+description: Visão geral da ponte entre os modelos de implantação do Resource Manager e clássico.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.openlocfilehash: dfa2bbc735a79555da0421f64ca644adbd7a1701
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135909"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos do ExpressRoute do clássico para o modelo de implantação do Gerenciador de Recursos
 Este artigo fornece uma visão geral do que significa mover um circuito do ExpressRoute do clássico para o modelo de implantação do Azure Resource Manager.

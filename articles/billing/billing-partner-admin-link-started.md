@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968041"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
@@ -28,11 +28,11 @@ Esse recurso está disponível em uma visualização pública.
 
 Antes de vincular sua ID de parceiro, o cliente deve oferecer acesso a seus recursos do Azure, usando uma das seguintes opções:
 
-- **Usuário convidado:** seu cliente pode adicioná-lo como usuário convidado e atribuir funções RBAC. Para obter mais informações, consulte [Adicionar usuários convidados de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Usuário convidado:** Seu cliente pode adicionar você como usuário convidado e atribuir funções RBAC. Para obter mais informações, consulte [Adicionar usuários convidados de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Conta de diretório:** seu cliente pode criar um novo usuário de sua organização em seu diretório e atribuir qualquer função RBAC.
+- **Conta de diretório:**  Seu cliente pode criar uma conta de usuário para você no próprio diretório dele e atribuir qualquer função RBAC.
 
-- **Entidade de serviço:** seu cliente pode adicionar um aplicativo ou script de sua organização em seu diretório e atribuir qualquer função RBAC. A identidade do aplicativo ou script é conhecida como entidade de serviço.
+- **Entidade de serviço:**  Seu cliente pode adicionar um aplicativo ou script da sua organização no diretório dele e atribuir qualquer função RBAC. A identidade do aplicativo ou script é conhecida como entidade de serviço.
 
 ## <a name="link-partner-id"></a>Vincular ID do parceiro
 

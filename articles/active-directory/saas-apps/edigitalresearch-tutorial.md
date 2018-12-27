@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao eDigitalResearch | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o eDigitalResearch | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o eDigitalResearch.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ca42d6c8ca1333f2ffba77b79584b7092b26f03e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d5c86186cd6ee02d83800c6483a2e35d8f1fb3c7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848707"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: integração do Azure Active Directory ao eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integração do Azure Active Directory com o eDigitalResearch
 
 Neste tutorial, você aprenderá a integrar o eDigitalResearch ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o eDigitalResearch da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,12 +110,12 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do eDigitalResearch](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`
+     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do eDigitalResearch](https://www.maruedr.com/contact) para obter esses valores.
  
 
 
@@ -131,10 +131,10 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração do eDigitalResearch](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. Para configurar o logon único no lado do **eDigitalResearch**, é necessário enviar o **Arquivo de Certificado (Base64)** baixado, a **ID da Entidade SAML** e a **URL de Saída** para a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **eDigitalResearch**, é necessário enviar o **Arquivo de Certificado (Base64)** baixado, a **ID da Entidade SAML** e a **URL de Saída** para a [equipe de suporte do eDigitalResearch](https://www.maruedr.com/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -172,7 +172,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no eDigitalResearch. 
 
-Trabalhe com a [equipe de suporte do eDigitalResearch](http://www.maruedr.com/contact) para criar os usuários.     
+Trabalhe com a [equipe de suporte do eDigitalResearch](https://www.maruedr.com/contact) para criar os usuários.        
     
  > [!NOTE]
  > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
@@ -212,7 +212,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco eDigitalResearch no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo eDigitalResearch.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

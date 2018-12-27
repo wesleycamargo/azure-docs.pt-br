@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd9700c9472e07daf294eca12b766e3dc4832955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111714"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-A camada de preços do novo Cache Redis do Azure.
+O tipo de preço do novo Cache do Azure para Redis.
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ A camada de preços do novo Cache Redis do Azure.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ A família do SKU.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-O tamanho da nova instância do Cache Redis do Azure. 
+O tamanho da nova instância do Cache do Azure para Redis. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,10 +60,10 @@ O tamanho da nova instância do Cache Redis do Azure.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 
 
-O modelo define os valores que são permitidos para esse parâmetro (0, 1, 2, 3, 4, 5 ou 6) e atribui um valor padrão (0) se nenhum valor é especificado. Esses números correspondem aos seguintes tamanhos de cache: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+O modelo define os valores que são permitidos para esse parâmetro (0, 1, 2, 3, 4, 5 ou 6) e atribui um valor padrão (0) se nenhum valor é especificado. Esses números correspondem aos tamanhos de cache a seguir: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

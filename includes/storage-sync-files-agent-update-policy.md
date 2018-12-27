@@ -2,29 +2,31 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 80bb07d850628f07ebc37a39da1294399804d8f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165502"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53285952"
 ---
 O agente de Sincronização de arquivos do Azure é atualizado regularmente para adicionar novos recursos e resolver problemas. Recomendamos que você configure o Microsoft Update para obter atualizações para o agente de Sincronização de arquivos do Azure à medida que elas ficarem disponíveis.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versões do agente principal versus secundário
-* As versões do agente principal geralmente contêm novos recursos e têm um número crescente como a primeira parte do número da versão. Por exemplo: *2.\*.\**
+* As versões do agente principal geralmente contêm novos recursos e têm um número crescente como a primeira parte do número da versão. Por exemplo:  *2.\*.\**
 * As versões do agente secundário também são chamadas de "patches" e são lançadas com mais frequência do que as versões do principal. Geralmente contêm correções de bug e pequenas melhorias, mas sem novos recursos. Por exemplo: *\*.3.\**
 
 #### <a name="upgrade-paths"></a>Caminhos de atualização
-Há três maneiras aprovadas e testadas para instalar as atualizações do agente de Sincronização de arquivos do Azure. Esses caminhos de atualização funcionam para ambas as versões do principal e do secundário.
+Há quatro maneiras aprovadas e testadas para instalar as atualizações do agente de Sincronização de Arquivos do Azure. 
 1. **(Preferencial) Configure o Microsoft Update para baixar e instalar automaticamente as atualizações do agente.**  
     É sempre recomendável executar todas as atualizações de Sincronização de arquivos do Azure para garantir que você tenha acesso às últimas correções para o Server Agent. O Microsoft Update simplifica esse processo, baixando e instalando atualizações automaticamente para você.
-2. **Corrigir um agente existente de Sincronização de arquivos do Azure utilizando um arquivo de patch do Microsoft Update ou um executável .msp. O último pacote de atualização de Sincronização de arquivos do Azure pode ser baixado no [Catálogo do Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+2. **Use AfsUpdater.exe para baixar e instalar atualizações de agente.**  
+    O AfsUpdater.exe está localizado no diretório de instalação do agente. Clique duas vezes no executável para baixar e instalar atualizações de agente. 
+3. **Corrigir um agente existente de Sincronização de arquivos do Azure utilizando um arquivo de patch do Microsoft Update ou um executável .msp. O último pacote de atualização de Sincronização de arquivos do Azure pode ser baixado no [Catálogo do Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Executar um executável .msp atualizará a instalação de Sincronização de arquivos do Azure com o mesmo método usado automaticamente pelo Microsoft Update no caminho de atualização anterior. A aplicação de um patch do Microsoft Update realizará uma atualização no local de uma instalação e Sincronização de arquivos do Azure.
-3. **Baixe o instalador do agente mais recente de Sincronização de arquivos do Azure no [Centro de Download da Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). O download do instalador é um pacote do Microsoft Windows Installer ou um executável .msi.**   
-    Para fazer upgrade de uma instalação existente do agente de Sincronização de arquivos do Azure, desinstale a versão mais antiga e instale a última versão do instalador baixado. O registro do servidor, os grupos de sincronização e outras configurações são mantidos pelo instalador de Sincronização de arquivos do Azure.
+4. **Baixe o instalador do agente mais recente de Sincronização de arquivos do Azure no [Centro de Download da Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). O download do instalador é um pacote do Microsoft Windows Installer ou um executável .msi.**   
+    Para fazer upgrade de uma instalação existente do agente de Sincronização de Arquivos do Azure, desinstale a versão mais antiga e então instale a última versão do instalador baixado. O registro do servidor, os grupos de sincronização e outras configurações são mantidos pelo instalador de Sincronização de arquivos do Azure.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garantia de gerenciamento de alterações e ciclo de vida do agente
 A Sincronização de arquivos do Azure é um serviço de nuvem que permite a introdução contínua de novos recursos e funcionalidades. Isso significa que uma versão específica do agente de Sincronização de arquivos do Azure somente poderá ter suporte por um tempo limitado. Para facilitar a implantação, as regras a seguir garantem que você tenha tempo e notificações suficientes para acomodar upgrades/atualizações do agente no processo de gerenciamento de alterações:

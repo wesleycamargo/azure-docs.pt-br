@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996206"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870327"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários reais
 
@@ -98,13 +98,13 @@ Os notebooks de exemplo são armazenados no diretório Código. Os notebooks sã
 
 ## <a name="data-description"></a>Descrição dos dados
 
-Os [dados simulados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consistem em cinco arquivos .csv (valores separados por vírgula). Use os links a seguir para obter descrições detalhadas sobre os conjuntos de dados.
+Os [dados simulados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) consistem em [cinco arquivos .csv (valores separados por vírgula)](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Máquinas](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): recursos que diferenciam cada máquina, como idade e modelo.
-* [Erro](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): o log de erros contém erros contínuos gerados enquanto o computador ainda está em operação. Esses erros não são considerados falhas, embora possam ser sinais de um evento de falha futuro. Os valores de data-hora dos erros são arredondados para a hora mais próxima, porque os dados telemétricos são coletados por hora.
-* [Manutenção](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): o log de manutenção contém os registros de manutenção agendados e não agendados. A manutenção agendada corresponde à inspeção regular dos componentes. A manutenção agendada pode surgir devido a uma falha mecânica ou outra degradação do desempenho. Os valores de data-hora de manutenção são arredondados para a hora mais próxima, porque os dados telemétricos são coletados por hora.
-* [Telemetria](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): os dados telemétricos consistem em medidas temporais de vários sensores dentro de cada computador. Os dados são registrados por média dos valores de sensor em cada intervalo de uma hora.
-* [Falhas](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): as falhas correspondem às substituições de componentes dentro do log de manutenção. Cada registro contém a ID do computador, o tipo de componente e a data e hora da substituição. Esses registros são usados para criar os rótulos de aprendizado de maquina que o modelo está tentando prever.
+* [Computadores](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): Recursos que diferenciam cada computador, como idade e modelo.
+* [Erros](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): O log de erros contém erros contínuos gerados enquanto o computador ainda está operacional. Esses erros não são considerados falhas, embora possam ser sinais de um evento de falha futuro. Os valores de data-hora dos erros são arredondados para a hora mais próxima, porque os dados telemétricos são coletados por hora.
+* [Manutenção](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): O log de manutenção contém os registros de manutenção agendada e não agendada. A manutenção agendada corresponde à inspeção regular dos componentes. A manutenção agendada pode surgir devido a uma falha mecânica ou outra degradação do desempenho. Os valores de data-hora de manutenção são arredondados para a hora mais próxima, porque os dados telemétricos são coletados por hora.
+* [Telemetria](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): Os dados telemétricos consistem em medidas de série temporal de vários sensores dentro de cada computador. Os dados são registrados por média dos valores de sensor em cada intervalo de uma hora.
+* [Falhas](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): As falhas correspondem às substituições de componentes dentro do log de manutenção. Cada registro contém a ID do computador, o tipo de componente e a data e hora da substituição. Esses registros são usados para criar os rótulos de aprendizado de maquina que o modelo está tentando prever.
 
 Para baixar os conjuntos de dados brutos do repositório GitHub e para criar os conjuntos de dados PySpark para esta análise, consulte o cenário do Notebook Jupyter de [Ingestão de Dados](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) na pasta Código.
 
@@ -113,17 +113,17 @@ O conteúdo para o cenário está disponível no [repositório GitHub](https://g
 
 O arquivo [Readme](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) descreve o fluxo de trabalho a partir do preparo dos dados, da compilação de um modelo e, em seguida, da implantação de uma solução para produção. Cada etapa do fluxo de trabalho é encapsulada em um Notebook Jupyter na pasta [Código](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) dentro do repositório.   
 
-[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): este notebook baixa os cinco arquivos de entrada .csv e executa a limpeza preliminar dos dados e a visualização. O notebook converte cada conjunto de dados no formato do PySpark e armazena-os em um contêiner de blob do Azure para uso no Notebook de Engenharia de Recursos.
+[Code\1_data_ingestion.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): Este notebook baixa os cinco arquivos de entrada .csv, executa uma limpeza preliminar dos dados e a visualização. O notebook converte cada conjunto de dados no formato do PySpark e armazena-os em um contêiner de blob do Azure para uso no Notebook de Engenharia de Recursos.
 
-[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): os recursos de modelo são construídos a partir do conjunto de dados brutos do armazenamento de Blob do Azure usando uma abordagem de série de tempo padrão para telemetria, erros e dados de manutenção. As substituições de componente relacionadas a falhas são usadas para construir os rótulos de modelos que descrevem qual componente falhou. Os dados do recurso rotulado são salvos em um blob do Azure para o Notebook de Criação de Modelo.
+[Code\2_feature_engineering.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): Os recursos de modelo são construídos a partir do conjunto de dados brutos do armazenamento de Blobs do Azure, usando uma abordagem de série temporal padrão para telemetria, erros e dados de manutenção. As substituições de componente relacionadas a falhas são usadas para construir os rótulos de modelos que descrevem qual componente falhou. Os dados do recurso rotulado são salvos em um blob do Azure para o Notebook de Criação de Modelo.
 
-[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): o Notebook de Construção de Modelo usa o conjunto de dados de recurso rotulado e divide os dados em conjuntos de dados de treinamento e desenvolvimento ao longo do carimbo de data e hora. O notebook é configurado como uma experiência com modelos pyspark.ml.classification. Os dados de treinamento são vetorizados. O usuário pode experimentar um **DecisionTreeClassifier** ou **RandomForestClassifier** para manipular hiperparâmetros para encontrar o melhor modelo de desempenho. O desempenho é determinado pela avaliação de estatísticas de medida no conjunto de dados de desenvolvimento. Essas estatísticas são registradas na tela de tempo de execução do Machine Learning Workbench para acompanhamento. Em cada execução, o notebook salva o modelo resultante no disco local que executa o kernel do notebook Jupyter. 
+[Code\3_model_building.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/3_model_building.ipynb): O Notebook de Compilação do Modelo usa o conjunto de dados de recurso rotulado e divide os dados em conjuntos de dados de treinamento e desenvolvimento junto com o carimbo de data e hora. O notebook é configurado como uma experiência com modelos pyspark.ml.classification. Os dados de treinamento são vetorizados. O usuário pode experimentar um **DecisionTreeClassifier** ou **RandomForestClassifier** para manipular hiperparâmetros para encontrar o melhor modelo de desempenho. O desempenho é determinado pela avaliação de estatísticas de medida no conjunto de dados de desenvolvimento. Essas estatísticas são registradas na tela de tempo de execução do Machine Learning Workbench para acompanhamento. Em cada execução, o notebook salva o modelo resultante no disco local que executa o kernel do notebook Jupyter. 
 
-[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): este notebook usa o último modelo salvo em disco local (kernel de notebook Jupyter) para criar os componentes para a implantação do modelo em um serviço Web do Azure. Os ativos completamente operacionais são compactados no arquivo o16n.zip armazenado em outro contêiner de blob do Azure. O arquivo compactado contém:
+[Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb): Este notebook usa o último modelo salvo em disco local (kernel do Jupyter Notebook) para compilar os componentes para a implantação do modelo em um serviço Web do Azure. Os ativos completamente operacionais são compactados no arquivo o16n.zip armazenado em outro contêiner de blob do Azure. O arquivo compactado contém:
 
-* **service_schema.json**: o arquivo da definição de esquema para a implantação. 
-* **pdmscore.py**: as funções **init()** e **run()** exigidas pelo o serviço Web do Azure.
-* **pdmrfull.model**: o diretório de definição de modelo.
+* **service_schema.json**: O arquivo da definição de esquema para a implantação. 
+* **pdmscore.py**: As funções **init()** e **run()** exigidas pelo o serviço Web do Azure.
+* **pdmrfull.model**: O diretório de definição de modelo.
     
 O notebook testa as funções com a definição de modelo antes de compactar os ativos de operacionalização para implantação. As instruções de implantação são incluídas no final do notebook.
 

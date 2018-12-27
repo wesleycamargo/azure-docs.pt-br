@@ -1,6 +1,6 @@
 ---
-title: Entender o ciclo de vida de um Azure Blueprint
-description: Aprenda sobre o ciclo de vida de um blueprint e os detalhes de cada estágio.
+title: Entender ciclo de vida de um blueprint
+description: Saiba mais sobre o ciclo de vida de um blueprint e os detalhes de cada estágio.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,19 +8,20 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094152"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309799"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
-Como muitos recursos no Azure, um blueprint do Azure Blueprint tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes.
-Planos gráficos oferece suporte a operações de ciclo de vida padrão. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
+Como muitos recursos no Azure, um blueprint no Azure Blueprints tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes.
+Blueprints oferecem suporte a operações de ciclo de vida padrão. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
 
-Para entender completamente um blueprint e seus estágios, vamos abordar um ciclo de vida padrão:
+Para entender completamente um blueprint e os estágios, vamos abordar um ciclo de vida padrão:
 
 > [!div class="checklist"]
 > - Criação e edição de um blueprint
@@ -68,7 +69,7 @@ Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente
 > [!NOTE]
 > Não é possível excluir um blueprint com atribuições ativas. Exclua as atribuições primeiro e, em seguida, exclua a versão que você deseja remover.
 
-1. Clique em **todos os serviços** e procurando e selecionando **diretiva** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
+1. Clique em **Todos os serviços** e pesquise e selecione **Política** no painel esquerdo. Sobre a **política** página, clique em **plantas**.
 
 1. Selecione **Definições de Blueprint** na página à esquerda e use as opções de filtro para localizar o blueprint do qual você deseja excluir uma versão. Clique nele para abrir a página de edição.
 
@@ -87,7 +88,7 @@ Exclua um blueprint com o [portal do Azure](../create-blueprint-portal.md#delete
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários pontos durante o ciclo de vida que um blueprint pode ser atribuído a uma assinatura. Quando o modo de uma versão do blueprint é **Publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um blueprint sejam usadas e ativamente atribuídas enquanto uma versão mais nova está sendo desenvolvida.
+Há vários pontos durante o ciclo de vida em que um blueprint pode ser atribuído a uma assinatura. Quando o modo de uma versão do blueprint é **Publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um blueprint sejam usadas e atribuídas ativamente enquanto uma versão mais nova está sendo desenvolvida.
 
 Como as versões de blueprints são atribuídas, é importante entender o local em que elas estão atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para obter mais informações, confira [parâmetros estáticos e dinâmicos](parameters.md).
 

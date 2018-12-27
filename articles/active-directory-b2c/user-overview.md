@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670100"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725753"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -25,11 +25,11 @@ Os seguintes tipos de contas estão disponíveis:
 
 - **Conta corporativa** - Uma conta corporativa pode acessar recursos em um locatário e, com uma função de administrador, pode gerenciar locatários.
 - **Conta Convidado** - Uma conta convidado pode ser apenas uma conta Microsoft ou um usuário do Azure Active Directory que pode ser usado para acessar aplicativos ou gerenciar locatários. 
-- **Conta Consumidor** - Uma conta consumidor é criada passando por uma política de inscrição em um aplicativo do Azure AD B2C, ou usando a API do Graph do Azure AD, e é usada por usuários dos aplicativos registrados no Azure AD B2C. 
+- **Conta Consumidor** - Uma conta consumidor é criada por meio de um fluxo de usuário de inscrição em um aplicativo do Azure AD B2C, ou usando a API do Graph do Azure AD, e é usada por usuários dos aplicativos registrados no Azure AD B2C. 
 
 ## <a name="work-account"></a>Conta corporativa
 
-Uma conta corporativa é criada da mesma maneira para todos os locatários com base no Azure AD. Para criar uma conta corporativa, você pode usar as informações em [Início rápido: Adicionar novos usuários ao Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Uma conta corporativa é criada usando a opção **Novo usuário** no portal do Azure.
+Uma conta corporativa é criada da mesma maneira para todos os locatários com base no Azure AD. Para criar uma conta corporativa, é possível usar as informações em [Início rápido: Adicionar novos usuários ao Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Uma conta corporativa é criada usando a opção **Novo usuário** no portal do Azure.
 
 Ao adicionar uma nova conta corporativa, será necessário considerar as seguintes configurações:
 
@@ -46,21 +46,21 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 É possível usar as seguintes informações para criar uma nova conta corporativa:
 
-- [portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil do usuário
 
 É possível usar as seguintes informações para atualizar o perfil de um usuário:
 
-- [portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
 
 É possível usar as seguintes informações para redefinir a senha de um usuário: 
 
-- [portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
 
 ## <a name="guest-user"></a>Usuário Convidado
@@ -73,7 +73,7 @@ Também é possível usar a [API do Microsoft Graph](https://developer.microsoft
 
 ## <a name="consumer-user"></a>Usuário Consumidor
 
-O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure.  O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta Consumidor é criada, usando uma [política de inscrição ou de assinatura](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure.  O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta Consumidor é criada, usando um [fluxo de usuário de inscrição ou de entrada](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 É possível especificar os dados que são coletados quando uma conta de usuário Consumidor é criada, usando atributos de usuário personalizados. Para obter mais informações, consulte [Definir atributos personalizados no Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 
