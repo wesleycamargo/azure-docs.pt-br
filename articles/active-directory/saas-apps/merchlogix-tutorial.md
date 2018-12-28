@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Merchlogix | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Merchlogix | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Merchlogix.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeedes
-ms.openlocfilehash: b10f9cc5c766796b61e3c56da943e92e84d17488
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dae953276fb89b798ff0a152994dc19f1e7c85a5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442577"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834221"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Tutorial: Integração do Azure Active Directory com o Merchlogix
+# <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Tutorial: integração do Azure Active Directory com o Merchlogix
 
 Neste tutorial, você aprenderá a integrar o Merchlogix ao Azure Active Directory (Azure AD).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Merchlogix a partir da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,12 +110,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Informações de logon único em Domínio e URLs do Merchlogix](./media/merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>/login.php?saml=true`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>/login.php?saml=true`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
     
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Merchlogix](http://www.merchlogix.com/contact/) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do Merchlogix](https://www.merchlogix.com/contact/) para obter esses valores.
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -129,10 +129,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configuração do Merchlogix](./media/merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 
-1. Para configurar o logon único no lado do **Merchlogix**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Merchlogix](http://www.merchlogix.com/contact/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Merchlogix**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Merchlogix](https://www.merchlogix.com/contact/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="create-a-merchlogix-test-user"></a>Criar um usuário de teste do Merchlogix
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Merchlogix. Trabalhe com a [equipe de suporte do Merchlogix](http://www.merchlogix.com/contact/) para adicionar os usuários na plataforma do Merchlogix.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Merchlogix. Trabalhe com a [equipe de suporte do Merchlogix](https://www.merchlogix.com/contact/) para adicionar os usuários na plataforma do Merchlogix.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -206,7 +206,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clica no bloco Merchlogix no Painel de Acesso, deve fazer logon automaticamente no seu aplicativo do Merchlogix.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

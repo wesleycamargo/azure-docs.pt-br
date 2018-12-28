@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632952"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188785"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar Mapa do Serviço no Azure
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Você pode usá-lo para exibir os seus servidores da maneira como pensa neles – como sistemas interconectados que fornecem serviços essenciais. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -125,8 +124,8 @@ A seção a seguir lista os sistemas operacionais com suporte para o agente de d
 
 | Arquivo | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Fontes conectadas
 O Mapa do Serviço obtém seus dados do Microsoft Dependency Agent. O agente de Dependência depende do Agente do OMS para suas conexões ao Log Analytics. Isso significa que um servidor deve ter o Agente do Log Analytics instalado e configurado primeiro e, em seguida, você instala o Agente de Dependência.  A tabela a seguir descreve as fontes conectadas às quais a solução Mapa do Serviço dá suporte.
@@ -135,7 +134,7 @@ O Mapa do Serviço obtém seus dados do Microsoft Dependency Agent. O agente de 
 |:--|:--|:--|
 | Agentes do Windows | SIM | O Mapa do Serviço analisa e coleta dados de computadores de agente do Windows. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Windows exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
 | Agentes do Linux | SIM | O Mapa do Serviço analisa e coleta dados de computadores de agente do Linux. <br><br>Além do [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md), os agentes do Linux exigem o Microsoft Dependency Agent. Veja os [sistemas operacionais com suporte](#supported-operating-systems) para obter uma lista completa das versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | SIM | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md) conectado. <br><br>Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
+| Grupo de gerenciamento do System Center Operations Manager | SIM | O Mapa do Serviço analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) conectado. <br><br>Uma conexão direta do computador do agente do System Center Operations Manager para Log Analytics é necessária. |
 | Conta de Armazenamento do Azure | Não  | O Mapa do Serviço coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o MMA (Microsoft Monitoring Agent) é usado pelo System Center Operations Manager e pelo Log Analytics para coletar e enviar dados de monitoramento. (esse agente é chamado de agente do System Center Operations Manager, agente do Log Analytics, MMA ou agente direto, dependendo do contexto.) O System Center Operations Manager e o Log Analytics fornecem versões do MMA diferentes prontas para uso. Essas versões podem relatar para o System Center Operations Manager, para o Log Analytics ou para ambos.  
@@ -156,7 +155,7 @@ Se você for um cliente do System Center Operations Manager com um grupo de gere
 Se seus computadores Windows ou Linux não podem se conectar diretamente ao serviço, você precisará configurar o agente do Log Analytics para se conectar ao espaço de trabalho do Log Analytics usando o gateway. Para obter mais informações sobre como implantar e configurar o gateway do Log Analytics, consulte [Conectar computadores sem acesso à Internet usando o gateway do Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Pacotes de gerenciamento
-Quando o Mapa do Serviço é ativado em um workspace do Log Analytics, um pacote de gerenciamento de 300 KB é enviado a todos os servidores do Windows nesse workspace. Se você estiver usando agentes do System Center Operations Manager em um [grupo de gerenciamento conectado](../../log-analytics/log-analytics-om-agents.md), o pacote de gerenciamento do Mapa do Serviço será implantado do System Center Operations Manager. 
+Quando o Mapa do Serviço é ativado em um workspace do Log Analytics, um pacote de gerenciamento de 300 KB é enviado a todos os servidores do Windows nesse workspace. Se você estiver usando agentes do System Center Operations Manager em um [grupo de gerenciamento conectado](../../azure-monitor/platform/om-agents.md), o pacote de gerenciamento do Mapa do Serviço será implantado do System Center Operations Manager. 
 
 O pacote de gerenciamento chama-se Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Ele é gravado em %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. A fonte de dados usada pelo pacote de gerenciamento é %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -363,7 +362,7 @@ Se você enfrentar problemas ao instalar ou executar o Mapa do Serviço, esta se
 #### <a name="installer-prompts-for-a-reboot"></a>O instalador solicita uma reinicialização
 O Agente de Dependência *geralmente* não exige uma reinicialização após a instalação ou desinstalação. No entanto, em alguns casos raros, o Windows Server exige uma reinicialização para continuar com uma instalação. Isso ocorre quando uma dependência, normalmente Pacotes Redistribuíveis do Microsoft Visual C++, exige uma reinicialização devido a um arquivo bloqueado.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>A mensagem "Não é possível instalar o Agente de Dependência: as bibliotecas de tempo de execução do Visual Studio não foram instaladas (código = [número_de_código])" aparece
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>A mensagem "Não é possível instalar o Dependency Agent: as bibliotecas de tempo de execução do Visual Studio não foram instaladas (código = [número_de_código])" aparece
 
 O Microsoft Dependency Agent é compilado com base nas bibliotecas de tempo de execução do Microsoft Visual Studio. Você receberá uma mensagem se houver um problema durante a instalação das bibliotecas. 
 
@@ -375,14 +374,14 @@ A tabela a seguir lista números de código e soluções sugeridas.
 
 | Código | DESCRIÇÃO | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência ao "Windows8.1-KB2999226-x64.msu" é seguida por uma linha "Erro 0x80240017: falha ao executar o pacote MSU.", você não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na seção de pré-requisitos em [Tempo de Execução C Universal no Windows](https://support.microsoft.com/kb/2999226). Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
+| 0x17 | O instalador da biblioteca exige uma atualização do Windows que não foi instalada. | Procure no log do instalador de biblioteca mais recente.<br><br>Se uma referência a "Windows8.1-KB2999226-x64.msu" for seguida pela linha "Erro 0x80240017: falha ao executar o pacote MSU", você não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na seção de pré-requisitos em [Tempo de Execução C Universal no Windows](https://support.microsoft.com/kb/2999226). Talvez seja necessário executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute novamente o instalador do Agente de Dependência da Microsoft. |
 
 ### <a name="post-installation-issues"></a>Problemas pós-instalação
 #### <a name="server-doesnt-appear-in-service-map"></a>O servidor não aparece no Mapa do Serviço
 Se a instalação do Agente de Dependência for bem-sucedida, mas você não vir seu servidor na solução Mapa do Serviço:
 * O Agente de Dependência foi instalado com êxito? Confirme isso verificando se o serviço está instalado e em execução.<br><br>
-**Windows**: Procure o serviço denominado "Microsoft Dependency Agent".<br>
-**Linux**: Procure o processo em execução "microsoft-dependency-agent".
+**Windows**: procure o serviço denominado "Microsoft Dependency Agent".<br>
+**Linux**: procure o processo em execução "microsoft-dependency-agent".
 
 * Você está no [tipo de preço Gratuito do Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? O plano Gratuito permite até cinco servidores de Mapa do Serviço exclusivos. Quaisquer servidores subsequentes serão exibidos no Mapa do Serviço, mesmo que os cinco anteriores não estejam enviando dados.
 
@@ -390,7 +389,7 @@ Se a instalação do Agente de Dependência for bem-sucedida, mas você não vir
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Se sim, o Agente do Log Analytics está operando corretamente e se comunicando com o Log Analytics. Caso contrário, verifique o agente no servidor: [Solução de problemas do agente do Log Analytics para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [Solução de problemas do agente do Log Analytics para Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
+Você obteve uma variedade de eventos nos resultados? Os dados são recentes? Se sim, o Agente do Log Analytics está operando corretamente e se comunicando com o Log Analytics. Caso contrário, verifique o agente em seu servidor: [Solução de problemas do agente do Log Analytics para Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [Solução de problemas do agente do Log Analytics para Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>O servidor aparece no Mapa do Serviço, mas sem processos
 Se você vir seu servidor no Mapa do Serviço, mas ele não tiver processos ou dados de conexão, isso indica que o Agente de Dependência está instalado e em execução, mas o driver do kernel não foi carregado. 

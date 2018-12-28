@@ -1,6 +1,6 @@
 ---
-title: Indexação de blobs CSV com o indexador de blob do Azure Search | Microsoft Docs
-description: Saiba como indexar blobs CSV com o Azure Search
+title: Indexar blobs CSV com o indexador de blobs do Azure Search – Azure Search
+description: Rastrear blobs CSV no armazenamento de blobs do Azure para pesquisa de texto completo usando um índice do Azure Search. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o armazenamento de blobs do Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: b1f97b5e9542e32096bb060bce40e7b9620d0f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 2bd89432a15f6960b07102ede317acca5864b773
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406068"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310888"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexando blobs CSV com o indexador de blobs do Azure Search
 Por padrão, o [indexador de blobs do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa blobs de texto delimitado como um único bloco de texto. No entanto, com blobs contendo dados CSV, o ideal é tratar cada linha no blob como um documento separado. Por exemplo, considerando o seguinte texto delimitado, você pode querer analisá-lo em dois documentos, cada um contendo os campos "id", "datePublished" e "tags": 

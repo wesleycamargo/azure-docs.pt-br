@@ -1,5 +1,5 @@
 ---
-title: Versão Canário com Vamp no cluster de DC/SO do Azure
+title: (PRETERIDO) Versão Canário com Vamp no cluster de DC/SO do Azure
 description: Como usar Vamp para serviços de versão canário e aplicar filtragem de tráfego inteligente a um cluster DC/SO do Serviço de Contêiner do Azure
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975849"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002063"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microsserviços da versão canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços da versão Canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Neste passo a passo, configuramos o Vamp no Serviço de Contêiner do Azure com um cluster de DC/SO. Fizemos a versão canário do serviço de demonstração do Vamp “sava” e, em seguida, resolvemos uma incompatibilidade do serviço com o Firefox aplicando a filtragem de tráfego inteligente. 
 
@@ -198,7 +200,7 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
 
 1. Na interface do usuário do Vamp, clique em **Planos Gráficos**.
 
-2. Clique em **Adicionar** e cole o seguinte plano gráfico YAML: este plano gráfico descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
+2. Clique em **Adicionar** e cole no seguinte blueprint do YAML: este blueprint descreve uma nova variante de serviço (sava: 1.1.0) para implantar no cluster existente (sava_cluster).
 
   ```YAML
   name: sava:1.1.0      # blueprint name

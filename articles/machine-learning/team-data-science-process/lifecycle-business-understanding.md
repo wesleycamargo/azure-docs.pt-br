@@ -1,6 +1,6 @@
 ---
-title: Estágio de entendimento de negócios do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
-description: As metas, as tarefas e as entregas do estágio de entendimento de negócios dos seus projetos de ciência de dados
+title: Entendimento empresarial no Processo de Ciência de Dados da Equipe
+description: As metas, as tarefas e as entregas do estágio de entendimento empresarial dos seus projetos de ciência de dados no Processo de Ciência de Dados da Equipe.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446714"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141655"
 ---
-# <a name="business-understanding"></a>Noções básicas sobre negócios
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>O estágio de entendimento empresarial do ciclo de vida do Processo de Ciência de Dados da Equipe
 
 Este tópico descreve as metas, as tarefas e as entregas associadas ao estágio de entendimento de negócios do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
@@ -41,7 +41,7 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 Há duas tarefas principais abordadas neste estágio: 
 
    * **Definir os objetivos**: trabalhe com o cliente e outros stakeholders para compreender e identificar problemas de negócios. Formule perguntas que definem as metas de negócios e que as técnicas de ciência de dados podem ter como meta.
-   * **Identificar as fontes de dados**: encontre os dados relevantes que ajudam a responder as perguntas que definem os objetivos do projeto.
+   * **Identificar as fontes de dados**: encontre os dados relevantes que ajudam a responder às perguntas que definem os objetivos do projeto.
 
 ### <a name="define-objectives"></a>Definir os objetivos
 1. Um objetivo central desta etapa é identificar as principais variáveis de negócios que a análise precisa prever. Chamamos tais variáveis de *metas modelo* e usamos as métricas associadas a elas para determinar o sucesso do projeto. Dois exemplos dessas metas são a previsão de vendas ou a probabilidade de que um pedido seja fraudulento.
@@ -77,9 +77,9 @@ Por exemplo, você pode descobrir que os sistemas existentes precisam coletar e 
 ## <a name="artifacts"></a>Artefatos
 Estas são as entregas deste estágio:
 
-   * [Documento de estatuto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): um modelo padrão é fornecido na definição de estrutura do projeto TDSP. O estatuto é um documento vivo. O modelo é atualizado durante o projeto conforme novas descobertas são feitas e os requisitos de negócios mudam. O segredo é a iteração neste documento, com a adição de mais detalhes, à medida que você avança no processo de descoberta. Mantenha o cliente e outros stakeholders envolvidos no processo de mudança e comunique os motivos das mudanças de forma clara.  
-   * [Fontes de Dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): a seção **Fontes de dados brutos** do relatório **Definições de dados** encontrado na pasta **Relatório de dados** do projeto do TDSP contém as fontes de dados. Esta seção especifica os locais de origem e destino dos dados brutos. Em estágios posteriores, você preencherá outros detalhes como scripts para mover os dados para seu ambiente de análise.  
-   * [Dicionários de Dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados fornecidos pelo cliente. Essas descrições incluem informações sobre o esquema (tipos de dados, informações sobre regras de validação, se houver) e os diagramas de relação de entidade, se disponíveis.
+   * [Documento de estatuto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): um modelo padrão é fornecido na definição da estrutura do projeto TDSP. O estatuto é um documento vivo. O modelo é atualizado durante o projeto conforme novas descobertas são feitas e os requisitos de negócios mudam. O segredo é a iteração neste documento, com a adição de mais detalhes, à medida que você avança no processo de descoberta. Mantenha o cliente e outros stakeholders envolvidos no processo de mudança e comunique os motivos das mudanças de forma clara.  
+   * [Fontes de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): a seção **Fontes de dados brutos** do relatório **Definições de dados** encontrado na pasta **Relatório de dados** do projeto TDSP contém as fontes de dados. Esta seção especifica os locais de origem e destino dos dados brutos. Em estágios posteriores, você preencherá outros detalhes como scripts para mover os dados para seu ambiente de análise.  
+   * [Dicionários de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento contém descrições dos dados fornecidas pelo cliente. Essas descrições incluem informações sobre o esquema (tipos de dados, informações sobre regras de validação, se houver) e os diagramas de relação de entidade, se disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -92,5 +92,3 @@ Aqui estão os links para cada etapa do ciclo de vida do TDSP:
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
 Fornecemos passo a passo completos que demonstram todas as etapas do processo para cenários específicos. O artigo [Passo a passos de exemplo](walkthroughs.md) fornece uma lista dos cenários com descrições de links e miniaturas. Os passo a passo ilustram como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
-
-Para obter exemplos de como executar etapas nos TDSPs que usam o Azure Microsoft Azure Machine Learning Studio, consulte [Use the TDSP with Azure Machine Learning](https://aka.ms/datascienceprocess) (Usar o TDSP com o Azure Machine Learning).

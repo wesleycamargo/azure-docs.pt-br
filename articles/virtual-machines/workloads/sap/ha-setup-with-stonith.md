@@ -14,17 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062013"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015153"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
 
-**Aviso de isenção de responsabilidade:** *este guia deriva do teste da configuração no ambiente Microsoft do HANA em Instâncias Grandes, que funciona com êxito. Como a equipe de Gerenciamento de Serviços da Microsoft do HANA em Instâncias Grandes não oferece suporte ao Sistema operacional, talvez seja necessário entrar em contato com o SUSE para solução de problemas ou esclarecimentos sobre a camada do sistema operacional. A equipe de Gerenciamento de Serviço da Microsoft faz a configuração do dispositivo STONITH, dá suporte total e pode ajudar na solução de problemas do dispositivo STONITH.*
+**Aviso de isenção de responsabilidade:** *este guia deriva do teste da configuração no ambiente Microsoft HANA em Instâncias Grandes, que funciona com êxito. Como a equipe de Gerenciamento de Serviços da Microsoft do HANA em Instâncias Grandes não oferece suporte ao Sistema operacional, talvez seja necessário entrar em contato com o SUSE para solução de problemas ou esclarecimentos sobre a camada do sistema operacional. A equipe de Gerenciamento de Serviço da Microsoft faz a configuração do dispositivo STONITH, dá suporte total e pode ajudar na solução de problemas do dispositivo STONITH.*
 ## <a name="overview"></a>Visão geral
 Para configurar a Alta disponibilidade usando o clustering SUSE, é necessário atender aos pré-requisitos a seguir.
 ### <a name="pre-requisites"></a>Pré-requisitos
@@ -76,7 +76,7 @@ O Gerenciamento de Serviços da Microsoft fornece essa cadeia de caracteres. Mod
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modificar */etc/iscsi/iscsid.conf*: definir *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modifique o arquivo em **ambos** os nós.
+1.2 Modifique */etc/iscsi/iscsid.conf*: Defina *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modifique o arquivo em **ambos** os nós.
 
 1.3 Executar o comando de descoberta; ele mostra quatro sessões. Execute-o em ambos os nós.
 
@@ -297,8 +297,7 @@ Adicionar o recurso STONITH. Crie o arquivo e adicione o texto como mostrado a s
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Adicionar a configuração ao cluster.
 ```

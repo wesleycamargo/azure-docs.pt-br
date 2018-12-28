@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2b9f3c7905fbb301c74a040a259b2f8666c75377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445573"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834478"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integração do Active Directory do Azure ao TeamSeer
+# <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integração do Azure Active Directory ao TeamSeer
 
 Neste tutorial, você aprenderá a integrar o TeamSeer ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o TeamSeer da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
      Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.teamseer.com/<companyid>`
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obter o valor. 
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obter o valor. 
  
 1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
@@ -147,7 +147,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     ![Configurações do SAML](./media/teamseer-tutorial/ic789637.png "Configurações do SAML")   
 
-    a. Cole o valor da **URL do Serviço de Logon Único** na caixa de texto **URL**.
+     a. Cole o valor da **URL do Serviço de Logon Único** na caixa de texto **URL**.
           
     b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado Público do IdP**.
 
@@ -155,14 +155,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configurações do SAML](./media/teamseer-tutorial/ic789638.png "Configurações do SAML") 
 
-    a. Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste. 
+     a. Nos **Endereços de Email de Teste**, digite o endereço de email do usuário de teste. 
   
     b. Na caixa de texto **Emissor** , digite a URL do Emissor do provedor de serviços. 
   
     c. Clique em **Salvar**.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -188,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/teamseer-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -208,7 +208,7 @@ Para permitir que os usuários do Azure AD façam logon no TeamSeer, eles dever�
    
     ![Administrador de RH](./media/teamseer-tutorial/ic789640.png "Administrador de RH")  
  
-    a. Vá para **Administrador de RH \> Usuários**.
+     a. Vá para **Administrador de RH \> Usuários**.
   
     b. Clique em **Executar o assistente de Novo Usuário**.
 
@@ -216,7 +216,7 @@ Para permitir que os usuários do Azure AD façam logon no TeamSeer, eles dever�
    
     ![Detalhes do Usuário](./media/teamseer-tutorial/ic789641.png "Detalhes do Usuário")
 
-    a. Digite o **Nome**, **Sobrenome** e **Nome de usuário (Endereço de email)** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
+     a. Digite o **Nome**, **Sobrenome** e **Nome de usuário (Endereço de email)** de uma conta válida do AAD que você deseja provisionar nas caixas de texto relacionadas.
   
     b. Clique em **Próximo**.
 

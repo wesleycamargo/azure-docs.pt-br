@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268437"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerenciar orçamentos do Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
 Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover responsabilidade organizacional. Com orçamentos, você pode considerar os serviços do Azure que consome ou assina durante um período específico. Eles ajudam você a informar outras pessoas sobre seus gastos para gerenciar proativamente os custos e monitorar como os gastos evoluem ao longo do tempo. Quando os limites de orçamento que você criou são excedidos, apenas notificações são disparadas. Nenhum de seus recursos é afetado e seu consumo não é interrompido. Você pode usar os orçamentos para comparar e controlar como analisar os custos de gastos.
+
+Orçamentos mensais são avaliados em relação aos gastos de cada quatro horas. No entanto, dados e notificações para os recursos consumidos estão disponíveis dentro de oito horas.  
 
 Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
 
@@ -45,7 +47,7 @@ Para obter mais informações sobre como atribuir permissões aos dados de Geren
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-- Entre no Portal do Azure em http://portal.azure.com.
+- Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
@@ -57,23 +59,23 @@ Depois de criar os orçamentos, eles mostram uma exibição simples de seus gast
 
 Clique em **Adicionar**.
 
-![Orçamentos de Gerenciamento de Custos](./media/tutorial-acm-create-budgets/budgets01.png)
+![Orçamentos de Gerenciamento de Custos mostrados no portal do Azure](./media/tutorial-acm-create-budgets/budgets01.png)
 
 Na janela **Criar orçamento**, insira um nome de orçamento e o valor do orçamento. Em seguida, escolha um período de duração mensal, trimestral ou anual. Em seguida, selecione uma data de término. Orçamentos exigem pelo menos um limite de custo (% do orçamento) e um endereço de email correspondente. Opcionalmente, você pode incluir até cinco limites e cinco endereços de email em um único orçamento. Quando um limite de orçamento é atingido, as notificações por email são recebidas normalmente em menos de oito horas.
 
 Aqui está um exemplo de criação de um orçamento mensal de US$ 4.500. Um alerta por email é gerado quando 90% do orçamento é atingido.
 
-![Exemplo de orçamento mensal](./media/tutorial-acm-create-budgets/monthly-budget01.png)
+![Informações de exemplo mostradas na caixa Criar orçamento](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
 Quando você cria um orçamento trimestral, ele funciona da mesma maneira que um orçamento mensal. A diferença é que o valor do orçamento para o trimestre é dividido entre os três meses do trimestre. Como você poderia esperar, um valor do orçamento anual é dividido uniformemente entre todos os 12 meses do ano civil.
 
 Os gastos atuais com relação aos orçamentos são atualizados sempre que o Gerenciamento de Custos recebe dados de cobrança atualizados. Isso costuma ocorrer diariamente.
 
-![Gastos atuais com relação a orçamentos](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
+![Informações de exemplo mostrando gastos atuais em relação ao orçamento](./media/tutorial-acm-create-budgets/budgets-current-spending.png)
 
 Depois de criar um orçamento, ele é mostrado na análise de custo. Exibir seu orçamento em relação à sua tendência de gastos é uma das primeiras etapas quando você começa a [analisar seus custos e gastos](quick-acm-cost-analysis.md).
 
-![Orçamento mostrado na análise de custo](./media/tutorial-acm-create-budgets/cost-analysis.png)
+![Exemplo de orçamento e gastos mostrados na análise de custos](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 No exemplo anterior, você criou um orçamento para uma assinatura. No entanto, você também pode criar um orçamento para um grupo de recursos. Se você quiser criar um orçamento para um grupo de recursos, navegue até **Gerenciamento de Custos + Cobrança** &gt; **Assinaturas** &gt; selecione uma assinatura > **Grupo de recursos** > selecione um grupo de recursos > **Orçamentos** > e, em seguida escolha **Adicionar** um orçamento.
 
@@ -81,7 +83,7 @@ No exemplo anterior, você criou um orçamento para uma assinatura. No entanto, 
 
 Dependendo do nível de acesso que você tem, é possível editar um orçamento para alterar suas propriedades. No exemplo a seguir, algumas das propriedades são somente leitura porque o usuário tem apenas permissão de Contribuinte para a assinatura. No momento, a **Data do término** está desabilitada e não pode ser modificada depois de definida.
 
-![Editar o orçamento – permissão de colaborador](./media/tutorial-acm-create-budgets/edit-budget.png)
+![Exemplo de edição de um orçamento para alterar várias propriedades](./media/tutorial-acm-create-budgets/edit-budget.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

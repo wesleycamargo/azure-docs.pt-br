@@ -1,6 +1,6 @@
 ---
-title: Dados de exemplo no Armazenamento de Blobs do Azure| Microsoft Docs
-description: Dados de exemplo no armazenamento de blob do Azure
+title: Dados de exemplo no armazenamento de blobs do Azure – Processo de Ciência de Dados de Equipe
+description: Os dados de exemplo vão para o armazenamento de blobs do Azure por download realizado via programação e, em seguida, é feita a sua amostragem usando procedimentos escritos em Python.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5fe7c11bd21e9c2f432f443a6a8dd5880646a1a2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0f9795e6a9a451ab1492e62fd54faea5894d99ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444181"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136487"
 ---
 # <a name="heading"></a>Dados de exemplo no armazenamento de blob do Azure
 
@@ -25,7 +25,7 @@ Este artigo aborda os dados armazenados no armazenamento de blobs do Azure fazen
 **Por que fazer amostragem dos dados?**
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
-Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Baixar e reduzir os dados de exemplo
 1. Baixe os dados do Armazenamento do Blobs do Azure usando o serviço blob com o código Python de exemplo a seguir: 

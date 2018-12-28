@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o acesso a cobrança do Azure | Microsoft Docs
-description: ''
+description: Saiba como conceder acesso às informações de cobrança do Azure para membros da equipe.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582608"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094280"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerenciar acesso a informações de cobrança do Azure
 
@@ -72,9 +73,10 @@ O recurso Leitor de Cobrança está na visualização prévia e ainda não ofere
 
 1. Selecione **IAM (Controle de acesso)**.
 1. Selecione **Atribuições de função** para exibir todas as atribuições de função para esta assinatura.
-1. Selecione **Adicionar** > **Adicionar atribuição de função**.
+1. Selecione **Adicionar atribuição de função**.
 1. Na lista suspensa **Função**, escolha **Leitor de Cobrança**.
 1. Na caixa de texto **Selecionar**, digite o nome ou email para o usuário que você deseja adicionar.
+1. Selecione o usuário.
 1. Clique em **Salvar**.
 1. Após alguns instantes, o usuário é atribuído à função Leitor de Cobrança no escopo da assinatura.
 1. O Leitor de Cobrança recebe um email com um link para entrar.
@@ -102,6 +104,6 @@ O Administrador da conta é o proprietário legal da assinatura. Por padrão, a 
 - Outras funções, como o Proprietário ou Colaborador, os usuários podem acessar as informações de cobrança não apenas, mas também os serviços do Azure. Para saber mais detalhes, confira [Gerenciar acesso usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 - Para obter mais informações sobre as funções, consulte [Funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver mais dúvidas ou precisar de ajuda, a [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

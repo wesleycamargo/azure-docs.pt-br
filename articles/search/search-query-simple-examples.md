@@ -1,5 +1,5 @@
 ---
-title: Exemplos de consulta simples para Azure Search | Microsoft Docs
+title: Exemplos de consulta simples – Azure Search
 description: Exemplos de consulta simples para pesquisa de texto completo, pesquisa de filtro, pesquisa geográfica, pesquisa facetada e outras cadeias de caracteres de consulta usadas para consultar um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141000"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316260"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exemplos de consulta de sintaxe simples para criar consultas no Azure Search
 
@@ -26,7 +27,7 @@ A sintaxe de consulta alternativa é [Lucene Completa](https://docs.microsoft.co
 
 Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://nycopendata.socrata.com/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que não é necessária uma assinatura do Azure ou Azure Search para experimentar essas consultas.
 
-O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [Explorar com clientes REST](search-fiddler.md).
+O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-fiddler.md).
 
 ### <a name="set-the-request-header"></a>Definir o cabeçalho de solicitação
 
@@ -62,7 +63,7 @@ Como uma etapa de verificação, cole a solicitação a seguir no GET e clique e
 
 A cadeia de caracteres de consulta, **`search=*`**, é uma pesquisa não especificada equivalente à pesquisa nula ou vazia. Não é especialmente útil, mas é a pesquisa mais simples que você pode fazer.
 
-Opcionalmente, é possível adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de caracteres de pesquisa vazia, esses são todos os documentos no índice (aproximadamente 2800 no caso de Trabalhos de Nova Iorque).
+Opcionalmente, é possível adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de pesquisa vazia, esses são todos os documentos no índice (cerca de 2800 no caso de NYC Jobs).
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>Como invocar a análise de consulta simples
 
@@ -70,9 +71,9 @@ Para consultas interativas, não é necessário especificar nada: simples é o p
 
 ## <a name="example-1-field-scoped-query"></a>Exemplo 1: consulta com escopo de campo
 
-Esse primeiro exemplo não é específico do analisador, mas nós o conduzimos para introduzir o primeiro conceito de consulta fundamental: independência. Esse exemplo abrange a execução da consulta e a resposta a apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando a ferramenta for Postman ou Gerenciador de Pesquisa. 
+Este primeiro exemplo não é específico do analisador, mas nós o conduzimos para introduzir o primeiro conceito de consulta fundamental: contenção. Este exemplo abrange a execução da consulta e a resposta para apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é Postman ou Search Explorer. 
 
-Por uma questão de brevidade, a consulta direciona apenas o campo *business_title* e especifica que somente os títulos da empresa sejam retornados. A sintaxe é **searchFields** para restringir a execução da consulta apenas ao campo business_title e **select** para especificar quais campos são incluídos na resposta.
+Por uma questão de brevidade, a consulta direciona apenas o campo *business_title* e especifica que somente os títulos da empresa sejam retornados. A sintaxe é **searchFields** para restringir a execução da consulta apenas ao campo business_title e **selecione** para especificar quais campos são incluídos na resposta.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -82,7 +83,7 @@ A resposta para essa consulta deve ser semelhante à captura de tela a seguir.
 
   ![Resposta de exemplo do Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Quando você incluir critérios reais, verá as pontuações de pesquisa evoluírem para valores significativos.
+Você deve ter notado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrem quando não há classificação, seja porque a pesquisa não foi pesquisa de texto completo ou porque nenhum critério foi aplicado. Para pesquisa nula sem critérios, as linhas retornam em ordem arbitrária. Quando você incluir critérios reais, verá as pontuações da pesquisa evoluir para valores significativos.
 
 ## <a name="example-2-look-up-by-id"></a>Exemplo 2: pesquisar por ID
 
@@ -100,7 +101,7 @@ O próximo exemplo é uma consulta de pesquisa que retorna um documento específ
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## <a name="example-3-filter-queries"></a>Exemplo 3: consultas de filtro
+## <a name="example-3-filter-queries"></a>Exemplo 3: filtrar consultas
 
 A [sintaxe de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) é uma expressão OData que pode ser usada com **pesquisa** ou por si própria. Um filtro independente, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há análise léxica ou linguística, nenhuma pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
 
@@ -179,7 +180,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > [!NOTE]
 > A facetagem em intervalos de valores é um requisito comum de aplicativo de pesquisa. Para obter mais informações e exemplos sobre compilação de filtros para estruturas de faceted navigation, consulte ["Filtrar com base em um intervalo" em *Como implementar faceted navigation*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Exemplo 5: pesquisa geográfica
+## <a name="example-5-geo-search"></a>Exemplo 5: Pesquisa geográfica
 
 O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geo.distance](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) que filtra os documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. É possível ajustar o último valor na consulta (4) para reduzir ou ampliar a área da superfície da consulta.
 
@@ -202,7 +203,7 @@ Também é possível experimentar isso em Postman usando GET:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
-## <a name="example-6-search-precision"></a>Exemplo 6: precisão de pesquisa
+## <a name="example-6-search-precision"></a>Exemplo 6: precisão da pesquisa
 
 Consultas de termo são termos únicos, talvez muitos deles, avaliados independentemente. Consultas de frase são colocadas entre aspas e avaliadas como uma cadeia de caracteres textual. A precisão da correspondência é controlada pelos operadores e pelo searchMode.
 

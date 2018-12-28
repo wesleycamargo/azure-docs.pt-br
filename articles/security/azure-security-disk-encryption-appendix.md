@@ -1,20 +1,22 @@
 ---
-title: Azure Disk Encryption para VMs IaaS Windows e Linux | Microsoft Docs
+title: 'Apêndice: Azure Disk Encryption para VMs IaaS | Microsoft Docs'
 description: Este artigo é o apêndice do Microsoft Azure Disk Encryption para VMs da IaaS do Windows e Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/12/2018
+ms.custom: seodec18
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614660"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310650"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para Azure Disk Encryption 
+
 Este artigo é um apêndice para [Azure Disk Encryption para VMs da IaaS](azure-security-disk-encryption-overview.md). Primeiro leia os artigos do Azure Disk Encryption para VMs da IaaS para compreender o contexto. Este artigo descreve como preparar VHDs pré-criptografados e outras tarefas.
 
 ## <a name="connect-to-your-subscription"></a>Conecte-se as suas assinaturas
@@ -57,7 +59,7 @@ Antes de começar, veja o artigo [Pré-requisitos](azure-security-disk-encryptio
 
 ### <a name="bkmk_ConnectCLI"></a> Conectar a assinatura com CLI do Azure
 
-1. Entre no Azure com [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Entre no Azure com [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -130,6 +132,20 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
  -  [Desabilitar criptografia em uma VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Desabilitar criptografia somente é permitida em volumes de Dados para VMs do Linux.  
 
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Criptografar ou descriptografar conjuntos de dimensionamento de VM
+
+- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Implantar um conjunto de dimensionamento de VMs do Linux com um jumpbox e habilitar a criptografia no VMSS do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Implantar um conjunto de dimensionamento de VMs do Windows com um jumpbox e habilitar a criptografia no VMSS do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Criptografar ou descriptografar VMs com um aplicativo do Azure AD (versão anterior) 
  
 - [Habilitar criptografia de disco em VMs do Windows da IaaS em execução ou existente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
@@ -160,17 +176,7 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 
 - [Habilitar a criptografia de disco em uma VM do Windows em execução usando uma impressão digital de certificado do cliente do Azure AD](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Implantar um conjunto de dimensionamento de VMs do Linux com um jumpbox e habilitar a criptografia no VMSS do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Implantar um conjunto de dimensionamento de VMs do Windows com um jumpbox e habilitar a criptografia no VMSS do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Prepare um VHD do Windows previamente criptografado
 As seções a seguir são necessárias para preparar um VHD do Windows previamente criptografado para implantação como um VHD criptografado no Azure IaaS. Use as informações para preparar e inicializar uma nova VHD (VM do Windows) no Azure Site Recovery ou no Azure. Para obter mais informações sobre como preparar e carregar um VHD, consulte [Carregar um VHD generalizado e usá-lo para criar novas VMs no Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -189,7 +195,7 @@ Para o Windows Server 2008 R2, use o seguinte comando:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparar o volume do sistema operacional para o BitLocker usando `bdehdcfg`
-Para compactar a partição do SO e preparar o computador para BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand), se necessário:
+Para compactar a partição do SO e preparar o computador para BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment), se necessário:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +301,23 @@ Configure a criptografia durante a instalação da distribuição, realizando as
 
 1. Selecione **Configurar volumes criptografados** ao particionar os discos.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Instalação do Ubuntu 16.04: configurar volumes criptografados](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Crie uma unidade de inicialização separada que não deverá ser criptografada. Criptografe a unidade de inicialização.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Instalação do Ubuntu 16.04: selecionar dispositivos para criptografar](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Forneça uma frase secreta. Essa é a senha que você enviou para o cofre de chaves.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Instalação do Ubuntu 16.04: fornecer a frase secreta](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Conclua o particionamento.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Instalação do Ubuntu 16.04: concluir o particionamento](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a frase secreta que forneceu na etapa 3.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Instalação do Ubuntu 16.04: fornecer a frase secreta na inicialização](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Prepare a VM para upload no Azure usando [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute a última etapa (desprovisionamento da VM) ainda.
 
@@ -377,7 +383,7 @@ Configure a criptografia para trabalhar com o Azure, executando as seguintes eta
 
 7. Agora, você poderá desprovisionar a VM.
 
- ![Instalação do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Instalação do Ubuntu 16.04: update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continue na próxima etapa e carregue o VHD no Azure.
 
@@ -385,11 +391,11 @@ Configure a criptografia para trabalhar com o Azure, executando as seguintes eta
 Para configurar a criptografia durante a instalação da distribuição, execute as seguintes etapas:
 1. Ao particionar os discos, selecione **Criptografar o Grupo de Volumes** e digite uma senha. Essa é a senha que você carregará no cofre de chaves.
 
- ![Instalação do openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![Instalação do openSUSE 13.2: criptografar grupo de volume](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Inicialize a VM usando uma senha.
 
- ![Instalação do openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![Instalação do openSUSE 13.2: fornecer a frase secreta na inicialização](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Prepare a VM para carregamento no Azure seguindo as instruções em [Preparar uma máquina virtual do SLES ou openSUSE para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute a última etapa (desprovisionamento da VM) ainda.
 
@@ -453,19 +459,19 @@ para:
 Para configurar a criptografia durante a instalação da distribuição, execute as seguintes etapas:
 1. Selecione **Criptografar meus dados** ao particionar os discos.
 
- ![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![Instalação do CentOS 7: destino da instalação](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Verifique se a opção **Criptografar** está selecionada para a partição raiz.
 
- ![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![Instalação do CentOS 7: selecionar criptografia para a partição raiz](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Forneça uma frase secreta. Essa é a frase secreta que você enviará ao cofre de chaves.
 
- ![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![Instalação do CentOS 7: fornecer a frase secreta](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
-4. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a senha que forneceu na etapa 3.
+4. Quando você inicializar a VM e precisar fornecer uma frase secreta, use a frase secreta que forneceu na etapa 3.
 
- ![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![Instalação do CentOS 7: inserir a frase secreta na inicialização](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Prepare a VM para carregamento no Azure usando as instruções de "CentOS 7.0+" em [Preparar uma máquina virtual baseada em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute a última etapa (desprovisionamento da VM) ainda.
 
@@ -526,7 +532,7 @@ para
     ```    
 5. Execute o “/usr/sbin/dracut -f -v” para atualizar o initrd.
 
-![Instalação do CentOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![Instalação do CentOS 7: executar /usr/sbin/dracut -f -v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Carregar VHD criptografado em uma conta de armazenamento do Azure
 Depois que a criptografia BitLocker ou criptografia DM-Crypt estiver habilitada, o VHD criptografado local precisará ser carregado para a conta de armazenamento.

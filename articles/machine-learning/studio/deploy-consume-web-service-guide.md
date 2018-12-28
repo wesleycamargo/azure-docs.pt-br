@@ -1,12 +1,11 @@
 ---
-title: 'Serviço Web do Machine Learning: implantação e consumo - Azure Machine Learning Studio | Microsoft Docs'
+title: 'Implantação e consumo: Azure Machine Learning Studio | Microsoft Docs'
 description: Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315538"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268420"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implantação e consumo
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning Studio: implantação e consumo
 Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. Como os serviços Web são RESTful, você pode chamá-los por meio de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.
 
 As próximas seções fornecem links para passo a passos, código e documentação para ajudá-lo a se familiarizar.
@@ -37,10 +36,10 @@ Os seguintes links fornecem informações gerais sobre como implantar um novo se
 
 * Para obter uma visão geral de como implantar um novo serviço Web baseado no Azure Resource Manager, consulte [Implantar um novo serviço Web](publish-a-machine-learning-web-service.md).
 * Para ver um passo a passo de como implantar um serviço Web, consulte [Implantar um serviço Web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obter exemplos específicos que implantam um serviço Web, consulte:
 
-  * [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Etapa 5 do passo a passo: implantar um serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Como implantar um serviço Web em várias regiões](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com as APIs do provedor de recursos dos serviços Web (APIs do Azure Resource Manager)
@@ -90,7 +89,7 @@ Você pode testar o serviço Web no portal dos Serviços Web do Azure Machine Le
 
 * [Implantar um novo serviço Web](publish-a-machine-learning-web-service.md)
 * [Implantar um serviço Web de Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Etapa 5 do passo a passo: implantar um serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>No Excel
 Você pode baixar um modelo do Excel que consome o serviço Web:

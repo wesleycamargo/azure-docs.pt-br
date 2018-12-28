@@ -1,5 +1,5 @@
 ---
-title: Planejamento de projetos do Processo de Ciência de Dados de Equipe - Azure  | Microsoft Docs
+title: Planejamento de projetos do Processo de Ciência de Dados de Equipe
 description: Os modelos do Microsoft Project e Excel que ajudam você a planejar e gerenciar projetos de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443093"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137904"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento de projetos do Processo de Ciência de Dados de Equipe
 
@@ -35,7 +35,7 @@ Para obter descrições de cada um desses estágios, consulte [Ciclo de vida do 
  
 ## <a name="microsoft-project-template"></a>Modelo do Microsoft Project
 
-O modelo do Microsoft Project para o Processo de Ciência de Dados de Equipe está disponível aqui: [Modelo do Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+O modelo do Microsoft Project para o Processo de Ciência de Dados de Equipe está disponível aqui: [modelo do Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
 Quando você abrir o plano, clique no link mais à esquerda para o TDSP. Altere o nome e a descrição e, em seguida, adicione os outros recursos de equipe necessários. Estime as datas necessárias com base na sua experiência.
 
@@ -48,7 +48,7 @@ Cada tarefa tem uma anotação. Abra as tarefas para ver os recursos já criados
 
 ## <a name="excel-template"></a>Modelo do Excel
 
-Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos dados também está disponível para download aqui: [Modelo do Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) Você pode usá-la com sua ferramenta preferida.
+Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos dados também está disponível para download aqui: [modelo do Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx). Você pode usá-lo com sua ferramenta preferida.
 
 Use esses modelos por sua conta e risco. Aplicam-se as [isenções de responsabilidade usuais](https://www.gnu.org/licenses/gpl-3.0.en.html).
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
+title: Configurar o tempo de execução de PHP – Serviço de Aplicativo do Azure
 description: Saiba como configurar a instalação padrão do PHP ou adicione uma instalação de PHP personalizada para aplicativos Web no Serviço de Aplicativo do Azure.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230828"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273180"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
 
@@ -28,7 +29,7 @@ Este guia mostra como configurar o tempo de execução do PHP interno para Aplic
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Como: alterar a versão interna do PHP
+## <a name="how-to-change-the-built-in-php-version"></a>Como: Alterar a versão interna do PHP
 
 Por padrão, o PHP 5.6 é instalado e fica imediatamente disponível para uso quando você cria um aplicativo Web do Serviço de Aplicativo. A melhor forma de visualizar a revisão da versão, sua configuração padrão e as extensões habilitadas é implantar um script que chame a função [phpinfo()] .
 
@@ -39,10 +40,10 @@ As versões 7.0 e 7.2 do PHP também estão disponíveis, mas não são habilita
 1. Navegue até o aplicativo Web no [Portal do Azure](https://portal.azure.com) e clique no botão **Configurações**.
 
     ![Configurações do aplicativo Web][settings-button]
-1. Na folha **Configurações**, selecione **Configurações de Aplicativo** e escolha a nova versão do PHP.
+2. Na folha **Configurações**, selecione **Configurações de Aplicativo** e escolha a nova versão do PHP.
 
     ![Configurações do aplicativo][application-settings]
-1. Clique no botão **Salvar** na parte superior da folha **Configurações do aplicativo Web**.
+3. Clique no botão **Salvar** na parte superior da folha **Configurações do aplicativo Web**.
 
     ![Salvar definições de configuração][save-button]
 
@@ -78,7 +79,7 @@ Para usar a Interface de Linha de Comando do Azure, você deve [Instalar a CLI d
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Como: alterar as configurações internas do PHP
+## <a name="how-to-change-the-built-in-php-configurations"></a>Como: Alterar as configurações internas do PHP
 
 Para qualquer tempo de execução interno do PHP, é possível alterar qualquer uma das opções de configuração seguindo estas etapas. (Para obter informações sobre diretrizes de php. ini, consulte [Lista de diretrizes php.ini].)
 
@@ -109,7 +110,7 @@ Uma alternativa ao uso de um arquivo `.user.ini` é usar a função [ini_set()] 
         wincache.maxfilesize=512
 1. Para recarregar as alterações, reinicie o aplicativo Web.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Como: habilitar extensões no tempo de execução padrão do PHP
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Como: Habilitar extensões no tempo de execução padrão do PHP
 
 Conforme indicado na seção anterior, a melhor forma de visualizar a versão padrão do PHP, sua configuração padrão e as extensões habilitadas é implantar um script que chame [phpinfo()]. Para habilitar extensões adicionais, siga estas etapas:
 
@@ -144,11 +145,11 @@ Conforme indicado na seção anterior, a melhor forma de visualizar a versão pa
 
 Também há suporte para extensões Zend usando uma chave **PHP_ZENDEXTENSIONS**. Para habilitar várias extensões, inclua uma lista de arquivos `.dll` separados por vírgulas para o valor de configuração do aplicativo.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Como: usar um tempo de execução personalizado do PHP
+## <a name="how-to-use-a-custom-php-runtime"></a>Como: Usar um tempo de execução personalizado do PHP
 
 Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de Aplicativo podem usar um tempo de execução de PHP fornecido por você para executar scripts PHP. O tempo de execução que você fornece pode ser configurado por um arquivo `php.ini` também fornecido por você. Para usar um tempo de execução do PHP personalizado com Aplicativos Web, siga estas etapas.
 
-1. Obtenha uma versão do PHP ou VC11 para Windows que seja não thread safe e compatível com a versão VC9. Versões recentes do PHP para Windows podem ser encontradas aqui: [http://windows.php.net/download/]. Versões mais antigas podem ser encontradas no arquivo aqui: [http://windows.php.net/downloads/releases/archives/].
+1. Obtenha uma versão do PHP ou VC11 para Windows que seja não thread safe e compatível com a versão VC9. Versões recentes do PHP para Windows podem ser encontradas aqui: [https://windows.php.net/download/]. Versões mais antigas podem ser encontradas no arquivo aqui: [https://windows.php.net/downloads/releases/archives/].
 1. Modifique o arquivo `php.ini` para o seu tempo de execução. Quaisquer definições de configuração que sejam diretivas somente de nível do sistema são ignoradas pelos Aplicativos Web. (Para informações sobre diretrizes de nível de sistema apenas, consulte [Lista de diretrizes php.ini].)
 1. Opcionalmente, adicione extensões para o seu tempo de execução do PHP e habilite-as no arquivo `php.ini` .
 1. Adicione o diretório `bin` ao seu diretório raiz e coloque lá o diretório que contém o seu tempo de execução do PHP (por exemplo, `bin\php`).
@@ -165,7 +166,7 @@ Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de 
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Como habilitar a automação do Criador no Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Como: Habilitar a automação do Criador no Azure
 
 Por padrão, o Serviço de Aplicativo não fará nada com o composer.json se você tiver um em seu projeto PHP. Se você usar a [implantação Git](app-service-deploy-local-git.md), você poderá habilitar o composer.json durante o `git push` habilitando a extensão do Criador.
 
@@ -196,7 +197,7 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](https://az
 >
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista de diretrizes php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](https://az
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

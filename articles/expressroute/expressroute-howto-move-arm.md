@@ -1,28 +1,21 @@
 ---
-title: Mova os circuitos de ExpressRoute do clássico para o Resource Manager | Microsoft Docs
+title: 'Mover circuitos clássicos para o Resource Manager – ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Esta página descreve como mover um circuito clássico para o modelo de implantação do Resource Manager usando o PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.custom: seodec18
+ms.openlocfilehash: fae5ad4a9045115c0e7a68b0164593f639824073
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100412"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141485"
 ---
-# <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos de ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
+# <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos do ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
 
 Para usar um circuito do ExpressRoute para os modelos de implantação clássico e do Resource Manager, você deve mover o circuito para o modelo de implantação do Resource Manager. As seções a seguir lhe ajudarão a mover seu circuito usando o PowerShell.
 
@@ -36,7 +29,7 @@ Para usar um circuito do ExpressRoute para os modelos de implantação clássico
 
 ## <a name="move-an-expressroute-circuit"></a>Mover um circuito de ExpressRoute
 
-### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: Coletar detalhes do circuito do modelo de implantação clássico
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: reunir detalhes do circuito do modelo de implantação clássico
 
 Entre no ambiente clássico do Azure e obtenha a chave de serviço.
 
@@ -65,7 +58,7 @@ Entre no ambiente clássico do Azure e obtenha a chave de serviço.
   Get-AzureDedicatedCircuit
   ```
 
-### <a name="step-2-sign-in-and-create-a-resource-group"></a>Etapa 2: Entrar e criar um grupo de recursos
+### <a name="step-2-sign-in-and-create-a-resource-group"></a>Etapa 2: entrar e criar um grupo de recursos
 
 Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
 
@@ -81,17 +74,17 @@ Entre no ambiente do Resource Manager e crie um novo grupo de recursos.
   Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
   ```
 
-3. Modifique o trecho a seguir para criar um novo grupo de recursos se você ainda não tiver um grupo de recursos.
+3. Modifique o snippet a seguir para criar um novo grupo de recursos se você ainda não tiver um grupo de recursos.
 
   ```powershell
   New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
-### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mover o circuito de ExpressRoute para o modelo de implantação do Gerenciador de Recursos
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mova o circuito de ExpressRoute para o modelo de implantação do Gerenciador de Recursos
 
 Agora você está pronto para mover o circuito de ExpressRoute do modelo de implantação clássico para o do Resource Manager. Antes de prosseguir, examine as informações fornecidas em [Como mover circuitos de ExpressRoute do modelo de implantação clássico para o Resource Manager](expressroute-move.md).
 
-Para mover o circuito, modifique e execute o trecho a seguir:
+Para mover o circuito, modifique e execute o snippet a seguir:
 
 ```powershell
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"

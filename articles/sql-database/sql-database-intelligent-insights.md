@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976174"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278127"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights usando IA para monitorar e solucionar problemas de desempenho de banco de dados
 
@@ -84,10 +84,10 @@ Para obter mais informações sobre como habilitar o log do Intelligent Insights
 A solução da Análise de SQL do Azure fornece interface gráfica do usuário, recursos de relatórios e alertas sobre o desempenho do banco de dados, juntamente com os dados do log de diagnóstico do Intelligent Insights.
 
 > [!TIP]
-> Introdução rápido: a maneira mais fácil para começar a usar os Intelligent Insights do zero é usá-los junto com a Análise de SQL do Azure, que fornece uma interface gráfica do usuário para problemas de desempenho do banco de dados. Adicione a solução de Análise de SQL do Azure no marketplace, crie um workspace dentro dessa solução e, em seguida, para cada banco de dados no qual você deseja habilitar o recurso Intelligent Insights, configure o streaming do log "SQLInsights" na folha de configurações Diagnóstico de um banco de dados para o workspace da Análise de SQL do Azure.
+> Introdução rápida: a maneira mais fácil para começar a usar os Intelligent Insights é usá-los com a Análise de SQL do Azure, que fornece uma interface gráfica do usuário para problemas de desempenho do banco de dados. Adicione a solução de Análise de SQL do Azure no marketplace, crie um workspace dentro dessa solução e, em seguida, para cada banco de dados no qual você deseja habilitar o recurso Intelligent Insights, configure o streaming do log "SQLInsights" na folha de configurações Diagnóstico de um banco de dados para o workspace da Análise de SQL do Azure.
 >
 
-Os pré-requisitos são adicionar a Análise de SQL do Azure ao seu painel do portal do Azure no marketplace e criar um workspace. Consulte [Configurar a Análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md#configuration)
+Os pré-requisitos são adicionar a Análise de SQL do Azure ao seu painel do portal do Azure no marketplace e criar um workspace. Consulte [Configurar a Análise de SQL do Azure](../azure-monitor/insights/azure-sql.md#configuration)
 
 Para usar o Intelligent Insights com a Análise de SQL do Azure, configure os dados de log do Intelligent Insights para serem transmitidos para o workspace da Análise de SQL do Azure criado em uma etapa anterior, consulte [Métricas e log de diagnóstico do Banco de Dados SQL do Azure](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Se qualquer uma das exceções críticas monitoradas cruzar os limites absolutos
 
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use o [log de diagnóstico de desempenho do Banco de dados SQL com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Saiba como [monitorar o Banco de Dados SQL por meio de Análise de SQL](../log-analytics/log-analytics-azure-sql.md).
+- Saiba como [monitorar o Banco de Dados SQL por meio de Análise de SQL](../azure-monitor/insights/azure-sql.md).
 - Saiba como [coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

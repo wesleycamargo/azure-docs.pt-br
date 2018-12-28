@@ -1,5 +1,5 @@
 ---
-title: Criando blueprints dinâmicos por meio de parâmetros no Azure Blueprints
+title: Use parâmetros para criar blueprints dinâmicos
 description: Conheça parâmetros estáticos e dinâmicos e como sua utilização cria blueprints dinâmicos.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093744"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310310"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -57,7 +58,7 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Clique em um blueprint existente e, em seguida, em **Editar Blueprint** OU clique em **+ Criar Blueprint** e preencha as informações na guia **Básico**.
 
-1. Clique em **Próximo: artefatos** OU clique na guia **Artefatos**.
+1. Clique em **Avançar: Artefatos** OU clique na guia **Artefatos**.
 
 1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Clique na linha do artefato para editar os seus parâmetros.
 

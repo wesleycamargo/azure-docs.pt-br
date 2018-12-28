@@ -1,20 +1,18 @@
 ---
-title: Cenários e casos de uso comuns do Azure Cosmos DB | Microsoft Docs
+title: Cenários e casos de uso comuns do Azure Cosmos DB
 description: 'Saiba mais sobre os cinco principais casos de uso do Azure Cosmos DB: conteúdo gerado pelo usuário, log de eventos, dados de catálogo, dados de preferências do usuário e IoT (Internet das Coisas).'
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: sngun
-ms.openlocfilehash: 50bc70fa18bc8fb04e4f8117340c66665204282c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251066"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079170"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de uso comuns do Azure Cosmos DB.  As recomendações deste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Cosmos DB.   
@@ -29,7 +27,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 ## <a name="introduction"></a>Introdução
 O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de banco de dados distribuído globalmente da Microsoft. O serviço foi projetado para permitir aos clientes dimensionar de forma elástica (e independente) a produtividade e o armazenamento em qualquer quantidade de regiões geográficas. O Azure Cosmos DB é o primeiro serviço de banco de dados distribuído globalmente no mercado hoje a oferecer [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/cosmos-db/) completos que abrangem produtividade, latência, disponibilidade e consistência. 
 
-O Azure Cosmos DB é um multimodelo de banco de dados distribuído globalmente que é usado em uma ampla variedade de aplicativos e casos de uso. É uma boa escolha para qualquer aplicativo [sem servidor](http://azure.com/serverless) que precisa de tempos de resposta baixos na ordem de milissegundos e ser expandido de forma rápida e global. Ele dá suporte a vários modelos de dados (chave-valor, documentos, grafos e colunas) e várias APIs para acesso a dados, incluindo [API do MongoDB](mongodb-introduction.md), [API do SQL](documentdb-introduction.md), [API do Gremlin](graph-introduction.md) e [API de Tabelas](table-introduction.md) nativamente e de maneira extensível. 
+O Azure Cosmos DB é um multimodelo de banco de dados distribuído globalmente que é usado em uma ampla variedade de aplicativos e casos de uso. É uma boa escolha para qualquer aplicativo [sem servidor](https://azure.com/serverless) que precisa de tempos de resposta baixos na ordem de milissegundos e ser expandido de forma rápida e global. Ele dá suporte a vários modelos de dados (chave-valor, documentos, grafos e colunas) e várias APIs para acesso a dados, incluindo [API do MongoDB](mongodb-introduction.md), [API do SQL](documentdb-introduction.md), [API do Gremlin](graph-introduction.md) e [API de Tabelas](table-introduction.md) nativamente e de maneira extensível. 
 
 Veja a seguir alguns atributos do Azure Cosmos DB que o tornam adequado para aplicativos de alto desempenho no âmbito global.
 
@@ -62,7 +60,7 @@ Considere um exemplo de um catálogo de produto para um fornecedor de peças aut
 
 ![Arquitetura de referência de catálogo para varejo do Azure Cosmos DB](./media/use-cases/product-catalog.png)
 
-O Azure Cosmos DB é frequentemente usado para fornecimento de eventos para alimentar arquiteturas orientadas por eventos, usando sua funcionalidade de [feed de alterações](change-feed.md). O feed de alterações fornece a capacidade de ler inserções e atualizações (por exemplo, eventos de pedidos) de forma confiável e incremental feitas em um Azure Cosmos DB, até o nível de microsserviços. Essa funcionalidade pode ser aproveitada para fornecer um repositório persistente de eventos, como um agente de mensagens para eventos de alteração de estado e direcionar o fluxo de trabalho de processamento de pedidos entre muitos microsserviços (que podem ser implementados como [Azure Functions sem servidor](http://azure.com/serverless)).
+O Azure Cosmos DB é frequentemente usado para fornecimento de eventos para alimentar arquiteturas orientadas por eventos, usando sua funcionalidade de [feed de alterações](change-feed.md). O feed de alterações fornece a capacidade de ler inserções e atualizações (por exemplo, eventos de pedidos) de forma confiável e incremental feitas em um Azure Cosmos DB, até o nível de microsserviços. Essa funcionalidade pode ser aproveitada para fornecer um repositório persistente de eventos, como um agente de mensagens para eventos de alteração de estado e direcionar o fluxo de trabalho de processamento de pedidos entre muitos microsserviços (que podem ser implementados como [Azure Functions sem servidor](https://azure.com/serverless)).
 
 ![Arquitetura de referência de pipeline de ordenação do Azure Cosmos DB](./media/use-cases/event-sourcing.png)
 
@@ -71,7 +69,7 @@ Além disso, os dados armazenados no Azure Cosmos DB podem ser integrados com o 
 ## <a name="gaming"></a>Jogos
 A camada de banco de dados é um componente essencial dos aplicativos de jogos. Os jogos modernos executam o processamento gráfico em clientes móveis/console, mas dependem da nuvem para fornecer conteúdo personalizado, como estatísticas de jogos, integração em mídia social e tabelas com as melhores pontuações. Jogos geralmente exigem latências de um milissegundo para leituras e gravações a fim de fornecer uma experiência de jogo envolvente. Um banco de dados de jogo deve ser rápido e ser capaz de lidar com grandes picos de taxas de solicitação durante novos lançamentos de jogos e atualizações de recursos.
 
-O Azure Cosmos DB é usado por jogos como [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) da [Next Games](http://www.nextgames.com/) e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). O Azure Cosmos DB oferece os seguintes benefícios aos desenvolvedores de jogos:
+O Azure Cosmos DB é usado por jogos como [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) da [Next Games](https://www.nextgames.com/) e [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). O Azure Cosmos DB oferece os seguintes benefícios aos desenvolvedores de jogos:
 
 * O Azure Cosmos DB permite que o desempenho seja aumentado ou reduzido de forma elástica. Isso permite que os jogos lidem com a atualização de perfis e estatísticas de dezenas a milhões de jogadores simultâneos fazendo uma única chamada à API.
 * O Azure Cosmos DB dá suporte a leituras e gravações em milissegundos para ajudar a evitar retardos durante as partidas.
@@ -106,18 +104,18 @@ Para começar a usar o Azure Cosmos DB, siga nossos [inícios rápidos](create-s
 Ou se desejar ler mais sobre os clientes que usam o Cosmos DB, os seguintes relatos de clientes estão disponíveis:
 
 * [Jet.com](https://jet.com). Rivais de comércio eletrônico de olho no sucesso executam o Microsoft Cloud e utilizam o Cosmos DB em uma escala global.
-* [Asos.com](http://www.asos.com/). Asos.com é uma loja online de produtos de beleza e moda do Reino Unido. Voltada principalmente para jovens adultos, a Asos vende mais de 850 marcas, bem como sua própria linha de roupas e acessórios.
+* [Asos.com](https://www.asos.com/). Asos.com é uma loja online de produtos de beleza e moda do Reino Unido. Voltada principalmente para jovens adultos, a Asos vende mais de 850 marcas, bem como sua própria linha de roupas e acessórios.
 * [Toyota](https://www.toyota.com/). A Toyota Motor Corporation é um fabricante automotivo japonês. A Toyota utilizou o Cosmos DB para um aplicativo de IoT global.
 * [Citrix](https://customers.microsoft.com/story/citrix). A Citrix desenvolve uma solução de logon único usando o Azure Service Fabric e o Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) A solução de IoT revolucionária da TEXA para proprietários de veículos ajuda a economizar tempo, dinheiro e combustível – e possivelmente, vidas.
 * [Domino's Pizza](https://www.dominos.com). A Domino's Pizza Inc. é uma cadeia de restaurantes especializados em pizza dos EUA.
-* [Johnson Controls](http://www.johnsoncontrols.com). A Johnson Controls é líder global em vários setores e tecnologias diversificadas que atende a uma ampla variedade de clientes em mais de 150 países.
+* [Johnson Controls](https://www.johnsoncontrols.com). A Johnson Controls é líder global em vários setores e tecnologias diversificadas que atende a uma ampla variedade de clientes em mais de 150 países.
 * [Microsoft Windows, Universal Store, Hub IoT do Azure, Xbox Live e outros serviços de escala da Internet](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Como a Microsoft cria serviços altamente escalonáveis usando o Azure Cosmos DB.
 * [Equipe de Dados e Análise da Microsoft](https://customers.microsoft.com/story/microsoftdataandanalytics). A equipe de Dados e Análise da Microsoft obtém uma coleção de Big Data de escala mundial com o Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). A Sulekha usa o Azure Cosmos DB para conectar clientes e empresas em toda a Índia.
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). A NewOrbit decola com o Azure Cosmos DB.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). A Affinio alterna entre o AWS e o Azure Cosmos DB para aproveitar dados sociais em grande escala.
-* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). O jogo The Walking Dead: No Man's Land alcança o primeiro lugar com o apoio do Azure Cosmos DB.
+* [Next Games](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). The Walking Dead: No Man's Land alcança o primeiro lugar com o apoio do Azure Cosmos DB.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Como a Halo 5 implementou partidas sociais usando o Azure Cosmos DB.
 * [Cortana Analytics Gallery](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Galeria do Cortana Analytics – um site da comunidade escalonável criado com base no Azure Cosmos DB.
 * [Breeze](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Integrador líder oferece a empresas multinacionais informações globais em minutos com as tecnologias de nuvem flexíveis.

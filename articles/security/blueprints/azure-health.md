@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407547"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315767"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Projeto de Segurança e Conformidade do Azure: dados de integridade de HIPAA/HITRUST e IA
 
@@ -59,9 +59,9 @@ A arquitetura fundamental é composta pelos componentes a seguir:
 
 -   **[Matriz de implementação do cliente](https://aka.ms/healthcrmblueprint)** Uma pasta de trabalho do Microsoft Excel lista os requisitos HITRUST relevantes e explica como a Microsoft e o cliente são responsáveis pelo cumprimento de cada um desses requisitos.
 
--   **[Análise de integridade.](https://aka.ms/healthreviewpaper)** A solução foi revisada pela Coalfire Systems, Inc. A Análise de Conformidade de Integridade (HIPAA e HITRUST) e diretrizes para implantação fornecem uma análise do \'auditor da solução e considerações para transformar o projeto em uma implantação pronta para produção.
+-   **[Análise de integridade.](https://aka.ms/healthreviewpaper)** A solução foi revisada pela Coalfire Systems, Inc. A Revisão de Conformidade de Integridade (HIPAA e HITRUST) e a diretriz de implementação fornecem a análise de um auditor da solução e considerações para transformar a blueprint em uma implantação de produção.
 
-# <a name="architectural-diagram"></a>Diagrama de arquitetura
+## <a name="architectural-diagram"></a>Diagrama de arquitetura
 
 
 ![](images/ra2.png)
@@ -76,9 +76,9 @@ O projeto define duas funções para usuários administrativos (operadores) e tr
 
 O administrador de site é responsável pela assinatura do Azure do cliente. Eles controlam a implantação geral, mas não têm acesso aos registros de pacientes.
 
--   Atribuições de função padrão: [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Atribuições de funções padrão: [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Atribuições de função personalizadas: N/A
+-   Atribuições de funções personalizadas: N/D
 
 -   Escopo: Assinatura
 
@@ -87,9 +87,9 @@ O administrador de site é responsável pela assinatura do Azure do cliente. Ele
 O analista de banco de dados administra o banco de dados e a instância do SQL Server.
 Eles não têm acesso aos registros de pacientes.
 
--   Atribuições de função interna: [Colaborador de banco de dados SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   Atribuições de funções internas: [Colaborador de banco de dados SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Atribuições de função personalizadas: N/A
+-   Atribuições de funções personalizadas: N/D
 
 -   Escopo: ResourceGroup
 
@@ -98,9 +98,9 @@ Eles não têm acesso aos registros de pacientes.
 
 O cientista de dados opera o Azure Machine Learning Studio. Eles podem importar, exportar e gerenciar dados e executar relatórios. O cientista de dados tem acesso aos dados do paciente, mas não tem privilégios administrativos.
 
--   Atribuições de função internas: [Colaborador da Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Atribuições de funções internas: [Colaborador da Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Atribuições de função personalizadas: N/A
+-   Atribuições de funções personalizadas: N/D
 
 -   Escopo: ResourceGroup
 
@@ -109,7 +109,7 @@ O cientista de dados opera o Azure Machine Learning Studio. Eles podem importar,
 
 O CMIO permeiam a divisão entre informática/tecnologia e profissionais de saúde em uma organização de saúde. Suas obrigações geralmente incluem o uso de análises para determinar se os recursos estão sendo alocados adequadamente dentro da organização.
 
--   Atribuições de função internas: Nenhuma
+-   Atribuições de funções internas: Nenhum
 
 ### <a name="care-line-manager"></a>Gerente de enfermagem
 
@@ -117,9 +117,9 @@ O CMIO permeiam a divisão entre informática/tecnologia e profissionais de saú
 O Gerente de enfermagem está diretamente envolvido com o cuidado dos pacientes.
 Essa função exige o monitoramento do status de cada paciente, bem como a certeza de que a equipe está disponível para atender às demandas de cuidados de seus pacientes. O gerente de enfermagem é responsável por adicionar e atualizar registros de pacientes.
 
--   Atribuições de função internas: Nenhuma
+-   Atribuições de funções internas: Nenhum
 
--   Atribuições de função personalizadas: tem privilégio para executar HealthcareDemo.ps1 para fazer tanto a Admissão do paciente como a Alta do paciente.
+-   Atribuições de funções personalizadas: tem privilégio para executar HealthcareDemo.ps1 para fazer a Admissão e a Alta do paciente.
 
 -   Escopo: ResourceGroup
 
@@ -128,9 +128,9 @@ Essa função exige o monitoramento do status de cada paciente, bem como a certe
 
 O auditor avalia a conformidade da solução. Eles não têm acesso direto à rede.
 
--   Atribuições de função internas: [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Atribuições de funções internas: [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Atribuições de função personalizadas: N/A
+-   Atribuições de funções personalizadas: N/D
 
 -   Escopo: Assinatura
 
@@ -150,19 +150,19 @@ O projeto inclui um grande conjunto de registros médicos anônimos para demonst
 
 **Administrador de site -- Alexandre**
 
-*Email: Alexandre\_SiteAdmin*
+*Email: Pedro\_SiteAdmin*
 
 O trabalho de Alexandre é avaliar tecnologias que podem reduzir o custo indireto do gerenciamento de uma rede local e reduzir os custos de gerenciamento. Alexandre tem avaliado o Azure há algum tempo, mas tem dificuldades em configurar os serviços necessários para atender aos requisitos de conformidade da HiTrust para armazenar os Dados do Paciente na nuvem. Alexandre selecionou o AI de Integridade do Azure para implementar uma solução de integridade em conformidade, que abordou os requisitos para atender aos requisitos do cliente para HiTrust.
 
 **Cientista de dados -- Débora**
 
-*Email: Debora\_DataScientist*
+*Email: Brenda\_DataScientist*
 
 Débora é responsável por usar e criar modelos que analisam registros médicos para fornecer informações sobre o atendimento ao paciente. Débora usa SQL e a linguagem de programação estatística R para criar seus modelos.
 
 **Analista de Banco de Dados -- Daniel**
 
-*Email: Daniel\_DBAnalyst*
+*Email: Vinícius\_DBAnalyst*
 
 Daniel é o principal contato para assuntos relacionados ao Microsoft SQL Server, que armazena todos os dados de pacientes da Contosoclínica. Daniel é um administrador experiente do administrador do SQL Server que recentemente familiarizou-se com o Banco de Dados SQL do Microsoft Azure.
 
@@ -173,18 +173,18 @@ Carolina usa as previsões da solução LOS (duração de permanência) para det
 
 **Gerente de enfermagem -- Diogo**
 
-*Email: Diogo\_CareLineManager*
+*Email: Paulo\_CareLineManager*
 
 Como o indivíduo diretamente responsável pela gestão de admissão e alta de pacientes na Contosoclínica, Diogo usa as previsões geradas pela solução LOS para garantir que funcionários adequados estejam disponíveis para prestar atendimento aos pacientes enquanto estiverem hospedados nas instalações.
 
 **Auditor -- Henrique**
 
-*Email: Henrique\_Auditor*
+*Email: Diogo\_Auditor*
 
 Henrique é um auditor certificado que tem experiência de auditoria para ISO, SOC e HiTrust. Henrique foi contratado para avaliar a rede da Contosoclínica. Henrique pode revisar a Matriz de Responsabilidades do Cliente fornecida com a solução para garantir que o modelo e a solução LOS possam ser utilizados para armazenar, processar e exibir dados pessoais confidenciais.
 
 
-# <a name="design-configuration"></a>Configuração de design
+## <a name="design-configuration"></a>Configuração de design
 
 
 Esta seção detalha as configurações padrão e as medidas de segurança internas no Projeto descritas para:
@@ -345,8 +345,8 @@ A solução dá suporte para a Grade de Eventos do Azure, um único serviço par
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [Registro em log está habilitado](/azure/machine-learning/studio/web-services-logging) para serviços Web do Machine Learning Studio.
-- usar o workbench do [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) requer o desenvolvimento de experimentos, que permitem prever um conjunto de soluções. [Integrar o Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) pode ajudar a agilizar o gerenciamento de experimentos.
+- [Registro em log está habilitado](/azure/machine-learning/studio/web-services-logging) para serviços Web do Machine Learning Studio.
+- Usar o [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) requer o desenvolvimento de experimentos que proporcionam a capacidade de prever um conjunto de soluções.
 
 ## <a name="security"></a>SEGURANÇA
 

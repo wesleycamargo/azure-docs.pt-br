@@ -1,6 +1,6 @@
 ---
-title: Regras e pontos de extremidade de serviço de Rede Virtual para Hubs de Eventos do Azure | Microsoft Docs
-description: Adicione um ponto de extremidade de serviço Microsoft.EventHub a uma rede virtual.
+title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço Microsoft.EventHub a uma rede virtual.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,25 +8,43 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408125"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273486"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar pontos de extremidade de serviço de Rede Virtual com Hubs de Eventos do Azure
 
-A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades. 
-
-> [!IMPORTANT]
-> As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não tem suporte na camada básica. 
+A integração de Hubs de Eventos com [Pontos de extremidade de serviço de VNet (rede virtual)][vnet-sep] permite acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede sendo protegido em ambas as extremidades.
 
 Após ser configurado para associar-se a pelo menos um ponto de extremidade de serviço de sub-rede da rede virtual, o respectivo namespace de Hubs de Eventos não aceitará mais tráfego de nenhum lugar, exceto das sub-redes autorizadas em redes virtuais. Da perspectiva da rede virtual, a associação de um namespace de Hubs de Eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de sistema de mensagens.
 
 O resultado é um relacionamento privado e isolado entre as cargas de trabalho associadas à sub-rede e o respectivo namespace de Hubs de Eventos, apesar do endereço de rede observável do ponto de extremidade de serviço de mensagens estar em um intervalo de IP público.
+
+>[!WARNING]
+> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure interajam com Hubs de Eventos.
+>
+> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas e isto será disponibilizada em breve.
+>
+> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
+> - Azure Monitor
+> - Stream Analytics do Azure
+> - Integração com a Grade de Eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer do Azure IoT
+> - Azure Data Explorer
+>
+> Os serviços da Microsoft abaixo devem estar em uma rede virtual
+> - Aplicativos Web do Azure 
+> - Funções do Azure
+
+> [!IMPORTANT]
+> As redes virtuais têm suporte nas camadas **standard** e **dedicada** dos Hubs de Eventos. Não tem suporte na camada básica.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração de VNet 
 
@@ -42,53 +60,128 @@ As *regras de rede virtual* são o recurso de segurança do firewall que control
 
 Associar um namespace de Hubs de Eventos a uma rede virtual é um processo de duas etapas. Primeiro é necessário criar um **ponto de extremidade de Rede Virtual** em uma sub-rede de Rede Virtual e habilitá-lo para "Microsoft.EventHub", conforme explicado na [visão geral do ponto de extremidade de serviço][vnet-sep]. Após adicionar o ponto de extremidade de serviço, você associa o namespace de Hubs de Eventos ao ponto de extremidade com uma *regra de rede virtual*.
 
-A regra de rede virtual é uma associação nomeada do namespace de Hubs de Eventos com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Hubs de Eventos. Os próprios Hubs de Eventos nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
+A regra de rede virtual é uma associação do namespace de Hubs de Eventos com uma sub-rede de rede virtual. Embora a regra exista, todas as cargas de trabalho associadas à sub-rede recebem acesso ao namespace de Hubs de Eventos. Os próprios Hubs de Eventos nunca estabelecem conexões de saída, não precisam obter acesso e, portanto, nunca recebem acesso à sub-rede habilitando essa regra.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos do Azure Resource Manager
 
 O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Hubs de Eventos existente.
 
-Parâmetros do modelo:
+Parâmetros de modelo:
 
-* **namespaceName**: namespace de Hubs de Eventos.
+* **namespaceName**: namespace dos Hubs de Eventos.
 * **vnetRuleName**: nome da regra de Rede Virtual a ser criada.
 * **virtualNetworkingSubnetId**: caminho do Resource Manager totalmente qualificado para a sub-rede da rede virtual, por exemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
+> [!NOTE]
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, o que não restringe as conexões.
+> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> 
+> de
+> ```json
+> "defaultAction": "Allow"
+> ```
+> para
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.EventHub/namespaces/VirtualNetworkRules",         
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.EventHub"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].

@@ -1,5 +1,5 @@
 ---
-title: Passo a passo de execução do Processo de Ciência de Dados de Equipe no Azure | Microsoft Docs
+title: Passo a passo da execução do Processo de Ciência de Dados de Equipe no Azure
 description: Como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495900"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132679"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
@@ -42,5 +42,5 @@ Para uma discussão sobre os principais componentes do Processo de Ciência de D
 
 Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados. 
 
-Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](https://aka.ms/datascienceprocess). 
+Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

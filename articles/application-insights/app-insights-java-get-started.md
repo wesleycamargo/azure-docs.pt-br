@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309082"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994384"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights em um projeto Web Java
 
@@ -75,7 +74,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
     </dependencies>
 ```
 
-* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>2.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>2.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Precisa atualizar para um novo SDK?*  Atualize as dependências do seu projeto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Se você estiver usando o Gradle... <a name="gradle-setup" />
@@ -98,7 +97,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Se você está usando o Eclipse para criar um projeto Web dinâmico...
 Use o [plug-in SDK do Application Insights para Java][eclipse]. Observação: embora o uso desse plug-in deixe o Application Insights pronto mais rapidamente (supondo que você não esteja usando Maven/Gradle), ele não é um sistema de gerenciamento de dependência. Como tal, o plug-in de atualização não atualizará automaticamente as bibliotecas do Application Insights no seu projeto.
 
-* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `version:'2.0.n'`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `version:'2.0.n'`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefatos Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Para atualizar para um novo SDK* Atualize as dependências do seu projeto.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Caso contrário, se você estiver gerenciando as dependências manualmente...
@@ -325,7 +324,7 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Análise: linguagem de consulta poderosa
+### <a name="analytics-powerful-query-language"></a>Analytics: Linguagem de consulta poderosa
 À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](app-insights-analytics.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/app-insights-java-get-started/025.png)
