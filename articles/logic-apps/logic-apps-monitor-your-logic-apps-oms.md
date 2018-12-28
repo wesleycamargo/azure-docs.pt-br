@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995636"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorar aplicativos lógicos com o Log Analytics do Azure
 
@@ -23,11 +23,11 @@ Para monitorar e obter detalhes mais avançados da depuração de seus aplicativ
 Para ativar o Log Analytics do Azure para aplicativos lógicos existentes, siga essas etapas para [ativar o log de diagnósticos e enviar dados de tempo de execução do aplicativo lógico para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Anteriormente, esta página descrevia as etapas para executar essas tarefas com o OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), substituindo essas etapas pelo Azure Log Analytics. 
+> Anteriormente, esta página descrevia as etapas para executar essas tarefas com o OMS (Microsoft Operations Management Suite), que será [desativado em janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), substituindo essas etapas pelo Azure Log Analytics. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de começar, é necessário ter um workspace do Log Analytics. Saiba [como criar um workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registro em log de diagnóstico durante a criação de aplicativos lógicos
 
@@ -116,17 +116,17 @@ Após o aplicativo lógico ser executado, você pode exibir o status e a contage
 
      Quaisquer propriedades rastreadas recém-adicionada poderão demorar de 10 a 15 minutos antes de aparecerem pela primeira vez. Saiba [como adicionar propriedades rastreadas ao seu aplicativo lógico](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Reenviar:** você pode enviar novamente uma ou mais execuções de aplicativo lógico que falharam, que obtiveram êxito ou que ainda estão em andamento. Marque as caixas de seleção das execuções que você deseja reenviar e escolha **Reenviar**. 
+   * **Reenviar:** É possível reenviar uma ou mais execuções de aplicativos lógicos que falharam, obtiveram êxito ou que ainda estejam em execução. Marque as caixas de seleção das execuções que você deseja reenviar e escolha **Reenviar**. 
 
      ![Reenviar execuções de aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Para filtrar esses resultados, execute a filtragem tanto no lado do cliente quanto no lado do servidor.
 
-   * **Filtro do lado do cliente**: para cada coluna, escolha os filtros que desejar, por exemplo:
+   * **Filtro do lado do cliente**: Para cada coluna, escolha os filtros desejados, por exemplo:
 
      ![Exemplo de filtros de coluna](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtro no lado do servidor**:para escolher um período específico, ou para limitar o número de execuções exibidas, use o controle de escopo na parte superior da página. Por padrão, apenas 1.000 registros aparecem por vez.
+   * **Filtro do lado do servidor**: Para escolher uma janela de tempo específica ou limitar o número de execuções exibidas, use o controle de escopo na parte superior da página. Por padrão, apenas 1.000 registros aparecem por vez.
    
      ![Alterar o período](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281346"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386495"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Consultar o Azure Log Analytics para monitorar clusters HDInsight
 
@@ -46,7 +46,7 @@ Saiba como procurar métricas específicas para seu cluster HDInsight.
 
 5. No painel esquerdo, em **Tipo**, selecione uma métrica que você deseja examinar em profundidade e selecione **Aplicar**. A captura de tela mostra que o tipo `metrics_resourcemanager_queue_root_default_CL` é selecionado.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Talvez você precise selecionar o botão **[+]Mais** para localizar a métrica que você está procurando. Além disso, o botão **Aplicar** está na parte inferior da lista. Portanto, você deve rolar para baixo para vê-lo.
 
     Observe que a consulta na caixa de texto muda para a mostrada na caixa realçada na captura de tela a seguir:
@@ -115,7 +115,7 @@ Para editar ou excluir um alerta existente:
 1. Abra o workspace de Log Analytics no portal do Azure.
 2. No menu esquerdo, selecione **Alerta**.
 3. Selecione o alerta que você deseja editar ou excluir.
-4. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar**, e **Excluir**.
+4. Você tem as seguintes opções: **Salvar**, **Descartar**, **Desabilitar** e **Excluir**.
 
     ![Edição de exclusão de alerta do Log Analytics do HDInsight](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

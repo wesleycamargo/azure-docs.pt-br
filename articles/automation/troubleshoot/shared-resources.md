@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com recursos compartilhados da Autom
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848452"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 
@@ -21,15 +21,15 @@ Este artigo discute soluções para resolver problemas que podem ser encontrados
 
 ## <a name="modules"></a>Módulos
 
-### <a name="module-stuck-importing"></a>Cenário: Um módulo está paralisado importando
+### <a name="module-stuck-importing"></a>Cenário: Um Módulo está paralisado importando
 
 #### <a name="issue"></a>Problema
 
-Quando você importa ou atualiza seus módulos na automação do Azure, encontra um módulo que está preso no estado **Importando**.
+Um módulo está paralisado no estado **Importando** quando você importa ou atualiza os módulos na automação do Azure.
 
-#### <a name="error"></a>Erro
+#### <a name="cause"></a>Causa
 
-A importação de módulos do PowerShell é um processo complexo de várias etapas. Este processo introduz a possibilidade de um módulo não importar corretamente. Se isso ocorrer, o módulo que você está importando pode estar preso em um estado transitório. Para saber mais sobre esse processo, consulte [importação de um módulo do PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+A importação de módulos do PowerShell é um processo complexo de várias etapas. Este processo introduz a possibilidade de um módulo não importar corretamente. Se esse problema ocorrer, o módulo que você está importando pode estar paralisado em um estado transitório. Para saber mais sobre esse processo, consulte [importação de um módulo do PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Resolução
 
@@ -38,6 +38,28 @@ Para resolver esse problema, você deve remover o módulo que está emperrado no
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>Contas Executar como
+
+### <a name="unable-create-update"></a>Cenário: Não é possível criar ou atualizar uma conta Executar como
+
+#### <a name="issue"></a>Problema
+
+Ao tentar criar ou atualizar uma conta Executar como, um erro semelhante à mensagem de erro a seguir é exibido:
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>Causa
+
+Você não tem as permissões necessárias para criar ou atualizar a conta Executar como ou o recurso está bloqueado em um nível de grupo de recursos.
+
+#### <a name="resolution"></a>Resolução
+
+Para criar ou atualizar uma conta Executar como, você deve ter permissões apropriadas para os diversos recursos usados pela conta Executar como. Para saber mais sobre as permissões necessárias para criar ou atualizar uma conta Executar como, consulte [Permissões de conta Executar como](../manage-runas-account.md#permissions).
+
+Se o problema ocorrer devido a um bloqueio, verifique se o bloqueio está pronto para ser removido e navegue até o recurso bloqueado, em seguida, clique com o botão direito do mouse no bloqueio e escolha **Excluir** para remover o bloqueio.
 
 ## <a name="next-steps"></a>Próximas etapas
 

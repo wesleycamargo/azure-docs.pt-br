@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Sansan | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com Sansan | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Sansan.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051254"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872247"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Azure Active Directory ao Sansan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integração do Azure Active Directory com Sansan
 
 Neste tutorial, você aprende a integrar o Sansan ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Sansan por meio da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -89,7 +89,7 @@ No Sansan, atribua o valor do **nome de usuário** no Azure AD como o valor do *
 Para configurar e testar o logon único do Azure AD com o Sansan, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do Sansan](#creating-a-sansan-test-user)** – para ter um equivalente de Brenda Fernandes no Sansan que esteja vinculado à representação de usuário do Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -137,7 +137,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar obj de logon único](./media/sansan-tutorial/tutorial_sansan_objid.png)  
 
-    a. Acesse a página **Propriedades** do aplicativo **Sansan** e copie a **ID do objeto** usando o botão **Copiar** e cole-a no bloco de notas.
+     a. Acesse a página **Propriedades** do aplicativo **Sansan** e copie a **ID do objeto** usando o botão **Copiar** e cole-a no bloco de notas.
 
     b. A **ID de objeto**, que você copiou do portal do Azure será usada como **ServicePrincipalObjectId** no script do PowerShell usado no tutorial posteriormente. 
 
@@ -186,7 +186,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     }
     ```
 
-8. Após a conclusão bem-sucedida do script do PowerShell, o resultado do script será assim, conforme mostrado abaixo, e os valores de URL serão atualizados, mas não serão refletidos no portal do Azure. 
+8. Após a conclusão com êxito do script do PowerShell, o resultado do script será semelhante ao mostrado abaixo e os valores da URL serão atualizados, mas não serão refletidos no portal do Azure. 
 
     ![Configurar o script de logon único](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 
@@ -224,7 +224,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/sansan-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

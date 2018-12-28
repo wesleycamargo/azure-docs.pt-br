@@ -1,6 +1,6 @@
 ---
-title: Dispositivo com Azure IoT Edge de auto-provisionamento com DPS - Linux | Microsoft Docs
-description: Usar um TPM simulado em uma VM Linux para testar o provisionamento de dispositivos para o Azure IoT Edge
+title: Dispositivos Linux de provisionamento automático com DPS - Azure IoT Edge | Microsoft Docs
+description: Use um TPM simulado em uma VM Linux para testar o Serviço de Provisionamento de Dispositivos do Azure para Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 0550b1765e36d591a1baf34d3c255a252ca5278b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446224"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101748"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Criar e provisionar um dispositivo de borda com um TPM virtual em uma máquina virtual Linux
 
@@ -61,9 +62,9 @@ Se você vir erros ao criar o novo comutador virtual, verifique se nenhum outro 
 
 3. Conclua o **Assistente de nova máquina Virtual** com as seguintes configurações específicas:
 
-   1. **Especificar geração**: selecione **geração 2**.
-   2. **Configurar rede**: defina o valor de **Conexão** para o comutador virtual que você criou na seção anterior. 
-   3. **Opções de instalação**: Selecione **Instalar um sistema operacional a partir de um arquivo de imagem inicializável** e navegue até o arquivo de imagem de disco que você salvou localmente.
+   1. **Especificar Geração**: Selecione **Geração 2**.
+   2. **Configurara Rede**: Configure o valor de **Conexão** para o comutador virtual que você criou na seção anterior. 
+   3. **Opções de instalação**: Selecione **Instalar um sistema operacional a partir de um arquivo de imagem inicializável** e navegue até o arquivo de imagem do disco que você salvou localmente.
 
 A criação da nova VM pode levar alguns minutos. 
 

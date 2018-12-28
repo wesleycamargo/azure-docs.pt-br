@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335054"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436901"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure
 
@@ -24,7 +24,7 @@ Como um administrador global ou um usuário que é atribuído a qualquer uma das
 Depois de adicionar um usuário convidado ao diretório, você poderá enviar ao usuário convidado um link direto para um aplicativo compartilhado, ou o usuário convidado poderá clicar na URL de resgate no email de convite. Para obter mais informações sobre o processo de resgate, consulte [Regaste de convite de colaboração B2B](redemption-experience.md).
 
 > [!IMPORTANT]
-> Você deve seguir as etapas em [Instruções: adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar a URL da declaração de privacidade da sua organização. Como parte do processo de resgate de convite pela primeira vez, um usuário convidado deve concordar com os termos de privacidade para continuar. 
+> Você deve seguir as etapas em [Como: Adicionar as informações de privacidade da organização no Azure Active Directory](https://aka.ms/adprivacystatement) para adicionar a URL de política de privacidade da sua organização. Como parte do processo de resgate de convite pela primeira vez, um usuário convidado deve concordar com os termos de privacidade para continuar. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Adicionar usuários convidados ao diretório
 
@@ -37,6 +37,9 @@ Para adicionar usuários de colaboração B2B ao diretório, siga estas etapas:
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > A opção **Novo usuário convidado** também está disponível na página **Relações organizacionais**. No **Azure Active Directory**, em **Gerenciar**, selecione **Relações organizacionais**.
+
 5. Em **Nome de usuário**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. Por exemplo: 
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/InviteGuest.png) 

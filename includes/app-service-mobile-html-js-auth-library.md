@@ -4,14 +4,14 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134315"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973231"
 ---
-### <a name="server-auth"></a>Como autenticar com um provedor (fluxo de servidor)
+### <a name="server-auth"></a>Como: Autenticar com um provedor (fluxo de servidor)
 Para que os Aplicativos Móveis gerenciem o processo de autenticação em seu aplicativo, é necessário registrá-los no provedor de identidade. Em seguida, no Serviço de Aplicativo do Azure, você precisa configurar a ID e o segredo do aplicativo fornecidos por seu provedor.
 Para obter mais informações, consulte o tutorial [Adicionar autenticação ao seu aplicativo](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
@@ -32,7 +32,7 @@ Os valores válidos para o provedor são 'add', 'facebook', 'google', 'microsoft
 
 Nesse caso, o Serviço de Aplicativo do Azure gerencia o fluxo de autenticação OAuth 2.0.  Ele exibe a página de logon do provedor selecionado e gera um token de autenticação do Serviço de Aplicativo após o logon bem-sucedido com o provedor de identidade. A função de logon, quando concluída, retorna um objeto JSON que expõe a ID do usuário e o token de autenticação do Serviço de Aplicativo nos campos userId e authenticationToken, respectivamente. Esse token pode ser armazenado em cache e reutilizado até que expire.
 
-### <a name="client-auth"></a>Como autenticar com um provedor (fluxo de cliente)
+### <a name="client-auth"></a>Como: Autenticar com um provedor (fluxo de servidor)
 
 Seu aplicativo também pode entrar em contato de forma independente com o provedor de identidade e fornecer o token retornado ao Serviço de Aplicativo para autenticação. Esse fluxo de cliente permite que você forneça uma experiência de logon único aos usuários ou recupere dados adicionais do usuário do provedor de identidade.
 
@@ -53,28 +53,7 @@ client.login(
 ```
 Esse exemplo pressupõe que o token fornecido pelo respectivo SDK do provedor é armazenado na variável 'token'.
 
-#### <a name="microsoft-account-example"></a>Exemplo de conta da Microsoft
-
-O exemplo a seguir usa o Live SDK, que oferece suporte a logon único para aplicativos da Windows Store, usando a Conta da Microsoft:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-Esse exemplo obtém um token do Live Connect, que é fornecido ao seu Serviço de Aplicativo chamando a função de logon.
-
-### <a name="auth-getinfo"></a>Como obter informações sobre o usuário autenticado
+### <a name="auth-getinfo"></a>Como: Obter informações sobre o usuário autenticado
 
 As informações de autenticação podem ser obtidas no ponto de extremidade `/.auth/me` usando uma chamada HTTP com qualquer biblioteca do AJAX.  Certifique-se de definir o cabeçalho `X-ZUMO-AUTH` ao token de autenticação.  O token de autenticação está armazenado em `client.currentUser.mobileServiceAuthenticationToken`.  Por exemplo, para usar a API de busca:
 

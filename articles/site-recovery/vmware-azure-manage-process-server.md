@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974181"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846990"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 
@@ -54,7 +54,7 @@ Por meio dessa opção, você pode selecionar uma ou mais máquinas virtuais e t
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Clique em **Selecionar máquinas**, escolha as máquinas virtuais que você deseja mover do servidor de processo atual para o servidor de processo de destino. Detalhes de alteração de dados médio são exibidos em cada máquina virtual.
-3. Clique em **OK**. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
+3. Clique em **OK**. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
 4. Leva 15 minutos para que as alterações reflitam a conclusão desta operação bem-sucedida ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
 
 ### <a name="switch"></a>Switch
@@ -65,7 +65,7 @@ Por meio dessa opção, toda carga de trabalho protegida em um servidor de proce
 
     ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
 
-2. Monitore o progresso do trabalho em **Cofre dos Serviços de Recuperação** > **Monitoramento** > **trabalhos do Site Recovery**.
+2. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
 3. Leva 15 minutos para que as alterações reflitam a conclusão desta operação bem-sucedida ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
 
 ## <a name="reregister-a-process-server"></a>Registrar um servidor em processo novamente
@@ -125,5 +125,5 @@ Se o software antivírus estiver ativo em um servidor de processos independente 
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Diretório de instalação de servidor de processo, exemplo: C:\Program Files (x86) \Microsoft Azure Site Recovery
+- Diretório de instalação do servidor de processo, Exemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
 

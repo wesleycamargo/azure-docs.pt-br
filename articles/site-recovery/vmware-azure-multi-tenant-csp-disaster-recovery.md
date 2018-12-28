@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842349"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
@@ -39,7 +39,7 @@ Para configurar a replicação do VMware, você precisa fazer o seguinte:
 
     ![A página Informações da Conta](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. Em seguida, clique em **Próximo: assinaturas**.
+5. Em seguida, clique em **Próximo: Assinaturas**.
 6. Na página de seleção de assinaturas, marque a caixa de seleção **Microsoft Azure**. Você pode adicionar outras assinaturas agora ou a qualquer momento.
 7. Na página **Revisão**, confirme os detalhes do locatário e clique em **Enviar**.
 8. Depois de criar a conta do locatário, uma página de confirmação é mostrada exibindo os detalhes da conta e a senha padrão para essa assinatura. Salve as informações e altere a senha mais tarde, conforme necessário, na página de Logon do Portal do Azure.
@@ -72,9 +72,13 @@ Agora você pode executar e gerenciar todas as operações do Site Recovery do l
 
       ![A página da assinatura do CSP do locatário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) Agora crie um novo usuário inserindo os detalhes relevantes e selecionando as permissões ou carregando a lista de usuários em um arquivo CSV.
+    b) Agora crie um novo usuário inserindo os detalhes relevantes e selecionando as permissões ou carregando a lista de usuários em um arquivo CSV.
+    
     c) Depois de criar um novo usuário, volte para o portal do Azure. Na página **Assinatura**, selecione a assinatura relevante.
-    d) Selecione **IAM (Controle de Acesso)** e clique em **Adicionar** para adicionar um usuário com o nível de acesso relevante. Os usuários criados por meio do Portal do CSP são exibidos automaticamente na página que é aberta após você clicar em um nível de acesso.
+
+    Selecione **Controle de Acesso (IAM)** e, em seguida, selecione **Atribuição de função**.
+
+    e) clique em **Adicionar atribuição de função** para adicionar um usuário com o nível de acesso relevante. Os usuários que foram criados por meio do portal do CSP são exibidos na guia Atribuições de função.
 
       ![Adicionar um usuário](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
@@ -85,11 +89,11 @@ Agora você pode executar e gerenciar todas as operações do Site Recovery do l
 
 Há três modelos principais de multilocatários:
 
-* **HSP (Provedor de Serviços de Hospedagem Compartilhada)**: o parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
+* **HSP (Provedor de Serviços de Hospedagem Compartilhado)**: O parceiro é o proprietário da infraestrutura física e usa recursos compartilhados (vCenter, datacenters, armazenamento físico, e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
 
-* **Provedor de Serviços de Hospedagem Dedicado**: o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
+* **Provedor de Serviços de Hospedagem Dedicado**: O parceiro é proprietário da infraestrutura física, mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos, e assim por diante) para hospedar as VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
 
-* **MSP (Provedor de Serviços Gerenciado)**: o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
+* **MSP (Provedor de Serviços Gerenciado)**: O cliente possui a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
 
 Ao configurar assinaturas de locatários, conforme descrito neste artigo, você pode iniciar rapidamente permitindo os clientes em qualquer um dos modelos de multilocatários relevantes. Você pode aprender mais sobre os diferentes modelos de multilocatários e habilitar o controles de acesso no local [aqui](vmware-azure-multi-tenant-overview.md).
 

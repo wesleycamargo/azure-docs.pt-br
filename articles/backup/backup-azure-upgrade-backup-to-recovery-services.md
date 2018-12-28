@@ -2,18 +2,18 @@
 title: Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 description: Instruções e informações de suporte para atualizar seu cofre de Backup do Azure em um cofre dos Serviços de Recuperação.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 431ca75a653b93342b61a9b39dc42a93270519f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228514"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880039"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -37,9 +37,9 @@ Consulte as referências de cmdlets do PowerShell para o [Modelo de implantaçã
 
 Verifique os problemas a seguir antes de atualizar seus cofres de Backup para os cofres do serviço de recuperação.
 
-- **Versão mínima do agente**: Para atualizar seu cofre, verifique se o agente de Serviços de Recuperação do Microsoft Azure (MARS) é pelo menos a versão 2.0.9083.0. Se o agente do MARS for mais antigo que 2.0.9083.0, atualize o agente antes de iniciar o processo de atualização.
-- **Modelo de cobrança com base em instância**: cofres do Serviço de Recuperação dão suporte apenas ao modelo de cobrança com base em instância. Se você tiver um cofre de backup que esteja usando o antigo modelo de cobrança com base em Armazenamento, converta o modelo de cobrança durante a atualização.
-- **Nenhuma operação de configuração de backup em andamento**: durante a atualização, o acesso ao plano de gerenciamento é restrito. Conclua todas as ações do plano de gerenciamento e inicie a atualização.
+- **Versão mínima do agente**: Para atualizar o cofre, verifique se o agente de MARS (Serviços de Recuperação do Microsoft Azure) é pelo menos a versão 2.0.9083.0. Se o agente do MARS for mais antigo que 2.0.9083.0, atualize o agente antes de iniciar o processo de atualização.
+- **Modelo de cobrança baseado na instância**: Os cofres do Serviço de Recuperação somente dão suporte para o modelo de cobrança baseado na instância. Se você tiver um cofre de backup que esteja usando o antigo modelo de cobrança com base em Armazenamento, converta o modelo de cobrança durante a atualização.
+- **Nenhuma operação de configuração de backup em andamento**: Durante o upgrade, o acesso ao plano de gerenciamento é restrito. Conclua todas as ações do plano de gerenciamento e inicie a atualização.
 
 ## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Usando scripts do PowerShell para atualizar seus cofres
 
@@ -81,8 +81,8 @@ O script do PowerShell solicita que você insira suas credenciais. Insira suas c
 Depois de inserir suas credenciais do Azure, o Azure verifica se o seu ambiente atende aos seguintes pré-requisitos:
 
 - **Versão mínima do agente** – Atualizar os cofres de Backup para cofres dos Serviços de Recuperação requer que o agente do MARS tenha pelo menos a versão 2.0.9083.0. Se você tiver itens registrados para um cofre de Backup com um agente anterior à versão 2.0.9083.0, a verificação de pré-requisitos falhará. Se a verificação de pré-requisitos falhar, atualize o agente e tente atualizar o cofre novamente. Você pode baixar a última versão do agente a partir de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **Tarefas de configuração em andamento**: se alguém estiver configurando o trabalho para um cofre de Backup definido para ser atualizado ou estiver registrando um item, a verificação de pré-requisitos falhará. Conclua a configuração ou conclua o registro do item e, em seguida, inicie o processo de atualização do cofre.
-- **Modelo de cobrança com base em armazenamento**: cofres dos Serviços de Recuperação dão suporte ao modelo de cobrança baseado em instância. Se você executar a atualização do cofre em um cofre de Backup que use o modelo de cobrança baseado em armazenamento, será solicitado a atualizar o modelo de cobrança junto com o cofre. Caso contrário, poderá atualizar o modelo de cobrança primeiro e então executar a atualização do cofre.
+- **Trabalhos de configuração em andamento**: Se alguém estiver configurando um trabalho para um upgrade do Cofre de Backup, ou registrando um item, a verificação de pré-requisito falhará. Conclua a configuração ou conclua o registro do item e, em seguida, inicie o processo de atualização do cofre.
+- **Modelo de cobrança com base em armazenamento**: Os cofres dos Serviços de Recuperação dão suporte para o modelo de faturamento baseado na instância. Se você executar a atualização do cofre em um cofre de Backup que use o modelo de cobrança baseado em armazenamento, será solicitado a atualizar o modelo de cobrança junto com o cofre. Caso contrário, poderá atualizar o modelo de cobrança primeiro e então executar a atualização do cofre.
 - Identificar um Grupo de Recursos para o cofre de Serviços de Recuperação. Para aproveitar os recursos de implantação do Resource Manager, coloque um cofre de Serviços de Recuperação em um Grupo de Recursos. Se você não souber qual Grupo de Recursos usar, forneça um nome e o processo de atualização criará o Grupo de Recursos para você. O processo de atualização também associa o cofre ao novo Grupo de Recursos.
 
 Depois que o processo de atualização termina de verificar os pré-requisitos, o processo solicita que você inicie a atualização do cofre. Depois de confirmar, o processo de atualização normalmente leva cerca de 15 a 20 minutos para ser concluído, dependendo do tamanho de seu cofre. Se você tiver um grande cofre, a atualização poderá levar até 90 minutos.
@@ -113,7 +113,7 @@ Depois de atualizar para um cofre dos Serviços de Recuperação, configure rela
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **O plano de atualização afeta meus backups em andamento?**</br>
-Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
+ Não. Os backups em andamento continuam sem interrupções durante e após a atualização.
 
 **Se eu não planejo atualizar em breve, o que acontecerá com meus cofres?**</br>
 Como todos os novos recursos se aplicam apenas aos cofres dos Serviços de Recuperação, insistimos que você atualize seus cofres. A partir de 1º de setembro de 2017, a Microsoft começará a atualização automática dos cofres de backup para cofres dos Serviços de Recuperação. Após 30 de novembro de 2017, você não poderá mais criar cofres de backup usando o PowerShell. Seu cofre pode ser atualizado automaticamente a qualquer momento até esse prazo. A Microsoft recomenda que você atualize seu cofre assim que possível.
@@ -125,16 +125,16 @@ Atualize suas ferramentas para o modelo de implantação do Resource Manager. Os
 Isso depende do número de recursos que estão sendo atualizados. Para implantações menores (algumas dezenas de instâncias protegidas), a atualização inteira deve levar menos de 20 minutos. Para implantações maiores, deve levar um máximo de uma hora.
 
 **Posso reverter após a atualização?**</br>
-Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
+ Não. Não há suporte para reversão após os recursos terem sido atualizados com êxito.
 
 **Posso validar minha assinatura ou meus recursos para ver se eles podem ser atualizados?**</br>
 Sim. A primeira etapa na atualização valida se os recursos podem ser atualizados. No caso de falha na validação dos pré-requisitos, você recebe mensagens para todos os motivos pelos quais a atualização não pode ser concluída.
 
 **Posso atualizar meu cofre de Backup baseado em CSP?**</br>
-Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
+ Não. No momento não é possível atualizar os cofres de backup baseados em CSP. Adicionaremos suporte para atualizar os cofres de backup baseados em CSP nas próximas versões.
 
 **Posso exibir meu cofre clássico após a atualização?**</br>
-Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
+ Não. Você não pode exibir nem gerenciar o cofre clássico pós-atualização. Você só poderá usar o novo portal do Azure para todas as ações de gerenciamento no cofre.
 
 **Ocorreu falha na minha atualização, mas o computador que mantinha o agente que exigia a atualização não existe mais. O que devo fazer nesse caso?**</br>
 Se você precisar usar o armazenamento, os backups desse computador para retenção de longo prazo, você não poderá atualizar o cofre. Nas versões futuras, adicionaremos suporte para atualizar esse cofre.

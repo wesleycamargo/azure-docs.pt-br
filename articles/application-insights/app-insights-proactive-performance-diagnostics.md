@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960813"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864954"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -70,7 +69,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 ## <a name="faq"></a>Perguntas frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
-  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
+  *  Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 * *Todos os dados coletados pelo Application Insights são analisados?*
   * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
@@ -86,10 +85,10 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](app-insights-alerts.md)?*
-  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
+  *  Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
-* *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*
+*  *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*
   * Não, você receberá uma mensagem sobre cada problema apenas uma vez. Se o problema persistir, ele será atualizado na folha de feed Detecção Inteligente.
 * *Perdi o email. Onde posso encontrar as notificações no portal?*
   * Na visão geral do Application Insights do seu aplicativo, clique no bloco **Detecção Inteligente**. Nele, você poderá encontrar todas as notificações de até 90 dias anteriores.
@@ -117,9 +116,9 @@ Abra a folha Métrica de navegadores. A exibição segmentada do tempo de carreg
 ### <a name="improve-slow-pages"></a>Aprimorar páginas lentas
 Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu servidor e de carregamento da página, portanto não os repetiremos aqui. Veja algumas dicas as quais você provavelmente já conhece, apenas para ajudá-lo a pensar:
 
-* Carregamento lento devido a arquivos grandes: carregue os scripts e outros componentes de forma assíncrona. Use o agrupamento de script. Divida a página principal em widgets que carregam os dados separadamente. Não envie o antigo HTML simples para tabelas longas: use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela. Há estruturas excelentes para ajudar você com tudo isso. (Que também envolvem scripts grandes, é claro).
-* Diminuir as dependências do servidor: considere os locais geográficos de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
-* Problemas de capacidade: examine as métricas do servidor relacionadas aos tempos de resposta e contagens de solicitação. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
+* Carregamento lento devido a arquivos grandes: Carregue os scripts e outras partes de forma assíncrona. Use o agrupamento de script. Divida a página principal em widgets que carregam os dados separadamente. Não envie o antigo HTML simples para tabelas longas: use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela. Há estruturas excelentes para ajudar você com tudo isso. (Que também envolvem scripts grandes, é claro).
+* Dependências lentas do servidor: Considere as localizações geográficas dos componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
+* Problemas de capacidade: Observe as métricas do servidor de tempos de resposta e contagens de solicitações. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
 
 
 ## <a name="server-response-time-degradation"></a>Degradação do tempo de resposta do servidor
@@ -185,7 +184,7 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Criador de perfil](app-insights-profiler.md) 
 * [Depurador instantâneo](app-insights-snapshot-debugger.md)
-* [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico inteligente do Analytics](app-insights-analytics.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?

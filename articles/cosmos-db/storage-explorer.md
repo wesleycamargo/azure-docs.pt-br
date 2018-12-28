@@ -1,37 +1,32 @@
 ---
-title: Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
-description: Aprenda como gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Gerenciar recursos do Azure Cosmos DB usando o Gerenciador de Armazenamento do Azure
+description: Saiba como conectar o Azure Cosmos DB e gerenciar os recursos usando o Gerenciador de Armazenamento do Azure.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138119"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gerenciar recursos do Azure Cosmos DB usando o Gerenciador de Armazenamento do Azure
 
 O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Azure oferece suporte para contas do SQL, MongoDB, Graph e Tabela.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do Azure Cosmos DB para a API do SQL<!--or MongoDB API-->. Caso não tenha uma conta, você pode criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: Compilar um aplicativo Web da API com o .NET e com o Portal do Azure](create-sql-api-dotnet.md).
+Uma conta do Azure Cosmos DB para a API do SQL<!--or MongoDB API-->. Se você não tiver uma conta, poderá criar uma no portal do Azure, conforme descrito em [Azure Cosmos DB: Crie um aplicativo Web de API de SQL com .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
-Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), agora há suporte para a versão do Windows, Linux e MAC.
+Instale os novos bits do Gerenciador de Armazenamento do Azure aqui: [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), agora com suporte para versões do Windows, Linux e MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
@@ -227,9 +222,9 @@ Quando o Gerenciador de Armazenamento encontrar um desses "certificados autoassi
 
 1. Instalar o Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões leves serve)
-     - Mac e Linux: deve estar incluído com o sistema operacional
+     - Mac e Linux: Deve ser incluído no sistema operacional
 2. Executar Open SSL
-    - Windows: vá para o diretório de instalação; em seguida, para **/bin/** e clique duas vezes em **openssl.exe**.
+    - Windows: Vá para o diretório de instalação, em **/bin/** e, em seguida, clique duas vezes em **openssl.exe**.
     - Mac e Linux: execute **openssl** em um terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procurar certificados autoassinados. Se você não tiver certeza quais são autoassinados, procure onde o assunto ("s") e o emissor ("i") são os mesmos.
@@ -242,11 +237,11 @@ Se você não conseguir localizar todos os certificados autoassinados usando as 
 
 Se não for possível recuperar suas assinaturas depois de entrar com êxito:
 
-- Verifique se sua conta tem acesso às assinaturas entrando no [Portal do Azure](http://portal.azure.com/)
-- Verifique se você entrou usando o ambiente certo ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
+- Verifique se sua conta tem acesso às assinaturas entrando no [Portal do Azure](https://portal.azure.com/)
+- Verifique se você entrou usando o ambiente certo ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
 - Se você estiver atrás de um proxy, verifique se configurou o proxy do Gerenciador de Armazenamento apropriadamente
 - Tentar remover e readicionar a conta
-- Tente excluir os seguintes arquivos do diretório inicial (por exemplo,C:\Users\ContosoUser) e adicione a conta novamente:
+- Tente excluir os seguintes arquivos do diretório pessoal (como: C:\Users\ContosoUser) e, em seguida, leia a conta:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -310,6 +305,6 @@ Se nenhuma das soluções funcionar, envie um email à equipe das Ferramentas de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Assista ao seguinte vídeo para aprender a usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure).
+* Assista ao vídeo a seguir para ver como usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use o Azure Cosmos DB no Gerenciador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

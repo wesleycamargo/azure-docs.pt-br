@@ -1,19 +1,19 @@
 ---
-title: 'Azure Site Recovery: perguntas frequentes | Microsoft Docs'
+title: 'Azure Site Recovery: Perguntas frequentes | Microsoft Docs'
 description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257292"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998546"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes
 Este artigo contém perguntas frequentes sobre o Azure Site Recovery. Se você tiver dúvidas após a leitura deste artigo, publique-as no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -23,10 +23,10 @@ Este artigo contém perguntas frequentes sobre o Azure Site Recovery. Se você t
 O Site Recovery contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) administrando e automatizando a replicação de VMs do Azure entre regiões, máquinas virtuais locais e servidores físicos no Azure e máquinas locais em um datacenter secundário. [Saiba mais](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>O que o Site Recovery pode proteger?
-* **VMs do Azure**: o Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM do Azure com suporte
-* **Máquinas virtuais do Hyper-V**: o Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM Hyper-V.
-* **Servidores físicos**: o Site Recovery pode proteger servidores físicos com o Windows ou o Linux em execução.
-* **Máquinas virtuais VMware**: o Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM VMware.
+* **VMs do Azure**: O Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM do Azure com suporte
+* **Máquinas virtuais do Hyper-V**: O Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM do Hyper-V.
+* **Servidores físicos**: O Site Recovery pode proteger servidores físicos que executam Windows ou Linux.
+* **Máquinas virtuais do VMware**: O Site Recovery pode proteger qualquer carga de trabalho em execução em uma VM do VMware.
 
 
 
@@ -91,7 +91,7 @@ Para máquinas virtuais e servidores físicos que estão sendo replicados entre 
 O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. A replicação não ocorre através de uma VPN site a site. Você pode criar uma VPN site a site, com uma rede virtual do Azure. Isso não interfere na replicação do Site Recovery.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>É possível usar o ExpressRoute para replicar máquinas virtuais no Azure?
-Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md) para replicar máquinas virtuais locais no Azure. O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) para usar o ExpressRoute para replicação de Site Recovery. Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Após o failover das máquinas virtuais para uma rede virtual do Azure, é possível acessá-las usando a configuração de [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) com a rede virtual do Azure. Não há suporte para a replicação sobre emparelhamento privado.
+Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md) para replicar máquinas virtuais locais no Azure. O Azure Site Recovery replica os dados para uma Conta de Armazenamento do Azure em um ponto de extremidade público. Você precisa configurar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para usar o ExpressRoute para replicação de Site Recovery. Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Após o failover das máquinas virtuais para uma rede virtual do Azure, é possível acessá-las usando a configuração de [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering) com a rede virtual do Azure. Não há suporte para a replicação sobre emparelhamento privado.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Há algum pré-requisito para replicar máquinas virtuais no Azure?
 As [máquinas virtuais do VMware](vmware-physical-azure-support-matrix.md#replicated-machines) e as [máquinas virtuais do Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) que você deseja replicar no Azure devem estar em conformidade com os requisitos do Azure.
@@ -115,8 +115,8 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery usando a API Res
 Você precisa de uma conta de armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar dados?
-* **Hyper-V:** as VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenamento Premium), cinco minutos ou 15 minutos. Se você tiver definido a replicação da rede SAN, ela será simultânea.
-* **VMware e servidores físicos:** não é relevante estabelecer uma frequência de replicação para eles. A replicação é contínua.
+* **Hyper-V:** VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos. Se você tiver definido a replicação da rede SAN, ela será simultânea.
+* **VMs do Azure, VMware e servidores físicos:** Uma frequência de replicação não é relevante aqui. A replicação é contínua.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Posso estender a replicação do site de recuperação existente para um site terciário?
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
@@ -172,7 +172,7 @@ Sim, você pode usar a recuperação em uma localização alternativa para fazer
 Sim, o Site Recovery dá suporte aos modelos de infraestrutura dedicados e compartilhados.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>Para o provedor de serviço, a identidade do meu locatário é compartilhada com o serviço da Recuperação de Site?
-Não. A identidade do locatário permanece anônima. Seus locatários não precisam acessar o Portal da Recuperação de Site. Somente o administrador do provedor de serviços interage com o portal.
+ Não. A identidade do locatário permanece anônima. Seus locatários não precisam acessar o Portal da Recuperação de Site. Somente o administrador do provedor de serviços interage com o portal.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>Os dados de aplicativo do locatário vão para o Azure?
 Durante a replicação entre os sites de propriedade do provedor de serviços, os dados de aplicativo nunca vão para o Azure. Os dados são criptografados em trânsito e replicados diretamente entre os sites do provedor de serviço.
@@ -180,7 +180,7 @@ Durante a replicação entre os sites de propriedade do provedor de serviços, o
 Se você estiver replicando no Azure, os dados de aplicativo são enviados para o armazenamento do Azure, mas não para o serviço de Recuperação de Site. Os dados são criptografados em trânsito e permanecem criptografados no Azure.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>Meus locatários receberão alguma fatura relativa a serviços do Azure?
-Não. A relação de cobrança do Azure é direta com o provedor de serviços. Os provedores de serviços são responsáveis por gerar faturas específicas para seus locatários.
+ Não. A relação de cobrança do Azure é direta com o provedor de serviços. Os provedores de serviços são responsáveis por gerar faturas específicas para seus locatários.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Ao replicar no Azure, precisamos executar máquinas virtuais no Azure o tempo todo?
 Não, os dados são replicados para uma conta de armazenamento do Azure na sua assinatura. Quando você executa um failover de teste (análise de DR) ou um failover real, o Site Recovery cria automaticamente máquinas virtuais em sua assinatura.

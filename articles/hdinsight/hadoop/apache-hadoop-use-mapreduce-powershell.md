@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634134"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436255"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas do MapReduce com o Apache Hadoop no HDInsight usando o PowerShell
 
@@ -26,7 +26,7 @@ Esse documento fornece um exemplo de uso do PowerShell do Azure para executar um
 
 * **Um cluster Azure HDInsight (Hadoop no HDInsight)**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Uma estação de trabalho com o PowerShell do Azure.**
@@ -37,15 +37,15 @@ O PowerShell do Azure fornece *cmdlets* que permitem executar remotamente trabal
 
 Os cmdlets a seguir são usados ao executar trabalhos MapReduce em um cluster HDInsight remoto.
 
-* **Connect-AzureRmAccount**: autentica o Azure PowerShell para sua assinatura do Azure.
+* **Connect-AzureRmAccount**: Autentica o Azure PowerShell para a assinatura do Azure.
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**: cria uma nova *definição de trabalho* usando as informações especificadas do MapReduce.
+* **New-AzureRmHDInsightMapReduceJobDefinition**: Cria uma nova*definição de trabalho*, usando as informações do MapReduce especificadas.
 
-* **Start-AzureRmHDInsightJob**: envia a definição do trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
+* **Start-AzureRmHDInsightJob**: Envia a definição de trabalho para HDInsight e inicia o trabalho. Um objeto *job* é retornado.
 
-* **Wait-AzureRmHDInsightJob**: usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
+* **Wait-AzureRmHDInsightJob**: Usa o objeto de trabalho para verificar o status do trabalho. Ele aguarda até que o trabalho seja concluído ou o tempo de espera seja excedido.
 
-* **Get-AzureRmHDInsightJobOutput**: usado para recuperar a saída do trabalho.
+* **Get-AzureRmHDInsightJobOutput**: Usado para recuperar a saída do trabalho.
 
 As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho no seu cluster HDInsight.
 
@@ -73,7 +73,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
     Essa saída indica que o trabalho foi concluído com êxito.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se o **ExitCode** for um valor diferente de 0, consulte [Solução de problemas](#troubleshooting).
 
     Este exemplo também armazena os arquivos baixados em um arquivo **output.txt** no diretório do qual você executa o script.
@@ -82,7 +82,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
 
 Para ver as palavras e contagens produzidas pelo trabalho, abra o arquivo **output.txt** em um editor de texto.
 
-> [!NOTE]
+> [!NOTE]  
 > Os arquivos de saída de um trabalho MapReduce são imutáveis. Portanto, se você executar esse exemplo novamente, será necessário alterar o nome do arquivo de saída.
 
 ## <a id="troubleshooting"></a>Solucionar problemas
@@ -113,5 +113,5 @@ Para obter informações gerais sobre trabalhos de MapReduce no HDInsight:
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)

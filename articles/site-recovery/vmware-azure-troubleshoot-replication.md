@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846004"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
@@ -43,7 +43,7 @@ Do computador do Servidor de Processo, abra o Gerenciador de Tarefas (pressione 
 
 Se isso não estiver acontecendo, siga as etapas listadas abaixo:
 
-* **Verifique se o Servidor de Processo é capaz de se conectar de Blob do Azure**: Selecione e marque cbengine.exe para exibir as 'Conexões de TCP' para ver se há conectividade do Servidor de Processo a URL de blob do Armazenamento do Azure.
+* **Verificar se o servidor de Processo conectar o Blob do Azure**: Selecione e marque cbengine.exe para exibir as "Conexões TCP" para ver se há conectividade do servidor de processo para URL do blob de Armazenamento do Azure.
 
 ![Habilitar a replicação](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
@@ -59,7 +59,7 @@ Se não, em seguida, vá para o Painel de Controle > Serviços, verifique se os 
 
 * **Verifique se o Servidor de Processo é capaz de se conectar ao endereço IP público do Azure usando a porta 443**
 
-Abra o CBEngineCurr.errlog mais recente do `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` e procure: 443 e a tentativa de conexão com falha.
+Abra o CBEngineCurr.errlog mais recente de `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` e pesquise: 443 e falha na tentativa de conexão.
 
 ![Habilitar a replicação](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
@@ -69,9 +69,9 @@ Se houver problemas, em seguida, na linha de comando do Servidor de Processo, us
 Se não for possível conectar-se, em seguida, verifique se o problema de acesso é devido ao firewall ou Proxy, conforme descrito na próxima etapa.
 
 
-* **Verifique se o firewall baseado em endereço IP no Servidor de Processo não está bloqueando o acesso**: se você estiver usando regras de firewall baseadas em endereço IP no servidor, em seguida, baixe a lista completa de intervalos de IP do Microsoft Azure Datacenter [aqui](https://www.microsoft.com/download/details.aspx?id=41653) e adicione-os à sua configuração de firewall para garantir que eles permitam a comunicação com o Azure (e a porta HTTPS (443)).  Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
+* **Verificar se o firewall baseado em endereço IP no servidor de Processo não está bloqueando o acesso**: Se você estiver usando regras de firewall baseadas em endereço IP no servidor, então, baixe a lista completa de intervalos de IP do Microsoft Azure Datacenter [aqui](https://www.microsoft.com/download/details.aspx?id=41653) e adicione-os à sua configuração de firewall para garantir que permitam a comunicação com o Azure (e a porta HTTPS (443)).  Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
 
-* **Verifique se o firewall baseado em URL no Servidor de Processo não está bloqueando o acesso**: se você estiver usando regras de firewall baseada em URL no servidor, verifique se as URLs a seguir são adicionadas à configuração do firewall.
+* **Verificar se o firewall baseado em endereço IP no servidor de Processo não está bloqueando o acesso**:  Se você estiver usando regras de firewall baseadas em URL no servidor, verifique se as URLs a seguir foram adicionadas à configuração do firewall.
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -86,7 +86,7 @@ Procure o Backup do Microsoft Azure
 Abra-o e clique em Ação > Alterar as Propriedades. Na guia de Configuração de Proxy, você deve ver o endereço de proxy, que deve ser igual ao mostrado pelas configurações do registro. Caso contrário, altere-a para o mesmo endereço.
 
 
-* **Verifique se a Limitação de largura de banda não é restrita no Servidor de Processo**: Aumente a largura de banda e verifique se o problema ainda existe.
+* **Verificar se a largura de banda de limitação não está restrita no servidor de Processo**:  Aumente a largura de banda e verifique se o problema ainda existe.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se precisar de mais ajuda, poste sua consulta no [fórum do Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma comunidade ativa e um dos nossos engenheiros poderá ajudá-lo.

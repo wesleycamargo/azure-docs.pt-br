@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Workday para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Workday para provisionamento automático do usuário com Azure Active Directory | Microsoft Docs'
 description: Aprenda a configurar o Azure Active Directory para provisionar e descontinuar automaticamente as contas de usuário para o Workday.
 services: active-directory
 author: cmmdesai
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: chmutali
-ms.openlocfilehash: 30354ddb010c22dabe5cd69373ae59daaf4a8b46
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 754c3278cb01e010718fa4d3cb257acf6ffe99c9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849846"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário (versão prévia)
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário (versão prévia)
 
 O objetivo deste tutorial é mostrar as etapas necessárias para importar perfis de trabalho do Workday tanto no Active Directory como no Azure Active Directory, com write-back opcional de alguns endereços de email para o Workday.
 
@@ -67,8 +67,8 @@ Essa solução de provisionamento de usuário do Workday está atualmente em ver
 
 Esta seção descreve a arquitetura da solução de provisionamento do usuário de ponta a ponta para ambientes híbridos comuns. Há dois fluxos relacionados:
 
-* **Fluxo de dados de RH autoritativo – do Workday para o Active Directory local:** neste fluxo de trabalho, eventos de trabalho (como novas contratações, transferências, desligamentos) ocorrem primeiro no locatário de RH do Workday na nuvem e, em seguida, os dados do evento fluem para o Active Directory local por meio do Azure AD e do Agente de provisionamento. Dependendo do evento, pode levar a operações de criar/atualizar/habilitar/desabilitar no AD.
-* **Fluxo de write-back de email – do Active Directory local para o Workday:** quando a criação da conta for concluída no Active Directory, ela será sincronizada com o Azure AD por meio do Azure AD Connect e o atributo de email obtido do Active Directory poderá ter write-back para o Workday.
+* **Fluxo de Dados de RH Autoritativo – do Workday para o Active Directory local:** Nesse fluxo, os eventos de trabalho (como Novas Contratações, Transferências, Demissões) ocorrem primeiro no locatário de RH do Workday na nuvem e, em seguida, os dados do evento fluem para o Active Directory local por meio do Azure AD e do Agente de Provisionamento. Dependendo do evento, pode levar a operações de criar/atualizar/habilitar/desabilitar no AD.
+* **Fluxo de Write-Back de Email – do Active Directory local para o Workday:** Depois que a criação da conta for concluída no Active Directory, ela será sincronizada com o Azure AD por meio do Azure AD Connect e o atributo de email originado do Active Directory poderá ser gravado novamente no Workday.
 
 ![Visão geral](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -154,11 +154,11 @@ Antes de configurar o provisionamento de usuário para um domínio do Active Dir
 
 * **O que os usuários no Workday precisam para serem provisionados a essa floresta do Active Directory?**
 
-   * *Exemplo: Usuários onde o atributo "Empresa" do Workday contém o valor "Contoso", e o atributo "Worker_Type" contém "Normal"*
+   * *Exemplo: Usuários em que o atributo "Empresa" do Workday contém o valor "Contoso" e o atributo "Worker_Type" contém "Regular"*
 
-* **Como os usuários são roteados em diferentes OUs (unidades organizacionais)?**
+* **Como os usuários são roteados em diferentes UOs (unidades organizacionais)?**
 
-   * *Exemplo: Os usuários são roteados para OUs que correspondem a um local do escritório, conforme definido nos atributos "Município" e "Country_Region_Reference" do Workday*
+   * *Exemplo: Os usuários são roteados para UOs que correspondem a um escritório, conforme definido nos atributos "Município" e "Country_Region_Reference" do Workday*
 
 * **Como os atributos a seguir devem ser preenchidos no Active Directory?**
 
@@ -169,7 +169,7 @@ Antes de configurar o provisionamento de usuário para um domínio do Active Dir
       * *Exemplo: Use o valor Worker_ID do Workday*
       
    * Nome de conta SAM (sAMAccountName)
-      * *Exemplo: Use o valor User_ID do Workday, filtrado por meio da expressão de provisionamento do Azure AD para remover caracteres inválidos*
+      * *Exemplo: Use o valor User_ID do Workday, filtrado por uma expressão de provisionamento do Azure AD para remover caracteres inválidos*
       
    * Nome principal do usuário (userPrincipalName)
       * *Exemplo: Use o valor User_ID do Workday, com uma expressão de provisionamento do Azure AD para acrescentar um nome de domínio*
@@ -180,7 +180,7 @@ Antes de configurar o provisionamento de usuário para um domínio do Active Dir
   
 * **A floresta do Active Directory já contém as IDs de usuário necessárias para a lógica de correspondência funcionar?**
 
-  * *Exemplo: Se esta for uma nova implantação do Workday, é altamente recomendável que o Active Directory seja preenchida previamente com os valores de Worker_ID do Workday corretos (ou valor de ID exclusivo de preferência) para manter a lógica de correspondência mais simples possível.*
+  * *Exemplo: Se essa for uma nova implantação do Workday, é altamente recomendável que o Active Directory seja preenchido previamente com os valores de Worker_ID do Workday corretos (ou valor de ID exclusivo de escolha) para manter a lógica de correspondência o mais simples possível.*
 
 
 
@@ -234,12 +234,12 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
 
     ![Políticas de Segurança de Domínio](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de Segurança de Domínio")  
 2. Na caixa de texto **Domínio**, pesquise pelos seguintes domínios e adicione-os ao filtro individualmente.  
-   * *Provisionamento de conta externa*
-   * *Dados de trabalho: relatórios de trabalho público*
-   * *Dados pessoais: informações de contato de trabalho*
-   * *Dados de trabalho: todas as posições*
-   * *Dados de trabalho: informações atuais sobre a equipe*
-   * *Dados de trabalho: título da empresa no perfil de trabalho*
+   * *Provisionamento de Conta Externa*
+   * *Dados do Trabalhador: Relatórios do Trabalhador Público*
+   * *Dados Pessoais: Informações de Contato Comerciais*
+   * *Dados do Trabalhador: Todos os Cargos*
+   * *Dados do Trabalhador: Informação da Equipe Atual*
+   * *Dados do Trabalhador: Título Comercial no Perfil do Trabalhador*
  
     ![Políticas de Segurança de Domínio](./media/workday-inbound-tutorial/wd_isu_07.png "Políticas de Segurança de Domínio")  
 
@@ -263,11 +263,11 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
 
    | Operação | Política de segurança de domínio |
    | ---------- | ---------- | 
-   | Get e Put | Dados de trabalho: Relatórios de trabalho público |
-   | Get e Put | Dados pessoais: informações de contato de trabalho |
-   | Obter | Dados de trabalho: Todas as posições |
-   | Obter | Dados de trabalho: Informações atuais sobre a equipe |
-   | Obter | Dados de trabalho: Cargo de negócios no perfil de trabalhado |
+   | Get e Put | Dados do Trabalhador: Relatórios do Trabalhador Público |
+   | Get e Put | Dados Pessoais: Informações de Contato Comerciais |
+   | Obter | Dados do Trabalhador: Todos os Cargos |
+   | Obter | Dados do Trabalhador: Informação da Equipe Atual |
+   | Obter | Dados do Trabalhador: Título Comercial no Perfil do Trabalhador |
 
 ### <a name="configure-business-process-security-policy-permissions"></a>Configurar permissões da política de segurança de processo empresarial
 Nesta etapa, você concederá permissões de política de “segurança de processo empresarial” para os dados de trabalho ao grupo de segurança. Isso é necessário para configurar o conector do aplicativo de Write-back do Workday. 
@@ -309,7 +309,7 @@ Nesta etapa, você concederá permissões de política de “segurança de proce
 
 Siga estas instruções para configurar o provisionamento de conta do usuário do Workday para cada domínio do Active Directory no escopo de sua integração.
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>Parte 1: Instalar e configurar agentes de provisionamento local
+### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>Parte 1: Instalar e configurar Agentes de Provisionamento local
 
 Para provisionar no Active Directory local, um agente deverá ser instalado em um servidor que tenha o .NET Framework 4.7+ e acesso à rede para o domínio do Active Directory desejado.
 
@@ -363,7 +363,7 @@ O [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=w
 4. Verifique se há erros e avisos.
 
     
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 2: adicionar o aplicativo de conector de provisionamento e criar a conexão com o Workday
+### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 2: Adicionar o aplicativo de conector de provisionamento e criar a conexão com o Workday
 
 **Para configurar o Workday para provisionamento do Active Directory:**
 
@@ -392,7 +392,7 @@ O [Log de eventos do Windows](https://technet.microsoft.com/library/cc722404(v=w
    * **Floresta do Active Directory –** o "Nome" de seu domínio do Active Directory, conforme registrado com o agente. Geralmente, é uma cadeia de caracteres como: *contoso.com*
 
    * **Contêiner do Active Directory –** insira o DN do contêiner em que o agente deve criar contas de usuário por padrão. 
-        Exemplo: *UO= Usuários Padrão,UO=Usuários,DC=contoso,DC=teste*
+        Exemplo: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
 > [!NOTE]
 > Essa configuração só entra em vigor para criações de contas de usuário quando o atributo *parentDistinguishedName* não está configurado nos mapeamentos de atributo. Essa configuração não é usada para operações de atualização e pesquisa de usuários. A subárvore de todo o domínio se enquadra no escopo da operação de pesquisa.
    * **Email de notificação –** Digite seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
@@ -411,19 +411,19 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 2.  No campo **Escopo do Objeto de Origem** é possível selecionar quais conjuntos de usuários no Workday devem estar no escopo de provisionamento para AD, definindo um conjunto de filtros baseados em atributo. O escopo padrão é "todos os usuários no Workday". Filtros de exemplo:
 
-   * Exemplo: Escopo para usuários com IDs de Trabalho entre 1000000 e 2000000
+   * Exemplo: Escopo para usuários com IDs do Trabalhador entre 1000000 e 2000000
 
       * Atributo: WorkerID
 
-      * Operador: COINCIDIR.EXREG
+      * Operador: Coincidir EXREG
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemplo: somente funcionários e não trabalhadores contingentes 
+   * Exemplo: Apenas funcionários e trabalhadores não contingentes 
 
       * Atributo: EmployeeID
 
-      * Operador: NÃO NULO
+      * Operador: IS NOT NULL
 
 3.  No campo **Ações do Objeto de Destino** é possível filtrar globalmente quais ações podem ser executadas no Active Directory. **Criar** e **Atualizar** são as mais comuns.
 
@@ -498,7 +498,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
   
 
 
-### <a name="part-4-start-the-service"></a>Parte 4: Iniciar o serviço
+### <a name="part-4-start-the-service"></a>Parte 4: Comece o serviço
 Após concluir as partes de 1 a 3, você poderá iniciar o serviço de provisionamento no portal do Azure.
 
 1.  Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Em**.
@@ -532,7 +532,7 @@ As seções a seguir descrevem a configuração de uma conexão entre o Workday 
 > [!IMPORTANT]
 > Siga o procedimento abaixo apenas se você tiver usuários somente na nuvem que precisam ser provisionados para o Azure AD e não para o Active Directory local.
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: adicionar o aplicativo de conectores de provisionamento do AD do Azure e criar a conexão ao Workday
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: Adicionar o aplicativo do conector de provisionamento do Azure AD e criar a conexão com o Workday
 
 **Para configurar o provisionamento do Workday to Azure Active Directory para usuários somente na nuvem:**
 
@@ -572,19 +572,19 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
 2. No campo **Escopo do Objeto de Origem** é possível selecionar quais conjuntos de usuários no Workday devem estar no escopo de provisionamento para Azure AD, definindo um conjunto de filtros baseados em atributo. O escopo padrão é "todos os usuários no Workday". Filtros de exemplo:
 
-   * Exemplo: Escopo para usuários com IDs de Trabalho entre 1000000 e 2000000
+   * Exemplo: Escopo para usuários com IDs do Trabalhador entre 1000000 e 2000000
 
       * Atributo: WorkerID
 
-      * Operador: COINCIDIR.EXREG
+      * Operador: Coincidir EXREG
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemplo: Somente trabalhadores contingentes e não funcionários regulares
+   * Exemplo: Apenas trabalhadores contingentes e funcionários não regulares
 
       * Atributo: ContingentID
 
-      * Operador: NÃO NULO
+      * Operador: IS NOT NULL
 
 3. No campo **Ações do Objeto de Destino** é possível filtrar globalmente quais ações podem ser realizadas no Azure AD. **Criar** e **Atualizar** são as mais comuns.
 
@@ -619,7 +619,7 @@ Nesta seção, você irá configurar o fluxo dos dados do usuário do Workday pa
 
 6. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
-### <a name="part-3-start-the-service"></a>Parte 3: Iniciar o serviço
+### <a name="part-3-start-the-service"></a>Parte 3: Comece o serviço
 Após concluir as partes de 1 a 2, você poderá iniciar o serviço de provisionamento.
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Ligado**.
@@ -635,7 +635,7 @@ Após concluir as partes de 1 a 2, você poderá iniciar o serviço de provision
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configurando write-back de endereços de email para Workday
 Siga essas instruções para configurar o write-back de endereços de email do usuário do Azure Active Directory para Workday.
 
-### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: adicionar o aplicativo de conector de provisionamento e criar a conexão para Workday
+### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: Adicionar o aplicativo de conector de provisionamento e criar a conexão com o Workday
 
 **Para configurar o conector de Write-back do Workday:**
 
@@ -677,7 +677,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 4. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
-### <a name="part-3-start-the-service"></a>Parte 3: Iniciar o serviço
+### <a name="part-3-start-the-service"></a>Parte 3: Comece o serviço
 Após concluir as partes de 1 a 2, você poderá iniciar o serviço de provisionamento.
 
 1. Na guia **Provisionamento**, defina o **Status de Provisionamento** para **Ligado**.
@@ -725,7 +725,7 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -758,15 +758,15 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
 
-14. Na árvore de arquivos, navegue por **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** para localizar os dados do seu usuário. 
+14. Na árvore de arquivo, navegue por **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Trabalhador** para localizar os dados do seu usuário. 
 
-15. Em **wd:Worker**, localize o atributo que você deseja adicionar e selecione-o.
+15. Em **wd: Trabalhador**, localize o atributo que você quer adicionar e selecione-o.
 
 16. Copie a expressão XPath para o atributo que você selecionou no campo **Caminho de Documento**.
 
 1. Remova o prefixo **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** da expressão copiada.
 
-18. Se o último item da expressão copiada for um nó (por exemplo: "/wd:Birth_Date"), acrescente **/text()** ao final da expressão. Isso não é necessário se o último item for um atributo (exemplo: "/@wd: type").
+18. Se o último item na expressão copiada for um nó (exemplo: "/wd: Birth_Date"), então acrescente **/text()** no final da expressão. Isso não é necessário se o último item for um atributo (exemplo: "/@wd: type").
 
 19. O resultado deve ser algo como `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Isso é o que você copiará no Portal do Azure.
 

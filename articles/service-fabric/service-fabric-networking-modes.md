@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300772"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866059"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -78,7 +78,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
             ],
     ```
 
-2. Configure a seção de perfil de rede para permitir a configuração de vários endereços IP em cada nó do cluster. O exemplo a seguir define cinco endereços de IP por nó para um cluster do Windows/Linux Service Fabric. Você pode ter cinco instâncias de serviço escutando na porta em cada nó.
+2. Configure a seção de perfil de rede para permitir a configuração de vários endereços IP em cada nó do cluster. O exemplo a seguir define cinco endereços de IP por nó para um cluster do Windows/Linux Service Fabric. Você pode ter cinco instâncias de serviço escutando na porta em cada nó. Para que os cinco IPs sejam acessíveis no Azure Load Balancer, inscreva os cinco IPs no Pool de Endereços de Back-End do Azure Load Balancer, conforme mostrado abaixo.
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }

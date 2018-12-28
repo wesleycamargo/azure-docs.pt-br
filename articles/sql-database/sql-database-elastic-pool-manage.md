@@ -3,7 +3,7 @@ title: Criar e gerenciar pools elásticos – banco de dados SQL do Azure | Micr
 description: Criar e gerenciar pools elásticos do Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/29/2018
-ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243088"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865869"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerenciar pools elásticos no banco de dados do Azure SQL
 
 Com um pool elástico, você pode determinar a quantidade de recursos que o pool elástico requer para lidar com a carga de trabalho de seus bancos de dados e a quantidade de recursos para cada banco de dados em pool.
 
-## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Portal do Azure: gerenciar pools elásticos e bancos de dados em pool
+## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Portal do Azure: Gerenciar pools elásticos e bancos de dados em pool
 
 Todas as configurações de pool podem ser localizadas em um só local: na folha **Configurar pool**. Para chegar até aqui, localize um pool elástico no portal e clique em **Configurar pool** na parte superior da folha ou no menu de recursos esquerdo.
 
@@ -37,7 +37,7 @@ A partir deste ponto, é possível fazer qualquer combinação das alterações 
 
 ![Folha de configuração do pool elástico](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: gerenciar pools elásticos e bancos de dados em pool
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerenciar pools elásticos e bancos de dados em pool
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados em pool com o Azure PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Para criar e gerenciar os servidores lógicos para um conjunto elástico, consulte [Criar e servidores lógicos gerenciados](sql-database-logical-servers.md). Para criar e gerenciar regras de firewall, consulte [criar e gerenciar regras de firewall usando o PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
@@ -60,7 +60,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados 
 > [!TIP]
 > A criação de muitos bancos de dados em um pool elástico pode levar tempo quando feito usando o portal ou cmdlets do PowerShell que criam apenas um banco de dados individual por vez. Para automatizar a criação em um pool elástico, consulte [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
 
-## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>CLI do Azure: gerenciar pools elásticos e bancos de dados em pool
+## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>CLI do Azure: Gerenciar pools elásticos e bancos de dados em pool
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azure](/cli/azure), use os seguintes comandos do [Banco de Dados SQL da CLI do Azure](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows.
 
@@ -77,7 +77,7 @@ Para criar e gerenciar pools elásticos do Banco de Dados SQL com a [CLI do Azur
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|Atualiza um pool elástico.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|Excluir o pool elástico.|
 
-## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: gerenciar bancos de dados em pool
+## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: Gerenciar bancos de dados em pool
 
 Para criar e mover bancos de dados dentro de pools elásticos existentes ou para retornar informações sobre um pool elástico de Banco de Dados SQL com o Transact-SQL, use os seguintes comandos do T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. Para criar e gerenciar regras de firewall usando o T-SQL, consulte [Gerenciar regras de firewall usando o Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
 
@@ -93,7 +93,7 @@ Para criar e mover bancos de dados dentro de pools elásticos existentes ou para
 |[sys.elastic_pool_resource_stats (Banco de Dados SQL do Microsoft Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Retorna estatísticas de uso de recursos de todos os pools de banco de dados elástico em um servidor lógico. Para cada pool de banco de dados elástico, há uma linha para cada janela de relatórios de 15 segundos (quatro linhas por minuto). Isso inclui a utilização de CPU, E/S, log, consumo de armazenamento e solicitações/sessões simultâneas de todos os bancos de dados no pool.|
 |[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (nível de serviço), o objetivo do serviço (tipo de preço) e o nome do pool elástico, se houver um, para um Banco de Dados SQL do Azure ou um SQL Data Warehouse do Azure. Se estiver conectado ao banco de dados mestre em um servidor de Banco de Dados SQL do Azure, retornará informações sobre todos os bancos de dados. Para o SQL Data Warehouse do Azure, você deve estar conectado ao banco de dados mestre.|
 
-## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: gerenciar pools elásticos e bancos de dados em pool
+## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: Gerenciar pools elásticos e bancos de dados em pool
 
 Para criar e gerenciar pools elásticos do Banco de Dados SQL e bancos de dados em pool, use estas solicitações da API REST.
 

@@ -1,23 +1,23 @@
 ---
 title: Usar relatórios do Cloudyn no Azure | Microsoft Docs
-description: Este artigo descreve como usar vários relatórios no portal do Cloudyn.
+description: Este artigo descreve a finalidade dos relatórios do Cloudyn incluídos no portal do Cloudyn para ajudar a usá-los efetivamente.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276016"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075853"
 ---
-# <a name="use-cloudyn-reports"></a>Usar relatórios do Cloudyn
+# <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal Cloudyn
 
 Este artigo descreve a finalidade dos relatórios Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como você pode usar com eficiência os relatórios. A maioria dos relatórios é intuitiva e tem uma aparência uniforme. A maioria das ações que você pode fazer em um relatório, também poderá fazer em outros. Para obter uma visão geral sobre como usar os relatórios da Cloudyn, incluindo como personalizar e salvar ou agendar relatórios, consulte [Noções básicas sobre relatórios de custo](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Os painéis no Cloudyn fornecem uma visão geral de relatórios. Painéis são c
 
 ## <a name="budget-information-in-reports"></a>Informações de orçamento em relatórios
 
-Muitos relatórios Cloudyn mostram informações de orçamento depois de ter criado um manualmente. Assim, os relatórios não mostrarão as informações de orçamento até você criar um orçamento. Para saber mais, veja [Configurações de orçamento](#budget-settings).
+Muitos relatórios Cloudyn mostram informações de orçamento depois de ter criado um manualmente. Assim, os relatórios não mostrarão as informações de orçamento até você criar um orçamento. Para obter mais informações, consulte [Configurações de gerenciamento de orçamento](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 
@@ -208,7 +208,7 @@ Os encargos personalizados são mostrados em relatórios de custo. Por exemplo, 
 
 Você pode usar Alocação de custos 360 para criar modelos personalizados de alocação de custos para atribuir os custos a recursos de nuvem consumidos. Muitos relatórios mostram informações de modelos personalizados de custo que você criou com modelos personalizados de custo. E alguns relatórios mostram apenas as informações depois de você ter criado um modelo personalizado de custos com alocação de custos.
 
-Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: gerenciar custos usando o Cloudyn](tutorial-manage-costs.md).
+Para obter mais informações sobre a criação de modelos de custo personalizados, consulte [Tutorial: Gerenciar custos usando Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Relatório de Custos versus  Orçamento ao Longo do Tempo
 
@@ -448,7 +448,7 @@ A seção **Utilização da CPU** fornece a utilização da CPU para a instânci
 
 Clique no gráfico para fazer uma análise e abrir o relatório de instância da CPU ao longo tempo para ver um detalhamento das instâncias.
 
-- Use **Mostrar/Ocultar Campos** para adicionar ou remover campos: Carimbo de Data e Hora, Média de CPU, Mínimo de CPU, Máximo de CPU.
+- Use **Mostrar/ocultar campos** para adicionar ou remover campos: Carimbo de data/hora, Méd. de CPU, Mín. de CPU, Máx. de CPU.
 - Use **Intervalo de Datas** para inserir uma data ou intervalo de datas e detalhar uma InstanceID específica.
 - Use **Filtros Estendidos** para mostrar todos ou uma ID de instância específica
 - Clique em **Ampliar** para abrir o relatório de utilização de CPU

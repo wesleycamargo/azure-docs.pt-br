@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044698"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877608"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -35,7 +34,7 @@ A amostragem reduz os custos de tráfego e de dados e ajuda a evitar a limitaç�
 * Também é possível definir a amostragem manualmente, no portal, na página Uso e custos estimados, no SDK do ASP.NET no arquivo .config ou, no SDK do Java no arquivo ApplicationInsights.xml para reduzir também o tráfego.
 * Se você registrar eventos personalizados e desejar certificar-se de que um conjunto de eventos é retido ou descartado em conjunto, certifique-se de que eles têm o mesmo valor de OperationID.
 * O divisor de amostragem *n`itemCount` é relatado em cada registro na propriedade* , que, na Pesquisa, aparece sob o nome amigável "contagem de solicitação" ou "contagem de eventos". Quando a amostragem não estiver em operação, `itemCount==1`.
-* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../log-analytics/query-language/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
+* Se você escrever consultas de Análise, deverá [levar em conta a amostragem](../azure-monitor/log-query/aggregations.md). Em particular, em vez de simplesmente contar registros, você deve usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de amostragem
 Há três módulos de amostragem alternativos:
@@ -113,11 +112,11 @@ Em [ApplicationInsights.config`AdaptiveSamplingTelemetryProcessor`, é possível
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Uma lista delimitada por ponto e vírgula dos tipos que você não deseja usar como amostra. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não especificados são usados como amostra.
+    Uma lista delimitada por ponto e vírgula dos tipos que você não deseja usar como amostra. Tipos reconhecidos são: Dependência, Evento, Exceção, 	Exibição da Página, Solicitação, Rastreamento. Todas as instâncias dos tipos especificados são transmitidas; os tipos que não especificados são usados como amostra.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Uma lista delimitada por ponto e vírgula dos tipos que você deseja usar como amostra. Os tipos reconhecidos são: Dependência, Evento, Exceção, PageView, Solicitação, Rastreamento. Os tipos especificados são usados como amostra; todas as instâncias dos outros tipos serão sempre transmitidas.
+    Uma lista delimitada por ponto e vírgula dos tipos que você deseja usar como amostra. Tipos reconhecidos são: Dependência, Evento, Exceção, 	Exibição de Página, Solicitação, Rastreamento. Os tipos especificados são usados como amostra; todas as instâncias dos outros tipos serão sempre transmitidas.
 
 
 **Para desativar** a amostragem adaptável, remova o nó AdaptiveSamplingTelemetryProcessor do applicationinsights-config.
@@ -207,7 +206,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
 ### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Configure a amostragem de taxa fixa no ASP.NET ###
 
 1. **Atualize os pacotes NuGet do seu projeto** para a versão de *pré-lançamento* mais recente do Application Insights. No Visual Studio, clique com o botão direito do mouse no projeto em Gerenciador de Soluções, escolha Gerenciar pacotes NuGet, marque **Incluir pré-lançamento** e pesquise por Microsoft.ApplicationInsights.Web. 
-2. **Desabilitar a amostragem adaptável**: em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remova ou comente o nó `AdaptiveSamplingTelemetryProcessor`.
+2. **Desabilitar amostragem adaptável**: Em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), remova ou comente o nó `AdaptiveSamplingTelemetryProcessor`.
    
     ```xml
    
@@ -264,7 +263,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
         <IncludedType>Exception</IncludedType>
     </IncludedTypes>
 ```
-Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são: dependência, eventos, exceções, de página, solicitação e de rastreamento.
+Os tipos de telemetria que podem ser incluídos ou excluídos da amostragem são: Dependência, Evento, Exceção, Exibição de Página, Solicitação e Rastreamento.
 
 > [!NOTE]
 > Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro.  Atualmente, a amostragem não dá suporte a outros valores.

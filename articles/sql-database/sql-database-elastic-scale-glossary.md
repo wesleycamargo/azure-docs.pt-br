@@ -3,7 +3,7 @@ title: Glossário de ferramentas de Banco de Dados Elástico | Microsoft Docs
 description: Explicação dos termos usados para as ferramentas de banco de dados elástico
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239059"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867793"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas do banco de dados elástico
 Os termos a seguir são definidos para as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md), um recurso do Banco de Dados SQL do Azure. As ferramentas são usadas para gerenciar [mapas de fragmentos](sql-database-elastic-scale-shard-map-management.md) e incluem a [biblioteca de cliente](sql-database-elastic-database-client-library.md), a [ferramenta de divisão e mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), [pools elásticos](sql-database-elastic-pool.md) e [consultas](sql-database-elastic-query-overview.md). 
@@ -26,19 +26,19 @@ Esses termos são usados em [Adicionando um fragmento usando ferramentas de Banc
 
 ![Termos de escala elástica][1]
 
-**Banco de dados**: um Banco de Dados SQL do Azure. 
+**Banco de dados**: Um banco de dados SQL do Azure. 
 
-**Roteamento dependente de dados**: a funcionalidade que permite que um aplicativo se conecte a um fragmento dada uma chave de fragmentação específica. Consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com a **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
+**Roteamento dependente de dados**: A funcionalidade que permite que um aplicativo conecte um fragmento com uma chave de fragmentação específica. Consulte [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com a **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
-**Mapa de fragmentos global**: o mapa entre chaves de fragmentação e seus respectivos fragmentos em um **conjunto de fragmentos**. O mapa de fragmentos global é armazenado no **gerenciador do mapa de fragmentos**. Compare com o **mapa de fragmentos local**.
+**Mapa de fragmentos global**: O mapa entre as chaves de fragmentação seus respectivos fragmentos em um **conjunto de fragmentos**. O mapa de fragmentos global é armazenado no **gerenciador do mapa de fragmentos**. Compare com o **mapa de fragmentos local**.
 
-**Mapa de fragmentos de lista**: um mapa de fragmentos no qual as chaves de fragmentação são mapeadas individualmente. Compare com o **Mapa de fragmentos de intervalo**.   
+**Mapa de fragmentos de lista**: Um mapa de fragmentos no qual as chaves de fragmentação são mapeadas individualmente. Compare com o **Mapa de fragmentos de intervalo**.   
 
-**Mapa de fragmentos local**: armazenado em um fragmento, o mapa de fragmentos local contém mapeamentos para os shardlets que residem no fragmento.
+**Mapa de fragmentos local**: Armazenado em um fragmento, o mapa de fragmento local contém mapeamentos para os shardlets que residem no fragmento.
 
-**Consulta de vários fragmentos**: a capacidade de executar uma consulta em vários fragmentos; os conjuntos de resultados são retornados usando a semântica UNION ALL (também conhecida como “consulta do tipo fan-out”). Compare com o **roteamento dependente de dados**.
+**Consulta de vários fragmentos**: A capacidade de emitir uma consulta em vários fragmentos, os conjuntos de resultados são retornados usando a semântica UNION ALL (também conhecida como "consulta do tipo fan-out"). Compare com o **roteamento dependente de dados**.
 
-**Multilocatário** e **Locatário único**: mostra um banco de dados com locatário único e um banco de dados multilocatário:
+**Multilocatário** e **Locatário único**: Isso mostra um banco de dados de locatário único e um banco de dados de vários locatários:
 
 ![Bancos de dados de único locatário e multilocatário](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
@@ -46,42 +46,42 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 
 ![Bancos de dados de único locatário e multilocatário](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
-**Mapa de fragmentos de intervalo**: um mapa de fragmentos em que a estratégia de distribuição de fragmentos é baseada em vários intervalos de valores contíguos. 
+**Mapas de fragmentos de intervalo**: Um mapa de fragmentos no qual a estratégia de distribuição de fragmentos é baseada em vários intervalos de valores contíguos. 
 
-**Tabelas de referência**: tabelas que não são fragmentadas, mas replicadas nos fragmentos. Por exemplo, códigos postais podem ser armazenados em uma tabela de referência. 
+**Tabelas de referência**: Tabelas que não são fragmentadas, mas replicadas nos fragmentos. Por exemplo, códigos postais podem ser armazenados em uma tabela de referência. 
 
-**Fragmento**: um banco de dados SQL do Azure que armazena dados de um conjunto de dados fragmentados. 
+**Fragmento**: Um banco de dados SQL do Azure que armazena dados de um conjunto de dados fragmentados. 
 
-**Elasticidade de fragmento**: a capacidade de executar **escala horizontal** e **escala vertical**.
+**Elasticidade de fragmento**: A capacidade de executar **dimensionamento horizontal** e **dimensionamento vertical**.
 
-**Tabelas fragmentadas**: tabelas que são fragmentadas, ou seja, cujos dados são distribuídos por meio de fragmentos com base em seus valores de chave de fragmentação. 
+**Tabelas fragmentadas**: Tabelas que são fragmentadas, ou seja, cujos dados são distribuídos entre fragmentos com base em seus valores de chave de fragmentação. 
 
-**Chave de fragmentação**: um valor de coluna que determina como os dados são distribuídos nos fragmentos. O tipo do valor pode ser um dos seguintes: **int**, **bigint**, **varbinary** ou **uniqueidentifier**. 
+**Chave de fragmentação**: Um valor de coluna que determina como os dados são distribuídos entre os fragmentos. O tipo do valor pode ser um dos seguintes: **int**, **bigint**, **varbinary** ou **uniqueidentifier**. 
 
-**Conjunto de fragmentos**: a coleção de fragmentos que são atribuídos ao mesmo mapa de fragmentos no gerenciador de mapa de fragmentos.  
+**Conjunto de fragmentos**: A coleção de fragmentos que são atribuídos ao mesmo mapa de fragmentos no gerenciador de mapas de fragmentos.  
 
-**Shardlet**: todos os dados associados a um único valor de uma chave de fragmentação em um fragmento. Um shardlet é a menor unidade de movimentação de dados possível ao redistribuir tabelas fragmentadas. 
+**Shardlet**: Todos os dados associados a um único valor de uma chave de fragmentação em um fragmento. Um shardlet é a menor unidade de movimentação de dados possível ao redistribuir tabelas fragmentadas. 
 
-**Mapa de fragmentos**: o conjunto de mapeamentos entre chaves de fragmentação e seus respectivos fragmentos.
+**Mapa de fragmentos**: O conjunto de mapeamentos entre chaves de fragmentação e seus respectivos fragmentos.
 
-**Gerenciador de mapa de fragmentos**: um objeto de gerenciamento e um repositório de dados que contém o(s) mapa(s) de fragmentos, locais de fragmentos e mapeamentos para um ou mais conjuntos de fragmentos.
+**Gerenciador de mapa de fragmentos**: Um objeto de gerenciamento e um repositório de dados que contém os mapas de fragmentos, locais do fragmento e mapeamentos para um ou mais conjuntos de fragmentos.
 
 ![Mapeamentos][2]
 
 ## <a name="verbs"></a>Verbos
-**Escala horizontal**: o ato de escalar horizontal (ou verticalmente) uma coleção de fragmentos adicionando ou removendo fragmentos de um mapa de fragmentos, como mostrado abaixo.
+**Dimensionamento horizontal**: O ato de escalar horizontal (ou verticalmente) uma coleção de fragmentos, adicionando ou removendo fragmentos de um mapa de fragmentos, conforme mostrado abaixo.
 
 ![Dimensionamento horizontal e vertical][3]
 
-**Mesclar**: o ato de mover shardlets de dois fragmentos para um e atualizar o mapa de fragmentos de acordo.
+**Mesclar**: O ato de mover shardlets de dois fragmentos para um e atualizar o mapa de fragmentos de adequadamente.
 
-**Mover shardlet**: o ato de mover um único shardlet para um fragmento diferente. 
+**Movimentação de shardlet**: O ato de mover um único shardlet para um fragmento diferente. 
 
-**Fragmentar**: o ato de particionar horizontalmente dados estruturados de modo idêntico em vários bancos de dados com base em uma chave de fragmentação.
+**Fragmentar**: O ato de particionar horizontalmente dados de estrutura idêntica em vários bancos de dados com base em uma chave de fragmentação.
 
-**Dividir**: o ato de mover vários shardlets de um fragmento para outro (normalmente novo). Uma chave de fragmentação é fornecida pelo usuário como o ponto de divisão.
+**Dividir**: O ato de movimentar vários shardlets de um fragmento para outro (normalmente novo) fragmento. Uma chave de fragmentação é fornecida pelo usuário como o ponto de divisão.
 
-**Dimensionamento vertical**: o ato de escalar (ou reduzir) verticalmente o tamanho de computação de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
+**Dimensionamento vertical**: O ato de escalar verticalmente (ou reduzir verticalmente) o tamanho de computação de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

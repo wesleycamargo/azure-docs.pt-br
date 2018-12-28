@@ -1,6 +1,6 @@
 ---
-title: Visão geral dos recursos de Hubs de eventos do Azure | Microsoft Docs
-description: Visão geral e detalhes sobre os recursos de Hubs de Eventos do Azure
+title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280566"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075159"
 ---
-# <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de Eventos
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
 Os Hubs de Evento do Azure é um serviço de processamento de evento escalonável que recebe e processa grandes volumes de eventos e dados, com baixa latência e alta confiabilidade. Confira [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md) para obter uma visão geral de alto nível.
 
@@ -159,8 +160,8 @@ Os Hubs de Eventos têm uma arquitetura paralela altamente dimensionável e há 
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única unidade de transferência inclui a seguinte capacidade:
 
-* Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
-* Entrada: até 2 MB por segundo ou 4096 eventos por segundo.
+* Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
+* Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
 
 Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
 

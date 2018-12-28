@@ -3,7 +3,7 @@ title: Introdução às Coleções Confiáveis nos serviços com estado do Azure
 description: Os serviços com monitoração de estado do Service Fabric fornecem coleções confiáveis que permitem escrever aplicativos em nuvem altamente disponíveis, escalonáveis e com baixa latência.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212918"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191981"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introdução à Reliable Collections nos serviços com monitoração de estado do Service Fabric do Azure
 As Coleções Confiáveis permitem desenvolver aplicativos em nuvem altamente disponíveis, escalonáveis e de baixa latência como se você estivesse desenvolvendo aplicativos de computador único. As classes no namespace **Microsoft.ServiceFabric.Data.Collections** fornecem um conjunto de coleções que automaticamente tornam seu estado altamente disponível. Os desenvolvedores só precisam programar para as APIs de Coleções Confiáveis e permitir que as Coleções Confiáveis gerenciem o estado local e replicado.
@@ -33,10 +33,10 @@ A principal diferença entre Coleções Confiáveis e outras tecnologias de alta
 
 As Coleções Confiáveis podem ser interpretadas como a evolução natural das classes **System.Collections** : um novo conjunto de coleções projetadas para a nuvem e aplicativos com vários computadores sem aumentar a complexidade para desenvolvedores. Sendo assim, as Coleções confiáveis são:
 
-* Replicadas: alterações de estado são replicadas para alta disponibilidade.
-* Persistentes: os dados são persistidos no disco para durabilidade contra interrupções em larga escala (por exemplo, uma interrupção de energia de datacenter).
-* Assíncronas: as APIs são assíncronas para garantir que os threads não sejam bloqueados quando gerarem E/S.
-* Transacionais: as APIs utilizam a abstração de transações para que você possa gerenciar facilmente várias Coleções Confiáveis dentro de um serviço.
+* Replicadas: Alterações de estado são replicadas para alta disponibilidade.
+* Persistentes: Os dados são persistidos no disco para durabilidade contra interrupções em larga escala (por exemplo, uma interrupção de energia de datacenter).
+* Assíncronas: As APIs são assíncronas para garantir que os threads não sejam bloqueados quando gerarem E/S.
+* Transacionais: As APIs utilizam a abstração de transações para que você possa gerenciar várias Coleções Confiáveis em um serviço com facilidade.
 
 As Coleções Confiáveis fornecem garantias de coerência forte prontas para uso para facilitar o raciocínio sobre o estado do aplicativo.
 A coerência forte é obtida com a garantia de que as confirmações de transação só são concluídas depois que toda a transação tiver sido registrada em uma quorum de réplicas que seja a maioria, incluindo a primária.
@@ -44,15 +44,15 @@ Para obter consistência mais fraca, os aplicativos podem confirmar para o clien
 
 As APIs de Coleções Confiáveis são uma evolução das APIs de coleções simultâneas (encontradas no namespace **System.Collections.Concurrent** ):
 
-* Assíncronas: retorna uma tarefa, já que, ao contrário das coleções concorrentes, as operações são replicadas e mantidas.
-* Sem parâmetro de saída: usam `ConditionalValue<T>` para retornar um bool e um valor em vez de parâmetros. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
-* Transações: usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
+* Assíncronas: Retorna uma tarefa, pois, ao contrário das coleções simultâneas, as operações são replicadas e persistentes.
+* Sem parâmetros externos: Usa `ConditionalValue<T>` para retornar um bool e um valor, em vez de parâmetros externos. `ConditionalValue<T>` é como `Nullable<T>`, mas não requer T para ser um struct.
+* Transações: Usam um objeto de transação para permitir que o usuário agrupe as ações em várias Coleções Confiáveis em uma transação.
 
 Hoje, **Microsoft.ServiceFabric.Data.Collections** contém três coleções:
 
-* [Dicionário Confiável](https://msdn.microsoft.com/library/azure/dn971511.aspx): representa uma coleção de pares chave/valor replicada, transacional e assíncrona. Semelhante a **ConcurrentDictionary**, a chave e o valor podem ser de qualquer tipo.
-* [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx): representa uma fila PEPS (primeiro a entrar, primeiro a sair) estrita, assíncrona, transacional e replicada. Semelhante a **ConcurrentQueue**, a chave pode ser de qualquer tipo.
-* [Fila Simultânea Confiável](service-fabric-reliable-services-reliable-concurrent-queue.md): representa uma fila de ordenação de melhor esforço replicada, transacional e assíncrona para alta taxa de transferência. Semelhante à **ConcurrentQueue**, o valor pode ser de qualquer tipo.
+* [Dicionário Confiável](https://msdn.microsoft.com/library/azure/dn971511.aspx): Representa uma coleção de pares chave/valor replicada, transacional e assíncrona. Semelhante a **ConcurrentDictionary**, a chave e o valor podem ser de qualquer tipo.
+* [Fila Confiável](https://msdn.microsoft.com/library/azure/dn971527.aspx): Representa uma fila PEPS (primeiro a entrar, primeiro a sair) estrita, assíncrona, transacional e replicada. Semelhante a **ConcurrentQueue**, a chave pode ser de qualquer tipo.
+* [Fila Simultânea Confiável](service-fabric-reliable-services-reliable-concurrent-queue.md): Representa uma fila de ordenação de melhor esforço replicada, transacional e assíncrona para alta taxa de transferência. Semelhante à **ConcurrentQueue**, o valor pode ser de qualquer tipo.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Recomendações e Diretrizes de Coleções Confiáveis](service-fabric-reliable-services-reliable-collections-guidelines.md)

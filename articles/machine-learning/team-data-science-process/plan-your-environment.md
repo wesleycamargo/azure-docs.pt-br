@@ -1,6 +1,6 @@
 ---
-title: Identificar cenários e planejar o processo de análise - Azure | Microsoft Docs
-description: Planeje a análise avançada considerando uma série de perguntas importantes.
+title: Identificar cenários e planejar o processo de análise - Processo de Ciência de Dados de Equipe
+description: Identifique cenários e planeje o processamento de dados analíticos avançado, considerando uma série de questões fundamentais.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446400"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138034"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
 Quais recursos você deve planejar incluir ao configurar um ambiente para o processamento de análise avançada em um conjunto de dados? Este artigo sugere uma série de perguntas a serem feitas que ajudam a identificar as tarefas e os recursos relevantes ao seu cenário. A ordem das etapas de alto nível para análise preditiva é descrita em [O que é o TDSP (Processo de Ciência de Dados de Equipe)?](overview.md). Cada uma dessas etapas exige recursos específicos para as tarefas relevantes ao seu cenário específico. As principais perguntas para identificar seu cenário dizem respeito à logística de dados, às características, à qualidade dos conjuntos de dados e às ferramentas e linguagens que você prefere para fazer a análise.
@@ -65,9 +65,9 @@ Essas perguntas são essenciais para o planejamento de seus ambientes de armazen
    * Tabelas do SQL Server
 3. **Qual o tamanho dos seus dados?**
    
-   * Pequeno: menor que 2 GB
-   * Médio: maior que 2 GB e menor que 10 GB
-   * Grande: maior que 10 GB
+   * Pequeno: Menor que 2 GB
+   * Médio: Maior que 2 GB e menor que 10 GB
+   * Grande: Maior que 10 GB
 
 Tome o ambiente do Azure Machine Learning Studio como exemplo:
 

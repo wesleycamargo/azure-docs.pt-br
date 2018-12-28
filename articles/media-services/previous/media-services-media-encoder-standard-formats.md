@@ -1,27 +1,31 @@
 ---
-title: Codecs e formatos padrão do codificador de mídia
+title: Formatos e codecs Media Encoder Standard - Azure
 description: Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255703"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384727"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 2](media-services-media-encoder-standard-formats.md)
+> * [Versão 3](../latest/media-encoder-standard-formats.md)
+
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
@@ -52,8 +56,6 @@ O Padrão do Codificador de Mídia oferece suporte à execução dos seguintes f
 ou o
 
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
-
-O suporte para mapeamento de canal explícito/fornecido pelo usuário será fornecido em um futuro próximo.
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Com suporte |
@@ -95,7 +97,7 @@ O suporte para mapeamento de canal explícito/fornecido pelo usuário será forn
 | Dolby® Digital (AC3) |Não  |
 | Dolby® Digital Plus (E-AC3) |Não  |
 
-## <a name="output-formats-and-codecs"></a>Formatos e codecs de saída
+## <a name="output-formats-and-codecs"></a>Codecs e formatos de saída
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
 
 | Formato de arquivo | Codec de vídeo | Codec de áudio |

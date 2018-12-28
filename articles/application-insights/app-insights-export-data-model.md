@@ -9,16 +9,15 @@ ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6686b241b93a0ae46b6de134f6f01526bb1a3ad2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294887"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723441"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal.
@@ -115,7 +114,7 @@ Pontos a serem observados:
 ## <a name="context"></a>Contexto
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com cada ponto de dados.
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
 | context.custom.metrics [0] |object [ ] |Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
@@ -157,7 +156,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 ## <a name="events"></a>Eventos
 Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | event [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | event [0] name |string |Nome do evento.  Comprimento máximo 250. |
@@ -168,7 +167,7 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 ## <a name="exceptions"></a>Exceções
 [Exceções](app-insights-asp-net-exceptions.md) do relatório no servidor e no navegador.
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
@@ -197,7 +196,7 @@ Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events
 ## <a name="trace-messages"></a>Mensagens de rastreamento
 Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e pelos [adaptadores de log](app-insights-asp-net-trace-logs.md).
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -207,7 +206,7 @@ Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) e
 ## <a name="remote-dependency"></a>Dependência remota
 Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamadas para dependências](app-insights-asp-net-dependencies.md) no servidor, e chamadas do AJAX no navegador.
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | remoteDependency [0] async |booleano | |
 | remoteDependency [0] baseName |string | |
@@ -228,9 +227,9 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 ## <a name="requests"></a>Requests
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
-| request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo: 4 =&gt; 25%. |
+| request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo:  4 =&gt; 25%. |
 | request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
 | request [0] id |string |ID da operação |
 | request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
@@ -246,7 +245,7 @@ Enviado pelo navegador. Mede o tempo de processamento de uma página, desde o in
 
 Os valores de contexto mostram a versão do navegador e do sistema operacional cliente.
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
 | clientPerformance [0] name |string | |
@@ -263,7 +262,7 @@ Os valores de contexto mostram a versão do navegador e do sistema operacional c
 ## <a name="page-views"></a>Visualizações de página
 Enviado por trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | view [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md) ). Por exemplo, 4 =&gt; 25%. |
 | view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
@@ -276,7 +275,7 @@ Enviado por trackPageView() ou [stopTrackPage](app-insights-api-custom-events-me
 ## <a name="availability"></a>Disponibilidade
 Relata os [testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md).
 
-| Caminho | type | Observações |
+| Caminho | Tipo | Observações |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilidade |
 | availability [0] availabilityMetric.value |número |1.0 ou 0.0 |

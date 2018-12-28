@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033916"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323261"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
@@ -34,16 +34,16 @@ A maneira recomendada de determinar o status de serviço do Azure é assinar o [
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento ocorrer
 Se um ou mais serviços de Armazenamento estão indisponíveis no momento em uma ou mais regiões, há duas opções a serem consideradas. Se você quiser acesso imediato a seus dados, considere a Opção 2.
 
-### <a name="option-1-wait-for-recovery"></a>Opção 1: aguardar a recuperação
+### <a name="option-1-wait-for-recovery"></a>Opção 1: Aguardar a recuperação
 Nesse caso, nenhuma ação sua é necessária. Estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço do Azure. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço do Azure](https://azure.microsoft.com/status/).
 
-### <a name="option-2-copy-data-from-secondary"></a>Opção 2: copiar os dados do secundário
+### <a name="option-2-copy-data-from-secondary"></a>Opção 2: Copiar os dados do secundário
 Se você escolheu [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado) para suas contas de armazenamento, você terá acesso de leitura aos dados da região secundária. Você pode usar ferramentas como [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) e [biblioteca de Movimentação de Dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) para copiar dados da região secundária para outra conta de armazenamento em uma região não afetada e, em seguida, apontar os aplicativos para essa conta de armazenamento para disponibilidade de leitura e gravação.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorrer um failover de Armazenamento
 Se você tiver escolhido [GRS (armazenamento com redundância geográfica)](storage-redundancy-grs.md) ou [RA-GRS (armazenamento com redundância geográfica de acesso de leitura)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), o Armazenamento do Azure mantém seus dados duráveis em duas regiões (primária e secundária). Em ambas as regiões, o Armazenamento do Azure mantém constantemente várias réplicas de seus dados.
 
-Quando um desastre regional afeta sua região primária, primeiro tentamos restaurar o serviço nessa região para fornecer a melhor combinação de RTO e RPO. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas.
+Quando um desastre regional afetar sua região primária, primeiro tentaremos restaurar o serviço nessa região para fornecer a melhor combinação de RTO e RPO. Dependendo da natureza do desastre e seus impactos, em algumas ocasiões raras não será possível restaurar a região primária. Nesse ponto, executaremos um failover geográfico. A replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não foram replicadas para a região secundária sejam perdidas.
 
 Alguns pontos sobre a experiência de failover geográfico de armazenamento:
 

@@ -1,5 +1,5 @@
 ---
-title: Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure | Microsoft Docs
+title: Escalar verticalmente automaticamente unidades de produtividade - Hubs de Eventos do Azure | Microsoft Docs
 description: Habilitar Inflação automática em um namespace para escalar verticalmente automaticamente as unidades de produtividade.
 services: event-hubs
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986994"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408146"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
-
 Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das [unidades de produtividade](event-hubs-features.md#throughput-units) predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente automaticamente aumentando o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
 
 * As taxas de entrada de dados excedem as unidades de taxa de transferência definidas.
@@ -47,15 +47,25 @@ Você pode habilitar ou desabilitar o recurso Inflação automática em um names
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Habilitar Inflar automaticamente por meio do Portal
 
-Você pode habilitar o recurso Inflação automática durante a criação de um namespace dos Hubs de Eventos:
+
+#### <a name="enable-at-the-time-of-creation"></a>Habilitar no momento da criação 
+Você pode habilitar o recurso Inflar Automaticamente **ao criar um namespace de Hubs de Eventos**:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Habilitar inflar automaticamente na criação do hub de eventos de tempo](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Com essa opção habilitada, você pode começar pequeno em suas unidades de produtividade e escalar verticalmente à medida que suas necessidades de seu uso aumentam. O limite superior para inflação não afeta imediatamente os preços, que dependem do número de unidades de produtividade usadas por hora.
 
-Você também pode habilitar o recurso Inflação automática usando a opção **Dimensionar** no painel de configurações no portal:
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Habilitar inflar automaticamente para um hub de eventos existente
+Também é possível habilitar o recurso Inflar automaticamente e modificar as configurações, usando as instruções a seguir: 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. Na página **Namespace de Hubs de Eventos**, selecione **Desabilitado** em **Inflar automaticamente unidades de produtividade**.  
+
+    ![Selecione as unidades de produtividade na página de namespace dos Hubs de Eventos](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. Na página **Configurações de Dimensionamento**, selecione a caixa de seleção **Habilitar** (se o recurso de dimensionamento automático não estiver habilitado).
+
+    ![Selecionar Habilitar](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Insira a número **máximo** de unidades de produtividade ou use a barra de rolagem para definir o valor. 
+4. (opcional) Atualize o número **mínimo** de unidades de produtividade na parte superior dessa página. 
 
 
 > [!NOTE]

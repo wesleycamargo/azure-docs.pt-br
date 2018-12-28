@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308295"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999093"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -92,7 +92,7 @@ Conheça também os recursos que não estão disponíveis:
 * A transição do Office para o processo de autenticação passiva lhes permitem fornecer suporte exclusivamente a provedores de identidade SAML 2.0, mas o suporte é fornecido individualmente aos clientes
 
 > [!NOTE]
-> Para obter a lista mais atualizada, leia o artigo https://aka.ms/ssoproviders.
+> Para obter a lista mais atualizada, leia o artigo [Lista de compatibilidade de federação do Azure AD](how-to-connect-fed-compatibility.md).
 > 
 > 
 

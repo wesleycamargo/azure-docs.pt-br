@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955789"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722048"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -139,9 +139,10 @@ Para autenticar com uma entidade de serviço, você precisa atribuir uma funçã
 
 1. No portal do Azure, navegue para a conta do Lote usada pelo aplicativo.
 2. Na folha **Configurações** da conta do Lote, selecione **Controle de Acesso (IAM)**.
-3. Clique no botão **Adicionar** . 
-4. Na lista suspensa **Função**, escolha a função _Colaborador_ ou _Leitor_ para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
-5. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione o aplicativo na lista e clique em **Salvar**.
+3. Clique na guia **Atribuições de função**.
+4. Clique no botão **Adicionar atribuição de função**. 
+5. Na lista suspensa **Função**, escolha a função _Colaborador_ ou _Leitor_ para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
+6. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione o aplicativo na lista e clique em **Salvar**.
 
 O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída. 
 
@@ -170,7 +171,7 @@ Os exemplos de código desta seção mostram como realizar a autenticação com 
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemplo de código: Usando a autenticação integrada do Azure AD com o .NET do Lote
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Exemplo de código: Usar autenticação integrada do Azure AD com .NET do Lote
 
 Para autenticar com a autenticação integrada por meio do .NET do Lote, referencie o pacote [.NET do Lote do Azure](https://www.nuget.org/packages/Microsoft.Azure.Batch/) e o pacote [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -243,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemplo de código: Usando uma entidade de serviço do Azure AD com o .NET do Lote
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Exemplo de código: Usar uma entidade de serviço do Azure AD com .NET do Lote
 
 Para autenticar com uma entidade de serviço por meio do .NET do Lote, referencie o pacote [.NET do Lote do Azure](https://www.nuget.org/packages/Azure.Batch/) e o pacote [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
@@ -310,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemplo de código: usando uma entidade de serviço do Microsoft Azure AD com Python do Lote
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Exemplo de código: Usar uma entidade de serviço do Azure AD com Python do Lote
 
 Para autenticar com uma entidade de serviço do Python do Lote, instale e referencie os módulos [azure-batch](https://pypi.org/project/azure-batch/) e [azure-common](https://pypi.org/project/azure-common/).
 

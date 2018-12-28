@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669603"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967973"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar problemas de erros de autenticação quando você usa o RDP para se conectar à VM do Azure
 
@@ -75,7 +75,7 @@ A VM foi sido configurada para aceitar apenas conexões de algoritmo em conformi
 
 ### <a name="create-a-backup-snapshot"></a>Criar um instantâneo de backup
 
-Para criar um instantâneo de backup, siga as etapas em [Criar instantâneo de um disco](..\windows\snapshot-copy-managed-disk.md).
+Para criar um instantâneo de backup, siga as etapas em [Criar instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Conectar-se à VM remotamente
 
@@ -202,15 +202,15 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP
 
 Com base no valor do Registro, siga estas etapas:
 
-* 4 (FIPS): vá para [Verificar conexões de algoritmos em conformidade com FIPs](#fips-compliant).
+* 4 (FIPS): Acesse [Verificar conexões de algoritmos compatíveis com FIPs](#fips-compliant).
 
-* 3 (criptografia de 128 bits): defina a gravidade como **2** executando o seguinte comando:
+* 3 (criptografia de 128 bits): Configure a gravidade para **2**, executando o comando a seguir:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 2 /f
     ```
 
-* 2 (Criptografia mais alta possível, conforme determinado pelo cliente): você pode tentar definir a criptografia para o valor mínimo de **1** executando o seguinte comando:
+* 2 (Maior criptografia possível, conforme determinado pelo cliente): Você pode tentar definir a criptografia para o valor mínimo de **1**, executando o comando a seguir:
 
     ```cmd
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MinEncryptionLevel /t REG_DWORD /d 1 /f

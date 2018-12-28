@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o SpringCM | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com SpringCM | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SpringCM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438140"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841057"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com o SpringCM
+# <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
 Neste tutorial, você aprenderá a integrar o SpringCM ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SpringCM da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -139,7 +139,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Configuração do Provedor de Identidade](./media/spring-cm-tutorial/ic797052.png "Configuração do Provedor de Identidade")
     
-    a. Para carregar seu certificado baixado do Azure Active Directory, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
+     a. Para carregar seu certificado baixado do Azure Active Directory, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
     
     b. Cole o valor de **ID de Entidade do SAML** copiado no Portal do Azure na caixa de texto **Emissor**.
     
@@ -150,7 +150,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     e. Clique em **Salvar**.
  
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/spring-cm-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -189,7 +189,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 Para permitir que os usuários do Azure Active Directory façam logon no SpringCM, eles deverão ser provisionados no SpringCM. No caso do SpringCM, o provisionamento será uma tarefa manual.
 
 >[!NOTE]
->Para obter mais informações, veja [Criar e editar um usuário do SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>Para obter mais informações, veja [Criar e editar um usuário do SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **Para provisionar uma conta de usuário no SpringCM, execute as seguintes etapas:**
 
@@ -248,7 +248,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
- 
+ 
 Ao clicar no bloco do SpringCM no Painel de Acesso, você deverá ser conectado automaticamente ao aplicativo SpringCM.
 
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao MobileIron | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com MobileIron | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o MobileIron.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584104"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963803"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: integração do Azure Active Directory com o MobileIron
+# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Active Directory com MobileIron
 
 Neste tutorial, você aprenderá a integrar o MobileIron ao Azure AD (Azure Active Directory).
 
@@ -50,24 +50,27 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+ O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando MobileIron da galeria
 1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Adicionando MobileIron da galeria
+
 Para configurar a integração do MobileIron ao Azure AD, você precisará adicionar o MobileIron da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o MobileIron da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory][1]
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
-    
+
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
@@ -103,7 +106,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Link Configurar logon único][4]
 
 1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. Na seção **Domínio e URLs da MobileIron**, execute as etapas a seguir caso deseje configurar o aplicativo no  **modo iniciado por IDP** :
@@ -119,12 +122,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Logon único em Domínio e URLs do MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     Na caixa de texto  **URL de login** , digite um URL usando o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Você obterá os valores de chave e host do portal administrativo do MobileIron, o que é explicada mais adiante no tutorial.
+
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Você obterá os valores de chave e host do portal administrativo do MobileIron, o que é explicada mais adiante no tutorial.
 
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![O link de download do Certificado](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![O link de download do Certificado](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Clique no botão **Salvar** .
 
@@ -134,7 +138,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Vá para **Admin** > **Identidade**.
 
-   * Selecione a opção **AAD** no campo **Informações sobre a Configuração de IDP de Nuvem**.
+   - Selecione a opção **AAD** no campo **Informações sobre a Configuração de IDP de Nuvem**.
 
     ![Botão Configurar administrador de logon único](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,11 +147,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ![Botão Configurar administrador de logon único](./media/mobileiron-tutorial/key.png)
 
 1. Em **Exportar arquivo de metadados do AAD e importar para o Campo de Nuvem MobileIron**, clique **Escolher Arquivo** para carregar os metadados baixados do portal do Azure. Clique em **Concluído** depois de carregar.
- 
+
     ![Botão Configurar metadados do administrador de Logon Único](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -203,20 +207,20 @@ No caso do MobileIron, o provisionamento é uma tarefa manual.
     1. Na caixa de texto **Nome**, insira o nome do usuário como Brenda.
 
     1. Na caixa de texto **Sobrenome**, insira o nome do usuário como Fernandes.
-    
-    1. Clique em **Concluído**.  
+
+    1. Clique em **Concluído**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo-lhe acesso ao MobileIron.
 
-![Atribuir a função de usuário][200] 
+![Atribuir a função de usuário][200]
 
 **Para atribuir Brenda Fernandes ao MobileIron, execute as seguintes etapas:**
 
 1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
 
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 
 1. Na lista de aplicativos, selecione **MobileIron**.
 
@@ -235,19 +239,18 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
 1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Quando você clicar no bloco MobileIron no Painel de Acesso, deverá ser automaticamente conectado ao seu aplicativo MobileIron.
-Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Ace
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

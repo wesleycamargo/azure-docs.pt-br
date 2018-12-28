@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584699"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433416"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop locais para o Azure HDInsight – melhores práticas de migração de dados
 
 Este artigo fornece recomendações para a migração de dados para o Azure HDInsight. Ele faz parte de uma série que fornece as melhores práticas para ajudar a migrar sistemas locais do Apache Hadoop para o Azure HDInsight.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Migrar dados do local para o Azure
+## <a name="migrate-on-premises-data-to-azure"></a>Migrar dados locais para o Azure
 
 Há duas opções principais para migrar dados do local para o ambiente do Azure:
 
 1.  Transferir dados pela rede com TLS
-    1. Pela Internet - Você pode transferir dados para o armazenamento do Azure em uma conexão de Internet normal usando qualquer uma das várias ferramentas, como: o Azure Storage Explorer, o AzCopy, o Azure Powershell e o CLI do Azure.  Consulte [Mover dados de e para o Armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
+    1. Pela Internet - Você pode transferir dados para o armazenamento do Azure em uma conexão de Internet normal usando qualquer uma das várias ferramentas como: Gerenciador de Armazenamento do Azure, AzCopy, Azure Powershell e CLI do Azure.  Consulte [Mover dados de e para o Armazenamento do Azure](../../storage/common/storage-moving-data.md) para obter mais informações.
     2. Express Route - ExpressRoute é um serviço do Azure que permite criar conexões privadas entre os datacenters e a infraestrutura da Microsoft em suas instalações ou em uma instalação de colocação. As conexões de ExpressRoute não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet. Para obter mais informações, consulte [Criar e modificar um circuito da Rota Expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transferência de dados on-line do Data Box - Data Box Edge e Data Box Gateway são produtos de transferência de dados on-line que funcionam como gateways de armazenamento de rede para gerenciar dados entre seu site e o Azure. O Data Box Edge, um dispositivo de rede local, transfere dados de e para o Azure e usa computação de borda habilitada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma solução de virtualização com recursos de gateway de armazenamento. Para obter mais informações, consulte [Documentação do Azure Data Box - Transferência on-line](https://docs.microsoft.com/azure/databox-online/).
 1.  Envio de dados Offline
@@ -47,9 +47,11 @@ A tabela a seguir tem a duração de transferência de dados aproximada com base
 |1 PB|6 anos|3 anos|97 dias|10 dias|
 |2 PB|12 anos|5 anos|194 dias|19 dias|
 
-Ferramentas nativas do Azure, como DistCp, Azure Data Factory e AzureCp, podem ser usadas para transferir dados pela rede. A ferramenta de terceiros WANDisco também pode ser usada para a mesma finalidade. O Kafka Mirrormaker e o Sqoop podem ser usados para a transferência de dados contínua do local para os sistemas de armazenamento do Azure.
+Ferramentas nativas do Azure como DistCp do Apache Hadoop, Azure Data Factory e AzureCp, podem ser usadas para transferir dados pela rede. A ferramenta de terceiros WANDisco também pode ser usada para a mesma finalidade. O Apache Kafka Mirrormaker e o Sqoop podem ser usados para a transferência de dados contínua do local para os sistemas de armazenamento do Azure.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Considerações de desempenho ao usar o Apache DistCp
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Considerações de desempenho ao usar o DistCp do Apache Hadoop
+
 
 O DistCp é um projeto da Apache que usa um trabalho de mapeamento do MapReduce para transferir dados, manipular erros e recuperar esses erros. Ele atribui uma lista de arquivos de origem para cada tarefa de mapeamento. A tarefa de mapeamento, em seguida, copia todos os seus arquivos atribuídos para o destino. Há várias técnicas que podem melhorar o desempenho do DistCp.
 
@@ -86,27 +88,27 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Migração de metadados
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 O metastore do Hive pode ser migrado usando os scripts ou usando a replicação de banco de dados.
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migração do metastore do Hive usando scripts
 
-1. Gere os DDLs do Hive de metastore do Hive local. Esta etapa pode ser realizada usando um [script de Bash de wrapper]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Edite o DDL gerado para substituir a URL do HDFS com URLs WASB/ADLS/ABFS
-1. Execute o DDL atualizado no metastore do cluster do HDInsight
-1. Certifique-se de que a versão do metastore do Hive é compatível entre o local e a nuvem
+1. Gere os DDLs do Hive de metastore do Hive local. Esta etapa pode ser realizada usando um [script de Bash de wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Edite a DDL gerada para substituir a URL de HDFS com URLs WASB/ADLS/ABFS.
+1. Execute a DDL atualizada no metastore do cluster HDInsight.
+1. Certifique-se de que a versão do metastore do Hive é compatível entre o local e a nuvem.
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Migração do metastore do Hive usando a replicação de banco de dados
 
-- Configure a replicação de banco de dados entre o banco de dados do metastore do Hive local e o banco de dados de metastore do HDInsight
+- Configure a Replicação de Banco de Dados entre o BD do metastore do Hive local e o BD do metastore do HDInsight.
 - Use "Hive MetaTool" para substituir a URL do HDFS com URLs WASB/ADLS/ABFS, por exemplo:
 
 ```bash
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - Exporte as políticas do Ranger locais para arquivos xml.
 - Transforme os caminhos baseados em HDFS específicos locais em WASB/ADLS usando uma ferramenta como XSLT.

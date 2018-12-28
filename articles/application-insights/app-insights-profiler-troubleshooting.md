@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164296"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720432"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -95,7 +94,7 @@ Quando você configura o Profiler, são feitas atualizações nas configuraçõe
 
 No momento, é possível habilitar o Profiler em no máximo quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você tiver mais aplicativos da Web do que aqueles em execução em um plano de serviço de aplicativo, poderá ver um Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException lançado pelo criador de perfil. O criador de perfil é executado separadamente para cada aplicativo da Web e tenta iniciar uma sessão do ETW para cada aplicativo. Mas há um número limitado de sessões do ETW que podem estar ativas ao mesmo tempo. Se o trabalho Web do Profiler estiver relatando um número excessivo de sessões de criação de perfil ativas, mova alguns aplicativos Web para um plano de serviço diferente.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implantação: diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erro de implantação: Diretório não vazio 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
 Se você estiver reimplementando seu aplicativo da Web em um recurso de Web Apps com o Profiler habilitado, poderá ver a seguinte mensagem:
 
@@ -129,7 +128,7 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Verifique se o ikey na linha de comando do criador de perfil está correto. 
 
-Terceiro, usando o caminho encontrado no arquivo config.json acima, verifique o arquivo de log do criador de perfil. Ele mostrará informações de depuração indicando as configurações que o criador de perfil está usando e mensagens de status e erro do criador de perfil. Se o criador de perfil estiver em execução enquanto seu aplicativo estiver recebendo solicitações, você verá esta mensagem: Atividade detectada do iKey. Quando o rastreio estiver sendo carregado, você verá esta mensagem: Start to upload trace. 
+Terceiro, usando o caminho encontrado no arquivo config.json acima, verifique o arquivo de log do criador de perfil. Ele mostrará informações de depuração indicando as configurações que o criador de perfil está usando e mensagens de status e erro do criador de perfil. Se o criador de perfil estiver em execução enquanto o aplicativo estiver recebendo solicitações, a seguinte mensagem será exibida: Atividade detectada de iKey. Quando o rastreamento estiver sendo carregado, a seguinte mensagem será exibida: Iniciar upload de rastreamento. 
 
 
 [profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png

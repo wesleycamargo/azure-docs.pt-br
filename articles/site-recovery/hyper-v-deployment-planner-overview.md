@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210662"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964009"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -84,7 +84,7 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 
 | Requisito de servidor | DESCRIÇÃO |
 |---|---|
-|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>As máquinas virtuais de servidores Hyper-V a serem analisadas devem ser adicionadas à lista TrustedHosts da VM cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
+|Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração do computador: 8 vCPUs, 16 GB de RAM, HDD de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>As máquinas virtuais de servidores Hyper-V a serem analisadas devem ser adicionadas à lista TrustedHosts da VM cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
 | Permissões de usuário | Conta de administrador para acessar o cluster do Hyper-V/host do Hyper-V durante operações de criação de perfis e de obtenção de lista de VM.<br>Todos os hosts que precisam ser analisados devem ter um domínio do administrador com as mesmas credenciais de conta ou seja, nome de usuário e senha
  |
@@ -96,7 +96,7 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 
 1.  Cada host do Hyper-V a ser analisado deve ter:
 
-    a. A máquina virtual na qual a ferramenta vai ser executado em sua lista TrustedHosts. Execute o comando a seguir em uma sessão do PowerShell com privilégios elevados no host do Hyper-V.
+     a. A máquina virtual na qual a ferramenta vai ser executado em sua lista TrustedHosts. Execute o comando a seguir em uma sessão do PowerShell com privilégios elevados no host do Hyper-V.
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
@@ -110,14 +110,14 @@ A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, aná
 A ferramenta é empacotada em uma pasta .zip. A mesma ferramenta oferece suporte para os cenários de recuperação de desastre do VMware para o Azure e do Hyper-V para o Azure. Você também pode usar essa ferramenta para o cenário de recuperação de desastre do Hyper-V-para um site secundário mas ignorar a recomendação de infraestrutura do Azure do relatório.
 
 1.  Copie a pasta .zip para o Windows Server do qual você deseja executar a ferramenta. Você pode executar a ferramenta em um Windows Server 2012 R2 ou um Windows Server 2016. O servidor deve ter acesso de rede para se conectar ao cluster do Hyper-V ou ao host do Hyper-V que contém as VMs para análise. É recomendável que você tenha a mesma configuração de hardware na VM onde a ferramenta será executada e no servidor do Hyper-V que você deseja proteger. Essa configuração garante que a taxa de transferência obtida relatada pela ferramenta corresponda à taxa de transferência real que o Azure Site Recovery pode alcançar durante a replicação. O cálculo de taxa de transferência depende da largura de banda disponível no servidor e da configuração de hardware (CPU, armazenamento e assim por diante) do servidor. A taxa de transferência é calculada desde o servidor onde a ferramenta está em execução no Azure. Se a configuração de hardware do servidor for diferente do servidor do Hyper-V, a taxa de transferência obtida relatada pela ferramenta será imprecisa.
-A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, disco rígido de 300 GB.
+A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, 300 GB de HDD.
 
 1.  Extraia a pasta .zip.
 A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
 
-Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo. E:\ASR Deployment Planner_v2.2.zip
+Exemplo: Copie o arquivo .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.3.zip
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualização para a versão mais recente do Planejador de Implantações
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
@@ -132,7 +132,7 @@ Se você tiver uma versão anterior do Planejador de Implantações, siga um des
   >Cada novo planejador de implantação é uma atualização cumulativa do arquivo .zip. Você não precisa copiar os arquivos mais recentes para a pasta anterior. Você pode criar e usar uma nova pasta.
 
 ## <a name="version-history"></a>Histórico de versão
-A versão mais recente da ferramenta Planejador de Implantações do ASR é a 2.2.
+A última versão da ferramenta do Planejador de Implantações do ASR é 2.3.
 Consulte a página [Histórico de versões do Planejador de Implantações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções adicionadas em cada atualização.
 
 

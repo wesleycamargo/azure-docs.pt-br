@@ -1,5 +1,5 @@
 ---
-title: Endereços de gerenciamento de Ambiente do Serviço de Aplicativo do Azure
+title: Endereços de gerenciamento do Ambiente do Serviço de Aplicativo - Azure
 description: Lista os endereços de gerenciamento usados para comandar um Ambiente de Serviço de Aplicativo
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 590679daff20f9c469fb8fcfcc0fbbad77f91b5b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 7fb39886b19a2229188821eb39d4fb8a5928bb43
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162841"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276667"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gerenciamento de Ambiente de Serviço de Aplicativo
 
@@ -46,7 +47,7 @@ Você pode listar os endereços de gerenciamento que correspondem ao seu ASE com
 
 A API retorna um documento JSON que inclui todos os endereços de entrada do ASE. A lista de endereços inclui os endereços de gerenciamento, o VIP usado pelo seu ASE e o intervalo de endereços de sub-rede do ASE em si.  
 
-Para chamar a API com o [armclient](http://github.com/projectkudu/ARMClient) use os seguintes comandos, mas substitua a ID da assinatura, o grupo de recursos e o nome do ASE.  
+Para chamar a API com o [armclient](https://github.com/projectkudu/ARMClient) use os seguintes comandos, mas substitua a ID da assinatura, o grupo de recursos e o nome do ASE.  
 
     armclient login
     armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01

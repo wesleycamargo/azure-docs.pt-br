@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrar uma única floresta do AD ao Azure usando a autenticação de passagem (PTA) | Microsoft Docs'
+title: 'Tutorial:  Integrar uma floresta única do AD ao Azure usando autenticação de passagem (PTA)| Microsoft Docs'
 description: Demonstra como configurar um ambiente de identidade híbrido usando a autenticação de passagem.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422297"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165446"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial: Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
 
 ![Criar](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -36,7 +36,7 @@ A seguir estão os pré-requisitos necessários para concluir este tutorial
 >
 >Os scripts usados criam um ambiente geral do Active Directory antes de instalar o Azure AD Connect.  Eles são relevantes para todos os tutoriais.
 >
-> Cópias dos scripts do PowerShell que são usados neste tutorial estão disponíveis no Github [aqui](https://github.com/billmath/tutorial-phs).
+> Cópias dos scripts do PowerShell que são usados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 A primeira etapa necessária para colocar o ambiente de identidade híbrida em funcionamento é criar uma máquina virtual que será usada como o servidor local do Active Directory.  
@@ -84,7 +84,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 5. Clique em **Instalar Agora**.
 6. Insira a chave de licença e clique em **Avançar**.
 7. Marque **Eu aceito os termos da licença e clique em **Avançar**.
-8. Selecione **Personalizado: instalar somente o Windows (Avançado)**
+8. Selecione **Personalizado:  Instalar somente o Windows (Avançado)**
 9. Clique em **Avançar**
 10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as atualizações mais recentes.
 

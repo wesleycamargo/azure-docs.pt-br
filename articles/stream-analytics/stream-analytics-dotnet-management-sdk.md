@@ -4,19 +4,19 @@ description: Comece com o SDK .NET do Azure Stream Analytics Management. Saiba c
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/06/2017
-ms.openlocfilehash: d435199401f8ad52edfbfe820ba2c330242e0186
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 53d9345784c16412c643f3b50506bf6abbab93ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094895"
 ---
-# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK .NET de gerenciamento: configurar e executar trabalhos de análise usando a API do Azure Stream Analytics para .NET
+# <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Gerenciamento de SDK do .NET: Configurar e executar trabalhos de análise usando API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
 
 Consulte a [Documentação de referência de gerenciamento da API do Stream Analytics para .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
@@ -33,18 +33,19 @@ Antes de começar este artigo, você deve ter o seguinte:
 * Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).  
 
-        # Log in to your Azure account
-        Add-AzureAccount
-
-        # Select the Azure subscription you want to use to create the resource group
-        Select-AzureSubscription -SubscriptionName <subscription name>
-
-            # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-            #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
-
-        # Create an Azure resource group
-        New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
-
+   ```powershell
+   # Log in to your Azure account
+   Add-AzureAccount
+   
+   # Select the Azure subscription you want to use to create the resource group
+   Select-AzureSubscription -SubscriptionName <subscription name>
+   
+   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+   #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+   
+   # Create an Azure resource group
+   New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+   ```
 
 * Configure uma origem de entrada e o destino de saída para o trabalho a ser conectado.
 
@@ -53,41 +54,53 @@ Para criar um trabalho de análise, use a API do Stream Analytics para .NET. Pri
 
 1. Crie um aplicativo de console do Visual Studio C# .NET.
 2. No Console do Gerenciador de pacotes, execute os seguintes comandos para instalar os pacotes do NuGet. O primeiro é o SDK .NET do Azure Stream Analytics Management. A segunda é para autenticação de cliente do Azure.
-   
-        Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
-        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+
+   ```powershell   
+   Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 2.0.0
+   Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.3.1
+   ```
+
 3. Adicione a seguinte seção **appSettings** ao arquivo App.config.
    
-        <appSettings>
-          <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-          <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-          <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
-          <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
-        </appSettings>
+   ```powershell
+   <appSettings>
+       <add key="ClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+       <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+       <add key="SubscriptionId" value="YOUR SUBSCRIPTION ID" />
+       <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+   </appSettings>
+   ```
 
     Substitua os valores por **SubscriptionId** e **ActiveDirectoryTenantId** por suas IDs de assinatura e locatário do Azure. Você pode obter esses valores executando o seguinte cmdlet do PowerShell do Azure:
 
-        Get-AzureAccount
+   ```powershell
+      Get-AzureAccount
+   ```
 
 4. Adicione a seguinte referência em seu arquivo .csproj:
 
-        <Reference Include="System.Configuration" />
+   ```csharp
+   <Reference Include="System.Configuration" />
+   ```
 
 5. Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.
    
-        using System;
-        using System.Collections.Generic;
-        using System.Configuration;
-        using System.Threading;
-        using System.Threading.Tasks;
-        
-        using Microsoft.Azure.Management.StreamAnalytics;
-        using Microsoft.Azure.Management.StreamAnalytics.Models;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Rest;
+   ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Configuration;
+   using System.Threading;
+   using System.Threading.Tasks;
+   
+   using Microsoft.Azure.Management.StreamAnalytics;
+   using Microsoft.Azure.Management.StreamAnalytics.Models;
+   using Microsoft.Rest.Azure.Authentication;
+   using Microsoft.Rest;
+   ```
+
 6. Adicione um método auxiliar de autenticação:
 
-   ```
+   ```csharp
    private static async Task<ServiceClientCredentials> GetCredentials()
    {
        var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(ConfigurationManager.AppSettings["ClientId"], new Uri("urn:ietf:wg:oauth:2.0:oob"));
@@ -102,7 +115,7 @@ Um objeto **StreamAnalyticsManagementClient** permite que você gerencie o traba
 
 Adicione o seguinte código ao início do método **Main** :
 
-   ```
+   ```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamingJobName = "<YOUR STREAMING JOB NAME>";
     string inputName = "<YOUR JOB INPUT NAME>";
@@ -130,7 +143,7 @@ As seções restantes deste artigo pressupõem que esse código esteja no iníci
 ## <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 O código a seguir cria um trabalho do Stream Analytics sob o grupo de recursos que você definiu. Você adicionará entrada, saída e transformação ao trabalho mais tarde.
 
-   ```
+   ```csharp
    // Create a streaming job
    StreamingJob streamingJob = new StreamingJob()
    {
@@ -157,7 +170,7 @@ O código a seguir cria um trabalho do Stream Analytics sob o grupo de recursos 
 ## <a name="create-a-stream-analytics-input-source"></a>Criar uma fonte de entrada do Stream Analytics
 O código a seguir cria uma fonte de entrada do Stream Analytics com o tipo de fonte de entrada de blob e serialização de CSV. Para criar uma fonte de entrada de hub de eventos, use **EventHubStreamInputDataSource** em vez de **BlobStreamInputDataSource**. Da mesma forma, você pode personalizar o tipo de serialização da fonte de entrada.
 
-   ```
+   ```csharp
    // Create an input
    StorageAccount storageAccount = new StorageAccount()
    {
@@ -192,7 +205,7 @@ As fontes de entrada de armazenamento de Blob ou de um hub de eventos estão lig
 ## <a name="test-a-stream-analytics-input-source"></a>Testar uma fonte de entrada do Stream Analytics
 O método **TestConnection** testa se o trabalho do Stream Analytics é capaz de se conectar à fonte de entrada, bem como outros aspectos específicos para o tipo de fonte de entrada. Por exemplo, em que na fonte de entrada de blob criada em uma etapa anterior, o método verificará se o nome da conta de armazenamento e o par de chaves podem ser usados para conectar-se à conta de armazenamento, bem como verificará se o contêiner especificado existe.
 
-   ```
+   ```csharp
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
@@ -202,7 +215,7 @@ Criar um destino de saída é muito semelhante a criar uma fonte de entrada do S
 
 O código a seguir cria um destino de saída (Banco de Dados SQL do Azure). Você pode personalizar o tipo de dados de destino de saída e/ou o tipo de serialização.
 
-   ```
+   ```csharp
    // Create an output
    Output output = new Output()
    {
@@ -221,7 +234,7 @@ O código a seguir cria um destino de saída (Banco de Dados SQL do Azure). Voc�
 ## <a name="test-a-stream-analytics-output-target"></a>Testar um destino de saída do Stream Analytics
 Um destino de saída do Stream Analytics também tem um método **TestConnection** para conexões de teste.
 
-   ```
+   ```csharp
    // Test the connection to the output
    ResourceTestStatus testOutputResult = streamAnalyticsManagementClient.Outputs.Test(resourceGroupName, streamingJobName, outputName);
    ```
@@ -229,7 +242,7 @@ Um destino de saída do Stream Analytics também tem um método **TestConnection
 ## <a name="create-a-stream-analytics-transformation"></a>Criar uma transformação do Stream Analytics
 O código a seguir cria uma transformação do Stream Analytics com a consulta "selecionar * da entrada" e especifica para alocar uma unidade de streaming para o trabalho do Stream Analytics. Para obter mais informações sobre o ajuste de unidades de streaming, consulte Dimensionar trabalhos do [Escalonar trabalhos de Análise de fluxo do Azure](stream-analytics-scale-jobs.md).
 
-   ```
+   ```csharp
    // Create a transformation
    Transformation transformation = new Transformation()
    {
@@ -246,7 +259,7 @@ Depois de criar um trabalho do Stream Analytics e suas entradas, saídas e trans
 
 O código de exemplo a seguir inicia um trabalho do Stream Analytics com uma hora de início de saída personalizada definida para 12 de dezembro de 2012, 12h12min12 UTC:
 
-   ```
+   ```csharp
    // Start a streaming job
    StartStreamingJobParameters startStreamingJobParameters = new StartStreamingJobParameters()
    {
@@ -259,7 +272,7 @@ O código de exemplo a seguir inicia um trabalho do Stream Analytics com uma hor
 ## <a name="stop-a-stream-analytics-job"></a>Interromper um trabalho do Stream Analytics
 Você pode interromper um trabalho do Stream Analytics em execução chamando o método **Parar** .
 
-   ```
+   ```csharp
    // Stop a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Stop(resourceGroupName, streamingJobName);
    ```
@@ -267,7 +280,7 @@ Você pode interromper um trabalho do Stream Analytics em execução chamando o 
 ## <a name="delete-a-stream-analytics-job"></a>Excluir um trabalho do Stream Analytics
 O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes, incluindo entradas, saídas e transformação do trabalho.
 
-   ```
+   ```csharp
    // Delete a streaming job
    streamAnalyticsManagementClient.StreamingJobs.Delete(resourceGroupName, streamingJobName);
    ```

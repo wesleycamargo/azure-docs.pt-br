@@ -1,21 +1,19 @@
 ---
-title: Alterar feed de recursos HL7 FHIR – Azure Cosmos DB | Microsoft Docs
+title: Feed de alterações para recursos do FHIR de HL7- Azure Cosmos DB
 description: Saiba como configurar notificações de alteração em registros de serviços de saúde de pacientes HL7 FHIR usando o Aplicativo Lógico do Azure, o Azure Cosmos DB e o Barramento de Serviço.
 keywords: hl7 fhir
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565472"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089217"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificando pacientes de alterações em registros de serviços de saúde HL7 FHIR usando os Aplicativos Lógicos e o Azure Cosmos DB
 
@@ -25,7 +23,7 @@ Este artigo apresenta a solução de notificação de feed de alterações criad
 
 ## <a name="project-requirements"></a>Requisitos do projeto
 - Os provedores enviam documentos C-CDA (Consolidated-Clinical Document Arquitecture) HL7 em formato XML. Os documentos C-CDA englobam praticamente qualquer tipo de documento clínico, incluindo documentos clínicos como históricos familiares e registros de vacinação, bem como documentos administrativos, de fluxo de trabalho e financeiros. 
-- Os documentos C-CDA são convertidos em [Recursos HL7 FHIR](http://hl7.org/fhir/2017Jan/resourcelist.html) no formato JSON.
+- Os documentos C-CDA são convertidos em [Recursos HL7 FHIR](https://hl7.org/fhir/2017Jan/resourcelist.html) no formato JSON.
 - Os documentos de recurso FHIR modificados são enviados por email no formato JSON.
 
 ## <a name="solution-workflow"></a>Fluxo de trabalho da solução 
@@ -40,9 +38,9 @@ Em um alto nível, o projeto exigiu as seguintes etapas de fluxo de trabalho:
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 Essa solução requer três Aplicativos Lógicos atender aos requisitos acima e concluir o fluxo de trabalho da solução. Os três aplicativos lógicos são:
-1. **Aplicativo Mapeamento de HL7 FHIR**: recebe o documento HL7 C-CDA, transforma-o no Recurso FHIR e, depois, salva-o no Azure Cosmos DB.
-2. **Aplicativo EHR**: consulta o repositório de FHIR do Azure Cosmos DB e salva a resposta em uma fila do Barramento de Serviço. Esse aplicativo lógico usa um [aplicativo de API](#api-app) para recuperar documentos novos e alterados.
-3. **Aplicativo de notificação do processo**: envia uma notificação por email com os documentos de recursos FHIR no corpo.
+1. **Aplicativo HL7-FHIR-Mapping**: Recebe o documento HL7 C-CDA, transforma-o em Recurso do FHIR e o salva no Azure Cosmos DB.
+2. **Aplicativo EHR**: Consulta o repositório do FHIR do Azure Cosmos DB e salva a resposta em uma fila do Barramento de Serviço. Esse aplicativo lógico usa um [aplicativo de API](#api-app) para recuperar documentos novos e alterados.
+3. **Aplicativo de notificação de processo**: Envia uma notificação por email com os documentos de recursos do FHIR no corpo.
 
 ![Os três Aplicativos Lógicos usados nesta solução saúde HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -59,16 +57,16 @@ O Azure Cosmos DB é o repositório dos recursos FHIR, conforme mostrado na figu
 Os Aplicativos Lógicos lidam com o processo de fluxo de trabalho. As capturas de tela a seguir mostram os Aplicativos Lógicos criados para esta solução. 
 
 
-1. **Aplicativo de mapeamento de FHIR HL7**: recebem o documento HL7 C-CDA e transformá-la a um recurso FHIR usando o Enterprise Integration Pack para Aplicativos Lógicos. O Enterprise Integration Pack manipula o mapeamento de C-CDA para recursos FHIR.
+1. **Aplicativo HL7-FHIR-Mapping**: Receba o documento HL7 C-CDA e transforme-o em um recurso do FHIR usando o Enterprise Integration Pack para Aplicativos Lógicos. O Enterprise Integration Pack manipula o mapeamento de C-CDA para recursos FHIR.
 
     ![O aplicativo lógico usado para receber registros médicos HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **Aplicativo EHR**: consulte o repositório de FHIR do Azure Cosmos DB e salve a resposta em uma fila do Barramento de Serviço. O código do aplicativo GetNewOrModifiedFHIRDocuments está abaixo.
+2. **Aplicativo EHR**: Consulte o repositório do FHIR do Azure Cosmos DB e salve a resposta em uma fila do Barramento de Serviço. O código do aplicativo GetNewOrModifiedFHIRDocuments está abaixo.
 
     ![O Aplicativo Lógico usado para consultar o Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **Aplicativo de notificação do processo**: enviar uma notificação por email com os documentos de recursos FHIR no corpo.
+3. **Aplicativo de notificação de processo**: Envie uma notificação por email com os documentos de recursos do FHIR no corpo.
 
     ![O aplicativo lógico que envia email pacientes com o recurso HL7 FHIR no corpo](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -91,11 +89,11 @@ Estamos usando a classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft
 - CollectionId
 - Nome do Tipo de Recurso FHIR HL7
 - Booliano: Começar do início
-- INT: Número de documentos retornados
+- Int: Número de documentos devolvidos
 
 **Saídas**
-- Sucesso: Código de Status: 200, Resposta: Lista de Documentos (Matriz JSON)
-- Falha: Código de Status: 404, Resposta: "Nenhum Documento encontrado para Tipo de Recurso '*nome do recurso '*"
+- Êxito: Código de status: 200, Resposta: Lista de documentos (matriz JSON)
+- Falha: Código de status: 404, Resposta: "Nenhum documento encontrado para Tipo de Recurso '*nome do recurso'* "
 
 <a id="api-app-source"></a>
 

@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838133"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação de desastre para um aplicativo do Dynamics AX de várias camadas 
 
@@ -118,15 +118,15 @@ Crie um plano de recuperação no Site Recovery para automatizar o processo de f
 Personalize o plano de recuperação para o aplicativo Dynamics AX adicionando as etapas a seguir. O instantâneo anterior mostra o plano de recuperação completo depois de adicionar todas as etapas.
 
 
-* **Etapas de failover do SQL Server**: para obter informações sobre as etapas de recuperação específicas ao SQL server, consulte [Aplicativos de replicação com o SQL Server e o Azure Site Recovery](site-recovery-sql.md).
+* **Etapas de failover do SQL Server**: Para obter informações sobre as etapas de recuperação específicas para SQL server, consulte [Aplicativos de replicação com SQL Server e Azure Site Recovery](site-recovery-sql.md).
 
-* **Grupo de Failover 1**: faça failover das VMs do Servidor de Objetos de Aplicativo.
+* **Grupo de failover 1**: Fazer failover de VMs do Servidor de Objetos de Aplicativo.
 Verifique se o ponto de recuperação selecionado está tão próximo quanto possível do PIT do banco de dados, mas não à frente dele.
 
-* **Script**: adicione o balanceador de carga (somente E-A).
+* **Script**: Adicione balanceador de carga (somente E-A).
 Adicione um script (por meio da Automação do Azure) depois que o grupo de VMs do Servidor de Objetos de Aplicativo for exibido para adicionar um balanceador de carga a ele. Você pode usar um script para realizar essa tarefa. Para obter mais informações, consulte [Como adicionar um balanceador de carga para a recuperação de desastre de aplicativos de várias camadas](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Grupo de Failover 2**: faça failover das VMs cliente do Dynamics AX. Faça failover das VMs da camada da Web como parte do plano de recuperação.
+* **Grupo de failover 2**: Fazer failover de VMs do cliente do Dynamics AX. Faça failover das VMs da camada da Web como parte do plano de recuperação.
 
 
 ### <a name="perform-a-test-failover"></a>Executar um failover de teste

@@ -1,5 +1,5 @@
 ---
-title: Limites de serviço no Azure Search | Microsoft Docs
+title: Limites de serviço para camadas e SKUs - Azure Search
 description: Limites do serviço usados para o planejamento de capacidade e limites máximos de solicitações e respostas para o Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310191"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar o Azure Search](search-create-service-portal.md) nos tipos de preço **Gratuito**, **Básico** ou **Standard**.
@@ -23,7 +24,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 + **Básico** fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor.
 
-+ **Standard** é executado em computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Standard vem em quatro níveis: S1, S2, S3 e S3 HD.
++ **Standard** é executado em computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Standard é fornecido em quatro níveis: S1, S2, S3 e S3 HD.
 
   O S3 HD (S3 de Alta Densidade) foi projetado para cargas de trabalho específicas: [multilocatário](search-modeling-multitenant-saas-applications.md) e grandes quantidades de índices pequenos (um milhão de documentos por índice, três mil índices por serviço). Essa camada não fornece o [recurso de indexador](search-indexer-overview.md). No S3 HD, a ingestão de dados deve aproveitar a abordagem de push, usando chamadas à API para efetuar push de dados da origem para o índice. 
 

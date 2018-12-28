@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961340"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992216"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar seu aplicativo IoT Central
 
@@ -35,7 +35,7 @@ Para acessar e usar a seção **Administração**, você deve estar na função 
 ### <a name="change-application-name-and-url"></a>Alterar o nome do aplicativo e URL
 Na página **Configurações do aplicativo**, você pode alterar o nome e o URL do seu aplicativo e, em seguida, selecionar **Salvar**.
 
-![Página de configurações do aplicativo](media\howto-administer\image0-a.png)
+![Página de configurações do aplicativo](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Se você alterar a URL, a URL antiga poderá ser utilizada por outro cliente do Azure IoT Central. Nesse caso, a URL não estará mais disponível para você usar. Ao alterar a URL, a URL antiga não funcionará mais e você deverá notificar os usuários sobre a nova URL a ser utilizada.
@@ -48,18 +48,21 @@ Para alterar a imagem do aplicativo, consulte [Preparar e carregar imagens no ap
 
 Clique no botão **Copiar**. Na caixa de diálogo, insira os detalhes do novo aplicativo de pagamento Conforme o Uso. Em seguida, clique no botão **Copiar** para confirmar que você deseja continuar. Saiba mais sobre os campos deste formulário em [Criar um início rápido de aplicativo](quick-deploy-iot-central.md).
 
-![Página de configurações do aplicativo](media\howto-administer\appCopy2.png)
+![Página de configurações do aplicativo](media/howto-administer/appCopy2.png)
 
 Depois que a operação de cópia do aplicativo for bem-sucedida, você poderá ir para o novo aplicativo que foi criado copiando seu aplicativo usando o link exibido.
 
-![Página de configurações do aplicativo](media\howto-administer\appCopy3.png)
+![Página de configurações do aplicativo](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Copiar um aplicativo também copia a definição de regras e ações. Mas como os usuários que têm acesso ao seu aplicativo original não são copiados para o aplicativo copiado, você precisa adicionar manualmente os usuários a ações como e-mail para os quais os usuários são um pré-requisito. Em geral, é uma boa ideia verificar as regras e ações para se certificar de que estão atualizadas no novo aplicativo.
 
 ### <a name="delete-an-application"></a>Excluir um aplicativo
 
-Use o botão **Excluir** para excluir permanentemente seu aplicativo IoT Central. Isso excluirá permanentemente todos os dados associados a esse aplicativo. Para excluir um aplicativo, você também deve ter as permissões para excluir recursos da assinatura do Azure escolhida ao criar o aplicativo. Para saber mais, confira [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> Para excluir um aplicativo, você também deve ter as permissões para excluir recursos da assinatura do Azure escolhida ao criar o aplicativo. Para saber mais, confira [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de sua assinatura do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Use o botão **Excluir** para excluir permanentemente seu aplicativo IoT Central. Isso excluirá permanentemente todos os dados associados a esse aplicativo.
 
 ## <a name="manage-users"></a>Gerenciar usuários
 
@@ -67,17 +70,17 @@ Use o botão **Excluir** para excluir permanentemente seu aplicativo IoT Central
 
 Cada usuário deve ter uma conta de usuário antes de poder entrar e acessar um aplicativo Azure IoT Central. As MSAs (Contas Microsoft) e contas do Azure AD (Azure Active Directory) têm suporte no Azure IoT Central. Atualmente, os grupos do Azure Active Directory não têm suporte no Azure IoT Central.
 
-Para saber mais, confira a [Ajuda da Conta Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e o [Início Rápido: Adicionar novos usuários ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para obter mais informações, consulte [Ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [Início rápido: Adicionar novos usuários ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Para adicionar um usuário a um aplicativo IoT Central, acesse a página **Usuários** na seção **Administração**.
 
-    ![Lista de usuários](media\howto-administer\image1.png)
+    ![Lista de usuários](media/howto-administer/image1.png)
 
 1. Na página **Usuários**, escolha **+ Adicionar usuário** para adicionar um usuário.
 
 1. Escolha uma função para o usuário na lista suspensa **Função**. Saiba mais sobre as funções na seção [Gerenciar funções](#manage-roles) deste artigo.
 
-    ![Seleção de função](media\howto-administer\image3.png)
+    ![Seleção de função](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Para adicionar usuários em massa, insira as IDs de usuário de todos os usuários que você deseja adicionar separados por ponto e vírgula. Escolha uma função na lista suspensa **Função**. Em seguida, selecione **Salvar**.

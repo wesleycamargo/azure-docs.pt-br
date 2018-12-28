@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567478"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087160"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ O Azure Data Lake Storage Gen1 implementa um modelo de controle de acesso que de
 
 Há dois tipos de listas de controle de acesso (ACLs), **ACLs de Acesso** e **ACLs Padrão**.
 
-* **ACLs de Acesso**: controlam o acesso a um objeto. Os arquivos e as pastas têm ACLs de Acesso.
+* **ACLs de Acesso**: Estas listas controlam o acesso a um objeto. Os arquivos e as pastas têm ACLs de Acesso.
 
-* **ACLs Padrão**: um "modelo" de ACLs associadas a uma pasta que determinam as ACLs de Acesso para todos os itens filhos criados nessa pasta. Os Arquivos não têm ACLs Padrão.
+* **ACLs padrão**: Um "modelo" de ACLs associado a uma pasta que determina as ACLs de Acesso para quaisquer itens derivados criados sob essa pasta. Os Arquivos não têm ACLs Padrão.
 
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
@@ -71,15 +71,15 @@ No modelo de estilo POSIX usado pelo Data Lake Storage Gen1, as permissões para
 
 A seguir estão alguns cenários comuns para ajudá-lo a compreender quais permissões são necessárias para executar determinadas operações em uma conta do Data Lake Storage Gen1.
 
-|    Operação             |    /    | Seattle/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| Ler      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Excluir    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Listar      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Listar      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Listar      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -132,8 +132,8 @@ Como não há "grupo primário" associado a usuários no Data Lake Storage Gen1,
 
 **Atribuindo o grupo proprietário de um novo arquivo ou pasta**
 
-* **Caso 1**: a pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
-* **Caso 2** (todos os outros casos): quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
+* **Caso 1**: A pasta raiz "/". Essa pasta é criada quando uma conta do Data Lake Storage Gen1 é criada. Nesse caso, o grupo proprietário é definido como um GUID de zeros.  Este valor não permite acesso.  Ele será um espaço reservado até ao momento em que um grupo for atribuído.
+* **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 **Alterando o grupo proprietário**
 

@@ -1,21 +1,21 @@
 ---
 title: Exibir principais métricas com painéis do Cloudyn no Azure | Microsoft Docs
-description: Este artigo descreve como exibir as principais métricas com painéis no Cloudyn.
+description: Este artigo descreve como é possível exibir as principais métricas com painéis no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275931"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094093"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -43,7 +43,7 @@ Para iniciar rapidamente com um painel personalizado, você pode duplicar uma ex
 Para criar um painel personalizado:
 
 1. Na home page, clique em **adicionar novo +**. A página de meu painel é exibida.  
-    ![Meu Painel](./media/dashboards/my-dashboard.png)
+    ![Minha página de painel na qual você adiciona novos relatórios](./media/dashboards/my-dashboard.png)
 2. Clique em **Adicionar nova regra**. A caixa Adicionar relatório é exibida.
 3. Selecione o relatório que você deseja adicionar ao widget de painel. O widget é adicionado ao painel.
 4. Repita as etapas anteriores até que o painel seja concluído.
@@ -63,7 +63,7 @@ Você pode compartilhar um painel personalizado com outras pessoas _pública_ ou
 Para compartilhar um painel personalizado ao Público:
 
 1. No painel de controle, clique em **configurações do Dashboard**. A caixa de configurações do painel é exibida.  
-    ![Opções do painel](./media/dashboards/dashboard-options.png)
+    ![configurações do painel para um painel personalizado](./media/dashboards/dashboard-options.png)
 2. Na caixa de configurações do Dashboard, clique no símbolo de seta e, em seguida, clique em **público**. A caixa de diálogo de confirmação de painel público é exibida.
 3. Clique em **Sim**. O painel de controle agora está disponível para outras pessoas.
 
@@ -116,13 +116,13 @@ Você pode definir qualquer painel como padrão. Definindo-a como seu padrão to
 -Ou-
 
 1. Clique em **configurações do painel** para ver a lista de painéis disponíveis e selecione o painel que você deseja definir como padrão.  
-    ![Opções do painel](./media/dashboards/dashboard-options.png)
+    ![opções do painel para um painel padrão](./media/dashboards/dashboard-options.png)
 2. Clique em **padrão** na linha do painel. A caixa de confirmação de painel padrão é exibida.
 3. Clique em **Sim**. O painel está definido como padrão.
 
 ## <a name="management-dashboard"></a>Painel de gerenciamento
 O gerenciamento (ou painel MSP para usuários do MSP) painel inclui destaques dos tipos de relatório principal.  
-![Painel de gerenciamento](./media/dashboards/management-dash.png)
+![Painel de gerenciamento mostrando vários relatórios](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Resumo de custo de entidade (Enterprise somente)
 Esse widget resume as entidades de custo gerenciados, incluindo o número de entidades e o número de contas.
@@ -156,9 +156,9 @@ Esse widget exibe as instâncias ativas por tipo, nos últimos 30 dias.
 Esse widget exibe os serviços de armazenamento usados por departamentos. Passe o mouse sobre o gráfico de pizza para ver seu consumo de armazenamento por departamento.
 - Clique o widget para abrir o painel do rastreador S3.
 
-## <a name="cost-controller-dashboard"></a>Painel de controle de custos
+## <a name="cost-controller-dashboard"></a>Painel do controlador de custo
 O painel do controlador de custo mostra realces de alocação de custo previamente configurado.  
-![Painel de controle de custos](./media/dashboards/cost-controller-dashboard.png)
+![Painel do Controlador de Custo mostrando vários relatórios](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Custo ao longo do tempo
 Esse widget ajuda você a identificar as tendências de custo. Ela realça o custo para o último dia, com base em tendências dos últimos 30 dias.
@@ -198,7 +198,7 @@ Esse widget destaques gastam nos últimos seis meses.
 ## <a name="asset-controller-dashboard"></a>Painel Controlador de Ativos
 
 Esse painel exibe o número de instâncias de discos disponíveis e em uso, distribuição de tipos de instância e as informações de armazenamento.  
-![Painel Controlador de Ativos](./media/dashboards/asset-controller-dashboard.png)
+![Painel do Controlador de Ativos mostrando vários relatórios](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Instâncias de computação
 Esse widget exibe o número de instâncias com base na tendência de uso nos últimos 30 dias.
@@ -227,7 +227,7 @@ Esse widget realça o número de instâncias de RDS Amazon com base em tendênci
 
 ## <a name="optimizer-dashboard"></a>Painel do otimizador
 Esse painel exibe o potencial de economia de recomendações de downsizing e recursos não utilizados.  
-![Painel otimizador](./media/dashboards/optimizer-dashboard.png)
+![Painel do Otimizador mostrando vários relatórios](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>Calculadora RI
 Este widget exibe o número de recomendações de compra do RI e destaca a possível economia anual.
@@ -257,7 +257,7 @@ As recomendações de otimização são baseadas nos dados de uso e desempenho m
 
 ## <a name="s3-tracker-dashboard"></a>Painel do rastreador S3
 O painel do rastreador S3 ajuda você a encontrar, analisar e exibir a utilização de armazenamento atual e tendências.  
-![Painel do rastreador S3](./media/dashboards/s3-tracker-dashboard.png)
+![Painel do rastreador S3 mostrando vários relatórios](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Todos os Buckets
 Esse widget realça o tamanho total de todos os seus buckets, em GB e o número total de objetos no seu buckets.
@@ -281,7 +281,7 @@ Esse widget realça o número de objetos por bucket em número real e porcentage
 
 ## <a name="cloud-comparison-dashboard"></a>Painel de comparação de nuvem
 O painel de comparação de nuvem ajuda você a comparar os custos de provedores de nuvem diferentes com base no preço, o tipo de CPU e o tamanho da RAM.  
-![Painel de comparação de nuvem](./media/dashboards/cloud-comparison-dashboard.png)
+![Painel de Comparação de Nuvem mostrando vários relatórios](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Custo no Azure com o tipo de instância
 Esse widget realça os últimos 30 dias de uso em taxas de sob demanda. Ele compara o custo com o custo atual do EC2 Amazon com o custo potencial no Azure.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Microsoft Azure Active Directory com RedBrick Health | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com RedBrick Health | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o RedBrick Health.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430501"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833798"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Tutorial: Integração do Microsoft Azure Active Directory com RedBrick Health
+# <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Tutorial: Integração do Azure Active Directory com RedBrick Health
 
 Neste tutorial, você aprenderá a integrar o RedBrick Health ao Microsoft Azure AD (Microsoft Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o RedBrick Health da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Informações de logon único de Domínio e URLs do RedBrick Health](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL: `http://www.redbrickhealth.com`
+     a. Na caixa de texto **Identificador**, digite uma URL: `https://www.redbrickhealth.com`
     
     b. Na caixa de texto **URL de resposta**, insira uma URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -140,7 +140,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     > [!NOTE]
     > Estes valores são apenas para fins de referência. Você precisa definir os atributos de acordo com os requisitos da sua organização. Entre em contato com [Equipe de suporte do RedBrick Health](https://home.redbrickhealth.com/contact/) para obter mais informações sobre as declarações necessárias.
     
-    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
     
     ![Configurar o logon único](./media/redbrickhealth-tutorial/tutorial_attribute_04.png)
     
@@ -169,7 +169,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 1. Para configurar o logon único no lado do **RedBrick Health**, é necessário enviar o **Certificado (Base64)** baixado e a **ID da Entidade SAML** para a [Equipe de suporte do RedBrick Health](https://home.redbrickhealth.com/contact/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -205,7 +205,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
   
 ### <a name="create-a-redbrick-health-test-user"></a>Criar um usuário de teste do RedBrick Health
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no RedBrick Health. Trabalhe com [Equipe de suporte do RedBrick Health](https://home.redbrickhealth.com/contact/) para adicionar os usuários na plataforma do RedBrick Health. Os usuários devem ser criados e ativados antes de usar o logon único. 
+Nesta seção, você cria um usuário chamado Brenda Fernandes no RedBrick Health. Trabalhe com a  [Equipe de suporte do RedBrick Health](https://home.redbrickhealth.com/contact/)  para adicionar os usuários na plataforma do RedBrick Health. Os usuários devem ser criados e ativados antes de usar o logon único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
@@ -242,7 +242,7 @@ Nesta seção, você habilita Brenda Fernandes a usar o logon único do Microsof
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do RedBrick Health no Painel de Acesso, você deverá entrar automaticamente no aplicativo RedBrick Health.
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para saber mais sobre o Painel de Acesso, confira [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

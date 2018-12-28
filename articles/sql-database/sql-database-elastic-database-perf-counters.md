@@ -12,37 +12,37 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166192"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875273"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gerenciador de mapa de fragmentos
 Você pode capturar o desempenho de um [Gerenciador de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md), especialmente ao usar [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Contadores são usados para controlar o desempenho de operações de [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) . Esses contadores estão acessíveis no Monitor de Desempenho, na categoria "Banco de Dados Elástico: Gerenciamento de Fragmento".
+Contadores são usados para controlar o desempenho de operações de [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) . Esses contadores estão acessíveis no Monitor de desempenho, na categoria do "Banco de Dados Elástico: Gerenciamento de fragmentos".
 
-**Para obter a versão mais recente:** acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente](sql-database-elastic-scale-upgrade-client-library.md).
+**Para a última versão:** Acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte também [Atualizar um aplicativo para usar a biblioteca de cliente de banco de dados elástico mais recente](sql-database-elastic-scale-upgrade-client-library.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Para criar a categoria de desempenho e contadores, o usuário deve ser uma parte do grupo **Administradores** local no computador que hospeda o aplicativo.  
 * Para criar uma instância do contador de desempenho e atualizar os contadores, o usuário deve ser um membro do grupo **Administradores** ou **Usuários do Monitor de Desempenho**. 
 
 ## <a name="create-performance-category-and-counters"></a>Criar categoria e contadores de desempenho
-Para criar os contadores, chame o método CreatePeformanceCategoryAndCounters da [classe ShardMapManagmentFactory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Somente um administrador pode executar o método: 
+Para criar os contadores, chame o método CreatePeformanceCategoryAndCounters da [classe ShardMapManagementFactory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Somente um administrador pode executar o método: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
 Você também pode usar [este](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) script do PowerShell para executar o método. O método cria os seguintes contadores de desempenho:  
 
-* **Mapeamentos em cache**: número de mapeamentos armazenados em cache para o mapa de fragmentos.
-* **Operações de DDR/s**: a taxa de operações de roteamento dependentes de dados para o mapa de fragmentos. Esse contador é atualizado quando uma chamada para [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulta em uma conexão bem-sucedida com o fragmento de destino. 
-* **Mapeamento de acertos de pesquisa do cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos. 
-* **Mapeamento de erros de pesquisa de cache/s**: taxa de operações bem-sucedidas de pesquisa de cache para mapeamentos no mapa de fragmentos.
-* **Mapeamentos adicionados ou atualizados no cache/s**: taxa à qual os mapeamentos estão sendo adicionados ou atualizados no cache para o mapa de fragmentos. 
-* **Mapeamentos removidos do cache/s**: taxa à qual os mapeamentos estão sendo removidos do cache para o mapa de fragmentos. 
+* **Mapeamentos em cache**: Número de mapeamentos em cache para o mapa de fragmentos.
+* **Operações DDR/s**: A taxa de operações de roteamento dependentes de dados para o mapa de fragmentos. Esse contador é atualizado quando uma chamada para [OpenConnectionForKey()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) resulta em uma conexão bem-sucedida com o fragmento de destino. 
+* **Mapeamento de pesquisa de ocorrência no cache/s**: Taxa de operações de pesquisa de cache com êxito para mapeamentos no mapa de fragmentos. 
+* **Mapeamento de pesquisa de perda no cache/s**: Taxa de operações de pesquisa de cache com falha para mapeamentos no mapa de fragmentos.
+* **Mapeamentos adicionados ou atualizados no cache/s**: Taxa na qual os mapeamentos estão sendo adicionados ou atualizados no cache para o mapa de fragmentos. 
+* **Mapeamentos removidos do cache/s**: Taxa na qual os mapeamentos estão sendo removidos do cache para o mapa de fragmentos. 
 
 Contadores de desempenho são criados para cada mapa de fragmentos em cache por processo.  
 

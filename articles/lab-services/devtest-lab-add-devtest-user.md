@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243702"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834121"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ As etapas a seguir vão orientá-lo durante o processo de adição de um proprie
 3. Na lista de laboratórios, selecione o laboratório desejado.
 4. Na folha do laboratório, selecione **Configuração e Políticas**. 
 5. Na página **Configuração e políticas**, selecione **Controle de acesso (IAM)** no menu à esquerda. 
-6. Selecione **Adicionar** na barra de ferramentas para adicionar um usuário a uma função.
-
-    ![Adicionar usuário](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Selecione **Adicionar atribuição de função** na barra de ferramentas para adicionar um usuário a uma função.
 1. Na janela **Adicionar permissões**, execute as ações a seguir: 
-    1. Selecione uma função (por exemplo, usuário do DevTest Labs). A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
+    1. Selecione uma função (por exemplo: Usuário do DevTest Labs). A seção [Ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as diversas ações que podem ser executadas por usuários nas funções Proprietário, Usuário de DevTest e Colaborador.
     2. Selecione o usuário a ser adicionado à função. 
     3. Clique em **Salvar**. 
-
-        ![Adicionar usuário à função](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Quando você retornar para a folha **Usuários** , o usuário terá sido adicionado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Adicionar um usuário externo a um laboratório usando o PowerShell

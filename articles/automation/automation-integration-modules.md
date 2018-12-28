@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276475"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000232"
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integração de automação do Azure
 O PowerShell é a tecnologia fundamental por trás da Automação do Azure. Como a Automação do Azure foi desenvolvida sobre o PowerShell, os módulos do PowerShell são fundamentais para a extensibilidade da Automação do Azure. Neste artigo, orientamos você pelas questões específicas da utilização de módulos do PowerShell pela Automação do Azure, chamados de “Módulos de Integração”, e as práticas recomendadas para a criação de seus próprios módulos do PowerShell para ter certeza de que eles funcionam como Módulos de Integração dentro da Automação do Azure. 
@@ -74,7 +74,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    HelpUri='https://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
     param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
@@ -136,7 +136,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      HelpUri='https://www.twilio.com/docs/api/rest/sending-sms')]
       param(
          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
          [ValidateNotNullOrEmpty()]
@@ -158,7 +158,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     ```
    <br>
 1. Defina o tipo de saída para todos os cmdlets no módulo. A definição de um tipo de saída para um cmdlet permite o IntelliSense no tempo de criação para ajudar você a determinar as propriedades de saída do cmdlet, para uso durante a criação. É especialmente útil durante a criação gráfica do runbook da Automação, quando o conhecimento do tempo de criação é fundamental para uma experiência de usuário facilitada com o seu módulo.<br><br> ![Tipo de saída do runbook gráfico](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> Isso é semelhante à funcionalidade "preenchimento automático" da saída de um cmdlet no ISE do PowerShell sem precisar executá-lo.<br><br> ![IntelliSense POSH](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-1. Os cmdlets no módulo não devem usar tipos de objeto complexos como parâmetros. O Fluxo de Trabalho do PowerShell é diferente do PowerShell, pois armazena tipos complexos no formato desserializado. Os tipos primitivos permanecerão primitivos, mas tipos complexos serão convertidos em suas versões desserializadas, que são essencialmente pacotes de propriedade. Por exemplo, se você tiver usado o cmdlet **Get-Process** em um runbook (ou um Fluxo de Trabalho do PowerShell para esse fim), ele retornará um objeto do tipo [Deserialized.System.Diagnostic.Process] não o tipo [System.Diagnostic.Process] esperado. Esse tipo tem as mesmas propriedades que o tipo não desserializado, mas nenhum dos métodos. Se tentar passar esse valor como um parâmetro para um cmdlet, quando o cmdlet espera um valor [System.Diagnostic.Process] para esse parâmetro, você receberá o seguinte erro: *Não é possível processar a transformação do argumento no parâmetro 'process'. Erro: "Não é possível converter o valor "System.Diagnostics.Process (CcmExec)" do tipo "Deserialized.System.Diagnostics.Process" para o tipo "System.Diagnostics.Process".*   Isso ocorre porque há uma incompatibilidade de tipo entre o tipo [System.Diagnostic.Process] esperado e o tipo [Deserialized.System.Diagnostic.Process] fornecido. A solução alternativa a esse problema é garantir que os cmdlets de seu módulo não usem tipos complexos como parâmetros. Está é a maneira errada de fazer isso.
+1. Os cmdlets no módulo não devem usar tipos de objeto complexos como parâmetros. O Fluxo de Trabalho do PowerShell é diferente do PowerShell, pois armazena tipos complexos no formato desserializado. Os tipos primitivos permanecerão primitivos, mas tipos complexos serão convertidos em suas versões desserializadas, que são essencialmente pacotes de propriedade. Por exemplo, se você tiver usado o cmdlet **Get-Process** em um runbook (ou um Fluxo de Trabalho do PowerShell para esse fim), ele retornará um objeto do tipo [Deserialized.System.Diagnostic.Process] não o tipo [System.Diagnostic.Process] esperado. Esse tipo tem as mesmas propriedades que o tipo não desserializado, mas nenhum dos métodos. E se você tentar passar esse valor como um parâmetro para um cmdlet, em que o cmdlet espera um valor [System.Diagnostic.Process] para esse parâmetro, o seguinte erro será exibido: *Não é possível processar a transformação do argumento no parâmetro 'process'. Erro: "Não é possível converter o valor "System.Diagnostics.Process (CcmExec)" do tipo "Deserialized.System.Diagnostics.Process" para o tipo "System.Diagnostics.Process".*   Isso ocorre porque há uma incompatibilidade de tipo entre o tipo [System.Diagnostic.Process] esperado e o tipo [Deserialized.System.Diagnostic.Process] fornecido. A solução alternativa a esse problema é garantir que os cmdlets de seu módulo não usem tipos complexos como parâmetros. Está é a maneira errada de fazer isso.
    
     ```powershell
     function Get-ProcessDescription {
@@ -182,7 +182,7 @@ Embora os módulos de integração sejam essencialmente os módulos do PowerShel
     }
     ```
    <br>
-   Ativos de conexão em runbooks são tabelas de hash, que são um tipo complexo. Ainda assim, parece que essas tabelas de hash podem ser passadas para os cmdlets para seu parâmetro –Connection perfeitamente, sem qualquer exceção de conversão. Tecnicamente, alguns tipos de PowerShell podem ser convertidos apropriadamente de sua forma serializada para a forma desserializada e, assim, podem ser passados para os cmdlets para os parâmetros que aceitam o tipo não desserializado. A tabela de hash é um deles. É possível implementar os tipos definidos de um autor de módulo de uma forma que possam desserializar corretamente também, mas há algumas compensações a considerar. O tipo deve ter um construtor padrão, ter todas as suas propriedades públicas e ter um PSTypeConverter. No entanto, para os tipos já definidos que não são de propriedade do autor do módulo, não é possível "corrigi-los". Por esse motivo existe a recomendação para evitar tipos complexos para parâmetros. Dica de criação de runbook: se, por alguma razão, seus cmdlets precisarem aceitar um parâmetro de tipo complexo, ou se você estiver usando o módulo de outra pessoa que exige um parâmetro de tipo complexo, a solução nos runbooks de Fluxo de Trabalho do PowerShell, e em Fluxos de Trabalho do PowerShell no PowerShell local, é encapsular o cmdlet que gera o tipo complexo e o cmdlet que consome o tipo complexo na mesma atividade InlineScript. Como a InlineScript executa seu conteúdo como PowerShell e não como um Fluxo de Trabalho do PowerShell, o cmdlet que gera o tipo complexo produziria esse tipo correto, não o tipo complexo desserializado.
+   Ativos de conexão em runbooks são tabelas de hash, que são um tipo complexo. Ainda assim, parece que essas tabelas de hash podem ser passadas para os cmdlets para seu parâmetro –Connection perfeitamente, sem qualquer exceção de conversão. Tecnicamente, alguns tipos de PowerShell podem ser convertidos apropriadamente de sua forma serializada para a forma desserializada e, assim, podem ser passados para os cmdlets para os parâmetros que aceitam o tipo não desserializado. A tabela de hash é um deles. É possível implementar os tipos definidos de um autor de módulo de uma forma que possam desserializar corretamente também, mas há algumas compensações a considerar. O tipo deve ter um construtor padrão, ter todas as suas propriedades públicas e ter um PSTypeConverter. No entanto, para os tipos já definidos que não são de propriedade do autor do módulo, não é possível "corrigi-los". Por esse motivo existe a recomendação para evitar tipos complexos para parâmetros. Dica de criação de runbook: Se, por algum motivo, seus cmdlets precisarem aceitar um parâmetro de tipo complexo, ou se você estiver usando o módulo de outra pessoa que exige um parâmetro de tipo complexo, a solução alternativa nos runbooks de Fluxo de Trabalho do PowerShell, e em Fluxos de Trabalho do PowerShell no PowerShell local, será encapsular o cmdlet que gera o tipo complexo e o cmdlet que consome o tipo complexo na mesma atividade InlineScript. Como a InlineScript executa seu conteúdo como PowerShell e não como um Fluxo de Trabalho do PowerShell, o cmdlet que gera o tipo complexo produziria esse tipo correto, não o tipo complexo desserializado.
 1. Torne todos os cmdlets no módulo cmdlets sem estado. O Fluxo de Trabalho do PowerShell executa cada cmdlet chamado no fluxo de trabalho em uma sessão diferente. Isso significa que todos os cmdlets que dependem do estado da sessão criado/modificada por outros cmdlets no mesmo módulo não funcionarão em runbooks do Fluxo de Trabalho do PowerShell.  Veja um exemplo do que não fazer:
    
     ```powershell

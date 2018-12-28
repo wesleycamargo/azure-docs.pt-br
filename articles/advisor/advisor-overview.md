@@ -3,22 +3,21 @@ title: Introdução ao Azure Advisor | Microsoft Docs
 description: Use o Azure Advisor para otimizar as implantações do Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139971"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015969"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -36,10 +35,10 @@ Você pode acessar o Advisor pelo [Portal do Azure](https://aka.ms/azureadvisord
 
 O painel do Assistente exibe recomendações personalizadas para todas as assinaturas.  Você pode aplicar filtros para exibir as recomendações para assinaturas e tipos de recursos específicos.  As recomendações são divididas em quatro categorias: 
 
-* **Alta Disponibilidade**: para garantir e melhorar a continuidade dos aplicativos críticos para os negócios. Para saber mais, veja [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Recomendações de alta disponibilidade do Advisor).
-* **Segurança**: para detectar ameaças e vulnerabilidades que podem levar a possíveis violações de segurança. Para saber mais, veja [Advisor Security recommendations](advisor-security-recommendations.md) (Recomendações de segurança do Advisor).
-* **Desempenho**: para melhorar a velocidade dos aplicativos. Para saber mais, veja [Advisor Performance recommendations](advisor-performance-recommendations.md) (Recomendações de desempenho do Advisor).
-* **Custo**: para otimizar e reduzir o gasto geral do Azure. Para saber mais, veja [Advisor Cost recommendations](advisor-cost-recommendations.md) (Recomendações de custo do Advisor).
+* **Alta disponibilidade**: Para garantir e melhorar a continuidade dos aplicativos comercialmente críticos. Para saber mais, veja [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Recomendações de alta disponibilidade do Advisor).
+* **Segurança**: Para detectar ameaças e vulnerabilidades que podem levar a violações de segurança. Para saber mais, veja [Advisor Security recommendations](advisor-security-recommendations.md) (Recomendações de segurança do Advisor).
+* **Desempenho**: Para melhorar a velocidade dos aplicativos. Para saber mais, veja [Advisor Performance recommendations](advisor-performance-recommendations.md) (Recomendações de desempenho do Advisor).
+* **Custo**: Para otimizar e reduzir os gastos gerais do Azure. Para saber mais, veja [Advisor Cost recommendations](advisor-cost-recommendations.md) (Recomendações de custo do Advisor).
 
   ![Tipos de recomendação do Advisor](./media/advisor-overview/advisor-dashboard.png)
 
@@ -64,7 +63,7 @@ Você pode acessar as recomendações do Assistente como *Proprietário*, *Colab
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 
-O Assistente fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, SQL Servers e Cache Redis.
+O Assistente fornece recomendações para máquinas virtuais, conjuntos de disponibilidade, gateways de aplicativo, Serviços de Aplicativos, SQL Servers e Cache do Azure para Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Posso adiar ou ignorar uma recomendação?
 

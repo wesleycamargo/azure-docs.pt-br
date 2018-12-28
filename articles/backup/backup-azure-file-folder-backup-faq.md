@@ -8,13 +8,13 @@ keywords: backup e recuperação de desastre; serviço de backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239825"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726535"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,12 +29,12 @@ Sim, as credenciais do cofre expiram após 48 horas. Se o arquivo expirar, faça
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Em que tipos de unidades posso fazer backup de arquivos e pastas? <br/>
 Você não pode fazer backup das unidades/volumes a seguir:
 
-* Mídia removível: todas as fontes de item de backup devem ser indicadas como fixas.
-* Volumes somente leitura: o volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
-* Volumes offline: o volume deve estar online para que o VSS funcione.
+* Mídia removível: Todas as fontes de item de backup devem ser indicadas como fixas.
+* Volumes somente leitura: O volume deve ser gravável para que o VSS (Serviço de Cópias de Sombra de Volume) funcione.
+* Volumes offline: O volume deve estar online para que o VSS funcione.
 * Compartilhamento de rede: O volume deve ser local para o backup do servidor usando o backup online.
-* Volumes protegidos pelo Bitlocker: o volume deve ser desbloqueado antes de ser possível realizar o backup.
-* Identificação do sistema de arquivos: NTFS é o único sistema de arquivos com suporte.
+* Volumes protegidos pelo Bitlocker: O volume deverá ser desbloqueado antes que o backup possa ocorrer.
+* Identificação de Sistema de Arquivos: O NTFS é o único sistema de arquivos com suporte.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>De quais tipos de arquivo e pasta no servidor posso fazer backup?<br/>
 Os seguintes tipos têm suporte:
@@ -43,11 +43,11 @@ Os seguintes tipos têm suporte:
 * Compactado
 * Esparsos
 * Compactado + esparso
-* Links físicos: sem suporte, ignorado
-* Ponto de nova análise: sem suporte, ignorado
-* Criptografado + esparso: sem suporte, ignorado
-* Fluxo compactado: sem suporte, ignorado
-* Fluxo esparso: sem suporte, ignorado
+* Links físicos: Sem suporte, ignorado
+* Ponto de nova análise: Sem suporte, ignorado
+* Criptografado + esparso: Sem suporte, ignorado
+* Fluxo compactado: Sem suporte, ignorado
+* Fluxo esparso: Sem suporte, ignorado
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Posso instalar o agente de Backup do Azure em uma VM do Azure da qual o serviço de Backup do Azure já fez backup usando a extensão de VM? <br/>
 Com certeza. O Backup do Azure fornece backup no nível de VM para as máquinas virtuais do Azure usando a extensão de VM. Para proteger arquivos e pastas no SO Windows convidado, instale o agente de Backup do Azure no SO Windows convidado .
@@ -94,8 +94,8 @@ Assim que a criação do backup for concluída com êxito no novo local de cache
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Onde posso colocar a pasta de cache para o Agente de Backup do Azure para que ele funcione conforme o esperado?<br/>
 Os locais a seguir para a pasta de cache não são recomendados:
 
-* Compartilhamento de rede ou Mídia Removível: a pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB
-* Volumes Offline: a pasta de cache deve estar online para o backup esperado com o Agente de Backup do Azure
+* Compartilhamento de rede ou mídia removível: A pasta de cache deve ser local para o servidor que precisa de backup usando o backup online. Não há suporte para os locais de rede ou para a mídia removível como unidades USB
+* Volumes offline: A pasta de cache deve estar online para o backup esperado com o Agente de Backup do Azure
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe algum atributo da pasta de cache que não tenha suporte?<br/>
 Os atributos a seguir, ou suas combinações, não têm suporte para a pasta de cache:

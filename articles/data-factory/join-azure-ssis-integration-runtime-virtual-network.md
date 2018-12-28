@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094588"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723135"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -86,7 +86,7 @@ O usuário que cria o Azure-SSIS Integration Runtime deve ter as seguintes permi
 
 - Se você estiver ingressando em seu SSIS IR em uma rede virtual clássica, recomendamos usar a função *integrante do Virtual Machine* interna. Caso contrário, você terá que definir uma função personalizada que inclua a permissão para ingressar na rede virtual.
 
-### <a name="subnet"></a>Selecione a Sub-rede.
+###  <a name="subnet"></a>Selecione a Sub-rede.
 -   Não selecione GatewaySubnet para implantar um Microsoft Integration Runtime do Azure-SSIS, porque ele é dedicado para gateways de rede virtual. 
 
 -   Verifique se a sub-rede que você selecionar tem espaço de endereço disponível suficiente para o IR do Azure-SSIS usar. Deixe pelo menos 2 * número de nós do IR em endereços IP disponíveis. O Azure reserva alguns endereços IP em cada sub-rede, os quais não podem ser usados. O primeiro e o último endereço IP das sub-redes são reservados para fins de conformidade de protocolo, juntamente com três outros endereços usados para os serviços do Azure. Para saber mais, veja [Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets). 
@@ -130,7 +130,7 @@ Se você estiver preocupado em perder a capacidade de inspecionar o tráfego de 
 
 Veja [este script do PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) para obter um exemplo. Você precisa executar o script semanalmente para manter atualizada a lista de endereços IP do data center do Azure. 
 
-### <a name="resource-group"></a>Requisitos para o Grupo de Recursos
+###  <a name="resource-group"></a>Requisitos para o Grupo de Recursos
 -   O Azure-SSIS IR precisa criar determinados recursos de rede no mesmo grupo de recursos que a rede virtual. Esses recursos incluem o seguinte:
     -   Um balanceador de carga do Azure, com o nome *<Guid>-azurebatch-cloudserviceloadbalancer*.
     -   Um endereço IP público do Azure, com o nome *<Guid>-azurebatch-cloudservicepublicip* .
@@ -165,7 +165,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.) 
 
-   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
+    a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
 
    b. Selecione sua assinatura. 
 
@@ -198,25 +198,27 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Una **MicrosoftAzureBatch** à função **Colaborador da Máquina Virtual Clássica** para a rede virtual. 
 
-    a. Selecione **IAM (Controle de acesso)** no menu esquerdo e selecione **Adicionar** na barra de ferramentas. 
+     a. Selecione **Controle de Acesso (IAM)** no menu esquerdo e selecione a guia **Atribuições de função**. 
 
     !["Controle de Acesso" e botões "Adicionar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Na página **Adicionar permissões**, selecione **Colaborador da Máquina Virtual Clássica** para **Função**. Cole **ddbf3205-c6bd-46ae-8127-60eb93363864** na caixa **Selecionar** e, em seguida, selecione **Lote do Microsoft Azure** da lista de resultados de pesquisa. 
+    b. Selecione **Adicionar atribuição de função**.
 
-    ![Resultados da pesquisa na página "Adicionar permissões"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. Na página **Adicionar atribuição de função**, selecione **Colaborador da Máquina Virtual Clássica** para **Função**. Cole **ddbf3205-c6bd-46ae-8127-60eb93363864** na caixa **Selecionar** e, em seguida, selecione **Lote do Microsoft Azure** da lista de resultados de pesquisa. 
 
-    c. Selecione **Salvar** para salvar as configurações e fechar a página. 
+    ![Resultados da pesquisa na página "Adicionar atribuição de função"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Selecione **Salvar** para salvar as configurações e fechar a página. 
 
     ![Salvar as configurações de acesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Confirme se você visualiza o **Lote do Microsoft Azure** na lista de colaboradores. 
+    e. Confirme se você visualiza o **Lote do Microsoft Azure** na lista de colaboradores. 
 
     ![Confirme o acesso ao lote do Azure](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
 1. Verifique se o provedor do Lote do Azure está registrado na assinatura do Azure que possui a rede virtual. Ou, registre o fornecedor do Lote do Azure. Se você já tiver uma conta de lote do Azure em sua assinatura, sua assinatura está registrada para o lote do Azure. (Se você criar o IR do Azure-SSIS no portal do Azure Data Factory,  o provedor do lote do Microsoft Azure é registrado automaticamente para você.) 
 
-   a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
+    a. No Portal do Azure, selecione **Assinaturas** no menu esquerdo. 
 
    b. Selecione sua assinatura. 
 
@@ -259,7 +261,7 @@ Primeiro você precisa configurar a rede virtual antes de adicionar um IR do Azu
 
 1. Na página **Configurações Avançadas**, faça as ações a seguir: 
 
-   a. Selecione a caixa de seleção para **Selecionar uma VNet para o Tempo de Execução de Integração do Azure-SSIS unir e permitir que os serviços do Azure configurem as permissões/configurações da VNet**. 
+    a. Selecione a caixa de seleção para **Selecionar uma VNet para o Tempo de Execução de Integração do Azure-SSIS unir e permitir que os serviços do Azure configurem as permissões/configurações da VNet**. 
 
    b. Para **Tipo**, selecione se a rede virtual é uma rede virtual clássica ou uma rede virtual do Azure Resource Manager. 
 

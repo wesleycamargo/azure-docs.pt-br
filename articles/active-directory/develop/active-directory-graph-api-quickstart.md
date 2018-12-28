@@ -18,14 +18,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687343"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845461"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>Como usar a API do Graph Azure AD
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Como: Usar a API do Graph do Azure AD
 
 A API do Graph do Azure AD (Azure Active Directory) fornece acesso programático ao Azure AD por meio de pontos de extremidade OData REST API. Aplicativos podem usar a API do Microsoft Azure AD Graph para realizar operações CRUD (criar, ler, atualizar e excluir) nos objetos e dados do diretório. Por exemplo, você pode usar a API do Microsoft Azure AD Graph para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para obter mais informações sobre os recursos da API do Microsoft Azure AD Graph e cenários de aplicativo, consulte a [API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Pré-requisitos da API do Microsoft Azure AD Graph](https://msdn.microsoft.com/library/hh974476.aspx).
 
@@ -38,10 +38,10 @@ Este artigo se aplica à API do Graph do Azure Active Directory. Para obter info
 
 Na API do Graph, para acessar dados de diretório e objetos (em outras palavras, recursos ou entidades) em relação aos quais deseja realizar operações CRUD, você pode usar URLs com base no Protocolo OData (Open Data). As URLs usadas na API do Graph consistem em quatro partes principais: serviço raiz, identificador de locatário, caminho de recurso e opções de cadeia de caracteres de consulta: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Veja o exemplo da seguinte URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **Raiz do Serviço**: na API do Microsoft Azure AD Graph, a raiz do serviço é sempre https://graph.windows.net.
-* **Identificador de locatário**: esta seção pode ser um nome de domínio (registrado) verificado; no exemplo anterior, contoso.com. Também pode ser uma ID de objeto de locatário ou o alias "myorganization" ou "me". Para obter mais informações, consulte [Endereçamento de entidades e operações na API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
-* **Caminho do recurso**: essa seção de uma URL identifica o recurso com o qual interagir (usuários, grupos, um usuário específico ou um grupo específico etc.) No exemplo acima, trata-se de "grupos" de nível superior para abordar esse conjunto de recursos. Você também pode abordar uma entidade específica, por exemplo "users/{objectId}" ou "users/userPrincipalName".
-* **Parâmetros de consulta**: um ponto de interrogação (?) separa a seção de caminho de recurso da seção de parâmetros de consulta. O parâmetro de consulta "api-version" é necessário em todas as solicitações na API do Microsoft Azure AD Graph. A API do Microsoft Azure AD Graph também fornece suporte às seguintes opções de consulta OData: **$filter**, **$orderby**, **$expand**, **$top** e **$format**. Atualmente não há suporte às seguintes opções de consulta: **$count**, **$inlinecount** e **$skip**. Para saber mais, confira [Suporte a consultas, filtros e opções de paginação na API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+* **Raiz do serviço**: Na API do Graph do Azure AD, a raiz do serviço é sempre https://graph.windows.net.
+* **Identificador de locatário**: Esta seção pode ser um nome de domínio verificado (registrado), no exemplo anterior, contoso.com. Também pode ser uma ID de objeto de locatário ou o alias "myorganization" ou "me". Para obter mais informações, consulte [Endereçamento de entidades e operações na API do Microsoft Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
+* **Caminho do recurso**: Esta seção de uma URL identifica o recurso a ser interagido (usuários, grupos, um usuário em particular ou um grupo específico, etc.) No exemplo acima, trata-se de "grupos" de nível superior para abordar esse conjunto de recursos. Você também pode abordar uma entidade específica, por exemplo "users/{objectId}" ou "users/userPrincipalName".
+* **Parâmetros de consulta**: Um ponto de interrogação (?) separa a seção do caminho do recurso da seção de parâmetros de consulta. O parâmetro de consulta "api-version" é necessário em todas as solicitações na API do Microsoft Azure AD Graph. A API do Microsoft Azure AD Graph também fornece suporte às seguintes opções de consulta OData: **$filter**, **$orderby**, **$expand**, **$top** e **$format**. Atualmente não há suporte às seguintes opções de consulta: **$count**, **$inlinecount** e **$skip**. Para saber mais, confira [Suporte a consultas, filtros e opções de paginação na API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## <a name="graph-api-versions"></a>Versões da API do Graph
 
@@ -66,9 +66,9 @@ A captura de tela a seguir é a saída que você veria se fosse navegar até o E
 
 ![Gerenciador da API do Graph do AD do Azure](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Carregue o Explorador do Microsoft Azure AD Graph** : para carregar a ferramenta, navegue até[https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Clique em **Logon** e entre com suas credenciais de conta do Microsoft Azure AD para executar o Explorador do Microsoft Azure AD Graph no locatário. Se executar o Explorador do Microsoft Azure AD Graph no seu próprio locatário, você ou o administrador precisará dar permissão durante a entrada. Se tiver uma assinatura do Office 365, você automaticamente terá um locatário do AD do Azure. As credenciais usadas para entrar no Office 365 são, na verdade, contas do Microsoft Azure AD e você pode usar essas credenciais com o Explorador do Microsoft Azure AD Graph.
+**Carregar o Gerenciador do Graph do Azure AD** : Para carregar a ferramenta, navegue até [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Clique em **Logon** e entre com suas credenciais de conta do Microsoft Azure AD para executar o Explorador do Microsoft Azure AD Graph no locatário. Se executar o Explorador do Microsoft Azure AD Graph no seu próprio locatário, você ou o administrador precisará dar permissão durante a entrada. Se tiver uma assinatura do Office 365, você automaticamente terá um locatário do AD do Azure. As credenciais usadas para entrar no Office 365 são, na verdade, contas do Microsoft Azure AD e você pode usar essas credenciais com o Explorador do Microsoft Azure AD Graph.
 
-**Executar uma consulta**: para executar uma consulta, digite a consulta na caixa de texto de solicitação e clique em **GET** ou clique na tecla **enter**. Os resultados são exibidos na caixa de resposta. Por exemplo, `https://graph.windows.net/myorganization/groups?api-version=1.6` lista todos os objetos de grupo no diretório do usuário conectado.
+**Executar uma consulta**: Para executar uma consulta, digite sua consulta na caixa de texto da solicitação e clique em **GET** ou em **inserir**. Os resultados são exibidos na caixa de resposta. Por exemplo, `https://graph.windows.net/myorganization/groups?api-version=1.6` lista todos os objetos de grupo no diretório do usuário conectado.
 
 Observe os recursos e limitações a seguir do Explorador do Microsoft Azure AD Graph:
 
@@ -82,13 +82,13 @@ Observe os recursos e limitações a seguir do Explorador do Microsoft Azure AD 
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Usando o Fiddler para gravar no diretório
 
-Para os fins deste Guia de Início Rápido, você poderá usar o Depurador da Web Fiddler para executar operações de 'gravação' em relação ao diretório do Azure AD. Por exemplo, é possível obter e carregar a foto do perfil de um usuário (o que não é possível com o Explorador do Microsoft Azure AD Graph). Para obter mais informações e para instalar o Fiddler, consulte [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+Para os fins deste Guia de Início Rápido, você poderá usar o Depurador da Web Fiddler para executar operações de 'gravação' em relação ao diretório do Azure AD. Por exemplo, é possível obter e carregar a foto do perfil de um usuário (o que não é possível com o Explorador do Microsoft Azure AD Graph). Para obter mais informações e para instalar o Fiddler, consulte [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
 
 No exemplo a seguir, o Depurador da Web Fiddler é usado para criar um novo grupo de segurança 'MyTestGroup' no diretório do Azure AD.
 
-**Obter um token de acesso**: para acessar o Graph do AD do Azure, os clientes devem se autenticar no AD do Azure primeiro. Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](authentication-scenarios.md).
+**Obter um token de acesso**: Para acessar o Graph do Azure AD, é necessário que os clientes primeiro autentiquem-se com êxito no Azure AD. Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](authentication-scenarios.md).
 
-**Compor e executar uma consulta**: execute as etapas a seguir:
+**Redigir e executar uma consulta**: Conclua as seguintes etapas:
 
 1. Abra o Depurador da Web Fiddler e alterne para a guia **Composer** .
 2. Como você deseja criar um novo grupo de segurança, selecione **Post** como o método HTTP no menu suspenso. Para saber mais sobre operações e permissões em um objeto de grupo, confira [Grupo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) na [Referência da Graph REST API do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

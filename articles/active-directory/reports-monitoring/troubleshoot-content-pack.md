@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623291"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998725"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solução de erros do pacote de conteúdo dos Logs de atividades do Azure Active Directory 
 
@@ -34,12 +34,13 @@ Ao trabalhar com o Pacote de Conteúdo do Power BI para Azure AD (Azure Active D
 
 - [Falha na atualização](troubleshoot-content-pack.md#refresh-failed) 
 - [Falha ao atualizar as credenciais de fonte de dados](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Importação de dados muito demorada](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [Importação de dados muito demorada](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Este artigo fornece informações sobre as possíveis causas e como corrigir esses erros.
  
 ## <a name="refresh-failed"></a>Falha na atualização 
  
-**Como esse erro é exibido**: email do Power BI ou status de falha no histórico de atualizações. 
+**Como esse erro ocorre**: Email do Power BI ou status com falha no histórico de atualizações. 
 
 
 | Causa | Como corrigir |
@@ -50,7 +51,7 @@ Este artigo fornece informações sobre as possíveis causas e como corrigir ess
  
 ## <a name="failed-to-update-data-source-credentials"></a>Falha ao atualizar as credenciais de fonte de dados 
  
-**Como esse erro é exibido**: no Power BI, ao conectar-se ao pacote de conteúdo dos logs de atividades do Azure AD. 
+**Como esse erro ocorre**: No Power BI ao conectar o pacote de conteúdo dos logs de atividades do Azure AD. 
 
 | Causa | Como corrigir |
 | ---   | ---        |
@@ -61,7 +62,7 @@ Este artigo fornece informações sobre as possíveis causas e como corrigir ess
 
 ## <a name="data-import-is-too-slow"></a>A importação de dados é muito lenta 
  
-**Como esse erro é exibido**: no Power BI, após conectar o pacote de conteúdo, o processo de importação de dados começará a preparar o painel para os logs de atividades do Azure AD. A seguinte mensagem será exibida: **Importando dados...** sem qualquer outro andamento.  
+**Como esse erro ocorre**: No Power BI, após conectar o pacote de conteúdo, o processo de importação de dados começará a preparar o painel para os logs de atividades do Azure AD. Você verá a mensagem: **Importando dados...** sem qualquer outro andamento.  
 
 | Causa | Como corrigir |
 | ---   | ---        |

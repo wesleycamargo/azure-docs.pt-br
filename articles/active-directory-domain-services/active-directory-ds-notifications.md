@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: configurações de notificação | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Configurações de notificação | Microsoft Docs'
 description: Configurações de notificação para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432032"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958518"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Configurações de notificação no Azure AD Domain Services
 
@@ -41,7 +41,7 @@ A página mostra todos os destinatários de email para notificações por email 
 
 A imagem a seguir contém um exemplo de uma notificação por email:
 
-![Exemplo de notificação por email](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Exemplo de notificação por email](./media/active-directory-domain-services-alerts/email-alert.png)
 
 O email especifica o domínio gerenciado no qual o alerta está presente, além do horário de detecção e um link para a página de integridade do Azure AD Domain Services no Portal do Azure.
 

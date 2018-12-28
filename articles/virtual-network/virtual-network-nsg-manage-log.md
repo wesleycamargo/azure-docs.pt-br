@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: bf7f1f58250d94d821e6ec41266b518d7ebe105b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427536"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384982"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
 Um grupo de segurança de rede (NSG) contém regras que permitem ou negam o tráfego para uma sub-rede de rede virtual, a interface de rede ou ambos. Quando você habilita o log de diagnóstico para um NSG, você pode registrar as seguintes categorias de informações:
 
-* **Evento:** as entradas são registradas para qual NSG regras são aplicadas às VMs, com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
-* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego.
+* **Evento:** As entradas são registradas para aquelas regras de NSG que são aplicadas às VMs, com base no endereço MAC. O status para essas regras é coletado a cada 60 segundos.
+* **Contador de regras:** Contém entradas de quantas vezes cada regra de NSG é aplicada para negar ou permitir tráfego.
 
 Os logs de diagnóstico estão disponíveis apenas para NSGs implantados por meio do modelo de implantação do Azure Resource Manager. Você não pode habilitar o log de diagnóstico para NSGs implantados por meio do modelo de implantação clássico. Para reconhecimento melhor dos dois modelos, consulte [ Compreendendo os modelos de implantação do Azure ](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Se você quiser registrar dados para uma categoria ou a outra, em vez de ambos, adicione o `-Categories` opção ao comando anterior, seguido por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em outro [destino](#log-destinations) que um workspace do Log Analytics, use os parâmetros apropriados para um Azure [conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se você quiser registrar dados para uma categoria ou a outra, em vez de ambos, adicione o `-Categories` opção ao comando anterior, seguido por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em outro [destino](#log-destinations) que um workspace do Log Analytics, use os parâmetros apropriados para um Azure [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Exibir e analisar os logs. Para obter mais informações, consulte [ Visualizar e analisar registros ](#view-and-analyze-logs).
 
@@ -121,18 +121,18 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Se você não tiver um workspace existente, poderá criar uma usando o [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Há duas categorias de log, para que você pode habilitar os logs. 
+Se você não tiver um workspace existente, poderá criar uma usando o [portal do Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Há duas categorias de log, para que você pode habilitar os logs. 
 
-Se você quiser registrar dados para uma categoria ou outra, remova a categoria que você não quiser registrar dados para o comando anterior. Se você quiser fazer logon em outro [destino](#log-destinations) que um workspace do Log Analytics, use os parâmetros apropriados para um Azure [conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se você quiser registrar dados para uma categoria ou outra, remova a categoria que você não quiser registrar dados para o comando anterior. Se você quiser fazer logon em outro [destino](#log-destinations) que um workspace do Log Analytics, use os parâmetros apropriados para um Azure [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Exibir e analisar os logs. Para obter mais informações, consulte [ Visualizar e analisar registros ](#view-and-analyze-logs).
 
 ## <a name="log-destinations"></a>Destinos do log
 
 Os dados de diagnóstico podem ser:
-- [ Escrito em uma conta do Armazenamento do Azure ](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias) usando as Configurações de Diagnóstico do Recurso.
+- [ Escrito em uma conta do Armazenamento do Azure ](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditoria ou inspeção manual. Você pode especificar o tempo de retenção (em dias) usando as Configurações de Diagnóstico do Recurso.
 - [ Transmitido para um hub de eventos ](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ingestão por um serviço de terceiros ou solução de análise personalizada, como o PowerBI.
-- [Escrito para análise de logs do Azure](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Escrito para análise de logs do Azure](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Categorias de log
 
@@ -199,9 +199,9 @@ O log do contador de regras contém informações sobre cada regra aplicada aos 
 ## <a name="view-and-analyze-logs"></a>Exibir e analisar os logs
 
 Para saber como visualizar dados de log de diagnóstico, consulte [ Visão geral dos Logs de Diagnóstico do Azure ](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
-- **Log Analytics**: você pode usar a [solução analítica de grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
-) para insights avançados. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego por endereço de MAC, a interface de rede em uma máquina virtual.
-- **Conta do Armazenamento do Azure**: os dados são gravados em um arquivo PT1H.json. Você pode encontrar o:
+- **Log Analytics**: Você pode usar a solução de [análise de grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+) para obter insights avançados. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego por endereço de MAC, a interface de rede em uma máquina virtual.
+- **Conta de Armazenamento do Azure**: Os dados são gravados em um arquivo PT1H.json. Você pode encontrar o:
     - Log de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
     - Regra do contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 

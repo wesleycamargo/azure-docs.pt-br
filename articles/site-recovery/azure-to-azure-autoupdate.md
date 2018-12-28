@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456483"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957684"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do Serviço de Mobilidade no Azure para a replicação do Azure
 
@@ -66,11 +66,11 @@ Quando você habilita a replicação para uma máquina virtual da iniciando [no 
 
 1. Se há novas atualizações disponíveis para o serviço de mobilidade instalado em suas VMs do Azure, você verá uma notificação que lê a "atualização do agente de replicação da recuperação do novo Site está disponível. Clique para instalar."
 
-     ![Janela Itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Janela Itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Clique na notificação para abrir a página de seleção de máquina virtual.
 4. Selecione as máquinas virtuais nas quais deseja atualizar o serviço de mobilidade e selecione **OK**.
 
-     ![Lista de VMs de itens replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lista de VMs de itens replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada uma das máquinas virtuais selecionadas.
 
@@ -81,8 +81,8 @@ Se houver um problema com as atualizações automáticas, você será notificado
 
 Caso você tenha tentado habilitar as atualizações automáticas, mas não teve êxito, consulte a solução de problemas abaixo.
 
-**Erro**: você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço. 
-- Ação recomendada: certifique-se de que a conta conectada é atribuída ao “Colaborador” e repita a operação. Veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obter mais informações sobre como atribuir as permissões corretas.
+**Erro**: Você não tem permissões para criar uma conta Executar como do Azure (entidade de serviço) e conceder a função Colaborador à entidade de serviço. 
+- Ação recomendada: Certifique-se de que a conta registrada está atribuída ao 'Colaborador' e repita a operação. Veja [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obter mais informações sobre como atribuir as permissões corretas.
  
 Depois que as atualizações automáticas forem ativadas, a maioria dos problemas pode ser reparada pelo serviço do Site Recovery e exige que você clique no botão “**Reparar**”.
 
@@ -90,10 +90,10 @@ Depois que as atualizações automáticas forem ativadas, a maioria dos problema
 
 Caso do botão de reparo não esteja disponível, consulte a mensagem de erro exibida no painel de configurações de extensão.
 
- - **Erro**: a conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
+ - **Erro**: A conta Executar como não tem permissão para acessar o recurso de serviços de recuperação.
 
-    **Ação recomendada**: exclua e, em seguida, [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou certifique-se de que o aplicativo do Azure Active Directory para a conta Executar como tem acesso ao recurso dos serviços de recuperação.
+    **Ação recomendada**: Exclua e, em seguida, [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou certifique-se de que o aplicativo do Azure Active Directory da conta Executar como de Automação tenha acesso ao recurso dos serviços de recuperação.
 
-- **Erro**: a conta Executar como não foi encontrada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão. 
+- **Erro**: A conta Executar como não foi localizada. Um deles foi excluído ou não criado - o aplicativo do Azure Active Directory, a entidade de serviço, a função, o ativo do certificado de automação, o ativo de conexão de automação - ou a impressão digital não é idêntica entre o certificado e a conexão. 
 
-    **Ação recomendada**: exclua e [ crie novamente a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Ação recomendada**: Exclua e, em seguida, [recrie a conta Executar como](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

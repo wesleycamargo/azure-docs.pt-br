@@ -2,26 +2,26 @@
 title: Implantar e gerenciar backups para VMs implantadas com o Gerenciador de Recursos usando o PowerShell
 description: Use o PowerShell para implantar e gerenciar backups no Azure para VMs implantadas com o Gerenciador de Recursos
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252353"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877850"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Usar o PowerShell para fazer backup e restaurar máquinas virtuais
 
 Este artigo mostra como usar os cmdlets do Azure PowerShell para fazer backup e recuperar uma máquina virtual do Azure (VM) de uma área segura do Recovery Services. Um cofre do Recovery Services é um recurso do Azure Resource Manager usado para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery. 
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo destina-se a VMs criadas usando o modelo do Resource Manager.
+> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Resource Manager e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo destina-se a VMs criadas usando o modelo do Resource Manager.
 >
 >
 
@@ -40,7 +40,7 @@ Para exibir a referência do cmdlet AzureRm.RecoveryServices.Backup do PowerShel
 
 Para começar:
 
-1. [Baixe a versão mais recente do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
+1. [Baixe a última versão do PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (a versão mínima necessária é: 1.4.0)
 
 2. Localize os cmdlets do PowerShell do Backup do Azure disponíveis digitando o seguinte comando:
    
@@ -54,7 +54,7 @@ Para começar:
 3. Entre em sua conta do Azure usando **Connect-AzureRmAccount**. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta:
 
     * Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzureRmAccount**, usando o parâmetro **-Credential**.
-    * Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    * Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 
 4. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 

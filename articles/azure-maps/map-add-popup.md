@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282525"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887825"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicionar um pop-up ao mapa
 
@@ -37,20 +37,32 @@ O quarto bloco de código cria um [objeto pop-up](https://docs.microsoft.com/jav
 
 O último bloco de código cria uma função que é acionada pelo ouvinte de evento `mouseover`. Ele define o conteúdo e propriedades de pop-up e adiciona o objeto de pop-up no mapa.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>Reutilizar um pop-up com vários pontos
+
+Quando há muitos pontos e você quer mostrar apenas um pop-up por vez, a melhor abordagem é criar um pop-up e reutilizá-lo, em vez de criar um pop-up para cada recurso de ponto. Ao fazer isso, o número de elementos do DOM criados pelo aplicativo será bastante reduzido, o que poderá fornecer um melhor desempenho. Este exemplo cria recursos de 3 pontos. Se você clicar em qualquer um deles, um pop-up será exibido com o conteúdo para esse recurso de ponto.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Reutilizar pop-up com vários marcadores' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Caneta <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reutilizar pop-up com vários marcadores</a> pelo Azure Mapas (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 Consulte os seguintes artigos excelentes para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [ Adicione uma forma ](./map-add-shape.md)
+> [Adicionar uma camada de símbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar um HTML personalizado](./map-add-custom-html.md)
+> [Adicionar um marcador HTML](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [ Adicione uma forma ](./map-add-shape.md)

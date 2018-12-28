@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306138"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844644"
 ---
-# <a name="security-frame-cryptography--mitigations"></a>Estrutura de segurança: Criptografia | Atenuações 
+# <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web** | <ul><li>[Usar somente codificações de bloco simétricas e comprimentos de chave aprovados](#cipher-length)</li><li>[Usar modos de codificação de bloco aprovados e vetores de inicialização para codificações simétricas](#vector-ciphers)</li><li>[Usar algoritmos assimétricos, comprimentos de chave e preenchimentos aprovados](#padding)</li><li>[Usar um número aleatório de geradores aprovados](#numgen)</li><li>[Não usar codificações de fluxo simétricas](#stream-ciphers)</li><li>[Usar algoritmos MAC, HMAC e de hash com chave](#mac-hash)</li><li>[Usar apenas as funções aprovadas do hash criptográfico](#hash-functions)</li></ul> |
@@ -107,7 +107,7 @@ ms.locfileid: "43306138"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (sem conformidade com FIPS) (use SHA512 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (sem conformidade com FIPS) (use SHA384 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (sem conformidade com FIPS) (use SHA256 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
+| **Etapas** | <p>Os produtos devem usar a família SHA-2 de algoritmos de hash (SHA256, SHA384 e SHA512). Se for necessário usar um hash mais curto, com um comprimento de saída de 128 bits para ajustá-lo a uma estrutura de dados criada com o hash MD5 menor em mente, as equipes de produtos podem truncar um dos hashes SHA2 (normalmente o SHA256). Observe que o SHA384 é uma versão truncada do SHA512. Por motivos de segurança, não é permitido truncar hashes criptográficos para menos de 128 bits. O novo código não deve usar os algoritmos de hash MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. É possível realizar colisões de hash computacionalmente para esses algoritmos, o que efetivamente os quebrará.</p><p>Algoritmos de hash do .NET permitidos para agilidade criptográfica gerenciada (em ordem de preferência)</p><ul><li>SHA512Cng (em conformidade com FIPS)</li><li>SHA384Cng (em conformidade com FIPS)</li><li>SHA256Cng (em conformidade com FIPS)</li><li>SHA512Managed (não compatível com FIPS) (use SHA512 como nome de algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (não compatível com FIPS) (use SHA384 como nome de algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (não compatível com FIPS) (use SHA256 como nome do algoritmo nas chamadas para HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA256CryptoServiceProvider (em conformidade com FIPS)</li><li>SHA384CryptoServiceProvider (em conformidade com FIPS)</li></ul>| 
 
 ## <a id="strong-db"></a>Usar algoritmos de criptografia forte para criptografar dados no banco de dados
 
@@ -140,7 +140,7 @@ ms.locfileid: "43306138"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
-| **Etapas** | Quando for necessário verificar a integridade de um banco de dados crítico protegível, use assinaturas digitais. Os protegíveis de um banco de dados, como um procedimento armazenado, uma função, um assembly ou um disparo, podem ser assinados digitalmente. Abaixo está um exemplo de quando isso pode ser útil: digamos que um ISV (fornecedor independente de software) ofereceu suporte a um software distribuído para um de seus clientes. Antes de fornecer o suporte, o ISV pode querer ter certeza de que um protegível do banco de dados no software não foi alterado por engano ou de forma maliciosa. Se o protegível estiver assinado digitalmente, o ISV poderá verificar sua assinatura digital e validar sua integridade.| 
+| **Etapas** | Quando for necessário verificar a integridade de um banco de dados crítico protegível, use assinaturas digitais. Os protegíveis de um banco de dados, como um procedimento armazenado, uma função, um assembly ou um disparo, podem ser assinados digitalmente. Abaixo está um exemplo de quando isso pode ser útil: Vamos supor que um ISV (Fornecedor Independente de Software) forneceu suporte a um software entregue a um de seus clientes. Antes de fornecer o suporte, o ISV pode querer ter certeza de que um protegível do banco de dados no software não foi alterado por engano ou de forma maliciosa. Se o protegível estiver assinado digitalmente, o ISV poderá verificar sua assinatura digital e validar sua integridade.| 
 
 ## <a id="ekm-keys"></a>Usar EKM do SQL Server para proteger chaves de criptografia
 
@@ -172,8 +172,8 @@ ms.locfileid: "43306138"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Sistema operacional do dispositivo - Windows IoT Core, Conectividade do dispositivo - SDKs do dispositivo IoT do Azure |
-| **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Configurar TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [TPM do SDK do dispositivo IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Etapas** | Armazene chaves privadas simétricas ou de certificado com segurança em um armazenamento de hardware protegido, um TPM ou chips de cartão inteligente. O Windows 10 IoT Core dá suporte para usuário de um TPM e há vários TPMs compatíveis que podem ser usados: https://developer.microsoft.com/windows/iot/win10/tpm. É recomendável usar um TPM Discreto ou de Firmware. Um TPM de Software deve ser usado apenas para fins de testes e desenvolvimento. Depois que um TPM estiver disponível e as chaves forem provisionadas nele, o código que gera o token deve ser escrito sem conter informações confidenciais. | 
+| **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Configurar TPM no Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [TPM do SDK do dispositivo IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Etapas** | Armazene chaves privadas simétricas ou de certificado com segurança em um armazenamento de hardware protegido, um TPM ou chips de cartão inteligente. O Windows 10 IoT Core dá suporte para usuário de um TPM e há vários TPMs compatíveis que podem ser usados: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. É recomendável usar um TPM Discreto ou de Firmware. Um TPM de Software deve ser usado apenas para fins de testes e desenvolvimento. Depois que um TPM estiver disponível e as chaves forem provisionadas nele, o código que gera o token deve ser escrito sem conter informações confidenciais. | 
 
 ### <a name="example"></a>Exemplo
 ```

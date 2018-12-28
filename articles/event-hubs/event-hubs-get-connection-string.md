@@ -1,20 +1,21 @@
 ---
-title: Obter cadeia de conexão dos Hubs de Eventos do Azure | Microsoft Docs
-description: Obter uma cadeia de conexão dos Hubs de Eventos do Azure
+title: Obter cadeia de conexão - Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece instruções para obter uma cadeia de conexão que os clientes podem usar para conectar Hubs de Eventos do Azure.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfc82f2dc280c3528f38c9cb466473a76328e552
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 263dba970b015d466b3fd46f390a063e87de2e2c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285378"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093294"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de conexão dos Hubs de Eventos
 

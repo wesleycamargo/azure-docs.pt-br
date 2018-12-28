@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857064"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842825"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades gerenciadas para recursos do Azure com Barramento de Serviço 
 
@@ -53,10 +53,8 @@ Depois de habilitar o recurso, uma nova identidade do serviço será criada no A
 
 Em seguida, [crie um namespace das Mensagens do Barramento de Serviço](service-bus-create-namespace-portal.md) em uma das regiões do Azure que tenham suporte para a versão prévia do RBAC: **Leste dos EUA**, **Leste dos EUA 2** ou **Europa Ocidental**. 
 
-Navegue até a página **Controle de Acesso (IAM)** do namespace no portal e, em seguida, clique em **Adicionar** para adicionar a identidade gerenciada à função **Proprietário**. Para fazer isso, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**.
+Navegue até a página **Controle de Acesso (IAM)** do namespace no portal e, em seguida, clique em **Adicionar atribuição de função** para adicionar a identidade gerenciada à função **Proprietário**. Para fazer isso, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 A identidade gerenciada do aplicativo Web agora tem acesso ao namespace do Barramento de Serviço e à fila criada anteriormente. 
 
 ### <a name="run-the-app"></a>Execute o aplicativo

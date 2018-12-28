@@ -1,23 +1,25 @@
 ---
-title: Criar um balanceador de carga voltado para a Internet com o IPv6 - PowerShell | Microsoft Docs
+title: Criar um balanceador de carga para a Internet com IPv6 - PowerShell
+titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
 keywords: ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 71164899de9e4351e2da5ce469f0d7ae0373829f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c62ef62a4a16f78003087347548c12793d61b10f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741327"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162402"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 

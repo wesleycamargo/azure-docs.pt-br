@@ -8,19 +8,18 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 062478783465edc2d3afa4b80a22f119e68da049
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 5883a8eb4a550c61251fa20331dbd433328c5d59
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091699"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724036"
 ---
-# <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: modelo de dados do Application Insights
+# <a name="event-telemetry-application-insights-data-model"></a>Telemetria de eventos: Modelo de dados do Application Insights
 
 Você pode criar itens de telemetria do evento (em [Application Insights](app-insights-overview.md)) para representar um evento que ocorreu em seu aplicativo. Geralmente trata-se de uma interação do usuário como um clique de botão ou finalização de compra. Também pode ser um evento de ciclo de vida do aplicativo como a inicialização ou atualização de configuração. 
 
@@ -30,7 +29,7 @@ Semanticamente, eventos podem ou não ser correlacionados às solicitações. No
 
 Nome do evento. Para permitir o agrupamento adequado e métricas úteis, restrinja seu aplicativo de maneira que ele gere um pequeno número de nomes de eventos separados. Por exemplo, não use um nome à parte para cada instância gerado de um evento.
 
-Comprimento máximo: 512 caracteres
+Tamanho máx.: 512 caracteres
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 

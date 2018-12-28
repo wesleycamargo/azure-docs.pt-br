@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o AirWatch | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com AirWatch | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o AirWatch.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048473"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848911"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integração do Active Directory do Azure ao AirWatch
+# <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integração do Azure Active Directory com AirWatch
 
 Neste tutorial, você aprenderá a integrar o AirWatch ao Azure AD (Azure Active Directory).
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do AirWatch da Galeria
 2. configurar e testar o logon único do AD do Azure
@@ -90,7 +90,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 Para configurar e testar o logon único do Azure AD com o AirWatch, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do AirWatch](#creating-a-airwatch-test-user)** – para ter um equivalente de Brenda Fernandes no AirWatch que esteja vinculado à representação do usuário no Azure AD.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -113,12 +113,12 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único](./media/airwatch-tutorial/tutorial_airwatch_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
     b. Na caixa de texto **Identificador**, digite o valor como `AirWatch`
 
     > [!NOTE] 
-    > Esse valor não é o real. Atualize esse valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente AirWatch](http://www.air-watch.com/company/contact-us/). 
+    > Esse valor não é o real. Atualize esse valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente AirWatch](https://www.air-watch.com/company/contact-us/). 
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
@@ -154,7 +154,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     ![Upload](./media/airwatch-tutorial/ic791924.png "Upload")   
     
-    a. Para **Tipo de Diretório**, selecione **Nenhum**.
+     a. Para **Tipo de Diretório**, selecione **Nenhum**.
 
     b. Selecione **Usar SAML para Autenticação**.
 
@@ -164,7 +164,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     ![Solicitação](./media/airwatch-tutorial/ic791925.png "Solicitação")  
 
-    a. Para **Tipo de Associação de Solicitação**, selecione **POST**.
+     a. Para **Tipo de Associação de Solicitação**, selecione **POST**.
 
     b. No Portal do Azure, na página do diálogo **Configurar logon único no AirWatch**, copie o valor da **URL do Serviço de Logon Único SAML** e cole-o na caixa de texto **URL de Entrada Único do Provedor de Identidade**.
 
@@ -180,7 +180,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     
     ![Atributo](./media/airwatch-tutorial/ic791927.png "Atributo")
 
-    a. Na caixa de texto **Identificador do Objeto**, digite **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+     a. Na caixa de texto **Identificador do Objeto**, digite **http://schemas.microsoft.com/identity/claims/objectidentifier**.
 
     b. Na caixa de texto **Nome de usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
@@ -219,7 +219,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/airwatch-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 

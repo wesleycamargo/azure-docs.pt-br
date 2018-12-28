@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 69994d0e2f945f54ccc10bcf067fa46bb3befd23
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b0023c42d99842c704734d4f994273436f201e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121858"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077640"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
 
@@ -45,7 +45,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **HubSpot** | SIM |
+| Tipo | A propriedade type deve ser definida como: **Hubspot** | SIM |
 | clientId | A ID de cliente associada ao seu aplicativo Hubspot.  | SIM |
 | clientSecret | O segredo do cliente associado ao seu aplicativo Hubspot. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
 | accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
@@ -84,7 +84,12 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de HubSpot.
 
-Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados como **HubspotObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados como **HubspotObject**. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **HubspotObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -96,7 +101,8 @@ Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados com
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -112,7 +118,7 @@ Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HubspotSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Companies where Company_Id = xxx"`. | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Companies where Company_Id = xxx"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

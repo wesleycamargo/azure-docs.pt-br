@@ -1,5 +1,5 @@
 ---
-title: Pools de agentes DC/OS para Serviço de Contêiner do Azure
+title: (PRETERIDO) Pools de agentes DC/OS para Serviço de Contêiner do Azure
 description: Como os pools de agentes públicos e privados funcionam com um cluster DC/OS do Serviço de Contêiner do Azure
 services: container-service
 author: iainfoulds
@@ -9,20 +9,23 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976716"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994946"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Pools de agentes DC/OS para Serviço de Contêiner do Azure
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(PRETERIDO) Pools de agentes DC/OS para Serviço de Contêiner do Azure
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em dois pools, um público e um privado. Um aplicativo pode ser implantado em qualquer um dos pools, afetando a acessibilidade entre computadores no seu serviço de contêiner. Os computadores podem ser expostos à Internet (público) ou mantidos internamente (privado). Este artigo fornece uma visão geral sobre o motivo da existência de pools público e privado.
 
 
-* **Agentes privados**: nós de agente privado são executados por meio de uma rede não roteável. Esta rede só é acessível por meio da zona de administrador ou por meio do roteador de borda de zona pública. Por padrão, o DC/SO inicia aplicativos em nós de agente privada. 
+* **Agentes privados**: Nós de agentes privados são executados por meio de uma rede não roteável. Esta rede só é acessível por meio da zona de administrador ou por meio do roteador de borda de zona pública. Por padrão, o DC/SO inicia aplicativos em nós de agente privada. 
 
-* **Agentes públicos**: nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
+* **Agentes públicos**: Nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
 
 Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 

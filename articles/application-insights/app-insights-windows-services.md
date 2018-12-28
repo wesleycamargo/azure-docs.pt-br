@@ -9,16 +9,15 @@ ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 461b1f4e72f0a47da4ccb560bfb4cfb7d0f3ccd2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096428"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001733"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicativos .NET
 
@@ -30,14 +29,14 @@ Você pode configurar o [Application Insights](app-insights-overview.md) para mo
 
 Você precisa de:
 
-* Uma assinatura do [Microsoft Azure](http://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](http://live.com).
+* Uma assinatura do [Microsoft Azure](https://azure.com). Se sua equipe ou organização tem uma assinatura do Azure, o proprietário pode adicioná-lo a ela, usando sua [Conta da Microsoft](https://live.com).
 * Visual Studio 2013 ou posterior.
 
 ## <a name="add"></a>1. Escolher um recurso Application Insights
 
 O ‘recurso’ é onde os dados são coletados e exibidos no portal do Azure. Você precisa decidir se deseja criar um recurso novo ou compartilhar um existente.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte de um aplicativo maior: usar o recurso existente
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Parte de um aplicativo maior: Usar o recurso existente
 
 Se seu aplicativo Web tem vários componentes, por exemplo, um aplicativo Web de front-end e um ou mais serviços de back-end, você deve enviar telemetria de todos os componentes para o mesmo recurso. Isso permite que sejam exibidos em um mapa de aplicativo único e possibilita rastrear uma solicitação de um componente para outro.
 
@@ -45,7 +44,7 @@ Assim, se você já estiver monitorando outros componentes desse aplicativo, use
 
 Abra o grupo de recursos no [portal do Azure](https://portal.azure.com/). 
 
-### <a name="self-contained-app-create-a-new-resource"></a>Aplicativo independente: criar um novo recurso
+### <a name="self-contained-app-create-a-new-resource"></a>Aplicativo autossuficiente: Criar um novo recurso
 
 Se o novo aplicativo não está relacionado a outros aplicativos, ele deve ter seu próprio recurso.
 

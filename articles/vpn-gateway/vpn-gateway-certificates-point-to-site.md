@@ -1,19 +1,19 @@
 ---
-title: 'Gerar e exportar certificados para o Ponto a Site: PowerShell: Azure | Microsoft Docs'
+title: 'Gerar e exportar certificados para ponto a site: PowerShell: Azure | Microsoft Docs'
 description: Crie um certificado raiz autoassinado, exportar a chave pública e gerar os certificados do cliente usando o PowerShell no Windows 10 ou no Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300929"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850951"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Gerar e exportar certificados para Ponto a Site usando o PowerShell
 
@@ -27,7 +27,7 @@ Se você não tiver acesso a um computador com Windows 10 ou Windows Server 2016
 
 Utilize o cmdlet New-SelfSignedCertificate para criar um certificado raiz autoassinado. Para obter informações adicionais sobre os parâmetros, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. Em um computador com Windows 10 ou Windows Server 2016, abra um console do Windows PowerShell com privilégios elevados.
+1. Em um computador com Windows 10 ou Windows Server 2016, abra um console do Windows PowerShell com privilégios elevados. Esses exemplos não funcionam no modo "Experimentar" do Azure Cloud Shell. Você deve executar esses exemplos localmente.
 2. Use o exemplo a seguir para criar o certificado raiz autoassinado. O exemplo a seguir cria um certificado raiz autoassinado chamado 'P2SRootCert' que é instalado automaticamente em 'Certificates-Current User\Personal\Certificates'. Exiba o certificado abrindo *certmgr.msc* ou *Gerenciar Certificados de Usuário*.
 
   ```powershell
@@ -104,7 +104,7 @@ Se você estiver criando certificados do cliente adicionais ou não estiver usan
 
 ### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado raiz autoassinado e a chave privada para armazená-lo (opcional)
 
-Convém exportar o certificado raiz autoassinado e armazená-lo com segurança como backup. Se necessário, é possível instalá-lo em outro computador e gerar mais certificados do cliente. Para exportar o certificado raiz autoassinado como um .pfx, selecione o certificado raiz e use as mesmas etapas, conforme descrito em [Exportar um certificado do cliente](#clientexport) para exportar.
+Convém exportar o certificado raiz autoassinado e armazená-lo com segurança como backup. Se necessário, você poderá instalá-lo posteriormente em outro computador e gerar mais certificados do cliente. Para exportar o certificado raiz autoassinado como um .pfx, selecione o certificado raiz e use as mesmas etapas, conforme descrito em [Exportar um certificado do cliente](#clientexport) para exportar.
 
 ## <a name="clientexport"></a>4. Exportar o certificado do cliente
 

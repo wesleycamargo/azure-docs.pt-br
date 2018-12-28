@@ -4,7 +4,6 @@ description: Como começar a usar o Armazenamento de Blobs do Azure em um projet
 services: storage
 author: ghogen
 manager: douge
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -12,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: b8c0891d8528e0622682788e5b10d5a76ad92ec8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141832"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969610"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 
@@ -25,7 +24,7 @@ ms.locfileid: "42141832"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos ou blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
+O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos ou blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto. Para saber mais sobre armazenamento de Blobs, consulte [Introdução ao armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
 Esse tutorial exibe como gravar o código ASP.NET para alguns cenários comuns que usam o Armazenamento de Blobs do Azure. Entre os cenários estão a criação de um contêiner de blobs, bem como carregamento, listagem, download e exclusão de blobs.
 
@@ -34,9 +33,6 @@ Esse tutorial exibe como gravar o código ASP.NET para alguns cenários comuns q
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
@@ -144,7 +140,7 @@ As seguintes etapas ilustram como criar um contêiner de blobs:
 
 1. Na caixa de diálogo **Adicionar Exibição**, insira **CreateBlobContainer** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `CreateBlobContainer.cshtml` e modifique-o para que se pareça com o seguinte trecho de código:
+1. Abra `CreateBlobContainer.cshtml` e modifique-o para que se pareça com o seguinte snippet de código:
 
     ```csharp
     @{
@@ -260,7 +256,7 @@ Esta seção ilustra como listar os blobs em um contêiner de blobs. O código d
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Para listar os blobs em um contêiner de blobs, use o método `CloudBlobContainer.ListBlobs`. O método `CloudBlobContainer.ListBlobs` retorna um objeto `IListBlobItem` que pode ser convertido em um objeto `CloudBlockBlob`, `CloudPageBlob` ou `CloudBlobDirectory`. O trecho de código a seguir enumera todos os blobs em um contêiner de blobs. Cada blob é convertido para o objeto apropriado, com base em seu tipo. Seu nome (ou o URI, no caso de um **CloudBlobDirectory**) é adicionado a uma lista.
+1. Para listar os blobs em um contêiner de blobs, use o método `CloudBlobContainer.ListBlobs`. O método `CloudBlobContainer.ListBlobs` retorna um objeto `IListBlobItem` que pode ser convertido em um objeto `CloudBlockBlob`, `CloudPageBlob` ou `CloudBlobDirectory`. O snippet de código a seguir enumera todos os blobs em um contêiner de blobs. Cada blob é convertido para o objeto apropriado, com base em seu tipo. Seu nome (ou o URI, no caso de um **CloudBlobDirectory**) é adicionado a uma lista.
 
     ```csharp
     List<string> blobs = new List<string>();

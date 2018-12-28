@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: fe51419106f1164f9a9b5993261c61bad63333b5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ecaceea42d64ab15676a9cb5a42ee8659e40d517
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262951"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847279"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as Revisões de Acesso do Microsoft Azure Active Directory?
 
@@ -41,13 +41,13 @@ O Microsoft Azure Active Directory permite que você colabore internamente em su
 
 ## <a name="when-to-use-access-reviews"></a>Quando usar as revisões de acesso?
 
-- **Número excessivo de usuários em funções privilegiadas:** é uma boa ideia verificar quantos usuários têm acesso administrativo, quantos deles são administradores globais e se há algum convidado ou parceiro que não foi removido depois de ter sido atribuído a uma tarefa administrativa. Você pode renovar os usuários de atribuição de função nas [funções de diretório do Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), como os administradores globais, ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como Administrador de acesso do usuário na experiência do [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Quando a automação for inviável:** você pode criar regras de associação dinâmicas em grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiverem no Azure AD ou se os usuários ainda precisam de acesso após deixar o grupo para treinar seu substituto? Em seguida, você pode criar uma revisão nesse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso contínuo.
-- **Quando um grupo é usado para uma nova finalidade:** se você tiver um grupo que será sincronizado ao Azure Active Directory, ou se você planeja habilitar o aplicativo Salesforce para qualquer pessoa no grupo de equipe de vendas, seria útil pedir ao proprietário do grupo para examinar a associação do grupo antes de o grupo ser usado em um conteúdo de risco diferente.
+- **Muitos usuários em funções com privilégios:** É recomendável verificar quantos usuários têm acesso administrativo, quantos deles são Administradores Globais e se há convidados ou parceiros que não foram removidos após serem atribuídos para executar uma tarefa administrativa. Você pode renovar os usuários de atribuição de função nas [funções de diretório do Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), como os administradores globais, ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como Administrador de acesso do usuário na experiência do [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Quando a automação é inviável:** Você pode criar regras para associação dinâmica em grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiverem no Azure AD, ou se os usuários ainda precisarem de acesso após deixar o grupo para treinar sua substituição? Em seguida, você pode criar uma revisão nesse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso contínuo.
+- **Quando um grupo é usado para uma nova finalidade:** Se você tiver um grupo que será sincronizado com o Azure AD, ou se planeja habilitar o aplicativo Salesforce para todos no grupo de equipe de Vendas, será útil solicitar ao proprietário do grupo para revisar a associação ao grupo antes que o grupo seja utilizado em um conteúdo de risco diferente.
 - **Acesso de dados críticos de negócios:** para certos recursos, talvez seja necessário pedir que as pessoas fora do departamento de TI regularmente, saiam e forneçam uma justificativa sobre por que eles precisam de acesso para fins de auditoria.
-- **Manter uma lista de exceção de política:** em um mundo ideal, todos os usuários seguiriam as políticas de acesso para proteger o acesso aos recursos de sua organização. No entanto, às vezes, há casos comerciais em que é necessário fazer exceções. Como o administrador de TI, você pode gerenciar essa tarefa, evitar supervisão de exceções à política e fornecer os auditores a comprovação de que essas exceções são revisadas regularmente.
-- **Peça aos proprietários de grupo para confirmar se eles ainda precisam de convidados em seus grupos:** o acesso de funcionários pode ser automatizado com alguns IAM no local, mas não os convidados. Se um grupo oferece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo se confirmar os convidados ainda terão uma necessidade comercial legítima de acesso.
-- **Realizar revisões periodicamente:** você pode configurar revisões de acesso recorrente de usuários no conjunto de frequências como mensal, trimestral de semanalmente, ou anualmente e os revisores serão notificados no início de cada revisão. Os revisores podem aprovar ou negar acesso com uma interface amigável e com a ajuda de recomendações inteligentes.
+- **Para manter a lista de exceções de uma política:** Em um mundo ideal, todos os usuários seguiriam as políticas de acesso para proteger o acesso aos recursos de sua organização. No entanto, às vezes, há casos comerciais em que é necessário fazer exceções. Como o administrador de TI, você pode gerenciar essa tarefa, evitar supervisão de exceções à política e fornecer os auditores a comprovação de que essas exceções são revisadas regularmente.
+- **Solicite aos proprietários do grupo para confirmar se ainda precisam de convidados em seus grupos:** O acesso dos funcionários pode ser automatizado com algum IAM local, mas não como convidados. Se um grupo oferece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo se confirmar os convidados ainda terão uma necessidade comercial legítima de acesso.
+- **Realizar revisões periodicamente:** É possível configurar revisões de acesso recorrentes de usuários em frequências definidas como semanal, mensal, trimestral ou anual e os revisores serão notificados no início de cada revisão. Os revisores podem aprovar ou negar acesso com uma interface amigável e com a ajuda de recomendações inteligentes.
 
 ## <a name="where-do-you-create-reviews"></a>Onde você cria as revisões?
 
@@ -67,7 +67,7 @@ Para usar as revisões de acesso, você deve ter uma das seguintes licenças:
 - Azure AD Premium P2
 - Licença do Enterprise Mobility + Security (EMS) E5
 
-Para obter mais informações, consulte [Como: Inscrever-se no Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) ou avaliação [Enterprise Mobility + Security E5](http://aka.ms/emse5trial).
+Para obter mais informações, consulte [Como: Inscrever-se no Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) ou [Avaliação do Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Iniciar com revisões de acesso
 
