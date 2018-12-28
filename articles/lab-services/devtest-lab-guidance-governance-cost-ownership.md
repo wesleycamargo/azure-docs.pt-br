@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975066"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868354"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governança da infraestrutura do Azure DevTest Labs – Gerenciar o custo e a propriedade
 O custo e a propriedade são preocupações primárias ao considerar a criação de ambientes de desenvolvimento e teste. Nesta seção, há informações que ajudam você a otimizar o custo e alinhar a propriedade em todo o ambiente.
@@ -40,7 +40,7 @@ Essa abordagem oferece diversas vantagens:
  
 Somente os assinantes ativos do Visual Studio (assinaturas padrão, assinaturas de nuvem anuais e assinaturas de nuvem mensais) podem usar os recursos do Azure em execução em uma assinatura de Desenvolvimento/Teste do Enterprise. No entanto, os usuários finais podem acessar o aplicativo para fornecer comentários ou realizar testes de aceitação. O uso de recursos nessa assinatura é restrito ao desenvolvimento e teste de aplicativos e nenhuma garantia de tempo de ativação é oferecida.
 
-Se decidir usar a oferta de DevTest, observe que este benefício é exclusivamente para desenvolvimento e teste de seus aplicativos. O uso dentro da assinatura não acarreta um SLA com suporte financeiro, exceto para uso do Visual Studio Team Services e do HockeyApp.
+Se decidir usar a oferta de DevTest, observe que este benefício é exclusivamente para desenvolvimento e teste de seus aplicativos. O uso dentro da assinatura não acarreta um SLA com suporte financeiro, exceto para uso do Azure DevOps e HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Definir um acesso baseado em função em sua organização
 ### <a name="question"></a>Pergunta

@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165680"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849166"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -21,7 +21,6 @@ As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho l
 ## <a name="overview"></a>Visão geral
 
 Uma avaliação das Migrações para Azure tem três etapas. A avaliação começa com uma análise de adequação, seguida de dimensionamento, e por fim, uma estimativa de custo mensal. Uma máquina só passa para um estágio posterior se passar pelo anterior. Por exemplo, se um computador falhar na verificação de adequação do Azure, será marcado como não adequado para o Azure, e o dimensionamento e o custo não serão calculados.
-
 
 ## <a name="azure-suitability-analysis"></a>Análise de adequação do Azure
 
@@ -79,7 +78,7 @@ Se você não deseja considerar o histórico de desempenho para dimensionamento 
 
 Para dimensionamento com base no desempenho, as Migrações para Azure iniciam com os discos anexados à VM, seguidas de adaptadores de rede e, em seguida, mapeiam uma VM do Azure com base nos requisitos de computação da VM local.
 
-- **Armazenamento**: as Migrações para Azure tentam mapear todos os discos anexados à máquina para um disco no Azure.
+- **Armazenamento**: As Migrações para Azure tentam mapear todos os discos anexados à máquina para um disco no Azure.
 
     > [!NOTE]
     > As Migrações para Azure oferecem suporte somente a discos gerenciados para avaliação.
@@ -90,7 +89,7 @@ Para dimensionamento com base no desempenho, as Migrações para Azure iniciam c
     - Se houver vários discos qualificados, elas selecionarão os que têm o menor custo.
     - Se os dados de desempenho de discos estiverem indisponíveis, todos os discos serão mapeados para os discos padrão no Azure.
 
-- **Rede**: As Migrações para Azure tentam localizar uma VM do Azure que pode dar suporte ao número de adaptadores de rede conectados ao computador local e ao desempenho exigido por esses adaptadores de rede.
+- **Rede**: As Migrações para Azure tentam localizar uma VM do Azure que possa dar suporte ao número de adaptadores de rede anexados à máquina local e o desempenho exigido por esses adaptadores de rede.
     - Para obter o desempenho de rede efetivo da VM local, as Migrações para Azure agregam os dados transmitidos por segundo (MBps) do computador (saída da rede), em todos os adaptadores de rede, e aplicam o fator de conforto. Esse número é usado para localizar uma VM do Azure que pode dar suporte ao desempenho de rede necessário.
     - Juntamente com o desempenho da rede, ele também considera se a VM do Azure pode dar suporte ao número necessário de adaptadores de rede.
     - Se nenhum dado de desempenho de rede estiver disponível, somente a contagem de adaptadores de rede será considerada para o dimensionamento da VM.
@@ -119,29 +118,21 @@ Para o dimensionamento com base no desempenho, as Migrações para Azure precisa
 
    Veja abaixo os motivos em relação ao motivo pelo qual uma avaliação poderia obter uma classificação de baixa confiança:
 
-   **Descoberta avulsa**
-
-   - A configuração de estatísticas no vCenter Server não está definida para o nível 3. Como o modelo de descoberta avulsa depende das configurações de estatísticas do vCenter Server, se a configuração de estatísticas no vCenter Server estiver abaixo do nível 3, os dados de desempenho de disco e de rede não serão coletados do vCenter Server. Nesse caso, a recomendação fornecida pelas Migrações para Azure para o disco e a rede não é baseada na utilização. Sem considerar a IOPS/taxa de transferência do disco, as Migrações para Azure não podem identificar se o disco precisará de um disco premium no Azure e, portanto, as Migrações para Azure recomendam discos Standard para todos os discos.
-   - A configuração de estatísticas no vCenter Server foi definida para o nível 3, para uma duração curta antes de iniciar a descoberta. Por exemplo, vamos pensar em um cenário em que você altera o nível de configuração de estatísticas para 3 hoje e inicia a descoberta usando o dispositivo de coletor amanhã (após 24 horas). Se estiver criando uma avaliação de um dia, você terá todos os pontos de dados, e a classificação de confiança da avaliação seria de 5 estrelas. Mas se estiver alterando a duração de desempenho nas propriedades de avaliação para um mês, a classificação de confiança diminuirá, visto que os dados de desempenho do disco e da rede do último mês não estariam disponíveis. Se você desejar considerar os dados de desempenho do último mês, é recomendável manter a configuração de estatísticas do vCenter Server no nível 3 por um mês antes de iniciar a descoberta.
-
-   **Descoberta contínua**
-
    - Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando a avaliação com duração de desempenho definida como 1 dia, precisa aguardar pelo menos um dia após iniciar a descoberta para que todos os pontos de dados sejam coletados.
 
-   **Motivos comuns**  
-
    - Algumas VMs foram desativadas durante o período para o qual a avaliação é calculada. Se todas as VMs foram desligadas por algum tempo, o vCenter Server não poderá coletar os dados de desempenho daquele período.
+
    - Algumas VMs foram criadas durante o período para o qual a avaliação é calculada. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesses casos, o histórico de desempenho das novas VMs não estará lá durante todo o período.
 
    > [!NOTE]
-   > Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 estrelas, recomendamos, para o modelo de descoberta avulsa, alterar o nível de configurações de estatísticas do vCenter Server para 3, aguardar o tempo da duração que deseja avaliar (1 dia/1 semana/1 mês) e, em seguida, realizar a descoberta e a avaliação. Para o modelo de descoberta contínua, aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente a fim de *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
+   > Se a classificação de confiança de qualquer avaliação estiver abaixo de 5 estrelas, é recomendável aguardar pelo menos um dia para que o dispositivo crie o perfil do ambiente e, em seguida, *Recalcular* a avaliação. Se não for possível fazer isso, o dimensionamento com base no desempenho poderá não ser confiável e é recomendável alternar para *conforme dimensionamento local* alterando as propriedades de avaliação.
 
 ## <a name="monthly-cost-estimation"></a>Estimativa de custo mensal
 
 Após a conclusão das recomendações de dimensionamento, as Migrações para Azure calcularão os custos de computação e armazenamento pós-migração.
 
-- **Custo de computação**: usando o tamanho recomendado de VM do Azure, as Migrações para Azure usam a API de Cobrança para calcular o custo mensal para a VM. O cálculo leva em conta sistema operacional, Software Assurance, instâncias reservadas, tempo de atividade da VM, localização e configurações de moeda. Ele agrega o custo em todas as máquinas, para calcular o custo total de computação mensal.
-- **Custo de armazenamento**: o custo de armazenamento mensal de uma máquina é calculado agregando o custo mensal de todos os discos anexados à máquina. As Migrações para Azure calculam o custo total de armazenamento mensal agregando os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não leva em consideração as ofertas especificadas nas configurações de avaliação.
+- **Custo de Computação**: Usando o tamanho de VM do Azure recomendado, as Migrações para Azure usam a API de Cobrança para calcular o custo mensal para a VM. O cálculo leva em conta sistema operacional, Software Assurance, instâncias reservadas, tempo de atividade da VM, localização e configurações de moeda. Ele agrega o custo em todas as máquinas, para calcular o custo total de computação mensal.
+- **Custo de armazenamento**: O custo de armazenamento mensal de uma máquina é calculado, agregando o custo mensal de todos os discos anexados à máquina. As Migrações para Azure calculam o custo total de armazenamento mensal agregando os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não leva em consideração as ofertas especificadas nas configurações de avaliação.
 
 Os custos são exibidos na moeda especificada nas configurações de avaliação.
 
