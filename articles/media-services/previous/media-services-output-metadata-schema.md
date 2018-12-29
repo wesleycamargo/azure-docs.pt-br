@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250879"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994671"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Visão geral
 Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação. Por exemplo, codificar um arquivo MP4 em conjuntos de taxa de bits adaptável MP4 H.264; criar uma miniatura; criar sobreposições. Após a conclusão de uma tarefa, um ativo de saída é produzido.  O ativo de saída contém vídeo, áudio, miniaturas, etc. O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo XML de metadados tem o seguinte formato: &lt;nome_do_arquivo_de_origem&gt;_manifest.xml (por exemplo, BigBuckBunny_manifest.xml).  
 
+Os Serviços de Mídia não analisam preventivamente os ativos de entrada para gerar metadados. Os metadados de entrada são gerados apenas como um artefato quando um ativo de entrada é processado em um trabalho. Portanto, este artefato é gravado no ativo de saída. Diversas ferramentas são usadas para gerar metadados para ativos de entrada e ativos de saída. Portanto, os metadados de entrada têm um esquema um pouco diferente dos metadados de saída.
+
 Se desejar examinar o arquivo de metadados, você poderá criar um localizador **SAS** e baixar o arquivo em seu computador local.  
 
 Este artigo discute os elementos e tipos do esquema XML no qual os metadados de saída (&lt;nome_do_arquivo_de_origem&gt;_manifest. xml) é baseado. Para obter informações sobre o arquivo que contém metadados sobre o ativo de entrada, veja [Metadados de Entrada](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> Você pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
->
->
+Você pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
 
 ## <a name="AssetFiles "></a> Elemento raiz AssetFiles
 Coleção de entradas AssetFile do trabalho de codificação.  
@@ -97,7 +96,7 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 ### <a name="attributes"></a>Atributos
 | NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de vídeo. **Observação:** essa **ID** não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
 | **FourCC**<br/><br/> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
 | **Perfil** |**xs:string** |Perfil H264 (aplicável somente ao codec H264). |
 | **Level** |**xs:string** |Nível H264 (aplicável somente ao codec H264). |
@@ -129,7 +128,7 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 ### <a name="attributes"></a>Atributos
 | NOME | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de áudio. **Observação:** isso não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de áudio. **Observação:**  Essa ID não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
 | **Codec** |**xs:string** |Cadeia de caracteres de codec de faixa de áudio. |
 | **EncoderVersion** |**xs:string** |Cadeia de caracteres da versão de codificador opcional, exigida para EAC3. |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Número de canais de áudio. |

@@ -1,5 +1,6 @@
 ---
-title: Gravar dados com o SDK de preparação de dados do Azure Machine Learning – Python
+title: 'Gravar: SDK do Python de preparação de dados'
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a gravação de dados com o SDK de preparação de dados do Azure Machine Learning. Você pode gravar dados em qualquer ponto de um fluxo de dados e em arquivos em qualquer local com suporte (sistema de arquivos local, Armazenamento de Blobs do Azure e Azure Data Lake Storage).
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: a6abdaff986df3c457a0118f6e143fe4ff0daf49
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308555"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384336"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Gravar dados usando o SDK de preparação de dados do Azure Machine Learning
 
@@ -50,7 +52,7 @@ Neste exemplo, comece a carregar dados em um fluxo de dados. Você reutilizar es
 
 ```python
 import azureml.dataprep as dprep
-t = dprep.smart_read_file('./data/fixed_width_file.txt')
+t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```
