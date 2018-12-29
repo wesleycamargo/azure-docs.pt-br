@@ -14,29 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: twhitney, subramar
-ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300465"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956833"
 ---
-# <a name="resource-governance"></a>Governança de recursos 
+# <a name="resource-governance"></a>Governança de recursos
 
 Ao executar vários serviços no mesmo nó ou cluster, é possível que um serviço consuma mais recursos, privando outros serviços no processo. Esse problema é conhecido como o problema do “vizinho barulhento”. O Service Fabric do Azure permite ao desenvolvedor especificar reservas e limites por serviço para assegurar recursos e limitar o uso de recursos.
 
 > Antes de continuar lendo este artigo, recomendamos que você se familiarize com o [Modelo de aplicativo do Service Fabric](service-fabric-application-model.md) e o [Modelo de hospedagem do Service Fabric](service-fabric-hosting-model.md).
 >
 
-## <a name="resource-governance-metrics"></a>Métricas de governança de recursos 
+## <a name="resource-governance-metrics"></a>Métricas de governança de recursos
 
 Há suporte para a governança de recursos no Service Fabric de acordo com o [pacote de serviço](service-fabric-application-model.md). Os recursos que são atribuídos ao pacote de serviço podem ser subdivididos entre pacotes de códigos. Os limites de recurso especificados também indicam a reserva dos recursos. O Service Fabric dá suporte à especificação de CPU e memória por pacote de serviço, com duas [métricas](service-fabric-cluster-resource-manager-metrics.md) internas:
 
-* *CPU* (nome da métrica `servicefabric:/_CpuCores`): um núcleo lógico que está disponível no computador host. Todos os núcleos em todos os nós têm o mesmo peso.
+* *CPU* (nome da métrica `servicefabric:/_CpuCores`): Um núcleo lógico que está disponível no computador host. Todos os núcleos em todos os nós têm o mesmo peso.
 
-* *Memória* (nome da métrica `servicefabric:/_MemoryInMB`): a memória é expressa em megabytes e é mapeada para a memória física disponível no computador.
+* *Memória* (nome da métrica `servicefabric:/_MemoryInMB`): A memória é expressa em megabytes e é mapeada para a memória física disponível no computador.
 
 Para essas duas métricas, o [Gerenciador de Recursos de Cluster](service-fabric-cluster-resource-manager-cluster-description.md) controla a capacidade total do cluster, a carga em cada nó do cluster e os recursos restantes no cluster. Essas duas métricas são equivalentes a qualquer outro usuário ou métrica personalizada. Todos os recursos existentes podem ser usados com elas:
+
 * O cluster pode ser [equilibrado](service-fabric-cluster-resource-manager-balancing.md) de acordo com essas duas métricas (comportamento padrão).
 * O cluster pode ser [desfragmentado](service-fabric-cluster-resource-manager-defragmentation-metrics.md) de acordo com essas duas métricas.
 * Ao [descrever um cluster](service-fabric-cluster-resource-manager-cluster-description.md), a capacidade armazenada em buffer pode ser definida para essas duas métricas.
@@ -55,17 +56,17 @@ Neste ponto, a soma dos limites é igual à capacidade do nó. Um processo e um 
 
 No entanto, há duas situações em que outros processos podem brigar pela CPU. Nessas situações, um processo e um contêiner do nosso exemplo poderá ter o problema do vizinho barulhento:
 
-* *Combinação de serviços e contêineres controlados e não controlados*: se um usuário criar um serviço sem nenhuma governança de recursos especificada, o tempo de execução considerará que ele não está consumindo nenhum recurso e poderá colocá-lo no nó de nosso exemplo. Nesse caso, esse novo processo efetivamente consume alguns recursos da CPU à custa dos serviços que já estão sendo executados no nó. Há duas soluções para esse problema. Não misturar serviços controlados e não controlado no mesmo cluster ou usar [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que esses dois tipos de serviços não terminem no mesmo conjunto de nós.
+* *Misturar serviços controlados e não controlados e contêineres*: Se um usuário criar um serviço sem nenhuma governança de recursos especificada, o tempo de execução considerará que ele não está consumindo nenhum recurso e poderá colocá-lo no nó de nosso exemplo. Nesse caso, esse novo processo efetivamente consume alguns recursos da CPU à custa dos serviços que já estão sendo executados no nó. Há duas soluções para esse problema. Não misturar serviços controlados e não controlado no mesmo cluster ou usar [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que esses dois tipos de serviços não terminem no mesmo conjunto de nós.
 
-* *Quando outro processo for iniciado no nó, fora do Service Fabric (por exemplo, um serviço do SO)*: nessa situação, o processo fora do Service Fabric também competirá pela CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nó corretamente para a conta para a sobrecarga do sistema operacional, conforme mostrado na próxima seção.
+* *Quando outro processo for iniciado no nó, fora do Service Fabric (por exemplo, um serviço de sistema operacional)*: Nessa situação, o processo fora do Service Fabric também competirá pela CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nó corretamente para a conta para a sobrecarga do sistema operacional, conforme mostrado na próxima seção.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuração de cluster para habilitar a governança de recursos
 
-Quando o nó for iniciado e ingressado no cluster, o Service Fabric detectará a quantidade de memória e o número de núcleos disponíveis e então definirá as capacidades de nó para esses dois recursos. 
+Quando o nó for iniciado e ingressado no cluster, o Service Fabric detectará a quantidade de memória e o número de núcleos disponíveis e então definirá as capacidades de nó para esses dois recursos.
 
-Para deixar algum espaço do buffer para o sistema operacional e para outros processos que possam estar em execução no nó, o Service Fabric usará somente 80% dos recursos disponíveis no nó. Esse percentual é configurável e pode ser alterado no manifesto do cluster. 
+Para deixar algum espaço do buffer para o sistema operacional e para outros processos que possam estar em execução no nó, o Service Fabric usará somente 80% dos recursos disponíveis no nó. Esse percentual é configurável e pode ser alterado no manifesto do cluster.
 
-Este é um exemplo de como instruir o Service Fabric a usar 50% da CPU disponível e 70% da memória disponível: 
+Este é um exemplo de como instruir o Service Fabric a usar 50% da CPU disponível e 70% da memória disponível:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -75,7 +76,7 @@ Este é um exemplo de como instruir o Service Fabric a usar 50% da CPU disponív
 </Section>
 ```
 
-Se você precisar de uma configuração manual completa das capacidades de nó, poderá usar o mecanismo regular para descrever os nós no cluster. Este é um exemplo de como configurar o nó com dois núcleos e 2 GB de memória: 
+Se você precisar de uma configuração manual completa das capacidades de nó, poderá usar o mecanismo regular para descrever os nós no cluster. Este é um exemplo de como configurar o nó com dois núcleos e 2 GB de memória:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -87,6 +88,7 @@ Se você precisar de uma configuração manual completa das capacidades de nó, 
 ```
 
 Quando a detecção automática de recursos disponíveis está habilitada e as capacidades de nó são definidas manualmente no manifesto do cluster, o Service Fabric verifica se o nó tem recursos suficientes para dar suporte à capacidade definida pelo usuário:
+
 * Se as capacidades de nó definidas no manifesto forem menores ou iguais aos recursos disponíveis no nó, o Service Fabric usará as capacidades especificadas no manifesto.
 
 * Se as capacidades do nó definidas no manifesto forem maiores que os recursos disponíveis, o Service Fabric usará os recursos disponíveis como as capacidades do nó.
@@ -99,17 +101,16 @@ A detecção automática de recursos disponíveis poderá ser desativada se não
 </Section>
 ```
 
-Para obter o desempenho ideal, a seguinte configuração também deve ser ativada no manifesto do cluster: 
+Para obter o desempenho ideal, a seguinte configuração também deve ser ativada no manifesto do cluster:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
 
-
-## <a name="specify-resource-governance"></a>Especificar a governança de recurso 
+## <a name="specify-resource-governance"></a>Especificar a governança de recurso
 
 Os limites da governança de recursos são especificados no manifesto do aplicativo (seção ServiceManifestImport), conforme mostrado no seguinte exemplo:
 
@@ -131,8 +132,8 @@ Os limites da governança de recursos são especificados no manifesto do aplicat
     </Policies>
   </ServiceManifestImport>
 ```
-  
-Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcleo nos nós em que ele é colocado. Esse pacote de serviço contém dois pacotes de códigos (**CodeA1** e **CodeA2**) e ambos especificam o parâmetro `CpuShares`. A proporção de CpuShares 512:256 divide o núcleo entre os dois pacotes de códigos. 
+
+Neste exemplo, o pacote de serviço chamado **ServicePackageA** obtém um núcleo nos nós em que ele é colocado. Esse pacote de serviço contém dois pacotes de códigos (**CodeA1** e **CodeA2**) e ambos especificam o parâmetro `CpuShares`. A proporção de CpuShares 512:256 divide o núcleo entre os dois pacotes de códigos.
 
 Portanto, neste exemplo, CodeA1 obtém dois terços de um núcleo e CodeA2 obtém um terço de um núcleo (e uma reserva de garantia flexível dele). Se CpuShares não forem especificados para pacotes de códigos, o Service Fabric dividirá os núcleos igualmente entre eles.
 
@@ -164,7 +165,7 @@ Ao especificar a governança dos recursos, é possível usar os [parâmetros do 
   </ServiceManifestImport>
 ```
 
-Neste exemplo, os valores de parâmetro padrão são definidos para o ambiente de produção, onde cada pacote de serviço obteria 4 núcleos e 2 GB de memória. É possível alterar os valores padrão com arquivos de parâmetro do aplicativo. Neste exemplo, um arquivo de parâmetro pode ser usado para testar o aplicativo localmente, onde receberia menos recursos do que em produção: 
+Neste exemplo, os valores de parâmetro padrão são definidos para o ambiente de produção, onde cada pacote de serviço obteria 4 núcleos e 2 GB de memória. É possível alterar os valores padrão com arquivos de parâmetro do aplicativo. Neste exemplo, um arquivo de parâmetro pode ser usado para testar o aplicativo localmente, onde receberia menos recursos do que em produção:
 
 ```xml
 <!-- ApplicationParameters\Local.xml -->
@@ -180,20 +181,21 @@ Neste exemplo, os valores de parâmetro padrão são definidos para o ambiente d
 </Application>
 ```
 
-> [!IMPORTANT]  A especificação para governança de recursos com parâmetros do aplicativo está disponível, iniciando com Service Fabric versão 6.1.<br> 
+> [!IMPORTANT]
+> Especificar a governança de recursos com os parâmetros do aplicativo está disponível a partir do Service Fabric versão 6.1.<br>
 >
-> Quando são usados parâmetros de aplicativo para especificar a governança dos recursos, o Service Fabric não pode ser rebaixado para uma versão anterior à versão 6.1. 
-
+> Quando são usados parâmetros de aplicativo para especificar a governança dos recursos, o Service Fabric não pode ser rebaixado para uma versão anterior à versão 6.1.
 
 ## <a name="other-resources-for-containers"></a>Outros recursos para contêineres
-Além da CPU e da memória, é possível especificar outros limites de recursos para contêineres. Esses limites são especificados no nível do pacote de códigos e aplicados quando o contêiner é iniciado. Ao contrário da CPU e da memória, o Gerenciador de Recursos de Cluster não reconhece esses recursos e não faz verificações de capacidade nem balanceamento de carga para eles. 
 
-* *MemorySwapInMB*: a quantidade de memória de troca que pode ser usada por um contêiner.
-* *MemoryReservationInMB*: o limite dinâmico para governança de memória que é imposto apenas quando a contenção de memória é detectada no nó.
-* *CpuPercent*: o percentual de CPU que pode ser usado pelo contêiner. Se os limites de CPU forem especificados para o pacote de serviço, esse parâmetro será efetivamente ignorado.
-* *MaximumIOps*: máximo de IOPS que um contêiner pode usar (leitura e gravação).
-* *MaximumIOBytesps*: máximo de E/S (bytes por segundo) que um contêiner pode usar (leitura e gravação).
-* *BlockIOWeight*: o peso de E/S do bloco em relação a outros contêineres.
+Além da CPU e da memória, é possível especificar outros limites de recursos para contêineres. Esses limites são especificados no nível do pacote de códigos e aplicados quando o contêiner é iniciado. Ao contrário da CPU e da memória, o Gerenciador de Recursos de Cluster não reconhece esses recursos e não faz verificações de capacidade nem balanceamento de carga para eles.
+
+* *MemorySwapInMB*: A quantidade de memória de troca que pode ser usada por um contêiner.
+* *MemoryReservationInMB*: O limite flexível para governança de memória que é imposto apenas quando a contenção de memória é detectada no nó.
+* *CpuPercent*: Percentual de CPU que pode ser usado pelo contêiner. Se os limites de CPU forem especificados para o pacote de serviço, esse parâmetro será efetivamente ignorado.
+* *MaximumIOps*: IOPS máximo que pode ser usado por um contêiner (leitura e gravação).
+* *MaximumIOBytesps*: E/S máximo (bytes por segundo) que pode ser usado por um contêiner (leitura e gravação).
+* *BlockIOWeight*: Peso de E/S do bloqueio em relação a outros contêineres.
 
 Esses recursos podem ser combinados com a CPU e a memória. Este é um exemplo de como especificar recursos adicionais para contêineres:
 
@@ -208,5 +210,6 @@ Esses recursos podem ser combinados com a CPU e a memória. Este é um exemplo d
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para saber mais sobre o Gerenciador de Recursos de Cluster, leia [Introdução ao Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 * Para saber mais sobre o modelo de aplicativo, pacotes de serviço e pacotes de códigos e como as réplicas são mapeadas para eles, leia [Modelar um aplicativo no Service Fabric](service-fabric-application-model.md).

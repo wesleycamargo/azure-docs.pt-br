@@ -1,5 +1,5 @@
 ---
-title: Implantar módulos do Azure IoT Edge (VS Code) | Microsoft Docs
+title: Implantar módulos do Visual Studio Code - Azure IoT Edge | Microsoft Docs
 description: Usar o Visual Studio Code para implantar módulos em um dispositivo do IoT Edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567836"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100813"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implantar módulos do Azure IoT Edge do Visual Studio Code
 
@@ -109,7 +110,7 @@ A seguir, é apresentado um manifesto básico de implantação com um módulo co
 
 2. Na parte inferior do Explorer, expanda a seção **Dispositivos do Hub IoT**. 
 
-   ![Expanda Dispositivos do Azure Hub IoT](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expanda a seção de Dispositivos do Azure Hub IoT](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, passe o mouse sobre o cabeçalho. 
 

@@ -3,7 +3,7 @@ title: Usando a biblioteca de cliente do banco de dados elástico com o Entity F
 description: Usar a biblioteca de cliente do Banco de Dados Elástico e o Entity Framework para bancos de dados de codificação
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261920"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873233"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca cliente do Banco de Dados Elástico com Entity Framework
 Este documento mostra as alterações em um aplicativo do Entity Framework necessárias para integrar os recursos das [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md). O foco está na composição do [gerenciamento do mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md) e no [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) com a abordagem do **Entity Framework Code First**. O tutorial [Code First - New Database](https://msdn.microsoft.com/data/jj193542.aspx) (Code First – Novo banco de dados) para EF funciona como o exemplo em execução ao longo deste documento. O código de exemplo que acompanha este documento faz parte do conjunto de ferramentas de banco de dados elástico de exemplos código do Visual Studio.
@@ -42,10 +42,10 @@ Depois de criar esses bancos de dados, preencha os espaços reservados em **Prog
 ## <a name="entity-framework-workflows"></a>Fluxos de trabalho do Entity Framework
 Os desenvolvedores do Entity Framework dependem de um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência de objetos de aplicativo: 
 
-* **Code First (Novo banco de dados)**: o desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele. 
-* **Code First (Banco de dados existente)**: o desenvolvedor deixa o EF criar código do aplicativo para o modelo por meio de um banco de dados existente.
-* **Model First**: o desenvolvedor cria o modelo no designer de EF e, em seguida, o EF cria o banco de dados por meio do modelo.
-* **Database First**: o desenvolvedor usa ferramentas do EF para inferir o modelo a por meio de um banco de dados existente. 
+* **Code First (novo banco de dados)**: O desenvolvedor do EF cria o modelo no código do aplicativo e, em seguida, o EF gera o banco de dados por meio dele. 
+* **Code First (banco de dados existente)**: O desenvolvedor deixa o EF gerar o código do aplicativo para o modelo a partir de um banco de dados existente.
+* **Model First**: O desenvolvedor cria o modelo no designer de EF e, em seguida, o EF cria o banco de dados por meio do modelo.
+* **Database First**: O desenvolvedor usa ferramentas do EF para inferir o modelo a por meio de um banco de dados existente. 
 
 Todas essas abordagens contam com a classe DbContext para gerenciar, transparentemente, conexões de banco de dados e o esquema de banco de dados para um aplicativo. Construtores diferentes na classe base DbContext permitem diferentes níveis de controle sobre a criação da conexão, a inicialização do banco de dados e a criação de esquema. Desafios surgem principalmente do fato de que o gerenciamento de conexão de banco de dados fornecido pelo EF interage com os recursos de gerenciamento de conexão das interfaces de roteamento dependente de dados fornecidas pela biblioteca cliente do banco de dados elástico. 
 
@@ -59,10 +59,10 @@ O gerenciador de mapa de fragmentos protege os usuários contra exibições inco
 ## <a name="requirements"></a>Requisitos
 Ao trabalhar com a biblioteca cliente do banco de dados elástico e com as APIs do Entity Framework, queremos manter as seguintes propriedades: 
 
-* **Escala vertical**: para adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. Isso significa controle sobre a criação e a exclusão de bancos de dados e o uso de APIs do gerenciador de mapa de fragmentos de banco de dados elástico para gerenciar bancos de dados e mapeamentos de shardlets. 
-* **Consistência**: o aplicativo utiliza fragmentação e usa os recursos de roteamento dependente de dados da biblioteca cliente. Para evitar corrompimento ou resultados incorretos de consulta, as conexões são intermediadas por meio do gerenciador de mapa de fragmentos. Isso também mantém a consistência e a validação.
-* **Code First**: para reter a conveniência do paradigma de code first do EF. No Code First, as classes do aplicativo são mapeadas de forma transparente para as estruturas de banco de dados subjacentes. O código do aplicativo interage com DbSets que mascaram a maioria dos aspectos envolvidos no processamento do banco de dados subjacente.
-* **Esquema**: o Entity Framework lida com a criação de esquema do banco de dados inicial e com a evolução de esquemas subsequentes por meio de migrações. Mantendo esses recursos, é fácil adaptar seu aplicativo à medida que os dados evoluem. 
+* **Expansão**: Para adicionar ou remover bancos de dados da camada de dados do aplicativo fragmentado, conforme necessário para as demandas de capacidade do aplicativo. Isso significa controle sobre a criação e a exclusão de bancos de dados e o uso de APIs do gerenciador de mapa de fragmentos de banco de dados elástico para gerenciar bancos de dados e mapeamentos de shardlets. 
+* **Consistência**: O aplicativo utiliza fragmentação e usa os recursos de roteamento dependente de dados da biblioteca cliente. Para evitar corrompimento ou resultados incorretos de consulta, as conexões são intermediadas por meio do gerenciador de mapa de fragmentos. Isso também mantém a consistência e a validação.
+* **Code First**: Para reter a conveniência do paradigma de code first do EF. No Code First, as classes do aplicativo são mapeadas de forma transparente para as estruturas de banco de dados subjacentes. O código do aplicativo interage com DbSets que mascaram a maioria dos aspectos envolvidos no processamento do banco de dados subjacente.
+* **Schema**: O Entity Framework lida com a criação de esquema do banco de dados inicial e com a evolução de esquemas subsequentes por meio de migrações. Mantendo esses recursos, é fácil adaptar seu aplicativo à medida que os dados evoluem. 
 
 As diretrizes a seguir ensinam como atender a esses requisitos para aplicativos Code First usando as ferramentas de banco de dados elástico. 
 
@@ -189,7 +189,7 @@ Os exemplos de código acima ilustram as reescritas do construtor padrão necess
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Implantação de esquema de fragmento por meio de migrações do EF
 Gerenciamento automático de esquema é uma conveniência fornecida pelo Entity Framework. No contexto de aplicativos que usam ferramentas de banco de dados elástico, queremos manter essa capacidade de provisionar o esquema automaticamente para fragmentos recém-criados quando os bancos de dados são adicionados ao aplicativo fragmentado. O caso de uso primário é aumentar a capacidade na camada de dados para aplicativos fragmentados usando o EF. Contar com recursos do EF para gerenciamento de esquema reduz o esforço de administração de banco de dados com um aplicativo fragmentado criado no EF. 
 
-A implantação de esquema por meio de migrações EF funciona melhor em **conexões não abertas**. Isso é diferente do cenário de roteamento dependente de dados que se baseia na conexão aberta fornecida pela API do cliente de banco de dados elástico. Outra diferença é o requisito de consistência: apesar de desejável para garantir a consistência em todas as conexões de roteamento dependentes de dados para se proteger contra manipulação de mapa do fragmento simultânea, não é uma preocupação com a implantação de esquema inicial para um novo banco de dados que ainda não tenha sido registrado no mapa do fragmento e que ainda não tenha sido alocado para manter shardlets. Portanto, é possível contar com conexões de banco de dados regulares para esse cenário, ao contrário do roteamento dependente de dados.  
+A implantação de esquema por meio de migrações EF funciona melhor em **conexões não abertas**. Isso é diferente do cenário de roteamento dependente de dados que se baseia na conexão aberta fornecida pela API do cliente de banco de dados elástico. Outra diferença é o requisito de consistência: Apesar de desejável para garantir a consistência em todas as conexões de roteamento dependentes de dados para se proteger contra manipulação de mapa do fragmento simultânea, não é uma preocupação com a implantação de esquema inicial para um novo banco de dados que ainda não tenha sido registrado no mapa do fragmento e que ainda não tenha sido alocado para manter shardlets. Portanto, é possível contar com conexões de banco de dados regulares para esse cenário, ao contrário do roteamento dependente de dados.  
 
 Isso leva a uma abordagem em que a implantação de esquema por meio de migrações do EF está intimamente ligada com o registro do novo banco de dados como um fragmento no mapa do fragmento do aplicativo. Isso depende dos seguintes pré-requisitos: 
 

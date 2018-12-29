@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879342"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Suporte da plataforma de SDKs do IoT do Azure
 
@@ -20,7 +20,7 @@ Os [Azure IoT SDKs](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas pa
 
 A Microsoft dá suporte a vários sistemas operacionais/plataformas/frameworks e pode ser estendida usando o SDK C do Azure IoT. Alguns têm suporte oficialmente pela equipe, agrupados em camadas que representam o nível de suporte que os usuários podem esperar. *Plataformas com suporte total* significa que a Microsoft:
 
-    * Compila e executa testes de ponta a ponta continuamente no mestre e nas versões com suporte LTS.
+    * Compila e executa testes de ponta a ponta continuamente no mestre e nas versões com suporte LTS.  Para fornecer cobertura de teste entre diferentes versões, geralmente podemos testar em relação a versão mais recente do LTS e a versão mais popular.  Outras versões da mesma plataforma podem ter suporte por meio de compatibilidade de versão da plataforma.
     * Fornece diretrizes de instalação ou pacotes, se aplicável.
     * Com suporte total para plataformas no GitHub.
 
@@ -31,7 +31,6 @@ Além disso, uma lista de parceiros transportou nosso SDK C para mais plataforma
 * Windows CE 2013 (preterido em outubro de 2018)
 * .NET Standard 1.3 com .NET Core 2.1 e .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android com Java
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
 
@@ -83,6 +82,7 @@ Há várias plataformas com suporte.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plataformas com suporte de parceiros
 

@@ -1,6 +1,7 @@
 ---
-title: Usar repositórios de dados no Azure Machine Learning para acessar dados
-description: Como usar repositórios de dados para acessar o armazenamento de dados durante o treinamento
+title: Acesso a dados repositórios de dados para treinamento
+titleSuffix: Azure Machine Learning service
+description: Saiba como usar os armazenamentos de dados o treinamento de armazenamento de dados com o Serviço do Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620193"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187126"
 ---
-# <a name="how-to-access-data-during-training"></a>Como acessar dados durante o treinamento
+# <a name="access-data-during-training-from-your-datastores"></a>Acesse os dados durante o treinamento de seus armazenamentos de dados
 Use um datastore para acessar e interagir com seus dados nos fluxos de trabalho do AML.
 
 No serviço de Azure Machine Learning, o repositório de dados é uma abstração de [Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). O repositório de dados pode referenciar um contêiner de [Blob do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) ou [compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como o armazenamento subjacente. 

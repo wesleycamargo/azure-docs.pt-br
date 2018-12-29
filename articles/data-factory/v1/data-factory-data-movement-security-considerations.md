@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046894"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960678"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory – Considerações sobre segurança para movimentação de dados
 
@@ -94,7 +94,7 @@ As credenciais dos armazenamentos de dados locais são armazenadas localmente (n
 - Usando **texto sem formatação** (menos seguro) por HTTPS no Portal do Azure/Assistente de Cópia. As credenciais são passadas em texto sem formatação para o gateway local.
 - Usando a **biblioteca de Criptografia do JavaScript no Assistente de Cópia**.
 - Usando o **aplicativo gerenciador de credenciais baseado em clique único**. O aplicativo de clique único é executado no computador local que tem acesso ao gateway e define as credenciais para o armazenamento de dados. Essa opção e a próxima são as opções mais seguras. Por padrão, o aplicativo gerenciador de credenciais usa a porta 8050 no computador com o gateway para uma comunicação segura.  
-- Use o cmdlet [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. É possível usar as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento **EncryptedCredential** da **connectionString** no arquivo JSON usado com o cmdlet [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) ou no trecho de JSON no Editor do Data Factory no portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
+- Use o cmdlet [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) do PowerShell para criptografar as credenciais. O cmdlet usa o certificado que esse gateway está configurado para usar para criptografar as credenciais. É possível usar as credenciais criptografadas retornadas por esse cmdlet e adicioná-las ao elemento **EncryptedCredential** da **connectionString** no arquivo JSON usado com o cmdlet [New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) ou no snippet de JSON no Editor do Data Factory no portal. Essa opção e o aplicativo de clique único são as opções mais seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Criptografia baseada na biblioteca de criptografia do JavaScript
 Você pode criptografar as credenciais do armazenamento de dados usando a [biblioteca de Criptografia do JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) no [Assistente de Cópia](data-factory-copy-wizard.md). Quando você seleciona essa opção, o Assistente de Cópia recupera a chave pública do gateway e a utiliza para criptografar as credenciais do armazenamento de dados. As credenciais são descriptografadas pelo computador do gateway e protegidas pela [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) do Windows.
@@ -166,7 +166,7 @@ A tabela a seguir fornece os requisitos de **porta de entrada** do **firewall do
 | ------------- | ----------- | 
 | 8050 (TCP) | Necessária para que o aplicativo gerenciador de credenciais defina com segurança as credenciais de armazenamentos de dados locais no gateway. | 
 
-![Requisitos de porta do gateway](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Requisitos de porta do gateway](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### <a name="ip-configurations-whitelisting-in-data-store"></a>Configurações de IP/lista de permissões no armazenamento de dados
 Alguns armazenamentos de dados na nuvem também exigem a lista de permissões do endereço IP do computador que os acessa. Verifique se o endereço IP do computador do gateway está na lista de permissões e configurado no firewall corretamente.
@@ -182,7 +182,7 @@ Os armazenamentos de dados na nuvem exige a lista de permissões do endereço IP
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 **Pergunta:** O Gateway pode ser compartilhado entre diferentes data factories?
-**Resposta:** Ainda não damos suporte a esse recurso. No entanto, estamos trabalhando de forma ativa para implementá-lo.
+**Resposta:** Ainda não oferecemos suporte a essa funcionalidade. No entanto, estamos trabalhando de forma ativa para implementá-lo.
 
 **Pergunta:** Quais são os requisitos de porta para o funcionamento do gateway?
 **Resposta:** O Gateway faz conexões baseadas em HTTP com a Internet aberta. As **portas de saída 443 e 80** devem estar abertas para que o gateway estabeleça essa conexão. Abra a **Porta de Entrada 8050** somente no nível do computador (não no nível de firewall corporativo) para o aplicativo Gerenciador de Credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta **1433** também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of gateway). 

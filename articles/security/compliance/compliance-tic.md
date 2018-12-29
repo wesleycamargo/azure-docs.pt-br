@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388286"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017091"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Diretrizes de Conexão Confiável com a Internet
 
@@ -40,10 +40,10 @@ A iniciativa também inclui políticas de segurança, diretrizes e estruturas qu
 
 Há três opções principais ao se conectar aos serviços do Azure:
 
-- Conexão direta com a Internet: conecte-se aos serviços do Azure diretamente por meio de uma conexão aberta com a Internet. A mídia e a conexão são públicos. As criptografias no nível do aplicativo e do transporte são utilizadas para garantir a privacidade. A Largura de Banda é limitada pela conectividade de um site com a internet. Use mais de um provedor ativo para garantir a resiliência.
-- Rede Virtual Privada (VPN): conecte-se à Rede Virtual do Azure com privacidade usando um gateway de VPN.
+- Conexão direta com a internet: Conecte-se aos serviços do Azure diretamente por meio de uma conexão aberta com a Internet. A mídia e a conexão são públicos. As criptografias no nível do aplicativo e do transporte são utilizadas para garantir a privacidade. A Largura de Banda é limitada pela conectividade de um site com a internet. Use mais de um provedor ativo para garantir a resiliência.
+- Rede Virtual Privada (VPN): Conecte-se à Rede Virtual do Azure com privacidade usando um gateway de VPN.
 A mídia é pública, pois atravessa a conexão padrão com a Internet de um site, mas a conexão é criptografada em um túnel para garantir a privacidade. A largura de banda é limitada, dependendo dos dispositivos VPN e da configuração escolhida. As conexões ponto a site do Azure são normalmente limitadas a 100 Mbps e as conexões site a site são limitadas a 1,25 Gbps.
-- Microsoft Azure ExpressRoute: o ExpressRoute é uma conexão direta aos serviços da Microsoft. Uma vez que a conectividade é estabelecida por um canal de fibra isolado, a conexão pode ser pública ou privada, dependendo da configuração usada. A largura de banda geralmente é limitada a um máximo de 10 Gbps.
+- Microsoft Azure ExpressRoute: O ExpressRoute é uma conexão direta aos serviços da Microsoft. Uma vez que a conectividade é estabelecida por um canal de fibra isolado, a conexão pode ser pública ou privada, dependendo da configuração usada. A largura de banda geralmente é limitada a um máximo de 10 Gbps.
 
 Há várias maneiras de atender aos requisitos do Apêndice H (Considerações sobre a nuvem), conforme especificado no "Documento da Arquitetura de Referência do TIC (Conexões Confiáveis com a Internet) versão 2.0" do Departamento de Segurança Nacional. Neste artigo, orientações DHS TIC são referidas como **TIC 2.0**.
 
@@ -66,7 +66,7 @@ A conformidade do TIC no IaaS do Azure é dividida em duas etapas principais:
 - Etapa 1: Configuração.
 - Etapa 2: Auditoria.
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Conformidade do TIC no IaaS do Azure: Configuração
+### <a name="azure-iaas-tic-compliance-configuration"></a>Conformidade do TIC IaaS do Azure: Configuração
 
 Para configurar uma arquitetura em conformidade com o TIC com o Azure, você precisa primeiro impedir o acesso direto à Internet à sua rede virtual e, em seguida, forçar o tráfego da Internet por meio da rede local.
 
@@ -85,7 +85,7 @@ O Azure cria rotas de sistema automaticamente e as atribui a cada sub-rede em um
 
 ![Túnel forçado do TIC](media/tic-diagram-c.png)
 
-Todo o tráfego que sai da Rede Virtual precisa ser roteado por meio da conexão Local para garantir que todo o tráfego atravesse o TIC do D/A. Crie rotas personalizadas criando rotas definidas pelo usuário ou trocando rotas do BGP (Border Gateway Protocol) entre o gateway de rede local e um gateway VPN do Azure. Para saber mais sobre rotas definidas pelo usuário, confira [Roteamento de tráfego de rede virtual: rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Para obter mais informações sobre o BGP, consulte [Roteamento de tráfego de rede Virtual: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
+Todo o tráfego que sai da Rede Virtual precisa ser roteado por meio da conexão Local para garantir que todo o tráfego atravesse o TIC do D/A. Crie rotas personalizadas criando rotas definidas pelo usuário ou trocando rotas do BGP (Border Gateway Protocol) entre o gateway de rede local e um gateway VPN do Azure. Para saber mais sobre rotas definidas pelo usuário, consulte [Roteamento de tráfego de rede virtual: Rotas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Para saber mais sobre BGP, consulte [Roteamento de tráfego de rede virtual: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
 #### <a name="add-user-defined-routes"></a>Adicionar rotas definidas pelo usuário
 
@@ -97,7 +97,7 @@ Se você usar um gateway de rede virtual baseada em rota, você pode forçar o t
 
 Se você estiver usando o Microsoft Azure ExpressRoute ou um gateway de rede virtual habilitado para um BGP, o BGP é o mecanismo preferido para anunciar as rotas. Para uma rota anunciada pelo BGP igual a 0.0.0.0/0, os Gateways de rede birtual com reconhecimento do ExpressRoute e do BGP garantirão que essa rota padrão seja aplicada a todas as sub-redes nas redes virtuais.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Auditoria de conformidade do TIC: Auditoria
+### <a name="azure-iaas-tic-compliance-auditing"></a>Conformidade do TIC IaaS do Azure: Auditoria
 
 O Azure oferece várias maneiras de auditar a conformidade do TIC.
 
@@ -124,8 +124,8 @@ Os serviços de PaaS do Azure como o Armazenamento do Microsoft Azure podem ser 
 
 Quando os serviços de PaaS do Azure são integrados com à uma rede virtual, o serviço está acessível de forma particular a partir da rede virtual. Você pode aplicar o roteamento personalizado para 0.0.0.0/0 por meio de rotas definidas pelo usuário ou BGP. O roteamento personalizado garante que todo o tráfego direcionado às rotas locais atravessem o TIC. Integre os serviços do Azure em redes virtuais usando os seguintes padrões:
 
-- **Implantar uma instância dedicada de um serviço**: um número cada vez maior de serviços de PaaS pode ser implantado como instâncias dedicadas com pontos de extremidade anexados à rede virtual. Você pode implantar um ambiente de Serviço de Aplicativo do Azure para PowerApps no modo de "Isolado" para permitir que o ponto de extremidade de rede seja restrito a uma rede virtual. O ambiente do Serviço de Aplicativo, em seguida, pode hospedar vários serviços de PaaS do Azure, como aplicativos Web do Azure, o Gerenciamento de API do Azure e o Azure Functions.
-- **Pontos de extremidade de serviço da rede virtual**: um número cada vez maior de serviços de PaaS permitem a opção de mover seu ponto de extremidade para um IP privado da rede virtual, em vez de para um endereço público.
+- **Implantar uma instância dedicada de um serviço**: Um número cada vez maior de serviços de PaaS pode ser implantado como instâncias dedicadas com pontos de extremidade anexados à rede virtual. Você pode implantar um ambiente de Serviço de Aplicativo do Azure para PowerApps no modo de "Isolado" para permitir que o ponto de extremidade de rede seja restrito a uma rede virtual. O ambiente do Serviço de Aplicativo, em seguida, pode hospedar vários serviços de PaaS do Azure, como aplicativos Web do Azure, o Gerenciamento de API do Azure e o Azure Functions.
+- **Usar pontos de extremidade do serviço de rede virtual**: Um número cada vez maior de serviços de PaaS permitem a opção de mover seu ponto de extremidade para um IP privado da VNET, em vez de para um endereço público.
 
 Serviços que dão suporte à implantação de instâncias dedicadas em uma rede virtual ou o uso de pontos de extremidade de serviço, a partir de maio de 2018, estão listados nas tabelas a seguir.
 
@@ -165,7 +165,7 @@ Serviços que dão suporte à implantação de instâncias dedicadas em uma rede
 
 ### <a name="virtual-network-integration-details"></a>Detalhes da integração de rede virtual
 
-O diagrama a seguir mostra o fluxo geral de rede para acesso aos serviços de PaaS. O acesso é mostrado a partir da injeção de rede virtual e o túnel de serviço de rede virtual. Para obter mais informações sobre gateways de serviço de rede, redes virtuais e marcas de serviço, consulte [Rede e grupos de segurança de aplicativo: marcas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+O diagrama a seguir mostra o fluxo geral de rede para acesso aos serviços de PaaS. O acesso é mostrado a partir da injeção de rede virtual e o túnel de serviço de rede virtual. Para obter mais informações sobre gateways de serviço de rede, redes virtuais e marcas de serviço, consulte [Rede e grupos de segurança de aplicativo: marcas de serviço: Marcas de serviço](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![Opções de conectividade PaaS para o TIC](media/tic-diagram-e.png)
 
@@ -178,13 +178,13 @@ O diagrama a seguir mostra o fluxo geral de rede para acesso aos serviços de Pa
    - Implantado diretamente na rede virtual.
    - Permitido seletivamente com base nas diretrizes do respectivo serviço do Azure.
 
-#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Opção a: implantar uma instância dedicada de um serviço (injeção de rede virtual)
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Opção A: Implantar uma instância dedicada de um serviço (injeção de rede virtual)
 
 A injeção de rede virtual permite que os clientes implantem seletivamente instâncias dedicadas de determinado serviço do Azure, como o HDInsight, em sua própria rede virtual. Instâncias de serviço são implantadas em uma sub-rede dedicada na rede virtual de um cliente. A injeção de rede virtual permite acesso aos recursos de serviço por meio de endereços não roteáveis para a Internet. As instâncias locais usam ExpressRoute ou VPN site a site para acessar diretamente instâncias de serviço através do espaço de endereço de rede virtual, em vez de abrir firewalls no espaço de endereço da Internet pública. Quando uma instância dedicada é anexada a um ponto de extremidade, você pode usar as mesmas estratégias para conformidade de IaaS TIC. O roteamento padrão garante que o tráfego direcionado para a internet seja redirecionado para um gateway de rede virtual que está associado para o local. Você pode controlar melhor o acesso de entrada e saída por meio de NSGs para determinada sub-rede.
 
 ![Visão geral de injeção da rede virtual](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opção B: usar pontos de extremidade de serviço de rede virtual (túnel de serviço)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opção B: Usar pontos de extremidade de serviço de rede virtual (túnel de serviço)
 
 Um número crescente de serviços de vários locatários do Azure oferece "pontos de extremidade de serviço." Pontos de extremidade de serviço são um método alternativo para a integração de redes virtuais do Azure. Os pontos de extremidade de serviço de rede virtual estendem o espaço de endereço privado e a identidade da sua rede virtual para os serviços do Azure por meio de uma conexão direta. O tráfego da rede virtual para o serviço do Azure sempre permanece dentro da rede de backbone do Azure. 
 
@@ -245,7 +245,7 @@ Redes em regiões que são monitorados pelo Observador de Rede podem conduzir te
 
 Você pode configurar facilmente o acesso ao Microsoft Azure, ao Office 365 e ao Dynamics 365 para ajudar no cumprimento das diretrizes do TIC 2.0 Apêndice H, conforme elaborado e definido em maio de 2018. A Microsoft reconhece que as diretrizes TIC estão sujeitas a alterações. A Microsoft esforça-se para ajudar os clientes a atender as diretrizes de maneira oportuna, conforme novas diretrizes são liberadas.
 
-## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Apêndice: padrões de conexões de Internet confiáveis para cargas de trabalho comuns
+## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Apêndice: Padrões de conexões de Internet confiáveis para cargas de trabalho comuns
 
 | Categoria | Carga de trabalho | IaaS | PaaS dedicado / injeção de rede virtual  | Pontos de extremidade de serviço  |
 |---------|---------|---------|---------|--------|
