@@ -1,5 +1,5 @@
 ---
-title: Ativos nos Serviços de Mídia do Azure | Microsoft Docs
+title: Ativos nos Serviços de Mídia – Azure | Microsoft Docs
 description: Este artigo fornece uma explicação sobre a natureza dos ativos e como eles são usados pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085764"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140125"
 ---
 # <a name="assets"></a>Ativos
 
@@ -75,11 +76,11 @@ A tabela a seguir mostra como essas opções podem ser aplicadas às propriedade
 |NOME|Filter|Classificar|
 |---|---|---|
 |ID|||
-|Nome|Suportes: Eq, Gt, Lt|Suportes: em ordem crescente e decrescente|
-|properties.alternateId |Suportes: Eq||
-|properties.alternateId |Suportes: Eq||
+|Nome|Suporta: Eq, Gt, Lt|Suportes: em ordem crescente e decrescente|
+|properties.alternateId |Suporta: Eq||
+|properties.alternateId |Suporta: Eq||
 |properties.container |||
-|properties.created|Suportes: Eq, Gt, Lt| Suportes: em ordem crescente e decrescente|
+|properties.created|Suporta: Eq, Gt, Lt| Suporta: Ordem crescente e decrescente|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||

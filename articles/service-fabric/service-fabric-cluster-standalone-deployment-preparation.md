@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259081"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317178"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planejar e preparar a implantação de cluster Autônomo do Service Fabric
-Execute as seguintes etapas antes de criar o cluster.
+
+<a id="preparemachines"></a>Execute as seguintes etapas antes de criar o cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planejar a infraestrutura de cluster
 Você está prestes a criar um cluster do Service Fabric em “seus” computadores. Sendo assim, você pode decidir a quais tipos de falhas deseja que o cluster sobreviva. Por exemplo, você precisa separar as linhas de energia ou conexões de Internet fornecidas para os computadores? Além disso, considere a segurança física dos computadores. Onde os computadores estão localizados e quem precisa acessá-los? Depois de tomar essas decisões, você poderá mapear logicamente os computadores para vários domínios de falha (confira a próxima etapa). O planejamento da infraestrutura para os clusters de produção está mais envolvido do que para os clusters de teste.
@@ -83,10 +82,11 @@ Para criar um cluster autônomo, você precisa criar um arquivo de configuraçã
 Para obter detalhes sobre as seções neste arquivo, confira [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md).
 
 Abra um dos arquivos ClusterConfig.json do pacote baixado e modifique as seguintes configurações:
+
 | **Parâmetro de configuração** | **Descrição** |
 | --- | --- |
 | **NodeTypes** |Os tipos de nós permitem separar os nós do cluster em vários grupos. Um cluster precisa ter pelo menos um NodeType. Todos os nós em um grupo têm as seguintes características comuns:  <br> **Nome** – esse é o nome do tipo de nó. <br>**Portas do Ponto de Extremidade** : são vários pontos de extremidade (portas) nomeados que estão associados a esse tipo de nó. Você pode usar qualquer número de porta que desejar, desde que não entre em conflito com nada mais neste manifesto e já não esteja em uso por outro aplicativo em execução no computador/VM. <br> **Propriedades de posicionamento** – Descrevem as propriedades do tipo de nó que você usou como restrições de posicionamento para os serviços do sistema ou seus serviços. Essas propriedades são pares de chave/valor definidos pelo usuário que fornecem metadados extras para um determinado nó. Exemplos de propriedades de nó incluem se o nó temum disco rígido ou uma placa de vídeo, o número de eixos no disco rígido, núcleos e outras propriedades físicas. <br> **Capacidades** : as capacidades do nó definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que tem capacidade para uma métrica chamada "MemoryInMb" e que tem 2048 MB de memória disponível por padrão. Essas capacidades são usadas no tempo de execução para garantir que os serviços que exigem quantidades específicas de recursos sejam colocados em nós que tenham esses recursos disponíveis nas quantidades necessárias.<br>**IsPrimary** – se você tiver mais de um NodeType definido, verifique se somente um está definido como principal com o valor *true*, que é onde os serviços do sistema são executados. Todos os outros tipos de nó devem ser definidos para o valor *false* |
-| **Nós** |Esses são os detalhes de cada um dos nós que fazem parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com os endereços IP. <br> Se você usar o mesmo endereço IP para todos os nós, um cluster one-box será criado, que você pode usar para fins de teste. Não use clusters de uma caixa para implantar cargas de trabalho de produção. |
+| **Nós** |Esses são os detalhes de cada um dos nós que fazem parte do cluster (tipo de nó, nome do nó, endereço IP, domínio de falha e domínio de atualização do nó). Os computadores nos quais você deseja que o cluster seja criado precisam ser listados aqui com os endereços IP. <br>  Se você usar o mesmo endereço IP para todos os nós, um cluster one-box será criado, que você pode usar para fins de teste. Não use clusters de uma caixa para implantar cargas de trabalho de produção. |
 
 Depois que a configuração do cluster tiver todas as configurações definidas no ambiente, ela poderá ser testada no ambiente de cluster (etapa 7).
 
@@ -97,20 +97,20 @@ Depois que a configuração do cluster tiver todas as configurações definidas 
 Quando um administrador de cluster configura um cluster autônomo do Service Fabric, o ambiente precisa ser configurado com os seguintes critérios: <br>
 1. O usuário que está criando o cluster deve ter privilégios de segurança de nível de administrador para todos os computadores listados como nós no arquivo de configuração do cluster.
 2. No computador do qual o cluster é criado, bem como em cada computador do nó de cluster, é necessário:
-* Desinstalar o SDK do Service Fabric
-* Desinstalar o tempo de execução do Service Fabric 
-* Habilitar o serviço de Firewall do Windows (mpssvc)
-* Ter o Serviço de Registro Remoto (registro remoto) habilitado
-* Habilitar o compartilhamento de arquivos (SMB)
-* Abrir as portas necessárias, com base nas portas de configuração de cluster
-* Abrir as portas necessárias para o Serviço de Registro Remoto e o SMB do Windows: 135, 137, 138, 139 e 445
-* Ter conectividade de rede com os outros computadores
+   * Desinstalar o SDK do Service Fabric
+   * Desinstalar o tempo de execução do Service Fabric 
+   * Habilitar o serviço de Firewall do Windows (mpssvc)
+   * Ter o Serviço de Registro Remoto (registro remoto) habilitado
+   * Habilitar o compartilhamento de arquivos (SMB)
+   * Abrir as portas necessárias, com base nas portas de configuração de cluster
+   * Abrir as portas necessárias para o Serviço de Registro Remoto e o SMB do Windows: 135, 137, 138, 139 e 445
+   * Ter conectividade de rede com os outros computadores
 3. Nenhum dos computadores de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster a ser implantado é um cluster seguro, valide que os pré-requisitos de segurança necessários estão em vigor e configurados corretamente em relação à configuração.
 5. Se os computadores do cluster não são acessíveis pela Internet, defina o seguinte na configuração do cluster:
-* Desabilitar a telemetria: em *Propriedades*, defina *"enableTelemetry": false*
-* Desabilitar o download automático de versão do Fabric e as notificações que informam que a versão do cluster atual está se aproximando do fim do suporte: em *Propriedades*, defina *"fabricClusterAutoupgradeEnabled": false*
-* Como alternativa, se o acesso à rede da Internet estiver limitado aos domínios na lista de permissões, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com   download.microsoft.com
+   * Desabilitar telemetria: Em *Propriedades*, defina *"enableTelemetry": false*
+   * Desabilitar o download automático de versão do e Fabric e as notificações de que a versão do cluster atual está aproximando do fim do suporte: em *Propriedades*, defina *"fabricClusterAutoupgradeEnabled": true*
+   * Como alternativa, se o acesso à rede da Internet estiver limitado aos domínios na lista de permissões, os domínios abaixo serão necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Defina as exclusões de antivírus do Service Fabric apropriadas:
 

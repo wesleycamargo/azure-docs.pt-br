@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345298"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337471"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -60,7 +60,7 @@ A Instância Gerenciada é adaptada para cargas de trabalho locais planejadas a 
 Para aprender como criar a infraestrutura de VNet e uma Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> É importante manter sua VNet e sub-rede de destino sempre de acordo com os [requisitos da VNet da Instância Gerenciada](sql-database-managed-instance-vnet-configuration.md#requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizar aquelas que você já criou.
+> É importante manter sua VNet e sub-rede de destino sempre de acordo com os [requisitos da VNet da Instância Gerenciada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Qualquer incompatibilidade pode impedi-lo de criar novas instâncias ou utilizar aquelas que você já criou. Saiba mais sobre a [criação de novas redes](sql-database-managed-instance-create-vnet-subnet.md) e a [configuração de redes existentes](sql-database-managed-instance-configure-vnet-subnet.md).
 
 ## <a name="select-migration-method-and-migrate"></a>Selecionar o método de migração e migrar
 
@@ -117,8 +117,7 @@ Acompanhe o comportamento e desempenho do aplicativo após a migração. Na Inst
 
 Para reduzir os riscos de migração, altere o nível de compatibilidade do banco de dados somente após o monitoramento do desempenho. Utilize o Repositório de Dados de Consultas como ferramenta ideal para obter informações sobre o desempenho da carga de trabalho, antes e após alterar o nível de compatibilidade do banco de dados, conforme explicado em [Manter a estabilidade do desempenho durante a atualização para a versão mais recente do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Quando estiver em uma plataforma totalmente gerenciada, aproveite as vantagens que são fornecidas automaticamente como parte do serviço de Banco de Dados SQL. Por exemplo, não é necessário criar backups em Instância Gerenciada - o serviço executa os backups para você automaticamente. Não é mais necessário preocupar-se com agendamento, execução e gerenciamento de backups. A Instância Gerenciada fornece a capacidade de restaurar a qualquer momento no período de retenção, utilizando [PITR (Recuperação Pontual)](sql-database-recovery-using-backups.md#point-in-time-restore). Durante a visualização pública, o período de retenção é fixado em sete dias.
-Além disso, não é necessário preocupar-se com a configuração de alta disponibilidade, pois a [alta disponibilidade](sql-database-high-availability.md) é interna.
+Quando estiver em uma plataforma totalmente gerenciada, aproveite as vantagens que são fornecidas automaticamente como parte do serviço de Banco de Dados SQL. Por exemplo, não é necessário criar backups em Instância Gerenciada - o serviço executa os backups para você automaticamente. Não é mais necessário preocupar-se com agendamento, execução e gerenciamento de backups. A Instância Gerenciada fornece a capacidade de restaurar a qualquer momento no período de retenção, utilizando [PITR (Recuperação Pontual)](sql-database-recovery-using-backups.md#point-in-time-restore). Além disso, não é necessário preocupar-se com a configuração de alta disponibilidade, pois a [alta disponibilidade](sql-database-high-availability.md) é interna.
 
 Para fortalecer a segurança, considere utilizar alguns dos recursos disponíveis:
 

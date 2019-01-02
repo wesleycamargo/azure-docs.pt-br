@@ -1,6 +1,6 @@
 ---
 title: Backup do Azure - Perguntas frequentes
-description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
+description: 'Respostas a perguntas comuns sobre: recursos do Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261659"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262258"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 Este artigo responde às perguntas frequentes sobre o serviço de Backup do Azure.
@@ -235,8 +235,8 @@ Sim. Os dados são criptografados na máquina local usando AES256. Os dados são
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados de backup também são criptografados no Azure?
 
 Sim. Os dados no Azure são criptografados em repouso.
-- Para backup local, a criptografia na reinicialização é realizada usando a frase secreta que você fornece ao fazer backup no Azure.
-- Para VMs do Azure, os dados são criptografados na reinicialização usando a Criptografia do Serviço de Armazenamento (SSE).
+- Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure.
+- Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento).
 
 A Microsoft não descriptografa os dados de backup em nenhum momento.
 

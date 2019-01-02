@@ -8,27 +8,26 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8487eb9009529e023e06bf6a717fcb142f50305f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637501"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342792"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status de orquestração personalizado em Funções Duráveis (Azure Functions)
 
 O status de orquestração personalizado permite que você defina um valor de status personalizado para a função do orquestrador. Esse status é fornecido por meio da API HTTP GetStatus ou da API `DurableOrchestrationClient.GetStatusAsync`.
 
-> [!NOTE]
-> O status de orquestração personalizado para JavaScript estará disponível em uma versão futura.
-
-## <a name="sample-use-cases"></a>Casos de uso de exemplo 
+## <a name="sample-use-cases"></a>Casos de uso de exemplo
 
 ### <a name="visualize-progress"></a>Visualizar progresso
 
 Os clientes podem sondar o ponto de extremidade de status e exibir uma interface do usuário de progresso que visualiza o estágio de execução atual. O exemplo a seguir demonstra o compartilhamento de progresso:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -55,7 +54,35 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const outputs = [];
+
+    outputs.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
+    context.df.setCustomStatus("Tokyo");
+    outputs.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
+    context.df.setCustomStatus("Seattle");
+    outputs.push(yield context.df.callActivity("E1_SayHello", "London"));
+    context.df.setCustomStatus("London");
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+});
+```
+
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
 E, em seguida, o cliente receberá a saída de orquestração somente quando o campo `CustomStatus` estiver definido como "London":
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -88,9 +115,46 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="output-customization"></a>Personalização de saída 
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    // Function input comes from the request content.
+    const eventData = req.body;
+    const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+
+    let durableOrchestrationStatus = await client.getStatus(instanceId);
+    while (status.customStatus.toString() !== "London") {
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        durableOrchestrationStatus = await client.getStatus(instanceId);
+    }
+
+    const httpResponseMessage = {
+        status: 200,
+        body: JSON.stringify(durableOrchestrationStatus),
+    };
+
+    return httpResponseMessage;
+};
+```
+
+> [!NOTE]
+> Em JavaScript, o campo `customStatus` será definido quando a próxima ação `yield` ou `return` for agendada.
+
+> [!WARNING]
+> Ao fazer o desenvolvimento local em JavaScript, você precisará definir a variável de ambiente `WEBSITE_HOSTNAME` como `localhost:<port>`, por exemplo, `localhost:7071` para usar métodos em `DurableOrchestrationClient`. Para obter mais informações sobre esse requisito, confira o [problema no GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+
+### <a name="output-customization"></a>Personalização de saída
 
 Outro cenário interessante é segmentar usuários retornando saída personalizada com base em características ou interações exclusivas. Com a ajuda do status de orquestração personalizado, o código do lado do cliente ficará genérico. Todas as modificações principais ocorrerão no lado do servidor, conforme mostrado no exemplo a seguir:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -111,26 +175,61 @@ public static void Run(
     case 2:
       context.SetCustomStatus(new
       {
-        recommendedCity = new[] {"Seattle, London"},
+        recommendedCities = new[] {"Seattle, London"},
         recommendedSeasons = new[] {"Summer"}
       });
         break;
       case 3:
       context.SetCustomStatus(new
       {
-        recommendedCity = new[] {"Tokyo, London"},
+        recommendedCities = new[] {"Tokyo, London"},
         recommendedSeasons = new[] {"Spring", "Summer"}
       });
         break;
   }
 
   // Wait for user selection and refine the recommendation
-} 
+}
 ```
 
-### <a name="instruction-specification"></a>Especificação de instrução 
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const userChoice = context.df.getInput();
+
+    switch (userChoice) {
+        case 1:
+            context.df.setCustomStatus({
+                recommendedCities: [ "Tokyo", "Seattle" ],
+                recommendedSeasons: [ "Spring", "Summer" ],
+            });
+            break;
+        case 2:
+            context.df.setCustomStatus({
+                recommendedCities: [ "Seattle", "London" ],
+                recommendedSeasons: [ "Summer" ],
+            });
+            break;
+        case 3:
+            context.df.setCustomStatus({
+                recommendedCity: [ "Tokyo", "London" ],
+                recommendedSeasons: [ "Spring", "Summer" ],
+            });
+            break;
+    }
+
+    // Wait for user selection and refine the recommendation
+});
+```
+
+### <a name="instruction-specification"></a>Especificação de instrução
 
 O orchestrator pode fornecer instruções exclusivas para os clientes por meio de estado personalizado. As instruções de status personalizado serão mapeadas para as etapas no código de orquestração:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -158,21 +257,66 @@ public static async Task<bool> Run(
 }
 ```
 
+#### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const userId = context.df.getInput();
+
+    const discount = yield context.df.callActivity("CalculateDiscount", userId);
+
+    context.df.setCustomStatus({
+        discount,
+        discountTimeout = 60,
+        bookingUrl = "https://www.myawesomebookingweb.com",
+    });
+
+    const isBookingConfirmed = yield context.df.waitForExternalEvent("bookingConfirmed");
+
+    context.df.setCustomStatus(isBookingConfirmed
+        ? { message: "Thank you for confirming your booking." }
+        : { message: "The booking was not confirmed on time. Please try again." }
+    );
+
+    return isBookingConfirmed;
+});
+```
+
 ## <a name="sample"></a>Amostra
 
 No exemplo a seguir, o status personalizado é definido primeiro;
 
+### <a name="c"></a>C#
+
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     // ...do work...
 
     // update the status of the orchestration with some arbitrary data
     var customStatus = new { nextActions = new [] {"A", "B", "C"}, foo = 2, };
-    ctx.SetCustomStatus(customStatus);
+    context.SetCustomStatus(customStatus);
 
     // ...do more work...
 }
+```
+
+### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    const customStatus = { nextActions: [ "A", "B", "C" ], foo: 2, };
+    context.df.setCustomStatus(customStatus);
+
+    // ...do more work...
+});
 ```
 
 Durante a execução da orquestração, clientes externos podem buscar este status personalizado:
@@ -182,7 +326,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-O clientes terão a seguinte resposta: 
+O clientes terão a seguinte resposta:
 
 ```http
 {
@@ -196,12 +340,9 @@ O clientes terão a seguinte resposta:
 ```
 
 > [!WARNING]
->  O conteúdo do status personalizado é limitado a 16 KB de texto UTF-16 JSON porque ele precisa ser capaz de caber em uma coluna de Armazenamento de Tabelas do Azure. Os desenvolvedores poderão usar o armazenamento externo se eles precisarem de conteúdo maior.
-
+> O conteúdo do status personalizado é limitado a 16 KB de texto UTF-16 JSON porque ele precisa ser capaz de caber em uma coluna de Armazenamento de Tabelas do Azure. Os desenvolvedores poderão usar o armazenamento externo se eles precisarem de conteúdo maior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as APIs HTTP em Funções Duráveis](durable-functions-http-api.md)
-
-

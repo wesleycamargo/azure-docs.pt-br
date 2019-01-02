@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008106"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384184"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrar soluções .NET do HDInsight baseado em Windows para o HDInsight baseado em Linux
 
@@ -26,7 +26,7 @@ A versão 4.2.1 do Mono está incluída no HDInsight versão 3.6. Para obter mai
 
 Para obter mais informações sobre compatibilidade entre Mono e .NET, consulte o documento [Compatibilidade Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A estrutura SCP.NET é compatível com Mono. Para obter mais informações sobre como usar SCP.NET com Mono, consulte [Usar o Visual Studio para desenvolver topologias C# para Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Análise automatizada de portabilidade
@@ -47,7 +47,7 @@ O [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemNam
 
     ![Caixa de diálogo de resultados do analisador de portabilidade](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O analisador não pode capturar todos os problemas com sua solução. Por exemplo, um caminho de arquivo de `c:\temp\file.txt` é considerado OK se o Mono está em execução no Windows. O mesmo caminho não é válido em uma plataforma Linux.
 
 ## <a name="manual-portability-analysis"></a>Análise de portabilidade manual
@@ -64,12 +64,12 @@ Depois de modificar a solução usando as recomendações do .NET Portability An
 
 Para obter mais informações sobre como acessar logs, veja os documentos a seguir:
 
-* [Acessar logs do aplicativo YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Acessar logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usar C# com MapReduce no HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Usar funções definidas pelo usuário do C# com Hive e Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use funções definidas pelo usuário em C# com Apache Hive e Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Desenvolver topologias C# para Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Desenvolver topologias em C# para o Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

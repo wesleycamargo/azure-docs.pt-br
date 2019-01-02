@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465241"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435099"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como habilitar a virtualização aninhada em uma VM do Azure
 
@@ -134,7 +134,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 Atribua um endereço IP à máquina virtual convidada definindo um endereço IP estático na máquina virtual convidada manualmente ou configurando o DHCP na VM do Azure para atribuir o endereço IP dinamicamente.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: configurar o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>Opção 1: Configurar o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada
 Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atribuição de endereço dinâmico.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Instalar o Servidor DHCP na VM do Azure
@@ -157,11 +157,11 @@ Siga as etapas abaixo para configurar o DHCP na máquina virtual host para a atr
   
 4. Defina um Intervalo de IP para o Servidor DHCP (por exemplo, 192.168.0.100 a 192.168.0.200).
   
-5. Clique em **Avançar** até a página Gateway Padrão. Insira o Endereço IP criado anteriormente (por exemplo, 192.168.0.1) como o Gateway Padrão.
+5. Clique em **Avançar** até a página Gateway Padrão. Insira o Endereço IP criado anteriormente (por exemplo, 192.168.0.1) como o Gateway Padrão e, em seguida, clique em **Adicionar**.
   
 6. Clique em **Avançar** até a conclusão do assistente, deixando todos os valores padrão e, em seguida, clique em **Concluir**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: definir um endereço IP estático manualmente na máquina virtual convidada
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Opção 2: Definir um endereço IP estático manualmente na máquina virtual convidada
 Se você não configurou o DHCP para atribuir dinamicamente um endereço IP à máquina virtual convidada, siga estas etapas para configurar um endereço IP estático.
 
 1. Na VM do Azure, abra o PowerShell como Administrador.

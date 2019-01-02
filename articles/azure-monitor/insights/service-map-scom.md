@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826954"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187204"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração do Mapa do Serviço com o System Center Operations Manager
   > [!NOTE]
@@ -77,7 +76,7 @@ Para configurar a integração do Mapa do Serviço, faça o seguinte:
 
     ![O grupo de configuração do Operations Manager](media/service-map-scom/scom-config-group.png)
 
-6. Opcional: selecione o pool de recursos do Servidor de Gerenciamento para se comunicar com o Log Analytics e clique em **Adicionar Workspace**.
+6. Opcional: Selecione o pool de recursos do Servidor de Gerenciamento para se comunicar com o Log Analytics e, em seguida, clique em **Adicionar Workspace**.
 
     ![O pool de recursos de configuração do Operations Manager](media/service-map-scom/scom-config-pool.png)
 
@@ -92,17 +91,17 @@ Depois que o workspace do Log Analytics estiver conectado, uma nova pasta, Mapa 
 ![O painel Monitoramento do Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 A pasta do Mapa do Serviço tem quatro nós:
-* **Alertas Ativos**: lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Log Analytics. 
+* **Alertas Ativos**: Lista todos os alertas ativos sobre a comunicação entre o Operations Manager e o Mapa do Serviço.  Observe que esses alertas não estão que sendo sincronizados para o Operations Manager de alertas do Log Analytics. 
 
-* **Servidores**: lista os servidores monitorados configurados para sincronização por meio do Mapa do Serviço.
+* **Servidores**: Lista os servidores monitorados configurados para sincronização por meio do Mapa do Serviço.
 
     ![O painel Monitorando Servidores do Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Exibições de dependência de grupo do computador**: lista todos os grupos de computadores que foram sincronizados de mapa de serviço. É possível clicar em qualquer grupo para exibir seu diagrama de aplicativo distribuído.
+* **Exibições de Dependência do Grupo de Computadores**: Lista todos os grupos de computadores que foram sincronizados por meio do Mapa do Serviço. É possível clicar em qualquer grupo para exibir seu diagrama de aplicativo distribuído.
 
     ![O diagrama de aplicativo distribuído do Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Exibições de Dependência de Servidor**: lista todos os servidores sincronizados por meio do Mapa do Serviço. É possível clicar em qualquer servidor para exibir seu diagrama de aplicativo distribuído.
+* **Exibições de Dependências do Servidor**: Lista todos os servidores que foram sincronizados por meio do Mapa do Serviço. É possível clicar em qualquer servidor para exibir seu diagrama de aplicativo distribuído.
 
     ![O diagrama de aplicativo distribuído do Operations Manager](media/service-map-scom/scom-dad.png)
 
@@ -121,10 +120,10 @@ Uma regra, _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criada para buscar
 
 ![A janela de propriedades Substituições do Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: habilite ou desabilite atualizações automáticas. 
-* **IntervalMinutes**: redefina o tempo entre as atualizações. O intervalo padrão é uma hora. Se você desejar sincronizar os mapas do servidor com mais frequência, poderá alterar o valor.
-* **TimeoutSeconds**: redefina a duração de tempo antes que a solicitação atinja o tempo limite. 
-* **TimeWindowMinutes**: redefina a janela de tempo para consultar os dados. O padrão é uma janela de 60 minutos. O valor máximo permitido pelo Mapa do Serviço é 60 minutos.
+* **Enabled**: Habilite ou desabilite as atualizações automáticas. 
+* **IntervalMinutes**: Redefine o tempo entre as atualizações. O intervalo padrão é uma hora. Se você desejar sincronizar os mapas do servidor com mais frequência, poderá alterar o valor.
+* **TimeoutSeconds**: Redefina a duração de tempo antes que a solicitação atinja o tempo limite. 
+* **TimeWindowMinutes**: Redefina a janela de tempo para consulta dos dados. O padrão é uma janela de 60 minutos. O valor máximo permitido pelo Mapa do Serviço é 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 

@@ -5,30 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/14/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685796"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435269"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
-Bloqueio inteligente usa inteligência de nuvem para bloquear os atores ruins que estão tentando adivinhar as senhas dos usuários ou usar métodos de força bruta para entrar. Essa inteligência pode reconhecer entradas provenientes de usuários válidos e tratá-los de forma diferente do que os invasores e outras fontes desconhecidas. O bloqueio inteligente bloqueia os invasores, enquanto permite que os usuários continuem acessando suas contas e sendo produtivos.
+O bloqueio inteligente ajuda a bloquear atores mal-intencionados que estão tentando adivinhar as senhas dos usuários ou usar métodos de força bruta para entrada. Ele pode reconhecer entradas provenientes de usuários válidos e tratá-las de forma diferente do que as entradas dos invasores e de outras fontes desconhecidas. O bloqueio inteligente bloqueia os invasores, enquanto permite que os usuários continuem acessando suas contas e sendo produtivos.
 
 Por padrão, o bloqueio inteligente bloqueia a conta de tentativas de login por um minuto após 10 tentativas malsucedidas. A conta é bloqueada novamente após cada tentativa de entrada com falha subsequente durante um minuto na primeira vez, e tempos mais longos em tentativas subsequentes.
 
-* O bloqueio inteligente rastreia os últimos três hashes de senha incorreta para evitar o reincremento do contador de bloqueio. Se alguém inserir a mesma senha incorreta várias vezes, esse comportamento não causará o bloqueio da conta.
-   * Essa funcionalidade não está disponível para clientes com autenticação de passagem ativada.
+O bloqueio inteligente rastreia os últimos três hashes de senha incorreta para evitar o reincremento do contador de bloqueio. Se alguém inserir a mesma senha incorreta várias vezes, esse comportamento não causará o bloqueio da conta.
+
+ > [!NOTE]
+ > A funcionalidade de acompanhamento de hash não está disponível para clientes com a autenticação de passagem habilitada, pois a autenticação ocorre localmente, não na nuvem.
 
 O bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com as configurações padrão que oferecem a combinação certa de segurança e usabilidade. Personalização das configurações de bloqueio inteligente, com valores específicos de sua organização, requer o Azure AD Basic ou superior licenças para seus usuários.
 
-O uso do bloqueio inteligente não garante que um usuário genuíno nunca seja bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, tentamos o nosso melhor para não bloquear o usuário genuíno. O serviço de bloqueio tenta garantir que os agentes mal-intencionados não tenham acesso a uma conta de usuário genuína.  
+O uso do bloqueio inteligente não garante que um usuário genuíno nunca seja bloqueado. Quando o bloqueio inteligente bloqueia uma conta de usuário, tentamos o nosso melhor para não bloquear o usuário genuíno. O serviço de bloqueio tenta garantir que atores mal-intencionados não obtenham acesso a uma conta de usuário original.  
 
 * Cada centro de dados do Azure Active Directory rastreia o bloqueio de forma independente. Um usuário terá (threshold_limit * datacenter_count) número de tentativas, se o usuário acessar cada datacenter.
 * O Smart Lockout usa localização familiar versus local desconhecido para diferenciar entre um ator ruim e o usuário genuíno. Locais desconhecidos e familiares ambos terá contadores separados de bloqueio.

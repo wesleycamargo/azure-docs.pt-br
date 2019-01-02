@@ -9,48 +9,53 @@ ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2016
+ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852309"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407915"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
-O Windows fornece uma ampla variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) como ocupação da CPU, memória, disco e uso da rede. Você também pode definir seus próprios. O [Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se o seu aplicativo estiver em execução no IIS em um host local ou máquina virtual a qual você tem acesso administrativo. Os gráficos indicam os recursos disponíveis para seu aplicativo ativo e podem ajudar a identificar uma carga sem balanceamento entre instâncias do servidor.
 
-Os contadores de desempenho aparecem na folha Servidores, que inclui uma tabela que segmenta pela instância do servidor.
-
-![Contadores de desempenho reportados no Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
-
-(Os contadores de desempenho não estão disponíveis para aplicativos Web do Azure. Mas você pode [enviar o Diagnóstico do Azure para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+O Windows fornece uma ampla variedade de [contadores de desempenho](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) como ocupação da CPU, memória, disco e uso da rede. Também é possível definir contadores de desempenho próprios. Desde que o aplicativo esteja em execução no IIS em um host local ou máquina virtual a qual você tem acesso administrativo.
 
 ## <a name="view-counters"></a>Visualizar contadores
-A folha Servidores mostra um conjunto padrão de contadores de desempenho. 
 
-Para ver outros contadores, edite os gráficos na folha Servidores, ou abra uma nova folha [Metrics Explorer](app-insights-metrics-explorer.md) e adicione novos gráficos. 
+O painel Métricas mostra o conjunto padrão de contadores de desempenho.
 
-Os contadores disponíveis são listados como métricas quando você edita um gráfico.
+![Contadores de desempenho reportados no Application Insights](./media/app-insights-performance-counters/performance-counters.png)
 
-![Contadores de desempenho reportados no Application Insights](./media/app-insights-performance-counters/choose-performance-counters.png)
+Os contadores padrão atuais coletados para aplicativos Web do .NET são:
+
+         - % Process\\Processor Time
+         - % Process\\Processor Time Normalized
+         - Memory\\Available Bytes
+         - ASP.NET Requests/Sec
+         - .NET CLR Exceptions Thrown / sec
+         - ASP.NET ApplicationsRequest Execution Time
+         - Process\\Private Bytes
+         - Process\\IO Data Bytes/sec
+         - ASP.NET Applications\\Requests In Application Queue
+         - Processor(_Total)\\% Processor Time
 
 Para ver todos os gráficos mais úteis em um único lugar, crie um [painel](app-insights-dashboards.md) e fixe-os a ele.
 
 ## <a name="add-counters"></a>Adicionar contadores
-Se o contador de desempenho desejado não for mostrado na lista de métricas, é porque o SDK do Application Insights não está coletando em seu servidor Web. Você pode configurá-lo para fazer isso.
 
-1. Descubra quais contadores estão disponíveis em seu servidor usando este comando do PowerShell no servidor:
+Se o contador de desempenho desejado não estiver incluído na lista de métricas, você poderá adicioná-lo.
+
+1. Descubra quais contadores estão disponíveis no servidor usando este comando do PowerShell no servidor local:
    
     `Get-Counter -ListSet *`
    
     (Consulte [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
 2. Abra o ApplicationInsights.config.
    
-   * Se você adicionou o Application Insights ao seu aplicativo durante o desenvolvimento, edite applicationinsights.config em seu projeto e implante-o novamente em seus servidores.
+   * Se você adicionou o Application Insights ao seu aplicativo durante o desenvolvimento, edite ApplicationInsights.config no projeto e implante-o novamente nos servidores.
    * Se você usou o Status Monitor para instrumentar um aplicativo Web em tempo de execução, localize applicationinsights.config no diretório raiz do aplicativo no IIS. Atualize-o em cada instância de servidor.
 3. Edite a diretiva do coletor de desempenho:
    
@@ -65,7 +70,7 @@ Se o contador de desempenho desejado não for mostrado na lista de métricas, é
 
 ```
 
-Você pode capturar os contadores padrão e aqueles implementados por conta própria. `\Objects\Processes` é um exemplo de um contador padrão, disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold` é um exemplo de um contador personalizado que pode ser implementado em um serviço Web. 
+É possível capturar os contadores padrão e os que você implementou sozinho. `\Objects\Processes` é um exemplo de um contador padrão, disponível em todos os sistemas Windows. `\Sales(photo)\# Items Sold` é um exemplo de um contador personalizado que pode ser implementado em um serviço Web. 
 
 O formato é `\Category(instance)\Counter"`, ou apenas `\Category\Counter` para categorias que não têm instâncias.
 
@@ -100,7 +105,7 @@ O esquema **performanceCounters** expõe o nome `category`, `counter` e o nome `
 
 ![Contadores de desempenho na análise do Application Insights](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
-(Aqui 'Instance' refere-se á instância do contador de desempenho, não à instância do servidor ou função. O nome da instância do contador de desempenho normalmente segmenta os contadores, como tempo de processador, pelo nome do processo ou aplicativo.)
+(Aqui, 'Instance' se refere à instância do contador de desempenho, e não à instância da máquina do servidor ou da função. O nome da instância do contador de desempenho normalmente segmenta os contadores, como tempo de processador, pelo nome do processo ou aplicativo.)
 
 Para obter um gráfico da memória disponível no período recente: 
 
@@ -114,13 +119,14 @@ Como outras telemetrias, o **performanceCounters** também tem uma coluna `cloud
 *Qual é a diferença entre a Taxa de exceções e as Métricas de exceções?*
 
 * *Taxa de exceções* é um contador de desempenho do sistema. O CLR conta todas as exceções tratadas e sem tratamento que são lançadas, e divide o total em um intervalo de amostragem pela duração do intervalo. O SDK do Application Insights coleta esse resultado e o envia para o portal.
+
 * *Exceções* é uma contagem dos relatórios TrackException recebida pelo portal no intervalo de amostragem do gráfico. Ele inclui apenas as exceções tratadas em que você tenha gravado chamadas TrackException em seu código e não inclui todas as [exceções sem tratamento](app-insights-asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos do núcleo do Asp.Net
+## <a name="performance-counters-in-aspnet-core-applications"></a>Contadores de desempenho em aplicativos do ASP.Net Core
 Os contadores de desempenho são suportados apenas se o aplicativo tiver como destino o .NET Framework completo. Não é possível coletar os contadores de desempenho para os aplicativos .net Core.
 
 ## <a name="alerts"></a>Alertas
-Assim como ocorre com outras métricas, você pode [definir um alerta](app-insights-alerts.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra a folha Alertas e clique em Adicionar Alerta.
+Assim como ocorre com outras métricas, você pode [definir um alerta](app-insights-alerts.md) para avisar se um contador de desempenho fica fora de um limite especificado. Abra o painel Alertas e clique em Adicionar Alerta.
 
 ## <a name="next"></a>Próximas etapas
 * [Acompanhamento de dependência](app-insights-asp-net-dependencies.md)

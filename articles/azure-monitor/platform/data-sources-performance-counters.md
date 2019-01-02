@@ -1,6 +1,6 @@
 ---
-title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
-description: Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
+title: Coletar e analisar contadores de desempenho no Azure Monitor | Microsoft Docs
+description: Os contadores de desempenho são coletados pelo Azure Monitor para analisar o desempenho em agentes do Windows e do Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no workspace, e como analisá-los no portal do Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,29 +8,27 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ffc3443c0c4bca214cc576e1345ad09874287426
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336308"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438363"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
-Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
+Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Azure Monitor pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Near Real Time), além de agregar dados de desempenho para análise e relatório de longo prazo.
 
 ![contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
-Configure contadores de desempenho usando o [menu Dados nas configurações do Log Analytics](agent-data-sources.md#configuring-data-sources).
+Configure contadores de Desempenho usando o [menu Dados em Configurações Avançadas](agent-data-sources.md#configuring-data-sources).
 
-Quando você configura os contadores de desempenho do Windows ou do Linux para um novo workspace do Log Analytics pela primeira vez, existe a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
+Ao configurar os contadores de desempenho do Windows ou do Linux para um novo workspace pela primeira vez, você terá a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
@@ -90,7 +88,7 @@ Os parâmetros usados com este comando são descritos na tabela a seguir.
 | intervalo | A frequência na qual os contadores do objeto são coletados. |
 
 
-A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para certos aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos Linux no Log Analytics](data-sources-linux-applications.md).
+A tabela a seguir lista os objetos e contadores que você pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para alguns aplicativos, conforme descrito em [Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor](data-sources-linux-applications.md).
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -184,7 +182,7 @@ A seguir está a configuração padrão para as métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Coleta de dados
-O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados e os dados brutos ficam disponíveis em todas as exibições de pesquisa de logs durante o período especificado pela sua assinatura.
+O Azure Monitor coleta todos os contadores de desempenho especificados em seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados, e os dados brutos ficam disponíveis em todas as exibições da consulta de log durante o período especificado pela assinatura.
 
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
@@ -205,8 +203,8 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>Pesquisas de log com registros de desempenho
-A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam registros de desempenho.
+## <a name="log-queries-with-performance-records"></a>Consultas de log com registros de Desempenho
+A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros de Desempenho.
 
 | Consultar | DESCRIÇÃO |
 |:--- |:--- |
@@ -227,5 +225,5 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Colete contadores de desempenho de aplicativos Linux](data-sources-linux-applications.md), incluindo Apache HTTP Server e MySQL.
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções.  
-* Exporte os dados coletados para o [Power BI](../../log-analytics/log-analytics-powerbi.md) para análise e visualizações adicionais.
+* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Exporte os dados coletados para o [Power BI](powerbi.md) para análise e visualizações adicionais.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092437"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410458"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
 
@@ -25,7 +25,7 @@ O [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introduci
 Da mesma forma, os desenvolvedores que desejam expor suas APIs mais amplamente dentro da organização podem querer disponibilizá-las para construtores de aplicativos e fluxos. Este tópico mostra como exportar uma API criada com o [Azure Functions](../azure-functions/functions-overview.md) ou o [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md). A API exportada torna-se um *conector personalizado*, usado no PowerApps e no Microsoft Flow, assim como um conector interno.
 
 ## <a name="create-and-export-an-api-definition"></a>Criar e exportar uma definição de API
-Antes de exportar uma API, é necessário descrevê-la usando uma definição OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados. O PowerApps e o Microsoft Flow podem criar conectores personalizados para qualquer definição OpenAPI 2.0. O Serviço de Aplicativo do Azure e o Azure Functions têm suporte integrado para criação, hospedagem e gerenciamento de definições OpenAPI. Para obter mais informações, consulte [Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Antes de exportar uma API, é necessário descrevê-la usando uma definição OpenAPI (anteriormente conhecida como um arquivo [Swagger](https://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados. O PowerApps e o Microsoft Flow podem criar conectores personalizados para qualquer definição OpenAPI 2.0. O Serviço de Aplicativo do Azure e o Azure Functions têm suporte integrado para criação, hospedagem e gerenciamento de definições OpenAPI. Para obter mais informações, consulte [Hospedar uma API RESTful com CORS no Serviço de Aplicativo do Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Também é possível criar conectores personalizados no PowerApps e no Microsoft Flow UI, sem o uso de uma definição OpenAPI. Para obter mais informações, consulte [Registrar e usar conectores personalizados no PowerApps](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [Registrar e usar conectores personalizados no Microsoft Flow](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -146,7 +146,7 @@ O PowerApps e o Microsoft Flow oferecem suporte a uma coleção de provedores de
 ``` 
 Durante a exportação, será necessário fornecer valores de configuração que permitem ao PowerApps e ao Microsoft Flow autenticar usuários.
 
-Esta seção aborda os tipos de autenticação com suporte no modo **Expresso**: chave de API, Azure Active Directory e OAuth 2.0 Genérico. O PowerApps e o Microsoft Flow também oferecem suporte à Autenticação Básica e ao OAuth 2.0 para serviços específicos, como SalesForce, Facebook e Dropbox.
+Esta seção aborda os tipos de autenticação com suporte no modo **Expresso**: Chave de API, Azure Active Directory e OAuth 2.0 Genérico. O PowerApps e o Microsoft Flow também oferecem suporte à Autenticação Básica e ao OAuth 2.0 para serviços específicos, como SalesForce, Facebook e Dropbox.
 
 ### <a name="api-key"></a>Chave de API
 Ao utilizar uma chave de API, os usuários do conector deverão fornecer a chave ao criar uma conexão. Você especifica um nome de chave de API para ajudá-los a reconhecer qual chave é necessária. No exemplo anterior, usamos o nome `API Key (contact meganb@contoso.com)` para que as pessoas saibam onde obter informações sobre a chave de API. No Azure Functions, a chave geralmente será uma das chaves de host que abrangem várias funções dentro do aplicativo de funções.
@@ -154,7 +154,7 @@ Ao utilizar uma chave de API, os usuários do conector deverão fornecer a chave
 ### <a name="azure-active-directory-azure-ad"></a>Active Directory do Azure (Azure AD)
 Ao usar o Azure AD, são necessários dois registros de aplicativo do Azure AD: um para a própria API e outro para o conector personalizado:
 
-- Para configurar o registro da API, use o recurso de [Autenticação/Autorização do Serviço de Aplicativo](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Para configurar o registro da API, use o recurso de [Autenticação/Autorização do Serviço de Aplicativo](../app-service/configure-authentication-provider-aad.md).
 
 - Para configurar o registro do conector, siga as etapas em [Como adicionar um aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). O registro deve ter acesso delegado à sua API e um URL de resposta de `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

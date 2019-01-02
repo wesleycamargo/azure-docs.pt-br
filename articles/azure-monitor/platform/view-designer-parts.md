@@ -10,25 +10,23 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: cdf3fda4228eadc2921c8fbc1bc72702461d04e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637731"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193868"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência para partes de visualização do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados do seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
 
-Para obter mais informações sobre o Designer de Modos de Exibição, consulte:
+Para obter mais informações sobre o Designer de Exibição, consulte:
 
-* [Designer de Modos de Exibição](view-designer.md): fornece uma visão geral do Designer de Modos de Exibição e dos procedimentos para criar e editar exibições personalizadas.
-* [Referência de bloco](view-designer-tiles.md): fornece uma referência das configurações de cada um dos blocos disponíveis nas suas exibições personalizadas.
+* [Designer de exibição](view-designer.md): fornece uma visão geral do Designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
+* [Referência de blocos](view-designer-tiles.md): fornece uma referência das configurações de cada um dos blocos disponíveis nas suas exibições personalizadas.
 
 
 Os tipos de blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:
@@ -143,7 +141,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Navegação clickthrough | Ação executada quando você clica no cabeçalho.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Rosca** |**> Centro** |
 | Texto |O texto que é exibido sob o valor dentro da rosca. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Porcentagem: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor.<ul><li>Soma: adiciona os valores de todos os registros.</li><li>Percentual: a taxa dos registros retornados pelos valores em **Valores de resultado usados na operação do centro** para o total de registros na consulta.</li></ul> |
 | Valores de resultado usados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que você especifica. Se nenhum valor for adicionado, todos os registros serão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor de cada um dos valores que são exibidos na rosca. |
@@ -238,7 +236,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | **Gráfico de linhas** |**> Balão** |
 | Título do balão |O texto que é exibido acima do valor do balão. |
 | Nome da Série |Valor da propriedade para a série a ser usado para o valor do balão. Se nenhuma série for fornecida, todos os registros da consulta serão usados. |
-| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Min.: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Soma: a soma dos valores de todos os registros.</li></ul> |
+| Operação |A operação a executar na propriedade de valor a resumir como um único valor para o balão.<ul><li>Média: a média do valor de todos os registros.</li><li>Contagem: a contagem de registros que são retornados pela consulta.</li><li>Última amostra: o valor do último intervalo que é incluído no gráfico.</li><li>Máx.: o valor máximo dos intervalos que são incluídos no gráfico.</li><li>Mín.: o valor mínimo dos intervalos que são incluídos no gráfico.</li><li>Soma: a soma dos valores de todos os registros.</li></ul> |
 | **Gráfico de linhas** |**> Eixo Y** |
 | Usar Escala Logarítmica |Selecione este link para usar uma escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Essas informações são usadas para exibir rótulos do gráfico que indicam os tipos de valor e, opcionalmente, para converter os valores. O tipo *Unidade* especifica a categoria da unidade e define os valores que estão disponíveis para os valores do tipo *Unidade Atual* disponíveis. Se você selecionar um valor em *Converter para*, os valores numéricos serão convertidos do tipo *Unidade Atual* para o tipo *Converter para*. |
@@ -324,7 +322,7 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [Portal de pesquisa de logs](../../log-analytics/log-analytics-log-search-portals.md) ou iniciar outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [Portal de pesquisa de logs](../../azure-monitor/log-query/portals.md) ou iniciar outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 
@@ -344,7 +342,7 @@ A tabela a seguir descreve as configurações de minigráficos:
 | Configuração | DESCRIÇÃO |
 |:--- |:--- |
 | Habilitar minigráficos |Selecione este link para exibir um minigráfico em vez de uma barra horizontal. |
-| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última Amostra: O último valor da série durante o intervalo.</li><li>Máx: O valor máximo da série durante o intervalo.</li><li>Min: O valor mínimo da série durante o intervalo.</li><li>Soma: A soma dos valores da série durante o intervalo.</li><li>Resumo: Usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
+| Operação |Se os minigráficos estiverem habilitados, essa será a operação a ser executada em cada propriedade na lista para calcular os valores do minigráfico.<ul><li>Última amostra: o último valor da série durante o intervalo.</li><li>Máx.: o valor máximo da série durante o intervalo.</li><li>Mín.: o valor mínimo da série durante o intervalo.</li><li>Soma: a soma dos valores da série durante o intervalo.</li><li>Resumo: usa o mesmo comando `measure` da consulta no cabeçalho.</li></ul> |
 
 ### <a name="thresholds"></a>Limites
 Usando limites, você pode exibir um ícone de cor ao lado de cada item em uma lista. Os limites oferecem um indicador visual rápido de itens que excedem um valor específico ou ficam dentro de um intervalo específico. Por exemplo, você pode exibir um ícone verde para itens com um valor aceitável; amarelo, se o valor estiver dentro de um intervalo que indica um aviso, e vermelho se ele exceder um valor de erro.
@@ -363,4 +361,4 @@ A tabela a seguir descreve as configurações de limites:
 | Cor |A cor que indica o valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para dar suporte às consultas partes da visualização.
+* Saiba mais sobre [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para dar suporte às consultas partes da visualização.

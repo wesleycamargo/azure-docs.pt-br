@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 29ac668ddb9d5df88d5f743630eaf2d9288b8727
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102003"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados do Presto usando o Azure Data Factory (visualização)
 
@@ -50,7 +50,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Presto:
 | Versão do servidor | A versão do servidor Presto. (ou seja, 0.148-t)  | SIM |
 | catálogo | O contexto de catálogo para todas as solicitações no servidor.  | SIM |
 | porta | A porta TCP usada pelo servidor Presto para ouvir conexões de cliente. O valor padrão é 8080.  | Não  |
-| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Presto. <br/>Os valores permitidos são: **Anônimo**, **LDAP** | SIM |
+| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Presto. <br/>Valores permitidos são: **Anônimo**, **LDAP** | SIM |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor do Presto.  | Não  |
 | Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
@@ -88,7 +88,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do Presto:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Presto.
 
-Para copiar dados do Presto, defina a propriedade type do conjunto de dados como **PrestoObject**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
+Para copiar dados do Presto, defina a propriedade type do conjunto de dados como **PrestoObject**. Há suporte para as seguintes propriedades:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **PrestoObject** | SIM |
+| tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -100,7 +105,8 @@ Para copiar dados do Presto, defina a propriedade type do conjunto de dados como
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -109,14 +115,14 @@ Para copiar dados do Presto, defina a propriedade type do conjunto de dados como
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela origem do Presto.
 
-### <a name="prestosource-as-source"></a>PrestoSource como origem
+### <a name="presto-as-source"></a>Presto como fonte
 
 Para copiar dados do Presto, defina o tipo de fonte na atividade de cópia como **PrestoSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PrestoSource** | SIM |
-| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | SIM |
+| query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
 

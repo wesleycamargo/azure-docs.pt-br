@@ -1,5 +1,5 @@
 ---
-title: Configure o modo de transporte IPsec para hosts do Windows – emparelhamento privado do ExpressRoute do Azure | Microsoft Docs
+title: 'Configurar o modo de transporte IPsec para hosts do Windows – emparelhamento particular: ExpressRoute: Azure | Microsoft Docs'
 description: Como habilitar o modo de transporte IPsec entre as VMs do Windows do Azure e os hosts do Windows local usando GPOs e UOs de emparelhamento privado do ExpressRoute.
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394308"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139106"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurar o modo de transporte IPsec para emparelhamento privado do ExpressRoute
 
@@ -42,17 +43,17 @@ Este diagrama mostra os túneis de IPsec em trânsito no emparelhamento privado 
 ### <a name="working-with-ipsec-policy"></a>Trabalhar com a política de IPsec
 
 No Windows, a criptografia é associada à política de IPsec. A política IPsec determina qual tráfego IP é protegido e o mecanismo de segurança aplicado aos pacotes IP.
-**Políticas de IPsec** são compostas pelos seguintes itens: **Listas de Filtros**, **Ações de Filtro** e **Regras de Segurança**.
+As **políticas IPsec** são compostas dos seguintes itens: **Listas de Filtros**, **Ações de Filtros** e **Regras de Segurança**.
 
 Ao configurar a política de IPsec, é importante compreender a terminologia de política de IPsec a seguir:
 
-* **Política IPsec:** uma coleção de regras. Apenas uma política pode estar ativa ("atribuída") em um determinado momento. Cada política pode ter uma ou mais regras, podendo estar todas elas ativas simultaneamente. É possível atribuir apenas uma política de IPsec a um computador por vez. No entanto, na política de IPsec, você pode definir várias ações que podem ser executadas em situações diferentes. Cada conjunto de regras de IPsec está associado a uma lista de filtros que afeta o tipo de tráfego de rede ao qual a regra se aplica.
+* **Política IPsec:** Uma coleção de regras. Apenas uma política pode estar ativa ("atribuída") em um determinado momento. Cada política pode ter uma ou mais regras, podendo estar todas elas ativas simultaneamente. É possível atribuir apenas uma política de IPsec a um computador por vez. No entanto, na política de IPsec, você pode definir várias ações que podem ser executadas em situações diferentes. Cada conjunto de regras de IPsec está associado a uma lista de filtros que afeta o tipo de tráfego de rede ao qual a regra se aplica.
 
-* **Listas de filtros:** são listas de filtros de pacote de um ou mais filtros. Uma lista pode conter vários filtros. O filtro define se a comunicação é permitida, protegida ou bloqueada, de acordo com os intervalos de endereços IP, protocolos ou mesmo portas de protocolo específicas. Cada filtro corresponde a um determinado conjunto de condições. Por exemplo, os pacotes enviados de uma sub-rede específica a um computador específico em uma porta de destino específica. Quando as condições de rede correspondem a um ou mais desses filtros, a lista de filtros é ativada. Cada filtro é definido dentro de uma lista de filtros específica. Filtros não podem ser compartilhados entre as listas de filtro. No entanto, uma lista de filtro fornecidos pode ser incorporada em várias políticas de IPsec. 
+* **Listas de Filtros:** São pacotes de um ou mais filtros. Uma lista pode conter vários filtros. O filtro define se a comunicação é permitida, protegida ou bloqueada, de acordo com os intervalos de endereços IP, protocolos ou mesmo portas de protocolo específicas. Cada filtro corresponde a um determinado conjunto de condições. Por exemplo, os pacotes enviados de uma sub-rede específica a um computador específico em uma porta de destino específica. Quando as condições de rede correspondem a um ou mais desses filtros, a lista de filtros é ativada. Cada filtro é definido dentro de uma lista de filtros específica. Filtros não podem ser compartilhados entre as listas de filtro. No entanto, uma lista de filtro fornecidos pode ser incorporada em várias políticas de IPsec. 
 
-* **Ações de filtro:** um método de segurança define um conjunto de algoritmos de segurança, protocolos e chaves que um computador oferece durante as negociações de IKE. Ações de filtro são listas de métodos de segurança, classificados em ordem de preferência.  Quando um computador negocia uma sessão IPsec, ela aceita ou envia propostas com base na configuração de segurança armazenada na lista de ações de filtro.
+* **Ações de Filtros:** Um método de segurança define um conjunto de algoritmos de segurança, protocolos e chaves que um computador oferece durante as negociações de IKE. Ações de filtro são listas de métodos de segurança, classificados em ordem de preferência.  Quando um computador negocia uma sessão IPsec, ela aceita ou envia propostas com base na configuração de segurança armazenada na lista de ações de filtro.
 
-* **Regras de segurança:** regras que controlam como e quando uma política de IPsec protege a comunicação. Usa **lista de filtros** e **ações de filtro** para criar uma regra de IPsec para criar a conexão IPsec. Cada política pode ter uma ou mais regras, podendo estar todas elas ativas simultaneamente. Cada regra contém uma lista de filtros IP e uma coleção de ações de segurança que ocorrem mediante a correspondência com essa lista de filtros:
+* **Regras de segurança:** Controlam como e quando uma política IPsec protege a comunicação. Usa **lista de filtros** e **ações de filtro** para criar uma regra de IPsec para criar a conexão IPsec. Cada política pode ter uma ou mais regras, podendo estar todas elas ativas simultaneamente. Cada regra contém uma lista de filtros IP e uma coleção de ações de segurança que ocorrem mediante a correspondência com essa lista de filtros:
   * Ações de Filtro IP
   * Métodos de autenticação
   * Configurações de túnel IP
@@ -92,7 +93,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 * **Nome de Domínio:** ipsectest.com
 
-* **UO:** IPSecOU
+* **OU:** IPSecOU
 
 * **Computador do Windows local:** host1
 
@@ -169,7 +170,7 @@ Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a por
 5. Especifique **Sub-rede ou Endereço IP:** do endereço de origem do tráfego IP e clique em **Avançar**.
 
   [![28]][28]
-6. Especifique a Sub-rede ou o Endereço IP do **Endereço de destino:**. Em seguida, clique em **Avançar**.
+6. Especifique o **Endereço de destino:** Endereço IP ou Sub-rede. Em seguida, clique em **Avançar**.
 
   [![29]][29]
 7. Na página **Tipo de Protocolo IP**, selecione **TCP**. Em seguida, clique em **Avançar**.
@@ -251,7 +252,7 @@ Adicione à política de IPsec a **Lista de Filtros IP** e a **Ação de Filtro*
 6. Selecione a Ação de Filtro **myEncryption** existente que você criou anteriormente.
 
   [![46]][46]
-7. O Windows dá suporte a quatro tipos distintos de autenticações: Kerberos, certificados, NTLMv2 e chave pré-compartilhada. Como estamos trabalhando com hosts adicionados a domínio, selecione **Padrão do Active Directory (protocolo Kerberos V5)** e, em seguida, clique em **Avançar**.
+7. O Windows é compatível com quatro tipos diferentes de autenticações: Kerberos, certificados, NTLMv2 e chave pré-compartilhada. Como estamos trabalhando com hosts adicionados a domínio, selecione **Padrão do Active Directory (protocolo Kerberos V5)** e, em seguida, clique em **Avançar**.
 
   [![47]][47]
 8. A nova política cria a regra de segurança: **azure-onpremises-HTTP8080**. Clique em **OK**.

@@ -1,11 +1,12 @@
 ---
 title: Usar a Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica – Azure | Microsoft Docs
-description: Como usar uma Máquina Virtual de IA Geográfica no Azure.
+description: Saiba como usar a Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica para analisar dados e criar modelos com base em dados geoespaciais.
 keywords: aprendizado profundo, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise Geoespacial
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408030"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409999"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Usar a Máquina Virtual de Ciência de Dados de Inteligência Artificial Geográfica
 
@@ -42,11 +43,11 @@ A ponte de R para ArcGIS é instalada como uma biblioteca R chamada [arcgisbindi
 Além das amostras baseadas em ML e estrutura de aprendizado profundo da Máquina Virtual de Ciência de dados, um conjunto de amostras geoespacial também é fornecido como parte da Máquina Virtual de Ciência de Dados de IA Geográfica. Esses exemplos podem ajudar a impulsionar o desenvolvimento de aplicativos da IA usando dados geoespaciais e o software do ArcGIS. 
 
 
-1. [Iniciando as análises geoespaciais com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): uma amostra introdutória mostrando como trabalhar com dados geoespaciais usando a interface do Python para ArcGIS fornecidos à biblioteca [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm). Também mostra como você pode combinar a máquina tradicional de aprendizado com dados geoespaciais e visualizar o resultado em um mapa no ArcGIS. 
+1. [Introdução a análises geoespaciais com Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Uma amostra introdutória mostrando como trabalhar com os dados geoespaciais usando a interface do Python para ArcGIS fornecidos pela biblioteca [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm). Também mostra como você pode combinar a máquina tradicional de aprendizado com dados geoespaciais e visualizar o resultado em um mapa no ArcGIS. 
 
-2. [Iniciando as análises geoespaciais com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): uma amostra introdutória mostrando como trabalhar com dados geoespaciais usando a interface do Python para ArcGIS fornecidos à biblioteca [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
+2. [Introdução a análises geoespaciais com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Uma amostra introdutória mostrando como trabalhar com os dados geoespaciais usando a interface do R para ArcGIS fornecidos pela biblioteca [arcgisbinding](https://github.com/R-ArcGIS/r-bridge). 
 
-3. [Classificação do uso de terra em nível de pixel](https://github.com/Azure/pixel_level_land_classification): um tutorial que mostra como criar um modelo de rede neural profundo que aceita uma imagem aérea como entrada e retorna um rótulo de cobertura de terra. Exemplos de rótulos de cobertura de terra são "floresta" ou "água". O modelo retorna um rótulo para cada pixel da imagem. O modelo é criado usando a estrutura de aprendizado profundo [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) de código aberto da Microsoft. O exemplo também mostra como escalar horizontalmente o treinamento da [IA do Lote do Azure](https://docs.microsoft.com/azure/batch-ai/) e consumir as previsões do modelo no software ArcGIS Pro. 
+3. [Classificação de uso de terra em nível de pixel](https://github.com/Azure/pixel_level_land_classification): Um tutorial que mostra como criar um modelo de rede neural profunda que aceita uma imagem aérea como entrada e retorna um rótulo de cobertura de terra. Exemplos de rótulos de cobertura de terra são "floresta" ou "água". O modelo retorna um rótulo para cada pixel da imagem. O modelo é criado usando a estrutura de aprendizado profundo [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) de código aberto da Microsoft. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

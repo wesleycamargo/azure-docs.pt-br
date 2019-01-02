@@ -1,21 +1,19 @@
 ---
-title: 'Padrão de design do Azure Cosmos DB: Aplicativos de mídia social | Microsoft Docs'
+title: 'Padrão de design do Azure Cosmos DB: Aplicativos de mídia social'
 description: Saiba mais sobre um padrão de design para Redes Sociais, aproveitando a flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure.
 keywords: aplicativos de mídia social
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165672"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083964"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 
@@ -49,14 +47,14 @@ Este artigo orienta você na modelagem de dados de sua plataforma social com o b
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -208,15 +206,15 @@ Para obter mais informações sobre o Azure Search, visite o [Hitchhiker’s Gui
 
 ## <a name="the-underlying-knowledge"></a>O conhecimento subjacente
 
-Depois de armazenar todo esse conteúdo que aumenta a cada dia, talvez você comece a pensar: o que posso fazer com todo esse fluxo de informações de meus usuários?
+Depois de armazenar esse conteúdo que aumenta todos os dias, você pode se perguntar: O que posso fazer com todo esse fluxo de informações de meus usuários?
 
-A resposta é simples: colocá-lo em prática e aprender com ele.
+A resposta é simples: colocá-lo para trabalhar e aprender com ele.
 
 Mas o que você pode aprender? Alguns exemplos simples incluem a [análise de sentimento](https://en.wikipedia.org/wiki/Sentiment_analysis), recomendações de conteúdo de acordo com as preferências de um usuário ou, até mesmo, um moderador de conteúdo automatizado que garante que todo o conteúdo publicado pela sua rede social é seguro para a família.
 
 Agora que prendi a atenção de vocês, é provável que achem que é preciso contratar um PhD em ciência matemática para extrair esses padrões e essas informações de arquivos e bancos de dados simples, mas esse não é o caso.
 
-O [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço de nuvem totalmente gerenciado que permite a criação de fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", a codificação de seus próprios algoritmos em [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou o uso de algumas das APIs já criadas e prontas para uso, como: [Análise de Texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content Moderator ou [Recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
+O [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parte do [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), é um serviço de nuvem totalmente gerenciado que permite a criação de fluxos de trabalho usando algoritmos em uma interface simples do tipo "arrastar e soltar", a codificação de seus próprios algoritmos em [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) ou o uso de algumas das APIs já criadas e prontas para uso, como: [Análise de Texto](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator ou [Recomendações](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Para obter qualquer um desses cenários de Machine Learning, você pode usar [do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para receber as informações de fontes diferentes. Você também pode usar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para processar as informações e gerar uma saída que pode ser processada pelo Azure Machine Learning.
 

@@ -1,20 +1,19 @@
 ---
-title: Usando a biblioteca de Java do executor em massa para executar a importação em massa e atualizar as operações no Azure Cosmos DB | Microsoft Docs
+title: Usar a biblioteca de Java do executor em massa para executar a importação em massa e atualizar as operações no Azure Cosmos DB
 description: Importação em massa e atualizar documentos do Azure Cosmos DB usando a biblioteca do Java de executor em massa.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e91984281350e9ea0a5f3411c39d29dfd6420529
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420032"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080904"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
@@ -33,7 +32,7 @@ Atualmente, a biblioteca do executor em massa é suportada apenas pelas contas d
 
   - Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 
-* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)  
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um armazenamento binário [Maven](https://maven.apache.org/)  
   
   - No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 

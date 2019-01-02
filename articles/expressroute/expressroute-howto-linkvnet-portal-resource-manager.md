@@ -1,26 +1,19 @@
 ---
-title: 'Vincular uma rede virtual a um circuito ExpressRoute: portal do Azure | Microsoft Docs'
+title: 'Vincular uma rede virtual a um circuito – ExpressRoute: Portal do Azure | Microsoft Docs'
 description: Conecte uma VNet a um Circuito do Microsoft Azure ExpressRoute. Etapas de instruções.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47c0db66889dae5d74e2fcf46a27ec1397930e53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256775"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438822"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conectar uma rede virtual a um circuito ExpressRoute usando o portal
 > [!div class="op_single_selector"]
@@ -77,7 +70,7 @@ Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A
 
 - Cada uma das nuvens menores dentro da nuvem grande é usada para representar assinaturas pertencentes a diferentes departamentos dentro de uma organização.
 - Cada um dos departamentos dentro da organização pode usar sua própria assinatura para implantar seus serviços, mas pode compartilhar um único circuito do ExpressRoute para se conectar de volta à respectiva rede local.
-- Um único departamento (neste exemplo: TI) pode ter o circuito do ExpressRoute. Outras assinaturas na organização podem usar o circuito do ExpressRoute e as autorizações associadas ao circuito, incluindo as assinaturas vinculadas a outros locatários do Azure Active Directory e os registros do Contrato Enterprise.
+- Um único departamento (neste exemplo: TI) pode ser proprietário do circuito do ExpressRoute. Outras assinaturas na organização podem usar o circuito do ExpressRoute e as autorizações associadas ao circuito, incluindo as assinaturas vinculadas a outros locatários do Azure Active Directory e os registros do Contrato Enterprise.
 
   > [!NOTE]
   > As cobranças por conectividade e largura de banda do circuito dedicado serão aplicadas ao proprietário do circuito do ExpressRoute. Todas as redes virtuais compartilham a mesma largura de banda.
@@ -95,6 +88,10 @@ O proprietário do circuito tem a capacidade de modificar e revogar autorizaçõ
 **Criar uma autorização de conexão**
 
 O proprietário do circuito cria uma autorização. Isso resulta na criação de uma chave de autorização que pode ser usada por um usuário do circuito para conectar seus gateways de rede virtual ao circuito do ExpressRoute. Uma autorização é válida apenas para uma conexão.
+
+> [!NOTE]
+> Cada conexão requer uma autorização separada.
+>
 
 1. Na página ExpressRoute, clique em **Autorizações** e, em seguida, digite um **nome** para a autorização e clique em **Salvar**.
 

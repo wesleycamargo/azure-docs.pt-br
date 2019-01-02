@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6e9d44c4b64e41b04c40d0c511a638e539752da4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 213bf0cc063fa1f756a6baeacc47aadec0857a7c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435019"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270511"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configurar alertas de integridade do serviço com o OpsGenie
 
@@ -48,15 +48,15 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Criar um alerta usando o OpsGenie no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga as etapas 1 a 8 de [Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Siga as etapas 1 a 8 de [Criar um alerta em uma notificação de integridade do serviço para um novo grupo de ação usando o portal do Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Defina na lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do OpsGenie salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do OpsGenie salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a criação do alerta.
 
@@ -69,16 +69,16 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 1. Adicione à lista de **Ações**:
 
-    a. **Tipo de Ação:** *Webhook*
+     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** a **URL de Integração** do OpsGenie salva anteriormente.
+    b. **Detalhes:** A **URL de Integração** do OpsGenie salva anteriormente.
 
-    c. **Nome:** o nome, alias ou identificador do webhook.
+    c. **Nome:** Nome, alias ou identificador do webhook.
 
 1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
-1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie uma solicitação HTTP POST, da seguinte maneira:
 
@@ -95,6 +95,6 @@ Este artigo mostra como configurar alertas de integridade do serviço do Azure c
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).
-- Examine o [esquema do webhook de alertas de log de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Examine o [esquema do webhook de alertas de log de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre as [notificações de integridade do serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

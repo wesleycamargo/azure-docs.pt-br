@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981874"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435320"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
@@ -26,7 +26,7 @@ Para colaborar com usuários de organizações parceiras por meio de colaboraç�
 
 ## <a name="redemption-through-a-direct-link"></a>Resgate por meio de um link direto
 
-Um emissor do convite pode convidar um usuário enviando um link direto para um aplicativo compartilhado. Para o usuário convidado, a experiência de resgate é simples: basta entrar no aplicativo que foi compartilhado com ele. Os usuários convidados podem clicar em um link para o aplicativo, analisar e aceitar os termos de privacidade e acessar diretamente o aplicativo. Na maioria dos casos, os usuários convidados não precisam mais clicar em uma URL de resgate em um email de convite.
+Um emissor do convite pode convidar um usuário convidado enviando um [link direto para um aplicativo compartilhado](../manage-apps/end-user-experiences.md#direct-sign-on-links). Para o usuário convidado, a experiência de resgate é simples: basta entrar no aplicativo que foi compartilhado com ele. Os usuários convidados podem clicar em um link para o aplicativo, analisar e aceitar os termos de privacidade e acessar diretamente o aplicativo. Na maioria dos casos, os usuários convidados não precisam mais clicar em uma URL de resgate em um email de convite.
 
 Se você convidou usuários por meio da interface do usuário, ou optou por enviar o email de convite como parte da experiência de convite do PowerShell, o usuário convidado ainda recebe um email de convite. Este email é útil para seguintes casos especiais:
 
@@ -49,9 +49,15 @@ Se o usuário for convidado por meio de um método que envia um email de convite
 
 Depois que qualquer usuário convidado fizer logon para acessar os recursos em uma organização parceira pela primeira vez, surgirá a tela **Revisar permissões**. Nela, eles podem analisar a declaração de privacidade da organização que convida. Um usuário deve aceitar o uso de suas informações de acordo com as políticas de privacidade da organização que convida para continuar.
 
-![Captura de tela mostrando as configurações do usuário no painel de acesso](media/redemption-experience/ConsentScreen.png) 
+![Captura de tela mostrando as configurações do usuário no Painel de Acesso](media/redemption-experience/ConsentScreen.png) 
 
-Para obter informações sobre como você, administrador de locatários, pode vincular a declaração de privacidade da sua organização, consulte [Como adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
+Para obter informações sobre como você, como administrador de locatários, pode fornecer um link para a política de privacidade de sua organização, confira [Como: Adicionar informações de privacidade de sua organização ao Azure Active Directory](https://aka.ms/adprivacystatement).
+
+## <a name="terms-of-use"></a>Termos de uso
+
+Você pode apresentar termos de uso para o usuário convidado durante o processo de resgate inicial usando o recurso Termos de uso do Azure AD. No Azure Active Directory, acesse esse recurso em **Gerenciar** > **Relações organizacionais** > **Termos de uso** ou em **Segurança** > **Acesso Condicional** > **Termos de uso**. Para obter detalhes, confira [Recurso Termos de uso do Azure AD](../governance/active-directory-tou.md).
+
+![Captura de tela mostrando os novos termos de uso](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

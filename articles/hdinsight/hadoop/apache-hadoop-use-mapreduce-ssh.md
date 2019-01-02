@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bce79aed49b94071b4e83524de2d599fca182256
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632519"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438558"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Use o MapReduce com o Apache Hadoop no HDInsight com SSH
 
@@ -63,7 +63,7 @@ Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDIns
     Esse comando inicia a classe `wordcount`, que está contida no arquivo `hadoop-mapreduce-examples.jar`. Ele usa o documento `/example/data/gutenberg/davinci.txt` como entrada e a saída é armazenada em `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Para saber mais sobre esse trabalho MapReduce e os dados de exemplo, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
+    > Para saber mais sobre esse trabalho MapReduce e os dados de exemplo, confira [Usar o MapReduce no Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 2. O trabalho emite detalhes conforme é processado, retornando informações semelhantes ao texto a seguir quando é concluído:
 
@@ -80,7 +80,7 @@ Para saber mais sobre como usar o SSH com HDInsight, confira [Usar SSH com HDIns
 
     Esse comando exibe dois arquivos, `_SUCCESS` e `part-r-00000`. O arquivo `part-r-00000` contém a saída para esse trabalho.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Alguns trabalhos MapReduce podem dividir os resultados em vários arquivos **part-r-#####** . Nesse caso, use o sufixo ##### para indicar a ordem dos arquivos.
 
 4. Para exibir a saída, use o comando a seguir:
@@ -111,5 +111,5 @@ Para obter informações gerais sobre trabalhos de MapReduce no HDInsight:
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)

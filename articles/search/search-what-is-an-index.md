@@ -1,6 +1,6 @@
 ---
-title: Índices na Azure Search | Microsoft Docs
-description: Saiba mais sobre conceitos de índice no Azure Search e como os índices são usados.
+title: Definição e conceitos de índice – Azure Search
+description: Introdução aos conceitos de índice no Azure Search e como os índices são usados.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793395"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317059"
 ---
 # <a name="indexes-in-azure-search"></a>Índices no Azure Search
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ Quando você adiciona/carrega documentos e envia consultas de pesquisa para o Az
 Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 ### <a name="field-types"></a>Tipos de campo
-| type | DESCRIÇÃO |
+| Tipo | DESCRIÇÃO |
 | --- | --- |
 | *Edm.String* |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação etc). |
 | *Collection(Edm.String)* |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |

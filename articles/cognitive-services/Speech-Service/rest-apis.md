@@ -1,5 +1,5 @@
 ---
-title: APIs REST de serviço de fala - serviço de Fala
+title: APIs REST dos Serviços de Fala – Serviços de Fala
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar as APIs REST de fala para texto e text-to-speech. Neste artigo, você aprenderá sobre opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584852"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338883"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST de serviço de fala
 
@@ -33,7 +34,7 @@ Cada solicitação para a API REST de fala para texto ou texto para voz requer u
 | Cabeçalhos de autorização suportados | Conversão de fala em texto | Conversão de texto em fala |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | SIM | Não  |
-| Autorização: portador | SIM | SIM |
+| Autorização: Portador | SIM | SIM |
 
 Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo: 
 
@@ -321,9 +322,20 @@ A transferência em partes (`Transfer-Encoding: chunked`) pode ajudar a reduzir 
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um objeto HTTPWebRequest conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -384,7 +396,7 @@ Cada objeto no `NBest` lista inclui:
 
 ### <a name="sample-responses"></a>Respostas de exemplo
 
-Essa é uma resposta típica para o reconhecimento `simple`.
+Essa é uma resposta típica para o reconhecimento`simple`.
 
 ```json
 {
@@ -423,20 +435,10 @@ Essa é uma resposta típica para o reconhecimento`detailed`.
 
 ## <a name="text-to-speech-api"></a>API de texto em fala
 
-Essas regiões são suportadas para text-to-speech usando a API REST. Certifique-se de selecionar o terminal que corresponde à sua região de assinatura.
+A API REST de conversão de texto em fala é compatível com vozes neurais e padrão de conversão de texto em fala, cada uma delas compatível com um idioma e dialeto específicos, identificados pela localidade.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-O serviço de fala oferece suporte a saída de áudio de 24 kHz, juntamente com as saídas de 16 Khz que foram suportadas pela Fala do Bing. Quatro formatos de saída de 24 kHz e duas vozes de 24 kHz são suportados.
-
-### <a name="voices"></a>Vozes
-
-| Local | Linguagem   | Gênero | Mapeamento |
-|--------|------------|--------|---------|
-| en-US  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)" |
-| en-US  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft Server (en-US, Guy24kRUS)" |
-
-Uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
+* Para obter uma lista completa de vozes, consulte [suporte para idioma](language-support.md#text-to-speech).
+* Para obter informações sobre a disponibilidade regional, consulte [regiões](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
 
@@ -451,7 +453,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
-Esta é uma lista de formatos de áudio suportados que são enviados em cada solicitação como o cabeçalho `X-Microsoft-OutputFormat`. Cada um incorpora um tipo de taxa de bits e codificação.
+Esta é uma lista de formatos de áudio suportados que são enviados em cada solicitação como o cabeçalho `X-Microsoft-OutputFormat`. Cada um incorpora um tipo de taxa de bits e codificação. O Serviço de Fala dá suporte a saídas de áudio de 24 e 16 KHz.
 
 |||
 |-|-|

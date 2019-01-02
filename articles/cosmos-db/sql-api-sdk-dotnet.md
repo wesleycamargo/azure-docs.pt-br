@@ -1,10 +1,7 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET API, SDK e recursos| Microsoft Docs'
+title: 'O Azure Cosmos DB: API, SDK e recursos .NET SQL'
 description: Saiba tudo sobre o SDK e a API do .NET do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do .NET do Azure Cosmos DB.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162799"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337930"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: download e notas de versão
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB para a API do SQL: Downloads e notas sobre a versão
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +27,7 @@ ms.locfileid: "52162799"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,6 +47,24 @@ ms.locfileid: "52162799"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Versão prévia 1 da [Versão 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) do SDK do .NET para a versão prévia pública.
+* O destino é o .NET Standard, que dá suporte ao .NET Framework 4.6.1+ e ao .NET Core 2.0 ou posterior
+* Novo modelo de objeto, com CosmosClient de nível superior e métodos divididos entre as classes CosmosDatabases, CosmosContainers e CosmosItems. 
+* Suporte para fluxos. 
+* CosmosResponseMessage atualizado do servidor para retornar o código de status e, em seguida, lançar a exceção apenas quando nenhuma resposta for retornada. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Para o diagnóstico de transporte direto/TCP, adicionado TransportException, um tipo de exceção interna do SDK. Quando presente nas mensagens de exceção, esse tipo imprime informações adicionais para solução de problemas de conectividade do cliente.
+
+* Adicionada nova sobrecarga de construtor que usa um HttpMessageHandler, uma pilha de manipulador HTTP a ser usada para enviar solicitações HttpClient (por exemplo, HttpClientHandler).
+
+* Correção de bug em que cabeçalhos com valores nulos não eram tratados corretamente.
+
+* Aprimorada a validação de cache da coleção.
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * Atualizado System.Net.Security para 4.3.2.
@@ -101,7 +116,7 @@ ms.locfileid: "52162799"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* Correção do bug que ocorria em determinadas condições de corrida, que resultava em erros intermitentes “Microsoft.Azure.Documents.NotFoundException: a sessão de leitura não está disponível para o token de sessão de entrada” ao usar o nível de consistência de sessão.
+* Corrigido um bug que ocorre em determinadas condições de corrida, que resulta em erros "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" intermitentes ao usar o nível de consistência de sessão.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -225,7 +240,7 @@ ms.locfileid: "52162799"
 * Foi corrigido um problema que causava um cabeçalho de chave de partição malformado ao usar um objeto JsonSerializerSettings personalizado para serialização de dados.
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* Foi corrigido um problema que fazia com que consultas de execução longa falhassem com o erro: o token de autorização não é válido no momento.
+* Corrigido um problema que causou falha em consultas de longa execução com o erro: Token de autorização não é válido no momento atual.
 * Foi corrigido um problema que removia o SqlParameterCollection original de consultas superiores/ordenar por entre partições.
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -260,7 +275,7 @@ ms.locfileid: "52162799"
 * Implementação de [coleções particionadas](partition-data.md) e [níveis de desempenho definidos pelo usuário](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Corrigido]** Consultar o ponto de extremidade do Azure Cosmos DB gera: “System.Net.Http.HttpRequestException: erro ao copiar o conteúdo para um fluxo”.
+* **[Corrigido]** A consulta do ponto de extremidade do Azure Cosmos DB gera: 'System.Net.Http.HttpRequestException: Erro ao copiar o conteúdo para um fluxo'.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Expansão do suporte do LINQ, incluindo novos operadores para paginação, expressões condicionais e comparação de intervalo.
@@ -335,6 +350,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 de dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de outubro de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de setembro de 2018 |--- |

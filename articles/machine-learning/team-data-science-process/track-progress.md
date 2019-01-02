@@ -1,6 +1,6 @@
 ---
-title: Execução de projetos de ciência de dados – Azure Machine Learning | Microsoft Docs
-description: Como um cientista de dados pode acompanhar o progresso de um projeto de ciência de dados.
+title: Acompanhar o andamento de projetos de ciência de dados – processo de ciência de dados da equipe
+description: Como os gerentes de grupos de ciência de dados, líderes de equipe e líderes de projeto podem acompanhar o progresso de um projeto de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134294"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Controlar o progresso de projetos de ciência de dados
+# <a name="tracking-the-progress-of-data-science-projects"></a>Acompanhar o progresso de projetos de ciência de dados
 
 Os gerentes de grupos de Ciência de Dados, líderes de equipe e líderes de projeto precisam acompanhar o progresso de seus projetos, o trabalho que foi feito neles e por quem e o que permaneceu na lista de tarefas pendentes. 
 
@@ -39,7 +39,7 @@ Aqui está um painel de exemplo simples que é criado para acompanhar as ativida
 
 Os painéis restantes mostram o diagrama de fluxo cumulativo (CFD), o burndown e o burnup para um projeto:
 
-- **Inferior esquerdo**: CFD a quantidade de trabalho em um determinado estado, mostrando os aprovados em cinza, os confirmados em azul e os concluídos em verde.
+- **Inferior esquerdo**:  CFD da quantidade de trabalho em um determinado estado, mostrando os aprovados em cinza, os confirmados em azul e os concluídos em verde.
 - **Superior direito**: gráfico de burndown o trabalho que resta concluir versus o tento restante).
 - **Inferior direito**: gráfico de burnup o trabalho concluído versus a quantidade total de trabalho.
 

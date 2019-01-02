@@ -4,25 +4,25 @@ description: Saiba como solucionar problemas do agente de Gerenciamento de Atual
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335139"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434759"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Reconheça os resultados da verificação de agente do Windows no Gerenciamento de Atualizações
 
-Há muitos motivos pelos quais uma máquina do Azure pode não mostrar um status **Pronto** no Gerenciamento de Atualizações do Azure. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente do Hybrid Worker para determinar o problema subjacente. Este artigo descreve como executar a solução de problemas do Gerenciamento de Atualizações no portal do Azure e em cenários offline.
+Pode haver vários motivos pelos quais o computador não mostra o status **Pronto** no Gerenciamento de Atualizações. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Worker para determinar o problema subjacente. Este artigo descreve como executar a solução de problemas em computadores do Azure no portal do Azure e em computadores não Azure no [cenário offline](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
-No portal do Azure, a página **Solução de problemas do Agente de Atualização** exibe problemas com o agente. Na página, há um link para este artigo para ajudar você a solucionar problemas. Para ir para a página **Solução de problemas do Agente de atualização**, selecione o link **solucionar problemas** na coluna **Preparar o agente de atualização**.
+Para computadores do Azure, ao clicar no link **Solução de Problemas** na coluna **Preparação do Agente de Atualização** no portal, a página **Solucionar Problemas do Agente de Atualização** será iniciada. Para computadores não Azure, o link levará você para este artigo. Confira as [instruções offline](#troubleshoot-offline) para solucionar problemas de um computador não Azure.
 
 ![Atualizar lista de gerenciamento de máquinas virtuais](../media/update-agent-issues/vm-list.png)
 
@@ -83,7 +83,7 @@ Essa verificação determina se `HealthService`, o Microsoft Monitoring Agent, e
 
 Para saber mais sobre a solução de problemas do serviço, confira [O Microsoft Monitoring Agent não está em execução](hybrid-runbook-worker.md#mma-not-running).
 
-Para reinstalar o Microsoft Monitoring Agent, consulte [Instalar e configurar o Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para reinstalar o Microsoft Monitoring Agent, consulte [Instalar e configurar o Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Monitoramento de eventos de serviço de agente
 
@@ -97,7 +97,7 @@ Para saber mais sobre esse evento, confira o [guia de solução de problemas](hy
 
 A verificação de acesso à pasta Crypto determina se a conta do sistema local tem acesso a C:\ProgramData\Microsoft\Crypto\RSA.
 
-## <a name="troubleshoot-offline"></a>Solução de problemas offline
+## <a name="troubleshoot-offline"></a>Solucionar problemas offline
 
 Você pode usar o solucionador de problemas em um Hybrid Runbook Worker offline, executando o script localmente. Você pode obter o script [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration), na Galeria do PowerShell. A saída deste script se parece com o seguinte exemplo:
 

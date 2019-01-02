@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0890ce0342024229b99d92a2eddba5b49cc59595
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1410d61fed2dc98f5fa657541c3863e09b803166
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633930"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321776"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Dimensionar clusters do Azure Service Fabric
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -30,7 +30,7 @@ Por quê dimensionar o cluster? As demandas de aplicativos alteram ao longo do t
 Altera o número de nós no cluster.  Quando os novos nós unem-se ao cluster, o [Gerenciador de Recursos de Cluster](service-fabric-cluster-resource-manager-introduction.md) move os serviços para eles, o que reduz a carga nos nós existentes.  Também será possível diminuir o número de nós, se os recursos de cluster não estiverem sendo utilizados eficientemente.  Conforme os nós saem do cluster, os serviços são removidos desses nós e a carga aumenta nos nós restantes.  Reduzir o número de nós em um cluster em execução no Azure ajuda a economizar dinheiro, já que você paga pelo número de VMs utilizadas e não pela carga de trabalho nessas VMs.  
 
 - Vantagens: escala infinita, em teoria.  Se o aplicativo for projetado para escalabilidade, será possível habilitar o crescimento ilimitado adicionando mais nós.  As ferramentas em ambientes de nuvem facilitam a adição ou a remoção de nós, por isso é fácil ajustar a capacidade e você paga apenas pelos recursos que usa.  
-- Desvantagens: os aplicativos devem ser [projetados para escalabilidade](service-fabric-concepts-scalability.md).  Bancos de dados de aplicativos e persistência podem exigir trabalho de arquitetura adicional também para dimensionar.  As [Coleções confiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços com estado do Service Fabric, no entanto, facilitam muito dimensionar os dados de aplicativos.
+- As desvantagens: os aplicativos devem ser [projetados para escalabilidade](service-fabric-concepts-scalability.md).  Bancos de dados de aplicativos e persistência podem exigir trabalho de arquitetura adicional também para dimensionar.  As [Coleções confiáveis](service-fabric-reliable-services-reliable-collections.md) nos serviços com estado do Service Fabric, no entanto, facilitam muito dimensionar os dados de aplicativos.
 
 Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. 
 
@@ -50,7 +50,7 @@ Em muitos cenários, [Dimensionar um cluster manualmente ou com regras de autoes
 - O dimensionamento manual requer que você faça logon e solicite as operações de dimensionamento explicitamente. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
 - Quando as regras de dimensionamento automático removem uma instância de um conjunto de dimensionamento de máquinas virtuais, elas não removem o conhecimento do nó do cluster do Service Fabric associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Como as regras de dimensionamento automático funcionam no nível do conjunto de dimensionamento (em vez do nível do Service Fabric), elas podem remover nós do Service Fabric sem desligá-lo normalmente. Essa remoção de nó sem maiores cuidados deixará um estado do nó do Service Fabric “fantasma” de rastro após as operações de redução horizontal. Uma pessoa (ou um serviço) precisaria limpar periodicamente o estado do nó removido no cluster do Service Fabric.
 - Um tipo de nó com um nível de durabilidade de Ouro ou Prata limpa automaticamente nós removidos, portanto, nenhuma limpeza adicional é necessária.
-- Embora haja [várias métricas](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) com suporte pelas regras de dimensionamento automático, o conjunto ainda é limitado. Se seu cenário exigir dimensionamento com base em alguma métrica não abordada no conjunto, as regras de dimensionamento automático podem não ser uma boa opção.
+- Embora haja [várias métricas](../azure-monitor/platform/autoscale-common-metrics.md) com suporte pelas regras de dimensionamento automático, o conjunto ainda é limitado. Se seu cenário exigir dimensionamento com base em alguma métrica não abordada no conjunto, as regras de dimensionamento automático podem não ser uma boa opção.
 
 Como você deve abordar o dimensionamento do Service Fabric depende de seu cenário. Se o dimensionamento for incomum, a capacidade de adicionar ou remover nós manualmente provavelmente será suficiente. Para cenários mais complexos, as regras de dimensionamento automático e os SDKs que expõem a capacidade de dimensionamento programático oferecem alternativas poderosas.
 
@@ -67,7 +67,7 @@ Com base nessas limitações, convém [implementar modelos de dimensionamento au
 ## <a name="scaling-up-and-down-or-vertical-scaling"></a>Escalar verticalmente e reduzir verticalmente, ou escala vertical 
 Altera os recursos (CPU, memória ou armazenamento) de nós no cluster.
 - Vantagens: a arquitetura do software e do aplicativo permanece a mesma.
-- Desvantagens: escala finita, uma vez que há um limite para o quanto você pode aumentar os recursos em nós individuais. Tempo de inatividade, pois será necessário colocar computadores físicos ou virtuais offline para adicionar ou remover recursos.
+- As desvantagens: escala finita, uma vez que há um limite para o quanto você pode aumentar os recursos em nós individuais. Tempo de inatividade, pois será necessário colocar computadores físicos ou virtuais offline para adicionar ou remover recursos.
 
 Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente.  Escalar verticalmente ou reduzir verticalmente um tipo de nó envolve alterar a SKU das instâncias de máquina virtual no conjunto de dimensionamento. 
 

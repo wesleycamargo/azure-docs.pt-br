@@ -1,5 +1,5 @@
 ---
-title: Diretivas de Chave de Conteúdo nos Serviços de Mídia do Azure | Microsoft Docs
+title: Políticas de Chave de Conteúdo nos Serviços de Mídia – Azure | Microsoft Docs
 description: Este artigo fornece uma explicação de quais são as Políticas de Chave de Conteúdo e como elas são usadas pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,18 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085943"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141519"
 ---
 # <a name="content-key-policies"></a>Políticas da Chave de Conteúdo
 
-É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
+É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados.
 
 No Azure Media Services v3, as Políticas de Chave de Conteúdo permitem que você especifique como a chave de conteúdo é entregue aos clientes finais por meio do componente Entrega de Chave dos Serviços de Mídia. Para obter mais informações, consulte [visão geral da proteção de conteúdo](content-protection-overview.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Coletar o desempenho de aplicativos do Linux no Log Analytics | Microsoft Docs
+title: Coletar o desempenho de aplicativos do Linux no Azure Monitor | Microsoft Docs
 description: Este artigo fornece detalhes para configurar o Agente do Log Analytics para Linux para coletar contadores de desempenho do MySQL e Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -8,23 +8,21 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: fe5c355054aab483a7ee8e68305473b7b840779d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336312"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434623"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Coletar contadores de desempenho para aplicativos Linux no Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Coletar contadores de desempenho para aplicativos do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Este artigo fornece detalhes para configurar o [Agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos.  Os aplicativos incluídos neste artigo são:  
+Este artigo fornece detalhes sobre como configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos nos logs do Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -116,7 +114,7 @@ Esses privilégios podem ser concedidos por meio da execução dos seguintes com
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](data-sources-windows-events.md) com os contadores na tabela a seguir.
+Depois de configurar o agente do Log Analytics para Linux para enviar dados para o Azure Monitor, você precisará configurar os contadores de desempenho a serem coletados.  Use o procedimento descrito em [Fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -152,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois que você configurar o agente do Log Analytics para Linux para enviar dados para o Log Analytics, você deverá configurar os contadores de desempenho para coletar.  Use o procedimento [Fontes de dados de desempenho do Windows e Linux no Log Analytics](data-sources-windows-events.md) com os contadores na tabela a seguir.
+Depois de configurar o agente do Log Analytics para Linux para enviar dados para o Azure Monitor, você precisará configurar os contadores de desempenho a serem coletados.  Use o procedimento descrito em [Fontes de dados de desempenho do Windows e do Linux no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela a seguir.
 
 | Nome do Objeto | Nome do contador |
 |:--|:--|
@@ -170,4 +168,4 @@ Depois que você configurar o agente do Log Analytics para Linux para enviar dad
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Coletar contadores de desempenho](data-sources-performance-counters.md) de agentes do Linux.
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 
+* Saiba mais sobre [registrar consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados coletados de fontes de dados e soluções. 

@@ -1,5 +1,5 @@
 ---
-title: Configurar um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que usa o Gerenciador de Tráfego para balanceamento de carga.
+title: Configurar nomes DNS para aplicativos que usam o Gerenciador de Tráfego – Serviço de Aplicativo do Azure
 description: Use um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure que inclua o Gerenciador de Tráfego para balanceamento de carga.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.openlocfilehash: b140ccba2b45dbfb1e4413c9fbeb12e9fec6bc8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227171"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340039"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configurando um nome de domínio personalizado para um aplicativo Web no Serviço de Aplicativo do Azure usando o Gerenciador de Tráfego
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -70,8 +71,6 @@ Depois de terminar a adição ou a modificação de registros DNS no provedor de
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://azure.microsoft.com/develop/nodejs/).
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- URL List -->
 

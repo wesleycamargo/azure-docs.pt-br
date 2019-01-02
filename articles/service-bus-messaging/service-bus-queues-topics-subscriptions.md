@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409754"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312866"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
 
@@ -32,15 +32,15 @@ A utilização de filas para intermediar entre produtores e consumidores oferece
 
 ### <a name="create-queues"></a>Criar filas
 
-Você cria filas usando o [Portal do Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md) ou [modelos do Resource Manager](service-bus-resource-manager-namespace-queue.md). Em seguida, você envia e recebe mensagens usando um objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). 
+Você cria filas usando o [Portal do Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md) ou [modelos do Resource Manager](service-bus-resource-manager-namespace-queue.md). Em seguida, você envia e recebe mensagens usando um objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient).
 
-Para aprender rapidamente como criar uma fila, enviar e receber mensagens de e para a fila, consulte os [inícios rápidos](service-bus-quickstart-portal.md) para cada método. Para um tutorial mais aprofundado sobre como usar filas, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md). 
+Para aprender rapidamente como criar uma fila, enviar e receber mensagens de e para a fila, consulte os [inícios rápidos](service-bus-quickstart-portal.md) para cada método. Para um tutorial mais aprofundado sobre como usar filas, consulte [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md).
 
 Para um exemplo de trabalho, consulte o [exemplo BasicSendReceiveUsingQueueClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) no GitHub.
 
 ### <a name="receive-modes"></a>Modos de recepção
 
-É possível especificar dois modos diferentes nos quais o Barramento de Serviço recebe mensagens: *ReceiveAndDelete* ou *PeekLock*. No modo [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), a operação de recebimento é única; ou seja, quando o Barramento de Serviço receber a solicitação, marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários em que o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem consumida antes da falha.
+Especifique dois modos diferentes nos quais o Barramento de Serviço recebe as mensagens: *ReceiveAndDelete* ou *PeekLock*. No modo [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), a operação de recebimento é única; ou seja, quando o Barramento de Serviço receber a solicitação, marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários em que o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem consumida antes da falha.
 
 No modo [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), a operação de recebimento se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e, em seguida, retorna-a para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a **CompleteAsync**, marca a mensagem como sendo consumida.
 
@@ -56,9 +56,9 @@ Por comparação, a funcionalidade de envio de mensagens de uma fila é diretame
 
 ### <a name="create-topics-and-subscriptions"></a>Criar tópicos e assinaturas
 
-A criação de um tópico é semelhante à criação de uma fila, conforme descrito na seção anterior. Em seguida, você envia mensagens usando a classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Para receber mensagens, você cria uma ou mais assinaturas para o tópico. De forma semelhante ao que acontece às filas, as mensagens são recebidas de uma assinatura usando um objeto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) em vez de um objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Crie o cliente de assinatura, passando o nome do tópico, o nome da assinatura e (opcionalmente) o modo de recebimento como parâmetros. 
+A criação de um tópico é semelhante à criação de uma fila, conforme descrito na seção anterior. Em seguida, você envia mensagens usando a classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Para receber mensagens, você cria uma ou mais assinaturas para o tópico. De forma semelhante ao que acontece às filas, as mensagens são recebidas de uma assinatura usando um objeto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) em vez de um objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Crie o cliente de assinatura, passando o nome do tópico, o nome da assinatura e (opcionalmente) o modo de recebimento como parâmetros.
 
-Para um exemplo de trabalho completo, consulte o [exemplo BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) no Github.
+Para obter um exemplo funcional completo, confira a [amostra BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) no GitHub.
 
 ### <a name="rules-and-actions"></a>Regras e ações
 
@@ -66,14 +66,14 @@ Em muitos cenários, as mensagens com características específicas precisam ser
 
 Para um exemplo de trabalho completo, consulte o [exemplo TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) no GitHub.
 
-Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction). 
+Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações e exemplos de uso do sistema de mensagens do Barramento de Serviço, consulte os tópicos avançados a seguir:
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Início rápido: Enviar e receber mensagens usando o portal do Azure e .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Início Rápido: Enviar e receber mensagens usando o portal do Azure e o .NET](service-bus-quickstart-portal.md)
+* [Tutorial: Atualizar o estoque usando o portal do Azure e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

@@ -4,14 +4,14 @@ description: Descreve como refinar uma avaliação usando o mapeamento de depend
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634295"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255254"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo usando o mapeamento de dependências de grupo
 
@@ -25,6 +25,9 @@ Este artigo descreve como refinar a um grupo visualizando as dependências de to
 ## <a name="prepare-for-dependency-visualization"></a>Preparar para visualização de dependências
 As Migrações para Azure utilizam a solução Mapa do Serviço no Log Analytics para habilitar a visualização de dependências dos computadores.
 
+> [!NOTE]
+> A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
+
 ### <a name="associate-a-log-analytics-workspace"></a>Associar um workspace do Log Analytics
 Para aproveitar a visualização de dependência, você precisa associar um workspace novo ou existente do Log Analytics a um projeto das Migrações para Azure. Você só pode criar ou anexar um workspace na mesma assinatura em que o projeto de migração é criado.
 
@@ -32,8 +35,9 @@ Para aproveitar a visualização de dependência, você precisa associar um work
 
     ![Associar o workspace do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado na mesma assinatura que o projeto de migração e em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-- A opção **Usar existente** lista apenas os workspaces criados em regiões em que o Mapa do Serviço está disponível. Se você tiver um workspace em uma região em que o Mapa do Serviço não está disponível, ele não será listado na lista suspensa.
+- Durante a associação de um workspace, haverá a opção de criar um workspace ou anexar um existente:
+    - Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
+    - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Observe que são listados somente os workspaces que foram criados em uma região [com suporte para o Mapa do Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). É necessário ser capaz de anexar a um workspace, verifique se você tem acesso de 'Leitura' no workspace.
 
 > [!NOTE]
 > Não é possível alterar o workspace associado a um projeto de migração.
@@ -63,7 +67,6 @@ Para instalar o agente em uma máquina com Linux:
 2. Instale o pacote usando o argumento --install.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
-
 
 ### <a name="install-the-dependency-agent"></a>Instalar o Agente de dependência
 1. Para instalar o Agente de dependência em uma máquina com Windows, clique duas vezes no arquivo de instalação e siga o assistente.

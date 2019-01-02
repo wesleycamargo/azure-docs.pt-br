@@ -1,21 +1,22 @@
 ---
-title: Enunciados em aplicativos do LUIS
-titleSuffix: Azure Cognitive Services
+title: Bons exemplos de declarações
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638062"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014830"
 ---
 # <a name="utterances-in-luis"></a>Enunciados em LUIS
 
@@ -55,6 +56,10 @@ Em cada iteração do modelo, não adicione uma grande quantidade de enunciados.
 O LUIS cria modelos eficazes com enunciados selecionados com cuidado. Adicionar enunciados demais não tem valor porque leva a confusão.  
 
 É melhor começar com alguns enunciados e, em seguida, [examinar enunciados de ponto de extremidade](luis-how-to-review-endoint-utt.md) para a extração de entidade e previsão de intenção corretas.
+
+## <a name="punctuation-marks"></a>Marcas de pontuação
+
+O LUIS não ignora marcas de pontuação, por padrão, porque alguns aplicativos cliente podem impor significância nessas marcas. Verifique se suas declarações de exemplo usam pontuação e nenhuma pontuação para que os dois estilos retornem as mesmas pontuações relativas. Se a pontuação não tiver significado específico em seu aplicativo cliente, considere [ignorar a pontuação](#ignoring-words-and-punctuation) usando padrões. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 Se você quiser ignorar palavras específicas ou pontuação no enunciado de exemplo, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe _ignore_. 

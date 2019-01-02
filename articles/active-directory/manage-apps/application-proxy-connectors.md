@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134957"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -47,7 +47,7 @@ O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector
 2. Reinicie o servidor
 
 
-Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-enable.md).
+Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Manutenção 
 Os conectores e o serviço cuidam de todas as tarefas de alta disponibilidade. Eles podem ser adicionados ou removidos dinamicamente. Sempre que uma nova solicitação chega, ela é roteada para um dos conectores que está disponível no momento. Se um conector estiver temporariamente indisponível, ele não responderá a esse tráfego.
@@ -64,7 +64,7 @@ Não é necessário excluir manualmente os conectores que não foram utilizados.
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
 
-O Azure AD fornece atualizações automáticas para todos conectores que você implanta. Desde que o serviço Atualizador do Conector de Proxy de Aplicativo esteja em execução, os conectores são atualizados automaticamente. Caso você não veja o serviço Atualizador do Conector no servidor, precisará [reinstalar o conector](application-proxy-enable.md) para obter todas as atualizações. 
+O Azure AD fornece atualizações automáticas para todos conectores que você implanta. Desde que o serviço Atualizador do Conector de Proxy de Aplicativo esteja em execução, os conectores são atualizados automaticamente. Caso você não veja o serviço Atualizador do Conector no servidor, precisará [reinstalar o conector](application-proxy-add-on-premises-application.md) para obter todas as atualizações. 
 
 Se você não quiser aguardar uma atualização automática chegar a seu conector, você poderá executar uma atualização manual. Vá para o [página de download do conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor em que o conector está localizado e selecione **Baixar**. Esse processo inicia uma atualização do conector local. 
 
@@ -120,9 +120,9 @@ O balanceamento de carga ocorre entre conectores de um determinado grupo de cone
 
 Outro fator que afeta o desempenho é a qualidade da rede entre os conectores, incluindo: 
 
-* **O serviço online**: conexões lentas ou de alta latência para o serviço Proxy de Aplicativo no Azure influenciam o desempenho do conector. Para obter o melhor desempenho, conecte sua organização ao Azure com o ExpressRoute. Caso contrário, faça com que a equipe de rede garanta que as conexões com o Azure são tratadas da maneira mais eficiente possível. 
-* **Os aplicativos de back-end:** em alguns casos, há outros proxies entre o conector e os aplicativos de back-end que possam retardar ou impedir as conexões. Para solucionar problemas nesse cenário, abra um navegador no servidor de conector e tente acessar o aplicativo. Se você executar os conectores no Azure, mas os aplicativos forem locais, a experiência poderá não ocorrer como esperado pelos usuários.
-* **Os controladores de domínio**: se os conectores executarem SSO usando a KCD (Delegação Restrita de Kerberos), eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Esse problema é mais comum em conectores executados no Azure, mas que se comunicam com os controladores de domínio locais. 
+* **O serviço online**: Conexões lentas ou de alta latência para o serviço Proxy de Aplicativo no Azure influenciam o desempenho do conector. Para obter o melhor desempenho, conecte sua organização ao Azure com o ExpressRoute. Caso contrário, faça com que a equipe de rede garanta que as conexões com o Azure são tratadas da maneira mais eficiente possível. 
+* **Os aplicativos de back-end**: Em alguns casos, há outros proxies entre o conector e os aplicativos de back-end que podem retardar ou impedir as conexões. Para solucionar problemas nesse cenário, abra um navegador no servidor de conector e tente acessar o aplicativo. Se você executar os conectores no Azure, mas os aplicativos forem locais, a experiência poderá não ocorrer como esperado pelos usuários.
+* **Os controladores de domínio**: Se os conectores executarem SSO usando a Delegação Restrita de Kerberos, eles contatarão os controladores de domínio antes de enviarem a solicitação ao back-end. Os conectores têm um cache de tíquetes Kerberos, mas em um ambiente ocupado, a capacidade de resposta dos controladores de domínio pode afetar o desempenho. Esse problema é mais comum em conectores executados no Azure, mas que se comunicam com os controladores de domínio locais. 
 
 Para saber mais sobre como otimizar sua rede, confira [Considerações sobre a topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory](application-proxy-network-topology.md).
 
@@ -136,7 +136,7 @@ Os conectores também podem ser ingressados em domínios ou florestas que têm u
 
 Normalmente, a implantação do conector é simples e não exige nenhuma configuração especial. No entanto, há algumas condições exclusivas que devem ser consideradas:
 
-* As organizações que limitam o tráfego de saída devem [abrir as portas necessárias](application-proxy-enable.md#open-your-ports).
+* As organizações que limitam o tráfego de saída devem [abrir as portas necessárias](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * Os computadores em conformidade com FIPS podem precisar alterar sua configuração para permitir que os processos do conector gerem e armazenem um certificado.
 * As organizações que bloqueiam o ambiente de acordo com os processos que emitem as solicitações de rede precisam ter certeza de que os serviços do conector estão habilitados para acessar todas as portas e IPs necessários.
 * Em alguns casos, os proxies de encaminhamento de saída podem interromper a autenticação de certificado bidirecional e causar falha na comunicação.

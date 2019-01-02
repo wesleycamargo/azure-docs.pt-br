@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288638"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435677"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Oracle Azure para carga de trabalho do SAP
 
@@ -321,13 +321,13 @@ As seguintes notas SAP estão relacionadas ao SAP no Azure em relação à área
 
 | Número da observação | Title |
 | --- | --- |
-| [1928533] |Aplicativos SAP no Azure: tipos de VM do Azure e produtos com suporte |
-| [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
+| [1928533] |Aplicativos SAP no Azure: Produtos e tipos de VM do Azure com suporte |
+| [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
 | [1999351] |Solução de problemas de monitoramento aprimorado do Azure para SAP |
 | [2178632] |Métricas-chave de monitoramento para SAP no Microsoft Azure |
-| [2191498] |SAP no Linux com o Azure: monitoramento avançado |
-| [2039619] |Aplicativos SAP no Microsoft Azure usando o Banco de Dados Oracle: versões e produtos com suporte |
-| [2243692] |Linux na VM do Microsoft Azure (IaaS): problemas de licença SAP |
+| [2191498] |SAP no Linux com o Azure: Monitoramento avançado |
+| [2039619] |Aplicativos SAP no Microsoft Azure que usam o Oracle Database: Produtos e versões com suporte |
+| [2243692] |Linux na VM (IaaS) do Microsoft Azure: Problemas de licença do SAP |
 | [2069760] |Atualização e instalação do SAP do Oracle Linux 7.x |
 | [1597355] |Recomendação de troca de espaço para Linux |
 | [2171857] |Oracle Database 12c – suporte do sistema de arquivos em Linux |
@@ -428,7 +428,9 @@ De acordo com os manuais de instalação do SAP, os arquivos relacionados ao Ora
 
 ### <a name="storage-configuration"></a>Configuração de armazenamento
 
-Os sistemas de arquivos ext4, xfs ou ASMOnly do Oracle têm suporte para arquivos do Oracle Database no Azure. Todos os arquivos de banco de dados devem ser armazenados no sistemas de arquivos baseados em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou nos [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Há suporte para os sistemas de arquivos ext4, xfs ou Oracle ASM em arquivos do Oracle Database no Azure. Todos os arquivos de banco de dados devem ser armazenados no sistemas de arquivos baseados em VHDs ou Managed Disks. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou nos [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+Para os kernels do Oracle Linux UEK, a versão mínima 4 do UEK é necessária para dar suporte ao [Armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 É altamente recomendável usar os [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Também é altamente recomendável usar o [Armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) para suas implantações do Oracle Database.
 
@@ -454,7 +456,7 @@ Configuração mínima:
 | /oracle/<SID>/oraarch | Standard | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | | Não é necessário |
 
-*Stripping: faixa de LVM ou MDADM usando RAID0
+*Stripping: Faixa de LVM ou MDADM usando RAID0
 
 A seleção de discos para hospedagem de logs de restauração online do Oracle deve ser controlada pelos requisitos de IOPs. É possível armazenar todos os sapdata1... n (espaços de tabela) em um único disco montado, desde que o volume, o IOPS e a taxa de transferência atendam aos requisitos. 
 
@@ -470,7 +472,7 @@ Configuração de desempenho:
 | /oracle/<SID>/oraarch* | Premium | Nenhum | Não é necessário |
 | Oracle Home, saptrace, ... | Disco do sistema operacional | Não é necessário |
 
-*Stripping: retirada de LVM ou MDADM usando RAID0 *(n+1) – hospedagem dos espaços de tabela SYSTEM, TEMP e UNDO. O padrão de E/S dos espaços de tabela System e Undo são diferentes dos outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
+*Stripping: Faixa de LVM ou MDADM usando RAID0 *(n+1) – hospedagem dos espaços de tabela SYSTEM, TEMP e UNDO. O padrão de E/S dos espaços de tabela System e Undo são diferentes dos outros espaços de tabela que hospedam dados de aplicativo. “Sem cache” é a melhor opção para o desempenho dos espaços de tabela System e Undo.
 *oraarch – o pool de armazenamento não é necessário na exibição de desempenho. Pode ser usado para obter mais espaço.
 
 
@@ -493,7 +495,7 @@ O Oracle Data Guard tem suporte para fins de recuperação de desastre e alta di
 Aspectos da recuperação de desastres para bancos de dados Oracle no Azure são apresentados no artigo [recuperação de desastre para um banco de dados banco de dados Oracle 12c em um ambiente do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Rede Acelerada
-Suporte para rede acelerada do Azure no Oracle Linux é fornecido com o Oracle Linux 7 atualização 5 (Oracle Linux 7.5). Se você não puder atualizar para a versão mais recente do Oracle Linux 7.5, poderá haver uma solução alternativa usando o RHCK (RedHat Compatible Kernel) em vez do kernel da Oracle UEK. Usando o kernel RHEL no Oracle Linux tem suporte de acordo com a nota SAP [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Para a Rede Acelerada do Azure, a versão mínima do kernel do RHCKL precisa ser 3.10.0-862.13.1.el7.
+Suporte para rede acelerada do Azure no Oracle Linux é fornecido com o Oracle Linux 7 atualização 5 (Oracle Linux 7.5). Se você não puder atualizar para a versão mais recente do Oracle Linux 7.5, poderá haver uma solução alternativa usando o RHCK (RedHat Compatible Kernel) em vez do kernel da Oracle UEK. Usando o kernel RHEL no Oracle Linux tem suporte de acordo com a nota SAP [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Para a Rede Acelerada do Azure, a versão mínima do kernel do RHCKL precisa ser 3.10.0-862.13.1.el7. Para usar o kernel do UEK no Oracle Linux em conjunto com a [Rede Acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), você precisa usar a versão 5 do kernel do Oracle UEK.
 
 Se não for implantar VMs de uma imagem que não se baseia no Azure Marketplace, você precisará que arquivos de configuração adicionais sejam copiados para a VM executando: 
 <pre><code># Copy settings from github to correct place in VM

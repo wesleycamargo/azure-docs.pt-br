@@ -1,12 +1,11 @@
 ---
-title: 'Etapa 5: implantar o serviço da Web do Machine Learning Studio|Microsoft Docs'
-description: 'Etapa 5 do passo-a-passo Desenvolver uma solução preditiva: implantar um teste preditivo no Machine Learning Studio como um serviço Web.'
+title: 'Etapa 5: Implantar serviço Web – Azure Machine Learning Studio | Microsoft Docs'
+description: 'Etapa 5 do passo a passo Desenvolver uma solução de previsão: Implantar um experimento de previsão no Machine Learning Studio como um serviço Web.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309922"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253724"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Passo a passo 5: implantar o serviço da web do Azure Machine Learning Studio
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Etapa 5 do passo a passo: Implantar o serviço Web do Azure Machine Learning Studio
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
@@ -205,7 +204,7 @@ Para monitorar o desempenho do seu serviço Web:
 4. Clique em **Painel**
 
 - - -
-**Em seguida: [Acessar o serviço Web](walkthrough-6-access-web-service.md)**
+**Próximo: [Acessar o serviço Web](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

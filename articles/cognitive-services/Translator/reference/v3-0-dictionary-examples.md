@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129113"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967990"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: exemplos de dicionário
+# <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: Exemplos de dicionário
 
-Fornece exemplos que mostram como os termos no dicionário são usados no contexto. Esta operação é usada em conjunto com a [Pesquisa no dicionário](.\v3-0-dictionary-lookup.md).
+Fornece exemplos que mostram como os termos no dicionário são usados no contexto. Esta operação é usada em conjunto com a [Pesquisa no dicionário](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL de Solicitação
 
@@ -42,11 +42,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>de</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ Os cabeçalhos de solicitação incluem:
 
 O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com as seguintes propriedades:
 
-  * `Text`: uma cadeia de caracteres especificando o termo da pesquisa. Deve ser o valor de um campo `normalizedText` de das traduções reversas da solicitação de [Pesquisa no dicionário](.\v3-0-dictionary-lookup.md) anterior. Também pode ser o valor do campo `normalizedSource`.
+  * `Text`: uma cadeia de caracteres especificando o termo da pesquisa. Deve ser o valor de um campo `normalizedText` de das traduções reversas da solicitação de [Pesquisa no dicionário](./v3-0-dictionary-lookup.md) anterior. Também pode ser o valor do campo `normalizedSource`.
 
-  * `Translation`: uma cadeia de caracteres especificando o texto traduzido retornado anteriormente pela operação [Pesquisa no dicionário](.\v3-0-dictionary-lookup.md). Deve ser o valor do campo `normalizedTarget` na lista `translations` da resposta [Pesquisa no dicionário](.\v3-0-dictionary-lookup.md). O serviço retornará exemplos para o par de palavras de origem-destino específico.
+  * `Translation`: uma cadeia de caracteres especificando o texto traduzido retornado anteriormente pela operação [Pesquisa no dicionário](./v3-0-dictionary-lookup.md). Deve ser o valor do campo `normalizedTarget` na lista `translations` da resposta [Pesquisa no dicionário](./v3-0-dictionary-lookup.md). O serviço retornará exemplos para o par de palavras de origem-destino específico.
 
 Um exemplo é:
 
@@ -98,7 +98,7 @@ As seguintes limitações se aplicam:
 
 Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
-  * `normalizedSource`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem. Em geral, isso deve ser idêntico ao valor do campo `Text` no índice da lista correspondente no corpo da solicitação.
+  * `normalizedSource`: uma cadeia de caracteres fornecendo a forma normalizada do termo de origem. Em geral, isso deve ser idêntico ao valor do campo `Text` no índice da lista correspondente no corpo da solicitação.
     
   * `normalizedTarget`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de destino. Em geral, isso deve ser idêntico ao valor do campo `Translation` no índice da lista correspondente no corpo da solicitação.
   
@@ -106,7 +106,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `sourcePrefix`: a cadeia de caracteres para concatenar _antes_ do valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
 
-    * `sourceTerm`: uma cadeia de caracteres igual ao termo real é pesquisada. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que possa ser marcado em uma interface do usuário, por exemplo, colocando-o em negrito.
+    * `sourceTerm`: uma cadeia de caracteres igual ao termo real pesquisado. A cadeia de caracteres é adicionada com `sourcePrefix` e `sourceSuffix` para formar o exemplo completo. Seu valor é separado para que possa ser marcado em uma interface do usuário, por exemplo, colocando-o em negrito.
 
     * `sourceSuffix`: a cadeia de caracteres para concatenar _após_ o valor de `sourceTerm` para formar um exemplo completo. Não adicione um caractere de espaço, pois ele já estará lá quando precisar estar. Esse valor pode ser uma cadeia de caracteres vazia.
 

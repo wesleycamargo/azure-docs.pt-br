@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430161"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192780"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
 
@@ -39,8 +37,8 @@ As seções a seguir explicam as alterações de preços para os componentes do 
 **Como o uso do Monitor de Desempenho era cobrado no modelo antigo?**
 
 A cobrança do NPM era baseada no uso e consumo de dois componentes:
-* **Nós**: todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
-* **Dados**: os resultados dos vários testes de rede são armazenados no repositório de Log Analytics do Azure.
+* **Nós**: Todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
+* **Dados**: Os resultados dos vários testes de rede são armazenados no repositório do Azure Log Analytics.
 
 No modelo antigo, a cobrança era calculada com base no número de nós e no volume de dados gerados. 
 
@@ -121,5 +119,5 @@ Consulte a seção [Monitoramento de conexão](https://azure.microsoft.com/prici
 
 ## <a name="references"></a>Referências
 
-[Perguntas frequentes sobre preços de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): a seção de perguntas frequentes tem informações sobre a camada gratuita, por preços de nós e outros detalhes de preços.
+[Perguntas frequentes sobre o preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): A seção de perguntas frequentes traz informações sobre a camada gratuita, por preços de nós e outros detalhes de preços.
 

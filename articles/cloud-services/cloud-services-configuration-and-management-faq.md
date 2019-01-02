@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979192"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386988"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gerenciamento para Serviços de Nuvem do Azure: perguntas frequentes
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento para Serviços de Nuvem do Azure: Perguntas frequentes (FAQs)
 
 Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento de [Serviços de Nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Você também pode consultar a [página de tamanho de VM de Serviços de Nuvem](cloud-services-sizes-specs.md) para obter informações de tamanho.
 
@@ -53,7 +53,7 @@ Este artigo inclui perguntas frequentes sobre a configuração e o gerenciamento
 **Permissões**
 
 - [Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (Código: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Dimensionamento**
 
@@ -170,7 +170,7 @@ Você pode especificar o tempo limite no arquivo de definição de serviço (csd
     </Endpoints>
   </WorkerRole>
 ```
-Consulte [Novo: tempo limite de ociosidade configurável para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
+Veja [Novo: tempo limite de ociosidade configurável para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Como fazer para associar um endereço IP estático ao meu serviço de nuvem?
 Para configurar um endereço IP estático, você precisa criar um IP reservado. Esse IP reservado pode ser associado a um novo serviço de nuvem ou a uma implantação existente. Consulte os documentos a seguir para obter detalhes:
@@ -199,7 +199,7 @@ O Windows 10 e Windows Server 2016 vêm com suporte para HTTP/2 no lado do clien
 Para obter mais informações, consulte:
 
 - [HTTP/2 no IIS](https://blogs.iis.net/davidso/http2)
-- [Vídeo: HTTP/2 no Windows 10: navegador, aplicativos e servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Vídeo: HTTP 2 no Windows 10: Navegador, Aplicativos e Servidor Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Essas etapas poderiam ser automatizadas por meio de uma tarefa de inicialização. Assim, sempre que uma nova instância PaaS for criada, ela poder á fazer as alterações acima no Registro do sistema. Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
@@ -224,7 +224,7 @@ Consulte [Entender as diferentes funções no Azure](../role-based-access-contro
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Os engenheiros internos da Microsoft podem tornar o desktop remoto para instâncias de serviço de nuvem sem permissão?
 A Microsoft segue um processo estrito que não permite que os engenheiros internos tornem o desktop remoto em seu serviço de nuvem sem permissão por escrito (email ou outra comunicação por escrito) do proprietário ou seu representante.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (código: 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Não consigo tornar o desktop remoto para VM de serviço de nuvem usando o arquivo RDP. Recebo o seguinte erro: Ocorreu um erro de autenticação (Código: 0x80004005)
 
 Esse erro pode ocorrer se você usar o arquivo RDP a partir de um computador associado ao Microsoft Azure Active Directory. Para resolver esse problema, siga estas etapas:
 
@@ -242,9 +242,9 @@ Atualmente, não há suporte para dimensionamento automático com base nas métr
 
 Para contornar esse problema, você pode usar o Application Insights. O dimensionamento automático oferece suporte ao Application Insights como uma fonte de métricas e pode dimensionar a contagem de instâncias de função com base na métrica de convidado como "Memória".  Você precisa configurar o Application Insights no seu arquivo de pacote do projeto de serviço de nuvem (*.cspkg) e habilitar a extensão de Diagnóstico do Microsoft Azure no serviço para implementar essa tarefa.
 
-Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático em serviços de nuvem, consulte [Introdução ao dimensionamento automático por uma métrica personalizada no Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Para obter mais detalhes sobre como utilizar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático em serviços de nuvem, consulte [Introdução ao dimensionamento automático por uma métrica personalizada no Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
-Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Para obter mais informações sobre como integrar o Diagnóstico do Microsoft Azure com o Application Insights para serviços de nuvem, consulte [Enviar serviço de nuvem, máquina virtual ou dados de diagnóstico do Service Fabric para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Para obter mais informações sobre como habilitar o Application Insights para serviços de nuvem, consulte [Application Insights para serviços de nuvem do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
@@ -318,7 +318,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
 |2 |Nenhuma associação de SNI que usa o Repositório de certificados central|
 |3|Associação de SNI que usa o Repositório de certificados central |
  
-**Método 2: código de uso**
+**Método 2: usar código**
 
 A associação de SNI também pode ser configurada por meio de código na inicialização da função conforme descrito nesta [postagem no blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 
