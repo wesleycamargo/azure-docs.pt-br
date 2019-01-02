@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044901"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724053"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -32,11 +32,11 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Criar um recurso** > **Intelligence + analytics** > **Data Lake Analytics**.
 3. Selecione os valores para os seguintes itens: 
-   1. **Nome**: o nome da conta do Data Lake Analytics.
-   2. **Assinatura**: a assinatura do Azure usada para a conta.
-   3. **Grupo de recursos**: o grupo de recursos do Azure no qual a conta será criada. 
-   4. **Local**: o datacenter do Azure para a conta do Data Lake Analytics. 
-   5. **Data Lake Store**: o repositório padrão a ser usado para a conta do Data Lake Analytics. A conta do Azure Data Lake Store e a conta do Data Lake Analytics devem estar no mesmo local.
+   1. **Nome**: O nome da conta do Data Lake Analytics.
+   2. **Assinatura**: A assinatura do Azure usada para a conta.
+   3. **Grupo de Recursos**: O grupo de recursos do Azure no qual a tarefa será criada. 
+   4. **Local**: O datacenter do Azure para a conta do Data Lake Analytics. 
+   5. **Data Lake Store**: Repositório padrão a ser usado para a conta do Data Lake Analytics. A conta do Azure Data Lake Store e a conta do Data Lake Analytics devem estar no mesmo local.
 4. Clique em **Criar**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Excluir uma conta do Data Lake Analytics
@@ -98,9 +98,9 @@ Você pode usar o **Assistente para Adicionar Usuário** para provisionar facilm
 Como outros serviços do Azure, você pode usar o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
 
 As funções padrão do RBAC têm os seguintes recursos:
-* **Proprietário**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
-* **Colaborador**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
-* **Leitor**: pode monitorar trabalhos.
+* **Proprietário**: Pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
+* **Colaborador**: Pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
+* **Leitor**: Pode monitorar trabalhos.
 
 Use a função de desenvolvedor do Data Lake Analytics para permitir que os desenvolvedores de U-SQL usem o serviço do Data Lake Analytics. Você pode usar a função de desenvolvedor do Data Lake Analytics:
 * Enviar trabalhos.
@@ -111,7 +111,7 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Adicionar usuários ou grupos de segurança a uma conta do Data Lake Analytics
 
 1. No portal do Azure, acesse sua conta do Data Lake Analytics.
-2. Clique em **Controle de acesso (IAM)** > **Adicionar**.
+2. Clique em **IAM (Controle de acesso)** > **Adicionar atribuição de função**.
 3. Selecione uma função.
 4. Adicione um usuário.
 5. Clique em **OK**.
@@ -131,9 +131,9 @@ Use a função de desenvolvedor do Data Lake Analytics para permitir que os dese
 
 2. Clique em **Novo Trabalho**. Para cada trabalho, configure:
 
-    1. **Nome do Trabalho**: o nome do trabalho.
-    2. **Prioridade**: números menores têm prioridade mais alta. Se dois trabalhos estiverem enfileirados, aquele com o menor valor de prioridade será executado primeiro.
-    3. **Paralelismo**: o número máximo de processos de computação a serem reservados para este trabalho.
+    1. **Nome do trabalho**: O nome do trabalho.
+    2. **Prioridade**: Números menores têm prioridade mais alta. Se dois trabalhos estiverem enfileirados, aquele com o menor valor de prioridade será executado primeiro.
+    3. **Paralelismo**: O número máximo de processos de computação a serem reservados para este trabalho.
 
 3. Clique em **Enviar Trabalho**.
 

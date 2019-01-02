@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137063"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309613"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Manutenção Preditiva
 
 O acelerador de solução de Manutenção Preditiva é uma solução de ponta a ponta para um cenário comercial e prevê o ponto no qual há a probabilidade de ocorrer uma falha. Você pode usar esse acelerador de solução de forma pró-ativa para atividades como a manutenção de otimização. A solução combina os principais serviços de aceleradores de solução de IoT do Azure, como Hub IoT e um espaço de trabalho do [Aprendizado de Máquina do Azure][lnk-machine-learning]. Esse workspace contém um modelo, com base em um conjunto de dados de exemplo público, para prever a RUL (Vida Útil Restante) de um motor de aeronave. A solução implementa totalmente o cenário de negócios IoT como um ponto de partida para você planejar e implementar uma solução que atenda aos seus requisitos de negócios específicos.
+
+O código do acelerador da solução de Manutenção Preditiva [está disponível no GitHub](https://github.com/Azure/azure-iot-predictive-maintenance).
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
@@ -43,7 +45,7 @@ Quando você provisiona o acelerador da solução, recebe um email com um link p
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 
-No solution accelerator, um dispositivo simulado é um mecanismo de aeronave. A solução é provisionada com dois motores que mapeiam uma única aeronave. Cada motor emite quatro tipos de telemetria: o Sensor 9, Sensor 11, Sensor 14 e Sensor 15 fornecem os dados necessários para o modelo de Machine Learning calcular a RUL do motor. Cada dispositivo simulado envia as seguintes mensagens de telemetria ao Hub IoT:
+No solution accelerator, um dispositivo simulado é um mecanismo de aeronave. A solução é provisionada com dois motores que mapeiam uma única aeronave. Cada motor emite quatro tipos de telemetria: O Sensor 9, Sensor 11, Sensor 14 e Sensor 15 fornecem os dados necessários para o modelo de Machine Learning calcular a RUL do motor. Cada dispositivo simulado envia as seguintes mensagens de telemetria ao Hub IoT:
 
 *Contagem de ciclos*. Um ciclo é um voo concluído com uma duração entre duas e dez horas. Durante o voo, dados de telemetria são capturados a cada meia hora.
 

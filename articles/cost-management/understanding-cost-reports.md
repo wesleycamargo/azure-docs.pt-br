@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103414"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Noções básicas dos relatórios de gerenciamento de custos do Cloudyn
 
@@ -25,7 +25,7 @@ Este artigo ajuda você a entender a estrutura básica e funções dos relatóri
 
 Confira aqui um exemplo do relatório de Custo ao Longo do Tempo. A maioria dos relatórios do Cloudyn tem um layout semelhante.
 
-![exemplo de relatório](./media/understanding-cost-reports/sample-report.png)
+![Exemplo de Relatório de Custo ao Longo do Tempo com áreas numeradas correspondendo às descrições](./media/understanding-cost-reports/sample-report.png)
 
 Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes informações:
 
@@ -47,11 +47,11 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Use a área Marcas para agrupar por categorias de marca. As marcas listadas no menu são marcas de departamento do Azure ou do centro de custo, ou são as marcas de entidade e de assinatura de custo do Cloudyn. Selecione marcas para filtrar resultados. Você também pode digitar um nome de marca (palavra-chave) para filtrar os resultados.
 
-    ![opções de seleção](./media/understanding-cost-reports/select-options.png)
+    ![Exemplo de uma lista de marcas para filtrar resultados por](./media/understanding-cost-reports/select-options.png)
 
     Clique em **Adicionar** para adicionar um novo filtro.
 
-    ![adicionar filtro](./media/understanding-cost-reports/add-filter.png)
+    ![Adicionar caixa de filtro, mostrando as opções e as condições para filtrar por](./media/understanding-cost-reports/add-filter.png)
 
     O agrupamento ou filtragem de marcas não estão relacionados aos recursos do Azure ou a marcas de grupo de recursos.
 
@@ -61,9 +61,9 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Usar grupos em relatórios de Análise de Custo para mostrar categorias padrão detalhadas dos dados de cobrança em seu relatório.  No entanto, os grupos nos relatórios de Alocação de Custo mostram categorias baseadas em marcas de exibição. Categorias baseadas em marcas são definidas no modelo de alocação de custo e em categorias detalhadas padrão dos dados de cobrança.
 
-    ![agrupar marcas](./media/understanding-cost-reports/groups-tags01.png)
+    ![Primeira lista de exemplo de marcas que você pode agrupar por](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![agrupar marcas](./media/understanding-cost-reports/groups-tags02.png)
+    ![Segunda lista de exemplo de marcas que você pode agrupar por](./media/understanding-cost-reports/groups-tags02.png)
 
     Nos relatórios de Alocação de Custo, os grupos em categorias de grupo baseadas em marcas podem incluir:
       - Marcas
@@ -166,7 +166,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     Use os Formatos de exibição para selecionar vários modos de exibição de tabela ou gráfico.
 
-    ![formatos de exibição](./media/understanding-cost-reports/display-formats.png)
+    ![Símbolos de formatos de exibição que você pode selecionar](./media/understanding-cost-reports/display-formats.png)
 
 13. **Várias cores**
 

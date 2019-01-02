@@ -1,5 +1,5 @@
 ---
-title: Indexadores na Azure Search | Microsoft Docs
+title: Indexadores para fontes de dados de rastreamento durante a indexação - Azure Search
 description: Rastrear um banco de dados SQL do Azure, Azure Cosmos DB ou Armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641128"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384897"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores no Azure Search
 
@@ -46,7 +47,8 @@ Armazenamentos de dados de rastreamento de indexadores no Azure.
 * [SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
+* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md) 
+    * Observe que não há suporte para o Armazenamento de Tabelas do Azure para [pesquisa cognitiva](cognitive-search-concept-intro.md)
 
 
 ## <a name="basic-configuration-steps"></a>Etapas da configuração básica
@@ -57,7 +59,7 @@ Um indexador extrai dados de uma *fonte de dados* que contém informações como
 
 As fontes de dados são configuradas e gerenciadas independentemente dos indexadores que as utilizam, o que significa que uma fonte de dados pode ser usada por vários indexadores para carregar mais de um índice por vez.
 
-### <a name="step-2-create-an-index"></a>Etapa 2: Criar um índice
+### <a name="step-2-create-an-index"></a>Etapa 2: Crie um índice
 Um indexador automatizará algumas tarefas relacionadas à ingestão de dados, mas a criação de um índice não é uma delas. Como pré-requisito, você deve ter um índice predefinido com campos iguais aos da sua fonte de dados externa. Para saber mais sobre como estruturar um índice, confira [Criar um índice (API REST do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) ou [classe Índice](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Para obter ajuda com associações de campo, veja [Mapeamento de campos em indexadores do Azure Search](search-indexer-field-mappings.md).
 
 > [!Tip]

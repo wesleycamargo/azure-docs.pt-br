@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139502"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841618"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas
 
@@ -31,7 +31,7 @@ Uma experiência perfeita para o usuário é a chave para qualquer solução par
 
 O Azure AD B2C permite personalizar a aparência da experiência do usuário (UX) nas várias páginas atendidas e exibidas pelo Azure AD B2C usando as políticas personalizadas.
 
-Para essa finalidade, o Azure AD B2C executa o código no navegador do cliente e usa a abordagem moderna e padrão do [Compartilhamento de recursos entre origens (CORS)](http://www.w3.org/TR/cors/) para carregar conteúdo personalizado de uma URL particular, que você especifica em uma política personalizada para apontar para os modelos de HTML5/CSS. O CORS é um mecanismo que permite o uso recursos restritos, como fontes, em uma página da web solicitada em outro domínio fora do domínio do qual o recurso foi originado.
+Para essa finalidade, o Azure AD B2C executa o código no navegador do cliente e usa a abordagem moderna e padrão do [Compartilhamento de recursos entre origens (CORS)](https://www.w3.org/TR/cors/) para carregar conteúdo personalizado de uma URL particular, que você especifica em uma política personalizada para apontar para os modelos de HTML5/CSS. O CORS é um mecanismo que permite o uso recursos restritos, como fontes, em uma página da web solicitada em outro domínio fora do domínio do qual o recurso foi originado.
 
 Em comparação com a maneira tradicional antiga, onde as páginas de modelo pertencentes à solução onde você forneceu textos e imagens limitados, onde o controle limitado de layout e aparência oferecidos prejudicam uma experiência perfeita, o método CORS dá suporte às HTML5 e CSS e permitem que você:
 
@@ -69,10 +69,10 @@ Para garantir que tudo funcione conforme o esperado, é necessário que você:
 - Use URLs absolutas como https://yourdomain/content para todos os links e conteúdo CSS.
 
 > [!TIP]
-> Para verificar se o site em que você está hospedando o conteúdo possui CORS habilitado e testar solicitações CORS, use o site http://test-cors.org/. Graças a esse site, você pode enviar a solicitação CORS para um servidor remoto (para testar se há suporte para CORS), ou enviar a solicitação CORS para um servidor de teste (para explorar alguns recursos do CORS).
+> Para verificar se o site em que você está hospedando o conteúdo possui CORS habilitado e testar solicitações CORS, use o site https://test-cors.org/. Graças a esse site, você pode enviar a solicitação CORS para um servidor remoto (para testar se há suporte para CORS), ou enviar a solicitação CORS para um servidor de teste (para explorar alguns recursos do CORS).
 
 > [!TIP]
-> O site http://enable-cors.org/ também apresenta mais recursos úteis no CORS.
+> O site https://enable-cors.org/ também apresenta mais recursos úteis no CORS.
 
 Graças a essa abordagem baseada em CORS, os usuários finais têm experiências consistentes entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
 
@@ -111,7 +111,7 @@ Como pré-requisito, você precisa criar uma conta de armazenamento. Você preci
     c.  O nome do seu contêiner de armazenamento de blobs de armazenamento, *containerName*, por exemplo, *b2c*.
     d.  O caminho dos arquivos de exemplo *Pacote Starter*, por exemplo *..\B2CTemplates\wingtiptoys*.
 
-Se você seguiu as etapas anteriores, os arquivos HTML5 e CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** agora estão apontando para sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra o painel de contêineres relacionados no Portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Se você seguiu as etapas anteriores, os arquivos HTML5 e CSS do *UI-Customization-Pack* para a empresa fictícia **wingtiptoys** agora estão apontando para sua conta de armazenamento.  Para verificar se o conteúdo foi carregado corretamente, abra o painel de contêineres relacionados no Portal do Azure. Como alternativa, você pode verificar se o conteúdo foi carregado corretamente, para isso, acesse a página de um navegador. Para obter mais informações, confira [Azure Active Directory B2C: Uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Certifique-se de que a conta de armazenamento tenha o CORS habilitado
 
@@ -120,13 +120,13 @@ O CORS (compartilhamento de recurso entre origens) deve estar habilitado no pont
 Para verificar se o armazenamento que está hospedando o conteúdo tem CORS habilitado, prossiga com as etapas a seguir:
 
 1. Abra uma sessão de navegação e navegue até a página *unified.html* usando a URL completa do seu local na sua conta de armazenamento `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navegue até http://test-cors.org. Este site permite que você verifique se a página que você está usando tem CORS habilitado.  
+2. Navegue até https://test-cors.org. Este site permite que você verifique se a página que você está usando tem CORS habilitado.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
 3. Na **URL remota**, insira a URL completa para o seu conteúdo unified.html e clique em **Enviar solicitação**.
-4. Verifique se a saída na seção **Resultados** contém *XHR status: 200*, o que indica que o CORS está habilitado.
+4. Verifique se a saída da seção **Resultados** contém *XHR status: 200*, que indica que o CORS está habilitado.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->

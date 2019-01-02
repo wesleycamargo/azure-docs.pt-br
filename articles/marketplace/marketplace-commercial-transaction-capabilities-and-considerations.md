@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266122"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880175"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Recursos e considerações sobre transações comerciais do Azure Marketplace
 
@@ -66,13 +66,13 @@ Dependendo da opção de transação usada, os valores de licença de software d
 
 * Grátis: Sem custo para licenças de software. 
 
-* Traga sua própria licença (BYOL): todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. (Máquinas Virtuais e Aplicativos do Azure somente).
+* Traga sua própria licença (BYOL): Todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. (Máquinas Virtuais e Aplicativos do Azure somente).
 
-* Pague conforme o uso: as taxas de licença de software são apresentadas como uma taxa de preços por vCPU (por hora e por núcleo) com base na infraestrutura do Azure usada. Isso se aplica apenas a máquinas virtuais e aplicativos do Azure.
+* Pago conforme o uso: Os valores da licença de software são apresentadas como uma taxa de preços por hora, por núcleo (vCPU) com base na infraestrutura do Azure usada. Isso se aplica apenas a máquinas virtuais e aplicativos do Azure.
 
-* Preço de subscrição (baseado no site): os valores de licença de software são apresentados como um valor mensal.  Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados do Azure.
+* Preço da assinatura (baseado no site): Os valores de licença de software são apresentados como um valor mensal.  Isso se aplica somente a aplicativos SaaS e aplicativos gerenciados do Azure.
 
-* Avaliação gratuita de software: sem cobrança de licenças de software por 30 dias ou 90 dias.
+* Avaliação de software gratuita: Sem cobrança de licenças de software por 30 dias ou 90 dias.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Preços gratuitos e traga sua própria licença (BYOL)
 
@@ -177,8 +177,9 @@ Por exemplo, se o cliente compra usando um cartão de crédito:
 |Data de cálculo de pagamento (mensalmente no dia 15) | 1 de outubro de 2018 |
 |Data de pagamento | 15 de outubro de 2018 |
 
-Se o cliente comprar usando um Enterprise Agreement:  
-|DESCRIÇÃO    |    Data  |
+Se o cliente comprar usando um Enterprise Agreement:
+
+| DESCRIÇÃO |    Data  |
 |----------|----------|
 |Período de ordem | 15 de agosto de 2018 – 30 de agosto de 2018 |
 |Prazo final (trimestre) | 30 de setembro de 2018 |
@@ -237,7 +238,7 @@ A opção de publicação de transações está disponível apenas para uso com 
 
 Selecione modelos gratuitos, traga sua licença própria ou pague conforme o preço e apresente-os como SKUs definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
 
-**Aplicativos do Azure: modelo de solução ou aplicativo gerenciado** 
+**Aplicativos do Azure: Modelo de solução ou aplicativo gerenciado** 
 
 Deve provisionar uma ou mais máquinas virtuais e pulls por meio da soma dos preços de máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em ambos os casos, os valores de uso da infraestrutura do Azure são passadas para o cliente separadamente dos valores de licença de software, mas no mesmo extrato de faturamento.
 

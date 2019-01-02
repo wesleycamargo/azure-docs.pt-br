@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247986"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844984"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -112,7 +112,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 7. Verifique se a VM está passando por uma taxa de rotatividade alta:
     - Você pode medir a taxa diária de alteração de dados para VMs convidadas usando os contadores de desempenho no host Hyper-V. Para medir a taxa de alteração de dados, habilite o seguinte contador. Agregue um exemplo desse valor entre os discos de VM oir 5 a 15 minutos para obter a rotatividade da VM.
         - Categoria: “Dispositivo de armazenamento virtual do Hyper-V”
-        - Contador: “Bytes de gravação/seg.”</br>
+        - Contador: “Bytes de Gravação / Seg”</br>
         - A taxa de rotatividade de dados aumentará ou permanecerá em um nível alto, dependendo de quão ocupada a VM ou seus aplicativos estiverem.
         - A rotatividade de dados do disco de origem médio é de 2 MB/seg. para armazenamento padrão para Site Recovery. [Saiba mais](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Além disso, você pode [verificar destinos de escalabilidade de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 1. Verifique os logs de eventos para erros do VSS e recomendações:
     - No servidor host Hyper-V, abra o log de eventos do administrador do Hyper-V em **Visualizador de Eventos** > **Logs de Aplicativos e Serviços** > **Microsoft**  >  **Windows** > **Hyper-V** > **Administrador**.
     - Verifique se há algum evento que indica falhas de instantâneo consistente com o aplicativo.
-    - Um erro comum é: "Hyper-V falhou em gerar o conjunto de instantâneo do VSS para a máquina virtual 'XYZ': O gravador apresentou um erro não transitório. Reinicie o serviço VSS pode resolver problemas se ele não estiver respondendo."
+    - Um erro típico é: "Falha do Hyper-V em gerar o conjunto de instantâneo do VSS para a máquina virtual 'XYZ': O gravador apresentou um erro não transitório. Reinicie o serviço VSS pode resolver problemas se ele não estiver respondendo."
 
 2. Para gerar os instantâneos do VSS para a VM, verifique se os serviços de integração do Hyper-V estão instalados na VM e se o serviço de integração de Backup (VSS) está habilitado.
     - Certifique-se de que o serviço VSS/daemons do Integration Services estão em execução no convidado e se estão em um estado **OK**.
@@ -136,7 +136,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 
 **Código de erro** | **Mensagem** | **Detalhes**
 --- | --- | ---
-**0x800700EA** | "Falha do Hyper-V em gerar o conjunto de instantâneo do VSS para a máquina virtual: há mais dados disponíveis. (0x800700EA). A geração do conjunto de instantâneos de VSS pode falhar se a operação de backup estiver em andamento.<br/><br/> A operação de replicação para a máquina virtual falhou: mais dados estão disponíveis." | Verifique se sua VM tem um disco dinâmico habilitado. Não há suporte para isso.
+**0x800700EA** | "Falha do Hyper-V em gerar o conjunto de instantâneo do VSS para a máquina virtual: Mais dados disponíveis. (0x800700EA). A geração do conjunto de instantâneos de VSS pode falhar se a operação de backup estiver em andamento.<br/><br/> A operação de replicação para a máquina virtual falhou: Mais dados disponíveis.” | Verifique se sua VM tem um disco dinâmico habilitado. Não há suporte para isso.
 **0x80070032** | "Falha do solicitante de cópia de sombra de volume do Hyper-V em se conectar à máquina virtual <./VMname> porque a versão não corresponde à versão esperada pelo Hyper-V | Verifique se as atualizações mais recentes do Windows estão instaladas.<br/><br/> [Atualize](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) para a versão mais recente do Integration Services.
 
 

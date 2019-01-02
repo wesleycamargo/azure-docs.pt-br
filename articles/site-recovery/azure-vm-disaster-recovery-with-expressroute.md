@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567757"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875392"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o ExpressRoute do Azure à recuperação de desastres para VMs do Azure
 
@@ -28,8 +28,8 @@ O Site Recovery permite a recuperação de desastres das VMs do Azure, replicand
 
 A ExpressRoute permite que você estenda as redes locais para a nuvem do Microsoft Azure por meio de uma conexão privada, facilitada por um provedor de conectividade. Se você tiver configurado o ExpressRoute, ele se integra ao Site Recovery da seguinte maneira:
 
-- **Durante a replicação entre as regiões do Azure**: o tráfego de replicação para a recuperação de desastres da VM do Azure está somente no Azure, e a Rota Expressa não é necessária ou usada para replicação. No entanto, se você estiver se conectando de um site local às VMs do Azure no site principal do Azure, há vários problemas a serem observados ao configurar a recuperação de desastres para essas VMs do Azure.
-- **Failover entre as regiões do Azure**: quando ocorrem interrupções, você faz failover das VMs do Azure da região primária para secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem seguidas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
+- **Habilitar a replicação entre as regiões do Azure**: O tráfego de replicação para a recuperação de desastres da VM do Azure está somente no Azure, e a Rota Expressa não é necessária ou usada para replicação. No entanto, se você estiver se conectando de um site local às VMs do Azure no site principal do Azure, há vários problemas a serem observados ao configurar a recuperação de desastres para essas VMs do Azure.
+- **Failover entre as regiões do Azure**: Quando ocorrem interrupções, você faz failover das VMs do Azure da região primária para secundária do Azure. Após o failover para uma região secundária, há várias etapas a serem seguidas para acessar as VMs do Azure na região secundária usando o ExpressRoute.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -37,7 +37,7 @@ A ExpressRoute permite que você estenda as redes locais para a nuvem do Microso
 Antes de começar, certifique-se de que entender os seguintes conceitos:
 
 - Os [circuitos](../expressroute/expressroute-circuit-peerings.md) do ExpressRoute
-- Os [domínios de roteamento](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) do ExpressRoute
+- Os [domínios de roteamento](../expressroute/expressroute-circuit-peerings.md#routingdomains) do ExpressRoute
 - ExpressRoute [locais](../expressroute/expressroute-locations.md).
 - VM do Azure [arquitetura de replicação](azure-to-azure-architecture.md)
 - Como [configurar a replicação](azure-to-azure-tutorial-enable-replication.md) para VMs do Azure.
@@ -90,12 +90,12 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
     - **VNet1 de origem**: 10.1.0.0/24.
     - **VNet2 de origem**: 10.2.0.0/24.
     - Cada rede virtual spoke é conectado ao **vNet do Hub**.
-- **VNet do hub**. Há uma vNet do hub **vNet do Hub de código-fonte**: 10.10.10.0/24.
+- **VNet do hub**. Há uma vNet do hub **vNet do Hub de Origem**: 10.10.10.0/24.
     - Este hub vNet atua como o gatekeeper.
     - Todas as comunicações entre sub-redes passam por esse hub.
  - Hub vNet subredes * *. O hub vNet tem duas sub-redes:
      - **Subrede NVA**: 10.10.10.0/25. Essa sub-rede contém uma NVA (10.10.10.10).
-     - **A sub-rede de gateway**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
+     - **Gateway de sub-rede**: 10.10.10.128/25. Essa sub-rede contém um gateway da Rota Expressa conectado a uma conexão da Rota Expressa que direciona para o site local por meio de um domínio de roteamento de emparelhamento.
 - O datacenter local tem uma conexão de circuito de Rota Expressa por meio de uma borda de parceiro em Hong Kong.
 - Todo o roteamento é controlado por meio das tabelas de rota do Azure (UDR).
 - Todo o tráfego de saída entre o vNets ou o datacenter no local é roteado pelo NVA.
@@ -136,7 +136,7 @@ Em nosso exemplo, o seguinte deve acontecer ao habilitar a replicação de VMs d
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Falha nas VMs do Azure ao usar o ExpressRoute
 
-Após a falha das VMs do Azure na região do Azure de destino usando o Site Recovery, você pode acessá-las usando o ExpressRoute [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Após a falha das VMs do Azure na região do Azure de destino usando o Site Recovery, você pode acessá-las usando o ExpressRoute [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - Você precisa conectar o ExpressRoute ao alvo vNet com uma nova conexão. A conexão ExpressRoute existente não é transferida automaticamente.
 - A maneira como você configura sua conexão do ExpressRoute com o vNet de destino depende da sua topologia do ExpressRoute.

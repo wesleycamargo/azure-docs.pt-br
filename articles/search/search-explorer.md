@@ -1,6 +1,6 @@
 ---
-title: Search Explorer para consultar índices no Azure Search | Microsoft Docs
-description: Saiba como usar o Search Explorer para consultar índices no Azure Search.
+title: Search Explorer no portal do Azure para consultar índices - Azure Search
+description: Use ferramentas do portal do Azure, como o gerenciador Search para índices de consulta no Azure Search. Insira termos de pesquisa ou cadeias de caracteres de pesquisa totalmente qualificados com a sintaxe avançada.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 11f102fcb2a24f9062313f9a3234c29e70a3dfe0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004126"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315649"
 ---
 # <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Como usar o Search Explorer para consultar índices no Azure Search 
 

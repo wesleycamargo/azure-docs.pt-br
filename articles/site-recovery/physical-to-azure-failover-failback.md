@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214827"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848622"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Executar failover e failback de servidores físicos replicados para Azure
 
@@ -24,10 +24,10 @@ Servidores físicos replicados no Azure usando o Site Recovery só podem falhar 
 
 O failover e o failback têm quatro fases:
 
-1. **Failover para o Azure**: faz failover de computadores do site local para o Azure.
-2. **Proteger novamente as VMs do Azure**: proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais.
-3. **Executar failover para o local**: execute um failover, para executar failback do Azure.
-4. **Proteger novamente as VMs locais**: após o failback do dados, proteja as VMs VMware locais para as quais o failback foi executado, para que elas iniciem a replicação para o Azure.
+1. **Fazer failover para o Azure**: Faz failover de computadores do site local para o Azure.
+2. **Proteger novamente as VMs do Azure**: Proteja as VMs do Azure novamente, para que elas comecem a replicação para as VMs VMware locais.
+3. **Executar failover para o local**: Execute um failover, para executar failback do Azure.
+4. **Proteger novamente as VMs locais**: Após realizar o failback dos dados, você protege novamente as VMs VMware locais para as quais realizou o failback, para que comecem a ser replicadas no Azure.
 
 ## <a name="verify-server-properties"></a>Verificar as propriedades do servidor
 
@@ -44,10 +44,10 @@ Confira as propriedades do servidor e verifique se ele está em conformidade com
 
 1. Em **Configurações** > **Itens replicados** clique no computador > **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Você pode usar uma das seguintes opções:
-   - **Mais recente**: essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
-   - **Últimos processados**: essa opção executa failover do computador para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
-   - **Consistente com o aplicativo mais recente**: essa opção executa failover do computador para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
-   - **Personalizado**: especifica um ponto de recuperação.
+   - **Mais recente**: Essa opção primeiro processa todos os dados enviados ao Site Recovery. Ela fornece o RPO (objetivo de ponto de recuperação) mais baixo porque a VM do Azure criada após o failover tem todos os dados que foram replicados para o Site Recovery quando o failover foi disparado.
+   - **Mais recente processado**: Essa opção executa failover do computador para o último ponto de recuperação processado pelo Site Recovery. Essa opção fornece um RTO (Objetivo do Tempo de Recuperação) baixo porque não há tempo gasto para processar dados não processados.
+   - **Consistente com o aplicativo mais recente**: Essa opção executa failover do computador para o ponto de recuperação consistente com o aplicativo mais recente pelo Site Recovery.
+   - **Personalizado**: Especifica um ponto de recuperação.
 
 3. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento o computador de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos**.
 4. Se você preparou a conexão com a VM do Azure, conecte-se para validá-la após o failover.

@@ -3,7 +3,7 @@ title: Transações distribuídas entre bancos de dados na nuvem
 description: Visão Geral das Transações de Banco de Dados Elástico com o Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 02cf72bf9fe06993ef859d1789983b7611c8472e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257462"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877177"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
 As transações de banco de dados elástico para Banco de dados SQL (BD SQL) do Azure permitem que você execute transações que abranjam vários bancos de dados no BD SQL. As transações de banco de dados elástico do BD SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação conhecida usando as classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,8 +30,8 @@ No local, esse cenário normalmente exigiria a execução do recurso MSDTC (Coor
 As transações de banco de dados elástico do BD SQL permitem que os aplicativos façam alterações atômicas nos dados armazenados em vários Bancos de Dados SQL diferentes. A visualização se concentra nas experiências de desenvolvimento do lado do cliente em C# e .NET. Há planos para uma experiência do lado do servidor usando o T-SQL para um momento posterior.  
 As transações de banco de dados elástico têm como objetivo os seguintes cenários:
 
-* Aplicativos de vários bancos de dados no Azure: com esse cenário, os dados são particionados verticalmente em vários bancos de dados no BD SQL, de modo que os diferentes tipos de dados residam em bancos de dados diferentes. Algumas operações exigem alterações nos dados, que são mantidos em dois ou mais bancos de dados. O aplicativo usa transações de banco de dados elástico para coordenar as alterações nos bancos de dados e garantir a atomicidade.
-* Aplicativos de banco de dados fragmentado no Azure: com esse cenário, a camada de dados usa a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) ou a autofragmentação para particionar horizontalmente os dados em vários bancos de dados no Banco de Dados SQL. Um caso de uso importante é a necessidade de realizar mudanças atômicas em um aplicativo multilocatário fragmentado quando as alterações se estendem aos locatários. Pense, por exemplo, em uma transferência de um locatário para outro, ambos residentes em bancos de dados diferentes. Um segundo caso é a fragmentação refinada para acomodar as necessidades de capacidade de um locatário grande, o que, por sua vez, geralmente implica na necessidade de extensão de algumas operações atômicas em vários bancos de dados usados para o mesmo locatário. Um terceiro caso são as atualizações atômicas de dados de referência que são replicados nos bancos de dados. As operações atômicas e transacionadas, juntamente com estas linhas, agora podem ser coordenadas em vários bancos de dados usando a visualização.
+* Aplicativos de vários bancos de dados no Azure: Com esse cenário, os dados são particionados verticalmente em vários bancos de dados no BD SQL, de modo que os diferentes tipos de dados residam em bancos de dados diferentes. Algumas operações exigem alterações nos dados, que são mantidos em dois ou mais bancos de dados. O aplicativo usa transações de banco de dados elástico para coordenar as alterações nos bancos de dados e garantir a atomicidade.
+* Aplicativos de banco de dados compartilhados no Azure: Com esse cenário, a camada de dados usa a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md) ou a autofragmentação para particionar horizontalmente os dados em vários bancos de dados no Banco de Dados SQL. Um caso de uso importante é a necessidade de realizar mudanças atômicas em um aplicativo multilocatário fragmentado quando as alterações se estendem aos locatários. Pense, por exemplo, em uma transferência de um locatário para outro, ambos residentes em bancos de dados diferentes. Um segundo caso é a fragmentação refinada para acomodar as necessidades de capacidade de um locatário grande, o que, por sua vez, geralmente implica na necessidade de extensão de algumas operações atômicas em vários bancos de dados usados para o mesmo locatário. Um terceiro caso são as atualizações atômicas de dados de referência que são replicados nos bancos de dados. As operações atômicas e transacionadas, juntamente com estas linhas, agora podem ser coordenadas em vários bancos de dados usando a visualização.
   As transações de banco de dados elástico usam o protocolo 2PC para garantir a atomicidade das transações nos bancos de dados. É uma boa opção para as transações que envolvem menos de 100 bancos de dados por vez em uma única transação. Esses limites não são impostos, mas o desempenho e as taxas de êxito das transações de banco de dados elástico provavelmente serão prejudicados se eles forem ultrapassados.
 
 ## <a name="installation-and-migration"></a>Instalação e migração
@@ -122,18 +122,18 @@ Há suporte para transações de Banco de Dados Elástico entre diferentes servi
 
 Use os cmdlets do PowerShell a seguir para gerenciar as relações de comunicação entre servidores para transações de Banco de Dados Elástico:
 
-* **New-AzureRmSqlServerCommunicationLink**: use esse cmdlet para criar uma nova relação de comunicação entre dois servidores lógicos no Banco de Dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
-* **Get-AzureRmSqlServerCommunicationLink**: use esse cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
-* **Remove-AzureRmSqlServerCommunicationLink**: use esse cmdlet para remover as relações de comunicação existentes. 
+* **New-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para criar uma nova relação de comunicação entre dois servidores lógicos no Banco de Dados SQL do Azure. A relação é simétrica, o que significa que ambos os servidores podem iniciar transações com outro.
+* **Get-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para recuperar as relações de comunicação existentes e suas propriedades.
+* **Remove-AzureRmSqlServerCommunicationLink**: Use esse cmdlet para remover as relações de comunicação existentes. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorando o status da transação
-Use as DMVs (Exibições de Gerenciamento Dinâmico) no BD SQL para monitorar o status e o progresso das transações de banco de dados elástico em andamento. Todas as DMVs relacionadas com transações são relevantes para as transações distribuídas no BD SQL. Você pode encontrar a lista correspondente de DMVs aqui: [Funções e exibições de gerenciamento dinâmico relacionadas a transações (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Use as DMVs (Exibições de Gerenciamento Dinâmico) no BD SQL para monitorar o status e o progresso das transações de banco de dados elástico em andamento. Todas as DMVs relacionadas com transações são relevantes para as transações distribuídas no BD SQL. Você pode encontrar a lista correspondente de DMVs aqui: [Exibições de Gerenciamento Dinâmico Relacionadas à Transação e Funções (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Estas DMVs são especialmente úteis:
 
-* **sys.dm\_tran\_active\_transactions**: lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions**: fornece informações adicionais sobre as transações, como a colocação da transação no log. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks**: fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions**: Lista as transações atualmente ativas e seu status. A coluna UOW (Unidade de Trabalho) pode identificar as diferentes transações filho que pertencem à mesma transação distribuída. Todas as transações dentro da mesma transação distribuída carregam o mesmo valor UOW. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions**: Fornece informações adicionais sobre as transações, como a colocação da transação no log. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks**: Fornece informações sobre os bloqueios que são atualmente mantidos por transações em andamento. Para saber mais, confira a [documentação do DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Limitações
 As seguintes limitações se aplicam atualmente para as transações de banco de dados elástico no BD SQL:

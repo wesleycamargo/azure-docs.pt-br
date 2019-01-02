@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005386"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384183"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
 Saiba como personalizar o cluster HDInsight usando scripts Bash. Ações de script são uma maneira de personalizar o HDInsight durante ou após a criação do cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>O que são ações de script
@@ -43,7 +43,7 @@ Para saber mais sobre o uso desses métodos para aplicar ações de script, conf
 
 Ao desenvolver um script personalizado para um cluster HDInsight, há várias práticas recomendadas para se considerar:
 
-* [Direcionar para a versão do Hadoop](#bPS1)
+* [Direcionar para a versão do Apache Hadoop](#bPS1)
 * [Direcionar para a versão do sistema operacional](#bps10)
 * [Fornecer links estáveis para recursos de script](#bPS2)
 * [Usar os recursos pré-compilados](#bPS4)
@@ -54,10 +54,10 @@ Ao desenvolver um script personalizado para um cluster HDInsight, há várias pr
 * [Salvar arquivos como ASCII com terminações de linha LF](#bps8)
 * [Usar a lógica de repetição para recuperar-se de erros transitórios](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ações de script devem ser concluídas em 60 minutos ou o processo falha. Durante o provisionamento de nó, o script é executado simultaneamente com outros processos de instalação e configuração. A competição por recursos, como tempo de CPU ou largura de banda rede, pode fazer com que o script leve mais tempo para ser concluído comparado ao seu tempo de conclusão no ambiente de desenvolvimento.
 
-### <a name="bPS1"></a>Direcionar para a versão do Hadoop
+### <a name="bPS1"></a>Direcionar para a versão do Apache Hadoop
 
 Diferentes versões do HDInsight têm diferentes versões de componentes e serviços do Hadoop instaladas. Se seu script espera uma versão específica de um serviço ou componente, você deve usar somente o script com a versão do HDInsight que inclui os componentes necessários. Você pode encontrar informações sobre versões dos componentes incluídos com o HDInsight usando o documento [Controle de versão de componente do HDInsight](hdinsight-component-versioning.md) .
 
@@ -110,7 +110,7 @@ O script e recursos associados devem permanecer disponíveis durante o tempo de 
 
 A melhor prática é baixar e arquivar tudo em uma conta de Armazenamento do Azure em sua assinatura.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A conta de armazenamento usada deve ser a conta de armazenamento padrão para o cluster ou então em um contêiner público somente leitura em qualquer outra conta de armazenamento.
 
 Por exemplo, os exemplos fornecidos pela Microsoft são armazenados na conta de armazenamento [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Esse local é um contêiner público somente leitura mantido pela equipe do HDInsight.
@@ -129,12 +129,12 @@ Por exemplo, um script que modifica os arquivos de configuração não deve adic
 
 Os clusters HDInsight baseados em Linux fornecem dois nós de cabeçalho que estão ativos dentro do cluster; as ações de script são executadas em ambos esses nós. Se os componentes de que instalação esperam apenas um nó principal, não instale os componentes em ambos os nós de cabeçalho.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os serviços fornecidos como parte do HDInsight são projetados para failover entre os dois nós de cabeçalho, conforme necessário. Essa funcionalidade não se estende a componentes personalizados instalados por meio de ações de script. Se você precisar de alta disponibilidade para componentes personalizados, você deverá implementar seu próprio mecanismo de failover.
 
 ### <a name="bPS6"></a>Configurar os componentes personalizados para usar armazenamento de Blob do Azure
 
-Os componentes que você instala no cluster podem ter uma configuração padrão que usa o armazenamento HDFS (Sistema de Arquivos Distribuído do Hadoop). O HDInsight usa o Armazenamento de Blobs do Azure ou o Azure Data Lake Store como o repositório padrão. Ambos fornecem um sistema de arquivos compatível com HDFS que faz os dados persistirem mesmo que o cluster seja excluído. Talvez você precise configurar os componentes instalados para usar o WASB ou ADL em vez de HDFS.
+Os componentes que você instala no cluster podem ter uma configuração padrão que usa o armazenamento HDFS (Sistema de Arquivos Distribuído do Apache Hadoop). O HDInsight usa o Armazenamento de Blobs do Azure ou o Azure Data Lake Store como o repositório padrão. Ambos fornecem um sistema de arquivos compatível com HDFS que faz os dados persistirem mesmo que o cluster seja excluído. Talvez você precise configurar os componentes instalados para usar o WASB ou ADL em vez de HDFS.
 
 Para a maioria das operações, você não precisa especificar o sistema de arquivos. Por exemplo, o arquivo giraph-examples.jar é copiado do sistema de arquivos local para o armazenamento de cluster no exemplo a seguir:
 
@@ -148,8 +148,8 @@ Neste exemplo, o comando `hdfs` usa o armazenamento de cluster padrão de modo t
 
 HDInsight registra em log a saída do script que é gravada para STDOUT e STDERR. Você pode exibir essas informações usando a interface do usuário da Web do Ambari.
 
-> [!NOTE]
-> O Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, confira a seção de solução de problemas [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conhecer outras maneiras de acessar informações registradas em log.
+> [!NOTE]  
+> O Apache Ambari só estará disponível se o cluster for criado com êxito. Se você usar uma ação de script durante a criação do cluster e a criação falhar, confira a seção de solução de problemas [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) para conhecer outras maneiras de acessar informações registradas em log.
 
 A maioria dos pacotes de instalação e utilitários já grava informações para STDOUT e STDERR; no entanto, talvez você queira adicionar registro em log adicional. Para enviar texto para STDOUT, use `echo`. Por exemplo: 
 
@@ -216,7 +216,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Métodos auxiliares para scripts personalizados
 
-Os métodos auxiliares da Ação de Script são utilitários que podem ser usados durante a gravação de scripts personalizados. Esses métodos estão contidos no script [ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Use o seguinte para baixá-los e usá-los como parte do script:
+Os métodos auxiliares da Ação de Script são utilitários que podem ser usados durante a gravação de scripts personalizados. Esses métodos estão contidos no script [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh). Use o seguinte para baixá-los e usá-los como parte do script:
 
 ```bash
 # Import the helper method module.
@@ -278,16 +278,16 @@ Scripts usados para personalizar um cluster devem ser armazenados em um dos segu
 
 * Um URI __que pode ser lido publicamente__. Por exemplo, uma URL para dados armazenados no OneDrive, Dropbox ou outro serviço de hospedagem de arquivos.
 
-* Uma __conta do Azure Data Lake Store__ que está associada com o cluster HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Uma __conta do Azure Data Lake Store__ que está associada com o cluster HDInsight. Para obter mais informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > A entidade de serviço que HDInsight usa para acessar o Data Lake Store deve ter acesso de leitura para o script.
 
 Recursos usados pelo script também devem estar publicamente disponíveis.
 
 Armazenar os arquivos em uma conta de Armazenamento do Azure ou Azure Data Lake Store fornece acesso rápido, pois ambos estão dentro da rede do Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > O formato de URI usado para referenciar o script difere dependendo do serviço que está sendo usado. Para contas de armazenamento associadas ao cluster HDInsight, use `wasb://` ou `wasbs://`. Para URIs lidas publicamente, use `http://` ou `https://`. Para Data Lake Store, use `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Verificando a versão do sistema operacional
@@ -332,8 +332,8 @@ Para obter mais informações sobre como usar cada método, consulte [Como usar 
 A Microsoft fornece scripts de exemplo para instalar componentes em um cluster HDInsight. Consulte os links a seguir para obter mais ações de script de exemplo.
 
 * [Instalar e usar o Hue em clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Instalar e usar o Apache Solr em clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Instalar ou atualizar o Mono em clusters HDInsight](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>solução de problemas
@@ -342,13 +342,13 @@ Estes são erros que você pode encontrar ao usar scripts desenvolvidos por voc�
 
 **Erro**: `$'\r': command not found`. Às vezes, seguido por `syntax error: unexpected end of file`.
 
-*Causa*: este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
+*Causa*: Este erro é gerado quando as linhas em um script terminam com CRLF. Os sistemas UNIX esperam apenas LF como terminação da linha.
 
 Esse problema ocorre geralmente quando o script é criado em um ambiente Windows, já que CRLF é uma terminação de linha comum para muitos editores de texto no Windows.
 
-*Solução*: se for uma opção em seu editor de texto, selecione o formato Unix ou LF para terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
+*Resolução*: Se for uma opção em seu editor de texto, selecione o formato Unix ou LF para terminação de linha. Você também pode usar os seguintes comandos em um sistema Unix para alterar o CRLF para um LF:
 
-> [!NOTE]
+> [!NOTE]  
 > Os comandos a seguir são a grosso modo equivalentes, no sentido que ambos devem alterar as terminações de linha CRLF para LF. Selecione um deles com base nos utilitários disponíveis no sistema.
 
 | Comando | Observações |
@@ -360,9 +360,9 @@ Esse problema ocorre geralmente quando o script é criado em um ambiente Windows
 
 **Erro**: `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Causa*: este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
+*Causa*: Este erro ocorre quando o script foi salvo como UTF-8 com uma BOM (Marca de Ordem de Byte).
 
-*Solução*: salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um arquivo sem a BOM:
+*Resolução*: Salve o arquivo como ASCII ou UTF-8, sem nenhuma BOM. Você também pode usar o seguinte comando em um sistema Linux ou Unix para criar um arquivo sem a BOM:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

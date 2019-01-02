@@ -1,6 +1,7 @@
 ---
-title: Guia de solução de problemas de implantação para o serviço do Azure Machine Learning
-description: Saiba como aplicar uma solução alternativa, resolver e solucionar erros comuns de implantação do Docker com o serviço Azure Machine Learning.
+title: Guia de solução de problemas de implantação
+titleSuffix: Azure Machine Learning service
+description: Saiba como aplicar uma solução alternativa, resolver e solucionar erros comuns de implantação do Docker com o AKS e ACI usando o Serviço do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321675"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100507"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Solucionando problemas de implantações de serviço do Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solucionando problemas de implantações de serviço AKS e ACI do Azure Machine Learning
 
-Neste artigo, você aprenderá a contornar ou resolver erros comuns de implantação do Docker com o serviço Azure Machine Learning.
+Neste artigo, você aprenderá a contornar ou resolver erros comuns de implantação do Docker com as Instâncias de Contêiner do Azure (ACI) e Serviço de Kubernetes do Azure (AKS) usando o Serviço do Azure Machine Learning.
 
 Ao implantar um modelo de serviço do Azure Machine Learning, o sistema executa uma série de tarefas. Essa é uma sequência complexa de eventos e, às vezes, surgem problemas. As tarefas de implantação são:
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Depurar a imagem do Docker localmente
-Algumas vezes, o log do Docker não emite informações suficientes sobre o que está errado. Você pode ir além e obter a imagem do Docker interna, iniciar um contêiner local e depurar diretamente dentro do contêiner ao vivo de modo interativo. Para iniciar um contêiner local, você deve ter um mecanismo do Docker em execução localmente, e seria muito mais fácil se você também tivesse a [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
+Algumas vezes, o log do Docker não emite informações suficientes sobre o que está errado. Você pode ir além e obter a imagem do Docker interna, iniciar um contêiner local e depurar diretamente dentro do contêiner ao vivo de modo interativo. Para iniciar um contêiner local, você deve ter um mecanismo do Docker em execução localmente, e seria muito mais fácil se você também tivesse a [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 
 Primeiro, precisamos descobrir a localização da imagem:
 
@@ -202,7 +204,7 @@ Isso imprime o caminho local (relativo ao `/var/azureml-app`) no contêiner em q
 
 
 ## <a name="function-fails-runinputdata"></a>Falha de função: run(input_data)
-Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo:
+Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo: 
 
 ```python
 def run(input_data):
@@ -216,16 +218,12 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Observação**: o retorno de mensagens de erro da chamada `run(input_data)` deve ser feito para apenas para fins de depuração. Pode não ser uma boa ideia fazer isso em um ambiente de produção por motivos de segurança.
+**Observação**: O retorno de mensagens de erro da chamada `run(input_data)` deve ser feito para apenas para fins de depuração. Pode não ser uma boa ideia fazer isso em um ambiente de produção por motivos de segurança.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a implantação: 
-* [Como implantar nas ACI](how-to-deploy-to-aci.md)
+* [Como e onde implantar](how-to-deploy-and-where.md)
 
-* [Como implantar no AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial parte 1: treinar modelo](tutorial-train-models-with-aml.md)
-
-* [Tutorial parte 2: implantar o modelo](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Treinar e implantar modelos](tutorial-train-models-with-aml.md)

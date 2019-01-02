@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211852"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841635"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -30,7 +30,7 @@ Depois do failover do local primário no secundário, as máquinas virtuais repl
 2. Na página **Confirmar Failover Planejado**, escolha os locais de origem e de destino. Observe a direção do failover. Se o failover do local primário funcionar conforme esperado e todas as máquinas virtuais estiverem no local secundário, isso servirá apenas para fins informativos.
 3. Se estiver fazendo failback do Azure, selecione as configurações em **Sincronização de Dados**:
     - **Sincronizar os dados antes do failover (sincronizar apenas alterações delta)**: essa opção minimiza o tempo de inatividade das máquinas virtuais, pois elas não são desligadas durante a sincronização. Ela segue as seguintes etapas:
-        - Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
+        - Fase 1: Tire instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
         - Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações delta é transferido para o servidor local e a máquina virtual local é inicializada.
 
     - **Sincronizar os dados apenas durante o failover (download completo)** : esta opção é mais rápida.
@@ -59,7 +59,7 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 5. Em Nome do Host,** selecione o novo servidor host do Hyper-V no qual deseja colocar a máquina virtual.
 6. Em Sincronização de Dados, é recomendável selecionar a opção para sincronizar os dados antes do failover. Essa opção minimiza o tempo de inatividade das máquinas virtuais, uma vez que faz a sincronização sem desligá-las. Ele faz o seguinte:
 
-    - Fase 1: tira instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
+    - Fase 1: Tire instantâneo da máquina virtual no Azure e o copia no host do Hyper-V local. O computador continua em execução no Azure.
     - Fase 2: Desliga a máquina virtual no Azure para que nenhuma alteração seja feita lá. O conjunto final de alterações é transferido para o servidor local e a máquina virtual local é inicializada.
     
 7. Clique na marca de seleção para iniciar o failover (failback).

@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 071d1acb592220f7da83a47fd7dffa757ef81a95
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3eb5b2300ea2af7bc778e0831d105f286eab247c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142686"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721401"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
-Você também pode implantar o criador de perfil do Application Insights nesses serviços:
+Você também pode implantar o Profiler do Application Insights nesses serviços:
 * [Aplicativos Web do Azure](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Nuvem](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -30,7 +29,7 @@ Você também pode implantar o criador de perfil do Application Insights nesses 
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Configurar a definição de implantação do ambiente
 
-O Application Insights Profiler está incluído com o WAD (Diagnóstico do Windows Azure). A extensão do WAD pode ser instalada usando um modelo do Azure RM para seu cluster do Service Fabric. Há um modelo de exemplo aqui: [**Modelo que instala o WAD em um Cluster do Service Fabric.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
+O Application Insights Profiler está incluído com o WAD (Diagnóstico do Windows Azure). A extensão do WAD pode ser instalada usando um modelo do Azure RM para seu cluster do Service Fabric. Há um modelo de exemplo: [**Modelo que instala WAD em um Cluster do Service Fabric.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
 Para configurar seu ambiente, faça o seguinte:
 1. Para garantir que você esteja usando o [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior, basta confirmar se o sistema operacional implantado é o `Windows Server 2012 R2` ou posterior.

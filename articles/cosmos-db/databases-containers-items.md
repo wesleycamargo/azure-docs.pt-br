@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684844"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409534"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhando com bancos de dados, contêineres e itens do Azure Cosmos
 
@@ -26,10 +26,10 @@ Você pode criar um ou mais bancos de dados do Azure Cosmos em sua conta. Um ban
 
 | **Entidade do Azure Cosmos** | **API do SQL** | **API do Cassandra** | **API do MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Banco de dados do Azure Cosmos | Banco de dados | Keyspace | Banco de dados | ND | ND |
+|Banco de dados do Azure Cosmos | Banco de dados | Keyspace | Banco de dados | Banco de dados | ND |
 
 > [!NOTE]
-> Com as contas de APIs de Tabela e do Gremlin, quando você cria seu primeiro grafo ou tabela, um banco de dados padrão é criado automaticamente dentro de sua conta do Azure Cosmos.
+> Com as contas de APIs de Tabela, quando você cria sua primeira tabela, um banco de dados padrão é criado automaticamente dentro de sua conta do Azure Cosmos.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Operações em um banco de dados do Azure Cosmos
 
@@ -49,11 +49,11 @@ Um contêiner do Azure Cosmos é a unidade de escalabilidade para a taxa de tran
 
 Ao criar um contêiner do Azure Cosmos, você configura a taxa de transferência em um dos seguintes modos:
 
-* Modo de **taxa de transferência provisionada dedicada**: a taxa de transferência provisionada em um contêiner é exclusivamente reservada para ele e tem o suporte dos SLAs. Para saber mais, confira [como provisionar a taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).
+* **Modo da taxa de transferência do disco**: Taxa de transferência provisionada em um contêiner é exclusivamente reservada para ele e tem o suporte dos SLAs. Para saber mais, confira [como provisionar a taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).
 
-* Modo de **taxa de transferência provisionada compartilhada**: estes contêineres compartilham a taxa de transferência provisionada com outros contêineres no mesmo banco de dados (exceto pelos contêineres que foram configuradas com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres "compartilhados". Para saber mais, confira [como configurar a taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+* Modo da **taxa de transferência compartilhada**: Estes contêineres compartilham a taxa de transferência provisionada com outros contêineres no mesmo banco de dados (exceto pelos contêineres que foram configuradas com taxa de transferência provisionada dedicada). Em outras palavras, a taxa de transferência provisionada no banco de dados é compartilhada entre todos os contêineres "compartilhados". Para saber mais, confira [como configurar a taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md).
 
-Um contêiner do Azure Cosmos pode dimensionar elasticamente, quer você crie contêineres com o modo de taxa de transferência provisionada "compartilhada" ou "dedicada", ou seja, eles podem ter armazenamento ilimitado e taxa de transferência provisionada.  
+Um contêiner do Azure Cosmos pode dimensionar elasticamente, quer você crie contêineres com o modo de taxa de transferência provisionada "compartilhada" ou "dedicada".
 
 Um contêiner do Azure Cosmos é um contêiner de itens independente de esquema. Itens dentro de um contêiner podem ter esquemas arbitrários. Por exemplo, um item que representa uma pessoa e um item que representa um automóvel podem ser colocados no mesmo contêiner. Por padrão, todos os itens que você adiciona a um contêiner são indexados automaticamente, sem a necessidade de nenhum índice explícito ou de gerenciamento de esquema. Você pode personalizar o comportamento de indexação configurando a política de indexação em um contêiner. 
 
@@ -69,7 +69,7 @@ Um contêiner do Azure Cosmos é especializado em entidades específicas a uma A
 
 | **Entidade do Azure Cosmos** | **API do SQL** | **API do Cassandra** | **API do MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Contêiner do Azure Cosmos | Contêiner | Tabela | Coleção | Grafo | Tabela |
+|Contêiner do Azure Cosmos | Coleção | Tabela | Coleção | Grafo | Tabela |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriedades de um contêiner do Azure Cosmos
 
@@ -105,7 +105,7 @@ Dependendo da escolha da API, um item do Azure Cosmos pode representar um docume
 
 | **Entidade do Cosmos** | **API do SQL** | **API do Cassandra** | **API do MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Item do Azure Cosmos | item | Linha | Documento | Nó ou Borda | item |
+|Item do Azure Cosmos | Documento | Linha | Documento | Nó ou Borda | item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 

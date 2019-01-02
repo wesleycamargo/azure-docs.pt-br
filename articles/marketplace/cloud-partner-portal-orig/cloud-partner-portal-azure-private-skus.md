@@ -1,5 +1,5 @@
 ---
-title: SKUs privados | Microsoft Docs
+title: SKUs Privados e Planos | Microsoft Docs
 description: Como usar SKUs privados para gerenciar a disponibilidade de oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230233"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849200"
 ---
-<a name="private-skus"></a>SKUs privados
+<a name="private-skus-and-plans"></a>SKUs Privados e Planos
 ============
 
 SKUs privados permitem restringir a disponibilidade de SKUs para clientes específicos. Quando um SKU é marcado como privado, ele não está disponível em nenhum catálogo público, incluindo no [Azure Marketplace](https://azuremarketplace.microsoft.com) e no [portal do Azure](http://portal.azure.com). No portal do Azure, somente os clientes com acesso ao SKU podem vê-lo. Além disso, eles também receberiam um aviso de que têm acesso a ofertas privadas.
@@ -37,7 +37,7 @@ Você pode usar SKUs privados para lidar com os seguintes cenários:
 
 Se quiser apenas alterar o preço, você poderá reutilizar os discos de outro SKU na mesma oferta. Com os SKUs privados, você não precisa reenviar discos entre SKUs.
 
-<a name="mark-a-sku-private"></a>Marcar um SKU como privado
+<a name="mark-a-sku-private"></a>Marcar um SKU privado
 ---------------------
 
 Para marcar uma SKU como privado, mude a opção perguntando se o SKU é privado:
@@ -91,7 +91,12 @@ Conteúdo do arquivo CSV de exemplo:
 
 Quando você alternar da exibição de entrada manual para a de upload de CSV ou vice-versa, a lista antiga de IDs de assinatura com acesso ao SKU não é mantida. Um aviso é exibido e a lista é substituída apenas ao salvar a oferta.
 
-<a name="previewing-private-offers"></a>Ofertas de versão prévia privada
+<a name="sync-private-subscriptions"></a>Assinaturas de Sincronização Particular
+-------------------------
+
+Ao adicionar assinaturas a uma oferta publicada com um SKU Privado ou Plano, você não precisa republicar a oferta para adicionar as informações do público-alvo. Simplesmente use um ID de assinatura do Azure (SKUs e planos) ou a ID de locatário (Planos apenas) para adicionar o público-alvo.
+
+<a name="previewing-private-offers"></a>Ofertas de Versão Prévia Privada
 -------------------------
 
 Durante a etapa de preparo/versão prévia, somente as assinaturas de versão prévia em nível de oferta serão capazes de acessar o SKU. Esse é o estágio de testes, no qual você pode validar qual seria a aparência da oferta para seus clientes-alvo, e que é padrão para todos os tipos de publicação.

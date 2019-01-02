@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279683"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870691"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -31,8 +31,8 @@ Ações de script também podem ser publicadas no Azure Marketplace como um apli
 
 Se você estiver usando um cluster de HDInsight do domínio, há duas permissões Ambari necessárias ao usar ações de script com o cluster:
 
-* **AMBARI. EXECUTAR\_PERSONALIZADO\_COMANDO**: função de administrador de Ambari tem essa permissão por padrão.
-* **CLUSTER. EXECUTAR\_PERSONALIZADO\_COMANDO**: administrador de Cluster HDInsight e administrador de Ambari têm essa permissão por padrão.
+* **AMBARI. EXECUTAR\_PERSONALIZADO\_COMANDO**: Função de administrador de Ambari tem essa permissão por padrão.
+* **CLUSTER. EXECUTAR\_PERSONALIZADO\_COMANDO**: O administrador de Cluster HDInsight e administrador de Ambari têm essa permissão por padrão.
 
 Para obter mais informações sobre como trabalhar com permissões com o HDInsight de domínio, consulte [gerenciar clusters de HDInsight de domínio](./domain-joined/apache-domain-joined-manage.md).
 
@@ -53,7 +53,7 @@ Uma ação de script é Bash script executado em nós em um cluster HDInsight. A
 
 * Deve estar armazenado em um URI que pode ser acessado do cluster HDInsight. Estes são os possíveis locais de armazenamento:
 
-    * Uma conta de **Azure Data Lake Store** acessível pelo cluster HDInsight. Para obter informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * Uma conta de **Azure Data Lake Store** acessível pelo cluster HDInsight. Para obter informações sobre como usar o Azure Data Lake Store com HDInsight, consulte o [Guia de Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Ao usar um script armazenado no Data Lake Store, o formato de URI é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -111,7 +111,7 @@ O diagrama a seguir ilustra quando a ação de script é executada durante o pro
 O script é executado enquanto o HDInsight está sendo configurado. O script é executado em paralelo com todos os nós especificados no cluster e é executado com os privilégios de raiz nos nós.
 
 > [!NOTE]
-> Você pode executar operações como parar e iniciar serviços, incluindo serviços relacionados ao Hadoop. Se você parar quaisquer serviços, você deve garantir que os serviços Ambari e outros serviços relacionados ao Hadoop estejam funcionando antes do script ser concluído. Esses serviços são necessários para determinar com êxito a integridade e o estado do cluster enquanto ele está sendo criado.
+> Você pode executar operações como parar e iniciar serviços, incluindo serviços relacionados ao Apache Hadoop. Se você parar quaisquer serviços, você deve garantir que os serviços Ambari e outros serviços relacionados ao Hadoop estejam funcionando antes do script ser concluído. Esses serviços são necessários para determinar com êxito a integridade e o estado do cluster enquanto ele está sendo criado.
 
 
 Durante a criação do cluster, você pode usar várias ações de script simultaneamente. Esses scripts são invocados na ordem em que eles foram especificados.
@@ -168,7 +168,7 @@ Esta seção fornece exemplos sobre as diferentes maneiras em que você pode usa
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usar uma ação de script durante a criação do cluster no portal do Azure
 
-1. Comece criando um cluster como descrito em [Criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante a criação do cluster, você chegará a uma página __Resumo do cluster__. Na página __Resumo do cluster__, selecione o link __Editar__ para __Configurações avançadas__.
+1. Comece criando um cluster como descrito em [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Durante a criação do cluster, você chegará a uma página __Resumo do cluster__. Na página __Resumo do cluster__, selecione o link __Editar__ para __Configurações avançadas__.
 
     ![Link Configurações avançadas](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -402,17 +402,17 @@ Para obter um exemplo de como usar o SDK do .NET para recuperar o histórico de 
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para software livre utilizado em clusters do HDInsight
 
-O serviço do Microsoft Azure HDInsight usa um ecossistema de tecnologias de software livre formado em torno do Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre. Para obter mais informações, consulte a seção **Escopo do Suporte** do [site de perguntas frequentes sobre o Suporte do Azure](https://azure.microsoft.com/support/faq/). O serviço HDInsight fornece um nível adicional de suporte a componentes internos.
+O serviço Microsoft Azure HDInsight usa um ecossistema de tecnologias de código aberto formado em torno do Apache Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de software livre. Para obter mais informações, consulte a seção **Escopo do Suporte** do [site de perguntas frequentes sobre o Suporte do Azure](https://azure.microsoft.com/support/faq/). O serviço HDInsight fornece um nível adicional de suporte a componentes internos.
 
 Há dois tipos de componentes de software livre disponíveis no serviço HDInsight:
 
-* **Componentes internos** : estes componentes estão pré-instalado em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, o gerenciador de recursos YARN RM, o HiveQL (linguagem de consulta do Hive) e a biblioteca Mahout pertencem a esta categoria. Uma lista completa dos componentes de cluster está disponível em [Novidades nas versões do cluster Hadoop fornecidas pelo HDInsight](hdinsight-component-versioning.md).
+* **Componentes internos** : estes componentes estão pré-instalado em clusters HDInsight e fornecem a funcionalidade básica do cluster. Por exemplo, o [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, a linguagem de consulta do Apache Hive ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) e a biblioteca do [Apache Mahout](https://mahout.apache.org/) pertencem a essa categoria. Uma lista completa dos componentes de cluster está disponível em [Novidades nas versões do cluster Hadoop fornecidas pelo HDInsight](hdinsight-component-versioning.md).
 * **Componentes personalizados** : como usuário do cluster, você pode instalar ou usar em sua carga de trabalho qualquer componente disponível na comunidade ou criado por você.
 
 > [!WARNING]
 > Componentes fornecidos com o cluster HDInsight contam com suporte total. O Suporte da Microsoft ajuda a isolar e resolver problemas relacionados a esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos do Apache têm sites do projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. O suporte da Microsoft pode estar apto a resolver o problema OU pode solicitar que você contate canais disponíveis para as tecnologias de software livre em que é encontrado conhecimento profundo sobre essa tecnologia. Por exemplo, existem muitos sites da comunidade que podem ser usados, como: [Fórum do MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, os projetos Apache têm sites de projeto em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
 
 O serviço HDInsight possibilita o uso de componentes personalizados de várias formas. O mesmo nível de suporte se aplica, independentemente de como um componente é usado ou instalado no cluster. A lista a seguir descreve as formas mais comuns de usar os componentes personalizados em clusters HDInsight:
 
@@ -426,7 +426,7 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 
 Você pode usar a interface do usuário da Web Ambari para exibir as informações registradas pelas ações de script. Se o script falhar durante a criação do cluster, os logs também estarão disponíveis na conta de armazenamento padrão associada ao cluster. Esta seção fornece informações sobre como recuperar logs usando ambas as opções.
 
-### <a name="using-the-ambari-web-ui"></a>Usando a interface do usuário da Web do Ambari
+### <a name="using-the-apache-ambari-web-ui"></a>Usando a interface do usuário do Apache Ambari web
 
 1. No navegador, navegue até https://CLUSTERNAME.azurehdinsight.net. Substitua CLUSTERNAME com o nome do cluster HDInsight.
 
@@ -479,7 +479,7 @@ Se a criação do cluster falhar devido a um erro de script, os logs serão mant
 
 ### <a name="cant-import-name-blobservice"></a>Não é possível importar o BlobService de nome
 
-__Sintomas__: falha na ação de script. Texto semelhante ao seguinte erro é exibido quando você exibe a operação no Ambari:
+__Sintomas__: Falha ao executar a ação de script. Texto semelhante ao seguinte erro é exibido quando você exibe a operação no Ambari:
 
 ```
 Traceback (most recent call list):
@@ -488,9 +488,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Causa__: esse erro ocorre se você atualizar o cliente de Armazenamento do Azure Python incluído com o cluster HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
+__Causa__: Esse erro ocorre se você atualizar o cliente de Armazenamento do Microsoft Azure do Python incluído com o cluster HDInsight. O HDInsight espera o cliente de Armazenamento do Azure 0.20.0.
 
-__Resolução__: para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`, e use o comando a seguir para reinstalar a versão do cliente de armazenamento correta:
+__Resolução__: Para resolver esse erro, conecte-se manualmente a cada nó de cluster usando `ssh`, e use o comando a seguir para reinstalar a versão do cliente de armazenamento correta:
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -513,8 +513,8 @@ Há duas exceções:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Instalar e usar o Apache Solr em clusters do HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Instalar e usar o Apache Giraph em clusters do HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Acrescentar armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"

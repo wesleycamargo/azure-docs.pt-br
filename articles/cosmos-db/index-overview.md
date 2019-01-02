@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628239"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834631"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Indexação no Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Um pseudo nó raiz é criado como pai para os nós reais correspondentes aos ró
 
 O Azure Cosmos DB projeta itens como documentos JSON e indexa como árvores. Portanto, é possível ajustar as políticas para os caminhos dentro da árvore. Você pode optar por incluir ou excluir caminhos da indexação. Isso pode oferecer melhor desempenho de gravação e diminuir o armazenamento de índice para cenários em que os padrões de consulta são conhecidos antecipadamente. para saber mais, consulte [Caminhos de Índice](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Indexação: por trás da solução
+## <a name="indexing-under-the-hood"></a>Indexação: Nos bastidores
 
 O banco de dados do Azure Cosmos aplica a indexação automática aos dados, onde cada caminho em uma árvore é indexado, a menos que você configure para excluir determinados caminhos.
 
@@ -61,4 +61,4 @@ Leia mais sobre indexação nos seguintes artigos:
 - [Política de indexação](index-policy.md)
 - [Tipos de índice](index-types.md)
 - [Caminhos de índice](index-paths.md)
-- [Como gerenciar política de indexação](how-to-manage-indexing-policy.md)
+- [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)

@@ -3,7 +3,7 @@ title: Gerenciando bancos de dados de nuvem com escala horizontal | Microsoft Do
 description: Use o serviço de trabalho de banco de dados elástico para executar um script em um grupo de bancos de dados.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242510"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865515"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerenciando bancos de dados de nuvem com escalonamento horizontal
 
@@ -81,8 +81,8 @@ Definir grupos personalizados de bancos de dados SQL do Azure e agendar as execu
 2. Use as APIs do PowerShell para acessar mais funcionalidades, por exemplo, criando coleções de bancos de dados personalizadas, adicionando agendas e/ou coletando conjuntos de resultados. Use o portal para instalação simples e criação/monitoramento de trabalhos limitados para execução em um **pool elástico**.
 3. Criar credenciais criptografadas para execução do trabalho e [adicionar o usuário (ou função) para cada banco de dados no grupo](sql-database-security-overview.md).
 4. Criar um script T-SQL idempotente que pode ser executado em cada banco de dados no grupo.
-5. Siga estas etapas para criar trabalhos usando o portal do Azure: [Criando e gerenciando trabalhos do Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md).
-6. Ou use scripts do PowerShell: [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md).
+5. Siga estas etapas para criar trabalhos no portal do Azure: [Criar e gerenciar os trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-create-and-manage.md).
+6. Ou use os scripts do PowerShell: [Criar e gerenciar trabalhos de banco de dados elástico de Banco de Dados SQL usando o PowerShell (visualização)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Scripts idempotentes
 
@@ -137,8 +137,8 @@ Os seguintes componentes trabalham juntos para criar um Serviço de Nuvem do Azu
 1. Um **banco de dados de controle** , que armazena todos os dados de estado e metadados, é atribuído a um banco de dados SQL do Azure.
 2. O banco de dados de controle é acessado pelo **serviço de trabalhos** para iniciar e acompanhar os trabalhos a serem executados.
 3. Duas funções diferentes se comunicam com o banco de dados de controle:
-   - Controlador: determina quais trabalhos necessitam de tarefas para executar o trabalho solicitado e faz novas tentativas com aqueles trabalhos com falha, criando novas tarefas de trabalho.
-   - Execução de tarefas de trabalho: executa as tarefas de trabalho.
+   - Controlador: Determina quais trabalhos necessitam de tarefas para executar o trabalho solicitado e faz novas tentativas com aqueles trabalhos com falha, criando novas tarefas de trabalho.
+   - Execução de tarefa de trabalho: Executa as tarefas de trabalho.
 
 ### <a name="job-task-types"></a>Tipos de tarefa de trabalho
 

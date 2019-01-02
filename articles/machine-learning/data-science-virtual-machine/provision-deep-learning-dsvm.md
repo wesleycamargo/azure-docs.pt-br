@@ -1,10 +1,12 @@
 ---
-title: Provisionar a Máquina Virtual de Ciência de Dados do Aprendizado Aprofundado no Azure | Microsoft Docs
+title: Criar uma Máquina Virtual de Ciência de Dados de Aprendizado Profundo
+titleSuffix: Azure
 description: Configure e crie uma Máquina Virtual de Ciência de Dados de Aprendizado Aprofundado no Azure para realizar a análise e o aprendizado de máquina.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229655"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078749"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -36,21 +38,21 @@ Veja as etapas para criar uma instância da Máquina Virtual de Aprendizado Apro
    
    1. **Noções básicas**
       
-      1. **Nome**: o nome do servidor de ciência de dados que você está criando.
-      2. **Selecione o tipo de sistema operacional para a VM de Aprendizado Aprofundado**: escolha Windows ou Linux (para DSVM com base em Windows 2016 e Ubuntu Linux)
-      2. **Nome de Usuário**: ID de logon da conta de administrador.
-      3. **Senha**: senha da conta de administrador.
-      4. **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
-      5. **Grupo de recursos**: você pode criar um novo ou usar um grupo de recursos existente **vazio** Azure na sua assinatura.
-      6. **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede. 
+      1. **Nome**: O nome do servidor de ciência de dados que você está criando.
+      2. **Selecione o tipo de sistema operacional para a VM de Aprendizado profundo**: Escolha Windows ou Linux (para DSVM com base em Windows 2016 e Ubuntu Linux)
+      2. **Nome de Usuário**: Identificação de logon da conta do administrador.
+      3. **Senha**: Senha da conta do administrador.
+      4. **Assinatura**: Se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
+      5. **Grupo de Recursos**: É possível criar um novo ou usar um grupo de recursos existente **vazio** do Azure na assinatura.
+      6. **Localização**: Selecione o data center mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede. 
       
 > [!NOTE]
 > O DLVM oferece suporte a todos as instâncias de VM de GPU das séries NC e ND. Ao provisionar o DLVM, você deve escolher um dos locais no Azure que tenha GPUs. Verifique a página [Produtos do Azure por Página de Região](https://azure.microsoft.com/regions/services/) para os locais disponíveis e procure **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** em **Computação**. 
 
-   2. **Configurações**: selecione um dos tamanhos de máquina virtual de GPU Série NC (NC, NCv2, NCv3) ou ND que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Configurações**: Selecione um dos tamanhos de máquina virtual de GPU Série NC (NC, NCv2, NCv3) ou ND que atenda aos seus requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Resumo**: verifique se todas as informações inseridas estão corretas.
-   5. **Comprar**: clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
+   3. **Resumo**: Verifique se todas as informações inseridas estão corretas.
+   5. **Comprar**: Clique em **Comprar** para iniciar o provisionamento. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** . 
 
 > [!NOTE]
 > O provisionamento deve levar cerca de 10 a 20 minutos. O status do provisionamento é exibido no Portal do Azure.
@@ -77,12 +79,12 @@ A DLVM do Linux já está provisionada com um servidor X2Go e pronta para aceita
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
-     * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
-     * **Logon**: nome de usuário na VM Linux.
-     * **Porta SSH**: deixe-a em 22, o valor padrão.
-     * **Tipo de Sessão**: altere o valor para **XFCE**. No momento, a DSVM do Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+     * **Host**: O nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
+     * **Logon**: Nome de usuário na VM Linux.
+     * **Porta SSH**: Deixe em 22, o valor padrão.
+     * **Tipo de Sessão**: Altere o valor para **XFCE**. No momento, a DSVM do Linux dá suporte apenas à área de trabalho XFCE.
+   * **Guia Mídia**: Você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
+   * **Pastas compartilhadas**: Caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
 
 Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
 

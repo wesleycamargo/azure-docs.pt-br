@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256639"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846242"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
@@ -105,7 +105,7 @@ Depois de selecionar Criar, o Azure Security Center cria automaticamente as regr
 
   - **Nome**: o nome da assinatura e do grupo
   - **VMs**: o número de máquinas virtuais no grupo
-  - **Modo**: o modo de auditoria registrará as tentativas de executar aplicativos não permitidos. Aplicar não permitirá a execução de aplicativos não permitidos
+  - **Modo**: O modo de auditoria registrará as tentativas de executar aplicativos não permitidos. Aplicar não permitirá a execução de aplicativos não permitidos
   - **Alertas**: as violações atuais existentes
 
 2. Clicar em um grupo para fazer alterações na **Editar política de controle de aplicativo** página.
@@ -118,7 +118,8 @@ Depois de selecionar Criar, o Azure Security Center cria automaticamente as regr
   - **Impor**: nesse modo, a solução de controle de aplicativo impoe as regras e verifica se os aplicativos que não têm permissão para execução estão bloqueados.
 
    > [!NOTE]
-   > Como mencionado anteriormente, por padrão, uma nova política de controle de aplicativo sempre é configurada no modo *Auditoria*. 
+   > -  **Impor** o modo de proteção está desabilitado até nova ordem.
+   > - Como mencionado anteriormente, por padrão, uma nova política de controle de aplicativo sempre é configurada no modo *Auditoria*. 
    >
 
 4. Em **Extensão de política**, você pode adicionar qualquer caminho de aplicativo que você deseja permitir. Depois de adicionar esses caminhos, a Central de Segurança atualiza a política de whielisting do aplicativo nas VMs dentro do grupo selecionado de VMS e cria as regras apropriadas para esses aplicativos, além das regras que já estão em vigor.
@@ -129,9 +130,9 @@ Depois de selecionar Criar, o Azure Security Center cria automaticamente as regr
 
 6. Em **Regras de lista branca de editores**, **Regras de lista branca de editores** e **Regras de lista de permissões em hash**, você pode ver quais regras de lista de permissões estão configuradas nas VMs de um grupo, de acordo com o tipo de coleção de regras. Para cada regra, você pode ver:
 
-  - **Regra**: os parâmetros específicos de acordo com os quais um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executado.
-  - **Tipo de arquivo**: os tipos de arquivo que são cobertos por uma regra específica. Isso pode ser qualquer um dos seguintes: EXE, Script, MSI ou qualquer permutação desses tipos de arquivo.
-  - **Os usuários**: nome ou número de usuários que têm permissão para executar um aplicativo que é coberto por uma regra de lista de permissões do aplicativo.
+  - **Regra**: Os parâmetros específicos de acordo com os quais um aplicativo é examinado pelo AppLocker para determinar se um aplicativo pode ser executado.
+  - **Tipo de arquivo**: Os tipos de arquivo que são cobertos por uma regra específica. Pode ser um dos seguintes: EXE, Script, MSI ou qualquer permutação desses tipos.
+  - **Usuários**: Nome ou número de usuários que têm permissão para executar um aplicativo que é coberto por uma regra de lista de permissões do aplicativo.
 
    ![Regras de lista de permissões](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138637"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678433"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de solução de virtualização de rede no Azure
 
 Você pode enfrentar uma VM ou problemas de conectividade VPN e erros ao usar um terceiro dispositivo Virtual de rede (NVA) no Microsoft Azure de terceiros. Este artigo fornece as etapas básicas para ajudá-lo a validar requisitos básicos de plataforma do Azure para configurações de NVA.
 
-Suporte técnico para NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fornecedor NVA. Se você tiver um problema de roteamento que envolve uma NVA ou de conectividade, você deve [entrar em contato com o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) diretamente.
+Suporte técnico para NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fornecedor NVA. 
+
+> [!NOTE]
+> Se você tiver um problema de roteamento que envolve uma NVA ou de conectividade, você deve [entrar em contato com o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) diretamente.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ Suporte técnico para NVAs de terceiros e sua integração com a plataforma do A
 - UDRs em sub-redes da rede virtual que direcionam o tráfego de NVA
 - Tabelas de roteamento e regras dentro da NVA (por exemplo, de NIC1 à NIC2)
 - Rastreamento em NICs de NVA para verificar a receber e enviar tráfego de rede
+- Ao usar um SKU Standard e IP Público deve haver um NSG criado e uma regra explícita para permitir que o tráfego seja roteado para a NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Etapas para solucionar problemas
 
@@ -73,6 +77,8 @@ Usar o PowerShell
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Verifique NSG ao usar o IP Pubilc SKU Standard**Ao usar um SKU Standard e IP público deve haver um NSG criada e uma regra explícita para permitir o tráfego para a NVA.
 
 **Verifique se o tráfego possa ser roteado para a NVA**
 

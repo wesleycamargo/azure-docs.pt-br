@@ -1,25 +1,19 @@
 ---
-title: ExpressRoute do Azure para Provedores de Soluções na Nuvem | Microsoft Docs
-description: Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e o ExpressRoute a suas ofertas.
-documentationcenter: na
+title: ExpressRoute dos Provedores de Solução na Nuvem - Azure | Microsoft Docs
+description: Este artigo fornece informações para Provedores de Soluções na Nuvem que desejam incorporar serviços do Azure e o ExpressRoute a suas ofertas.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405697"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077504"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
 A Microsoft fornece serviços de hiperescala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. o ExpressRoute é um link de comunicações privado de alta velocidade para serviços do Azure. 
@@ -37,7 +31,7 @@ O Microsoft Azure fornece um número crescente de serviços que você pode ofere
 A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Azure, permitindo a integração programática com seus próprios sistemas de gerenciamento de serviço. Os recursos de gerenciamento com suporte podem ser encontrados [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gerenciamento de recursos do Microsoft Azure
-O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “*Connect-Through*” ou o modelo “*Direct-To*”. Esses modelos serão descritos em detalhes nas seções a seguir.  
+O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: modelo "*Connect-Through*" ou modelo "*Direct-To*". Esses modelos serão descritos em detalhes nas seções a seguir.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -94,7 +88,7 @@ Você pode auxiliar na configuração da conexão e na configuração das rotas 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento do ExpressRoute
 o ExpressRoute oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativo-ativo para obtenção de alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento do ExpressRoute, entre [aqui](expressroute-circuit-peerings.md).
 
-Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
+Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para obter mais informações ou para ver como fazer essas alterações consulte o artigo: [Criar e alterar o roteamento de um circuito de ExpressRoute usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
 
 > [!NOTE]
 > Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para saber mais, veja a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) .  

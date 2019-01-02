@@ -1,22 +1,18 @@
 ---
-title: Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo | Microsoft Docs
-description: Saiba mais sobre o baixo custo do uso do Azure Cosmos DB como um repositório de valores de chave.
-keywords: repositório de valores de chave
-services: cosmos-db
+title: Encargos de unidade de solicitação para o Azure Cosmos DB como um repositório de valor de chave
+description: Saiba mais sobre os encargos da unidade de solicitação do Azure Cosmos DB para operações simples de gravação e leitura quando ele é usado como um repositório de chaves/valores.
 author: SnehaGunda
-manager: kfile
-tags: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163193"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134175"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo
 
@@ -41,7 +37,7 @@ A tabela a seguir mostra o número de RUs necessários para realizar transaçõe
 
 Se você provisionar 1.000 RU/s, o resultado será de 3,6 m RU/hora e custará $0,08 por hora (nos EUA e Europa). Para um documento com 1KB, isso significa que você pode consumir 3,6 m de leituras ou 0,72 m de gravações (3,6m RU/5) usando sua taxa de transferência provisionada. Ao normalizar para milhões de leituras e gravações, o custo seria de $0,022/m leituras ($0,08 / 3,6) e $0,111/m de gravações ($0,08 / 0,72). O custo por milhão se torna mínimo, conforme mostra a tabela a seguir.
 
-|Tamanho do Item|1 m leitura|1 m gravação|
+|Tamanho do Item|1 m leitura|1 m Gravação|
 |-------------|-------|--------|
 |1 KB|$ 0,022|$ 0,111|
 |100 KB|$ 0,222|$ 1,111|

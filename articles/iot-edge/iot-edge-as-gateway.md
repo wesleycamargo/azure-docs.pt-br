@@ -1,5 +1,5 @@
 ---
-title: Usar dispositivos do Azure IoT Edge como gateways | Microsoft Docs
+title: Gateways para dispositivos downstream – Azure IoT Edge | Microsoft Docs
 description: Use o Azure IoT Edge para criar um dispositivo de gateway transparente, opaco ou de proxy que envia dados de vários dispositivos downstream para a nuvem ou os processa localmente.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567206"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092274"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
@@ -26,7 +27,7 @@ Há três padrões de uso de um dispositivo IoT Edge como um gateway: transparen
 * **Tradução de protocolo** - Também conhecido como padrão de gateway opaco, os dispositivos que não suportam MQTT, AMQP ou HTTP podem usar um dispositivo de gateway para enviar dados para o Hub IoT em seu nome. O gateway entende o protocolo usado pelos dispositivos downstream; no entanto, é o único dispositivo que possui identidade no Hub IoT. Todas as informações parecem estar vindo de um dispositivo, o gateway. Os dispositivos de downstream devem incorporar informações adicionais de identificação em suas mensagens, se os aplicativos em nuvem quiserem analisar os dados em uma base por dispositivo. Além disso, as primitivas do Hub IoT, como gêmeos e métodos, estão disponíveis apenas para o dispositivo de gateway, não para dispositivos de recebimento de dados.
 * **Tradução de identidade** - Dispositivos que não podem se conectar ao Hub IoT podem se conectar a um dispositivo de gateway. O gateway fornece a identidade do Hub IoT e a conversão de protocolo em nome dos dispositivos downstream. O gateway é inteligente o suficiente para entender o protocolo usado por dispositivos downstream, fornecer identidade a eles e converter Hub IoT primitivos. Dispositivos downstream aparecem no Hub IoT como dispositivos de primeira classe com gêmeos e métodos. Um usuário pode interagir com os dispositivos do Hub IoT e não tem ciência do dispositivo de gateway intermediário.
 
-![Diagramas de padrões de gateway](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![Diagrama - transparente, protocolo e padrões de gateway de identidade](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Casos de uso
 Todos padrões de gateway fornecem os seguintes benefícios:

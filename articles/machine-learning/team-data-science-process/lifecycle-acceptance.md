@@ -1,5 +1,5 @@
 ---
-title: Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe – Azure | Microsoft Docs
+title: Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe
 description: As metas, as tarefas e os resultados para o estágio de aceitação do cliente dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441478"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132611"
 ---
-# <a name="customer-acceptance"></a>Aceitação do cliente
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de aceitação do cliente do ciclo de vida do Processo de Ciência de Dados da Equipe
 
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de aceitação do cliente do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
@@ -34,13 +34,13 @@ Aqui está uma representação visual do ciclo de vida do TDSP:
 
 
 ## <a name="goal"></a>Objetivo
-**Finalizar as entregas do projeto**: confirme se o pipeline, o modelo e a implantação em um ambiente de produção atendem aos objetivos do cliente.
+**Finalizar as entregas do projeto**: Confirme se o pipeline, o modelo e a implantação em um ambiente de produção atendem aos objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazer isso
 Há duas tarefas principais abordadas neste estágio:
 
-   * **Validação do sistema**: confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
-   * **Entrega do projeto**: entregue o projeto a uma entidade que executará o sistema na produção.
+   * **Validação do Sistema**: Confirme se o modelo e o pipeline implantados atendem às necessidades do cliente.
+   * **Entrega do projeto**: Entregue o projeto a uma entidade que executará o sistema na produção.
 
 O cliente deverá validar se o sistema atende às suas necessidades de negócios e se ele responde às perguntas com uma precisão aceitável para implantar o sistema em produção para uso pelo aplicativo do cliente. Toda a documentação é finalizada e revisada. O projeto é entregue à entidade responsável por operações. Essa entidade poderá ser, por exemplo, uma equipe de TI ou de ciência de dados do cliente ou um agente do cliente responsável por executar o sistema na produção. 
 

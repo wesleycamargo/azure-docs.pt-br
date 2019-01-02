@@ -1,6 +1,6 @@
 ---
-title: Pesquisa cognitiva para extração de dados e processamento de idioma de IA no Azure Search | Microsoft Docs
-description: Extração de conteúdo, NLP (processamento de idioma natural) e processamento de imagem para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas e os algoritmos IA
+title: Pesquisa cognitiva para extração de dados e processamento de IA na linguagem natural - Azure Search
+description: Extração de conteúdo, NLP (processamento de linguagem natural) e processamento de imagens para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas e os algoritmos IA.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729024"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315597"
 ---
-# <a name="what-is-cognitive-search"></a>O que é pesquisa cognitiva?
+# <a name="what-is-cognitive-search-in-azure-search"></a>O que é a “pesquisa cognitiva” no Azure Search?
 
 A pesquisa cognitiva cria informações pesquisáveis fora do conteúdo não pesquisável, anexando os algoritmos de IA para um pipeline de indexação. A integração de IA é por meio de *habilidades cognitivas* que enriquecem os documentos de origem por meio de processos sequenciais, na rota para um índice de pesquisa. 
 
@@ -26,12 +27,14 @@ As habilidades de **Processamento de linguagem natural** incluem habilidades [re
 
 ![Diagrama do pipeline de pesquisa cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do pipeline de pesquisa cognitiva")
 
-As habilidades cognitivas no Azure Search se baseiam nos mesmos algoritmos de IA usados na API de Serviços Cognitivos: [API de reconhecimento de entidade nomeada](cognitive-search-skill-named-entity-recognition.md), [chave de API de extração de frase](cognitive-search-skill-keyphrases.md), e [OCR API](cognitive-search-skill-ocr.md) são apenas alguns. 
+As habilidades cognitivas no Azure Search se baseiam nos mesmos algoritmos de inteligência artificial usados nas APIs de Serviços Cognitivos: [API de Reconhecimento de Entidade de Caracteres](cognitive-search-skill-named-entity-recognition.md), [API de Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [API de OCR](cognitive-search-skill-ocr.md), para citar algumas. 
 
 Processamento de imagens e de idioma natural é aplicada durante a fase de ingestão de dados, com resultados se tornando parte da composição de um documento em um índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação usando o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que você precisa. A arquitetura é extensível, portanto, se as habilidades internas não forem suficientes, você pode criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) a integrar o processamento personalizado. Exemplos podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Em um momento posterior, os preços desses recursos serão anunciados. 
+> A partir de 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos a um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também passaremos a cobrar pela extração de imagem como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.
+>
+> A execução do conjunto de qualificações será cobrada com o [Preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagem será cobrado com o preço da versão prévia, o que está descrito na [página de preço do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="components-of-cognitive-search"></a>Componentes da pesquisa cognitiva
 
@@ -45,7 +48,7 @@ No início do pipeline, há texto não estruturado ou conteúdo que não é de t
 
 ![Fase de desbloqueio de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "desbloqueio de documento")
 
- As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDF, do Word, do PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
+ As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDFs, Word, PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### <a name="cognitive-skills-and-enrichment-phase"></a>Fase de enriquecimento e habilidades cognitivas
 
@@ -88,10 +91,21 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 ## <a name="where-do-i-start"></a>Por onde começo?
 
-**Etapa 1: Criar um serviço de pesquisa em uma região fornecendo as APIs** 
+**Etapa 1: Criar um serviço de pesquisa em uma região que fornece as APIs** 
 
++ Centro-Oeste dos EUA
 + Centro-Sul dos Estados Unidos
++ Leste dos EUA
++ Leste dos EUA 2
++ Oeste dos EUA 2
++ Canadá Central
 + Europa Ocidental
++ Sul do Reino Unido
++ Norte da Europa
++ Sul do Brasil
++ Sudeste Asiático
++ Índia Central
++ Leste da Austrália
 
 **Etapa 2: Experiência prática para dominar o fluxo de trabalho**
 
@@ -99,7 +113,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
 + [Habilidades personalizadas de exemplo (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Etapa 3: Examinar a API (somente REST)**
+**Etapa 3: Rever a API (somente REST)**
 
 Atualmente, apenas as APIs REST são fornecidas. Use o `api-version=2017-11-11-Preview` em todas as solicitações. Use as seguintes APIs para criar uma solução de pesquisa cognitiva. Apenas duas APIs são adicionadas ou estendidas para a pesquisa cognitiva. As outras APIs têm a mesma sintaxe que as versões disponíveis ao público.
 
@@ -110,7 +124,7 @@ Atualmente, apenas as APIs REST são fornecidas. Use o `api-version=2017-11-11-P
 | [Criar o índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice do Azure Search. Os campos no índice são mapeados para os campos na fonte de dados ou para os campos fabricados durante a fase de enriquecimento (por exemplo, um campo para os nomes de organização criados pelo reconhecimento de entidade). |
 | [Criar Indexador (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, um conjunto de habilidades, associações de campo de origem e estruturas de dados intermediárias para o índice de destino e o próprio índice. Executar o indexador é o gatilho para a ingestão de dados e o enriquecimento. A saída é um corpus de pesquisa com base no esquema de índice, populado com os dados de origem, enriquecidos por conjuntos de habilidades.  |
 
-**Lista de verificação: um fluxo de trabalho típico**
+**Lista de verificação: Um fluxo de trabalho típico**
 
 1. Subconjunto de dados de origem do Azure em uma amostra representativa. A indexação é um processo demorado, portanto, comece com um conjunto de dados representativo pequeno e, em seguida, compile incrementalmente à medida que sua solução amadurecer.
 
@@ -135,5 +149,5 @@ Para obter mais informações sobre problemas ou dúvidas específicas, confira 
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Documentação da pesquisa cognitiva](cognitive-search-resources-documentation.md)
-+ [Início Rápido: experimente a pesquisa cognitiva em um passo a passo do portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: conheça as APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
++ [Guia de Início Rápido: Experimente a pesquisa cognitiva em um passo a passo no portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Conheça as APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)

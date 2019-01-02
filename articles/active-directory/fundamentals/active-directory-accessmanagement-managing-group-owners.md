@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou remover proprietários do grupo do Active Directory do Azure | Microsoft Docs
-description: Saiba como adicionar ou remover proprietários de grupos usando o Active Directory do Azure.
+title: Adicionar ou remover proprietários do grupo – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como adicionar ou remover proprietários de grupos usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139713"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087143"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Como adicionar ou remover proprietários do grupo no Active Directory do Azure
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerenciados pelos proprietários do grupo. Os proprietários do grupo são atribuídos para gerenciar um grupo e seus membros por um proprietário de recurso (administrador). Os proprietários do grupo não precisam ser membros do grupo. Depois que um proprietário de grupo for atribuído, somente um proprietário de recurso poderá adicionar ou remover proprietários.
 
 Em alguns casos, você, como administrador, pode decidir não atribuir um proprietário de grupo. Nesse caso, você se torna o proprietário do grupo. Além disso, os proprietários podem atribuir outros proprietários ao grupo, a menos que você tenha restringido isso nas configurações do grupo.

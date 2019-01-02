@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820291"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384761"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -29,7 +29,7 @@ Antes de criar um trabalho de importação para transferir dados ao Arquivos do 
 - Ter pelo menos uma conta de Armazenamento do Microsoft Azure. Consulte a lista de [Contas de armazenamento e tipos de armazenamento com suporte para o serviço de Importação/Exportação](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 - Ter o número adequado de discos de [Tipos com suporte](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows executando uma [Versão do sistema operacional com suporte](storage-import-export-requirements.md#supported-operating-systems).
-- [Baixe o WAImportExport versão 2](https://www.microsoft.com/download/details.aspx?id=55280) no sistema Windows. Descompacte para a pasta padrão `waimportexport`. Por exemplo, `C:\WaImportExport`.
+- [Baixe o WAImportExport versão 2](https://aka.ms/waiev2) no sistema Windows. Descompacte para a pasta padrão `waimportexport`. Por exemplo, `C:\WaImportExport`.
 - Ter uma conta FedEx/DHL. 
     - A conta deve ser válida, deve ter saldo e ter recursos de devolução.
     - Gerar um número de controle para o trabalho de exportação.
@@ -40,7 +40,7 @@ Antes de criar um trabalho de importação para transferir dados ao Arquivos do 
  
 
 
-## <a name="step-1-prepare-the-drives"></a>Etapa 1: preparar as unidades
+## <a name="step-1-prepare-the-drives"></a>Etapa 1: Preparar as unidades
 
 Essa etapa gera um arquivo de diário. O arquivo de diário armazena informações básicas como número de série da unidade, chave de criptografia e detalhes da conta de armazenamento.
 
@@ -50,14 +50,14 @@ Execute as etapas a seguir para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra da unidade ao volume. Não use pontos de montagem.
 3. Modificar o arquivo *dataset.csv* na pasta raiz onde a ferramenta reside. Dependendo de você querer importar um arquivo ou pasta ou ambos, adicione as entradas no arquivo *dataset.csv* semelhante aos exemplos a seguir.  
 
-    - **Para importar um arquivo**: no exemplo a seguir, os dados a serem copiados residem na unidade C:. O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
+    - **Para importar um arquivo**: No exemplo a seguir, os dados a serem copiados residem na unidade C:. O arquivo *MyFile1.txt* é copiado para a raiz de *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, ele será criado na conta de Armazenamento do Microsoft Azure. A estrutura de pastas é mantida.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Para importar uma pasta**: todos os arquivos e pastas em *MyFolder2* são copiados para o compartilhamento de arquivos de forma recursiva. A estrutura de pastas é mantida.
+    - **Para importar uma pasta**: Todos os arquivos e pastas em *MyFolder2* são copiados para o compartilhamento de arquivos de forma recursiva. A estrutura de pastas é mantida.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -77,14 +77,14 @@ Execute as etapas a seguir para preparar as unidades.
 
     Este exemplo presume que dois discos estão vinculados e volumes NTFS básicos G:\ e H:\ foram criados. H:\is não está criptografado enquanto g já está criptografado. A ferramenta formata e criptografa o disco que hospeda apenas H:\ (e não G:\).
 
-    - **Para um disco que não está criptografado**: especifique *Criptografar* para habilitar a criptografia BitLocker no disco.
+    - **Para um disco que não é criptografado**: Especifique *Criptografar* para habilitar a criptografia BitLocker no disco.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Para um disco que já está criptografado**: especifique *AlreadyEncrypted* e forneça a chave do BitLocker.
+    - **Para um disco que já é criptografado**: Especificar *AlreadyEncrypted* e fornecer a chave do BitLocker.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -112,7 +112,7 @@ Execute as etapas a seguir para preparar as unidades.
 
 Para exemplos adicionais, vá para [Exemplos de arquivos de diário](#samples-for-journal-files).
 
-## <a name="step-2-create-an-import-job"></a>Etapa 2: criar um trabalho de importação 
+## <a name="step-2-create-an-import-job"></a>Etapa 2: Criar um trabalho de importação 
 
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 1. Faça logon em https://portal.azure.com/.
@@ -137,7 +137,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
 3. Em **Detalhes do trabalho**:
     
-    - Carregue os arquivos de diário que você criou durante a [Etapa 1: preparar as unidades](#step-1-prepare-the-drives) anterior. 
+    - Carregue os arquivos de diário que você criou durante a [Etapa 1: Preparar as unidades](#step-1-prepare-the-drives). 
     - Selecione a conta de armazenamento na qual os dados serão importados. 
     - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
    
@@ -150,7 +150,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
         > [!TIP] 
-        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Os dados dos logs para a versão de dados na versão de conteúdo.
+        > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
        ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
@@ -162,15 +162,15 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 
         ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Etapa 3: enviar as unidades para o datacenter do Azure 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Etapa 3: Enviar as unidades para o datacenter do Azure 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Etapa 4: atualizar o trabalho com informações de rastreamento
+## <a name="step-4-update-the-job-with-tracking-information"></a>Etapa 4: Atualizar o trabalho com informações de acompanhamento
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Etapa 5: verificar upload de dados para Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Etapa 5: Verificar o carregamento de dados para o Azure
 
 Acompanhe o trabalho até a conclusão. Quando o trabalho estiver concluído, verifique se os dados foram carregados no Azure. Exclua os dados locais somente depois de verificar se o upload foi realizado com êxito.
 

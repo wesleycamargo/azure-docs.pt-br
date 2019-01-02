@@ -1,22 +1,24 @@
 ---
-title: Conexões de saída no Azure | Microsoft Docs
+title: Conexões de saída no Azure
+titlesuffix: Azure Load Balancer
 description: Este artigo explica como o Azure permite que as VMs comuniquem-se com serviços de Internet públicos.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687564"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190961"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -46,7 +48,7 @@ O Azure Load Balancer e os recursos relacionados são explicitamente definidos a
 
 Se você não quiser que uma VM comunique-se com os pontos de extremidade fora do Azure no espaço de endereço IP público, poderá usar NSGs (grupos de segurança de rede) para bloquear o acesso conforme necessário. A seção [Impedir conectividade de saída](#preventoutbound) descreve sobre os NSGs mais detalhadamente. As diretrizes sobre a projeto, implementação e gerenciamento de uma rede virtual sem qualquer acesso de saída estão fora do escopo deste artigo.
 
-### <a name="ilpip"></a>Cenário 1: VM com um endereço IP em Nível de Instância
+### <a name="ilpip"></a>Cenário 1: VM com um endereço IP Público no Nível de Instância
 
 Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM é com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um ILPIP é usado, a VM usa o ILPIP para todos os fluxos de saída.  
 
@@ -70,7 +72,7 @@ Quando [vários endereços IP (públicos) estão associados ao Load Balancer Bas
 
 Para monitorar a integridade das conexões de saída com o Load Balancer Basic, é possível usar [Log Analytics para Load Balancer](load-balancer-monitor-log.md) e [logs de eventos de alerta ](load-balancer-monitor-log.md#alert-event-log) para monitorar as mensagens de esgotamento da porta SNAT.
 
-### <a name="defaultsnat"></a>Cenário 3: VM autônoma sem um Endereço IP Público em Nível de Instância
+### <a name="defaultsnat"></a>Cenário 3: VM autônoma com um Endereço IP Público em Nível de Instância
 
 Nesse cenário, a VM não faz parte de um pool público do Load Balancer (e não faz parte de um pool do Load Balancer Standard interno) e não possui um endereço ILPIP atribuído. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. Esse endereço IP público não pertence a você e não pode ser reservado. Se você reimplantar o conjunto de dimensionamento de VMs ou conjuntos de disponibilidade ou máquinas virtuais, esse endereço IP público será liberado e um novo endereço IP público será solicitado. Não use esse cenário para endereços IP de lista de permissões. Em vez disso, use um dos outros dois cenários para declarar explicitamente o cenário de saída e o endereço IP público a ser usado para conectividade de saída.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: cynthn
-ms.openlocfilehash: b9cce5658b705e9d3255d2662b2a0157a2e548c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867062"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiramente, conecte-se à máquina virtual, em seguida, faça logon.
@@ -39,11 +39,11 @@ Para conectar-se a uma VM do Windows por meio de um Mac, será necessário insta
     ![Captura de tela de um aviso sobre um editor desconhecido.](./media/connect-logon/rdp-warn.png)
 3. Na janela **Segurança do Windows**, selecione **Mais opções** e **Usar uma conta diferente**. Digite as credenciais de uma conta na máquina virtual e selecione **OK**.
    
-     **Conta local**: normalmente, são o nome de usuário e a senha da conta local especificados por você no momento da criação da máquina virtual. Nesse caso, o domínio é o nome da máquina virtual e é inserido como *nomedavm*&#92;*nome de usuário*.  
+     **Conta local (2008)**: Isso é geralmente o nome de usuário da conta local e senha que você especificou ao criar a máquina virtual. Nesse caso, o domínio é o nome da máquina virtual e é inserido como *nomedavm*&#92;*nome de usuário*.  
    
-    **VM Ingressada no domínio**: se a VM pertencer a um domínio, digite o nome de usuário no formato *Domínio*&#92;*Nome de usuário*. A conta precisa estar no grupo Administradores ou ter privilégios de acesso remoto concedidos à VM.
+    **VM ingressada no domínio**: Se a VM pertencer a um domínio, digite o nome de usuário no formato *Domínio*&#92;*Nome de usuário*. A conta precisa estar no grupo Administradores ou ter privilégios de acesso remoto concedidos à VM.
    
-    **Controlador de domínio**: se a VM for um controlador de domínio, digite o nome de usuário e a senha da conta de administrador para esse domínio.
+    **Controlador de domínio**: Se a VM for um controlador de domínio, digite o nome de usuário e a senha da conta de administrador para esse domínio.
 4. Selecione **Sim** para verificar a identidade da máquina virtual e concluir o logon.
    
    ![Captura de tela mostrando uma mensagem sobre como verificar a identidade da VM.](./media/connect-logon/cert-warning.png)
@@ -54,6 +54,21 @@ Para conectar-se a uma VM do Windows por meio de um Mac, será necessário insta
    > 
    > 
 
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Conecte-se à máquina virtual usando o PowerShell
+
+Se você estiver usando o PowerShell e tiver instalado o módulo do AzureRM, você também pode se conectar usando o `Get-AzureRmRemoteDesktopFile` cmdlet, conforme mostrado abaixo.
+
+Este exemplo iniciará imediatamente a conexão de RDP, levando você por meio de prompts semelhantes conforme acima.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+Você também pode salvar o arquivo RDP para uso futuro.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você tiver dificuldade para se conectar, consulte [Solucionar problemas de conexões de Área de Trabalho Remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

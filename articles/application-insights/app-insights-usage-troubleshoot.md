@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138479"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995541"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solucionar problemas de ferramentas de análise de comportamento do usuário no Application Insights
-Dúvidas sobre as [ferramentas de análise de comportamento do usuário no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
+Solucionar problemas de ferramentas de análise de comportamento do [usuário no Application Insights](app-insights-usage-overview.md): [Usuários, Sessões, Eventos](app-insights-usage-segmentation.md), [Funis](usage-funnels.md), [Fluxos dos Usuários](app-insights-usage-flows.md), [Retenção](app-insights-usage-retention.md), ou Coortes? Aqui estão algumas respostas.
 
 ## <a name="counting-users"></a>Contagem de usuários
 **As ferramentas de análise de comportamento do usuário mostram que o meu aplicativo tem um usuário/uma sessão, mas sei que meu aplicativo tem muitos usuários/sessões. Como corrigir essas contagens incorretas?**
@@ -57,5 +56,5 @@ Se o seu aplicativo estiver enviando um número excessivo de nomes de evento per
 * [Visão geral das ferramentas de análise de comportamento do usuário](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Obter ajuda
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581606"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727861"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
@@ -42,10 +42,10 @@ Para adicionar alguém como administrador para uma assinatura do Azure, atribuí
 1. Visite [**Assinaturas** no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selecione a assinatura à qual você deseja conceder acesso.
 3. Selecione **Controle de acesso (IAM)** na lista.
-4. Selecione **Adicionar**.
-   (Se o botão Adicionar estiver ausente, você não terá permissão para adicionar permissões.)
+4. Selecione **Adicionar atribuição de função**.
+   (Se o botão Adicionar atribuição de função estiver ausente, você não terá permissão para adicionar permissões.)
 5. Na caixa **Função** selecione **Proprietário**. 
-6. Na caixa **Atribuir acesso a** selecione **Usuário, grupo ou aplicativo do Azure AD**. 
+6. Na caixa **atribuir acesso a** caixa, selecione **usuário, grupo ou entidade de serviço do Microsoft Azure Active Directory**. 
 7. Na caixa **Selecionar**, digite o endereço de email do usuário que você deseja adicionar como Proprietário. Selecione o usuário e, em seguida, selecione **Salvar**.
 
     ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)

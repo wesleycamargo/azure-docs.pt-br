@@ -2,16 +2,16 @@
 title: Gerenciar o acesso ao Azure Site Recovery com o controle de acesso baseado em função (RBAC) | Microsoft Docs
 description: Este artigo descreve como aplicar o RBAC (controle de acesso baseado em função) para gerenciar o acesso ao Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 815eb1f94d80c36824dc34f3f9410458b9837003
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212039"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849523"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
@@ -69,9 +69,9 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 Considere usar as [funções internas](../role-based-access-control/built-in-roles.md) 'Colaborador de Máquina Virtual' e ‘Colaborador de Máquina Virtual Clássica’ para os modelos de implantação do Resource Manager e do Clássico respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
+* [Controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md): Comece no RBAC no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Solução de problemas de Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
+* [Solução de problemas do Controle de Acesso Baseado em Função](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.

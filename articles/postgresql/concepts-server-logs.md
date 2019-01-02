@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2ee9f750ff52b8afe4be54233f1374f523a789f4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867743"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845154"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Logs de servidor no Banco de Dados do Azure para PostgreSQL 
 Banco de Dados do Azure para PostgreSQL gera logs de consulta e de erro. Os logs de erro e consulta podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho abaixo do ideal. (O acesso aos logs de transação não está incluído). 
@@ -26,11 +26,11 @@ Você pode configurar o registro em log no seu servidor usando os parâmetros de
 Para obter mais informações sobre esses parâmetros, consulte a documentação [Relatório e registro em log de erros](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) do PostgreSQL. Para saber como configurar parâmetros do Banco de Dados do Azure para PostgreSQL, consulte a [documentação do portal](howto-configure-server-parameters-using-portal.md) ou a [documentação da CLI](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Acessar logs do servidor por meio do portal ou da CLI
-Se você habilitou os logs, poderá acessá-los do armazenamento de logs do Banco de Dados do Azure para PostgreSQL usando o [portal do Azure](howto-configure-server-logs-in-portal.md), a [CLI do Azure](howto-configure-server-logs-using-cli.md) e as APIs REST do Azure. Os arquivos de log fazem um rodízio a cada uma hora ou a cada 100 MB, o que ocorrer primeiro. Você pode definir o período de retenção desse armazenamento de logs usando o parâmetro **log\_retention\_period** associado ao seu servidor. O valor padrão é de 3 dias; o valor máximo é de 7 dias. O servidor deve ter armazenamento alocado suficiente para armazenar os arquivos de log. (Esse parâmetro de retenção não controla os Logs de Diagnóstico do Azure).
+Se você habilitou os logs, poderá acessá-los do armazenamento de logs do Banco de Dados do Azure para PostgreSQL usando o [portal do Azure](howto-configure-server-logs-in-portal.md), a [CLI do Azure](howto-configure-server-logs-using-cli.md) e as APIs REST do Azure. Os arquivos de log fazem um rodízio a cada uma hora ou a cada 100 MB, o que ocorrer primeiro. Você pode definir o período de retenção desse armazenamento de logs usando o parâmetro  **log\_retention\_period**  associado ao seu servidor. O valor padrão é de 3 dias; o valor máximo é de 7 dias. O servidor deve ter armazenamento alocado suficiente para armazenar os arquivos de log. (Esse parâmetro de retenção não controla os Logs de Diagnóstico do Azure).
 
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
-O Banco de Dados do Azure para PostgreSQL é integrado aos Logs de Diagnóstico do Azure Monitor. Depois de habilitar os logs em seu servidor PostgreSQL, você pode optar por emiti-los no [Log Analytics](../log-analytics/log-analytics-queries.md), nos Hubs de Eventos ou no Armazenamento do Azure. Para saber mais sobre como habilitar logs de diagnóstico, consulte a seção de instruções da [documentação logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
+O Banco de Dados do Azure para PostgreSQL é integrado aos Logs de Diagnóstico do Azure Monitor. Depois de habilitar os logs em seu servidor PostgreSQL, você pode optar por emiti-los no [Log Analytics](../azure-monitor/log-query/log-query-overview.md), nos Hubs de Eventos ou no Armazenamento do Azure. Para saber mais sobre como habilitar logs de diagnóstico, consulte a seção de instruções da [documentação logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). 
 
 
 A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extremidade de saída escolhido, os campos incluídos e a ordem em que aparecem podem variar. 

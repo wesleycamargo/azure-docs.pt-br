@@ -5,16 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312843"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842332"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Solucionar problemas de replicação em andamento do VM do Azure para o Azure
 
@@ -28,8 +27,8 @@ ID DO ERRO: 153007 </br>
 
 O Azure Site Recovery replica consistentemente os dados da região de origem para a região de recuperação de desastre e cria um ponto consistente de falha a cada 5 minutos. Se o Site Recovery não conseguir criar pontos de recuperação por 60 minutos, ele alertará o usuário. Abaixo estão as causas que podem resultar neste erro:
 
-**Causa 1:[ Alta taxa de alteração de dados na máquina virtual de origem](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Causa 2: [problema de conectividade de rede ](#Network-connectivity-issue)**
+**Causa 1: [Alta taxa de alteração de dados na máquina virtual de origem](#high-data-change-rate-on-the-source-virtal-machine)**    
+**Causa 2: [Problema de conectividade de rede ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
 

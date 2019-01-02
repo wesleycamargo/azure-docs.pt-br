@@ -9,28 +9,27 @@ ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 30983e283f47761d103829f02b02bc281bd785ee
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a62c6cbb6594aaf7c2c57d7efee1832d7b1430b7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091925"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000718"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e métodos de tempos de execução em aplicativos Web em Java
 
 
 Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
-* **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
+* **Dependências:** Dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
   * **Chamadas REST** feitas por meio de HttpClient, OkHttp e RestTemplate (Spring) são capturadas.
   * **Redis** feitas por meio do cliente Jedis são capturadas.
-  * **[Chamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  - comandos MySQL, SQL Server e Oracle DB são automaticamente capturados. Para MySQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
-* **Exceções capturadas:** informações sobre exceções que são manipuladas pelo seu código.
-* **Tempo de execução do método:** informações sobre o tempo necessário para executar métodos específicos.
+  * **[Chamadas JDBC](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  - comandos MySQL, SQL Server e Oracle DB são automaticamente capturados. Para MySQL, se a chamada levar mais de 10 segundos, o agente relatará o plano de consulta.
+* **Exceções capturadas:** Informações sobre exceções que são manipuladas pelo seu código.
+* **Tempo de execução do método:** Informações sobre o tempo necessário para executar métodos específicos.
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 

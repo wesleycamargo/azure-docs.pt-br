@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853346"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870395"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
 
@@ -31,20 +31,41 @@ A versão 3 do API de tradução de texto fornece uma API de Web modernos basead
 
 ## <a name="base-urls"></a>URLs base
 
-A API de Texto v3.0 está disponível na nuvem a seguir:
+O Microsoft Translator é distribuído a partir de vários locais de datacenter. No momento estão localizados em 6 [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-| DESCRIÇÃO | Região | URL base                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Global | api.cognitive.microsofttranslator.com           |
+* **Américas:** Oeste dos EUA 2 e Centro-Oeste dos EUA 
+* **Pacífico Asiático:** Sudeste Asiático e Sul da Coreia
+* **Europa:** Europa Setentrional e Europa Ocidental
+
+As solicitações para a API de Tradução de Texto da Microsoft são na maioria dos casos, tratadas pelo datacenter mais próximo que originou a solicitação. Em caso de falha de um datacenter, a solicitação pode ser roteada para fora da região.
+
+Para forçar a solicitação para ser manipulada por um datacenter específico, altere o ponto de extremidade Global na solicitação de API para o ponto de extremidade regional desejado:
+
+|DESCRIÇÃO|Região|URL base|
+|:--|:--|:--|
+|Azure|Global|  api.cognitive.microsofttranslator.com|
+|Azure|América do Norte|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Pacífico Asiático|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Autenticação
 
-Inscreva-se à API de Tradução de Texto nos Serviços Cognitivos da Microsoft e use sua chave de assinatura (disponível no Portal do Azure) para autenticação. 
+Inscreva-se na API de Tradução de Texto ou nos [Serviços Cognitivos all-in-one](https://azure.microsoft.com/pricing/details/cognitive-services/) nos Serviços Cognitivos da Microsoft e use sua chave de assinatura (disponível no Portal do Azure) para autenticação. 
 
-A maneira mais simples é passar sua chave secreta do Azure para o serviço de Tradução usando o cabeçalho da solicitação `Ocp-Apim-Subscription-Key`.
+Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta tabela descreve como cada um é usado:
 
-Uma alternativa é usar sua chave secreta para obter um token de autorização do serviço de token. Depois, passe o token de autorização para o serviço de Tradução usando o cabeçalho de solicitação `Authorization`. Para obter um token de autorização, faça uma solicitação `POST` à URL a seguir:
+|Cabeçalhos|DESCRIÇÃO|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*Use com a assinatura dos Serviços Cognitivos se você estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
+|Autorização|*Use com a assinatura dos Serviços Cognitivos se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*Use com a assinatura dos Serviços Cognitivos all-in-one se você estiver passando uma chave secreta all-in-one.*<br/>O valor é a região da assinatura all-in-one. Esse valor é opcional quando uma assinatura all-in-one não estiver sendo usada.|
+
+###  <a name="secret-key"></a>Chave secreta
+A primeira opção é autenticar usando o cabeçalho `Ocp-Apim-Subscription-Key`. Basta adicionar o cabeçalho `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à sua solicitação.
+
+### <a name="authorization-token"></a>Token de autorização
+Como alternativa, você pode trocar sua chave secreta por um token de acesso. Esse token é incluído em cada solicitação como o cabeçalho `Authorization`. Para obter um token de autorização, faça uma solicitação `POST` à URL a seguir:
 
 | Ambiente     | URL do serviço de autenticação                                |
 |-----------------|-----------------------------------------------------------|
@@ -55,6 +76,7 @@ Estas são as solicitações de exemplo para obter um token de acordo com uma ch
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -67,28 +89,29 @@ Authorization: Bearer <Base64-access_token>
 
 Um token de autenticação é válido por 10 minutos. O token deve ser usado novamente ao fazer várias chamadas para as APIs de Tradução. No entanto, se o programa faz solicitações para a API de Tradução por um longo período, seu programa deverá solicitar um novo token de acesso em intervalos regulares (por exemplo, a cada oito minutos).
 
-Para resumir, uma solicitação de cliente para a API de Tradução incluirá um cabeçalho de autorização obtido na tabela a seguir:
+### <a name="all-in-one-subscription"></a>Assinatura all-in-one
 
-<table width="100%">
-  <th width="30%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*Use com a assinatura dos Serviços Cognitivos se você estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.</td>
-  </tr>
-  <tr>
-    <td>Autorização</td>
-    <td>*Use com a assinatura dos Serviços Cognitivos se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: "portador <token>".</td>
-  </tr>
-</table> 
+A última opção de autenticação é usar uma assinatura all-in-one de um Serviço Cognitivo. Isso permite que você use uma única chave secreta para autenticar solicitações para vários serviços. 
+
+Quando você usa uma chave secreta do all-in-one, você deve incluir dois cabeçalhos de autenticação com sua solicitação. O primeiro passa a chave secreta, o segundo especifica a região associada à sua assinatura. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Se você passar a chave secreta na cadeia de caracteres de consulta com o parâmetro `Subscription-Key`, então você deverá especificar a região com o parâmetro de consulta `Subscription-Region`.
+
+Se você usar um token de portador, você deve obter o token do ponto de extremidade de região: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
+
+A região é necessária para a assinatura all-in-one de API de Texto.
 
 ## <a name="errors"></a>Errors
 
 Uma resposta de erro padrão é um objeto JSON com o par de nome/valor chamado `error`. O valor também é um objeto JSON com propriedades:
 
-  * `code`: um código de erro definido pelo servidor.
+  * `code`: Um código de erro definido pelo servidor.
 
-  * `message`: uma cadeia de caracteres fornecendo uma representação legível do erro.
+  * `message`: Uma cadeia de caracteres que fornece uma representação legível do erro.
 
 Por exemplo, um cliente com uma assinatura de avaliação gratuita receberia o seguinte erro após a cota livre esgotar:
 

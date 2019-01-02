@@ -3,19 +3,18 @@ title: Trabalhando com a API do Cassandra do Azure Cosmos DB usando o Spark
 description: Este artigo é a página principal para a integração da API do Cassandra do Cosmos DB usando o Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094237"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847126"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conecte-se à API do Cassandra do Azure Cosmos DB usando o Spark
 
@@ -27,16 +26,16 @@ Este artigo está entre uma série de artigos sobre a integração da API do Cas
 * Provisione sua escolha do ambiente do Spark [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Outros].
 
 ## <a name="dependencies-for-connectivity"></a>Dependências para conectividade
-* **Conector do Spark para Cassandra:** o conector do Spark é usado para se conectar à API do Cassandra do Azure Cosmos DB.  Identifique e use a versão do conector localizada em [central do Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatível com as versões do Spark e do Scala do seu ambiente do Spark.
+* **Conector do Spark para Cassandra:** O conector do Spark é usado para se conectar à API do Cassandra do Azure Cosmos DB.  Identifique e use a versão do conector localizada em [central do Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatível com as versões do Spark e do Scala do seu ambiente do Spark.
 
-* **Biblioteca auxiliar do Azure Cosmos DB para API do Cassandra:** além do conector do Spark, você precisa de outra biblioteca chamada [azure-cosmos-cassandra-spark-auxiliar]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) do Azure Cosmos DB. Essa biblioteca contém o connection factory customizado e novas classes de política.
+* **Biblioteca do auxiliar do Microsoft Azure Cosmos DB para API do Cassandra:** Além do conector do Spark, você precisa de outra biblioteca chamada [azure-cosmos-cassandra-spark-auxiliar]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) do Azure Cosmos DB. Essa biblioteca contém o connection factory customizado e novas classes de política.
 
   A política de repetição no Azure Cosmos DB está configurada para lidar com exceções com o código de status HTTP 429 ("Taxa grande de solicitação"). A API do Cassandra do Azure Cosmos DB converte essas exceções em erros de sobrecarga no protocolo nativo do Cassandra, e você pode repetir com retiradas. Uma vez que o Azure Cosmos DB usa o modelo de taxa de transferência provisionada, exceções de limitação de taxa de solicitação ocorrem quando as taxas de entrada/saída aumentam. A política de repetição protege seus trabalhos do Spark em relação a picos de dados que excedem momentaneamente a taxa de transferência alocada para a sua coleção.
 
   > [!NOTE] 
   > A política de repetição pode proteger seus trabalhos do Spark apenas contra picos momentâneo. Se você não tiver configurado RUs suficientes necessárias para executar sua carga de trabalho, a política de repetição não será aplicável e a classe de política de repetição lançará a exceção novamente.
 
-* **Detalhes da conexão da conta do Azure Cosmos DB:** nome da sua conta da API do Cassandra do Azure, ponto de extremidade da conta e chave.
+* **Detalhes de conexão de conta do Azure Cosmos DB:** O nome da sua conta da API do Apache Cassandra, ponto de extremidade da conta e chave.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Parâmetros de configuração de taxa de transferência do conector do Spark
 

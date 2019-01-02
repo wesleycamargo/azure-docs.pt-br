@@ -1,23 +1,22 @@
 ---
-title: Modelando dados de documentos para um banco de dados NoSQL | Microsoft Docs
-description: Saiba mais sobre a modelagem de dados para bancos de dados NoSQL
-keywords: modelando dados
-services: cosmos-db
+title: Modelando dados de documentos em um banco de dados NoSQL
+titleSuffix: Azure Cosmos DB
+description: Saiba mais sobre a modelagem de dados em bancos de dados NoSQL, diferenças entre a modelagem de dados em um banco de dados relacional e um banco de dados de documentos.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2016
+ms.date: 12/06/2018
 ms.author: andrl
-ms.openlocfilehash: c577c9734490e3aacc148153f550162371ae482e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.custom: seodec18
+ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037869"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166635"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
+
 Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
 
 Como eles serão armazenados? Como seu aplicativo vai recuperá-los e consultá-los? O aplicativo realizará grandes volumes de leitura e gravação? 
@@ -82,7 +81,7 @@ Com a desnormalização dos dados, seu aplicativo possivelmente precisará emiti
 ### <a name="when-to-embed"></a>Quando inserir
 De modo geral, use modelos de dados inseridos quando:
 
-* Houver relações de **contém** entre entidades.
+* Houver relações contidas** entre entidades.
 * Houver relações **de um para poucos** entre entidades.
 * Houver dados inseridos que são **alterados com pouca frequência**.
 * Houver dados inseridos que não crescerão **sem limite**.
@@ -96,7 +95,7 @@ De modo geral, use modelos de dados inseridos quando:
 ### <a name="when-not-to-embed"></a>Quando não inserir
 Embora o princípio básico do banco de dados de documentos seja desnormalizar tudo e inserir todos os dados em um único documento, isso pode levar a alguma situações que devem ser evitadas.
 
-Veja este trecho de JSON.
+Veja este snippet de JSON.
 
     {
         "id": "1",
@@ -155,7 +154,7 @@ Este modelo tem os três comentários mais recentes inseridos na postagem em si,
 
 Inserir dados também não é recomendado em casos em que os dados inseridos são usados em diferentes documentos e são alterados com frequência. 
 
-Veja este trecho de JSON.
+Veja este snippet de JSON.
 
     {
         "id": "1",
@@ -175,12 +174,12 @@ Veja este trecho de JSON.
 
 Isto pode representar o portfólio de ações de alguém. Nós optamos por inserir as informações das ações em cada documento do portfólio. Em um ambiente onde dados relacionados mudam com frequência, como um aplicativo de corretagem de ações, inserir dados que mudam frequentemente significa que você atualiza constantemente cada documento do portfólio, sempre que uma ação for negociada.
 
-A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema mal dimensionado. 
+A ação *zaza* pode ser negociada centenas de vezes em apenas um dia, e milhares de usuários podem ter a ação *zaza* em seus portfólios. Com um modelo de dados como o acima, teríamos que atualizar vários milhares de documentos de portfólio muitas vezes por dia, o que levaria a um sistema a mal dimensionado. 
 
 ## <a id="Refer"></a>Fazendo referência a dados
 Inserir dados funciona bem em muitos casos, mas claramente há situações em que desnormalizar seus dados trará mais problemas do que soluções. E o que podemos fazer? 
 
-Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a criação de sistemas que seriam mais adequados a um banco de dados relacional no Azure Cosmos DB ou a qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser muito úteis. 
+Bancos de dados relacionais não são o único lugar onde você pode criar relações entre entidades. Em um banco de dados de documentos, você pode ter informações em um documento que se relacionam a dados de outros documentos. Eu não estou, de modo algum, defendendo a criação de sistemas que seriam mais adequados a um banco de dados relacional no Azure Cosmos DB ou a qualquer outro banco de dados de documentos. O que estou dizendo é que relações simples são ótimas e podem ser úteis. 
 
 No JSON abaixo, optamos por usar o exemplo do portfólio de ações, mas, dessa vez, fazemos referência ao item de estoque no portfólio em vez de inseri-lo. Dessa forma, quando o item de estoque mudar frequentemente ao longo do dia, o único documento que precisará ser atualizado será o documento de estoque. 
 
@@ -341,9 +340,9 @@ Considere o JSON a seguir.
         "countOfBooks": 3,
          "books": ["b1", "b2", "b3"],
         "images": [
-            {"thumbnail": "http://....png"}
-            {"profile": "http://....png"}
-            {"large": "http://....png"}
+            {"thumbnail": "https://....png"}
+            {"profile": "https://....png"}
+            {"large": "https://....png"}
         ]
     },
     {
@@ -353,7 +352,7 @@ Considere o JSON a seguir.
         "countOfBooks": 1,
         "books": ["b1"],
         "images": [
-            {"thumbnail": "http://....png"}
+            {"thumbnail": "https://....png"}
         ]
     }
 
@@ -362,30 +361,30 @@ Considere o JSON a seguir.
         "id": "b1",
         "name": "Azure Cosmos DB 101",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "http://....png"}
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
         ]
     },
     {
         "id": "b2",
         "name": "Azure Cosmos DB for RDBMS Users",
         "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "http://....png"},
+            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
         ]
     }
 
 Aqui, seguimos (principalmente) o modelo inserido, em que dados de outras entidades são inseridos no documento de nível superior, mas outros dados são referenciados. 
 
-Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo *id* que é o campo que usamos para fazer referência a um documento de autor, prática padrão em um modelo normalizado, mas também temos *nome* e *thumbnailUrl*. Nós poderíamos ter ficado somente com a *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
+Olhando o documento do livro, vemos alguns campos interessantes na matriz de autores. Há um campo *id* que é o campo que usamos para fazer referência a um documento de autor, prática padrão em um modelo normalizado, mas também temos *nome* e *thumbnailUrl*. Nós poderíamos ter ficado com a *id* e deixado o aplicativo obter informações adicionais do documento do autor usando o "vínculo", mas como nosso aplicativo mostra o nome do autor e uma foto em miniatura com cada livro mostrado, podemos eliminar uma viagem de ida e volta ao servidor por livro da lista desnormalizando **alguns** dados do autor.
 
-Claro, se o nome do autor mudasse ou se ele quisesse altera sua foto, teríamos que atualizar cada livro publicado. Mas para nosso aplicativo, com base no fato de que autores não mudam de nome com frequência, essa é uma decisão de design aceitável.  
+Claro, se o nome do autor mudasse ou se ele quisesse alterar sua foto, teríamos que atualizar cada livro publicado. Mas para nosso aplicativo, com base no fato de que autores não mudam de nome com frequência, essa é uma decisão de design aceitável.  
 
 No exemplo, há valores **agregados pré-calculados** para reduzir o processamento extensivo das operações de leitura. No exemplo, alguns dos dados inseridos no documento do autor são calculados em tempo de execução. Sempre que um novo livro é publicado, um documento de livro é criado **e** o campo countOfBooks, relativo à contagem de livros, é definido como um valor calculado com base no número de documentos de livros que existem para um dado autor. Essa otimização seria útil em sistemas com grandes volumes de leitura nos quais podemos computar as gravações para otimizar as leituras.
 
 A capacidade de ter um modelo com campos pré-calculados é possibilitada porque o Azure Cosmos DB dá suporte a **transações de vários documentos**. Muitos repositórios NoSQL não podem fazer transações entre documentos e por isso defendem decisões de design, como "sempre inserir tudo", devido a essa limitação. Com o Azure Cosmos DB, você pode usar gatilhos do lado do servidor ou procedimentos armazenados, que inserem manuais e atualizam autores, tudo isso em uma transação ACID. Você não **precisa** inserir tudo em um documento para garantir que seus dados permaneçam consistentes.
 
 ## <a name="NextSteps"></a>Próximas etapas
-O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante quanto sempre foi. 
+O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante como sempre foi. 
 
 Assim como não há apenas uma forma de representar um dado em uma tela, não há apenas uma forma de modelar seus dados. Você precisa entender eu aplicativo e como ele vai produzir, consumir e processar dados. E então, aplicando algumas das diretrizes apresentadas aqui, você pode começar a criar um modelo que trata das necessidades imediatas do seu aplicativo. Quando seus aplicativos precisarem mudar, você pode tirar proveito da flexibilidade de um banco de dados sem esquemas para adotar as mudanças e desenvolver seu modelo de dados facilmente. 
 

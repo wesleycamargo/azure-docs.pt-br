@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883815"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956288"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração e problemas conhecidos das migrações online para o BD SQL do Azure
 
@@ -28,9 +28,9 @@ Os problemas conhecidos e as limitações associados às migrações online do S
 
 Se seu banco de dados de origem consiste em uma ou mais tabelas temporais, a migração de banco de dados falha durante a operação de "Carregamento de dados completo" e você pode ver a seguinte mensagem:
 
-{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Erro de migração de banco de dados", "errorEvents":"["Não foi possível definir as funcionalidades de captura. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]O uso da replicação não é compatível com a tabela temporal com versão do sistema '[Application. Cities]' Line: 1 Column: -1 "]" }
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Erro de migração de banco de dados", "errorEvents":"["Não foi possível definir as funcionalidades de captura. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 NativeError: 11.0 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]O uso da replicação não é compatível com a tabela temporal com versão do sistema '[Application. Cities]' Line: 1 Column: -1 "]" }
  
- ![Exemplo de erros da tabela temporal](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Exemplo de erros da tabela temporal](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Solução alternativa**
 
@@ -52,7 +52,7 @@ Para obter mais informações, confira o artigo [Tabelas temporais](https://docs
 
 Você poderá ver uma exceção do SQL sugerindo que "ntext é incompatível com hierarchyid" durante a operação de "Carregamento de dados completo":
      
-![Exemplo de erros de hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![Exemplo de erros de hierarchyid](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Solução alternativa**
 
@@ -107,7 +107,7 @@ Se você precisar que o DMS migre o valor de carimbo de data/hora exato armazena
 
 Quando você encontrar as falhas de migração na exibição de status de detalhes dos bancos de dados, selecionar o link **Erros de migração de dados** na faixa de opções superior não pode fornecer detalhes adicionais específicos para as falhas de migração.
 
-![exemplos de erros de migração de dados sem detalhes](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![exemplos de erros de migração de dados sem detalhes](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Solução alternativa**
 
@@ -115,6 +115,6 @@ Para obter detalhes de falha específicos, siga as etapas abaixo.
 
 1. Feche a folha de status detalhado do banco de dados para exibir a tela Atividade de migração.
 
-     ![tela de atividade de migração](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![tela de atividade de migração](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Selecione **Ver detalhes do erro** para exibir mensagens de erro específicas que ajudam você a solucionar problemas de erros de migração.

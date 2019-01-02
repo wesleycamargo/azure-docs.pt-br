@@ -1,5 +1,5 @@
 ---
-title: Aplicativo ou serviço do Marathon específico do usuário
+title: (PRETERIDO) Criar um aplicativo ou serviço do Marathon específico do usuário
 description: Criar um aplicativo ou serviço do Marathon específico do usuário
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164533"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996111"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(PRETERIDO) Criar um aplicativo ou serviço do Marathon específico do usuário
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O Serviço de Contêiner do Azure fornece um conjunto de servidores mestres no qual podemos pré-configurar o Apache Mesos e o Marathon. Eles podem ser usados para orquestrar seus aplicativos no cluster, mas é melhor não usar os servidores mestres para essa finalidade. Por exemplo, para fazer o ajuste da configuração do Marathon é necessário fazer o logon nos próprios servidores mestres e então fazer as alterações; isso incentiva a existência de servidores mestres exclusivos que sejam um pouco diferentes do padrão e que precisam ser cuidados e gerenciados de forma independente. Além disso, a configuração exigida por uma equipe pode não ser a configuração ideal para outra equipe.
 
@@ -24,7 +26,7 @@ Neste artigo, explicaremos como adicionar um aplicativo ou serviço do Marathon 
 
 Como esse serviço pertencerá a um único usuário ou a uma única equipe, poderá ser configurado de qualquer forma desejada. Além disso, o Serviço de Contêiner do Azure fará com que o serviço continue a ser executado. Se o serviço falhar, o Serviço de Contêiner do Azure reiniciará para você. Na maioria das vezes, você nem mesmo perceberá o tempo de inatividade.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 [Implantar uma instância do Serviço de Contêiner do Azure](container-service-deployment.md) com o tipo de orquestrador DC/OS e [garantir que o cliente possa se conectar ao cluster](../container-service-connect.md). Execute as etapas a seguir.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

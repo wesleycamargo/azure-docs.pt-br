@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209999"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832354"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Executar failover e failback em VMs do Hyper-V replicadas para o site local secundário
 
@@ -30,8 +30,8 @@ Este artigo descreve como executar failover de uma VM do Hyper-V gerenciada em u
 
 O failover e o failback têm três estágios:
 
-1. **Failover para o site secundário**: executar failover de máquinas do site primário para o secundário.
-2. **Failback do site secundário**: replicar as VMs do secundário para o primário e executar um failover planejado para failback.
+1. **Executar failover para um site secundário**: Failover de máquinas do site primário para o secundário.
+2. **Failback do site secundário**: Replicar as VMs do secundário para o primário e executar um failover planejado para failback.
 3. Após o failover planejado, se desejar inicie a replicação do site primário para o secundário novamente.
 
 
@@ -58,7 +58,7 @@ Este procedimento descreve como executar um failover regular.
 3. Depois de verificar se VM, **Confirme** o failover. Essa ação exclui todos os pontos de recuperação disponíveis.
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: antes de iniciar o failover, a replicação da VM é interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
+> **Não cancele um failover em andamento**: Antes de iniciar o failover, a replicação de VM será interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Replicação inversa e failover

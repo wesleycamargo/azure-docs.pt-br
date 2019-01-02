@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976512"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726892"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicativos de produção de perfil no Azure com o Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Ativar o Profiler para seu aplicativo
@@ -50,10 +49,10 @@ Selecione um exemplo para exibir uma divisão de nível de código de tempo gast
 
 O explorador de rastreamento exibe as seguintes informações:
 
-* **Mostrar afunilamento**: abre o maior nó folha ou pelo menos algo próximo. Na maioria dos casos, esse nó está próximo de um gargalo de desempenho.
+* **Mostrar Afunilamento**: Abre o nó folha maior ou, pelo menos, alguma próximo. Na maioria dos casos, esse nó está próximo de um gargalo de desempenho.
 * **Rótulo**: O nome da função ou do evento. A árvore exibe uma combinação de código e eventos que ocorreram (como eventos SQL e HTTP). Os principais eventos representa a duração total da solicitação.
-* **Decorrido**: o intervalo de tempo entre o início e o final da operação.
-* **Quando**: o horário em que a função ou evento estava sendo executado com relação a outras funções.
+* **Decorrido**: Intervalo de tempo entre o início e o final da operação.
+* **Quando**: Horário em que a função ou evento estava sendo executado com relação a outras funções.
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 

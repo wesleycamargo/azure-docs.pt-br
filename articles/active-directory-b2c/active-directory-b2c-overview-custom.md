@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699491"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725056"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Políticas personalizadas são arquivos de configuração que definem o comportamento do locatário do Azure AD (Azure Active Directory) B2C. Políticas internas são predefinidas no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
+Políticas personalizadas são arquivos de configuração que definem o comportamento do locatário do Azure AD (Azure Active Directory) B2C. Fluxos de usuário são predefinidos no portal do Azure AD B2C para as tarefas de identidade mais comuns. As políticas personalizadas podem ser totalmente editadas por um desenvolvedor de identidades para concluir várias tarefas diferentes.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparando políticas internas e personalizadas
+## <a name="comparing-user-flows-and-custom-policies"></a>Comparando fluxos dos usuários e as políticas personalizadas
 
-| | Políticas internas | Políticas personalizadas |
+| | Fluxos de usuário | Políticas personalizadas |
 |-|-------------------|-----------------|
 | Usuários de destino | Todos os desenvolvedores de aplicativos, com ou sem experiência em identidade. | Profissionais de identidade, integradores de sistemas, consultores e equipes internas de identidade. Estão familiarizados com fluxos do OpenIDConnect e têm conhecimento sobre a autenticação baseada em declarações e os provedores de identidade. |
 | Método de configuração | Portal do Azure com uma UI (interface do usuário) amigável ao usuário. | Editando arquivos XML diretamente e carregando-os no portal do Azure. |
@@ -33,7 +33,7 @@ Políticas personalizadas são arquivos de configuração que definem o comporta
 | Personalização de atributos | Atributos padrão e personalizados. | Idêntico |
 | Gerenciamento de tokens e sessões | Token personalizado e opções de várias sessões. | Idêntico |
 | Provedores de Identidade | Provedor local ou social predefinido. | SAML, OAUTH e OIDC baseado em padrões. |
-| Tarefas de identidade | Inscrever-se-se ou entrar com contas locais ou muitas contas sociais.<br><br>Redefinição de senha de autoatendimento.<br><br>Edição de perfil.<br><br>Autenticação Multifator.<br><br>Personalizar tokens e sessões.<br><br>Acessar fluxos de token. | Concluir as mesmas tarefas que as políticas internas usando provedores de identidade ou escopos personalizados.<br><br>Provisione uma conta de usuário em outro sistema no momento do registro.<br><br>Enviar um email de boas-vindas usando seu próprio provedor de serviços de email.<br><br>Use um repositório de usuários fora do Azure AD B2C.<br><br>Valide as informações fornecidas pelo usuário com um sistema confiável usando uma API. |
+| Tarefas de identidade | Inscrever-se-se ou entrar com contas locais ou muitas contas sociais.<br><br>Redefinição de senha de autoatendimento.<br><br>Edição de perfil.<br><br>Autenticação Multifator.<br><br>Personalizar tokens e sessões.<br><br>Acessar fluxos de token. | Concluir as mesmas tarefas como fluxos de usuários usando os provedores de identidade personalizados ou usar escopos personalizados.<br><br>Provisione uma conta de usuário em outro sistema no momento do registro.<br><br>Enviar um email de boas-vindas usando seu próprio provedor de serviços de email.<br><br>Use um repositório de usuários fora do Azure AD B2C.<br><br>Valide as informações fornecidas pelo usuário com um sistema confiável usando uma API. |
 
 ## <a name="policy-files"></a>Arquivos de política
 
@@ -43,7 +43,7 @@ Esses três tipos de arquivos de política são usados:
 - **Arquivo de extensões** - retém as alterações de configuração exclusivas do locatário.
 - **Arquivo RP (Terceira Parte Confiável)** - O arquivo único focado na tarefa que é chamado diretamente pelo aplicativo ou serviço (também conhecido como Terceira Parte Confiável). Cada tarefa exclusiva requer o próprio RP e, dependendo dos requisitos de marca, o número pode ser "total de aplicativos x número total de casos de uso."
 
-Políticas internas no Azure AD B2C seguem o padrão de três arquivos descrito acima, mas o desenvolvedor somente vê o arquivo RP, enquanto o portal do Azure faz alterações em segundo plano do arquivo de extensões.
+Fluxos de usuário no Azure AD B2C seguem o padrão de três arquivos descrito acima, mas o desenvolvedor somente vê o arquivo RP, enquanto o portal do Azure faz alterações em segundo plano do arquivo de extensões.
 
 ## <a name="custom-policy-core-concepts"></a>Conceitos básicos de política personalizada
 

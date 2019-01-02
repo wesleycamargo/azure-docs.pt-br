@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390204"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873811"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre as diferentes configurações (sob demanda versus traga a sua própria) com suporte pela Data Factory ao configurar serviços vinculados que vinculam esses ambientes de computação para uma Azure Data Factory.
@@ -27,8 +27,8 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Lote do Azure](#azure-batch-linked-service)                   | [Personalizado](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: execução do Lote e recurso de atualização](transform-data-using-machine-learning.md) |
-| [Análise Azure Data Lake](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
@@ -48,11 +48,7 @@ Observe os seguintes pontos **importantes** sobre o serviço vinculado HDInsight
 * O cluster HDInsight sob demanda é criado sob sua assinatura do Azure. Quando o cluster estiver ativo e em execução, você poderá vê-lo em seu Portal do Azure. 
 * Os logs para trabalhos que são executados em um cluster HDInsight sob demanda são copiados para a conta de armazenamento associada ao cluster HDInsight. clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword determinados em sua definição de serviço vinculado são usados para fazer logon no cluster para solução de problemas detalhada durante o ciclo de vida do cluster. 
 * Você é cobrado somente pelo tempo em que o cluster HDInsight estiver ativo e executando trabalhos.
-* Você não pode usar uma ação de Script com o serviço vinculado do Azure HDInsight sob demanda. Se você precisa instalar outras dependências, por exemplo, considere o uso do Azure Automation para executar um script do PowerShell que faz o seguinte:  
-  a. Crie o cluster HDInsight.  
-  b. Execute uma ação de Script para instalar outras dependências, por exemplo.  
-  c. Execute o pipeline da Data Factory.  
-  d. Excluir o cluster.  
+* Ação de Script com o serviço vinculado do Azure HDInsight sob demanda.  
 
 > [!IMPORTANT]
 > Em geral, são necessários **20 minutos** ou mais para provisionar um cluster Azure HDInsight sob demanda.
@@ -113,7 +109,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 | clusterNamePrefix           | O prefixo do nome do cluster HDI, um carimbo de data/hora, será acrescentado automaticamente ao final do nome do cluster| Não        |
 | sparkVersion                 | A versão do Spark se o tipo de cluster for "Spark" | Não        |
 | additionalLinkedServiceNames | Especifica as contas de armazenamento adicionais para o serviço vinculado do HDInsight para que o serviço do Data Factory possa registrá-los em seu nome. Essas contas de armazenamento devem estar na mesma região que o cluster HDInsight, que é criado na mesma região que a conta de armazenamento especificada por linkedServiceName. | Não        |
-| osType                       | Tipo do sistema operacional. Os valores permitidos são: Linux e Windows (somente para HDInsight 3.3). O padrão é Linux. | Não        |
+| osType                       | Tipo do sistema operacional. Valores permitidos são: Linux e Windows (somente para HDInsight 3.3). O padrão é Linux. | Não        |
 | hcatalogLinkedServiceName    | O nome do serviço vinculado do SQL Azure que aponta para o banco de dados HCatalog. O cluster HDInsight sob demanda é criado usando o banco de dados SQL do Azure como o metastore. | Não        |
 | connectVia                   | O Integration Runtime a ser usado para distribuir as atividades a esse serviço vinculado do HDInsight. Em relação ao serviço vinculado do HDInsight sob demanda, há suporte apenas para o Integration Runtime do Azure. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não        |
 | clusterUserName                   | O nome de usuário para acessar o cluster. | Não        |
@@ -244,7 +240,7 @@ Se quiser criar nós de cabeçalho e nós de trabalho em tamanho D4, especifique
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor incorreto para essas propriedades, você pode receber o seguinte **erro:** falha ao criar o cluster. Exceção: Não foi possível concluir operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: ‘Erro’. Mensagem: “PreClusterCreationValidationFailure”. Quando receber esse erro, verifique se está usando o nome **CMDLET e APIS** da tabela no artigo [Tamanhos de Máquinas Virtuais](../virtual-machines/linux/sizes.md).        
+Se especificar um valor incorreto para essas propriedades, você pode receber o seguinte **erro:** Falha ao criar cluster. Exceção: Não foi possível concluir a operação de criação do cluster. Falha na operação com o código '400'. Cluster deixou para trás estado: “Erro”. Mensagem: 'PreClusterCreationValidationFailure'. Quando receber esse erro, verifique se está usando o nome **CMDLET e APIS** da tabela no artigo [Tamanhos de Máquinas Virtuais](../virtual-machines/linux/sizes.md).        
 
 ## <a name="bring-your-own-compute-environment"></a>Traga seu próprio ambiente de computação
 Nesse tipo de configuração, os usuários podem registrar um ambiente de computação já existente como um serviço vinculado no Data Factory. O ambiente de computação é gerenciado pelo usuário e o serviço Data Factory o utiliza para executar as atividades.
@@ -383,7 +379,7 @@ Criar um serviço vinculado de Machine Learning do Azure para registrar um ponto
 ### <a name="properties"></a>propriedades
 | Propriedade               | DESCRIÇÃO                              | Obrigatório                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                   | A propriedade de tipo deve ser configurada como **AzureML**. | SIM                                      |
+| Tipo                   | A propriedade de tipo deve ser configurada como: **AzureML**. | SIM                                      |
 | mlEndpoint             | A URL de pontuação do lote.                   | SIM                                      |
 | apiKey                 | A API do modelo de workspace publicada.     | SIM                                      |
 | updateResourceEndpoint | A URL do recurso de atualização para um ponto de extremidade de serviço Web do Azure ML usado para atualizar o serviço Web preditivo com o arquivo de modelo treinado | Não                                        |
@@ -426,7 +422,7 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 | Propriedade             | DESCRIÇÃO                              | Obrigatório                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Tipo                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | SIM                                      |
+| Tipo                 | A propriedade de tipo deve ser configurada como: **AzureDataLakeAnalytics**. | SIM                                      |
 | accountName          | Nome da conta da Análise Azure Data Lake.  | SIM                                      |
 | dataLakeAnalyticsUri | URI da Análise Azure Data Lake.           | Não                                        |
 | subscriptionId       | Id de assinatura do Azure                    | Não                                        |
@@ -487,10 +483,10 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | Propriedade             | DESCRIÇÃO                              | Obrigatório                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | Nome                 | Nome do serviço vinculado               | SIM   |
-| Tipo                 | A propriedade type deve ser definida com: **AzureDatabricks**. | SIM                                      |
+| Tipo                 | A propriedade de tipo deve ser configurada como: **AzureDatabricks**. | SIM                                      |
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | SIM                                 |
 | accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | SIM                                       |
-| existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no espaço de trabalho do Databricks -> Clusters -> Nome do Cluster Interativo -> Configuração -> Marcas. [Mais detalhes:](https://docs.databricks.com/user-guide/clusters/tags.html) | Não  
+| existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes:](https://docs.databricks.com/user-guide/clusters/tags.html) | Não  
 | newClusterVersion    | A versão do Spark do cluster. Ele criará um cluster de trabalho no Databricks. | Não   |
 | newClusterNumOfWorker| Número de nós de trabalho que esse cluster deve ter. Um cluster possui um Spark Driver e um num_workers Executors para um total de num_workers + 1 nós do Spark. Uma cadeia de caracteres formatada Int32, como "1" significa que numOfWorker é 1 ou "1:10" significa autoescala de 1 como mínimo e 10 como máximo.  | Não                 |
 | newClusterNodeType   | Esse campo codifica, por meio de um único valor, os recursos disponíveis para cada um dos nós do Spark neste cluster. Por exemplo, os nós do Spark podem ser provisionados e otimizados para cargas de trabalho intensivas de computação e memória. Esse campo é necessário para um novo cluster                | Não                |

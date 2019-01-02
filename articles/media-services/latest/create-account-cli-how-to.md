@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta dos Serviços de Mídia do Azure com o a CLI do Azure | Microsoft Docs
+title: Criar uma conta dos Serviços de Mídia com a CLI do Azure - Azure | Microsoft Docs
 description: Execute as etapas neste início rápido para criar uma conta dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,21 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 11/11/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613152"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133359"
 ---
 # <a name="create-an-azure-media-services-account"></a>Criar uma conta de Serviços de Mídia do Azure
 
 Para iniciar a criptografia, codificação, analise, gerenciamento e streaming de conteúdo de mídia no Azure, você precisa criar uma conta dos Serviços de Mídia. Quando você cria uma conta de Serviços de Mídia, você também cria uma conta de armazenamento associada (ou usa uma existente) na mesma região geográfica que a conta de Serviços de Mídia.
-
-Este artigo descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI do Azure.  
+Azure Este artigo descreve as etapas para criar uma nova conta dos Serviços de Mídia do Azure usando a CLI do Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

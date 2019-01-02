@@ -1,6 +1,6 @@
 ---
-title: Identidades gerenciadas para recursos do Azure com a versão prévia de Hubs de Eventos do Azure | Microsoft Docs
-description: Usar identidades gerenciadas para recursos do Azure com Hubs de Eventos do Azure
+title: Identidades gerenciadas para recursos do Azure - Hubs de Eventos do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como usar as entidades gerenciadas para os recursos do Azure com os Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087721"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades gerenciadas para recursos do Azure com Hubs de Eventos
 
@@ -47,7 +48,7 @@ A primeira etapa é criar um aplicativo ASP.NET do Serviço de Aplicativo. Se vo
 
 Depois de criar o aplicativo, navegue até o aplicativo Web recém-criado no portal do Azure (também mostrado nas instruções) e, em seguida, navegue até a página **Identidade de Serviço Gerenciada** e habilite o recurso: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Página de Identidade de Serviço Gerenciada](./media/event-hubs-managed-service-identity/msi1.png)
  
 Depois de habilitar o recurso, uma nova identidade do serviço será criada no Azure Active Directory e configurada no host do Serviço de Aplicativo.
 
@@ -55,11 +56,7 @@ Depois de habilitar o recurso, uma nova identidade do serviço será criada no A
 
 Em seguida, [crie um namespace de Hubs de Eventos](event-hubs-create.md) em uma das regiões do Azure com suporte de versão prévia para identidades gerenciadas para recursos do Azure: **Leste dos EUA**, **Leste dos EUA 2** ou **Europa Ocidental**. 
 
-Navegue até a página **Controle de Acesso (IAM)** do namespace no portal e, em seguida, clique em **Adicionar** para adicionar a identidade gerenciada à função **Proprietário**. Para fazer isso, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-A identidade gerenciada para o aplicativo Web agora tem acesso ao namespace de Hubs de Eventos e ao hub de eventos criado anteriormente. 
+Navegue até a página **Controle de Acesso (IAM)** do namespace no portal e, em seguida, clique em **Adicionar atribuição de função** para adicionar a identidade gerenciada à função **Proprietário**. Para fazer isso, procure o nome do aplicativo Web no campo **Selecionar** do painel **Adicionar permissões** e, em seguida, clique na entrada. Em seguida, clique em **Salvar**. A identidade gerenciada para o aplicativo Web agora tem acesso ao namespace de Hubs de Eventos e ao hub de eventos criado anteriormente. 
 
 ### <a name="run-the-app"></a>Execute o aplicativo
 
@@ -71,7 +68,7 @@ Observe como o objeto [MessagingFactory](/dotnet/api/microsoft.servicebus.messag
 
 Depois de fazer essas alterações, publique e execute o aplicativo. Você pode obter os dados de publicação corretos baixando e, em seguida, importando um perfil de publicação no Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importar o perfil de publicação](./media/event-hubs-managed-service-identity/msi3.png)
  
 Para enviar ou receber mensagens, insira o nome do namespace e o nome da entidade que você criou e, em seguida, clique em **enviar** ou **receber**. 
  

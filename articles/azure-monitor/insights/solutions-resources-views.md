@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6e0bab08e52233d10cff3ec936d024dcbb86d2a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635757"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188003"
 ---
 # <a name="views-in-management-solutions-preview"></a>Exibições em soluções de gerenciamento (versão prévia)
 > [!NOTE]
@@ -90,15 +89,15 @@ Observe que você poderá copiar todo o recurso de exibição do arquivo de exib
 * As variáveis devem ser definidas na solução e usadas nas propriedades adequadas.
 
 ### <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
-Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../../log-analytics/log-analytics-queries.md).  
+Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os modos de exibição com filas que usam o [formato herdado e a linguagem de consulta atualizados](../../azure-monitor/log-query/log-query-overview.md).  
 
  A tabela a seguir especifica as versões de API de Log Analytics para modos de exibição em workspaces herdados e atualizados: 
 
 | Versão do workspace | Versão da API | Consultar |
 |:---|:---|:---|
-| v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Erro  |
-| v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Erro<br>Convertido para: Event &#124; onde EventLevelName == “Erro”  |
-| v2 (atualizado) | 2017-03-03-versão prévia | Formato de atualização. <br>Exemplo: Event &#124; onde EventLevelName == “Erro”  |
+| v1 (herdado)   | 2015-11-01-preview | Formato herdado.<br> Exemplo: Type=Event EventLevelName = Error  |
+| v2 (atualizado) | 2015-11-01-preview | Formato herdado.  Convertido para o formato atualizado na instalação.<br> Exemplo: Type=Event EventLevelName = Error<br>Convertido para: Event &#124; where EventLevelName == "Error"  |
+| v2 (atualizado) | 2017-03-03-versão prévia | Formato de atualização. <br>Exemplo: Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Adicionar os detalhes de exibição

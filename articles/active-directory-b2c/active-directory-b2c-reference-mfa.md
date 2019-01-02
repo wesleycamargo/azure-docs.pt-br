@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013999"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847721"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Active Directory B2C
 
-O Active Directory do Azure (Microsoft Azure Active Directory) B2C integra-se diretamente à [Autenticação de Vários Fator do Azure](../active-directory/authentication/multi-factor-authentication.md) para que você possa adicionar uma segunda camada de segurança às experiências de inscrição e de login em seus aplicativos. Você habilita a autenticação de múltiplos fatores sem escrever uma única linha de código. Se você já criou políticas de inscrição e de login, ainda poderá ativar a autenticação multi fator.
+O Active Directory do Azure (Microsoft Azure Active Directory) B2C integra-se diretamente à [Autenticação de Vários Fator do Azure](../active-directory/authentication/multi-factor-authentication.md) para que você possa adicionar uma segunda camada de segurança às experiências de inscrição e de login em seus aplicativos. Você habilita a autenticação de múltiplos fatores sem escrever uma única linha de código. Se você já criou fluxos de usuário de inscrição e de login, ainda poderá ativar a autenticação multi fator.
 
 Esse recurso ajuda os aplicativos a lidarem com cenários como os seguintes:
 
@@ -28,25 +28,24 @@ Esse recurso ajuda os aplicativos a lidarem com cenários como os seguintes:
 
 ## <a name="set-multi-factor-authentication"></a>Definir a autenticação multi fator
 
-Quando você cria uma política, tem a opção de ativar a autenticação de vários fatores.
+Quando você cria um fluxo de usuário, tem a opção de ativar a autenticação de vários fatores.
 
 ![Definir a autenticação multi fator](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Definir **estado** para **Ligado**.
+Defina a **Autenticação de multifator** para **Habilitado**.
 
-Você pode usar **executar agora** na política para verificar a experiência. Confirme o seguinte cenário:
+Você pode usar **Executar fluxo de usuário** na política para verificar a experiência. Confirme o seguinte cenário:
 
 Uma conta de cliente é criada em seu locatário antes que a etapa de autenticação de vários fatores ocorra. Durante a etapa, o cliente é solicitado a fornecer um número de telefone e a verificar. Se a verificação for bem-sucedida, o número de telefone será anexado à conta para uso posterior. Mesmo se o cliente cancelar ou desistir, o cliente poderá ser solicitado a confirmar um número de telefone novamente durante o próximo login, com a autenticação multi fatores ativada.
 
 ## <a name="add-multi-factor-authentication"></a>Adicionar a autenticação multi fator
 
-É possível habilitar a autenticação multi fator em uma política que você criou anteriormente. 
+É possível habilitar a autenticação multi fator em um fluxo de usuário que você criou anteriormente. 
 
 Para habilitar a autenticação multi fator:
 
-1. Abra a política e selecione **Editar**. 
-2. Selecione a **autenticação de multi fator**
-3. Definir **estado** para **Ligado**.
-4. Clique em **Salvar** na parte superior da página.
+1. Abra o fluxo de usuário e, em seguida, selecione **Propriedades**. 
+2. Próximo a **Autenticação Multifator**, selecione **Habilitado**.
+3. Clique em **Salvar** na parte superior da página.
 
 

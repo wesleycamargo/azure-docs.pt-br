@@ -4,18 +4,18 @@ description: Versão prévia de 2015-08-01 do esquema atualizada para definiçõ
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122770"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080003"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Atualizações de esquema para Aplicativos Lógicos do Azure - visualização de 1º de junho de 2015
 
@@ -72,12 +72,16 @@ Nessa definição, essas ações são denominadas `APIConnection`. Veja um exemp
 }
 ```
 
-O objeto `host` é uma parte das entradas que é exclusiva para conexões de API e contém dessas partes: `api` e `connection`. O objeto `api` especifica a URL de tempo de execução para onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+O objeto `host` é uma parte das entradas que é exclusiva para conexões de API e contém dessas partes: `api` e `connection`. O objeto `api` especifica a URL de tempo de execução para onde a API gerenciada está hospedada. Você pode ver todas as APIs gerenciadas disponíveis chamando esse método:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Quando você usa uma API, existe a possibilidade dessa API não ter nenhum *parâmetro de conexão* definido. Portanto, se a API não definir esses parâmetros, nenhuma conexão é necessária. Se a API definir esses parâmetros, você deve criar uma conexão com um nome especificado.  
 Você faz então referência a esse nome no objeto `connection` dentro do objeto `host`. Para criar uma conexão em um grupo de recursos, chame este método:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Com o seguinte corpo:
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Implantar APIs gerenciadas em um modelo do Azure Resource Manager
 
-Você pode criar um aplicativo completo em um modelo do Azure Resource Manager, desde que ele não exija entrada interativa.
-Se for necessário entrar, você poderá configurar tudo com o modelo do Azure Resource Manager, mas ainda precisará visitar o portal do Azure a fim de autorizar as conexões. 
+Quando a entrada interativa não é necessária, você pode criar um aplicativo completo, usando um modelo do Resource Manager.
+Se for necessário entrar, você poderá ainda usar um modelo do Gerenciador de Recursos mas é necessário autorizar as conexões através do portal do Azure. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ Você pode ver neste exemplo que as conexões são apenas recursos que residem e
 
 ### <a name="your-custom-web-apis"></a>Suas APIs Web personalizadas
 
-Se você usar suas próprias APIs, aqueles não gerenciados pela Microsoft, usar interno **HTTP** ação chamá-los. Para uma experiência ideal, você deve expor um ponto de extremidade do Swagger para sua API. Esse ponto de extremidade permite que o Designer de Aplicativos Lógicos renderize as entradas e saídas de sua API. Sem o Swagger, o designer só poderá mostrar as entradas e saídas como objetos JSON opacos.
+Se você usar suas próprias APIs, diferente daquelas não gerenciadas pela Microsoft, use a ação **HTTP** interna para chamar suas APIs. Idealmente, você deve fornecer um ponto de extremidade do Swagger para sua API. Esse ponto de extremidade ajuda o Designer de Aplicativos Lógicos a mostrar entradas e saídas de sua API. Sem o ponto de extremidade Swagger, o designer só poderá mostrar as entradas e saídas como objetos JSON opacos.
 
 Veja um exemplo que mostra a nova propriedade `metadata.apiDefinitionUrl` :
 
@@ -259,7 +263,7 @@ Por exemplo, se você usar o Dropbox para listar os arquivos, poderá ter algo a
 }
 ```
 
-Agora, você pode construir a ação HTTP como o exemplo a seguir, deixando a seção de parâmetros para a definição do aplicativo lógico inalterada:
+Agora, você pode criar uma ação de HTTP semelhante e deixar a seção `parameters` de definição do aplicativo lógico inalterada, por exemplo:
 
 ``` json
 "actions": {
@@ -293,7 +297,7 @@ Percorra essas propriedades, uma por vez:
 | `inputs.uri` | Construído com base em: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Sempre `POST` |
 | `inputs.body` | Idêntico aos parâmetros do Aplicativo de API |
-| `inputs.authentication` | Idêntico à autenticação do aplicativo de API |
+| `inputs.authentication` | Idêntico à autenticação do Aplicativo de API |
 
 Essa abordagem deve funcionar para todas as ações de Aplicativo de API. No entanto, lembre-se de que esses aplicativos de API anterior não têm mais suporte. Portanto, você deve mover para uma das duas outras opções anteriores, uma API gerenciada ou hospedagem sua API da Web personalizado.
 
@@ -407,9 +411,9 @@ Agora você deve escrever esta versão em vez disso:
 
 ## <a name="native-http-listener"></a>Ouvinte HTTP nativo:
 
-Os recursos de Ouvinte HTTP agora são internos. Portanto, você não precisa mais implantar um Aplicativo de API do Ouvinte HTTP. Veja [os detalhes completos de como fazer com que seu ponto de extremidade do aplicativo lógico seja chamado aqui](../logic-apps/logic-apps-http-endpoint.md). 
+Os recursos de Ouvinte HTTP agora são internos, portanto, você não tem que implantar mais um aplicativo de API de Ouvinte HTTP. Para obter mais informações, veja como [fazer com que seu ponto de extremidade do aplicativo lógico seja chamado aqui](../logic-apps/logic-apps-http-endpoint.md). 
 
-Com essas alterações, removemos o `@accessKeys()` função, que são substituídos com o `@listCallbackURL()` função para obter o ponto de extremidade quando necessário. Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser `/run` o fluxo de trabalho, deverá ter um dos gatilhos a seguir: `manual`, `apiConnectionWebhook` ou `httpWebhook`.
+Com essas alterações, os Aplicativos Lógicos substituem a função `@accessKeys()` pela `@listCallbackURL()` função, que obtém o ponto de extremidade quando necessário. Além disso, agora você deve definir pelo menos um gatilho em seu aplicativo lógico. Se você quiser `/run` o fluxo de trabalho, deverá ter um dos gatilhos a seguir: `Manual`, `ApiConnectionWebhook` ou `HttpWebhook`
 
 <a name="child-workflows"></a>
 
@@ -441,9 +445,9 @@ Anteriormente, chamar os fluxos de trabalho secundários exigia ir para esse flu
 }
 ```
 
-Um segundo aprimoramento é que demos aos fluxos de trabalho filho acesso completo à solicitação de entrada. Isso significa que você pode passar parâmetros na seção *consultas* e no objeto *cabeçalhos*, e que pode definir completamente o corpo.
+Além disso, os fluxos de trabalho filho obtém acesso completo à solicitação de entrada. Portanto, você pode passar parâmetros na `queries` seção e, no `headers` objeto. Você pode definir também completamente todo a `body` seção.
 
-Por fim, há alterações necessárias no fluxo de trabalho secundário. Enquanto antes você podia chamar um fluxo de trabalho filho diretamente, agora você precisa definir um ponto de extremidade de gatilho no fluxo de trabalho para o pai chamar. Em geral, você adicionaria um disparador que possui `manual` digite e, em seguida, usar esse gatilho na definição do pai. Observe que a propriedade `host`, especificamente, tem um `triggerName`, pois você sempre deve especificar qual gatilho está invocando.
+Por fim, os fluxos de trabalho filho têm essas alterações necessárias. Enquanto antes você podia chamar um fluxo de trabalho filho diretamente, agora você precisa definir um ponto de extremidade de gatilho no fluxo de trabalho para o pai chamar. Em geral, você adicionaria um disparador que possui `Manual` digite e, em seguida, usar esse gatilho na definição do pai. A `host` propriedade especificamente tem um `triggerName` porque você sempre deve especificar o gatilho que está chamando.
 
 ## <a name="other-changes"></a>Outras alterações
 
@@ -453,8 +457,8 @@ Todos os tipos de ação oferecem suporte a uma nova entrada denominada `queries
 
 ### <a name="renamed-parse-function-to-json"></a>Função 'parse()' renomeada para 'json()'
 
-Adicionaremos mais tipos de conteúdo em breve e, portanto, renomeamos a função `parse()` para `json()`.
+A `parse()` função agora está renomeada a `json()` função para tipos de conteúdo futuros.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Em breve: APIs de Integração Corporativa
+## <a name="enterprise-integration-apis"></a>APIs do Enterprise Integration
 
-Não temos versões gerenciadas ainda das APIs de integração do Enterprise, como o AS2. Enquanto isso, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja "Uso dos seus aplicativos de API já implantados" no [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Esse esquema ainda não dá suporte para versões gerenciadas para APIs do Enterprise Integration, como AS2. Porém, você pode usar suas APIs do BizTalk implantadas existentes por meio da ação de HTTP. Para obter detalhes, veja “Usando seus aplicativo de API já implantados" no [roteiro de integração](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

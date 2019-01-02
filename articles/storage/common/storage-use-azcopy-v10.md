@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168218"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958399"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferir dados com o AzCopy v10 (Versão Prévia)
 
@@ -84,6 +84,16 @@ Para ver a página de ajuda e exemplos para um comando específico, execute o co
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Criar um sistema de arquivo (Azure Data Lake Storage Gen2 apenas)
+
+Se você tiver habilitado os namespaces hierárquicos em sua conta de armazenamento de Blobs, você pode usar o comando a seguir para criar um novo sistema de arquivos para que você possa carregar um download de arquivos nele.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+A ``account`` parte dessa cadeia de caracteres é o nome da sua conta de armazenamento. A ``top-level-resource-name`` parte dessa cadeia de caracteres é o nome do sistema de arquivos que você deseja criar.
+
 ## <a name="copy-data-to-azure-storage"></a>Copiar dados para o Armazenamento do Azure
 
 Use o comando de cópia para transferir dados da origem para o destino. A origem/destino pode ser:
@@ -107,10 +117,22 @@ O comando a seguir carrega todos os arquivos sob a pasta C:\local\path recursiva
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Se você tiver habilitado os namespaces hierárquicos em sua conta de armazenamento de BLOBs, você pode usar o comando a seguir para carregar arquivos para seu sistema de arquivos:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 O comando a seguir carrega todos os arquivos na pasta C:\local\path (sem fazer recursão nos subdiretórios) no contêiner "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Se você tiver habilitado os namespaces hierárquicos em sua conta de armazenamento de BLOBs, você pode usar o comando a seguir:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Para obter mais exemplos, use o seguinte comando:
@@ -127,6 +149,8 @@ Para copiar os dados entre duas contas de armazenamento, use o seguinte comando:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Para trabalhar com contas de armazenamento de blobs que têm namespaces hierárquicos habilitados, substitua a cadeia de caracteres ``blob.core.windows.net`` por ``dfs.core.windows.net`` nesses exemplos.
 
 > [!NOTE]
 > O comando enumerará todos os contêineres de blob e os copiará para a conta de destino. Neste momento, o AzCopy v10 dá suporte para copiar apenas blobs de bloco entre duas contas de armazenamento. Todos os outros objetos de conta de armazenamento (blobs de acrescentar, blobs de páginas, arquivos, tabelas e filas) serão ignorados.
@@ -154,6 +178,8 @@ Da mesma forma, você pode sincronizar um contêiner de Blobs para um sistema de
 ```
 
 O comando permite que você sincronize incrementalmente a origem com o destino com base em carimbos de data/hora da última modificação. Se você adicionar ou excluir um arquivo na origem, o AzCopy v10 fará o mesmo no destino.
+
+[!NOTE] Para trabalhar com contas de armazenamento de blobs que têm namespaces hierárquicos habilitados, substitua a cadeia de caracteres ``blob.core.windows.net`` por ``dfs.core.windows.net`` nesses exemplos.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
@@ -183,7 +209,7 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 ```
 
-## <a name="troubleshooting"></a>Solução de problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 O AzCopy v10 cria arquivos de log e arquivos de plano para todos os trabalhos. Você pode usar os logs para investigar e solucionar problemas potenciais. Os logs conterão o status de falha (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), o caminho completo e o motivo da falha. Os logs de trabalho e os arquivos de plano estão localizados na pasta %USERPROFILE\\.azcopy.
 

@@ -1,5 +1,5 @@
 ---
-title: Monitorar o cluster Kubernetes do Azure com o DataDog
+title: (PRETERIDO) Monitorar o cluster Kubernetes do Azure com o DataDog
 description: Monitorando o cluster Kubernetes no Serviço de Contêiner do Azure usando o DataDog
 services: container-service
 author: bburns
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995348"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Monitorar um cluster do Serviço de Contêiner do Azure com o Datadog
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(PRETERIDO) Monitorar um cluster do Serviço de Contêiner do Azure com DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este passo a passo presume que você tenha [criado um cluster Kubernetes usando o Serviço de contêiner do Azure](container-service-kubernetes-walkthrough.md).
 
 Isso também pressupõe que você tenha as ferramentas `az` cli e `kubectl` do Azure instaladas.

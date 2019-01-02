@@ -1,6 +1,6 @@
 ---
-title: Implantar e monitorar módulos do Azure IoT Edge | Microsoft Docs
-description: Gerenciar os módulos executados em dispositivos de borda
+title: Criar implantações automáticas do portal do Azure - Azure IoT Edge | Microsoft Docs
+description: Usar o portal do Azure para criar dispositivos de implantações automáticas para grupos do IoT Edge
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566237"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083913"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -99,7 +100,7 @@ As rotas definem como os módulos se comunicam entre si em uma implantação. Po
 Adicionar ou atualizar as rotas com informações de [declarar rotas](module-composition.md#declare-routes), em seguida, selecione **próximo** para continuar para a seção de revisão.
 
 
-### <a name="step-4-target-devices"></a>Etapa 4: Direcionar dispositivos
+### <a name="step-4-target-devices"></a>Etapa 4: Dispositivos de destino
 
 Use a propriedade tags dos dispositivos para direcionar os dispositivos específicos que devem receber essa implantação. 
 
@@ -109,7 +110,7 @@ Como várias implantações podem direcionar o mesmo dispositivo, você deve atr
 1. Insira uma **Condição de destino** para determinar quais dispositivos serão direcionados com essa implantação. A condição se baseia nas marcas do dispositivo gêmeo ou propriedades reportadas do dispositivo gêmeo e deve corresponder ao formato da expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Selecione **Avançar** para ir para a etapa final.
 
-### <a name="step-5-review-template"></a>Etapa 5: Examinar o modelo
+### <a name="step-5-review-template"></a>Etapa 5: Examinar modelo
 
 Examine as informações da implantação e, em seguida, selecione **Enviar**.
 

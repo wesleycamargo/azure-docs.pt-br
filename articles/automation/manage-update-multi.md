@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620210"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679512"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -82,11 +82,11 @@ Após habilitar o Gerenciamento de Atualizações para as máquinas, você poder
 
 Computadores que foram habilitados recentemente para o Gerenciamento de Atualizações podem ainda não terem sido avaliados. O status do estado de conformidade para esses computadores é **Não avaliado**. Aqui, é apresentada uma lista de possíveis valores para o estado de conformidade:
 
-- **Compatível**: computadores com todas as atualizações críticas ou de segurança.
+- **Em conformidade**: Computadores com todas as atualizações críticas ou de segurança.
 
-- **Não compatível**: computadores que não têm pelo menos uma atualização crítica ou de segurança.
+- **Sem conformidade**: Computadores que não têm pelo menos uma atualização crítica ou de segurança.
 
-- **Não avaliado**: os dados da avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado. Para computadores Linux, o intervalo de tempo esperado é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
+- **Não avaliado**: Os dados da avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado. Para computadores Linux, o intervalo de tempo esperado é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
 
 Para exibir o status do agente, selecione o link na coluna **PREPARAÇÃO PARA ATUALIZAÇÃO DO AGENTE**. Selecionar essa opção abre o painel **Hybrid Worker** e exibe o status do Hybrid Worker. A imagem a seguir mostra um exemplo de um agente que não foi conectado ao Gerenciamento de Atualizações por um longo período de tempo:
 
@@ -125,14 +125,14 @@ Para agendar uma nova implantação de atualização para uma ou mais máquinas 
 
 No painel **Nova implantação de atualização**, especifique as seguintes informações:
 
-- **Nome**: insira um nome exclusivo para identificar a implantação de atualizações.
-- **Sistema operacional**: selecione **Windows** ou **Linux**.
-- **Grupos para atualizar (versão prévia)**: defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
-- **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Nome**: Insira um nome exclusivo para identificar a implantação de atualizações.
+- **Sistema operacional**: Selecione **Windows** ou **Linux**.
+- **Grupos para atualizar (versão prévia)**: Defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e tags para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. Para saber mais, consulte [Grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+- **Computadores para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificação da atualização**: selecione os tipos de software para incluir na implantação de atualização. Para obter uma descrição dos tipos de classificação, consulte [Classificações de atualização](automation-update-management.md#update-classifications). Os tipos de classificação são:
+- **Classificação de atualização**: Selecione os tipos de software para incluir na implantação de atualização. Para obter uma descrição dos tipos de classificação, consulte [Classificações de atualização](automation-update-management.md#update-classifications). Os tipos de classificação são:
   - Atualizações críticas
   - Atualizações de segurança
   - Pacotes cumulativos de atualização
@@ -144,14 +144,14 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Atualizações a serem incluídas/excluídas** – Isso abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em guias separadas. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
-- **Configurações de agenda**: você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Também é possível especificar uma hora diferente.
+- **Configurações da agenda**: Você pode aceitar a data e hora padrão, que é de 30 minutos após a hora atual. Também é possível especificar uma hora diferente.
 
    Você também pode especificar se a implantação ocorre uma única vez ou em um agendamento recorrente. Para configurar um agendamento recorrente, em **Recorrente**, selecione **Recorrência**.
 
    ![Caixa de diálogo Configurações de agendamento](./media/manage-update-multi/update-set-schedule.png)
 
-- **Pré-scripts + pós-scripts**: selecione os scripts a serem executados antes e após sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
-- **Janela de manutenção (minutos)**: especifique o período de tempo em que deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
+- **Pré-scripts + pós-scripts**: Selecione os scripts a serem executados antes e depois de sua implantação. Para saber mais, consulte [Gerenciar pré e pós-scripts](pre-post-scripts.md).
+- **Janela de manutenção (minutos)**: Especifique o período de tempo em que deseja que a implantação da atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
 - **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.
 
@@ -181,9 +181,9 @@ Para ver o painel de uma implantação de atualização, selecione a implantaç�
 
 O painel **Resultados da atualização** mostra o número total de atualizações e os resultados da implantação para a máquina virtual. A tabela à direita fornece uma análise detalhada de cada atualização e os resultados da instalação. Os resultados de instalação podem ser um dos seguintes valores:
 
-- **Nenhuma tentativa**: a atualização não foi instalada pois não havia tempo suficiente disponível com base na janela de manutenção definida.
-- **Êxito**: a atualização foi bem-sucedida.
-- **Falha**: a atualização falhou.
+- **Nenhuma tentativa**: A atualização não foi instalada pois não havia tempo suficiente disponível com base na janela de manutenção definida.
+- **Êxito**: A atualização foi bem-sucedida.
+- **Falha**: Falha na atualização.
 
 Para ver todas as entradas de log que a implantação criou, selecione **Todos os logs**.
 

@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 08/29/2018
+ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 1116d6037a149b379bd96d6b208ca306a38c7a03
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: e2335beba521a612d03b1d12cd4bf6139e1330fb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52288676"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410850"
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -28,8 +28,9 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 | Número de [tópicos/filas](/azure/service-bus-messaging/service-bus-partitioning) particionados por namespace de serviço |Namespace |As solicitações subsequentes para a criação de um novo tópico ou fila particionado no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção **QuotaExceededException** é recebida pelo código de chamada. |Camadas básica e padrão - 100<br/><br/>Não há suporte para entidades particionadas na camada [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada fila ou tópico particionado conta para a cota de 1000 entidades por namespace. |
 | Tamanho máximo de qualquer caminho de entidade de mensagens: fila ou tópico |Entidade |- |260 caracteres |
 | Tamanho máximo de qualquer nome de entidade de mensagens: namespace, assinatura ou regra de assinatura |Entidade |- |50 caracteres |
+| Tamanho máximo de uma [mensagem ID](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entidade |- | 128 |
 | Tamanho máximo de uma mensagem [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | Entidade |- | 128 |
-| Tamanho da mensagem para uma entidade de fila/tópico/assinatura |Entidade |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |Tamanho máximo da mensagem: 256KB ([camada Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md)) / 1 MB ([camada Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md)). <br /><br />Devido à sobrecarga do sistema, esse limite é menor do que esses valores.<br /><br />Tamanho máximo do cabeçalho: 64KB<br /><br />Número máximo de propriedades de cabeçalho no recipiente de propriedades: **byte/int.MaxValue**<br /><br />tamanho máximo da propriedade no recipiente de propriedades: nenhum limite explícito. Limitado pelo tamanho máximo do cabeçalho. |
+| Tamanho da mensagem para uma entidade de fila/tópico/assinatura |Entidade |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |Tamanho máximo da mensagem: 256 KB ([camada Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md)) / 1 MB ([camada Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md)). <br /><br />Devido à sobrecarga do sistema, esse limite é menor do que esses valores.<br /><br />Tamanho máximo do cabeçalho: 64 KB<br /><br />Número máximo de propriedades de cabeçalho no recipiente de propriedades: **byte/int.MaxValue**<br /><br />Tamanho máximo da propriedade no recipiente de propriedades: Nenhum limite explícito. Limitado pelo tamanho máximo do cabeçalho. |
 | Tamanho de propriedade de mensagem para uma entidade de fila/tópico/assinatura |Entidade |Uma exceção **SerializationException** é gerada. |O tamanho máximo da propriedade da mensagem para cada propriedade é de 32 K. O tamanho cumulativo de todas as propriedades não pode exceder 64 K. Esse limite se aplica a todo o cabeçalho do [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), que possui propriedades de usuário, bem como propriedades do sistema (como [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid), e assim por diante). |
 | Número de assinaturas por tópico |Entidade |As solicitações subsequentes para a criação de assinaturas adicionais para o tópico são rejeitadas. Como resultado, se configuradas por meio do portal, uma mensagem de erro é mostrada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |Camada Standard - cada assinatura conta com a cota de 1000 entidades (filas, tópicos e assinaturas) por namespace. <br/> <br/> Camada Premium - 2.000 |
 | Número de filtros SQL por tópico |Entidade |As solicitações subsequentes de criação de filtros adicionais para o tópico são rejeitadas e uma exceção é recebida pelo código de chamada. |2.000 |

@@ -1,5 +1,5 @@
 ---
-title: Compreender a retenção de dados no ambiente do Azure Time Series Insights | Microsoft Docs
+title: Retenção de dados de Séries Temporais do Azure - compreender a retenção de dados no seu ambiente Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve duas configurações que controlam a retenção de dados no ambiente do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364051"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272143"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Compreender a retenção de dados no Time Series Insights
 
@@ -23,7 +24,7 @@ Este artigo descreve duas configurações que impactam na retenção de dados no
 
 ## <a name="video"></a>Vídeo: 
 
-### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Neste vídeo, abordaremos como planejá-la e retenção de dados de séries Temporais.</br>
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>Neste vídeo, tratamos da retenção de dados do Azure Time Series Insights e como planejá-la.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -47,7 +48,7 @@ Compare o comportamento de retenção de dados:
 - Os dados ingeridos mais antigos são apagados primeiro (abordagem PEPS).
 
 ### <a name="example-1"></a>Exemplo 1:
-Considere um ambiente de exemplo com o comportamento de retenção **Continuar entrada e limpar dados antigos**: neste exemplo, o **Tempo de retenção de dados** é definido para 400 dias. **Capacidade** é definido para a unidade S1, que contém 30 GB de capacidade total.   Suponha que os dados de entrada se acumulam até um volume de 500 MB por dia, em média. Considerando-se a taxa de dados de entrada, esse ambiente pode reter somente o equivalente a 60 dias de dados, já que a capacidade máxima é atingida após 60 dias. Os dados de entrada se acumulam assim: 500 MB por dia x 60 dias = 30 GB. 
+Considere um ambiente de exemplo com o comportamento de retenção **Continuar entrada e limpar dados antigos**: Neste exemplo, o **Tempo de retenção de dados** é definido para um valor mais baixo, de 400 dias. **Capacidade** é definido para a unidade S1, que contém 30 GB de capacidade total.   Suponha que os dados de entrada se acumulam até um volume de 500 MB por dia, em média. Considerando-se a taxa de dados de entrada, esse ambiente pode reter somente o equivalente a 60 dias de dados, já que a capacidade máxima é atingida após 60 dias. Os dados de entrada se acumulam assim: 500 MB cada dia x 60 dias = 30 GB. 
 
 Neste exemplo, no 61º dia, o ambiente mostra os dados mais recentes, mas descarta os dados mais antigos, com mais de 60 dias. A limpeza abre espaço para os novos dados sendo transmitidos em entrada, para que novos dados possam continuar a serem explorados. 
 

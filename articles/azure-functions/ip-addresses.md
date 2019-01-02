@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634355"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849472"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -88,13 +88,13 @@ Por exemplo, este é o que o fragmento JSON da Europa Ocidental pode parecer com
 
 ## <a name="inbound-ip-address-changes"></a>Mudanças no endereço IP de entrada
 
- O endereço IP de entrada **pode** mudar quando você:
+O endereço IP de entrada **pode** mudar quando você:
 
 - Exclua um aplicativo de função e recrie-o em um grupo de recursos diferente.
 - Exclua o último aplicativo de função em uma combinação de grupo de recursos e região e recrie-o.
 - Exclua uma ligação SSL, como durante a [renovação do certificado](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-O endereço IP de entrada também pode mudar quando você não realizou nenhuma ação, como as listadas.
+Quando seu aplicativo de funções é executado um [Plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode alterar quando você ainda não tiver feito quaisquer ações, como aquelas listadas.
 
 ## <a name="outbound-ip-address-changes"></a>Mudanças no endereço IP de saída
 
@@ -103,7 +103,7 @@ O conjunto de endereços IP de saída disponíveis para um aplicativo de funçã
 * Execute qualquer ação que possa alterar o endereço IP de entrada.
 * Altere a camada de preços do seu plano de serviço do aplicativo. A lista de todos os possíveis endereços IP de saída que seu aplicativo pode usar, para todas as camadas de preços, está na `possibleOutboundIPAddresses`propriedade. Consulte [Localizar IPs de saída](#find-outbound-ip-addresses).
 
-O endereço IP de entrada também pode mudar quando você não realizou nenhuma ação, como as listadas.
+Quando seu aplicativo de funções é executado em um [Plano de consumo](functions-scale.md#consumption-plan), o endereço IP de entrada também pode alterar quando você ainda não tiver feito quaisquer ações, como aquelas listadas.
 
 Para forçar deliberadamente uma alteração de endereço IP de saída:
 

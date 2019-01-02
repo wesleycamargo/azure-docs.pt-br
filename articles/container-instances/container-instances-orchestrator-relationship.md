@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803504"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845791"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
@@ -25,22 +25,22 @@ As Instâncias de Contêiner do Azure fornecem alguns dos recursos básicos de a
 
 A definição padrão de orquestração inclui as seguintes tarefas:
 
-- **Agendamento**: dada uma imagem de contêiner e uma solicitação de recurso, localizar um computador adequado no qual executar o contêiner.
-- **Afinidade/Antiafinidade**: especificar que um conjunto de contêineres devem ser executados próximo uns aos outros (para desempenho) ou suficientemente distantes (para disponibilidade).
-- **Monitoramento de integridade**: inspecionar falhas de contêiner e automaticamente reagendá-los.
-- **Failover**: controlar o que está em execução em cada computador e reagendar contêineres de computadores com falha para nós íntegros.
-- **Dimensionamento**: adicionar ou remover instâncias de contêiner de acordo com a demanda, manualmente ou automaticamente.
-- **Rede**: fornecer uma rede de sobreposição a fim de coordenar contêineres para que se comuniquem entre vários computadores host.
-- **Descoberta de serviço**: habilitar contêineres para localizar uns aos outros automaticamente, mesmo que eles se movam entre computadores host e alterem os endereços IP.
-- **Atualizações de aplicativo coordenadas**: gerenciar atualizações de contêiner para evitar tempo de inatividade de aplicativo e habilitar a reversão se algo der errado.
+- **Agendamento**: Dada uma imagem de contêiner e uma solicitação de recurso, localizar um computador adequado no qual executar o contêiner.
+- **Afinidade/Antiafinidade**: Especificar que um conjunto de contêineres devem ser executados próximo uns aos outros (para desempenho) ou suficientemente distantes (para disponibilidade).
+- **Monitoramento da integridade**: Inspecionar falhas de contêiner e automaticamente reagendá-los.
+- **Failover**: Controlar o que está em execução em cada computador e reagendar contêineres de computadores com falha para nós íntegros.
+- **Dimensionamento**: Adicionar ou remover instâncias de contêiner de acordo com a demanda, manualmente ou automaticamente.
+- **Rede**: Fornecer uma rede de sobreposição a fim de coordenar contêineres para que se comuniquem entre vários computadores host.
+- **Descoberta de serviço**: Habilitar contêineres para localizar uns aos outros automaticamente, mesmo que eles se movam entre computadores host e alterem os endereços IP.
+- **Atualizações de aplicativo coordenadas**: Gerenciar atualizações de contêiner para evitar tempo de inatividade de aplicativo e habilitar a reversão se algo der errado.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com Instâncias de Contêiner do Azure: uma abordagem em camadas
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orquestração com Instâncias de Contêiner do Azure: Uma abordagem em camadas
 
 As Instâncias de Contêiner do Azure permitem uma abordagem em camadas à orquestração, fornecendo todos os recursos de agendamento e gerenciamento necessários para executar um único contêiner, permitindo ao mesmo tempo que as plataformas de orquestração gerenciem tarefas de vários contêineres sobre elas.
 
 Como a infra-estrutura subjacente das instâncias de contêiner é gerenciada pelo Azure, uma plataforma de orquestração não precisa se preocupar em localizar um computador host apropriado no qual executar um único contêiner. A elasticidade da nuvem garante que um esteja sempre disponível. Em vez disso, o orquestrador pode se concentrar nas tarefas que simplificam o desenvolvimento de arquiteturas de vários contêineres, incluindo o dimensionamento e as atualizações coordenadas.
 
-## <a name="potential-scenarios"></a>Cenários possíveis
+## <a name="scenarios"></a>Cenários
 
 Embora a integração do orquestrador com as Instâncias de Contêiner do Azure ainda seja recente, estimamos que alguns ambientes diferentes podem surgir:
 
@@ -54,13 +54,15 @@ Para cargas de trabalho estáveis de longa execução, orquestrar contêineres e
 
 Em vez de expandir o número de máquinas virtuais em seu cluster e, em seguida, implantar contêineres adicionais nessas máquinas, o orquestrador pode simplesmente agendar os contêineres adicionais nas Instâncias de Contêiner do Azure e excluí-los quando não forem mais necessários.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementação de amostra: Virtual Kubelet para Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementação de exemplo: nós virtuais para o Serviço de Kubernetes do Azure (AKS)
 
-O projeto [Virtual Kubelet][aci-connector-k8s] demonstra como integrar as plataformas de orquestração de contêiner com as Instâncias de Contêiner do Azure.
+Para dimensionar rapidamente as cargas de trabalho do aplicativo em um cluster do [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md) (AKS), você pode usar os *nós virtuais* criados dinamicamente nas Instâncias de Contêiner do Azure. Atualmente na versão prévia, os nós virtuais permitem a comunicação de rede entre pods executados em ACI e o cluster do AKS. 
 
-O Virtual Kubelet imita o [kubelet][kubelet-doc] do Kubernetes ao se registrar como um nó com capacidade ilimitada e ao expedir a criação de [pods][pod-doc] como grupos de contêineres nas Instâncias de Contêiner do Azure.
+Os nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Comece com os nós virtuais usando a [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou o [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Os conectores para outros orquestradores podem ser criados e se integrarem da mesma forma a primitivos de plataforma para combinar a potência da API de orquestrador com a velocidade e a simplicidade do gerenciamento de contêineres nas Instâncias de Contêiner do Azure.
+Nós virtuais usam software livre [Virtual Kubelet] [ aci-connector-k8s] para imitar o Kubernetes [kubelet] [ kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Virtual Kubelet expede a criação de [pods][pod-doc] como grupos de contêineres em Instâncias de Contêiner do Azure.
+
+Consulte o projeto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de estender a API do Kubernetes em plataformas de contêiner sem servidor.
 
 ## <a name="next-steps"></a>Próximas etapas
 

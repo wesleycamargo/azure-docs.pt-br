@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914029"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413466"
 ---
 # <a name="event-grid-security-and-authentication"></a>Segurança e autenticação da Grade de Eventos 
 
@@ -25,26 +25,28 @@ A Grade de Eventos do Azure tem três tipos de autenticação:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos do WebHook
 
-Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos do Azure. Quando um novo evento estiver pronto, o serviço do EventGrid POSTs uma solicitação HTTP para o ponto de extremidade configurado com o evento o corpo da solicitação.
+Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos do Azure. Quando um novo evento estiver pronto, o serviço da Grade de Eventos do Azure POSTs uma solicitação HTTP para o ponto de extremidade configurado com o evento o corpo da solicitação.
 
-Como muitos outros serviços que dão suporte a webhooks, o EventGrid exige que você comprovar a "propriedade" de seu ponto de extremidade do Webhook antes de começar a entrega de eventos para esse ponto de extremidade. Esse requisito é para impedir que um ponto de extremidade insuspeito se torne o ponto de extremidade de destino para entrega de eventos do EventGrid. No entanto, quando você usa qualquer um dos três serviços do Azure listado abaixo, a infraestrutura do Azure trata automaticamente essa validação:
+Como muitos outros serviços que dão suporte a webhooks, a Grade de Eventos do Azure exige que você comprovar a "propriedade" de seu ponto de extremidade do Webhook antes de começar a entrega de eventos para esse ponto de extremidade. Esse requisito impede que um usuário mal-intencionado inunde seu ponto de extremidade com eventos. Quando você usa qualquer um dos três serviços do Azure listado abaixo, a infraestrutura do Azure trata automaticamente essa validação:
 
 * Aplicativo Lógico do Azure,
 * Automação do Azure,
-* Azure Functions para o gatilho do EventGrid.
+* Azure Functions para Gatilho de Grade de Eventos.
 
-Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma função do Azure baseada no gatilho HTTP, o código do ponto de extremidade precisará participar de um handshake de validação com o EventGrid. O EventGrid dá suporte a dois modelos diferentes de validação de handshake:
+Se você estiver usando qualquer outro tipo de ponto de extremidade, como uma função do Azure baseada no gatilho HTTP, o código do ponto de extremidade precisará participar de um handshake de validação com o EventGrid. A Grade de Eventos dá suporte a duas maneiras de validar a assinatura.
 
-1. **Handshake do ValidationCode**: no momento da criação da assinatura do evento, o EventGrid envia um "evento de validação de assinatura" para o seu endpoint. O esquema desse evento é semelhante a qualquer outro EventGridEvent, e a parte de dados desse evento inclui uma propriedade `validationCode`. Depois que seu aplicativo tiver verificado que a solicitação de validação é para uma assinatura de evento esperada, o código do aplicativo precisa responder ecoando o código de validação para EventGrid. Esse mecanismo de handshake é compatível com todas as versões do EventGrid.
+1. **Handshake de ValidationCode (programático)**: Se você controlar o código-fonte para o ponto de extremidade, esse método é recomendado. No momento da criação da assinatura, a Grade de Eventos posta um Evento de Validação de Assinatura para o ponto de extremidade de destino. O esquema desse evento é semelhante a qualquer outro evento da Grade de Eventos. A parte de dados desse evento inclui um `validationCode` propriedade. Seu aplicativo verifica se a solicitação de validação é para uma assinatura de evento esperado e retorna o código de validação à Grade de Eventos. Esse mecanismo de handshake é compatível com todas as versões da Grade de Eventos.
 
-2. **Handshake ValidationURL (handshake manual)**: em certos casos, você pode não ter controle do código-fonte do endpoint para implementar o handshake baseado em ValidationCode. Por exemplo, se você usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não será possível responder programaticamente com o código de validação. A partir da versão 2018-05-01-preview, o EventGrid agora dá suporte a um handshake de validação manual. Se você estiver criando uma inscrição de evento com um SDK ou ferramenta que usa a versão da API 2018-05-01-preview ou posterior, o EventGrid envia uma propriedade `validationUrl` como parte da parte de dados do evento de validação da assinatura. Para concluir o handshake, basta um solicitação GET nessa URL, por meio de um cliente REST ou usando seu navegador da web. O URL de validação fornecido é válido apenas por cerca de 10 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 10 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
+2. **Handshake ValidationURL (manual)**: Em alguns casos, você não pode acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se você usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não será possível responder de volta programaticamente com o código de validação.
 
-O mecanismo da validação manual está na versão prévia. Para usá-lo, instale a [extensão da Grade de Eventos](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Você pode instalá-la com `az extension add --name eventgrid`. Se você estiver usando a API REST, certifique-se de usar `api-version=2018-05-01-preview`.
+   A partir da versão 2018-05-01-preview, a Grade de Eventos dá suporte a um handshake de validação manual. Se você estiver criando uma inscrição de evento com um SDK ou ferramenta que usa a versão da API 2018-05-01-preview ou posterior, a Grade de Eventos envia uma propriedade `validationUrl` na parte de dados do evento de validação da assinatura. Para concluir o handshake, encontre essa URL nos dados do evento e manualmente enviar uma solicitação GET para ela. Você pode usar um cliente REST ou o navegador da web.
+
+   A URL fornecida é válida por 10 minutos. Durante esse tempo, o estado de fornecimento da assinatura do evento é `AwaitingManualAction`. Se você não concluir a validação manual em 10 minutos, o estado de provisionamento será definido como `Failed`. Você terá que criar a inscrição do evento novamente antes de iniciar a validação manual.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
 * No momento da criação/atualização da assinatura, a Grade de Eventos posta um Evento de Validação de Assinatura para o ponto de extremidade de destino. 
-* O evento contém um valor de cabeçalho "Aeg-Event-Type: SubscriptionValidation".
+* O evento contém um valor de cabeçalho "aeg-event-type: SubscriptionValidation".
 * O corpo do evento tem o mesmo esquema que outros eventos da Grade de Eventos.
 * A propriedade eventType do evento é `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * Os dados de propriedade do evento incluem uma propriedade `validationCode` com uma cadeia de caracteres gerada aleatoriamente. Por exemplo, "validationCode: acb13…".
@@ -78,9 +80,11 @@ Para provar a propriedade do pronto de extremidade, retorne o código de valida�
 }
 ```
 
+Você deve retornar um código de status de resposta HTTP 200 Okey. HTTP 202 aceito não é reconhecido como uma resposta de validação de assinatura de Grade de Eventos válida.
+
 Ou então, você pode validar a assinatura manualmente, enviando uma solicitação GET para a URL de validação. A inscrição do evento permanece em um estado pendente até que validada.
 
-Você pode encontrar a amostra C# que mostra como lidar com o handshake de validação de assinatura em https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Para obter um exemplo de lidar com o handshake de validação de assinatura, consulte uma [ amostra C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Lista de verificação
 
@@ -93,7 +97,7 @@ Durante a criação da assinatura de evento, caso você veja uma mensagem de err
 
 ### <a name="event-delivery-security"></a>Segurança de entrega de evento
 
-É possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. Defina um desses parâmetros de consulta para ser um segredo, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode usar para reconhecer que o evento é proveniente da grade de eventos com permissões válidas. A Grade de Eventos inclui esses parâmetros de consulta em cada entrega de evento para o webhook.
+É possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL do webhook ao criar uma Assinatura de Evento. Defina um desses parâmetros de consulta para ser um segredo, como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode usar o segredo para reconhecer que o evento é proveniente da Grade de Eventos com permissões válidas. A Grade de Eventos inclui esses parâmetros de consulta em cada entrega de evento para o webhook.
 
 Ao editar a Assinatura de Evento, os parâmetros de consulta não serão exibidos nem retornados, a menos que o parâmetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) seja usado na [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) do Azure.
 
@@ -269,7 +273,7 @@ Se você precisar especificar permissões que são diferentes de funções inter
 
 A seguir estão definições de função da Grade de Eventos de exemplo que permitem aos usuários executar diferentes ações. Essas funções personalizadas são diferentes das funções internas porque elas concedem acesso mais amplo do que apenas assinaturas de eventos.
 
-**EventGridReadOnlyRole.json**: permitir apenas operações somente leitura.
+**EventGridReadOnlyRole.json**: Permitir apenas operações somente leitura.
 
 ```json
 {
@@ -288,7 +292,7 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: permitir ações restritas posteriores, mas impedir ações de exclusão.
+**EventGridNoDeleteListKeysRole.json**: Permitir ações restritas posteriores, mas impedir ações de exclusão.
 
 ```json
 {
@@ -311,7 +315,7 @@ A seguir estão definições de função da Grade de Eventos de exemplo que perm
 }
 ```
 
-**EventGridContributorRole.json**: permitir todas as ações da grade de eventos.
+**EventGridContributorRole.json**: Permite todas as ações de grade de eventos.
 
 ```json
 {

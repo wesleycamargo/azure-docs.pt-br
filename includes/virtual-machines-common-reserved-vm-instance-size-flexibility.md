@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: manshuk
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-03-2018
-ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11-20-2018
+ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39721022"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742383"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas
 
@@ -20,7 +20,7 @@ Com uma instância de máquina virtual reservada otimizada para flexibilidade do
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-Mas esse desconto de reserva não se aplica aos tamanhos de VMs que estão listados em tabelas diferentes, como o que está na tabela de memória alta da série DSv2: Standard_DS11_v2, Standard_DS12_v2 e assim por diante.
+Mas esse desconto de reserva não se aplica aos tamanhos de VMs que estão listados em tabelas diferentes, como o que está na tabela de memória alta da série DSv2: Standard_DS11_v2, Standard_DS12_v2, e assim por diante.
 
 Dentro do grupo de série de tamanho, o número de VMs às quais o desconto de reserva se aplica depende do tamanho de VM escolhido ao comprar uma reserva. Isso também depende das VMs que você tem em execução. A coluna de proporção que está listada nas tabelas a seguir compara o volume relativo para cada tamanho de VM nesse grupo. Use o valor da proporção para calcular como o desconto de reserva se aplica às VMs você tem em execução.
 
@@ -30,9 +30,9 @@ Os exemplos a seguir usam os tamanhos e proporções na tabela da série DSv2.
 
  Você compra uma instância de VM reservada com o tamanho Standard_DS4_v2 em que a proporção ou o volume relativo em comparação comparada os outros tamanhos dessa série é 8.
 
-- Cenário 1: executar oito VMs dimensionadas de acordo com Standard_DS1_v2 com uma proporção de 1. O desconto de reserva se aplica a todas essas oito VMs.
-- Cenário 2: executar duas VMs dimensionadas de acordo com Standard_DS2_v2 com uma proporção de 2 cada. Além disso, executar uma VM dimensionada de acordo com Standard_DS3_v2 com uma proporção de 4. O volume total é de 2 + 2 + 4 = 8. Portanto, o desconto de reserva se aplica a todas essas três VMs.
-- Cenário 3: executar uma Standard_DS5_v2 com uma proporção de 16. O desconto de reserva se aplica à metade do custo de computação da VM.
+- Cenário 1: Executar oito VMs dimensionadas de acordo com Standard_DS1_v2 com uma proporção de 1. O desconto de reserva se aplica a todas essas oito VMs.
+- Cenário 2: Executar duas VMs dimensionadas de acordo com Standard_DS2_v2 com uma proporção de 2 cada. Além disso, executar uma VM dimensionada de acordo com Standard_DS3_v2 com uma proporção de 4. O volume total é de 2 + 2 + 4 = 8. Portanto, o desconto de reserva se aplica a todas essas três VMs.
+- Cenário 3: Executar uma Standard_DS5_v2 com uma proporção de 16. O desconto de reserva se aplica à metade do custo de computação da VM.
 
 As seções a seguir mostram quais tamanhos estão no mesmo grupo de série de tamanho quando você compra uma instância de VM reservada otimizada para a flexibilidade de tamanho da instância.
 
@@ -117,9 +117,16 @@ Para obter mais informações, consulte [Tamanhos das máquinas virtuais para us
 | Tamanho | Proporção|
 |---|---|
 |Standard_DS11_v2|1|
+|Standard_DS11-1_v2|1|
 |Standard_DS12_v2|2|
+|Standard_DS12-1_v2|2|
+|Standard_DS12-2_v2|2|
 |Standard_DS13_v2|4|
+|Standard_DS13-2_v2|4|
+|Standard_DS13-4_v2|4|
 |Standard_DS14_v2|8|
+|Standard_DS14-4_v2|8|
+|Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
 Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizados para memória](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
@@ -178,12 +185,21 @@ Para obter mais informações, consulte [Tamanhos das máquinas virtuais para us
 
 | Tamanho | Proporção|
 |---|---|
-| Standard_E2s_v3|1|
+|Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
+|Standard_E4-2s_v3|2|
 |Standard_E8s_v3|4|
+|Standard_E8-2s_v3|4|
+|Standard_E8-4s_v3|4|
 |Standard_E16s_v3|8|
+|Standard_E16-4s_v3|8|
+|Standard_E16-8s_v3|8|
 |Standard_E32s_v3|16|
+|Standard_E32-8s_v3|16|
+|Standard_E32 16s_v3|16|
 |Standard_E64s_v3|32|
+|Standard_E64-16s_v3|32|
+|Standard_E64-32s_v3|32|
 
 Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizados para memória](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -289,9 +305,15 @@ Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizad
 
 | Tamanho | Proporção|
 |---|---|
-| Standard_M8ms|1|
+|Standard_M8ms|1|
+|Standard_M8-2ms|1|
+|Standard_M8-4ms|1|
 |Standard_M16ms|2|
+|Standard_M16-4ms|2|
+|Standard_M16-8ms|2|
 |Standard_M32ms|4|
+|Standard_M32-8ms|4|
+|Standard_M32-16ms|4|
 
 Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizados para memória](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
@@ -309,7 +331,11 @@ Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizad
 | Tamanho | Proporção|
 |---|---|
 | Standard_M64ms|1|
+|Standard_M64-16ms|1|
+|Standard_M64 32ms|1|
 |Standard_M128ms|2|
+|Standard_M128-32ms|2|
+|Standard_M128-64ms|2|
 
 Para obter mais informações, consulte [Tamanhos de máquinas virtuais otimizados para memória](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625939"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184083"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de integridade de recursos do Azure usando modelos do Resource Manager
 
@@ -32,7 +32,7 @@ O Azure Resource Health mantém você informado sobre o status de integridade at
 Para seguir as instruções nesta página, você precisará configurar algumas coisas antecipadamente:
 
 1. Você precisa instalar o [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. Você precisará [criar ou reutilizar um Grupo de Ações](../monitoring-and-diagnostics/monitoring-action-groups.md) configurado para notificar você
+2. Você precisará [criar ou reutilizar um Grupo de Ações](../azure-monitor/platform/action-groups.md) configurado para notificar você
 
 ## <a name="instructions"></a>Instruções
 1. Usando o PowerShell, faça logon no Azure usando sua conta e selecione a assinatura com a qual você deseja interagir
@@ -233,7 +233,7 @@ Se quiser ser notificado para todos os quatro estágios de eventos de integridad
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajustar os alertas do Resource Health para evitar eventos "desconhecidos"
 
-O Azure Resource Health pode relatar a você a integridade mais recente de seus recursos monitorando-os constantemente usando executores de teste. Os status de integridade reportados relevantes são: "Disponível", "Não disponível" e "Degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "Desconhecido" é relatado para o recurso e é considerado um evento de integridade "Ativo".
+O Azure Resource Health pode relatar a você a integridade mais recente de seus recursos monitorando-os constantemente usando executores de teste. Os status de integridade reportada relevantes são: "Disponível", "Indisponível" e "Degradado". No entanto, em situações em que o executor e o recurso do Azure não conseguem se comunicar, um status de integridade "Desconhecido" é relatado para o recurso e é considerado um evento de integridade "Ativo".
 
 No entanto, quando um recurso relata "Desconhecido", é provável que o status de integridade não tenha sido alterado desde o último relatório preciso. Se quiser eliminar alertas em eventos "Desconhecidos", você poderá especificar essa lógica no modelo:
 
@@ -435,4 +435,4 @@ Saiba mais sobre o Resource Health:
 -  [Tipos de recurso e verificações de integridade disponíveis por meio do Azure Resource Health](resource-health-checks-resource-types.md)
 
 Criar alertas de Integridade do Serviço:
--  [Configurar alertas para a Integridade do Serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configurar alertas para a Integridade do Serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

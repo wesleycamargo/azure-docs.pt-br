@@ -1,22 +1,23 @@
 ---
-title: Rede de HSM Dedicado do Azure| Microsoft Docs
-description: O HSM Dedicado do Azure fornece os principais recursos de armazenamento dentro do Microsoft Azure que atende à certificação FIPS 140-2 Nível 3
+title: Considerações de rede - HSM Dedicado do Azure | Microsoft Docs
+description: Visão geral das considerações aplicáveis às implantações do HSM Dedicado do Azure
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: ca72d33b52bdda2ebce432dffd46a84963a7bce5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319145"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092870"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
 

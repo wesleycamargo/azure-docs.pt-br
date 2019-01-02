@@ -2,18 +2,18 @@
 title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft Azure
 description: Gerenciar trabalhos e alertas em um cofre dos Serviços de Recuperação do Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250689"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871312"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -67,7 +67,7 @@ Clique nos blocos (exceto o Armazenamento de Backup) para abrir o menu associado
 
 ![Menu alertas de backup filtrado para alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-O menu Alertas de Backup, na imagem acima, está filtrado por: Status está ativo, Severidade é Crítica e Hora são as 24 horas anteriores.
+O menu de alertas de Backup, na imagem acima, é filtrado por: O status está Ativo, Gravidade Crítica e tempo nas 24 horas anteriores.
 
 ## <a name="manage-backup-alerts"></a>Gerenciar alertas de Backup
 
@@ -85,8 +85,8 @@ A lista de Alertas de Backup exibe as informações selecionadas para os alertas
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítico | Alertas críticos são recebidos quando: trabalhos de Backup falham, trabalhos de recuperação falham e quando você interrompe a proteção em um servidor, mas retém os dados.|
-| Aviso | Alertas de aviso são recebidos quando: trabalhos de Backup são concluídos com avisos, por exemplo quando menos de 100 arquivos ficam sem backup devido a problemas de corrupção, ou quando o backup de mais de 1.000.000 de arquivos é feito com êxito). |
+| Crítico | Você recebe alertas críticos quando: Falha dos trabalhos de backup, falha dos trabalhos de recuperação e quando você parar a proteção em um servidor, mas retém os dados.|
+| Aviso | Você receberá o aviso de alertas quando: Trabalhos de Backup são concluídos com avisos, por exemplo quando menos de 100 arquivos ficam sem backup devido a problemas de corrupção, ou quando o backup de mais de 1.000.000 de arquivos é feito com êxito). |
 | Informativo | no momento, nenhum alerta informativo está em uso. |
 
 ### <a name="viewing-alert-details"></a>Exibir detalhes do alerta
@@ -281,9 +281,9 @@ R3. Sim. Nas situações a seguir, notificações por email não serão enviadas
 
 ## <a name="troubleshooting-monitoring-issues"></a>Solucionando problemas de monitoramento
 
-**Problema:** trabalhos e/ou alertas do agente de Backup do Azure não aparecem no portal.
+**Problema:** Trabalhos e/ou alertas do agente de Backup do Azure não aparecem no portal.
 
-**Etapas de solução de problemas:** o processo, ```OBRecoveryServicesManagementAgent```, envia os dados de alerta e de trabalho para o serviço de Backup do Azure. Ocasionalmente, esse processo pode ficar travado ou ser interrompido.
+**Etapas de solução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia os dados de alerta e de trabalho para o serviço de Backup do Azure. Ocasionalmente, esse processo pode ficar travado ou ser interrompido.
 
 1. Para verificar se o processo não está em execução, abra o **Gerenciador de Tarefas** e verifique se ```OBRecoveryServicesManagementAgent``` está em execução.
 

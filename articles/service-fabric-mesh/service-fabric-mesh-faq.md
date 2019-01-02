@@ -5,18 +5,19 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 06/25/2018
+ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+manager: jeanpaul.connock
+ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278303"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314816"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
+
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Este artigo apresenta as respostas das perguntas frequentes.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Como fazer para relatar um problema ou fazer uma pergunta?
@@ -25,31 +26,33 @@ Faça perguntas, obtenha respostas de engenheiros da Microsoft e relate problema
 
 ## <a name="quota-and-cost"></a>Cota e custo
 
-**Qual é o custo de participar da versão prévia?**
+### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Qual é o custo de participar da versão prévia?
 
 Atualmente, não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável excluir os recursos que você implanta e não deixá-los em execução, a menos que os esteja testando ativamente.
 
-**Há um limite de cota do número de núcleos e RAM?**
+### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Há um limite de cota do número de núcleos e RAM?
 
-Sim, as cotas de cada assinatura são definidas desta forma:
+Sim. As cotas de cada assinatura são:
 
-- Número de aplicativos - 5 
-- Núcleos por aplicativo – 12 
-- Total de RAM por aplicativo - 48 GB 
-- Pontos de extremidade de Entrada e Rede – 5  
-- Volumes do Azure possíveis de anexar - 10 
-- Número de réplicas de serviço – 3 
-- O maior contêiner que pode ser implantado é limitado a 4 núcleos, 16 GB de RAM.
+- Número de aplicativos: 5
+- Núcleos por aplicativo: 12
+- Total de RAM por aplicativo: 48 GB
+- Pontos de extremidade de Entrada e Rede: 5
+- Volumes do Azure possíveis de anexar: 10
+- Número de réplicas de serviço: 3
+- O maior contêiner que pode ser implantado é limitado a 4 núcleos e 16 GB de RAM.
 - É possível alocar núcleos parciais para os contêineres em incrementos de 0,5 núcleos até um máximo de 6 núcleos.
 
-**Por quanto tempo posso deixar meu aplicativo implantado?**
+### <a name="how-long-can-i-leave-my-application-deployed"></a>Por quanto tempo posso deixar meu aplicativo implantado?
 
-Atualmente, limitamos o tempo de vida de um aplicativo a dois dias. Isso é para maximizar o uso dos núcleos livres alocados para a versão prévia. Como resultado, você só tem permissão para executar uma determinada implantação continuamente por 48 horas; depois disso, ele será desligado pelo sistema. Se isso acontecer, você poderá validar que o sistema o desliga executando um comando `az mesh app show` na CLI do Azure e verificando se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Atualmente, limitamos o tempo de vida de um aplicativo a dois dias. Isso é para maximizar o uso dos núcleos livres alocados para a versão prévia. Como resultado, você só tem permissão para executar uma determinada implantação continuamente por 48 horas; depois disso, ela será desligada.
+
+Se isso acontecer, você poderá validar que o sistema a desliga executando o comando `az mesh app show` na CLI do Azure . Verifique se ele retorna `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Por exemplo:  
 
 ```cli
-chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -72,28 +75,73 @@ chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name hello
 }
 ```
 
-Para continuar a implantar o mesmo aplicativo na Malha, você deve excluir o grupo de recursos associado ao aplicativo ou individualmente, ou remover o aplicativo e todos os recursos relacionados da Malha (incluindo a rede). 
-
-Para excluir o grupo de recursos, use o comando `az group delete <nameOfResourceGroup>`. 
+Para excluir o grupo de recursos, use o comando `az group delete <nameOfResourceGroup>`.
 
 ## <a name="supported-container-os-images"></a>Imagens de SO do contêiner com suporte
-As imagens do SO do contêiner a seguir podem ser usadas ao implementar serviços.
+
+Se estiver desenvolvendo em um computador com o Windows Fall Creators Update (versão 1709), você só poderá usar imagens do Docker do Windows versão 1709.
+
+Se estiver desenvolvendo em um computador com a atualização de 10 de abril de 2018 do Windows (versão 1803), você poderá usar imagens do Docker do Windows versão 1709 ou do Windows versão 1803.
+
+As imagens do SO do contêiner a seguir podem ser usadas para implantar serviços:
 
 - Windows - windowsservercore e nanoserver
-    - Windows Server 2016
     - Windows Server versão 1709
+    - Windows Server versão 1803
 - Linux
     - Sem limitações conhecidas
 
-## <a name="features-gaps-and-known-issues"></a>Lacunas de recursos e problemas conhecidos
+## <a name="developer-experience-issues"></a>Problemas de experiência do desenvolvedor
 
-**Após implantar o aplicativo, o recurso de rede associado ao aplicativo não parece ter um endereço IP**
+### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>Resolução de DNS de um contêiner de saída não funciona
 
-Há um problema conhecido hoje com o endereço IP chegando após um atraso. Verifique o status do recurso de rede em alguns minutos para ver o endereço IP associado.
+Comunicação de serviço a serviço pode falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
 
-**O aplicativo não está conseguindo acessar o recurso de volume/rede correto**
+- Use o Windows Fall Creators update (versão 1709) ou superior como sua imagem de contêiner base.
+- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName.ApplicationName.
+- No arquivo do Docker para seu serviço, adicionar `EXPOSE <port>` onde a porta é a porta na qual você está expondo seu serviço. Por exemplo: 
 
-No modelo de aplicativo, é necessário usar a ID do recurso completa de redes e volumes para poder acessar o recurso associado. Aqui está a semelhança no exemplo de início rápido:
+```
+EXPOSE 80
+```
+
+### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>O DNS não funciona da mesma maneira que nos clusters de desenvolvimento do Service Fabric e na Malha
+
+Talvez seja necessário referenciar serviços de maneira diferente no cluster de desenvolvimento local e na Malha do Azure.
+
+Use `{serviceName}.{applicationName}` no seu cluster de desenvolvimento local. Na Malha do Azure Service Fabric, use `{servicename}`. 
+
+A Malha do Azure não dá suporte à resolução de DNS nos aplicativos.
+
+Para outros problemas conhecidos de DNS com a execução de um cluster de desenvolvimento do Service Fabric no Windows 10, consulte: [Depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+
+### <a name="networking"></a>Rede
+
+A rede NAT do ServiceFabric pode desaparecer durante o uso e execução do seu aplicativo em seu computador local. Para realizar um diagnóstico se isso acontecer, execute o seguinte em um prompt de comando:
+
+`docker network ls` e observe se `servicefabric_nat` está listado.  Caso contrário, execute o seguinte comando: `docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+
+Isso solucionará o problema, mesmo se o aplicativo já estiver implantado localmente e em um estado não íntegro.
+
+### <a name="issues-running-multiple-apps"></a>Problemas ao executar vários aplicativos
+
+Você pode encontrar a disponibilidade de CPU e os limites que estão sendo corrigidos em todos os aplicativos. Para atenuar:
+- Crie um cluster de cinco nós.
+- Reduza o uso da CPU em serviços do aplicativo que é implantado. Por exemplo, no arquivo de service.yaml do seu serviço, altere `cpu: 1.0` para `cpu: 0.5`
+
+Vários aplicativos não podem ser implantados em um cluster de um nó. Para atenuar:
+- Use um cluster de cinco nós durante a implantação de vários aplicativos em um cluster local.
+- Remova os aplicativos que não estão sendo testados.
+
+## <a name="feature-gaps-and-other-known-issues"></a>Falhas de recurso e outros problemas conhecidos
+
+### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>Após implantar o aplicativo, o recurso de rede associado ao aplicativo tem um endereço IP
+
+Há um problema conhecido em que o endereço IP não se torna disponível imediatamente. Verifique o status do recurso de rede em alguns minutos para ver o endereço IP associado.
+
+### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>O aplicativo não está conseguindo acessar o recurso de rede/volume correto
+
+No modelo de aplicativo, use a ID do recurso completa de redes e volumes para poder acessar o recurso associado. Veja um exemplo do início rápido:
 
 ```json
 "networkRefs": [
@@ -103,49 +151,9 @@ No modelo de aplicativo, é necessário usar a ID do recurso completa de redes e
 ]
 ```
 
-**Eu não vejo o modelo de aplicativo atual com suporte para criptografar meus segredos** 
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Ao escalar horizontalmente, todos os contêineres são afetados, incluindo aqueles em execução
 
-Sim, a criptografia de segredos não tem suporte na versão prévia privada. 
-
-**O DNS não funciona da mesma maneira no cluster de desenvolvimento do Service Fabric e na Malha**
-
-Há um problema conhecido, em que talvez seja necessário referenciar serviços de maneira diferente no cluster de desenvolvimento local e na Malha do Azure. No cluster de desenvolvimento local, use {serviceName}.{applicationName}. Na Malha do Service Fabric do Azure, use {servicename}. A Malha do Azure não dá suporte à resolução de DNS nos aplicativos.
-
-Para outros problemas conhecidos de DNS com a execução de um cluster de desenvolvimento do Service Fabric no Windows 10, consulte aqui: [Depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
-
-**Eu recebo este erro ao usar o módulo CLI _ImportError: nome da importação não pode ser 'sdk_no_wait'**
-
-Se estiver usando uma versão da CLI mais antiga que 2.0.30, poderá receber este erro -
-
-```
-cannot import name 'sdk_no_wait'
-Traceback (most recent call last):
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\cli.py", line 193, in invoke cmd_result = self.invocation.execute(args)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 241, in execute self.commands_loader.load_arguments(command)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 201, in load_arguments self.command_table[command].load_arguments() # this loads the arguments via reflection
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core\commands_init_.py", line 142, in load_arguments super(AzCliCommand, self).load_arguments()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\knack\commands.py", line 76, in load_arguments cmd_args = self.arguments_loader()
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 332, in default_arguments_loader op = handler or self.get_op_handler(operation)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\azure\cli\core_init_.py", line 375, in get_op_handler op = import_module(mod_to_import)
-File "C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\importlib_init_.py", line 126, in import_module return _bootstrap._gcd_import(name[level:], package, level)
-File "", line 978, in _gcd_import
-File "", line 961, in _find_and_load
-File "", line 950, in _find_and_load_unlocked
-File "", line 655, in _load_unlocked
-File "", line 678, in exec_module
-File "", line 205, in _call_with_frames_removed
-File "C:\Users\annayak.azure\cliextensions\azure-cli-sbz\azext_sbz\custom.py", line 18, in 
-from azure.cli.core.util import get_file_json, shell_safe_json_parse, sdk_no_wait
-ImportError: cannot import name 'sdk_no_wait'.
-```
-
-**Eu recebo um erro de nome de distribuição incompatível ao instalar o pacote de extensão da CLI**
-
-Isso não significa que a extensão não foi instalada. Ainda é possível usar os comandos da CLI sem problemas.
-
-**Ao escalar horizontalmente, vejo que todos os contêineres são afetados, incluindo aqueles em execução**
-
-Este é um bug e deve ser corrigido na próxima atualização de tempo de execução.
+Este é um bug e uma correção está sendo implementada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

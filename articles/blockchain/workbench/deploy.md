@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616377"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876142"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implantar o Azure Blockchain Workbench
 
@@ -43,6 +43,9 @@ A seguir está um exemplo de implantação criado no grupo de recursos do **mybl
 ![Exemplo de implantação](media/deploy/example-deployment.png)
 
 O custo do Blockchain Workbench é uma agregação do custo de serviços subjacentes do Azure. Informações sobre preços para serviços do Azure podem ser calculadas usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> Se você estiver usando uma assinatura com limites de serviço baixos, como uma assinatura de camada gratuita do Azure, a implantação poderá falhar devido a cota insuficiente de núcleos da VM. Antes da implantação, verifique sua cota usando as diretrizes do artigo [cotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md). A seleção de VM padrão exige 6 núcleos VM. Mudar para uma VM de tamanho menor como *Standard DS1 v2* reduz o número de núcleos para 4.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -97,9 +100,9 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
 
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
-    | Monitoramento | Escolha se você deseja que o Azure Monitor monitore a sua rede de blockchain |
-    | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
-    | Seleção de VM | Escolha o tamanho de VM preferido para sua rede de blockchain. |
+    | Monitoramento | Escolha se você deseja que o Azure Monitor monitore a sua rede do blockchain |
+    | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: Se você escolher [pré-configurar o Microsoft Azure Active Directory](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
+    | Seleção de VM | Escolha o tamanho de VM preferido para sua rede de blockchain. Escolha um tamanho menor de VM, como *Standard DS1 v2* se você estiver usando uma assinatura com limites de serviço baixo, como a camada gratuita do Azure. |
 
     Para **Usar existente**:
 
@@ -117,7 +120,7 @@ Depois de concluir as etapas de pré-requisito, você estará pronto para implan
     | Configuração | DESCRIÇÃO  |
     |---------|--------------|
     | Ponto de extremidade RPC do Ethereum | Fornecer o ponto de extremidade RPC de uma rede de blockchain de PoA existente. O ponto de extremidade começa com https:// ou http:// e termina com um número de porta. Por exemplo, `https://network.westus.cloudapp.com:8540` |
-    | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: se você escolher [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
+    | Configurações do Azure Active Directory | Escolha **Adicionar mais tarde**.</br>Observação: Se você escolher [pré-configurar o Microsoft Azure Active Directory](#azure-ad-configuration) ou estiver reimplantando, escolha *Adicionar Agora*. |
     | Seleção de VM | Escolha o tamanho de VM preferido para sua rede de blockchain. |
 
 9. Selecione **OK** para concluir as configurações avançadas.
@@ -213,7 +216,7 @@ A implantação do Blockchain Workbench exige o registro de um aplicativo do Mic
 Em seguida, será necessário modificar o manifesto para usar as funções do aplicativo no Azure AD e especificar os administradores do Blockchain Workbench.  Para obter mais informações sobre manifestos de aplicativos, consulte [Manifesto de aplicativo do Microsoft Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 1. Para o aplicativo que você registrou, selecione **Manifesto** no painel de detalhes do aplicativo registrado.
-2. Gere um GUID. Você pode gerar um GUID usando o comando do PowerShell [guid] :: NewGuid () ou o cmdlet New-GUID. Outra opção é usar um site gerador de GUID.
+2. Gere um GUID. Você pode gerar um GUID usando o comando do PowerShell [guid] :: NewGuid () ou cmdlet New-GUID. Outra opção é usar um site gerador de GUID.
 3. Você atualizará a seção **appRoles** do manifesto. No painel de Editar manifesto, selecione **Editar** e substitua `"appRoles": []` pelo JSON fornecido. Certifique-se de substituir o valor do campo **id** pelo GUID gerado. 
 
     ![Editar manifesto](media/deploy/edit-manifest.png)

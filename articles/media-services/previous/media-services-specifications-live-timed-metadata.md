@@ -3,7 +3,7 @@ title: Serviços de Mídia do Microsoft Azure - Sinalização de metadados crono
 description: Essa especificação descreve dois modos com suporte dos Serviços de Mídia para sinalização de metadados cronometrados em transmissão ao vivo. Isso inclui suporte para sinais de metadados cronometrados genéricos, bem como sinalização SCTE-35 para inserção de junção ad.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: cfowler
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
+ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249567"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384676"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo
 
@@ -81,7 +81,7 @@ Para o modo simples de RTMP, os Serviços de Mídia oferecem suporte a uma únic
 | Nome do campo | Tipo de campo | Obrigatório? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | advertência        | Cadeia de caracteres     | Obrigatório | A mensagem do evento.  Para mensagens [SCTE-35], isso DEVE ser o splice_info_section() binário codificado base64 (IETF RFC 4648) para que as mensagens sejam enviadas para clientes HLS, Smooth e Dash em conformidade com [SCTE-67].                                              |
-| Tipo       | Cadeia de caracteres     | Obrigatório | Um URN ou URL que identifica o esquema de mensagem; por exemplo, "urn:example:signaling:1.0".  Para mensagens [SCTE-35], isso DEVE ser "urn:scte:scte35:2013a:bin" para que as mensagens sejam enviadas para clientes HLS, Smooth e Dash em conformidade com [SCTE-67].  |
+| Tipo       | Cadeia de caracteres     | Obrigatório | Uma URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], isso DEVE ser "urn:scte:scte35:2013a:bin" para que as mensagens sejam enviadas para clientes HLS, Smooth e Dash em conformidade com [SCTE-67].  |
 | ID         | Cadeia de caracteres     | Obrigatório | Um identificador exclusivo que descreve a junção ou o segmento. Identifica esta instância da mensagem.  Mensagens com semântica equivalente devem ter o mesmo valor.|
 | duration   | Número     | Obrigatório | A duração do evento ou junção-segmento ad, se conhecido. Se desconhecido, o valor deve ser 0.                                                                 |
 | decorrido    | Número     | Opcional | Quando o sinal [SCTE-35] ad está sendo repetido para ajustar, este campo deve ser a quantidade de horas de apresentação decorrida desde que a junção começou. As unidades são frações de segundo. No modo [SCTE-35], esse valor pode exceder a duração especificada original da junção ou segmento.                                                  |
@@ -105,7 +105,7 @@ A faixa esparsa DEVE ser declarada na Caixa de Manifesto do Servidor Live com um
 | parentTrackName    | Cadeia de caracteres         | Obrigatório      | DEVE ser o nome da faixa pai, para que os códigos de tempo de faixa esparsos sejam alinhados com a escala de tempo. A faixa pai não pode ser uma faixa esparsa.                                                                                                                    |
 | manifestOutput     | BOOLEAN        | Obrigatório      | DEVE ser “true”, para indicar que a faixa esparsa será inserida no manifesto do cliente suave.                                                                                                                                                               |
 | Subtype            | Cadeia de caracteres         | Obrigatório      | DEVE ser o código de quatro caracteres “DATA”.                                                                                                                                                                                                                         |
-| Esquema             | Cadeia de caracteres         | Obrigatório      | DEVE ser um URN ou URL que identifica o esquema de mensagem; por exemplo, "urn:example:signaling:1.0". Para mensagens [SCTE-35], isso DEVE ser "urn:scte:scte35:2013a:bin" para que as mensagens sejam enviadas para clientes HLS, Smooth e Dash em conformidade com [SCTE-67]. |
+| Esquema             | Cadeia de caracteres         | Obrigatório      | DEVE ser um URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], isso DEVE ser "urn:scte:scte35:2013a:bin" para que as mensagens sejam enviadas para clientes HLS, Smooth e Dash em conformidade com [SCTE-67]. |
 | trackName          | Cadeia de caracteres         | Obrigatório      | DEVE ser o nome da faixa esparsa. O trackName pode ser usado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo deve ter um nome de faixa exclusivo.                                                                           |
 | escala de tempo          | Número         | Opcional      | DEVE ser a escala de tempo da faixa pai.                                                                                                                                                                                                                      |
 
@@ -226,7 +226,7 @@ Metadados cronometrados para HTTP Live Streaming (HLS) da Apple podem ser inseri
 | **Nome do atributo** | **Tipo**                      | **Obrigatório?**                             | **Descrição**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ADVERTÊNCIA                | cadeia de caracteres entre aspas                 | Obrigatório                                  | A mensagem codificada como uma cadeia de caracteres base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Para mensagens [SCTE-35], esta é a splice_info_section() codificada na base64.                                                                                                |
-| TYPE               | cadeia de caracteres entre aspas                 | Obrigatório                                  | Um URN ou URL que identifica o esquema de mensagem; por exemplo, “urn:example:signaling:1.0”. Para mensagens [SCTE-35], o tipo tem o valor especial “scte35”.                                                                                                                                |
+| TYPE               | cadeia de caracteres entre aspas                 | Obrigatório                                  | Uma URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], o tipo tem o valor especial “scte35”.                                                                                                                                |
 | ID                 | cadeia de caracteres entre aspas                 | Obrigatório                                  | Um identificador exclusivo para o evento. Se a ID não for especificada quando a mensagem for ingerida, o Azure Media Services gerará uma ID exclusiva.                                                                                                                                          |
 | DURAÇÃO           | um número de ponto flutuante decimal | Obrigatório                                  | A duração do evento. Se desconhecido, o valor deve ser 0. As unidades são frações de segundos.                                                                                                                                                                                           |
 | DECORRIDO            | um número de ponto flutuante decimal | Opcional, mas Necessário para janela deslizante | Quando o sinal está sendo repetido para dar suporte a uma janela de apresentação deslizante, este campo DEVE ser a quantidade de horas de apresentação decorridas desde que o evento começou. As unidades são frações de segundo. Esse valor pode exceder a duração especificada original da junção ou segmento. |
@@ -240,30 +240,17 @@ A camada de aplicativo de player HLS usará o TIPO para identificar o formato da
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-MEDIA-SEQUENCE:346
 #EXT-X-TARGETDURATION:6
-#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXT-X-I-FRAMES-ONLY
+#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
+#EXTINF:4.000000,no-desc
+KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
 #EXTINF:6.000000,no-desc
-Fragments(video=0,format=m3u8-aapl)
+KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
+#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
 #EXTINF:6.000000,no-desc
-Fragments(video=60000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-#EXT-X-CUE: ID=”metadata-12.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”12.000000”, DURATION=”18.000000”,CUE=”HrwOi8vYmWVkaWEvhhaWFRlRDa=”
-Fragments(video=120000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=180000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=240000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=300000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=360000000,format=m3u8-aapl)
-#EXT-X-CUE: ID=”metadata-42.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”42.000000”, DURATION=”60.000000”,CUE=”PD94bWwgdm0iMS4wIiBlbmNvpD4=”
-#EXTINF:6.000000,no-desc
-Fragments(video=420000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=480000000,format=m3u8-aapl)
-…
+KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
 #### <a name="hls-message-handling"></a>Manipulação de mensagens HLS
@@ -293,7 +280,7 @@ O elemento EventStream tem os seguintes atributos:
 
 | **Nome do atributo** | **Tipo**                | **Obrigatório?** | **Descrição**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | string                  | Obrigatório      | Identifica o esquema da mensagem. O esquema é definido como o valor do atributo Esquema na caixa de Manifesto do Servidor Live. O valor DEVE ser um URN ou URL que identifica o esquema de mensagem; por exemplo, “urn:example:signaling:1.0”.                                                                |
+| scheme_id_uri      | string                  | Obrigatório      | Identifica o esquema da mensagem. O esquema é definido como o valor do atributo Esquema na caixa de Manifesto do Servidor Live. O valor DEVE ser um URN ou URL que identifica o esquema de mensagem; por exemplo, “urn:scte:scte35:2013a:bin”.                                                                |
 | value              | string                  | Opcional      | Um valor de cadeia de caracteres adicional usado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar vários fluxos de eventos com o mesmo esquema, o valor DEVE ser definido como o nome do fluxo de eventos (trackName para ingestão Smooth ou nome de mensagem AMF para ingestão RTMP). |
 | Escala de tempo          | Inteiro sem sinal de 32 bits | Obrigatório      | A escala de tempo, em tiques por segundo, dos campos de horas e os duração na caixa ‘emsg’.                                                                                                                                                                                                       |
 
@@ -335,11 +322,14 @@ Zero ou mais elementos de Evento estão contidos dentro do elemento EventStream 
 
 
 <!-- Example Section in MPD -->
-
-<EventStream schemeIdUri=”urn:example:signaling:1.0” timescale=”1000” value=”player-statistics”>
-  <Event presentationTime=”0” duration=”10000” id=”0”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-  <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-</EventStream>
+  <EventStream schemeIdUri="urn:scte:scte35:2013a:bin" value="scte35_track_001_000" timescale="10000000">
+        <Event presentationTime="15447165200227600" duration="300000000" id="1026">/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w==</Event>
+        <Event presentationTime="15447166250227600" duration="300000000" id="1027">/DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==</Event>
+        <Event presentationTime="15447167300227600" duration="600000000" id="1028">/DAlAAAAAAAAAP/wFAUAAAQEf+//KjkknP4AUmXAAAAAAAAAWcEldA==</Event>
+        <Event presentationTime="15447168350227600" duration="600000000" id="1029">/DAlAAAAAAAAAP/wFAUAAAQFf+//KslyqP4AUmXAAAAAAAAAvKNt0w==</Event>
+        <Event presentationTime="15447169400227600" duration="300000000" id="1030">/DAlAAAAAAAAAP/wFAUAAAQGf+//K1mIvP4AKTLgAAAAAAAAt2zEbw==</Event>
+        <Event presentationTime="15447170450227600" duration="600000000" id="1031">/DAlAAAAAAAAAP/wFAUAAAQHf+//K+hc/v4AUmXAAAAAAAAANNRzVw==</Event>
+    </EventStream>
 ~~~
 
 >[!NOTE]
@@ -375,7 +365,7 @@ Os campos do DASHEventMessageBox estão definidos abaixo:
 
 | **Nome do Campo**          | **Tipo de campo**          | **Obrigatório?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | string                  | Obrigatório      | Identifica o esquema da mensagem. O esquema é definido como o valor do atributo Esquema na caixa de Manifesto do Servidor Live. O valor DEVE ser um URN ou URL que identifica o esquema de mensagem; por exemplo, “urn:example:signaling:1.0”. Para mensagens [SCTE-35], isso usa o valor especial “urn:scte:scte35:2013a:bin”, embora [SCTE-67] recomende outra coisa. |
+| scheme_id_uri           | string                  | Obrigatório      | Identifica o esquema da mensagem. O esquema é definido como o valor do atributo Esquema na caixa de Manifesto do Servidor Live. O valor DEVE ser um URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], isso usa o valor especial “urn:scte:scte35:2013a:bin”, embora [SCTE-67] recomende outra coisa. |
 | Valor                   | string                  | Obrigatório      | Um valor de cadeia de caracteres adicional usado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para ingestão Smooth ou nome de mensagem AMF para ingestão RTMP).                                                                  |
 | Escala de tempo               | Inteiro sem sinal de 32 bits | Obrigatório      | A escala de tempo, em tiques por segundo, dos campos de horas e os duração na caixa ‘emsg’.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | Inteiro sem sinal de 32 bits | Obrigatório      | O intervalo de tempo de apresentação de mídia do tempo de apresentação do evento e o primeiro horário nesse segmento. A hora e a duração da apresentação DEVEM ser alinhadas com Pontos de Acesso de Fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] Anexo I.                                                                                            |
@@ -398,9 +388,9 @@ A ingestão Smooth Streaming requer que a Data Box de Mídia (‘mdat’) deve c
 
 **[SCTE-35]** ANSI/SCTE 35 2013a – Mensagem de advertência de inserção do programa digital para cabo, 2013a
 
-**[SCTE-67]** ANSI/SCTE 67 2014 – Prática recomendada para SCTE 35: mensagem de advertência de inserção do programa digital para cabo
+**[SCTE-67]** ANSI/SCTE 67 2014 – Prática Recomendada para SCTE 35: Mensagem de advertência de inserção do programa digital para cabo
 
-**[DASH]** ISO/IEC 23009-1 2014 – Tecnologia da informação – Streaming adaptativo dinâmico sobre HTTP (DASH) – Parte 1: formatos de descrição e segmento de apresentação de mídia, 2ª edição
+**[DASH]**  ISO/IEC 23009-1 2014 – Tecnologia da informação – Dynamic adaptive streaming sobre HTTP (DASH) – Parte 1: Formatos de descrição e segmento de apresentação de mídia, 2ª edição
 
 **[HLS]** [“HTTP Live Streaming”, draft-pantos-http-live-streaming-14, 14 de outubro de 2014,](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 

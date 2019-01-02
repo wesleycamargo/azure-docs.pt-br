@@ -3,7 +3,7 @@ title: Obtenha visibilidade de todo o locatário para o Centro de Segurança do 
 description: Saiba mais sobre como ganhar visibilidade para todo o locatário na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298771"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964110"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -93,13 +93,16 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC aos usuários por meio do portal do Azure: 
 
 1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Para exibir grupos de gerenciamento, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gerenciamento**.
-3.  Selecione um grupo de gerenciamento e clique em **detalhes**.
+1. Para exibir grupos de gerenciamento, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gerenciamento**.
+1.  Selecione um grupo de gerenciamento e clique em **detalhes**.
 
     ![Captura de tela dos detalhes dos Grupos de Gerenciamento](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Clique em **IAM (Controle de Acesso)** e, em seguida, em **Adicionar**.
-5. Selecione a função a ser atribuída e o usuário e, em seguida, clique em **Salvar**.  
+1. Clique **Controle de acesso (IAM)**, em seguida, **Atribuição de função**.
+
+1. Clique em **Adicionar atribuição de função**.
+
+1. Selecione a função a ser atribuída e o usuário e, em seguida, clique em **Salvar**.  
    
    ![Captura de tela da função Adicionar Leitor de Segurança](./media/security-center-management-groups/asc-security-reader.png)
 

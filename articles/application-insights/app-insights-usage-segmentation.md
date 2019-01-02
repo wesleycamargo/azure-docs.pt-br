@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140325"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720134"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de usuários, sessões e eventos no Application Insights
 
@@ -35,9 +34,9 @@ Caso ainda não veja dados nas folhas de usuários, sessões ou eventos no porta
 
 Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu aplicativo Web em três perspectivas diferentes. Filtrando e dividindo os dados, você pode descobrir informações sobre o uso relativo de diferentes páginas e recursos.
 
-* **Ferramenta de Usuários**: quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
-* **Ferramenta de Sessões**: quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
-* **Ferramenta de Eventos**: com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](app-insights-javascript.md). 
+* **Ferramenta de usuários**: Quantas pessoas usaram seu aplicativo e seus recursos.  Os usuários são contados usando IDs anônimas armazenadas em cookies do navegador. Uma única pessoa que usar diferentes navegadores ou computadores será contada como mais de um usuário.
+* **Ferramenta de sessões**: Quantas sessões de atividade do usuário incluíram determinadas páginas e recursos de seu aplicativo. Uma sessão é contada após meia hora de inatividade do usuário ou após 24 horas contínuas de uso.
+* **Ferramenta de eventos**: Com que frequência determinadas páginas e recursos de seu aplicativo são usados. Uma exibição de página é contada quando um navegador carrega uma página do seu aplicativo, desde que você a tenha [instrumentado](app-insights-javascript.md). 
 
     Um evento personalizado representa uma ocorrência de algo que esteja acontecendo em seu aplicativo, geralmente uma interação do usuário, como um clique de botão ou a conclusão de uma tarefa. Insira o código em seu aplicativo para [gerar eventos personalizados](app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -46,11 +45,11 @@ Três das folhas de uso usam a mesma ferramenta para dividir a telemetria do seu
 Explore diferentes grupos de usuários, ajustando as opções de consulta na parte superior da ferramenta de Usuários:
 
 * Mostrar: Escolha um coorte de usuários para analisar.
-* Quem usou: escolha exibições de página e eventos personalizados.
-* Durante: escolha um intervalo de tempo.
-* Por: escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
-* Dividido por: escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
-* Adicionar filtros: limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
+* Quem usou: Escolha os eventos personalizados e todas as exibições de página.
+* Durante: Escolha um intervalo de tempo.
+* Por: Escolha como compartimentar os dados, seja segundo um período ou segundo outra propriedade, como navegador ou cidade.
+* Dividir por: Escolha uma propriedade segundo a qual o segmento ou os dados deverão ser divididos. 
+* Adicionar filtros: Limite a consulta a determinados usuários, sessões ou eventos com base em suas propriedades, como navegador ou cidade. 
  
 ## <a name="saving-and-sharing-reports"></a>Salvar e compartilhar relatórios 
 Você pode salvar relatórios de Usuários, de forma privada na seção Meus Relatórios ou de forma compartilhada com quem tiver acesso a esse recurso do Application Insights na seção Relatórios Compartilhados.

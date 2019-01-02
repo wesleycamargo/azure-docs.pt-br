@@ -2,18 +2,18 @@
 title: Provisionar um pool de Lote do Azure de uma imagem personalizada | Microsoft Docs
 description: Crie um pool de Lote de computação de uma imagem personalizada para provisionar nós que contêm o software e os dados que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885198"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840360"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais 
 
@@ -50,7 +50,13 @@ No Azure, você pode preparar uma imagem gerenciada de instantâneos de discos d
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM 
 
-Se estiver criando uma nova VM para a imagem, você poderá usar uma imagem do Azure Marketplace compatível com o Lote como a imagem base para sua imagem gerenciada, para então personalizá-la.  Para obter uma lista de referências de imagem do Azure Marketplace compatíveis com o Lote do Azure, veja a operação [Listar SKUs do agente de nó](/rest/api/batchservice/account/listnodeagentskus). Você não pode usar uma imagem de terceiros como sua imagem base.
+Se estiver criando uma nova VM para a imagem, você poderá usar uma imagem do Azure Marketplace compatível com o Lote como a imagem base para sua imagem gerenciada, para então personalizá-la.  Para obter uma lista de referências de imagem do Azure Marketplace compatíveis com o Lote do Azure, veja a operação [Listar SKUs do agente de nó](/rest/api/batchservice/account/listnodeagentskus). 
+
+> [!NOTE]
+> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes par máquinas virtuais [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+).
+
 
 * Verifique se a VM é criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
 * Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.

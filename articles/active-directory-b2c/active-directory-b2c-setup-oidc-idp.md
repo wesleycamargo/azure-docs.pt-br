@@ -7,22 +7,24 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842757"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a OpenID Connect usando o Azure Active Directory B2C
 
 >[!NOTE]
 > Esse recurso está em uma versão prévia. Não use o recurso em ambientes de produção.
 
-O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser usado para que os usuários entrem com segurança. A maioria dos provedores de identidade que usam esse protocolo, como o [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), é compatível com o Azure AD B2C. Este artigo explica como você pode adicionar provedores de identidade do OpenID Connect personalizados em suas políticas internas.
+
+O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser usado para que os usuários entrem com segurança. A maioria dos provedores de identidade que usam esse protocolo, como o [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), é compatível com o Azure AD B2C. Este artigo explica como você pode adicionar provedores de identidade do OpenID Connect personalizados em seus fluxos de usuário.
+
 
 ## <a name="add-the-identity-provider"></a>Adicionar o provedor de identidade
 
@@ -39,28 +41,28 @@ Todos os provedores de identidade do OpenID Connect descrevem um documento de me
 Para permitir que os usuários entrem, o provedor de identidade exige que os desenvolvedores registrem um aplicativo em seus serviços. Este aplicativo tem uma ID que é conhecida como o **ID do cliente** e um **segredo do cliente**. Copie esses valores do provedor de identidade e insira-os nos campos correspondentes.
 
 > [!NOTE]
-> O segredo do cliente é opcional. No entanto, será necessário inserir um segredo do cliente se você desejar usar o [fluxo de código de autorização](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que usa o segredo para trocar o código do token.
+> O segredo do cliente é opcional. No entanto, será necessário inserir um segredo do cliente se você desejar usar o [fluxo de código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que usa o segredo para trocar o código do token.
 
 O escopo define as informações e as permissões que você deseja coletar do provedor de identidade personalizado. As solicitações do OpenID Connect precisam conter o valor de escopo do `openid` para receber o token de ID do provedor de identidade. Sem o token de ID, os usuários não conseguem entrar no Azure AD B2C usando o provedor de identidade personalizado. É possível acrescentar outros escopos separados por espaço. Veja a documentação do provedor de identidade personalizado para saber quais outros escopos podem estar disponíveis.
 
 O tipo de resposta descreve que tipo de informação é retornada na chamada inicial para o `authorization_endpoint` do provedor de identidade personalizado. Os seguintes tipos de resposta podem ser usados:
 
-- `code`: conforme o [fluxo de código de autorização](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), um código será retornado ao Azure AD B2C. O Azure AD B2C prossegue para chamar o `token_endpoint` para trocar o código pelo token.
-- `token`: um token de acesso é devolvido do provedor de identidade personalizado para o Azure AD B2C.
-- `id_token`: um token de ID é devolvido do provedor de identidade personalizado para o Azure AD B2C.
+- `code`: Conforme o [fluxo de código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), um código será retornado ao Azure AD B2C. O Azure AD B2C prossegue para chamar o `token_endpoint` para trocar o código pelo token.
+- `token`: Um token de acesso é devolvido do provedor de identidade personalizado para o Azure AD B2C.
+- `id_token`: Um token de ID é devolvido do provedor de identidade personalizado para o Azure AD B2C.
 
 O modo de resposta define o método que deve ser usado para retornar os dados do provedor de identidade personalizado para o Azure AD B2C. Os seguintes modos de resposta podem ser usados:
 
-- `form_post`: esse modo de resposta é recomendado para obter a melhor segurança possível. A resposta é transmitida por meio do método HTTP `POST`, com o código ou o token codificado no corpo usando o formato `application/x-www-form-urlencoded`.
-- `query`: o código ou o token é devolvido como um parâmetro de consulta.
+- `form_post`: Esse modo de resposta é recomendado para obter a melhor segurança possível. A resposta é transmitida por meio do método HTTP `POST`, com o código ou o token codificado no corpo usando o formato `application/x-www-form-urlencoded`.
+- `query`: O código ou o token é devolvido como um parâmetro de consulta.
 
 A dica de domínio pode ser usada para pular diretamente para a página de entrada do provedor de identidade especificado, em vez de fazer com que o usuário faça uma seleção na lista de provedores de identidade disponíveis. Para permitir esse tipo de comportamento, insira um valor para a dica de domínio. Para pular para o provedor de identidade personalizado, acrescente o parâmetro `domain_hint=<domain hint value>` ao final da solicitação ao chamar o Azure AD B2C para entrar.
 
 Depois que o provedor de identidade personalizado envia um token de ID para o Azure AD B2C, o Azure AD B2C precisa ser capaz de mapear as declarações do token recebido para as declarações que ele reconhece e usa. Para cada um dos seguintes mapeamentos, veja a documentação do provedor de identidade personalizado para entender as declarações que são retornadas nos tokens do provedor de identidade:
 
-- `User ID`: insira a declaração que fornece o identificador exclusivo para o usuário conectado.
-- `Display Name`: insira a declaração que fornece o nome de exibição ou o nome completo do usuário.
-- `Given Name`: insira a declaração que fornece o nome do usuário.
-- `Surname`: insira a declaração que fornece o sobrenome do usuário.
-- `Email`: insira a declaração que fornece o endereço de email do usuário.
+- `User ID`: Insira a declaração que fornece o identificador exclusivo para o usuário conectado.
+- `Display Name`: Insira a declaração que fornece o nome de exibição ou o nome completo do usuário.
+- `Given Name`: Insira a declaração que fornece o nome do usuário.
+- `Surname`: Insira a declaração que fornece o sobrenome do usuário.
+- `Email`: Insira a declaração que fornece o endereço de email do usuário.
 

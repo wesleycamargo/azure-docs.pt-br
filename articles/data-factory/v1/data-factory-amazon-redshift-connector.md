@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045680"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968776"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Atualmente, o Data Factory dá suporte apenas à movimentação de dados do Amaz
 > [!TIP]
 > Para obter o melhor desempenho ao copiar grandes quantidades de dados do Amazon Redshift, considere o uso de comando **UNLOAD** do Redshift interno por meio do Amazon S3 (Serviço de Armazenamento Simples). Para obter detalhes, consulte [Usar UNLOAD para copiar dados do Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Se estiver movendo dados para um repositório de dados local, instale o [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) em um computador local. Conceder acesso a um gateway para o cluster do Amazon Redshift usando o endereço IP do computador local. Para obter instruções, consulte [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorizar acesso ao cluster).
 * Para mover dados para um armazenamento de dados do Azure, consulte o [Endereço IP de computação e intervalos do SQL que são usados pelos datacenters do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -53,7 +53,7 @@ Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um 
 2. Criar conjuntos de dados para representar dados de entrada e saída para a operação de cópia. 
 3. Criar um pipeline com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. 
 
-Ao usar o Assistente de Cópia, as definições de JSON para essas entidades do Data Factory são criadas automaticamente. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. O [Exemplo de JSON: copiar dados do Amazon Redshift para o Armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados do Amazon Redshift.
+Ao usar o Assistente de Cópia, as definições de JSON para essas entidades do Data Factory são criadas automaticamente. Ao usar ferramentas ou APIs (exceto a API .NET), você define as entidades do Data Factory usando o formato JSON. [Exemplo JSON: Copiar dados do Amazon Redshift para o Armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades do Data Factory que são usadas para copiar dados de um armazenamento de dados do Amazon Redshift.
 
 As seções que se seguem descrevem as propriedades de JSON que são usadas para definir as entidades do Data Factory para o Amazon Redshift.
 
@@ -63,12 +63,12 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |sim |
-| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |sim |
+| **tipo** |Essa propriedade deve ser definida como: **AmazonRedshift**. |SIM |
+| **server** |O endereço IP ou nome do host do servidor Amazon Redshift. |SIM |
 | **port** |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não (o padrão é 5439) |
-| **database** |O nome do banco de dados do Amazon Redshift. |sim |
-| **username** |O nome de usuário que tem acesso ao banco de dados. |sim |
-| **password** |A senha para a conta de usuário. |sim |
+| **database** |O nome do banco de dados do Amazon Redshift. |SIM |
+| **username** |O nome de usuário que tem acesso ao banco de dados. |SIM |
+| **password** |A senha para a conta de usuário. |SIM |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -103,13 +103,13 @@ Como alternativa, você pode usar o tipo **RelationalSource**, que inclui o Amaz
 
 O comando [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) do Amazon Redshift descarrega os resultados de uma consulta para um ou mais arquivos no Amazon S3. Esse comando é recomendado pela Amazon para copiar conjuntos de dados grandes do Redshift.
 
-**Exemplo: copiar dados do Amazon Redshift para o SQL Data Warehouse do Azure**
+**Exemplo: Copiar dados do Amazon Redshift para o SQL Data Warehouse do Azure**
 
 Esse exemplo copia dados do Amazon Redshift para o SQL Data Warehouse do Azure. O exemplo usa o comando **UNLOAD** do Redshift, dados de cópia em etapas e o Microsoft PolyBase.
 
 Para esse caso de uso de exemplo, a atividade de cópia primeiro descarrega os dados do Amazon Redshift para o Amazon S3 conforme configurado na opção **redshiftUnloadSettings**. Em seguida, os dados são copiados do Amazon S3 para o Armazenamento de Blobs do Azure conforme especificado na opção **stagingSettings**. Por fim, o PolyBase carrega os dados no SQL Data Warehouse do Azure. Todos os formatos provisórios são tratados pela atividade de cópia.
 
-![Copiar o fluxo de trabalho do Amazon Redshift para o SQL Data Warehouse](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![Copiar o fluxo de trabalho do Amazon Redshift para o SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -139,7 +139,7 @@ Para esse caso de uso de exemplo, a atividade de cópia primeiro descarrega os d
 }
 ```
 
-## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemplo de JSON: copiar dados do Amazon Redshift para o Armazenamento de Blobs do Azure
+## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon Redshift para o Armazenamento de Blobs do Azure
 Este exemplo mostra como copiar dados de um banco de dados do Amazon Redshift para um Armazenamento de Blobs do Azure. Os dados podem ser copiados diretamente para qualquer [coletor com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia.  
 
 O exemplo tem as seguintes entidades de data factory:

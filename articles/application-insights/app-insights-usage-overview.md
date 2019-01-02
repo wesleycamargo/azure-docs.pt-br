@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278626"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955422"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -33,11 +32,11 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
     * *Não quer instalar o código do servidor? Apenas [crie um recurso do Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
+2. **URL da página na web:** Abra o [portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
 
     ![Copie o script no cabeçalho da página da web mestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Código de aplicativo móvel:** use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](app-insights-mobile-center-quickstart.md).
+3. **Código do aplicativo móvel:** Use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](app-insights-mobile-center-quickstart.md).
 
 4. **Obter telemetria:** Execute seu projeto no modo de depuração por alguns minutos e, em seguida, procure resultados na folha Visão Geral em Application Insights.
 
@@ -61,26 +60,6 @@ Os insights à direita indicam padrões interessantes no conjunto de dados.
 * O relatório **Sessões** conta o número de sessões dos usuários que acessam seu site. Uma sessão é um período de atividade de um usuário, encerrada por um período de inatividade de mais de meia hora.
 
 [Mais informações sobre as ferramentas Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Visualizações de página
-
-Na folha de Uso, clique no bloco de Visualizações de Página para obter uma análise das suas páginas mais populares:
-
-![Na folha Visão Geral, clicar no gráfico Visualizações de página](./media/app-insights-usage-overview/05-games.png)
-
-O exemplo acima é de um site da Web. A partir dos gráficos, imediatamente podemos ver:
-
-* O uso não melhorou na última semana. Talvez devamos pensar em otimização do mecanismo de pesquisa?
-* Tênis é a página de jogo mais popular. Vamos manter o foco em melhorias adicionais para esta página.
-* Em média, os usuários visitam a página Tênis aproximadamente três vezes por semana. (Há cerca de três vezes mais sessões do que usuários.)
-* A maioria dos usuários visita o site durante a semana de trabalho dos EUA e, em horário de trabalho. Talvez devêssemos fornecer um botão "ocultar rápido" na página da Web.
-* As [anotações](app-insights-annotations.md) no gráfico mostram quando novas versões do site foram implantadas. Nenhuma das implantações recentes teve um efeito notável no uso.
-
-E se você quiser investigar o tráfego em seu site com mais detalhes, por exemplo, dividindo segundo uma propriedade personalizada que o site envia em sua telemetria de exibições de página?
-
-1. Abra a ferramenta **Eventos** no menu de recursos do Application Insights. Essa ferramenta permite analisar quantas exibições de página e eventos personalizados foram enviados de seu aplicativo, com base em uma variedade de opções de filtragem, divisão em coortes e segmentação.
-2. No menu suspenso "Quem usou", selecione "Qualquer exibição de página".
-3. No menu suspenso "Dividir por", selecione uma propriedade segundo a qual deseja dividir sua telemetria de exibição de página.
 
 ## <a name="retention---how-many-users-come-back"></a>Retenção – quantos usuários voltam?
 

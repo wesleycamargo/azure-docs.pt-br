@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155058"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955065"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services
 Você tem um domínio gerenciado dos Azure AD Domain Services. Quando navega para o portal do Azure e exibe o domínio gerenciado, você vê a seguinte mensagem de erro:
 
-![Erro de diretórios incompatíveis](.\media\getting-started\mismatched-tenant-error.png)
+![Erro de diretórios incompatíveis](./media/getting-started/mismatched-tenant-error.png)
 
 Você não pode administrar esse domínio gerenciado até que o erro seja resolvido.
 
@@ -37,11 +37,11 @@ O novo portal do Azure (e, especificamente, a extensão do Azure AD Domain Servi
 
 Em resumo, você não pode habilitar um domínio gerenciado para um locatário do Azure AD “contoso.com” em uma rede virtual que pertence a uma assinatura do Azure pertencente a outro locatário do Azure AD, como “fabrikam.com”. 
 
-**Configuração válida**: neste cenário de implantação, o domínio gerenciado Contoso está habilitado para o locatário Contoso do Azure AD. O domínio gerenciado é exposto em uma rede virtual pertencente a uma assinatura do Azure que pertence ao locatário Contoso do Azure AD. Portanto, tanto o domínio gerenciado quanto a rede virtual pertencem ao mesmo locatário do Azure AD. Essa configuração é válida e tem suporte completo.
+**Configuração válida**: Neste cenário de implantação, o domínio gerenciado Contoso está habilitado para o locatário Contoso do Azure AD. O domínio gerenciado é exposto em uma rede virtual pertencente a uma assinatura do Azure que pertence ao locatário Contoso do Azure AD. Portanto, tanto o domínio gerenciado quanto a rede virtual pertencem ao mesmo locatário do Azure AD. Essa configuração é válida e tem suporte completo.
 
 ![Configuração de locatário válida](./media/getting-started/valid-tenant-config.png)
 
-**Configuração com locatários incompatíveis**: neste cenário de implantação, o domínio gerenciado Contoso está habilitado para o locatário Contoso do Azure AD. No entanto, o domínio gerenciado é exposto em uma rede virtual pertencente a uma assinatura do Azure que pertence ao locatário Fabrikam do Azure AD. Portanto, o domínio gerenciado e a rede virtual pertencem a locatários diferentes do Azure AD. Essa configuração tem locatários incompatíveis e não tem suporte. A rede virtual precisa ser movida para o mesmo locatário do Azure AD (ou seja, a Contoso) que o domínio gerenciado. Confira a seção [Resolução](#resolution) para obter detalhes.
+**Configuração de locatários incompatíveis**: Neste cenário de implantação, o domínio gerenciado Contoso está habilitado para o locatário Contoso do Azure AD. No entanto, o domínio gerenciado é exposto em uma rede virtual pertencente a uma assinatura do Azure que pertence ao locatário Fabrikam do Azure AD. Portanto, o domínio gerenciado e a rede virtual pertencem a locatários diferentes do Azure AD. Essa configuração tem locatários incompatíveis e não tem suporte. A rede virtual precisa ser movida para o mesmo locatário do Azure AD (ou seja, a Contoso) que o domínio gerenciado. Confira a seção [Resolução](#resolution) para obter detalhes.
 
 ![Configuração de locatários incompatíveis](./media/getting-started/mismatched-tenant-config.png)
 
