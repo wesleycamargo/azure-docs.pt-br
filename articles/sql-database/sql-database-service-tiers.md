@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239076"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164391"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra Banco de Dados SQL do Microsoft Azure
 
 O Banco de dados SQL do Azure permite que você adquira com facilidade o mecanismo de banco de dados PaaS totalmente gerenciado que atenda às suas necessidades de desempenho e custo. Dependendo do modelo de implantação do Banco de Dados SQL do Azure, você pode selecionar o modelo de compra que atenda às suas necessidades:
+- [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) (recomendado), que permite escolher a quantidade exata de capacidade de armazenamento e computação que você precisa para sua carga de trabalho.
+- [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) onde você pode escolher pacotes agrupados de computação e armazenamento para cargas de trabalho comuns.
 
-- Os [servidores lógicos](sql-database-logical-servers.md) no [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferecem dois modelos de compra para recursos de E/S, armazenamento e computação: um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [um modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Dentro do modelo de compra, você pode escolher [bancos de dados únicos](sql-database-single-databases-manage.md) ou [pools elásticos](sql-database-elastic-pool.md).
+Diferentes modelos de compra estão disponíveis em modelos de implantação do Banco de Dados SQL:
+- [Servidores lógicos](sql-database-logical-servers.md) no [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferecem tanto o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) como o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Dentro do modelo de compra, você pode escolher [bancos de dados únicos](sql-database-single-databases-manage.md) ou [pools elásticos](sql-database-elastic-pool.md).
 - [Instâncias Gerenciadas](sql-database-managed-instance.md) no Banco de Dados SQL do Microsoft Azure oferecem o [modelo de compra com base no vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ O modelo de compra baseado em vCore permite que você escolha recursos de comput
 
 > [!IMPORTANT]
 > Armazenamento de log e dados, E/S e computação são cobrados por banco de dados ou pool elástico. O armazenamento de backups é cobrado por cada banco de dados. Para obter detalhes sobre os encargos de Instância Gerenciada, veja [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).
-> **Limitações de região:** O modelo de compra baseado em vCore não está ainda disponível nas seguintes regiões: Europa Ocidental, França Central, Sul do Reino Unido, Oeste do Reino Unido e Sudeste da Austrália.
+> **Limitações de região:** O modelo de compra baseado em vCore ainda não está disponível nas seguintes regiões: Europa Ocidental, França Central, Sul do Reino Unido, Oeste do Reino Unido e Sudeste da Austrália.
 
 Se o banco de dados ou pool elástico consumir mais de 300 DTU, a conversão para o vCore poderá reduzir o custo. É possível converter usando a API de sua preferência ou o Portal do Azure, sem tempo de inatividade. No entanto, a conversão não é necessária. Se o modelo de compra de DTU atender aos seus requisitos de desempenho e de negócios, você deve continuar utilizando-o. Se você decidir converter do modelo DTU para o modelo vCore, deverá selecionar o tamanho de computação usando a seguinte regra geral: a cada 100 DTUs na camada Standard é necessário pelo menos 1 vCore na camada de Uso Geral, a cada 125 DTUs na camada Premium é necessário pelo menos 1 vCore na camada Comercialmente Crítico.
 

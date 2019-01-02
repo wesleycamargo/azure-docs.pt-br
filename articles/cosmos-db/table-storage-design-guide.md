@@ -1,23 +1,22 @@
 ---
-title: Guia de Design de tabela de armazenamento do Azure | Microsoft Docs
-description: Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure
-services: cosmos-db
+title: Criar tabelas do Azure Cosmos DB para dar suporte ao dimensionamento e desempenho
+description: 'Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho no Azure Cosmos DB e na Tabela do Armazenamento do Azure'
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/03/2017
-ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245810"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140941"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
+
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 Para projetar tabelas escalonáveis e de alto desempenho, você deve considerar vários fatores, como desempenho, escalabilidade e custo. Se você tiver criado anteriormente esquemas de bancos de dados relacionais, essas considerações serão familiares para você, mas embora haja algumas semelhanças entre o modelo de armazenamento do serviço Tabela do Azure e os modelos relacionais, também há várias diferenças importantes. Normalmente, essas diferenças resultam em designs diferentes que podem parecer contraintuitivos ou errados para alguém que esteja familiarizado com bancos de dados relacionais, mas que fazem sentido se você estiver criando para um armazenamento de chave/valor de NoSQL, como o serviço Tabela do Azure. Muitas das suas diferenças de design refletirão o fato de que o serviço Tabela foi projetado para dar suporte a aplicativos de escala de nuvem que podem conter bilhões de entidades (linhas na terminologia de banco de dados relacional) de dados ou de conjuntos de dados que devem dar suporte a grandes volumes de transações: por isso, você precisa pensar de forma diferente sobre como armazenar seus dados e entender como funciona o serviço Tabela. Um repositório de dados NoSQL bem projetado pode permitir que sua solução seja muito mais dimensionável (e a um custo menor) do que uma solução que usa um banco de dados relacional. Este guia ajuda você com esses tópicos.  
@@ -133,7 +132,7 @@ O nome da conta, o nome de tabela e **PartitionKey** juntas identificam a parti�
 
 No serviço Tabela, um nó individual atende a uma ou mais partições completas e o serviço é dimensionado pelo balanceamento dinâmico de carga das partições nos nós. Se um nó estiver sob carga, o serviço Tabela pode *dividir* o intervalo de partições atendidas por esse nó em nós diferentes. Quando o tráfego baixa, o serviço pode *mesclar* os intervalos de partições de nós silenciosos de volta para um único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, consulte o artigo Armazenamento do Microsoft Azure: [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço Tabela e, em particular, sobre como o serviço gerencia partições, confira o artigo [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Transações de Grupo de Entidades
 No serviço Tabela, EGTs (Transações de Grupo de Entidades) são o único mecanismo interno para realizar atualizações atômicas entre várias entidades. EGTs também são conhecidas como *transações de lote* em alguns documentos. EGTs só podem operar em entidades armazenadas na mesma partição (compartilhar a mesma chave de partição em determinada tabela), portanto, sempre que você precisar de um comportamento transacional atômico nas várias entidades, precisará garantir que as entidades estejam na mesma partição. Isso geralmente é um motivo para manter vários tipos de entidade na mesma tabela (e partição) e não usar várias tabelas para tipos de entidade diferentes. Uma única EGT pode operar no máximo 100 entidades.  Se você enviar várias EGTs simultâneas para processamento, é importante garantir que essas EGTs não operem em entidades comuns entre as EGTs; caso contrário, o processamento pode ser retardado.
@@ -163,19 +162,19 @@ Essas listas resumem algumas as diretrizes importantes que você deve ter em men
 
 Criando sua solução do serviço Tabela para ser eficiente em *leitura* :
 
-* ***Design para consulta em aplicativos com alta taxa de leitura.*** Quando você está criando tabelas, pense sobre as consultas (especialmente aquelas sensíveis a latência) que você executará antes de pensar em como atualizará as entidades. Isso normalmente resulta em uma solução eficiente e de alto desempenho.  
+* ***Design para consulta em aplicativos com alta taxa de leitura.***  Quando você está criando tabelas, pense sobre as consultas (especialmente aquelas sensíveis a latência) que você executará antes de pensar em como atualizará as entidades. Isso normalmente resulta em uma solução eficiente e de alto desempenho.  
 * ***Especifique PartitionKey e RowKey em suas consultas.*** *Consultas de ponto* como essas são as consultas de serviço Tabela mais eficientes.  
-* ***Considere armazenar cópias duplicadas de entidades.*** O armazenamento de tabela é barato, portanto, considere armazenar a mesma entidade várias vezes (com chaves diferentes) para permitir consultas mais eficientes.  
-* ***Considere a desnormalização de seus dados.*** O armazenamento de tabela é barato, então considere desnormalizar seus dados. Por exemplo, armazene entidades resumidas para que consultas a dados agregados só tenham de acessar uma única entidade.  
+* ***Considere armazenar cópias duplicadas de entidades.***  O armazenamento de tabela é barato, portanto, considere armazenar a mesma entidade várias vezes (com chaves diferentes) para permitir consultas mais eficientes.  
+* ***Considere a desnormalização de seus dados.***  O armazenamento de tabela é barato, então considere desnormalizar seus dados. Por exemplo, armazene entidades resumidas para que consultas a dados agregados só tenham de acessar uma única entidade.  
 * ***Use valores de chave composta.*** As únicas chaves que você tem são **PartitionKey** e **RowKey**. Por exemplo, use valores de chave composta para habilitar caminhos alternativo com chave de acesso para entidades.  
-* ***Use a projeção de consulta.*** Você pode reduzir a quantidade de dados transferidos pela rede por meio de consultas que selecionam apenas os campos necessários.  
+* ***Use a projeção de consulta.***  Você pode reduzir a quantidade de dados transferidos pela rede por meio de consultas que selecionam apenas os campos necessários.  
 
 Criar a solução de serviço Tabela para ser eficiente em *gravação* :  
 
-* ***Não crie partições ativas.*** Escolha chaves que permitam que você distribua suas solicitações por várias partições em qualquer momento.  
-* ***Evite picos no tráfego.*** Suavize o tráfego por um período razoável de tempo e evite picos no tráfego.
-* ***Não crie, necessariamente, uma tabela separada para cada tipo de entidade.*** Quando você precisar de transações atômicas nos tipos de entidade, pode armazenar esses vários tipos de entidade na mesma partição, na mesma tabela.
-* ***Considere a produtividade máxima que deve ser atingida.*** Você deve estar ciente dos destinos de escalabilidade para o serviço Tabela e garantir que seu design não fará com que você os exceda.  
+* ***Não crie partições ativas.***  Escolha chaves que permitam que você distribua suas solicitações por várias partições em qualquer momento.  
+* ***Evite picos no tráfego.***  Suavize o tráfego por um período razoável de tempo e evite picos no tráfego.
+* ***Não crie, necessariamente, uma tabela separada para cada tipo de entidade.***  Quando você precisar de transações atômicas nos tipos de entidade, pode armazenar esses vários tipos de entidade na mesma partição, na mesma tabela.
+* ***Considere a produtividade máxima que deve ser atingida.***  Você deve estar ciente dos destinos de escalabilidade para o serviço Tabela e garantir que seu design não fará com que você os exceda.  
 
 À medida que você ler este guia, verá exemplos que colocam todos esses princípios em prática.  
 
@@ -320,7 +319,7 @@ Este exemplo também mostra uma entidade de departamento e suas entidades de fun
 
 Uma abordagem alternativa é desnormalizar seus dados e armazenar apenas entidades de funcionário com dados desnormalizados de departamento, conforme mostrado no exemplo a seguir. Neste cenário específico, essa abordagem desnormalizada pode não ser a melhor se você precisar ser capaz de alterar os detalhes de um gerente de departamento, pois para isso você precisa atualizar todos os funcionários do departamento.  
 
-![][2]
+![Entidade de funcionário][2]
 
 Para saber mais, confira [Padrão de desnormalização](#denormalization-pattern) mais adiante neste guia.  
 
@@ -397,18 +396,18 @@ Por exemplo, se você tiver tabelas pequenas que contêm dados que não são alt
 ### <a name="inheritance-relationships"></a>Relações de herança
 Se seu aplicativo cliente usa um conjunto de classes que fazem parte de uma relação de herança para representar entidades de negócios, você poderá persistir facilmente essas entidades no serviço Tabela. Por exemplo, você pode ter o seguinte conjunto de classes definidas em seu aplicativo cliente, em que **Pessoa** é uma classe abstrata.
 
-![][3]
+![Diagrama de ER das relações de herança][3]
 
 Você pode persistir instâncias das duas classes concretas no serviço Tabela usando uma única tabela Pessoa com entidades que têm a seguinte aparência:  
 
-![][4]
+![Diagrama da entidade Cliente e da entidade Funcionário][4]
 
 Para saber mais sobre como trabalhar com vários tipos de entidade na mesma tabela no código cliente, confira a seção [Trabalhando com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types) mais adiante neste guia. Isso fornece exemplos de como reconhecer o tipo de entidade no código do cliente.  
 
 ## <a name="table-design-patterns"></a>Padrões de design de tabela
 Nas seções anteriores, você viu que algumas discussões detalhadas sobre como otimizar o design da tabela para recuperar dados de entidade usando consultas e para inserir, atualizar e excluir dados de entidade. Esta seção descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações gerados anteriormente neste guia. O diagrama a seguir resume as relações entre os diferentes padrões:  
 
-![][5]
+![Imagem dos padrões de design de tabela][5]
 
 O mapa padrão acima destaca algumas relações entre padrões (azul) e antipadrões (laranja) documentados neste guia. Certamente há muitos outros padrões que vale a pena considerar. Por exemplo, um dos principais cenários para o serviço Tabela é utilizar o [Padrão de Exibição Materializada](https://msdn.microsoft.com/library/azure/dn589782.aspx) do padrão [CQRS (Segregação de Responsabilidade da Consulta de Comando)](https://msdn.microsoft.com/library/azure/jj554200.aspx).  
 
@@ -425,7 +424,7 @@ Se você quiser ser capaz de encontrar uma entidade funcionário com base no val
 #### <a name="solution"></a>Solução
 Para solucionar a falta de índices secundários, armazene várias cópias de cada entidade com cada cópia, usando um valor diferente de **RowKey** . Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **RowKey**, "empid_" e "email_" permitem a consulta de um único funcionário ou um intervalo de funcionários usando um intervalo de endereços de email ou IDs de funcionário.  
 
-![][7]
+![Entidade Funcionário com diferentes valores de RowKey][7]
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:  
 
@@ -449,7 +448,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 * O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
 * Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em **RowKey** nunca precisarem da idade do funcionário, essas entidades poderão ter a seguinte estrutura:
 
-![][8]
+![Entidade de funcionário][8]
 
 * Normalmente é melhor armazenar dados duplicados e certificar-se de que você possa recuperar todos os dados que precisa com uma única consulta, do que usar uma consulta para localizar uma entidade e outra para pesquisar os dados necessários.  
 
@@ -470,7 +469,7 @@ Armazene várias cópias de cada entidade usando valores diferentes de **RowKey*
 #### <a name="context-and-problem"></a>Contexto e problema
 O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando esses valores. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode usar uma consulta de ponto para recuperar uma entidade de funcionário individual usando o nome do departamento e a ID do funcionário (os valores de **PartitionKey** e **RowKey**). Um cliente também pode recuperar entidades classificadas por ID de funcionário dentro de cada departamento.  
 
-![][9]
+![Entidade de funcionário][9]
 
 Se você quiser ser capaz de encontrar uma entidade funcionário com base no valor de outra propriedade, como o endereço de email, deve usar uma verificação de partição menos eficiente para localizar uma correspondência. Isso ocorre porque o serviço Tabela não fornece índices secundários. Além disso, não há opção para solicitar uma lista de funcionários classificados em uma ordem diferente da ordem **RowKey** .  
 
@@ -479,7 +478,7 @@ Você está prevendo um volume alto de transações em relação a essas entidad
 #### <a name="solution"></a>Solução
 Para solucionar a falta de índices secundários, você pode armazenar várias cópias de cada entidade com cada cópia usando valores diferentes de **PartitionKey** e **RowKey**. Se você armazenar uma entidade com as estruturas mostradas abaixo, poderá recuperar com eficiência entidades de funcionário com base na ID do funcionário ou endereço de email. Os valores de prefixo para **PartitionKey**, "empid_" e "email_" permitem que você identifique o índice que deseja usar para uma consulta.  
 
-![][10]
+![Entidade Funcionário com o índice primário e entidade Funcionário com índice secundário][10]
 
 Os seguintes dois critérios de filtro (uma pesquisa por ID funcionário e uma por endereço de email) especificam consultas de ponto:  
 
@@ -502,7 +501,7 @@ Considere os seguintes pontos ao decidir como implementar esse padrão:
 * O preenchimento de valores numéricos na **RowKey** (por exemplo, a ID de funcionário 000223), permite classificação e filtragem corretas, com base em limites superiores e inferiores.  
 * Você não precisa necessariamente duplicar todas as propriedades da entidade. Por exemplo, se as consultas que pesquisam as entidades usando o endereço de email em **RowKey** nunca precisarem da idade do funcionário, essas entidades poderão ter a seguinte estrutura:
   
-  ![][11]
+  ![Entidade Funcionário com índice secundário][11]
 * É geralmente melhor armazenar dados duplicados e garantir que você possa recuperar todos os dados que precisa com uma única consulta do que usar uma consulta para localizar uma entidade usando o índice secundário e outra para pesquisar os dados necessários no índice primário.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando usar esse padrão
@@ -532,7 +531,7 @@ EGTs habilitam transações atômicas entre várias entidades que compartilham a
 Ao usar as filas do Azure, você pode implementar uma solução que fornece consistência eventual em duas ou mais partições ou sistemas de armazenamento.
 Para ilustrar essa abordagem, suponha que você tenha de ser capaz de arquivar entidades antigas de funcionário. Entidades antigas de funcionário raramente são consultadas e devem ser excluídas de todas as atividades que lidam com funcionários atuais. Para implementar esse requisito, armazene funcionários ativos na tabela **Atual** e funcionários antigos na tabela **Arquivo morto**. O arquivamento de um funcionário exige a exclusão da entidade da tabela **Atual** e a adição da entidade à tabela **Arquivo morto**, mas não é possível usar uma EGT para executar essas duas operações. Para evitar o risco de que uma falha faça com que uma entidade seja exibida nas tabelas ou em nenhuma, a operação de arquivamento deve ser eventualmente consistente. O diagrama de sequência a seguir descreve as etapas nesta operação. Mais detalhes são fornecidos para caminhos de exceção no seguinte texto.  
 
-![][12]
+![Diagrama de solução para consistência eventual][12]
 
 Um cliente inicia a operação de arquivamento colocando uma mensagem em uma fila do Azure, neste exemplo para arquivar funcionário nº456. Uma função de trabalho controla a fila para novas mensagens; quando encontra uma, lê a mensagem e deixa uma cópia oculta na fila. A função de trabalho, em seguida, busca uma cópia da entidade na tabela **Atual**, insere uma cópia na tabela **Arquivo morto** e exclui o original da tabela **Atual**. Finalmente, se não houve erros das etapas anteriores, a função de trabalho exclui a mensagem oculta da fila.  
 
@@ -572,7 +571,7 @@ Mantenha entidades de índice para habilitar pesquisas eficientes que retornam l
 #### <a name="context-and-problem"></a>Contexto e problema
 O serviço Tabela indexa automaticamente as entidades usando os valores de **PartitionKey** e **RowKey**. Isso habilita um aplicativo cliente a recuperar uma entidade com eficiência usando uma consulta de ponto. Por exemplo, usando a estrutura de tabela mostrada abaixo, um aplicativo cliente pode recuperar de maneira eficiente uma entidade de funcionário individual pelo uso do nome do departamento e da ID do funcionário (**PartitionKey** e **RowKey**).  
 
-![][13]
+![Entidade de funcionário][13]
 
 Se você quiser ser capaz de recuperar uma lista de entidades de funcionário com base no valor de outra propriedade não exclusiva, como seu sobrenome, deve usar uma verificação de partição menos eficiente para localizar correspondências em vez de usar um índice para examiná-las diretamente. Isso ocorre porque o serviço Tabela não fornece índices secundários.  
 
@@ -583,15 +582,15 @@ Para habilitar a pesquisa por sobrenome com a estrutura de entidade mostrada aci
 * Crie entidades de índice na mesma partição que as entidades do funcionário.  
 * Crie entidades de índice em uma partição ou tabela separada.  
 
-<u>Opção n°. 1: usar o armazenamento de blob</u>  
+<u>Opção nº 1: Usar o Armazenamento de Blobs</u>  
 
 Para a primeira opção, crie um blob para todos os sobrenomes exclusivos e em cada repositório de blobs uma lista de valores **PartitionKey** (departamento) e **RowKey** (ID do funcionário) para os funcionários com esse sobrenome. Quando você adiciona ou exclui um funcionário, deve garantir que o conteúdo do blob relevante seja eventualmente consistente com as entidades do funcionário.  
 
-<u>Opção 2:</u> Criar entidades de índice na mesma partição  
+<u>Opção nº 2:</u> Criar entidades de índice na mesma partição  
 
 Para a segunda opção, use as entidades de índice que armazenam os dados a seguir:  
 
-![][14]
+![Entidade Funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome][14]
 
 A propriedade **EmployeeIDs** contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em **RowKey**.  
 
@@ -609,11 +608,11 @@ As etapas abaixo descrevem o processo que você deve seguir quando precisar proc
 2. Analise a lista de Ids no campo EmployeeIDs.  
 3. Se precisar de informações adicionais sobre cada um desses funcionários (como endereços de email), recupere cada uma das entidades de funcionário usando o valor de **PartitionKey** igual a "Vendas" e os valores de **RowKey** da lista de funcionários obtida na etapa 2.  
 
-<u>Opção 3:</u> criar entidades de índice em uma partição ou tabela separada  
+<u>Opção nº 3:</u> Criar entidades de índice em uma partição ou tabela separada  
 
 Para a terceira opção, use as entidades de índice que armazenam os dados a seguir:  
 
-![][15]
+![Entidade Funcionário com a cadeia de caracteres que contém uma lista de IDs de funcionário com o mesmo sobrenome][15]
 
 A propriedade **EmployeeIDs** contém uma lista de IDs de funcionário para os funcionários com o sobrenome armazenado em **RowKey**.  
 
@@ -645,12 +644,12 @@ Combine dados relacionados juntos em uma única entidade para que você possa re
 #### <a name="context-and-problem"></a>Contexto e problema
 Em um banco de dados relacional, você geralmente normaliza dados para remover a duplicação, resultando em consultas que recuperam dados de várias tabelas. Se você normalizar dados em tabelas do Azure, terá de ir e voltar várias vezes do cliente ao servidor para recuperar os dados relacionados. Por exemplo, com a estrutura de tabela mostrada abaixo, você precisa de dois viagens de ida e volta para recuperar os detalhes de um departamento: uma para buscar a entidade do departamento que inclui a ID do gerente e outra solicitação para buscar detalhes do gerente em uma entidade de funcionário.  
 
-![][16]
+![Entidade de departamento e funcionário][16]
 
 #### <a name="solution"></a>Solução
 Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:   
 
-![][17]
+![Entidade Departamento desnormalizada e combinada][17]
 
 Com entidades de departamento armazenadas com essas propriedades, agora você pode recuperar todos os detalhes de que precisa sobre um departamento usando uma consulta de ponto.  
 
@@ -678,18 +677,18 @@ Em um banco de dados relacional, é neutro usar junções em consultas para reto
 
 Suponhamos que você esteja armazenando entidades de funcionário no serviço Tabela usando a seguinte estrutura:  
 
-![][18]
+![Entidade de funcionário][18]
 
 Você também precisa armazenar dados históricos relacionados a revisões e desempenho de cada ano que o funcionário trabalhou para a sua organização e precisa ser capaz de acessar essas informações por ano. Uma opção é criar outra tabela que armazena entidades com a seguinte estrutura:  
 
-![][19]
+![Entidade Análise do funcionário][19]
 
 Observe que com essa abordagem você poderá duplicar algumas informações (como nome e sobrenome) na nova entidade para recuperar seus dados com uma única solicitação. No entanto, não é possível manter uma coerência forte porque você não pode usar uma EGT para atualizar as duas entidades atomicamente.  
 
 #### <a name="solution"></a>Solução
 Armazene um novo tipo de entidade em sua tabela original usando entidades com a seguinte estrutura:  
 
-![][20]
+![Entidade Funcionário com chave composta][20]
 
 Observe como a **RowKey** agora é uma chave composta de ID de funcionário e o ano dos dados de revisão que permitem recuperar o desempenho do funcionário e analisar os dados com uma única solicitação para uma única entidade.  
 
@@ -758,7 +757,7 @@ Muitos aplicativos excluem dados antigos que não precisam mais estar disponíve
 
 Um design possível é usar a data e a hora da solicitação de entrada na **RowKey**:  
 
-![][21]
+![Entidade Tentativa de logon][21]
 
 Essa abordagem evita sobrecargas de partição porque o aplicativo pode inserir e excluir entidades de entrada para cada usuário em uma partição separada. No entanto, essa abordagem pode ser cara e demorada se você tiver um grande número de entidades porque primeiro é necessário executar uma verificação de tabela para identificar todas as entidades a excluir e, em seguida, excluir todas as entidades antigas. Você pode reduzir o número de viagens de ida e volta ao servidor, necessário para excluir as entidades antigas por envio em lote de várias solicitações de exclusão para as EGTs.  
 
@@ -788,14 +787,14 @@ Armazene série de dados completa em uma única entidade para minimizar o númer
 #### <a name="context-and-problem"></a>Contexto e problema
 Um cenário comum é um aplicativo armazenar uma série de dados que ele normalmente precisa recuperar uma só vez. Por exemplo, seu aplicativo pode registrar a quantidade de mensagens instantâneas que cada funcionário envia por hora e usar essas informações para avaliar quantas mensagens cada usuário enviou nas 24 horas anteriores. Um design pode ser armazenar 24 entidades para cada funcionário:  
 
-![][22]
+![Entidade de estatísticas de mensagem][22]
 
 Com esse design, você pode facilmente localizar e atualizar a entidade a ser atualizada para cada funcionário sempre que o aplicativo precisar atualizar o valor de contagem das mensagem. No entanto, para recuperar as informações e traçar um gráfico de atividades das 24 horas anteriores, você deve recuperar 24 entidades.  
 
 #### <a name="solution"></a>Solução
 Use o design a seguir com uma propriedade separada para armazenar a contagem de mensagens para cada hora:  
 
-![][23]
+![Entidade Estatísticas de mensagem com propriedades separadas][23]
 
 Com esse design, você pode usar uma operação de mesclagem para atualizar a contagem de mensagens de um funcionário, em uma hora específica. Agora, você pode recuperar todas as informações necessárias traçar o gráfico usando uma solicitação para uma única entidade.  
 
@@ -824,7 +823,7 @@ Uma entidade individual pode ter no máximo 252 propriedades (exceto as propried
 #### <a name="solution"></a>Solução
 Usando o serviço Tabela, você pode armazenar várias entidades para representar um único objeto grande de negócios com mais de 252 propriedades. Por exemplo, para armazenar uma contagem do número de mensagens instantâneas enviadas por cada funcionário nos últimos 365 dias, você poderia usar o design a seguir que usa duas entidades com diferentes esquemas:  
 
-![][24]
+![Entidade Estatísticas de mensagem com Rowkey 01 e entidade Estado da mensagem com Rowkey 02][24]
 
 Se você precisar fazer uma alteração que requer a atualização de ambas as entidades para mantê-las sincronizadas entre si, pode usar uma EGT. Caso contrário, você pode usar uma operação de mesclagem única para atualizar a contagem de mensagens de um dia específico. Para recuperar todos os dados de um funcionário individual, você deverá recuperar as duas entidades, o que pode ser feito com duas solicitações eficientes que usam um valor de **PartitionKey** e um de **RowKey**.  
 
@@ -851,7 +850,7 @@ Uma entidade individual não pode armazenar mais de 1 MB de dados no total. Se u
 #### <a name="solution"></a>Solução
 Se a entidade exceder 1 MB de tamanho porque uma ou mais propriedades contêm uma grande quantidade de dados, você poderá armazenar dados no serviço Blob e, em seguida, armazenar o endereço do blob em uma propriedade na entidade. Por exemplo, você pode armazenar a foto de um funcionário no armazenamento de blobs e armazenar um link para a foto na propriedade **Foto** da entidade funcionário:  
 
-![][25]
+![Entidade Funcionário com a cadeia de caracteres para a Foto que aponta para o Armazenamento de Blobs][25]
 
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Considere os seguintes pontos ao decidir como implementar esse padrão:  
@@ -876,12 +875,12 @@ Aumente a escalabilidade quando tiver um alto volume de inserções, distribuind
 #### <a name="context-and-problem"></a>Contexto e problema
 A prefixação ou o acréscimo de entidades às suas entidades armazenadas normalmente fazem com que o aplicativo adicione novas entidades à primeira ou última partição de uma sequência de partições. Nesse caso, todas as inserções em um determinado momento estão ocorrendo na mesma partição, criando um ponto de acesso que impede o serviço Tabela de carregar inserções de balanceamento em vários nós e, possivelmente, fazendo com que o aplicativo atinja as metas de escalabilidade para partição. Por exemplo, se você tiver um aplicativo que registre acesso a rede e recursos por funcionários, então uma estrutura de entidade, conforme mostrado a seguir, poderá fazer com que a partição de hora atual se transforme em um ponto de acesso, caso o volume de transações atinja a meta de escalabilidade de uma partição individual:  
 
-![][26]
+![Entidade de funcionário][26]
 
 #### <a name="solution"></a>Solução
 A seguinte estrutura de entidade alternativa evita um ponto de acesso em qualquer partição específica quando o aplicativo registra eventos:  
 
-![][27]
+![Entidade Funcionário com RowKey composto pelo Ano, Mês, Dia, Hora e ID de Evento][27]
 
 Observe com este exemplo como **PartitionKey** e **RowKey** são chaves compostas. A **PartitionKey** usa a ID de funcionário e departamento para distribuir o registro em log entre várias partições.  
 
@@ -907,13 +906,13 @@ Normalmente, você deveria usar o serviço Blob em vez do serviço Tabela para a
 #### <a name="context-and-problem"></a>Contexto e problema
 Um caso de uso comum de dados de log é recuperar uma seleção de entradas de log para um intervalo de data/hora específico: por exemplo, você deseja localizar todos os erros e mensagens críticas que seu aplicativo registrou entre 15:04 e 15:06 em uma data específica. Você não deseja usar a data e hora da mensagem de log para determinar a partição em que você salvou as entidades de log: isso resulta em uma partição ativa porque, a qualquer momento, todas as entidades de log compartilharão o mesmo valor **PartitionKey** (confira a seção [Antipadrão de prefixação/acréscimo](#prepend-append-anti-pattern)). Por exemplo, o seguinte esquema de entidade para uma mensagem de log resulta em uma partição ativa porque o aplicativo grava todas as mensagens de log na partição para a data e hora atual:  
 
-![][28]
+![Entidade de mensagem de log][28]
 
 Neste exemplo, a **RowKey** inclui a data e hora da mensagem de log para garantir que as mensagens de log sejam armazenadas classificadas em ordem de data/hora; inclui também uma ID de mensagem, caso várias mensagens de log compartilhem a mesma data e hora.  
 
 Outra abordagem é usar uma **PartitionKey** que garanta que o aplicativo grave mensagens em uma variedade de partições. Por exemplo, se a origem da mensagem de log fornecer uma maneira de distribuir mensagens através de várias partições, você pode usar o seguinte esquema de entidade:  
 
-![][29]
+![Entidade de mensagem de log][29]
 
 No entanto, o problema com esse esquema é que para recuperar todas as mensagens de log para um período de tempo específico você deve pesquisar cada partição na tabela.
 
@@ -973,7 +972,7 @@ var employees = query.Execute();
 
 Observe como a consulta especifica uma **RowKey** e também uma **PartitionKey** para garantir um melhor desempenho.  
 
-O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, confira [Práticas recomendadas para a criação de uma API fluente](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+O exemplo de código a seguir mostra a funcionalidade equivalente usando a API fluente (para saber mais sobre APIs fluentes em geral, confira [Práticas recomendadas para a criação de uma API fluente](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(
@@ -1301,7 +1300,7 @@ O restante desta seção descreve alguns dos recursos na Biblioteca de Cliente d
 #### <a name="retrieving-heterogeneous-entity-types"></a>Recuperando tipos de entidade heterogênea
 Se você estiver usando a Biblioteca de Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidade.  
 
-Se souber o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey**, você poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity**: [Executando uma consulta de ponto usando a Biblioteca de Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperando várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).  
+Se souber o tipo de entidade armazenado com determinados valores de **RowKey** e **PartitionKey**, você poderá especificar o tipo de entidade ao recuperar a entidade, conforme mostrado nos dois exemplos anteriores que recuperam entidades do tipo **EmployeeEntity**: [Executar uma consulta de ponto usando a Biblioteca de Clientes de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e [Recuperar várias entidades usando LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção é usar o tipo **DynamicTableEntity** (um recipiente de propriedades), em vez de um tipo concreto de entidade POCO (essa opção também pode melhorar o desempenho, porque não é necessário serializar e desserializar a entidade para tipos .NET). O código C# a seguir recupera potencialmente várias entidades de diferentes tipos de tabela, mas retorna todas as entidades como instâncias **DynamicTableEntity** . Ele usa a propriedade **EntityType** para determinar o tipo de cada entidade:  
 

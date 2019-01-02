@@ -1,20 +1,18 @@
 ---
-title: 'Criptografia de banco de dados em repouso: Azure Cosmos DB | Microsoft Docs'
-description: Saiba como o Azure Cosmos DB fornece criptografia padrão de todos os dados.
-services: cosmos-db
+title: Criptografia em repouso do Azure Cosmos DB
+description: Saiba como o Azure Cosmos DB fornece criptografia de dados em repouso e como ela é implementada.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037856"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140312"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Criptografia de banco de dados em repouso do Azure Cosmos DB
 
@@ -38,8 +36,8 @@ O fluxo básico de uma solicitação de usuário é o seguinte:
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Qual é o custo adicional do armazenamento do Azure se a Criptografia do Serviço de Armazenamento é habilitada?
-R: Não há qualquer custo adicional.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: Quanto custa a mais o Armazenamento do Azure se a Criptografia do Serviço de Armazenamento for habilitada?
+R: Não há nenhum custo adicional.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>P: Quem gerencia as chaves de criptografia?
 R: As chaves são gerenciadas pela Microsoft.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581521"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315604"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar o uso de serviços gratuitos incluídos em sua conta gratuita do Azure 
 
@@ -27,7 +27,7 @@ Você não será cobrado por serviços incluídos gratuitamente em sua conta gra
 
 ## <a name="check-usage-on-the-azure-portal"></a>Verificar o uso no Portal do Azure
 
-1.  Faça logon no [Portal do Azure]( http://portal.azure.com).
+1.  Entre no [Portal do Azure](https://portal.azure.com).
 
 2.  Na área de navegação esquerda, selecione **Todos os serviços**.
 
@@ -49,25 +49,24 @@ Você não será cobrado por serviços incluídos gratuitamente em sua conta gra
 
     ![Captura de tela que mostra o uso de serviços gratuitos](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
-    A tabela contém as seguintes colunas:
+    A tabela tem as seguintes colunas:
 
-* **Nome do medidor:** identifica a unidade de medida para o medidor sendo consumido. Para saber mais sobre o serviço de mapeamento de medidor, consulte [Entender o serviço gratuito de mapeamento de medidor](billing-understand-free-service-meter-mapping.md). 
-* **Uso/Limite:** o uso e o limite para o medidor no mês atual. Você também pode encontrar essas informações na barra de status.
+* **Nome do medidor:** identifica a unidade de medida para o medidor sendo consumido. Para saber mais sobre o serviço de mapeamento de medidor, confira [Entender o serviço gratuito de mapeamento de medidor](billing-understand-free-service-meter-mapping.md).
+* **Uso/Limite:** uso e o limite para o medidor no mês atual. Você também pode encontrar essas informações na barra de status.
 * **Status:** status de uso do medidor. Com base no seu padrão de uso, você poderá ter um desses status.
   * **Não está em uso:** você não usou o medidor ou o uso desse medidor não alcançou o sistema de cobrança.
   * **Excedido em \<Data>:** você excedeu o limite do medidor em \<Data>.
   * **Provavelmente não excederá:** é improvável que você exceda o limite do medidor.
-  * **Excede em \<Data>:** você provavelmente excederá o limite do medidor em \<Data>.
-
+  * **Excede em \<Data>:** é improvável que você exceda o limite do medidor em \<Data>.
 
 ## <a name="check-usage-through-the-usage-file"></a>Verificar o uso por meio do arquivo de uso
 
-O arquivo de uso fornece informações granulares sobre sua assinatura do Azure. Você pode baixar o arquivo de uso mensal e diário no Centro de Contas do Azure. Para saber como baixar o arquivo de uso e entender o acesso necessário, consulte [Obter fatura e uso](billing-download-azure-invoice-daily-usage-date.md). Para saber mais sobre as colunas no arquivo de uso, consulte [Compreender os termos na sua utilização](billing-understand-your-usage.md). 
+O arquivo de uso fornece informações granulares sobre sua assinatura do Azure. Você pode baixar o arquivo de uso mensal e diário no Centro de Contas do Azure. Para saber como baixar o arquivo de uso e entender o acesso necessário, consulte [Obter fatura e uso](billing-download-azure-invoice-daily-usage-date.md). Para saber mais sobre as colunas no arquivo de uso, consulte [Compreender os termos na sua utilização](billing-understand-your-usage.md).
 
-O arquivo de uso contém informações sobre o uso de serviços gratuitos e pagos. Os medidores de serviços gratuitos teriam **Gratuito** acrescentado ao final do nome do medidor. Para localizar os medidores gratuitos, abra o arquivo no Excel e filtre a **coluna Categoria do Medidor** para as células que contenham o texto **– Gratuito** (use Filtros de Texto &rarr; filtro Contém) &nbsp;
+O arquivo de uso possui informações sobre o uso de serviços gratuitos e pagos. Os medidores de serviços gratuitos teriam **Gratuito** acrescentado ao final do nome do medidor. Para localizar os medidores gratuitos, abra o arquivo no Excel e filtre a **coluna Categoria do Medidor** para as células que tenham o texto **- Gratuito** (use Filtros de Texto &rarr; Contém filtro) &nbsp;
 
 ![Captura de tela que mostra o uso de serviços gratuitos](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494145"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278144"
 ---
 # <a name="sfctl-compose"></a>composição sfctl
 Criar, excluir e gerenciar aplicativos do Docker Compose.
@@ -33,6 +33,7 @@ Criar, excluir e gerenciar aplicativos do Docker Compose.
 | remove | Exclui uma implantação de composição existente do Service Fabric do cluster. |
 | status | Obtém informações sobre um aplicativo de implantação do Service Fabric. |
 | atualizar | Começa a atualização de uma implantação de composição no cluster do Service Fabric. |
+| upgrade-rollback | Começa a reversão de uma atualização de implantação de composição no cluster do Service Fabric. |
 | upgrade-status | Obtém detalhes para a atualização mais recente realizada na implantação da composição do Service Fabric. |
 
 ## <a name="sfctl-compose-create"></a>criar composição sfctl
@@ -55,7 +56,7 @@ Cria uma implantação de composição do Service Fabric.
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -78,7 +79,7 @@ Obtém o status sobre as implantações de redação que foram criadas ou no pro
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -100,7 +101,7 @@ Exclui uma implantação de composição existente do Service Fabric.
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -122,7 +123,7 @@ Retorna o status da implantação de composição que foi criada ou em processo 
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -140,21 +141,21 @@ Valida os parâmetros de atualização fornecidos e inicia a atualização da im
 | --falha-svc-tipo-integridade-mapa | Dicionário codificado JSON que descreve a política de integridade usada para avaliar a integridade dos serviços. |
 | -senha criptografada | Em vez de solicitar uma senha de registro do contêiner, use uma frase secreta já criptografada. |
 | --ação de falha | Os valores possíveis incluem\: 'Inválido', 'Reversão', 'Manual'. |
-| -força-reinicialização | Força reinicialização. |
+| -força-reinicialização | Os processos são reiniciados de modo forçado durante a atualização, mesmo quando a versão do código não foi alterada. <br><br> A atualização altera apenas a configuração ou os dados. |
 | --has-pass | Solicitará uma senha para o registro de contêiner. |
-| --nova tentativa de verificação da integridade | Tempo limite de repetição de verificação de integridade medido em milissegundos. |
-| --estabilidade de verificação de integridade | Verificação da integridade de duração estável, medida em milissegundos. |
-| --espera de verificação de integridade | Duração da espera da verificação da integridade, medida em milissegundos. |
-| --verificação do conjunto de réplicas | Tempo limite de verificação do conjunto de réplicas de atualização medido em segundos. |
+| --nova tentativa de verificação da integridade | O período entre as tentativas de realizar verificações de integridade, se o aplicativo ou o cluster não estiver íntegro. |
+| --estabilidade de verificação de integridade | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
+| --espera de verificação de integridade | O período de espera após a conclusão de um domínio de atualização, antes de iniciar o processo de verificações de integridade. |
+| --verificação do conjunto de réplicas | A quantidade máxima de tempo para bloqueio do processamento de um domínio de atualização e prevenção da perda de disponibilidade quando houver problemas inesperados. <br><br> Quando esse tempo limite expira, o processamento do domínio de atualização continua, independentemente de problemas de perda de disponibilidade. O tempo limite será redefinido no início de cada domínio de atualização. Os valores válidos estão entre 0 e 42949672925, inclusive. |
 | --mapa de integridade do tipo de svc | Lista codificada JSON de objetos que descrevem as políticas de integridade usadas para avaliar a integridade de diferentes tipos de serviços. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | --aplicativo prejudicial | O percentual máximo permitido de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como ‘Aviso’. Isso é calculado dividindo o número de aplicativos problemáticos no número total de instâncias de aplicativos no cluster. |
-| -tempo limite ao domínio de upgrade | Tempo limite do domínio de atualização medido em milissegundos. |
+| -tempo limite ao domínio de upgrade | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | --tipo de upgrade | Padrão\: sem interrupção. |
 | --modo de upgrade | Os valores possíveis incluem\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Padrão\: UnmonitoredAuto. |
-| -tempo limite de upgrade | Tempo limite de atualização medido em milissegundos. |
+| -tempo limite de upgrade | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado. <br><br> Primeiro, é interpretado como uma cadeia de caracteres representando uma duração ISO 8601. Se isso falhar, será interpretado como um número que representa o número total de milissegundos. |
 | --user | Nome de usuário para conectar o registro de contêiner. |
-| --aviso-como-erro | Os avisos são tratados com a mesma gravidade dos erros. |
+| --aviso-como-erro | Indica se os avisos são ou não tratados com a mesma severidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -162,7 +163,29 @@ Valida os parâmetros de atualização fornecidos e inicia a atualização da im
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>Reversão de atualização de composição de sfctl
+Começa a reversão de uma atualização de implantação de composição no cluster do Service Fabric.
+
+Reversão de uma atualização de implantação de composição do Service Fabric.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --nome de implantação [obrigatório] | A identidade da implantação. |
+| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -184,7 +207,7 @@ Retorna as informações sobre o estado da atualização de implantação de red
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 

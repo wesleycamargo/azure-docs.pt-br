@@ -1,5 +1,5 @@
 ---
-title: Explorar dados usando o Azure Time Series Insights Explorer | Microsoft Docs
+title: Exploração de dados do Azure Time Series Insights Explorer - Explorar dados usando o Azure Time Series Insights Explorer | Microsoft Docs
 description: Este artigo descreve como usar o Azure Time Series Insights Explorer no navegador da Web para ver rapidamente uma exibição global do Big Data e validar o ambiente de IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364217"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273129"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 Este artigo aborda os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. Use o Time Series Insights Explorer no navegador da Web para criar visualizações dos dados.
@@ -55,15 +56,15 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
 5. Em seguida, você verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui, você tem uma série de controles:
 
-    **Painel do Editor de Termos**: o espaço de termo é o local em que você consulta o ambiente.  Ele é encontrado no lado esquerdo da tela e habilita 
-      - **Medir**: essa lista suspensa mostra todas as colunas numéricas (Duplos)
-      - **Dividir Por**: essa lista suspensa mostra colunas categóricas (Cadeias de caracteres)
+    **Painel do Editor de Termos**:  O espaço de termo é o local em que você consulta o ambiente.  Ele é encontrado no lado esquerdo da tela e habilita 
+      - **Medir**:  Essa lista suspensa mostra todas as colunas numéricas (Duplos)
+      - **Dividir por**: Essa lista suspensa mostra colunas categóricas (Cadeias de caracteres)
       - Habilite a interpolação escalonada, mostre o mínimo e o máximo e ajuste o eixo Y no painel de controle ao lado da medida.  Além disso, ajuste se os dados mostrados são uma contagem, média ou soma dos dados.
       - Adicione até cinco termos a serem exibidos no mesmo eixo X.  Use o botão **Copiar** para adicionar outro termo ou clique no botão **Adicionar** para adicionar um novo termo.
      
         ![Painel do Editor de Termos](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predicado**: o predicado permite filtrar rapidamente os eventos usando o conjunto de operandos listados abaixo. Caso você realize uma pesquisa fazendo uma seleção ou um clique, o predicado será automaticamente atualizado de acordo com essa pesquisa.      Os tipos de operando com suporte incluem:
+      - **Predicado**:  O predicado permite filtrar rapidamente os eventos usando o conjunto de operandos listados abaixo. Caso você realize uma pesquisa fazendo uma seleção ou um clique, o predicado será automaticamente atualizado de acordo com essa pesquisa.      Os tipos de operando com suporte incluem:
 
          |Operação  |Tipos com suporte  |Observações  |
          |---------|---------|---------|
@@ -102,7 +103,7 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
    ![Mapa de calor](media/time-series-insights-explorer/explorer6.png)
 
-12. **Eventos**: quando você escolhe explorar eventos ao selecionar ou clicar com o botão direito do mouse acima, o painel de eventos é disponibilizado.  Aqui, você pode ver todos os seus eventos brutos e exportá-los como arquivos JSON ou CSV. Observe que o Time Series Insights armazena todos os dados brutos.
+12. **Eventos**:  Quando você escolhe explorar eventos ao selecionar ou clicar com o botão direito do mouse, o painel de eventos é disponibilizado.  Aqui, você pode ver todos os seus eventos brutos e exportá-los como arquivos JSON ou CSV. Observe que o Time Series Insights armazena todos os dados brutos.
 
    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
    - **Padrões**: esse recurso revela de maneira proativa os padrões estatisticamente significativos em uma região de dados selecionada. Isso libera você da necessidade de examinar milhares de eventos para entender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights possibilita que você vá diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos. 
 
-   - **Estatísticas de Coluna**: as estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada sobre o período de tempo selecionado.  
+   - **Estatísticas de Coluna**:  As estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada no período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 

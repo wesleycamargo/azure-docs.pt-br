@@ -1,12 +1,11 @@
 ---
-title: Definir os módulos R personalizados para o Azure Machine Learning Studio | Microsoft Docs
-description: Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um espaço de trabalho no Machine Learning Studio.
+title: Definir os módulos R personalizados - Azure Machine Learning Studio | Microsoft Docs
+description: Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308420"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277923"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir os módulos R personalizados para o Azure Machine Learning Studio
 
 Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>O que é um módulo R personalizado?
 Um **módulo personalizado** é um módulo definido pelo usuário que pode ser carregado no seu workspace e executado como parte de um experimento de Azure Machine Learning. Um **módulo R personalizado** é um módulo personalizado que executa uma função R definida pelo usuário. **R** é uma linguagem de programação para a computação estatística e gráficos que é amplamente usada por cientistas estatísticos e para implementar algoritmos estatísticos. Atualmente, R é a única linguagem com suporte em módulos personalizados, mas o suporte para idiomas adicionais está agendado para futuras versões.
@@ -96,7 +95,7 @@ Expor essa função `CustomAddRows` como um módulo de Azure Machine Learning, u
     </Module>
 
 
-É fundamental observar que o valor dos atributos **id** dos elementos **Input** e **Arg** no arquivo XML deve corresponder aos nomes de parâmetro de função do código R no arquivo CustomAddRows.R COM EXATIDÃO: (*dataset1*, *dataset2* e *swap*, no exemplo). Da mesma forma, o valor do atributo **entryPoint** do elemento **Language** deve corresponder EXATAMENTE ao nome da função no script R (*CustomAddRows*, no exemplo). 
+É fundamental observar que o valor dos atributos **id** dos elementos **Input** e **Arg** no arquivo XML deve corresponder aos nomes de parâmetro de função do código R no arquivo CustomAddRows.R COM EXATIDÃO: (*dataset1*, *dataset2* e *swap*, no exemplo). Da mesma forma, o valor do atributo **entryPoint** do elemento **Language** deve corresponder EXATAMENTE ao nome da função no script R: (*CustomAddRows* no exemplo). 
 
 Por outro lado, o atributo **id** para o elemento de **Output** não corresponde a todas as variáveis no script R. Quando mais de uma saída for necessária, basta retornar uma lista da função R com resultados colocados *na mesma ordem* em que os elementos **Outputs** são declarados no arquivo XML.
 
@@ -150,7 +149,7 @@ Cada porta de entrada e saída pode ter um elemento filho de **Descrição** opc
 ### <a name="input-elements"></a>Elementos de entrada
 As portas de entrada permitem que você passe dados para a função R e o workspace. Os **tipos de dados** com suporte para portas de entrada são os seguintes: 
 
-**DataTable:** esse tipo é passado para a função R como um data.frame. Na verdade, qualquer tipo (por exemplo, arquivos CSV ou arquivos ARFF) têm suporte no Machine Learning e que é compatível com **DataTable** é convertido para um data.frame automaticamente. 
+**DataTable:** Esse tipo é passado para a função R como um data.frame. Na verdade, qualquer tipo (por exemplo, arquivos CSV ou arquivos ARFF) têm suporte no Machine Learning e que é compatível com **DataTable** é convertido para um data.frame automaticamente. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ As portas de entrada permitem que você passe dados para a função R e o worksp
 O atributo **id** associado a cada porta de entrada **DataTable** deve ter um valor exclusivo e esse valor deve combinar com o seu parâmetro de nome correspondente na função R.
 As portas **DataTable** opcionais que não forem passadas como entrada em um experimento terão o valor **NULL** passado para a função R e as portas zip opcionais serão ignoradas se a entrada não estiver conectada. O atributo **isOptional** é opcional para os tipos **DataTable** e **Zip** e *false* por padrão.
 
-**ZIP:** módulos personalizados podem aceitar um arquivo zip como entrada. Essa entrada é descompactada para o diretório de trabalho R da sua função
+**ZIP:** Os módulos personalizados podem aceitar um arquivo zip como entrada. Essa entrada é descompactada para o diretório de trabalho R da sua função
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ Para os módulos R personalizados, a id de uma porta Zip não precisa correspond
 * O valor do atributo **isOptional** do elemento **Entrada** não é necessário (e é *false* por padrão quando não especificado); mas, se for especificado, deve ser *true* ou *false*.
 
 ### <a name="output-elements"></a>Elementos de saída
-**Portas de saída padrão:** portas de saída são mapeadas para os valores de retorno da função R, que pode ser usada por módulos subsequentes. *DataTable* é o único tipo de porta de saída padrão com suporte no momento. (O suporte para *Aprendizes* e *Transformações* estará disponível em breve.) Uma saída *DataTable* é definida como:
+**Portas de saída padrão:** As portas de saída são mapeadas para os valores de retorno da função R, que pode ser usada pelos módulos subsequentes. *DataTable* é o único tipo de porta de saída padrão com suporte no momento. (O suporte para *Aprendizes* e *Transformações* estará disponível em breve.) Uma saída *DataTable* é definida como:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ E retorne a lista de objetos em uma lista na ordem correta em “CustomAddRows.R
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Saída de visualização:** também é possível especificar uma porta de saída do tipo *Visualização*que exibe a saída do dispositivo gráfico R e a saída do console. Essa porta não faz parte da saída da função R e não interfere na ordem de outros tipos de porta de saída. Para adicionar uma porta de visualização aos módulos personalizados, adicione um elemento de **saída** com um valor de *Visualização* para seu atributo **tipo**:
+**Saída de visualização:** Também é possível especificar uma porta de saída do tipo *Visualização*, que exibe a saída do dispositivo gráfico R e a saída do console. Essa porta não faz parte da saída da função R e não interfere na ordem de outros tipos de porta de saída. Para adicionar uma porta de visualização aos módulos personalizados, adicione um elemento de **saída** com um valor de *Visualização* para seu atributo **tipo**:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ O ambiente de execução para o script R usa a mesma versão do R que o módulo 
 
 **Limitações do ambiente de execução** incluem:
 
-* Sistema de arquivos não persistente: os arquivos gravados quando o módulo personalizado é executado não persistem entre várias execuções do mesmo módulo.
+* Sistema de arquivos não persistentes: Os arquivos gravados quando o módulo personalizado é executado não persistem entre várias execuções do mesmo módulo.
 * Sem acesso à rede
 

@@ -1,18 +1,18 @@
 ---
 title: Adicionar runbooks do Azure Automation aos planos de recuperação do Site Recovery | Microsoft Docs
 description: Saiba como estender os planos de recuperação com o Azure Automation para recuperação de desastres com o Azure Site Recovery.
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243997"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866365"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de Automação do Azure aos planos de recuperação
 Neste artigo, descrevemos como o Azure Site Recovery é integrado à Automação do Azure para ajudar você a estender seus planos de recuperação. Os planos de recuperação podem orquestrar a recuperação de VMs que são protegidas com o Site Recovery. Os planos de recuperação funcionam para a replicação em uma nuvem secundária e para a replicação no Azure. Os planos de recuperação também ajudam a tornar a recuperação **precisa de forma consistente**, **repetida** e **automatizada**. Se você fizer failover das VMs no Azure, a integração com a Automação do Azure estenderá os planos de recuperação. Você pode usá-la para executar runbooks, que oferecem tarefas de automação avançadas.
@@ -27,9 +27,9 @@ Neste artigo, descrevemos como você pode integrar runbooks da Automação do Az
     ![Clicar no botão Personalizar](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. Clique com o botão direito do mouse em **Grupo 1: Iniciar** e, em seguida, selecione **Adicionar pós-ação**.
+2. Clique com botão direito **Grupo 1: Iniciar** e, em seguida, selecione **Adicionar pós-ação**.
 
-    ![Clicar com o botão direito do mouse em Grupo 1: Iniciar e em Adicionar pós-ação](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Clique com botão direito em Grupo 1: Iniciar e adicionar ação posterior](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Clique em **Escolher um script**.
 
@@ -43,7 +43,7 @@ Neste artigo, descrevemos como você pode integrar runbooks da Automação do Az
 
 6. Na conta de Automação, selecione um runbook. Esse runbook é o script que é executado durante a execução do plano de recuperação, após a recuperação do primeiro grupo.
 
-7. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Pós-etapas**.
+7. Para salvar o script, clique em **OK**. O script é adicionado ao **Grupo 1: Etapas posteriores**.
 
     ![Grupo 1: Iniciar de pós-ação](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -213,7 +213,7 @@ No exemplo a seguir, usamos uma nova técnica e criamos uma [variável complexa]
 4. Use essa variável no runbook. Se o GUID de VM indicado for encontrado no contexto do plano de recuperação, aplique o NSG à VM:
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. No runbook, percorra as VMs do contexto do plano de recuperação. Verifique se a VM existe em **$VMDetailsObj**. Se ela existir, acesse as propriedades da variável para aplicar o NSG:
@@ -223,13 +223,13 @@ No exemplo a seguir, usamos uma nova técnica e criamos uma [variável complexa]
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

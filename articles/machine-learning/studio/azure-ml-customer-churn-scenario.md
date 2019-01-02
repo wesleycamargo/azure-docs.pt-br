@@ -1,12 +1,11 @@
 ---
-title: Analisando a rotatividade de clientes com o Azure Machine Learning Studio | Microsoft Docs
+title: Analisar a rotatividade de clientes - Azure Machine Learning Studio | Microsoft Docs
 description: Estudo de caso do desenvolvimento de um modelo integrado para analisar e pontuar a rotatividade de clientes usando o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314977"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272160"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisando a rotatividade de clientes usando o Azure Machine Learning Studio
 ## <a name="overview"></a>Visão geral
@@ -31,11 +30,11 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esse experimento foi desenvolvido e testado por Serge Berger, principal cientista de dados na Microsoft, e Roger Barga, ex-gerente de produto para o Microsoft Azure Machine Learning. A equipe de documentação do Azure confirma reconhecidamente a experiência que eles têm e os agradece por compartilhar este white paper.
 
 > [!NOTE]
-> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de variação, confira o [Modelo de variação de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
+> Os dados usados neste experimento não estão publicamente disponíveis. Para ver um exemplo de como criar um modelo de aprendizado de máquina para análise de rotatividade, confira: [Modelo de rotatividade de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>O problema da variação do cliente
 Empresas no mercado consumidor e em todos os setores empresariais precisam lidar com a variação. Algumas vezes a variação é excessiva e influencia decisões de política. A solução tradicional é prever índices de variação de alta propensão e tratar de suas necessidades por meio de um serviço de concierge, campanhas de marketing ou fazendo uso de isenções especiais. Essas abordagens podem variar de setor para setor. Elas podem variar até mesmo de um cluster de consumidores específico para outro dentro de um setor (por exemplo, telecomunicações).
@@ -85,7 +84,7 @@ O diagrama a seguir mostra o protótipo que criamos, que emprega quatro algoritm
 
 ![][3]
 
-*Figura 5: Protótipo de uma abordagem de modelagem de variação*  
+*Figura 5: Protótipo de uma abordagem de modelagem de rotatividade*  
 
 As seções a seguir fornecem mais detalhes sobre o protótipo de modelo de pontuação que implementamos usando o Machine Learning Studio.  
 
@@ -104,7 +103,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
 
 ![][4]
 
-*Figura 6: Extrato de fonte de dados (ofuscado)*  
+*Figura 6: Trecho de fonte de dados (ofuscado)*  
 
 ![][5]
 
@@ -112,7 +111,7 @@ Os diagramas a seguir ilustram os dados que foram usados.
  
 
 > Observe que esses dados são particulares e, portanto, o modelo e os dados não podem ser compartilhados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira este experimento de exemplo na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Variação do cliente de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, confira esse experimento de exemplo na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Rotatividade de clientes de empresas de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como você pode implementar um modelo de análise de variação usando o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) do gerente de programa sênior Wee Hyong Tok. 
 > 
@@ -217,13 +216,13 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
  
 
 ## <a name="references"></a>Referências
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, p. 18 a 20.  
+[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, julho/agosto de 2011, págs. 18 a 20.  
 
-[2] Artigo na Wikipédia: [Precisão e exatidão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Artigo da Wikipedia: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Marketing de Big Data: envolva seus clientes com mais eficiência e agregue valor](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Modelo de variação de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
  
@@ -231,7 +230,7 @@ Este documento descreve uma abordagem sensata para lidar com o problema comum de
 ## <a name="appendix"></a>Apêndice
 ![][10]
 
-*Figura 12: Instantâneo de uma apresentação de protótipo de variação*
+*Figura 12: Instantâneo de uma apresentação de protótipo de rotatividade*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

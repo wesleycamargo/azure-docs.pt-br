@@ -1,6 +1,6 @@
 ---
-title: Considerações de desempenho e otimização do Azure Search | Microsoft Docs
-description: Ajustar o desempenho do Azure Search e configurar o dimensionamento ideal
+title: Considerações de desempenho e otimização do Azure Search - Azure Search
+description: Aprenda técnicas e práticas recomendadas para ajuste de desempenho do Azure Search e configuração do dimensionamento ideal.
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 0a98e7f05e766d47a5ea9293409a74a6fafbf837
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797753"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310192"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Considerações de desempenho e otimização do Azure Search
 Uma boa experiência de pesquisa é essencial para o sucesso de muitos aplicativos móveis e da Web. De imóveis a feiras de carros usados até catálogos online, uma pesquisa rápida e resultados relevantes afetarão a experiência do cliente. Este documento tem como objetivo ajuda a descobrir as práticas recomendadas para obter o máximo do Azure Search, especialmente para cenários avançados com requisitos sofisticados de escalabilidade, suporte a vários idiomas ou classificação personalizada.  Além disso, este documento descreve componentes internos e cobre abordagens que funcionam bem em aplicativos reais de clientes.
@@ -42,8 +43,8 @@ Ao criar essas cargas de trabalho de teste, tenha em mente algumas característi
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Dimensionamento do Azure Search para taxas de consulta altas e solicitações limitadas
 Quando você estiver recebendo muitas solicitações limitadas ou ultrapassar suas taxas de latência de destino de uma carga de consulta maior, você pode diminuir essas taxas de latência usando uma dentre duas maneiras:
 
-1. **Aumentar as Réplicas:** uma réplica é semelhante a uma cópia dos seus dados, permitindo que o Azure Search balanceie a carga de solicitações em várias cópias.  Todo o balanceamento de carga e a replicação de dados entre as réplicas é gerenciado pelo Azure Search, e você pode alterar o número de réplicas alocadas para o serviço a qualquer momento.  É possível alocar até 12 réplicas em um serviço de pesquisa Standard e três réplicas em um serviço de pesquisa Básico. As réplicas podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
-2. **Aumentar a Camada de Pesquisa:** o Azure Search vem em [várias camadas](https://azure.microsoft.com/pricing/details/search/), e cada uma dessas camadas oferece níveis diferentes de desempenho.  Em alguns casos, você pode ter tantas consultas que a camada na qual você está não consegue fornecer taxas latência suficientemente baixas, mesmo quando as réplicas são maximizadas.  Nesse caso, convém utilizar uma das camadas mais altas de pesquisa, como a camada S3 do Azure Search, que é adequada para cenários com uma grande quantidade de documentos e cargas de trabalho extremamente altas.
+1. **Aumentar as réplicas:**  Uma réplica é semelhante a uma cópia dos seus dados, e permite que o Azure Search equilibre as solicitações nas várias cópias.  Todo o balanceamento de carga e a replicação de dados entre as réplicas é gerenciado pelo Azure Search, e você pode alterar o número de réplicas alocadas para o serviço a qualquer momento.  É possível alocar até 12 réplicas em um serviço de pesquisa Standard e três réplicas em um serviço de pesquisa Básico. As réplicas podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
+2. **Aumentar a Camada de Pesquisa:**  O Azure Search vem em [várias camadas](https://azure.microsoft.com/pricing/details/search/), e cada uma dessas camadas oferece níveis diferentes de desempenho.  Em alguns casos, você pode ter tantas consultas que a camada na qual você está não consegue fornecer taxas latência suficientemente baixas, mesmo quando as réplicas são maximizadas.  Nesse caso, convém utilizar uma das camadas mais altas de pesquisa, como a camada S3 do Azure Search, que é adequada para cenários com uma grande quantidade de documentos e cargas de trabalho extremamente altas.
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>Dimensionamento do Azure Search para consultas individuais lentas
 Outro motivo de as taxas de latência serem lentas é uma única consulta demorar muito para ser concluída.  Nesse caso, a adição de réplicas não melhorará as taxas de latência.  Para esses casos, há duas opções disponíveis:
@@ -51,8 +52,8 @@ Outro motivo de as taxas de latência serem lentas é uma única consulta demora
 1. **Aumentar Partições** Uma partição é um mecanismo para dividir os dados entre recursos extras.  Por esse motivo, quando você adiciona uma segunda partição, seus dados são divididos em dois.  Uma terceira partição divide o índice em três etc.  Isso também tem o efeito de, em alguns casos, as consultas lentas serem executadas com mais rapidez devido à paralelização da computação.  Há alguns exemplos nos quais temos visto essa paralelização funcionar muito bem com consultas de baixa seletividade.  Essas são formadas por consultas que correspondam a muitos documentos, ou quando facetas precisam fornecer contagens de uma grande quantidade de documentos.  Como há muita computação envolvida para pontuar a relevância dos documentos ou para contar o número de documentos, a adição de partições extras pode ajudar a fornecer essa computação adicional.  
    
    Pode haver no máximo 12 partições no serviço de pesquisa Standard, e uma partição no serviço de pesquisa Básico.  As partições podem ser ajustadas no [Portal do Azure](search-create-service-portal.md) ou [PowerShell](search-manage-powershell.md).
-2. **Limitar Campos de Alta Cardinalidade :** um campo de alta cardinalidade é composto por um campo facetável ou filtrável que tem um número considerável de valores exclusivos e, como resultado, usa muitos recursos para calcular os resultados.   Por exemplo, a configuração de um campo de ID do Produto ou Descrição como facetável/filtrável permitira a alta cardinalidade, pois a maioria dos valores de documento a documento é exclusiva. Sempre que for possível, limite o número de campos de alta cardinalidade.
-3. **Aumentar a Camada de Pesquisa:** mudar para um nível mais alto do Azure Search pode ser outra maneira de melhorar o desempenho de consultas lentas.  Cada camada superior também fornece uma CPU mais rápida e mais memória, o que pode ter um impacto positivo no desempenho da consulta.
+2. **Limitar campos de alta cardinalidade:** Um campo de alta cardinalidade é composto por um campo facetável ou filtrável que tem um número considerável de valores exclusivos e, como resultado, usa muitos recursos para calcular os resultados.   Por exemplo, a configuração de um campo de ID do Produto ou Descrição como facetável/filtrável permitira a alta cardinalidade, pois a maioria dos valores de documento a documento é exclusiva. Sempre que for possível, limite o número de campos de alta cardinalidade.
+3. **Aumentar a Camada de Pesquisa:**  Mudar para uma camada mais alto do Azure Search pode ser outra maneira de melhorar o desempenho de consultas lentas.  Cada camada superior também fornece uma CPU mais rápida e mais memória, o que pode ter um impacto positivo no desempenho da consulta.
 
 ## <a name="scaling-for-availability"></a>Dimensionamento para disponibilidade
 As réplicas não apenas ajudam a reduzir a latência da consulta, mas também permitem a alta disponibilidade.  Com uma única réplica, você deve esperar um tempo de inatividade periódico devido à reinicialização do servidor após atualizações de software ou a outros eventos de manutenção.  Como resultado, é importante considerar se seu aplicativo exige alta disponibilidade de pesquisas (consultas), bem como gravações (eventos de indexação).  O Azure Search oferece opções de SLA em todas as ofertas de pesquisa pagas, com os seguintes atributos:

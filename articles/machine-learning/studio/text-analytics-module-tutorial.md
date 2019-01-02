@@ -4,9 +4,8 @@ description: Como criar modelos de análise de texto no Azure Machine Learning S
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262475"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255475"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
 Você pode usar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
@@ -34,7 +33,7 @@ Em um experimento de análise de texto, geralmente, você pode:
 4. Pontuar e validar o modelo
 5. Implantar o modelo na produção
 
-Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados Amazon Book Reviews (consulte o artigo de pesquisa “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
+Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados do Amazon Book Reviews (consulte o artigo de pesquisa "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
 
 Você pode encontrar os experimentos abordados neste tutorial na Galeria de IA do Azure:
 
