@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346382"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840343"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para provisionamento automático de usuários
 
 O objetivo desse tutorial é mostrar como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD (Azure Active Directory) para o G Suite.
 
@@ -67,7 +67,7 @@ Esta seção orienta sobre o processo de conexão do Azure AD à API de provisio
 > [!NOTE]
 > Outra opção viável para automatizar o provisionamento do usuário para o G Suite é usar o [GADS (Google Apps Directory Sync)](https://support.google.com/a/answer/106368?hl=en). O GADS provisiona suas identidades locais do Active Directory no G Suite. Por outro lado, a solução neste tutorial provisiona os usuários do Azure Active Directory (nuvem) e grupos habilitados para email para o G Suite. 
 
-1. Entre no [Console de Admin do Google Apps](http://admin.google.com/) usando sua conta de administrador e selecione **Segurança**. Se você não vê o link, ele pode estar oculto sob o menu **Mais Controles**, na parte inferior da tela.
+1. Entre no [Console de Admin do Google Apps](https://admin.google.com/) usando sua conta de administrador e selecione **Segurança**. Se você não vê o link, ele pode estar oculto sob o menu **Mais Controles**, na parte inferior da tela.
    
     ![Selecione segurança.][10]
 
@@ -110,7 +110,7 @@ Esta seção orienta sobre o processo de conexão do Azure AD à API de provisio
 
 1. Agora que confirmou todos os domínios com o Azure AD, você deve confirmá-los novamente com o Google Apps. Para todo domínio ainda não registrado no Google, execute as etapas a seguir:
    
-    a. No [Console de Administrador do Google Apps](http://admin.google.com/), selecione **Domínios**.
+    a. No [Console de Administrador do Google Apps](https://admin.google.com/), selecione **Domínios**.
      
      ![Selecione Domínios][20]
 
@@ -127,9 +127,9 @@ Esta seção orienta sobre o processo de conexão do Azure AD à API de provisio
     e. Repita as etapas anteriores para os domínios adicionais que você pretende adicionar ao Google Apps.
      
      > [!WARNING]
-     > Se você alterar o domínio principal do locatário do G Suite e já tiver configurado o logon único com o Azure AD, será necessário repetir a etapa nº 3 em [ Etapa 2: habilitar o logon único ](#step-two-enable-single-sign-on).
+     > Se você alterar o domínio principal do locatário do G Suite e já tiver configurado o logon único com o Microsoft Azure Active Directory, será necessário repetir a etapa nº 3 em [ Etapa 2: Habilitar logon único](#step-two-enable-single-sign-on).
        
-1. No [Console de Administrador do Google Apps](http://admin.google.com/), selecione **Funções de Administrador**.
+1. No [Console de Administrador do Google Apps](https://admin.google.com/), selecione **Funções de Administrador**.
    
      ![Selecione Google Apps][26]
 
