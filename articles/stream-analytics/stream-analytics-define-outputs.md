@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310025"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091621"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
@@ -34,13 +35,13 @@ Saída do repositório Azure Data Lake do Stream Analytics não está disponíve
 
 1. Quando o Data Lake Store é selecionado como uma saída no portal do Azure, você é solicitado a autorizar uma conexão com um Data Lake Store existente.  
 
-   ![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Autorizar a conexão ao Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Se você já tiver acesso ao Data Lake Store, selecione **Autorizar agora** e uma página será exibida indicando o **Redirecionando para autorização**. Depois que a autorização for bem-sucedida, você verá a página que permite que você configure a saída do Data Lake Store.
 
 3. Uma vez que a conta do Repositório Data Lake foi autenticada, você pode configurar as propriedades de saída do Repositório Data Lake. A tabela a seguir é a lista de nomes de propriedade e sua descrição para configurar a saída do Repositório Data Lake.
 
-   ![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Definir a saída do Data Lake Store como Stream Analytics](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Nome da propriedade | DESCRIÇÃO | 
 | --- | --- |
@@ -59,7 +60,7 @@ Você precisa autenticar novamente sua conta do Data Lake Store caso sua senha t
 
 Para renovar a autorização, **Pare** seu trabalho > vá para sua saída do Data Lake Store > clique no link **Renovar autorização** e por um curto período uma página será exibida indicando **Redirecionando para autorização...**. A página será fechada automaticamente e, se for bem-sucedida, indicará que a **Autorização foi renovada com êxito**. Em seguida, você precisa clicar em **Salvar** na parte inferior da página e poderá continuar reiniciando seu trabalho da **última vez em que foi interrompido** para evitar perda de dados.
 
-![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Renovar autorização do Data Lake Store na saída](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Banco de dados SQL
 [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravam em uma tabela existente em um banco de dados SQL do Azure.  O esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de dados SQL do Azure como saída](stream-analytics-sql-output-perf.md). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
@@ -88,7 +89,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Conta de armazenamento     | O nome da conta de armazenamento para o qual você está enviando a saída               |
 | Chave da conta de armazenamento | A chave secreta associada à conta de armazenamento.                              |
 | Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço Blob, você deve especificar um contêiner para aquele blob. |
-| Padrão de caminho | Opcional. O padrão do caminho do arquivo usado para gravar seus blobs no contêiner especificado. <br /><br /> No padrão de caminho, você pode optar por usar uma ou mais instâncias das duas variáveis de hora e data para especificar a frequência com a qual os blobs são gravados: <br /> {data}, {hora} <br /><br />Se você usar esse [link de portal do Azure](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true) para acessar a visualização de particionamento de blobs personalizada, poderá especificar um nome de {campo} personalizado dos dados de seu evento para os blobs de partição. O nome do campo é alfanumérico e pode incluir espaços, hífens e sublinhados. Restrições em campos personalizados incluem o seguinte: <ul><li>Insensibilidade a maiúsculas e minúsculas (não é possível diferenciar entre "ID" da coluna e "id" da coluna)</li><li>Campos aninhados não são permitidos (em vez disso, use um alias na consulta de trabalho “nivelar” o campo)</li><li>As expressões não podem ser usadas como um nome de campo.</li></ul> <br /><br /> A visualização também permite o uso de configurações de especificador de formato personalizado de data/hora no caminho. Os formatos personalizados de data e hora devem ser especificados um de cada vez, entre a palavra-chave {datetime:\<specifier>}. As entradas permitidas para o \<specifier> são aaaa, MM, M, dd, d, HH, H, mm, m, ss ou s. A palavra-chave {datetime:\<specifier>} pode ser usada várias vezes no caminho para formar as configurações personalizadas de data/hora. <br /><br />Exemplos: <ul><li>Exemplo 1: cluster1/logs /{data}/{hora}</li><li>Exemplo 2: cluster1/logs/{data}</li><li>Exemplo 3 (versão prévia): cluster1/{client_id}/{data}/{hora}</li><li>Exemplo 4 (versão prévia): cluster1/{datetime:ss}/{myField} em que a consulta é: SELECIONAR data.myField COMO myField DA Entrada;</li><li>Exemplo 5 (versão prévia): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />O registro de data e hora da estrutura de pastas criada segue o UTC e não o horário local.<br /><br/>A nomenclatura de arquivo segue a seguinte convenção: <br /><br />{Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension<br /><br />Exemplo de arquivos de saída:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> Para obter mais informações sobre essa visualização, visite [Padrões de caminho personalizados de DateTime para saída de armazenamento de blob do Azure Stream Analytics (Visualizar)](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Padrão de caminho | Opcional. O padrão do caminho do arquivo usado para gravar seus blobs no contêiner especificado. <br /><br /> No padrão de caminho, você pode optar por usar uma ou mais instâncias das duas variáveis de hora e data para especificar a frequência com a qual os blobs são gravados: <br /> {data}, {hora} <br /><br />Se você usar esse [link de portal do Azure](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true) para acessar a visualização de particionamento de blobs personalizada, poderá especificar um nome de {campo} personalizado dos dados de seu evento para os blobs de partição. O nome do campo é alfanumérico e pode incluir espaços, hífens e sublinhados. Restrições em campos personalizados incluem o seguinte: <ul><li>Insensibilidade a maiúsculas e minúsculas (não é possível diferenciar entre "ID" da coluna e "id" da coluna)</li><li>Campos aninhados não são permitidos (em vez disso, use um alias na consulta de trabalho “nivelar” o campo)</li><li>As expressões não podem ser usadas como um nome de campo.</li></ul> <br /><br /> A visualização também permite o uso de configurações de especificador de formato personalizado de data/hora no caminho. Os formatos personalizados de data e hora devem ser especificados um de cada vez, entre a palavra-chave {datetime:\<specifier>}. As entradas permitidas para o \<specifier> são aaaa, MM, M, dd, d, HH, H, mm, m, ss ou s. A palavra-chave {datetime:\<specifier>} pode ser usada várias vezes no caminho para formar as configurações personalizadas de data/hora. <br /><br />Exemplos: <ul><li>Exemplo 1: cluster1/logs /{data}/{hora}</li><li>Exemplo 2: cluster1/logs/{data}</li><li>Exemplo 3 (versão prévia): cluster1/{client_id}/{data}/{hora}</li><li>Exemplo 4 (versão prévia): cluster1/{datetime:ss}/{myField} em que a consulta é: SELECT data.myField AS myField FROM Input;</li><li>Exemplo 5 (versão prévia): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />O registro de data e hora da estrutura de pastas criada segue o UTC e não o horário local.<br /><br/>A nomenclatura de arquivo segue a seguinte convenção: <br /><br />{Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension<br /><br />Exemplo de arquivos de saída:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> Para obter mais informações sobre essa visualização, visite [Padrões de caminho personalizados de DateTime para saída de armazenamento de blob do Azure Stream Analytics (Visualizar)](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Formato de data | Opcional. Se o token de data for usado no caminho do prefixo, você pode selecionar o formato de data na qual os arquivos são organizados. Exemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Se o token de hora for usado no caminho do prefixo, você pode selecionar o formato de hora na qual os arquivos são organizados. Atualmente, o único valor aceito é HH. |
 | Formato de serialização do evento | Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
@@ -133,11 +134,11 @@ A saída do Power BI do Stream Analytics atualmente não está disponível nas r
 ### <a name="authorize-a-power-bi-account"></a>Autorizar uma conta do Power BI
 1. Quando o Power BI é selecionado como uma saída no portal do Azure, você é solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
    
-   ![Autorizar usuário do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Autorizar usuário do Power BI para configurar a saída](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Crie uma nova conta se você não ainda tiver uma e, em seguida, clique em Autorizar agora.  A página a seguir é mostrada:
    
-   ![Conta do Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Autenticar-se no Power BI da conta do Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. Nesta etapa, forneça a conta corporativa ou de estudante para autorizar a saída do Power BI. Se você não se inscreveu ainda no Power BI, escolha a opção Inscreva-se agora. A conta corporativa ou de estudante usada para o Power BI poderia ser diferente da conta de assinatura do Azure na qual você está conectado.
 
@@ -190,11 +191,11 @@ DateTime | Cadeia de caracteres | Cadeia de caracteres |  DateTime | Cadeia de c
 ### <a name="renew-power-bi-authorization"></a>Renovar a autorização do Power BI
 Se a senha da conta Power BI for alterada depois que o trabalho do Stream Analytics foi criado ou autenticado pela última vez, você precisa autenticar novamente o Stream Analytics. Se a MFA (Autenticação Multifator) estiver configurada no locatário do AAD (Azure Active Directory), também será necessário renovar a autorização do Power BI a cada duas semanas. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
 
-  ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Erro do usuário de autenticação do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI.  Selecione o link **Renovar autorização** e reinicie o trabalho da **Hora da Última Interrupção** para evitar a perda de dados.
 
-  ![Autorização de renovação do Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Renovar a autorização do Power BI para saída](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Armazenamento de Tabelas
 O [armazenamento de Tabelas do Azure](../storage/common/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser escalado automaticamente para atender à demanda dos usuários. O Armazenamento de Tabelas é um repositório de chave/atributo NoSQL da Microsoft, que pode ser aproveitado para dados estruturados com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
@@ -329,7 +330,7 @@ A tabela a seguir explica algumas considerações para envio em lote de saída:
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 
-> [Início Rápido: criar um trabalho do Stream Analytics usando o Portal do Azure](stream-analytics-quick-create-portal.md)
+> [Início Rápido: criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

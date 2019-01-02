@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK & recursos | Microsoft Docs'
+title: 'O Azure Cosmos DB: SQL Node.js API, SDK e recursos'
 description: Saiba tudo sobre o SDK e a API do SQL Node.js, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão do SDK do Node.js para o Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
@@ -11,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 08e928143e8e54797869a06f4f7b99fd89cdcacc
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687496"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343982"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para a API do SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações do .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -29,7 +28,7 @@ ms.locfileid: "51687496"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -107,8 +106,8 @@ ms.locfileid: "51687496"
 ### <a name="1.12.1"/>1.12.1</a>
 * Correção de um bug no executeStoredProcedure, em que documentos envolvidos tinham caracteres especiais Unicode (LS, PS).
 * Correção de um bug no tratamento de documentos com caracteres Unicode na chave de partição.
-* Suporte corrigido para criar coleções com a mídia de nome. Problema nº 114 do Github.
-* Suporte fixo para o token de autorização de permissão. Problema nº 178 do Github.
+* Suporte corrigido para criar coleções com a mídia de nome. Problema nº 114 do GitHub.
+* Suporte fixo para o token de autorização de permissão. Problema nº 178 do GitHub.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Foi adicionado suporte a um novo [nível de consistência](consistency-levels.md) chamado ConsistentPrefix.
@@ -120,8 +119,8 @@ ms.locfileid: "51687496"
 * Adição da opção para controlar o grau de paralelismo em consultas de partição cruzada.
 * Adição da opção para desabilitar a verificação do SSL quando executada no Emulador do Azure Cosmos DB.
 * Taxa de transferência mínima reduzida em coleções particionadas de 10.100 RU/s a 2500 RU/s.
-* Correção do bug de token de continuação para a coleta de partição única. Problema nº 107 do Github.
-* Correção do bug executeStoredProcedure no tratamento de 0 como parâmetro único. Problema nº 155 do Github.
+* Correção do bug de token de continuação para a coleta de partição única. Problema nº 107 do GitHub.
+* Correção do bug executeStoredProcedure no tratamento de 0 como parâmetro único. Problema nº 155 do GitHub.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Cabeçalho de agente do usuário fixo para incluir a versão do SDK.
@@ -153,10 +152,10 @@ ms.locfileid: "51687496"
 * O bug RangePartitionResolver.resolveForRead foi corrigido, pois ele não estava retornando links devido a uma concatenação incorreta dos resultados.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Corrigido hashPartitionResolver resolveForRead (): quando nenhuma chave de partição fornecida gerava uma exceção, em vez de retornar uma lista de todos os links registrados.
+* Consertado hashPartitionResolver resolveForRead(): Quando nenhuma chave de partição fornecida estava gerando exceção, em vez de retornar uma lista de todos os links registrados.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) — Agente HTTPS Dedicado: evite modificar o agente global para os fins do Azure Cosmos DB. Use um agente dedicado para todas as solicitações da biblioteca.
+* Corrige o problema [nº 100](https://github.com/Azure/azure-documentdb-node/issues/100) – Agente HTTPS Dedicado: evite modificar o agente global para fins do Azure Cosmos DB. Use um agente dedicado para todas as solicitações da biblioteca.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Corrige o problema [nº 81](https://github.com/Azure/azure-documentdb-node/issues/81) — trate corretamente os traços em IDs de mídia.

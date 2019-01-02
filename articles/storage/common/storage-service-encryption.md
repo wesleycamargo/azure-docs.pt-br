@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094885"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384115"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
 A criptografia de serviço de armazenamento do Azure para dados em repouso ajuda a proteger seus dados para atender aos compromissos de segurança e conformidade da organização. Com esse recurso, a plataforma de armazenamento do Azure criptografa automaticamente seus dados antes de persistir no Azure Managed Disks, Blob do Azure, Fila, Armazenamento de Tabela ou Arquivos do Azure e descriptografa os dados antes de recuperá-los. A manipulação de criptografia, criptografia em repouso, descriptografia e gerenciamento de chaves na Criptografia do Serviço de Armazenamento é transparente para os usuários. Todos os dados gravados na plataforma de armazenamento do Azure são criptografados por meio da [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das mais fortes cifras de bloco disponíveis.
@@ -65,7 +65,7 @@ Sim, se você [usar suas próprias chaves de criptografia](storage-service-encry
 **Qual é a diferença entre a Criptografia de Serviço de Armazenamento e a Criptografia de Disco do Azure?**  
 A Criptografia de Disco do Azure fornece integração entre soluções baseadas em SO, como BitLocker e DM-Crypt, e o Azure KeyVault. A Criptografia de Serviço de Armazenamento fornece criptografia nativamente na camada da plataforma de armazenamento do Azure, abaixo da máquina virtual.
 
-**Eu tenho uma conta de armazenamento clássica. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
+ **Eu tenho uma conta de armazenamento clássica. Posso habilitar a Criptografia do Serviço de Armazenamento nela?**  
 A Criptografia de Serviço de Armazenamento está habilitada para todas as contas de armazenamento (clássica e Gerenciador de Recursos).
 
 **Como posso criptografar dados em minha conta de armazenamento clássica?**  
@@ -81,7 +81,7 @@ Sim, todas as cópias da conta de armazenamento são criptografadas. Há suporte
 Criptografia do serviço de armazenamento está disponível em todas as regiões.
 
 **Armazenamento de serviço de criptografia FIPS 140-2 é compatível?**  
-Sim, a criptografia do serviço de armazenamento é FIPS 140-2.
+Sim, a criptografia do serviço de armazenamento é FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes à Criptografia do Serviço de Armazenamento, veja [API de Criptografia: Próxima Geração](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **Como posso contatar alguém se eu tiver problemas ou quiser fazer comentários?**  
 Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) para quaisquer problemas ou comentários relacionados à criptografia de serviço de armazenamento.

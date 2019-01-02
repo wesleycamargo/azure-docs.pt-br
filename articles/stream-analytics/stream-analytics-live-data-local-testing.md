@@ -1,5 +1,5 @@
 ---
-title: Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio (Versão Prévia)
+title: Testar dados dinâmicos com o Azure Stream Analytics para Visual Studio
 description: Saiba como testar seu trabalho do Azure Stream Analytics localmente usando dados de streaming ao vivo.
 services: stream-analytics
 author: mamccrea
@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0a8978a9c2e0538a2e7bc4eab202604913e700b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090322"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testar dados dinâmicos localmente usando as ferramentas do Azure Stream Analytics para Visual Studio (Versão Prévia)
 
@@ -33,28 +34,28 @@ Há suporte para as seguintes opções de testes locais:
 
 1. Depois de criar um [projeto de nuvem do Azure Stream Analytics no Visual Studio](stream-analytics-quick-create-vs.md), abra **script.asaql**. O teste local usa entrada e saída locais por padrão.
 
-   ![Teste local do Visual Studio do Azure Stream Analytics com entrada e saída locais](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
+   ![Entrada e saída local do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
 2. Para testar dados dinâmicos, escolha **Usar Entrada de Nuvem** na caixa suspensa.
 
-   ![Teste local do Visual Studio do Azure Stream Analytics entrada de nuvem dinâmica](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
+   ![Entrada de nuvem dinâmica do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
 
 
 3. Defina **Hora de Início** para definir quando o trabalho começará a processar dados de entrada. O trabalho pode precisar ler dados de entrada antecipadamente para garantir resultados precisos. O tempo padrão é definido como 30 minutos depois da hora atual.
 
-   ![Teste local do Visual Studio do Azure Stream Analytics com a hora de início de dados dinâmicos](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
+   ![Hora de início de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
 4. Clique em **Executar Localmente**. Uma janela do console será exibida com as métricas de trabalho e progresso em execução. Se você quiser interromper o processo, poderá fazer isso manualmente. 
 
-   ![Teste local do Visual Studio do Azure Stream Analytics com a janela do processo de dados dinâmicos](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
+   ![Janela de processo de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
    Os resultados de saída são atualizados a cada três segundos com as primeiras 500 linhas de saída na janela de resultados da execução local e os arquivos de saída são colocados na pasta **ASALocalRun** do caminho do projeto. Você também pode abrir os arquivos de saída clicando no botão **Abrir Pasta de Resultados** na janela de resultados da execução local.
 
-   ![Teste local do Visual Studio do Azure Stream Analytics com a pasta de resultados em aberto de dados dinâmicos](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
+   ![Pasta de resultados aberta de dados dinâmicos do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
 5. Se você quiser enviar os resultados para seus Coletores de saída de nuvem, escolha **Saída para a nuvem** na segunda caixa suspensa. O Power BI e o Azure Data Lake Storage não são coletores de saída com suporte.
 
-   ![Teste local do Visual Studio do Azure Stream Analytics com a saída de dados dinâmicos para a nuvem](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
+   ![Saída de dados dinâmicos para a nuvem do Visual Studio no Azure Stream Analytics](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
  
 ## <a name="limitations"></a>Limitações
 

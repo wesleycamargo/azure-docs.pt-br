@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: 15fbf254eb479f0935e154806795ebd00cff6adf
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345940"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164765"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
-Draf é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Draft no Gitub][draft-documentation].
+Draf é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Draft, consulte a [Documentação do Draft no GitHub][draft-documentation].
 
 Este artigo mostra como usar o Rascunho com um cluster do Kubernetes no AKS.
 
@@ -73,7 +73,7 @@ Para obter mais informações sobre essas etapas para acessar o ACR, consulte [a
 
 Agora que há uma relação de confiança entre o AKS e o ACR, habilite o uso do ACR no cluster do AKS.
 
-1. Defina o valor de *registro* da configuração do Draft. Nos comandos a seguir, substitua `<acrName>` pelo nome do registro do ACR:
+1. Defina o valor de *registro* da configuração do rascunho. Nos comandos a seguir, substitua `<acrName>` pelo nome do registro do ACR:
 
     ```console
     draft config set registry <acrName>.azurecr.io
@@ -139,14 +139,14 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
 Para acessar o aplicativo, abra um navegador da Web para o endereço e a porta especificados na saída `draft connect` como *http://localhost:49804*. 
 
-![Aplicativo Java de exemplo em execução com Draft](media/kubernetes-draft/sample-app.png)
+![Aplicativo Java de exemplo em execução com Rascunho](media/kubernetes-draft/sample-app.png)
 
 Use `Control+C` para interromper a conexão proxy.
 
@@ -157,7 +157,7 @@ Use `Control+C` para interromper a conexão proxy.
 
 A etapa anterior criou uma conexão proxy para o pod do aplicativo no cluster AKS. Na medida em que você desenvolve e testa o aplicativo, convém disponibilizar o aplicativo na Internet. Para expor um aplicativo na Internet, crie um serviço do Kubernetes com um tipo de [LoadBalancer][kubernetes-service-loadbalancer] ou crie um [controlador de entrada][kubernetes-ingress]. Vamos criar um serviço *LoadBalancer*.
 
-Primeiro, atualize o pacote de Draft *values.yaml* para especificar que um serviço com um tipo *LoadBalancer* deve ser criado:
+Primeiro, atualize o pacote de Rascunho *values.yaml* para especificar que um serviço com um tipo *LoadBalancer* deve ser criado:
 
 ```console
 vi charts/java/values.yaml

@@ -1,6 +1,6 @@
 ---
-title: Criar e implantar um modelo de machine learning usando o SQL Server em uma VM do Azure | Microsoft Docs
-description: Processo e Tecnologia de Análise Avançada em ação
+title: Criar e implantar um modelo em uma VM do SQL Server – Processo de Ciência de Dados de Equipe
+description: Criar e implantar um modelo de machine learning usando o SQL Server em uma VM do Azure com um conjunto de dados disponível publicamente.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445456"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141400"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -47,14 +47,14 @@ A chave exclusiva para unir trip\_data e trip\_fare é composta pelos campos: me
 Formularemos três problemas de previsão com base em *tip\_amount*, sendo eles:
 
 1. Classificação binária: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
-2. Classificação multiclasse: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
+2. Classificação multiclasse: prever o intervalo do valor da gorjeta pago pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
+3. Tarefa de regressão: prever o valor da gorjeta pago por uma corrida.  
 
 ## <a name="setup"></a>Configurando o ambiente de ciência de dados do Azure para análise avançada
 Como indicado no guia [Planejar seu ambiente](plan-your-environment.md) , há várias opções para trabalhar com o conjunto de dados de Corridas de Táxi em NYC no Azure:
@@ -79,7 +79,7 @@ Para configurar seu ambiente de Ciência de Dados do Azure:
    > 
    > 
 
-Dependendo do tamanho do conjunto de dados, do local da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário \#5: Conjunto de dados grande em arquivos locais, SQL Server de destino na VM do Azure](plan-sample-scenarios.md#largelocaltodb).
+Dependendo do tamanho do conjunto de dados, da localização da fonte de dados e do ambiente de destino do Azure selecionado, esse cenário será semelhante ao [Cenário \#5: conjunto de dados grande em arquivos locais, com o SQL Server de destino na VM do Azure](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Obter os dados de fonte pública
 Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.com/nyctaxitrips/) do seu local público, você pode usar qualquer um dos métodos descritos em [Mover dados bidirecionalmente no Armazenamento de Blobs do Azure](move-azure-blob.md) para copiar os dados em sua nova máquina virtual.
@@ -87,7 +87,7 @@ Para obter o conjunto de dados [Corridas de Táxi em NYC](http://www.andresmh.co
 Para copiar os dados usando AzCopy:
 
 1. Faça logon na sua VM (máquina virtual)
-2. Crie um novo diretório no disco de dados da VM (Observação: não use o Disco Temporário que acompanha a VM como um Disco de Dados).
+2. Criar um novo diretório no disco de dados da VM (observação: não use o disco temporário que vem com a VM como um disco de dados).
 3. Em uma janela de Prompt de Comando, execute a seguinte linha de comando Azcopy, substituindo <path_to_data_folder> pela pasta de dados criada em (2):
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -137,7 +137,7 @@ O desempenho do carregamento/transferência de grandes volumes de dados para um 
 12. Os dados de Corridas de Táxi em NYC são carregados em duas tabelas separadas. Para melhorar as operações de associação, é altamente recomendável indexá-las. O exemplo de script **create\_partitioned\_index.sql** cria índices particionados na chave de associação composta **medallion, hack\_license e pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Exploração de dados e engenharia de recursos no SQL Server
-Nesta seção, realizaremos exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando o banco de dados do SQL Server criado anteriormente. Um script de exemplo chamado **sample\_queries.sql** é fornecido na pasta **Scripts de Exemplo**. Modifique o script para alterar o nome do banco de dados, se for diferente do padrão: **TaxiNYC**.
+Nesta seção, realizaremos exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando o banco de dados do SQL Server criado anteriormente. Um script de exemplo chamado **sample\_queries.sql** é fornecido na pasta **Scripts de Exemplo**. Modificar o script para alterar o nome do banco de dados se for diferente do padrão: **TaxiNYC**.
 
 Neste exercício, você vai:
 
@@ -172,7 +172,7 @@ Este exemplo identifica o medalhão (número do táxi) com mais de 100 corridas 
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: distribuição de corridas por medallion e hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: distribuição de corridas por licença e carteira de habilitação
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -191,7 +191,7 @@ Este exemplo investiga se qualquer um dos campos longitude e/ou latitude contém
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: distribuição de corridas com gorjeta versus sem gorjeta
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploração: com gorjeta vs. sem gorjeta
 Este exemplo localiza o número de corridas que receberam gorjetas em comparação com aquelas que não receberam em um determinado período de tempo (ou no conjunto de dados completo se abrangendo todo o ano). Essa distribuição reflete a distribuição de rótulo binário a ser usado posteriormente para modelagem de classificação binária.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Esse exemplo calcula a distribuição dos intervalos de gorjetas em um determina
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar distância de viagem
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploração: calcular e comparar a distância da corrida
 Este exemplo converte a longitude e a latitude de pickup e dropoff em pontos de geografia SQL, calcula a distância da viagem usando a diferença de pontos de geografia SQL e retorna uma amostra aleatória dos resultados para comparação. O exemplo limita os resultados às coordenadas válidas apenas usando a consulta de avaliação de qualidade de dados abordada anteriormente.
 
     SELECT
@@ -328,14 +328,14 @@ Agora está tudo pronto para explorar os dados amostrados. Começamos observando
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualização: exemplo de plotagem da caixa
+#### <a name="visualization-box-plot-example"></a>Visualização: exemplo de gráfico de caixa
 Em seguida, analisamos a caixa para a distância de viagem para visualizar os quantis
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Plotar nº 1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de plotagem de distribuição
+#### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de gráfico de distribuição
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Em seguida, analisamos a caixa para a distância de viagem para visualizar os qu
 
 ![Plotar nº 2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualização: plotagens de barra e linha
+#### <a name="visualization-bar-and-line-plots"></a>Visualização: gráficos de linhas e barras
 Neste exemplo, podemos compartimentalizar a distância da viagem em cinco compartimentos e visualizar os resultados de compartimentalização.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -362,7 +362,7 @@ Podemos plotar a distribuição de compartimentos acima em um gráfico de barras
 
 ![Plotar nº 4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualização: exemplo de plotagem de dispersão
+#### <a name="visualization-scatterplot-example"></a>Visualização: exemplo de gráfico de dispersão
 Mostramos o gráfico de dispersão entre **trip\_time\_in\_secs** e **trip\_distance** para ver se há alguma correlação
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -456,7 +456,7 @@ No exemplo a seguir, geramos dois conjuntos de rótulos a serem utilizados para 
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de recurso: recursos de contagem de colunas categóricas
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>Engenharia de recursos: recursos de contagem de colunas categóricas
 Este exemplo transforma um campo de categoria em um campo numérico, substituindo cada categoria pela contagem de suas ocorrências nos dados.
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ Este exemplo transforma um campo de categoria em um campo numérico, substituind
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de recurso: recursos de compartimento para colunas numéricas
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Engenharia de recursos: recursos de compartimento de colunas categóricas
 Este exemplo transforma um campo numérico contínuo em intervalos de categoria predefinidos, ou seja, transformação de campo numérico em um campo de categoria.
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ Este exemplo transforma um campo numérico contínuo em intervalos de categoria 
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Recurso de engenharia: extrair recursos de local de latitude/longitude decimal
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de recursos: extrair recursos de localização de latitude/longitude decimal
 Este exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como país, estado, cidade, bloco, etc. Observe que os novos campos geográficos não são mapeados para os locais reais. Para saber mais sobre o mapeamento de locais de codificação geográfica, veja [Serviços REST do Bing Mapas](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
@@ -548,7 +548,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 1. Classificação binária: prever se uma gorjeta foi ou não paga em uma corrida.
 2. Classificação multiclasse: prever o intervalo da gorjeta paga, de acordo com as classes definidas anteriormente.
-3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
+3. Tarefa de regressão: prever o valor da gorjeta pago por uma corrida.  
 
 ## <a name="mlmodel"></a>Criando modelos no Azure Machine Learning
 Para iniciar o exercício de modelagem, faça logon no seu workspace do Azure Machine Learning. Se ainda não tiver criado um workspace do Machine Learning, consulte [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md).

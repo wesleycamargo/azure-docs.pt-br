@@ -1,11 +1,10 @@
 ---
-title: Como escolher algoritmos de aprendizado de máquina - Azure Machine Learning Studio|Microsoft Docs
+title: Como escolher algoritmos para o Azure Machine Learning Studio | Microsoft Docs
 description: Como escolher algoritmos de Azure Machine Learning Studio para aprendizado supervisionado e não supervisionado nos experimentos de agrupamento, classificação ou regressão.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312411"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256920"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos do Azure Machine Learning Studio
 
@@ -44,7 +43,7 @@ Leia os rótulos do caminho e do algoritmo no gráfico, como “Para *&lt;rótul
 Às vezes, nenhuma delas é a solução perfeita. Elas se destinam a serem recomendações gerais, portanto não se preocupe com a exatidão delas.
 Vários cientistas dados com quem conversei disseram que a única maneira de encontrar o melhor algoritmo é experimentar todos eles.
 
-Veja um exemplo da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de um experimento que testa vários algoritmos nos mesmos dados e compara os resultados: [Comparar classificadores multiclasse: reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Veja um exemplo da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de um experimento que testa vários algoritmos nos mesmos dados e compare os resultados: [Compare os classificadores multiclasse: Reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Machine Learning Studio, consulte [Diagrama de visão geral dos recursos do Azure Machine Learning Studio](studio-overview-diagram.md).
@@ -245,7 +244,7 @@ Iniciado e liderado pelo próprio John Langford, da Microsoft Research, o VW é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter um infográfico para baixar que descreve algoritmos e fornece exemplos, consulte [Infográfico para baixar: conceitos básicos do aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
+* Para obter um infográfico para download que descreve algoritmos e fornece exemplos, confira [Infográfico para download: Conceitos básicos do aprendizado de máquina com exemplos de algoritmo](basics-infographic-with-algorithm-examples.md).
 
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Machine Learning Studio, consulte [Inicializar Modelo](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) na Ajuda de Algoritmo e Módulo do Machine Learning Studio.
 

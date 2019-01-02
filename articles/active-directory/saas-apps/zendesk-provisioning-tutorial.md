@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Zendesk para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Zendesk para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347929"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322765"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para provisionamento automático de usuário
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para provisionamento automático do usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Zendesk e no Microsoft Azure Active Directory (Azure Active Directory) para configurar o Microsoft Azure Active Directory para provisionar e desprovisionar automaticamente usuários e/ou grupos no Zendesk. 
 
@@ -77,6 +77,10 @@ Antes de configurar e habilitar o provisionamento automático de usuário, é ne
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Dicas importantes para atribuir usuários ao Zendesk
 
+*    Funções do Zendesk são populadas dinâmica e automaticamente na interface do usuário do portal do Azure hoje. Antes de atribuir funções do Zendesk aos usuários, certifique-se de que uma sincronização inicial seja concluída no Zendesk para recuperar as funções mais recentes em seu locatário do Zendesk.
+
+*    É recomendável que um único usuário do Azure AD seja atribuído ao Zendesk para testar sua configuração inicial de provisionamento automático do usuário. Outros usuários e/ou grupos podem ser atribuídos posteriormente, após os testes serem bem-sucedidos.
+  
 *   É recomendável que um único usuário do Microsoft Azure Active Directory seja atribuído ao Zendesk para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
 *   Ao atribuir um usuário ao Zendesk, é necessário selecionar qualquer função específica ao aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
@@ -111,7 +115,7 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
     *   No campo **Token Secreto**, preencha o token secreto conforme descrito na Etapa 6.
 
     *   No campo **Domínio**, preencha o subdomínio do seu locatário do Zendesk.
-    Exemplo: para uma conta com uma URL de locatário de https://my-tenant.zendesk.com, o subdomínio seria **my-tenant**.
+    Exemplo: Para uma conta com uma URL de locatário de https://my-tenant.zendesk.com, o subdomínio seria **my-tenant**.
 
 6. O **Token Secreto** da sua conta Zendesk está localizado em **Administrador > API > Configurações**. 
 

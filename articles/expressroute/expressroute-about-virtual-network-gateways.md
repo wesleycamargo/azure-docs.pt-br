@@ -1,21 +1,22 @@
 ---
-title: Sobre gateways de rede virtual ExpressRoute do Azure | Microsoft Docs
-description: Saiba mais sobre os gateways de rede virtual para ExpressRoute.
+title: Sobre gateways de rede virtual do ExpressRoute – Azure | Microsoft Docs
+description: Saiba mais sobre os gateways de rede virtual para ExpressRoute. Este artigo inclui informações sobre tipos e SKUs de gateway.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684759"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076586"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Sobre os gateways de rede virtual para ExpressRoute
-O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. Você pode usar um gateway de rede virtual para o tráfego do ExpressRoute ou o tráfego da VPN. Este artigo concentra-se em gateways de rede virtual do ExpressRoute.
+O gateway de rede virtual é usado para enviar o tráfego de rede entre as redes virtuais do Azure e locais. Você pode usar um gateway de rede virtual para o tráfego do ExpressRoute ou o tráfego da VPN. Este artigo se concentra em gateways de rede virtual do ExpressRoute e contém informações sobre SKUs, desempenho estimado por SKU e tipos de gateway.
 
 ## <a name="gateway-types"></a>Tipos de gateway
 

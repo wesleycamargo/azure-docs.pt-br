@@ -1,5 +1,5 @@
 ---
-title: Gerenciador de segurança do Azure IoT Edge | Microsoft Docs
+title: Saiba como o gerenciador de segurança protege dispositivos, software – Azure IoT Edge | Microsoft Docs
 description: Gerencia a postura de segurança do dispositivo IoT Edge e a integridade dos serviços de segurança.
 services: iot-edge
 keywords: segurança, o elemento seguro, o enclave, TEE, IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567682"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091917"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gerenciador de segurança do Azure IoT Edge
 
@@ -33,7 +34,7 @@ As responsabilidades do gerenciador de segurança do IoT Edge incluem (mas não 
 * Gatekeeper para dispositivo hardware raiz de confiança através de serviços notariais.
 * Monitora a integridade das operações do IoT Edge no tempo de execução.
 
-O gerenciador de segurança IoT Edge compreende três componentes principais:
+O gerenciador de segurança IoT Edge inclui três componentes:
 
 * Daemon de segurança do IoT Edge.
 * Camada de abstração da plataforma do módulo de segurança de hardware (HSM PAL).

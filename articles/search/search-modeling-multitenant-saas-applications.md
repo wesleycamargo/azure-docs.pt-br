@@ -2,19 +2,20 @@
 title: Modelagem multilocação no Azure Search | Microsoft Docs
 description: Saiba mais sobre padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Search.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313030"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
@@ -57,20 +58,20 @@ Concretamente, um serviço S3 poderia ter entre 1 e 200 índices que juntos pode
 ## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicativos multilocatários
 Aplicativos multilocatários devem distribuir efetivamente recursos entre locatários preservando algum nível de privacidade entre os vários locatários. Há algumas considerações ao criar a arquitetura para esse aplicativo:
 
-* *Isolamento de locatários:* os desenvolvedores de aplicativos precisam tomar as medidas apropriadas para garantir que nenhum locatário tenha acesso não autorizado ou indesejado aos dados de outros locatários. Além da perspectiva de privacidade de dados, estratégias de isolamento de locatários requerem um gerenciamento eficiente de recursos compartilhados e a proteção de vizinhos com ruídos.
-* *Custo de recursos de nuvem:* como com qualquer outro aplicativo, as soluções de software devem permanecer competitivas em termos de custo como um componente de um aplicativo multilocatário.
-* *Facilidade de operações:* ao desenvolver uma arquitetura de multilocatários, o impacto sobre as operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Superfície global:* aplicativos multilocatários talvez precisem atender efetivamente locatários distribuídos em todo o mundo.
-* *Escalabilidade:* os desenvolvedores de aplicativos precisam considerar como eles reconciliam entre manter um nível suficientemente baixo de complexidade do aplicativo e criar o aplicativo para dimensionar com número de locatários e o tamanho dos dados e a carga de trabalho de locatários.
+* *Isolamento de locatário:* Os desenvolvedores de aplicativos precisam tomar as medidas apropriadas para garantir que nenhum locatário tenha acesso não autorizado ou indesejado aos dados de outros locatários. Além da perspectiva de privacidade de dados, estratégias de isolamento de locatários requerem um gerenciamento eficiente de recursos compartilhados e a proteção de vizinhos com ruídos.
+* *Custo de recursos de nuvem:* Assim como ocorre com qualquer outro aplicativo, as soluções de software precisam permanecer competitivas em termos de custo como um componente de um aplicativo multilocatário.
+* *Facilidade de operações:* Ao desenvolver uma arquitetura de multilocatário, o impacto sobre as operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Volume global:* Os aplicativos multilocatário podem precisar atender efetivamente a locatários distribuídos em todo o mundo.
+* *Escalabilidade:* Os desenvolvedores de aplicativos precisam considerar como reconciliam entre manter um nível suficientemente baixo de complexidade do aplicativo e projetar o aplicativo para ser dimensionado com o número de locatários e o tamanho dos dados e da carga de trabalho dos locatários.
 
 O Azure Search oferece alguns limites que podem ser usados para isolar dados e carga de trabalho de locatários.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Modelagem de multilocação com o Azure Search
 No caso de um cenário de multilocatário, o desenvolvedor do aplicativo consome um ou mais serviços de pesquisa e divide seus locatários entre serviços, índices ou ambos. O Azure Search tem alguns padrões comuns ao modelar um cenário de multilocatário:
 
-1. *Índice por locatário:* cada locatário tem seu próprio índice dentro de um serviço de pesquisa que é compartilhado com outros locatários.
-2. *Serviço por locatário:* cada locatário tem seu próprio serviço do Azure Search dedicado, oferecendo o nível mais alto de separação de dados e a carga de trabalho.
-3. *Mistura de ambos:* locatários maiores e mais ativos são atribuídos a serviços dedicados enquanto locatários menores são atribuídos a índices individuais dentro de serviços compartilhados.
+1. *Índice por locatário:* Cada locatário tem seu próprio índice em um serviço de pesquisa que é compartilhado com outros locatários.
+2. *Serviço por locatário:* Cada locatário tem seu próprio serviço dedicado do Azure Search, oferecendo o nível mais alto de separação de dados e de carga de trabalho.
+3. *Combinação de ambos:* Locatários maiores e mais ativos recebem serviços dedicados, enquanto locatários menores recebem índices individuais em serviços compartilhados.
 
 ## <a name="1-index-per-tenant"></a>1. Indexar por locatário
 ![Uma descrição do modelo de índice por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

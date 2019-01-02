@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669167"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278280"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
@@ -47,9 +47,9 @@ Para obter o próximo segmento dos eventos do Chaos, especifique o ContinuationT
 |Argumento|DESCRIÇÃO|
 | --- | --- |
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
-| --hora de término utc | O horário do arquivo do Windows que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) para obter detalhes. |
+| --hora de término utc | O horário do arquivo do Windows que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --start-time-utc | O horário do arquivo do Windows que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) para obter detalhes. |
+| --start-time-utc | O horário do arquivo do Windows que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Veja o [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para obter detalhes. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -104,7 +104,7 @@ Se Chaos já não estiver em execução no cluster, inicia o Chaos com os parâm
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | --tempo de espera entre falhas | Tempo de espera (em segundos) entre falhas consecutivas dentro de uma única iteração.  Padrão\: 20. <br><br> Quanto maior o valor, menor a sobreposição entre falhas e mais simples a sequência de transições de estado pelas quais o cluster passa. A recomendação é iniciar com um valor entre 1 e 5 e ter cuidado ao mover para cima. |
 | --tempo de espera entre iterações | Tempo-separação (em segundos) entre as duas iterações consecutivas de Chaos. Quanto maior o valor, menor é a taxa de injeção de falhas.  Padrão\: 30. |
-| --aviso-como-erro | Define a política de integridade para tratar aviso como erros. |
+| --aviso-como-erro | Indica se os avisos são tratados com a mesma gravidade que os erros. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -136,6 +136,7 @@ Impede que o Chaos execute novas falhas. Falhas em curso continuarão em execuç
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

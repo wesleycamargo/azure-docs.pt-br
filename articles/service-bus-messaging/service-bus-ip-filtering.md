@@ -1,6 +1,6 @@
 ---
-title: Filtros de conexão IP de Barramento de Serviço do Azure | Microsoft Docs
-description: Como usar a filtragem IP para bloquear conexões de endereços IP específicos para Barramento de Serviço do Azure.
+title: Regras de Firewall de Barramento de Serviço do Azure | Microsoft Docs
+description: Como usar Regras de Firewall para permitir conexões de endereços IP específicos para o Barramento de Serviço do Azure.
 services: service-bus
 documentationcenter: ''
 author: clemensv
@@ -10,29 +10,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884796"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270426"
 ---
-# <a name="use-ip-filters"></a>Usar filtros IP
+# <a name="use-firewall-rules"></a>Usar regras de Firewall
 
-Para cenários em que os Barramento de Serviço do Azure são acessíveis apenas de determinados sites bem conhecidos, o recurso *filtro IP* permite que você configure regras para rejeitar ou aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway NAT corporativo.
+Para cenários em que os Barramento de Serviço do Azure são acessíveis apenas de determinados sites bem conhecidos, as regras de Firewall permitem que você configure regras para aceitar tráfego originado de endereços IPv4 específicos. Por exemplo, esses endereços podem ser aqueles de um gateway NAT corporativo.
 
 ## <a name="when-to-use"></a>Quando usar
 
-Há dois casos de uso específicos nos quais é útil bloquear os pontos de extremidade do Barramento de Serviço para determinados endereços IP:
-
-- O Barramento de Serviço deve receber tráfego somente de um intervalo especificado de endereços IP e rejeitar todo o restante. Por exemplo, caso esteja usando o Barramento de Serviço com [Azure ExpressRoute][express-route] para criar conexões privadas com a infraestrutura local.
-- Você deve rejeitar o tráfego de endereços IP que foram identificados como suspeitos pelo administrador do Barramento de Serviço.
+Se você estiver buscando instalar o Barramento de Serviço que deve receber tráfego apenas de um intervalo específico de endereços IP e rejeitar todo o resto, você poderá aproveitar um *Firewall* para bloquear os pontos de extremidade do Barramento de Serviço de outros endereços IP. Por exemplo, caso esteja usando o Barramento de Serviço com [Azure ExpressRoute][express-route] para criar conexões privadas com a infraestrutura local. 
 
 ## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
 As regras de filtro IP são aplicadas no nível de namespace do Barramento de Serviço. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte.
 
-Qualquer tentativa de conexão de um endereço IP que corresponda a uma regra IP rejeitada no namespace dos Barramentos de Serviço é rejeitada como não autorizada. A resposta não menciona a regra IP.
+Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra IP permitida no namespace do Barramento de Serviço será rejeitada como não autorizada. A resposta não menciona a regra IP.
 
 ## <a name="default-setting"></a>Configuração padrão
 
@@ -42,67 +39,107 @@ Por padrão, a grade **Filtro IP** o portal do Barramento de Serviço é vazia. 
 
 As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
-Por exemplo, se você quiser aceitar endereços no intervalo 70.37.104.0/24 e rejeitar todo o resto, a primeira regra na grade deverá aceitar o intervalo de endereços 70.37.104.0/24. A próxima regra deve rejeitar todos os endereços usando o intervalo 0.0.0.0/0.
+>[!WARNING]
+> Implementar as regras de Firewall pode impedir outros serviços do Azure de interagir com o Barramento de Serviço.
+>
+> Não há suporte para serviços confiáveis da Microsoft para quando a Filtragem de IP (regras de Firewall) é implementada e serão disponibilizados em breve.
+>
+> Cenários comuns do Azure que não funcionam com a Filtragem de IP (observe que a lista **NÃO** é exaustiva) –
+> - Azure Monitor
+> - Stream Analytics do Azure
+> - Integração com a Grade de Eventos do Azure
+> - Rotas do Hub IoT do Azure
+> - Device Explorer do Azure IoT
+> - Azure Data Explorer
+>
+> Os serviços da Microsoft abaixo deve estar em uma rede virtual
+> - Aplicativos Web do Azure 
+> - Funções do Azure
 
-> [!NOTE]
-> Rejeitar endereços IP pode impedir que outros serviços do Azure (como Azure Stream Analytics, Máquinas Virtuais do Microsoft Azure ou o Device Explorer no portal) interajam com o Barramento de Serviço.
+### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual e firewall com modelos do Azure Resource Manager
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos do Azure Resource Manager
-
-> ![IMPORTANTE] As Redes Virtuais têm suporte apenas no na camada **premium** do Barramento de Serviço.
+> [!IMPORTANT]
+> As Redes Virtuais têm suporte apenas no na camada **premium** do Barramento de Serviço.
 
 O modelo do Resource Manager a seguir permite incluir uma regra de rede virtual em um namespace de Barramento de Serviço existente.
 
 Parâmetros de modelo:
 
-- O **ipFilterRuleName** deve ser uma cadeia exclusiva de caracteres alfanuméricos, que não diferencia maiúsculas de minúsculas, de até 128 caracteres.
-- A **ipFilterAction** é **Rejeitar** ou **Aceitar**, conforme a ação de aplicar para a regra de filtro IP.
 - A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
+> [!NOTE]
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Permitir"**, que não restringe as conexões.
+> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> 
+> de
+> ```json
+> "defaultAction": "Allow"
+> ```
+> para
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "servicebusNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Service Bus namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('servicebusNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.ServiceBus/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('servicebusNamespaceName')]",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.ServiceBus/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].

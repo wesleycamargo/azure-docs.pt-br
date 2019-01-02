@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 11/30/2017
 ms.author: jdial
-ms.openlocfilehash: 8a59047a586f3d7ad7c1f29b218396bd688caafd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 88cb7e2cd04d13ade5c581a1ff2dc09669d89ab2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181592"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837997"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Introdução à verificação de fluxo de IP no Observador de Rede do Azure
 
 A verificação do fluxo IP confere se um pacote é permitido ou negado para ou a partir de uma máquina virtual usando. As informações consistem em direção, protocolo, IP local, IP remoto, porta local e porta remota. Se o pacote for negado por um grupo de segurança, o nome da regra que negou o pacote será retornado. Embora qualquer IP de origem ou destino possa ser escolhido, a verificação de fluxo de IP ajuda os administradores a diagnosticarem rapidamente os problemas de conectividade a partir de ou com a Internet, e a partir de ou com o ambiente local.
 
-A verificação de fluxo de IP tem como alvo uma interface de rede de uma máquina virtual. O fluxo do tráfego é verificado com base nas configurações feitas para ou a partir dessa interface de rede. A verificação de fluxo de IP é útil ao confirmar se uma regra em um Grupo de Segurança da Rede está bloqueando o tráfego de entrada ou saída para ou a partir de uma máquina virtual.
+A verificação de fluxo IP examina as regras para todos os grupos de segurança de rede (NSGs) aplicadas ao adaptador de rede, como uma NIC de máquina virtual ou sub-rede. O fluxo do tráfego é verificado com base nas configurações feitas para ou a partir dessa interface de rede. A verificação de fluxo de IP é útil ao confirmar se uma regra em um Grupo de Segurança da Rede está bloqueando o tráfego de entrada ou saída para ou a partir de uma máquina virtual.
 
-Uma instância do Observador de Rede precisa ser criada em todas as regiões nas quais você pretende executar a verificação de fluxo de IP. O Observador de Rede é um serviço regional e só pode ser executado em recursos na mesma região. A instância usada não afeta os resultados da verificação de fluxo de IP, pois a rota associada à NIC ainda é retornada.
+Uma instância do Observador de Rede precisa ser criada em todas as regiões nas quais você pretende executar a verificação de fluxo de IP. O Observador de Rede é um serviço regional e só pode ser executado em recursos na mesma região. A instância usada não afeta os resultados da verificação de fluxo de IP, pois qualquer rota associada à NIC ou à sub-rede ainda é retornada.
 
 ![1][1]
 
@@ -36,15 +36,4 @@ Uma instância do Observador de Rede precisa ser criada em todas as regiões nas
 Visite o seguinte artigo para saber se um pacote é permitido ou negado para uma máquina virtual por meio do portal. [Verifique se o tráfego é permitido em uma VM com uma Verificação de Fluxo de IP usando o portal](diagnose-vm-network-traffic-filtering-problem.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
 

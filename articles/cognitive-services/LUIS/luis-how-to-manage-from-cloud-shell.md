@@ -1,21 +1,22 @@
 ---
-title: Dados de uso do Azure Cloud Shell para o LUIS
-titleSuffix: Azure Cognitive Services
+title: Dados de uso – Cloud Shell
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba como obter informações de uso no Azure Cloud Shell para o LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444369"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133462"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Dados de uso do serviço LUIS no Azure Cloud Shell
 O portal do Azure permite que você use cmdlets do PowerShell para trabalhar com recursos do LUIS. 
@@ -34,7 +35,7 @@ Quando você usar o Cloud Shell no portal do Azure, você sempre estará usando 
 
 Use o botão **Iniciar o Cloud Shell** para abrir o Cloud Shell ou abrir um navegador com [https://shell.azure.com](https://shell.azure.com). Selecione Power Shell como o ambiente. Se você não tiver uma conta de Armazenamento do Azure, precisará criar uma. 
 
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" alt="Start powershell" /></a>
 
 ## <a name="luis-endpoint-usage-information"></a>Informações de uso do ponto de extremidade do LUIS
 
@@ -42,7 +43,7 @@ O cmdlet do PowerShell 6.x, `Get-AzureRmCognitiveServicesAccountUsage`, fornece 
 
 A sintaxe do comando é:
 
-```
+```powershell
 Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
@@ -50,7 +51,7 @@ No exemplo a seguir, o nome do grupo de recursos é `luis-westus-rg` e o nome de
 
 O cmdlet retorna informações de uso de 16 de 10.000 ocorrências do ponto de extremidade usadas em um período de 30 dias com o período terminando em 7 de junho:
 
-```
+```powershell
 CurrentValue  : 16
 Name          : LUIS.Calls
 Limit         : 10000

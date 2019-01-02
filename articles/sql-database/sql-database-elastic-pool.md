@@ -3,7 +3,7 @@ title: Gerenciar vários bancos de dados SQL com pools elásticos – Azure | Mi
 description: Gerenciar e dimensionar vários Bancos de Dados SQL – centenas de milhares – usando pools elásticos. Um preço para os recursos que você pode distribuir quando necessário.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ea548b55bc216b815b5f49f1e0405f1a90d05d08
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283556"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275611"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
 Pools elásticos do Banco de Dados SQL são uma solução simples e econômica para gerenciar e dimensionar a vários bancos de dados com demandas de uso variadas e imprevisíveis. Os bancos de dados em um pool elástico estão em um único servidor de Banco de Dados SQL do Azure e compartilham um número definido de recursos por um preço definido. Os pools elásticos no Banco de Dados SQL do Azure permitem que desenvolvedores de SaaS otimizem o desempenho de preço para um grupo de bancos de dados dentro de um orçamento prescrito oferecendo elasticidade de desempenho para cada banco de dados.
 
-## <a name="what-are-sql-elastic-pools"></a>O que são pools elásticos SQL?
+## <a name="what-are-sql-elastic-pools"></a>O que são pools elásticos SQL
 
 Desenvolvedores de SaaS compilam aplicativos com base em camadas de dados de grande escala compostas por vários bancos de dados. Um padrão de aplicativo comum é provisionar um banco de dados individual para cada cliente. Mas diferentes clientes geralmente têm padrões de uso variados e imprevisíveis, e é difícil prever os requisitos de recursos de cada usuário de banco de dados individual. Tradicionalmente, você tinha duas opções:
 
@@ -42,7 +42,7 @@ Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dime
 > [!NOTE]
 > Ao mover os bancos de dados para dentro ou para fora de um conjunto elástico, não há tempo de inatividade, exceto por um breve período de tempo (na ordem de segundos) no final da operação, quando as conexões com o banco de dados são descartadas.
 
-## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado?
+## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado
 
 Pools também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes.
 
@@ -70,9 +70,9 @@ A utilização de DTU agregada em todos os 20 bancos de dados é ilustrada pela 
 
 Este exemplo é ideal pelas seguintes razões:
 
-* Há grandes diferenças entre o pico de utilização e a utilização média por banco de dados.
-* O pico de utilização de cada banco de dados ocorre em diferentes momentos.
-* eDTUs são compartilhados entre vários bancos de dados.
+- Há grandes diferenças entre o pico de utilização e a utilização média por banco de dados.
+- O pico de utilização de cada banco de dados ocorre em diferentes momentos.
+- eDTUs são compartilhados entre vários bancos de dados.
 
 O preço de um pool é uma função das eDTUs do pool. Embora o preço unitário de eDTU para um pool seja 1,5x maior que o preço unitário de DTU para um banco de dados individual, **as eDTUs do pool podem ser compartilhadas por vários bancos de dados e, assim, menos eDTUs são necessárias no total**. Essas distinções no preço e compartilhamento de eDTU são a base do potencial de economia que os pools podem oferecer.
 
@@ -89,23 +89,24 @@ Pelo menos dois bancos de dados S3 ou 15 bancos de dados S0 são necessários pa
 
 Ao compartilhar recursos, nem todos os bancos de dados em um pool podem usar recursos simultaneamente até o limite disponível para bancos de dados individuais. Quanto menos bancos de dados em pico simultaneamente, menores serão os recursos do conjunto e mais econômico será o pool. Em geral, não mais que 2/3 (ou 67%) dos bancos de dados no pool devem atingir simultaneamente o limite de recursos.
 
-***Exemplo de modelo de compra baseado em DTU***<br>
-para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos de computação para bancos de dados individuais.
+***Exemplo de modelo de compra baseado em DTU***
+
+ para reduzir os custos de três bancos de dados S3 em um pool com 200 eDTUs, no máximo dois desses bancos de dados podem atingir simultaneamente o pico em sua utilização. Caso contrário, se mais de dois desses quatro bancos de dados S3 entrarem em pico simultaneamente, o pool precisará ser dimensionado para mais de 200 eDTUs. Se o pool for redimensionado para mais de 200 eDTUs, mais bancos de dados S3 precisarão ser adicionados ao pool para manter os custos menores do que os tamanhos de computação para bancos de dados individuais.
 
 Observe que esse exemplo não considera a utilização de outros bancos de dados no pool. Se todos os bancos de dados tiverem uma certa utilização em um determinado momento, menos de 2/3 (ou 67%) dos bancos de dados pode atingir o pico simultaneamente.
 
 ### <a name="resource-utilization-per-database"></a>Utilização de recursos por banco de dados
+
 Uma grande diferença entre o máximo e média de utilização de um banco de dados indica longos períodos de baixa utilização e curtos períodos de alta utilização. Esse padrão de utilização é ideal para compartilhar recursos entre bancos de dados. Um banco de dados deve ser considerado para um pool quando seu pico de utilização for aproximadamente 1,5 vez maior que sua utilização média.
 
-***Exemplo de modelo de compra baseado em DTU***<br>
-um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
+**Exemplo de modelo de compra baseado em DTU**:  um banco de dados S3 com picos de 100 DTUs e que usa em média 67 DTUs, ou menos, é um bom candidato para o compartilhamento de eDTUs em um pool. Outra opção de bom candidato para um pool elástico seria um banco de dados S1 com pico de 20 DTUs e média de uso de 13 DTUs ou menos.
 
-## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto?
+## <a name="how-do-i-choose-the-correct-pool-size"></a>Como fazer para escolher o tamanho de pool correto
 
 O melhor tamanho para um pool depende dos recursos agregados necessários para todos os bancos de dados no pool. Isso inclui determinar o seguinte:
 
-* O máximo de recursos utilizados por todos os bancos de dados no pool (seja o máximo de DTUs ou de vCores, dependendo da escolha do modelo de recursos).
-* Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
+- O máximo de recursos utilizados por todos os bancos de dados no pool (seja o máximo de DTUs ou de vCores, dependendo da escolha do modelo de recursos).
+- Bytes de armazenamento máximo utilizados por todos os bancos de dados no pool.
 
 Para as camadas de serviço disponíveis para cada modelo de recurso, consulte [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [Modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
@@ -113,11 +114,11 @@ Em casos em que você não pode usar as ferramentas, os procedimentos passo a pa
 
 1. Faça estimativa de eDTUs ou vCores necessários para o pool, conforme a seguir:
 
-   Para o modelo de compra baseado em DTU: MAX(<*Número total de BDs* X *utilização média de DTU por BD* >,<br>  
-   < *Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados* )
+   Para modelos de compra baseados em DTU: MAX (<*Número total de bancos de dados* X *utilização média de DTU por banco de dados*>,<br>  
+   <*Número de bancos de dados em pico simultaneamente* X *Utilização de DTU em pico por banco de dados*)
 
-   Para o modelo de compra baseado em vCore: MAX(<*Número total de DBs* X *utilização média de vCore por BD* >,<br>  
-   < *Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD* )
+   Para modelos de compra baseados em vCore: MAX (<*Número total de BDs* X *utilização média de vCore por BD*>,<br>  
+   <*Número de BDs em pico simultaneamente* X *Utilização máxima de vCore por BD*)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.
@@ -133,17 +134,25 @@ Com um pool, as tarefas de gerenciamento são simplificadas com a execução de 
 Para saber mais sobre outras ferramentas de banco de dados para trabalhar com vários bancos de dados, veja [Expansão com o Banco de Dados SQL](sql-database-elastic-scale-introduction.md).
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>Opções de continuidade dos negócios para bancos de dados em um pool elástico
+
 Os bancos de dados elásticos normalmente dão suporte aos mesmos [recursos de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para bancos de dados individuais.
 
-- **Recuperação pontual**: a recuperação pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto no tempo específico. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **Restauração pontual**
 
-- **Restauração geográfica**: a restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região em que ele está hospedado. Confira [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md)
+  A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **Replicação geográfica ativa**: para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-geo-replication-overview.md).
+- **Restauração geográfica**
+
+  A restauração geográfica fornecerá a opção de recuperação padrão quando um banco de dados estiver indisponível devido a um incidente na região onde está hospedado. Confira [Restaurar um Banco de Dados SQL ou fazer failover para um secundário](sql-database-disaster-recovery.md)
+
+- **Replicação geográfica ativa**
+
+  Para aplicativos que têm requisitos de recuperação mais agressivos do que a restauração geográfica pode oferecer, configure a [replicação geográfica ativa](sql-database-active-geo-replication.md) ou um [grupo de failover automático](sql-database-auto-failover-group.md).
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Criar um novo pool elástico de um Banco de Dados SQL usando o Portal do Azure
 
 Há duas maneiras de criar um pool elástico no Portal do Azure.
+
 1. É possível criar um pool elástico, pesquisando **pool elástico do SQL** no **Marketplace** ou clicando em **+ Adicionar** na folha de procura de pools elásticos do SQL. Você pode especificar um servidor novo ou existente por este fluxo de trabalho de provisionamento de pool.
 2. Ou você pode criar um pool elástico, navegando até um servidor SQL existente e clicando em **Criar pool** para criar um pool diretamente nesse servidor. A única diferença aqui é ignorar a etapa em que você especifica o servidor durante o fluxo de trabalho de provisionamento de pools.
 
@@ -162,8 +171,8 @@ No Portal do Azure, é possível monitorar a utilização de um pool elástico e
 
 Para começar a monitorar o pool elástico, localize e abra um pool elástico no portal. Primeiro, você verá uma tela que fornece uma visão geral do status do pool elástico. Isso inclui:
 
-* Monitorar gráficos mostrando o uso de recursos do pool elástico
-* Alertas e recomendações recentes, se disponíveis, para o pool elástico
+- Monitorar gráficos mostrando o uso de recursos do pool elástico
+- Alertas e recomendações recentes, se disponíveis, para o pool elástico
 
 O gráfico a seguir mostra um exemplo de pool elástico:
 
@@ -192,6 +201,6 @@ Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-* Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
-* Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).
+- Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+- Para saber mais sobre os padrões de design para aplicativos SaaS usando pools Elásticos, confira [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Padrões de Design para aplicativos de SaaS multilocatários com o Banco de Dados SQL).
+- Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).

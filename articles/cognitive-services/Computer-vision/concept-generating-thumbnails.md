@@ -8,32 +8,35 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343955"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966731"
 ---
 # <a name="generating-thumbnails"></a>Gerar miniaturas
 
-Uma miniatura é uma representação pequena de uma imagem em tamanho original. Dispositivos variados, como telefones, tablets e computadores, criam uma necessidade de diferentes layouts de experiência do usuário e tamanhos de miniatura. Usando o recorte inteligente, esse recurso de visão computacional ajuda a resolver o problema.
+Uma miniatura é uma representação em tamanho reduzido de uma imagem. As miniaturas são usadas para representar as imagens e outros dados de uma maneira mais econômica e com um layout mais fácil. A API da Pesquisa Visual Computacional usa o corte inteligente, junto com o redimensionamento de imagem, para criar miniaturas intuitivas para uma determinada imagem.
 
-Após o upload de uma imagem, o Computer Vision gera uma miniatura de alta qualidade e analisa os objetos dentro da imagem para identificar a *região de interesse* (ROI). Opcionalmente, ele pode cortar a imagem para atender às necessidades do ROI. A miniatura gerada pode ser apresentada usando uma proporção diferente da proporção da imagem original, para acomodar suas necessidades.
+O algoritmo de geração de miniatura da Pesquisa Visual Computacional funciona da seguinte maneira:
+1. remova os elementos de distração da imagem e identifique as _área de interesse_&mdash;a área da imagem na qual o objeto principal é exibido.
+1. Corte a imagem com base na _área de interesse_ identificada.
+1. Altere a taxa de proporção para se ajustar às dimensões da miniatura de destino.
 
-O algoritmo de miniatura funciona da seguinte maneira:
+## <a name="area-of-interest"></a>Área de interesse
 
-1. Remove os elementos que causam distração da imagem e identifica o objeto principal, a região de interesse.
-2. Corta a imagem com base na região de interesse identificada.
-3. Altera a taxa de proporção para se ajustar às dimensões da miniatura de destino.
+Ao carregar uma imagem, a API da Pesquisa Visual Computacional faz a análise para determinar a *área de interesse*. Ela pode usar essa região para determinar como cortar a imagem. A operação de corte, no entanto, sempre corresponderá à taxa de proporção desejada se uma for especificada.
+
+Você também pode obter as coordenadas de caixa delimitadora bruta dessa mesma *área de interesse* chamando a API **areaOfInterest**. Em seguida, você pode usar essas informações para modificar a imagem original, se quiser.
+
+## <a name="examples"></a>Exemplos
 
 Remove os elementos que causam distração da imagem e identifica o objeto principal, a região de interesse.
 
 ![Miniaturas](./Images/thumbnail-demo.png)
-
-## <a name="thumbnail-generation-examples"></a>Exemplos de geração de miniaturas
 
 A tabela a seguir ilustra as miniaturas típicas geradas pelo Computer Vision para as imagens de exemplo. As miniaturas foram geradas para uma altura e largura de destino especificada de 50 pixels, com recorte inteligente ativado.
 
@@ -45,4 +48,4 @@ A tabela a seguir ilustra as miniaturas típicas geradas pelo Computer Vision pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça os conceitos [marcação imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Aprenda sobre [marcação de imagens](concept-tagging-images.md) e [categorização de imagens](concept-categorizing-images.md).

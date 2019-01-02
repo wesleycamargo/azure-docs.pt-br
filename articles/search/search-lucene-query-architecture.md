@@ -1,5 +1,5 @@
 ---
-title: Arquitetura do mecanismo de pesquisa de texto completo (Lucene) no Azure Search | Microsoft Docs
+title: Arquitetura do mecanismo de pesquisa de texto completo (Lucene) – Azure Search
 description: Explicação dos conceitos de recuperação de documento e processamento de consulta do Lucene para pesquisa de texto completo, relacionada ao Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,16 +9,17 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036863"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315784"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Como funciona a pesquisa de texto completo no Azure Search
 
-Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Search. Para consultas de texto, o Azure Search produzirá facilmente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você poderá obter um resultado que pode parecer "estranho". Nessas situações, ter experiência nos quatro estágios da execução da consulta do Lucene (análise léxica, análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas nos parâmetros de consulta ou na configuração de índice que proporcionarão o resultado desejado. 
+Este artigo é para desenvolvedores que precisam de uma compreensão mais profunda de como a pesquisa de texto completo do Lucene funciona no Azure Search. Para consultas de texto, o Azure Search fornecerá perfeitamente os resultados esperados na maioria dos cenários, mas, ocasionalmente, você pode obter um resultado que pode parecer "estranho". Nessas situações, ter um plano de fundo nos quatro estágios da execução da consulta do Lucene (análise léxica e análise da consulta, correspondência de documentos e pontuação) pode ajudá-lo a identificar alterações específicas para parâmetros de consulta ou a configuração de índice que proporcionará o resultado desejado. 
 
 > [!Note] 
 > O Azure Search usa o Lucene para pesquisa de texto completo, mas a integração do Lucene não é completa. Vamos seletivamente expor e estender a funcionalidade do Lucene para habilitar os cenários importantes para o Azure Search. 
@@ -95,7 +96,7 @@ O analisador de consulta reestrutura as subconsultas em uma *árvore de consulta
 
  ![Booliano consulta modo de pesquisa qualquer][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Analisadores com suporte: simples e Lucena completa 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analisadores compatíveis: Lucene Simples e Completo 
 
  O Azure Search apresenta duas linguagens de consulta diferentes, `simple` (padrão) e `full`. Ao definir o parâmetro `queryType` com sua solicitação de pesquisa, você informa ao analisador de consulta a linguagem de consulta que você escolheu para que ele saiba como interpretar os operadores e a sintaxe. A [linguagem de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) é intuitiva e robusta, geralmente adequada para interpretar a entrada do usuário conforme inserida, sem processamento no lado do cliente. Ela oferece suporte a operadores de consulta familiares de mecanismos de pesquisa. A [linguagem de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que você obtém definindo `queryType=full`, estende a linguagem de consulta simples padrão, adicionando suporte para mais operadores e tipos de consulta como caractere curinga, difusa, regex e consultas com escopo de campo. Por exemplo, uma expressão regular enviada na sintaxe de consulta simples será interpretada como uma cadeia de caracteres de consulta e não é uma expressão. A solicitação de exemplo neste artigo usa a linguagem de consulta Lucene completa.
 
@@ -262,7 +263,7 @@ Retornando ao nosso exemplo, para o campo **título**, o índice invertido tem e
 | resort | 3 |
 | retiro | 4 |
 
-No campo título, apenas *hotel* aparece em dois documentos: 1, 3.
+No campo de título, apenas *hotel* aparece em dois documentos: 1 e 3.
 
 Para o campo **descrição**, o índice é o seguinte:
 

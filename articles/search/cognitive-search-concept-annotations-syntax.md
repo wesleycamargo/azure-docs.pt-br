@@ -1,5 +1,5 @@
 ---
-title: Referenciar uma anotação em entradas e saídas em um pipeline de pesquisa cognitiva no Azure Search | Microsoft Docs
+title: Referenciar entradas e saídas nos pipelines da pesquisa cognitiva – Azure Search
 description: Explica a sintaxe de anotação e como referenciar uma anotação nas entradas e saídas de um conjunto de habilidades em um pipeline de pesquisa cognitiva no Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801940"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315787"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como referenciar anotações em um conjunto de habilidades de pesquisa cognitiva
 
@@ -33,7 +34,7 @@ Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para en
 | Contexto de enriquecimento | O contexto em que o enriquecimento ocorre, em termos de qual elemento é enriquecido. Por padrão, o contexto de enriquecimento está no nível do `"/document"` e seu escopo são documentos individuais. Quando uma habilidade é executada, suas saídas se tornam [propriedades do contexto definido](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: referência de anotação simples
+## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: Referência de anotação simples
 
 No Armazenamento de Blobs do Azure, suponha que você tenha diversos arquivos que contêm referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade nomeada. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
 
@@ -61,7 +62,7 @@ Como o contexto padrão é `"/document"`, a lista de pessoas agora pode ser refe
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Exemplo 2: referenciar uma matriz em um documento
+## <a name="example-2-reference-an-array-within-a-document"></a>Exemplo 2: Referenciar uma matriz em um documento
 
 Este exemplo dá continuidade ao anterior, mostrando como invocar uma etapa de enriquecimento várias vezes no mesmo documento. Suponha que o exemplo anterior tenha gerado uma matriz de cadeias de caracteres com 10 nomes de pessoas provenientes de um único documento. Faz sentido que a próxima etapa seja um segundo enriquecimento que extrai o sobrenome de um nome completo. Como há 10 nomes, esta etapa precisa ser chamada 10 vezes no documento, uma vez para cada pessoa. 
 
@@ -93,7 +94,7 @@ Quando as anotações forem matrizes ou coleções de cadeias de caracteres, tal
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: referenciar membros de uma matriz
+## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: Referenciar membros em uma matriz
 
 Às vezes, você precisa agrupar todas as anotações de um tipo específico para passá-las para uma habilidade específica. Considere uma habilidade personalizada hipotética que identifica o sobrenome mais comum de todos os sobrenomes extraídos no exemplo 2. Para fornecer apenas os sobrenomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 

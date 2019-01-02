@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: 8253c4c84e38fc3b8279aa311c1627a540502a6c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b467618815f2bad8a6816425764fe60707c1db3d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351479"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308134"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Solucionar problemas de erros de inicialização de Máquinas Virtuais do Microsoft Azure
 
@@ -29,6 +29,10 @@ Este artigo lista os erros de inicialização comuns que podem ser exibidos quan
 * [Erros de inicialização do BitLocker](troubleshoot-bitlocker-boot-error.md) 
 * [O Windows mostra "Verificando sistema de arquivos" durante a inicialização](troubleshoot-check-disk-boot-error.md)
 * [Erros de tela azul](troubleshoot-common-blue-screen-error.md)
+* [A inicialização da VM está parada em "Preparando o Windows"](troubleshoot-vm-boot-configure-update.md)
+* [Erro "FALHA DE SERVIÇO CRÍTICO" na tela azul](troubleshoot-critical-service-failed-boot-error.md)
+* [Problema de loop de reinicialização](troubleshoot-reboot-loop.md)
+* [A inicialização da VM está parada no estágio do Windows Update](troubleshoot-stuck-updating-boot-error.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

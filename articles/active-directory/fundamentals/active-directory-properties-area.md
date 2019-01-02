@@ -1,6 +1,6 @@
 ---
-title: Adicionar informações de privacidade da sua organização no Azure Active Directory | Microsoft Docs
-description: Como adicionar informações de privacidade da sua organização à área de Propriedades do Azure AD (Azure Active Directory).
+title: Adicionar informações de privacidade de sua organização – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como adicionar informações de privacidade de sua organização à área de Propriedades do Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903657"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083828"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>Instruções: adicionar informações de privacidade com o Azure Active Directory
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicionar informações de privacidade de sua organização usando o Azure Active Directory
 Este artigo explica como um administrador de locatário pode adicionar informações relacionadas à privacidade para o locatário do Azure Active Directory (Azure AD) de uma organização, por meio do portal do Azure.
 
 É altamente recomendável adicionar o contato de privacidade global e a declaração de privacidade da sua organização, para que os funcionários internos e os convidados externos possam revisar suas políticas. Como as declarações de privacidade são exclusivamente criadas e personalizadas para cada empresa, é altamente recomendável que você entre em contato com um advogado para obter assistência.

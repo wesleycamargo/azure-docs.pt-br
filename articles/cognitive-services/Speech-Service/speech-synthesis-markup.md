@@ -1,5 +1,5 @@
 ---
-title: Linguagem de Marcação de Sintetização de Voz
+title: Linguagem de Marcação de Sintetização de Fala – Serviços de Fala
 titleSuffix: Azure Cognitive Services
 description: Usando o Speech Synthesis Markup Language para controlar pronúncia e prosódia em texto para fala.
 services: cognitive-services
@@ -8,22 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469275"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341126"
 ---
 # <a name="speech-synthesis-markup-language"></a>Linguagem de Marcação de Sintetização de Voz
 
-A SSML (Linguagem de Marcação de Sintetização de Voz) é uma linguagem de marcação baseada em XML que fornece uma maneira de controlar a pronúncia e a *prosódia* da conversão de texto em fala. Prosody refere-se ao ritmo e tom de fala — suas músicas, se desejar. É possível especificar palavras foneticamente, fornecer dicas para interpretar números, inserir pausas, densidade de controle, volume e velocidade, e muito mais.
+A SSML (Linguagem de Marcação de Sintetização de Voz) é uma linguagem de marcação baseada em XML que fornece uma maneira de controlar a pronúncia e a *prosódia* da conversão de texto em fala. Prosody refere-se ao ritmo e tom de fala — suas músicas, se desejar. É possível especificar palavras foneticamente, fornecer dicas para interpretar números, inserir pausas, densidade de controle, volume e velocidade, e muito mais. Para obter mais informações, consulte [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (SSML (Speech Synthesis Markup Language) Versão 1.0).
 
-Para obter mais informações, consulte [SSML (Linguagem de Marcação de Sintetização de Voz) Versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) no W3C.
+Para obter uma lista completa de vozes (neurais e padrão), localidades e idiomas com suporte, consulte [suporte para idioma](language-support.md#text-to-speech).
 
-Os exemplos a seguir mostram como usar SSML para necessidades comuns de síntese de fala:
+As seções a seguir fornecem exemplos de tarefas comuns de sintetização de fala.
+
+>[!IMPORTANT]
+> Atualmente, a marcação prosody só está disponível para vozes padrão.
 
 ## <a name="add-a-break"></a>Adicionar uma quebra
 ```xml
@@ -89,5 +93,4 @@ Os exemplos a seguir mostram como usar SSML para necessidades comuns de síntese
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+* [Suporte de linguagem: vozes, localidades, idiomas](language-support.md)

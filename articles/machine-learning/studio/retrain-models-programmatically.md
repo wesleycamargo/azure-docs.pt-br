@@ -1,12 +1,11 @@
 ---
 title: Modelos de Machine Learning Studio por meio de programação - Azure | Microsoft Docs
-description: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Azure Machine Learning.
+description: Saiba como treinar novamente de forma programática um modelo usando C# e o serviço de execução em lotes do Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313378"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257386"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Treinar novamente os modelos do Machine Learning Studio programaticamente
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Treinar novamente os modelos do Azure Machine Learning Studio de forma programática
 Neste tutorial, você aprenderá a treinar de maneira programática um serviço da web do Azure Machine Learning Studio usando C# e o serviço de Execução em Lote de Aprendizado da Máquina.
 
 Depois de você ter readaptado o modelo, as instruções a seguir mostram como atualizar o modelo no seu serviço Web preditivo:
@@ -36,14 +35,14 @@ Para obter uma visão geral do processo de readaptação, confira [Readaptar um 
 Se você quiser começar a usar o seu novo serviço Web baseado no Azure Resource Manager existente, confira [Readaptar um serviço Web preditivo existente](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Criar um teste de treinamento
-Para este exemplo, você usará "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto" das amostras do Microsoft Azure Machine Learning. 
+Neste exemplo, você usará o "Exemplo 5: Treinar, testar, avaliar para classificação binária: conjunto de dados de adulto" dos exemplos do Microsoft Azure Machine Learning. 
 
 Para criar o experimento:
 
 1. Entre no Microsoft Azure Machine Learning Studio. 
 2. No canto inferior direito do painel, clique em **Novo**.
 3. Nas Amostras da Microsoft, selecione a Amostra 5.
-4. Para renomear o teste, na parte superior da tela do experimento, selecione o nome do teste "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto".
+4. Para renomear o teste, na parte superior da tela do teste, selecione o nome do teste "Exemplo 5: Treinar, testar, avaliar para classificação binária: conjunto de dados de adulto".
 5. Tipo de modelo de censo.
 6. Na parte inferior da tela do experimento, clique em **Executar**.
 7. Clique em **Configurar o Serviço Web** e selecione **Readaptação do Serviço Web**. 
@@ -93,7 +92,7 @@ Para este exemplo, você está usando C# para criar o aplicativo de readaptaçã
 
 Para chamar as APIs de Readaptação:
 
-1. Crie um aplicativo de console C# no Visual Studio: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
+1. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo do Console (.NET Framework)**.
 2. Entre no portal do Serviço Web de Machine Learning.
 3. Se você estiver trabalhando com um serviço Web Clássico, clique em **Serviços Web Clássicos**.
    1. Clique no serviço Web com o qual você está trabalhando.
@@ -159,7 +158,7 @@ Veja os exemplos a seguir:
 
 ![Saída da readaptação][6]
 
-Diagrama 4:Saída da readaptação.
+Diagrama 4: saída do novo treinamento.
 
 ## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da readaptação
 Quando você executa o aplicativo, a saída inclui o token SAS e a URL necessários para acessar os resultados da avaliação.

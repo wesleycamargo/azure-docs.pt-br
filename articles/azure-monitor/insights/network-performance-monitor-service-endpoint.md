@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429531"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186201"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -97,11 +95,11 @@ No modo de exibição **nós de teste**, você pode observar a conectividade de 
 
 Determine se o desempenho insatisfatório do aplicativo é devido à rede ou devido a algum problema no final do provedor do aplicativo, observando a correlação entre o tempo de resposta do aplicativo e a latência de rede. 
 
-* **Problema de aplicativo:** um aumento no tempo de resposta, mas a latência de rede é sugere que a rede está funcionando corretamente e o problema é devido a um problema no final do aplicativo. 
+* **Problema de aplicativo:** Um aumento no tempo de resposta, mas a consistência a latência da rede sugere que a rede está funcionando corretamente e que o problema ocorre devido a um problema na extremidade do aplicativo. 
 
     ![Emita o aplicativo de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Problema de Rede:** um aumento no tempo de resposta é acompanhado de um aumento correspondente na latência de rede que o aumento no tempo de resposta é devido a um aumento na latência de rede. 
+* **Problema de rede:** Um aumento no tempo de resposta acompanhado por um aumento correspondente na latência da rede sugere que o aumento no tempo de resposta é devido a um aumento na latência da rede. 
 
     ![Emita a rede de Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
@@ -131,4 +129,4 @@ Se você observar uma anormalidade, siga estas etapas:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Pesquisar logs](../../log-analytics/log-analytics-queries.md) para exibir registros de dados de desempenho de rede detalhados.
+[Pesquisar logs](../../azure-monitor/log-query/log-query-overview.md) para exibir registros de dados de desempenho de rede detalhados.

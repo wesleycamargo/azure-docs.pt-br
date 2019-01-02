@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852836"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682581"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
@@ -59,7 +59,7 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 
 A Tradução de Texto do Microsoft Translator V2 aceitava e retornava dados em formato XML. Na V3, todos os dados enviados e recebidos usando a API está em formato JSON. XML não será mais aceito nem retornado na V3.
 
-Esta alteração afetará vários aspectos de um aplicativo escrito para a API de Tradução de Texto V2. Como exemplo: uma API de Idiomas retorna informações de idioma para tradução de texto, transliteração e os dois métodos de dicionário. Você pode solicitar todas as informações de idioma para todos os métodos em uma chamada ou solicitá-los individualmente.
+Esta alteração afetará vários aspectos de um aplicativo escrito para a API de Tradução de Texto V2. Por exemplo: A API de Idiomas retorna informações de idioma para tradução de texto, transliteração e os dois métodos de dicionário. Você pode solicitar todas as informações de idioma para todos os métodos em uma chamada ou solicitá-los individualmente.
 
 O método languages não exige autenticação; ao clicar no link a seguir, você pode ver todas as informações de idioma para V3 em JSON:
 
@@ -105,11 +105,33 @@ Global
 
 [Dictionary/example](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Personalização
+## <a name="compatibility-and-customization"></a>Compatibilidade e personalização
 
-Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](customization.md)
+Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](custom-translator/overview.md)
 
 A tradução neural com a API de texto V3 não dá suporte para o uso de categorias padrão (SMT, fala, texto, generalnn).
+
+| |Ponto de extremidade|    Conformidade de processador do RGPD|  Usar o Hub do Tradutor| Usar o Tradutor Personalizado (Versão Prévia)|
+|:-----|:-----|:-----|:-----|:-----|
+|API de Tradução de Texto Versão 2| api.microsofttranslator.com|    Não   |Sim    |Não |
+|API de Tradução de Texto Versão 3| api.cognitive.microsofttranslator.com|  SIM|    Não | SIM|
+
+**API de Tradução de Texto Versão 3**
+* Está geralmente disponível e tem suporte completo.
+* É compatível com RGPD como um processador e cumpre todos os requisitos de ISO 20001 e 20018, bem como os requisitos de certificação SOC 3. 
+* Permite invocar os sistemas de tradução de rede neural que você personalizou com o Tradutor Personalizado (Versão Prévia), o novo recurso de personalização do Tradutor NMT. 
+* Não fornece acesso a sistemas de tradução personalizada criados usando o Hub do Microsoft Translator.
+
+Você está usando a Versão 3 da API de Tradução de Texto caso esteja usando o ponto de extremidade api.cognitive.microsofttranslator.com.
+
+**API de Tradução de Texto Versão 2**
+* Foi preterida. Ela será descontinuada em 30 de abril de 2019. 
+* Não atende a todos os requisitos de certificação de SOC 3 e ISO 20001,20018. 
+* Não permite invocar os sistemas de tradução de rede neural que você personalizou com o recurso de personalização do Tradutor.
+* Fornece acesso a sistemas de tradução personalizada criados usando o Hub do Microsoft Translator.
+* Você está usando a Versão 2 da API de Tradução de Texto caso esteja usando o ponto de extremidade api.microsofttranslator.com.
+
+Nenhuma versão da API do Tradutor cria um registro de suas traduções. Suas traduções nunca são compartilhadas com ninguém. Mais informações podem ser encontradas na página da Web [Tradutor sem rastreamento](http://www.aka.ms/NoTrace).
 
 
 ## <a name="links"></a>Links

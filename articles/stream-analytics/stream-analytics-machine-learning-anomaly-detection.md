@@ -4,17 +4,17 @@ description: Este artigo descreve como usar o Azure Stream Analytics e o Azure M
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567036"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091213"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detecção de anomalias no Azure Stream Analytics
 
@@ -25,11 +25,11 @@ O operador **AnomalyDetection** é usado para detectar diferentes tipos de anoma
 
 O operador AnomalyDetection detecta três tipos de anomalias: 
 
-* **Alteração de nível bidirecional**: um aumento ou diminuição sustentada no nível de valores, tanto ascendente como descendente. Esse valor é diferente de picos e quedas, que são mudanças instantâneas ou de curta duração.  
+* **Alteração no nível bidirecional**: um aumento ou diminuição sustentada no nível de valores, tanto ascendente como descendente. Esse valor é diferente de picos e quedas, que são mudanças instantâneas ou de curta duração.  
 
 * **Tendência positiva lenta**: um aumento lento na tendência ao longo do tempo.  
 
-* **Tendência negativa lenta**: uma diminuição lenta da tendência ao longo do tempo.  
+* **Tendência negativa lenta**: uma redução lenta na tendência ao longo do tempo.  
 
 Ao usar o operador AnomalyDetection, será necessário especificar a cláusula **Limit Duration**. Essa cláusula especifica o intervalo de tempo (quanto tempo decorrido no histórico do evento atual) que deve ser considerado ao detectar anomalias. Opcionalmente, esse operador poderá ser limitado a apenas eventos correspondentes a uma determinada propriedade ou condição, usando a cláusula **When**. Como alternativa, esse operador também poderá processar grupos de eventos separadamente com base na chave especificada na cláusula **Partition by**. Treinamento e previsão ocorrem de forma independente para cada partição. 
 
@@ -95,7 +95,7 @@ O valor 3,25 mostrado no exemplo é apenas um ponto de partida sugerido. Ajuste 
 
 Diagramaticamente, as etapas são semelhantes às seguintes: 
 
-![Modelos de treinamento](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Modelos de treinamento de aprendizado de máquina](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Modelo** | **Hora de início do treinamento** | **Hora de começar a usar sua pontuação** |
 |---------|---------|---------|
@@ -115,7 +115,7 @@ No nível de Machine Learning, o algoritmo de detecção de anomalia calcula um 
 
 Vamos revisar a computação de estranheza em detalhes (assumir um conjunto de janelas de histórico com eventos existentes): 
 
-1. **Alteração de nível bidirecional:** com base na janela de histórico, um intervalo de operação normal é computado como [percentil 10, percentil 90] que é o valor do percentil 10 como o limite inferior e o valor do percentil 90 como limite superior. Um valor de estranheza para o evento atual é computado como:  
+1. **Alteração no nível bidirecional:** com base na janela de histórico, um intervalo de operação normal é computado como [10º percentil, 90º percentil] que é o valor do 10º percentil como o limite inferior e o valor do 90º percentil como limite superior. Um valor de estranheza para o evento atual é computado como:  
 
    - 0, se event_value estiver no intervalo de operação normal  
    - event_value/90th_percentile, se event_value > 90th_percentile  
@@ -126,7 +126,7 @@ Vamos revisar a computação de estranheza em detalhes (assumir um conjunto de j
    - Inclinação, se a inclinação for positiva  
    - 0, caso contrário 
 
-3. **Tendência negativa lenta:** uma linha de tendência sobre os valores de evento na janela de histórico é calculada e a operação pesquisa a tendência negativa dentro da linha. O valor de estranheza é calculado como: 
+3. **Tendência negativa lenta:** uma linha de tendência sobre os valores de evento na janela de histórico é calculada e a operação pesquisa uma tendência negativa dentro da linha. O valor de estranheza é calculado como: 
 
    - Inclinação, se a inclinação for negativa  
    - 0, caso contrário  
@@ -145,15 +145,15 @@ Os seguintes pontos devem ser considerados ao usar esse detector:
 
    Isso é mostrado nas figuras 1 e 2 abaixo, usando uma alteração de limite superior (a mesma lógica aplica-se a uma mudança de limite inferior). Em ambas as figuras, as formas de onda são uma alteração de nível anômala. As linhas verticais alaranjadas indicam limites de salto e tamanho de salto é o mesmo que a janela de detecção especificada no operador AnomalyDetection. As linhas verdes indicam o tamanho da janela de treinamento. Na Figura 1, o tamanho de salto é o mesmo que o tempo de duração da anomalia. Na Figura 2, o tamanho de salto é metade do tempo de duração da anomalia. Em todos os casos, uma alteração ascendente é detectada porque o modelo utilizado para pontuação foi treinado em dados normais. Mas, com base em como o detector de alteração de nível bidirecional funciona, ele deve excluir os valores normais da janela de treinamento usada para o modelo que marca o retorno ao normal. Na Figura 1, o treinamento do modelo de pontuação inclui alguns eventos normais, desse modo, retornar ao normal não pode ser detectado. Mas, na Figura 2, o treinamento inclui apenas a parte anômala, que garante que o retorno ao normal seja detectado. Qualquer coisa menor que a metade também funciona pela mesma razão, enquanto que qualquer coisa maior acabará incluindo um pouco dos eventos normais. 
 
-   ![AD com tamanho da janela igual comprimento de anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD com tamanho da janela igual comprimento de anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD com tamanho da janela é igual à metade do comprimento da anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD com tamanho da janela é igual à metade do comprimento da anomalia](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. Nos casos em que o comprimento da anomalia não pode ser previsto, esse detector opera com o melhor esforço. No entanto, escolher uma janela de tempo mais estreita limita os dados de treinamento, o que aumentaria a probabilidade de detectar o retorno ao normal. 
 
 3. No cenário a seguir, a anomalia mais longa não é detectada, pois a janela de treinamento já inclui uma anomalia do mesmo valor alto. 
 
-   ![Anomalias com o mesmo tamanho](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Anomalias detectadas com o mesmo tamanho](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Exemplo de consulta para detectar anomalias 
 

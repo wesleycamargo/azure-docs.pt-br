@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263886"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075345"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Taxa de transferência de provisionamento nos contêineres e bancos de dados do Azure Cosmos
 
@@ -19,7 +19,7 @@ Um banco de dados do Azure Cosmos é uma unidade de gerenciamento para um conjun
 
 O Azure Cosmos DB permite configurar o rendimento em duas granularidades - os **Contêineres do Azure Cosmos**  e os **bancos de dados do Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Definir a taxa de transferência em um contêiner do Azure Cosmos  
+## <a name="setting-throughput-on-a-container"></a>Configurar a taxa de transferência em um contêiner  
 
 A taxa de transferência provisionada em um contêiner do Azure Cosmos é reservada exclusivamente para o contêiner. O contêiner recebe a taxa de transferência provisionada o tempo todo. A taxa de transferência provisionada em um contêiner é respaldada financeiramente por SLAs. Para configurar a taxa de transferência em um contêiner, consulte [Como provisionar a taxa de transferência em um contêiner do Azure Cosmos](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ A taxa de transferência provisionada em um contêiner do Azure Cosmos é unifor
 
 ![Partição de recursos](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Taxa de transferência de configuração em um banco de dados Cosmos do Azure
+## <a name="setting-throughput-on-a-database"></a>Configurar a taxa de transferência em um banco de dados
 
 Quando você provisiona a taxa de transferência em um banco de dados do Azure Cosmos, a taxa de transferência é compartilhada entre todos os contêineres no banco de dados, a menos que você tenha especificado uma taxa de transferência provisionada em contêineres específicos. O compartilhamento da taxa de transferência do banco de dados entre seus contêineres é análogo à hospedagem de um banco de dados em um cluster de computadores. Como todos os contêineres dentro de um banco de dados compartilham os recursos disponíveis em um computador, naturalmente, não é possível prever o desempenho em qualquer contêiner específico. Para configurar a taxa de transferência em um banco de dados, consulte [Como configurar a taxa de transferência provisionada em um banco de dados do Azure Cosmos](how-to-provision-database-throughput.md).
 
@@ -53,7 +53,7 @@ A qualquer momento, a taxa de transferência alocada a um contêiner dentro de u
 
 ![Partição de recursos](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>A definição de taxa de transferência em um banco de dados Cosmos do Azure e um contêiner
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Configurar a taxa de transferência em um banco de dados e um contêiner
 
 Você pode combinar os dois modelos e provisionar a taxa de transferência no banco de dados e no contêiner. O exemplo a seguir mostra como provisionar a taxa de transferência em um banco de dados do Azure Cosmos e em um contêiner:
 
@@ -67,7 +67,7 @@ Você pode combinar os dois modelos e provisionar a taxa de transferência no ba
 
 |**Cota**  |**Taxa de transferência provisionada em um banco de dados**  |**Taxa de transferência provisionada em um contêiner**|
 |---------|---------|---------|
-|Mínimo de RUs |400 |400|
+|Mínimo de RUs |400 (após os primeiros quatro contêineres, cada contêiner adicional requer um mínimo de 100 RU/s). |400|
 |Mínimo de RUs por contêiner|100|400|
 |Mínimo de RUs necessários para consumir 1 GB de armazenamento|40|40|
 |Máximo de RUs|Ilimitado, no banco de dados|Ilimitado, no contêiner|

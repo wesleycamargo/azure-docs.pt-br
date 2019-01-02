@@ -1,20 +1,19 @@
 ---
-title: Usar feed de alterações do Microsoft Azure Cosmos DB para visualizar análise de dados em tempo real | Microsoft Docs
+title: Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 description: Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para reconhecer padrões de usuário, executar análise de dados em tempo real e visualização.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685490"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090747"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
@@ -47,7 +46,7 @@ O diagrama a seguir representa o fluxo de dados e os componentes envolvidos na s
 
 3. **Feed de alterações:** o feed de alterações escutará as alterações na coleção do Azure Cosmos DB. Todas as vezes que um novo documento for adicionado à coleção (ou seja, quando um evento ocorrer como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item), o feed de alterações disparará um [Azure Functions](../azure-functions/functions-overview.md).  
 
-4. **Azure Functions:** o Azure Functions processa os novos dados e envia-os para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md).  
+4. **Função do Azure:** a Função do Azure processa os novos dados e os envia para um [Hub de Eventos do Azure](../event-hubs/event-hubs-about.md).  
 
 5. **Hub de Eventos:** o Hub de Eventos do Azure armazena esses eventos e envia-os para o [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para executar análises adicionais.  
 
@@ -95,13 +94,12 @@ Crie os recursos do Azure - Azure Cosmos DB, Conta de armazenamento, Hub de Even
 
 Agora, você criará uma coleção para realizar eventos do site de comércio eletrônico. Quando um usuário visualiza um item, adiciona um item ao carrinho ou compra um item, a coleção recebe um registro que inclui a ação ("visualizado", "adicionado" ou "comprado"), o nome do item envolvido, o preço do item envolvido e o número de ID do carrinho de usuário envolvido.
 
-1. Acesse o [portal do Azure](http://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
+1. Acesse o [portal do Azure](https://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
 
 2. No painel **Data Explorer**, selecione **Nova Coleção** e preencha o formulário com os seguintes detalhes:  
 
    * Para o campo **ID do Banco de Dados**, selecione **Criar novo** e, em seguida, insira **changefeedlabdatabase**. Deixe a caixa **Provisionar taxa de transferência do banco de dados** desmarcada.  
    * Para o campo de ID da **Coleção**, insira **changefeedlabcollection**.  
-   * Para **Capacidade de armazenamento**, selecione **Ilimitado**.  
    * Para o campo **Chave de partição**, insira **/Item**. Esse campo diferencia maiúsculas e minúsculas, portanto, insira corretamente.  
    * Para o campo **Taxa de transferência**, insira **10000**.  
    * Selecione o botão **OK**.  
@@ -120,7 +118,7 @@ Agora, você criará uma coleção para realizar eventos do site de comércio el
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obter a cadeia de conexão do Azure Cosmos DB
 
-1. Acesse o [portal do Azure](http://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
+1. Acesse o [portal do Azure](https://portal.azure.com/) e localize a **Conta do Azure Cosmos DB** criada pela implantação do modelo.  
 
 2. Navegue até o painel **Chaves**, copie a CADEIA DE CONEXÃO PRIMÁRIA e copie-a para um bloco de notas ou outro documento que você terá acesso a todo o laboratório. É necessário rotulá-la como **Cadeia de Conexão do Cosmos DB**. Posteriormente, será necessário copiar a cadeia de caracteres no código, portanto, anote-a e lembre-se em que local está armazenando-a.
 
@@ -180,7 +178,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
  
 6. Aguarde o programa ser executado. As estrelas significam que os dados estão sendo coletados! Mantenha o programa em execução - é importante que muitos dados sejam coletados.  
 
-7. Se você navegar até o [portal do Azure](http://portal.azure.com/), em seguida, para a conta do Cosmos DB no grupo de recursos e, em **Data Explorer**, verá os dados aleatórios importados em **changefeedlabcollection** .
+7. Se você navegar até o [portal do Azure](https://portal.azure.com/), em seguida, para a conta do Cosmos DB no grupo de recursos e, em **Data Explorer**, verá os dados aleatórios importados em **changefeedlabcollection** .
  
    ![Dados gerados no portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -188,7 +186,7 @@ Para ver como o feed de alterações processa novas ações em um site de comér
 
 O Azure Stream Analytics é um serviço de nuvem totalmente gerenciado para processamento de dados de streaming em tempo real. Neste laboratório, você usará o Stream Analytics para processar novos eventos do Hub de Eventos (isto é, quando um item for visualizado, adicionado a um carrinho ou comprado), incorporar esses eventos à análise de dados em tempo real e enviá-los para o Power BI para visualização.
 
-1. No [portal do Azure](http://portal.azure.com/), navegue até o grupo de recursos e, em seguida, até **streamjob1** (o job de análise de fluxo que você criou no prelab).  
+1. No [portal do Azure](https://portal.azure.com/), navegue até o grupo de recursos e, em seguida, até **streamjob1** (o job de análise de fluxo que você criou no prelab).  
 
 2. Selecione **Entradas** como demonstrado abaixo.  
 
@@ -323,11 +321,11 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
 
 Agora, você observará como é possível usar a nova ferramenta de análise de dados para conectar um site de comércio eletrônico real. Para criar o site de comércio eletrônico, use um banco de dados do Azure Cosmos DB para armazenar a lista de categorias de produtos (Femininos, Masculinos, Unissex), o catálogo de produtos e uma lista dos itens mais populares.
 
-1. Navegue de volta para o [portal do Azure](http://portal.azure.com/), depois para a **conta do Cosmos DB** e, em seguida, para **Data Explorer**.  
+1. Navegue de volta para o [portal do Azure](https://portal.azure.com/), depois para a **conta do Cosmos DB** e, em seguida, para **Data Explorer**.  
 
    Adicione duas coleções em **changefeedlabdatabase** -  **de produtos** e **categorias** com capacidade de armazenamento fixo.
 
-   Adicione outra coleção em **changefeedlabdatabase** nomeada **topItems** com capacidade de armazenamento **Ilimitado**. Grave **/Item** como a chave de partição.
+   Adicione outra coleção em **changefeedlabdatabase** chamada **topItems** e **/Item** como a chave de partição.
 
 2. Selecione a coleção **topItems** e, em **Escala e configurações**, defina a **Vida Útil** como **30 segundos** para que a coleção topItems seja atualizada a cada 30 segundos.
 
@@ -393,7 +391,7 @@ Agora, você observará como é possível usar a nova ferramenta de análise de 
 
 ## <a name="delete-the-resources"></a>Excluir os recursos
 
-Para excluir os recursos criados durante este laboratório, navegue até o grupo de recursos no [portal do Azure](http://portal.azure.com/) e, em seguida, selecione **Excluir grupo de recursos** no menu superior da página e siga as instruções fornecidas.
+Para excluir os recursos criados durante este laboratório, navegue até o grupo de recursos no [portal do Azure](https://portal.azure.com/) e, em seguida, selecione **Excluir grupo de recursos** no menu superior da página e siga as instruções fornecidas.
 
 ## <a name="next-steps"></a>Próximas etapas 
   

@@ -1,5 +1,5 @@
 ---
-title: Configurar dispositivos downstream com o Azure IoT Edge | Microsoft Docs
+title: Conectar dispositivos downstream – Azure IoT Edge | Microsoft Docs
 description: Como configurar dispositivos downstream ou folha para se conectar por meio de dispositivos de gateway do Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566220"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083325"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conecte um dispositivo downstream a um gateway do Azure IoT Edge
 
@@ -88,7 +89,7 @@ sudo update-ca-certificates
 
 Você deve ver uma mensagem que diz, "Atualizando certificados no /etc/ssl/certs... 1 adicionado, removido 0; feito."
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 As etapas a seguir são um exemplo de como instalar um certificado de autoridade de certificação em um host do Windows. Esta amostra pressupõe que você esteja usando o certificado **azure-iot-test-only.root.ca.cert.pem** dos artigos de pré-requisitos e que você tenha copiado o certificado em um local no downstream dispositivo.  
 

@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 663cf6ba2eec4b2abbc6ab4a37e05b756ee67ee9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016804"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438856"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas da versão mais recente do Microsoft Azure HDInsight
 
 Este artigo fornece informações sobre as atualizações de versão **mais recentes** do Azure HDInsight. Para obter informações sobre versões anteriores, consulte o [Arquivo morto de notas de versão do HDInsight](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, confira o [artigo sobre controle de versão do HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="summary"></a>Resumo
 
-O Microsoft Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de código-fonte aberto Hadoop e Spark no Azure. Com [mais o corte de 50 por cento no HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), os clientes que mudarem para a nuvem estão tendo mais economia que nunca.
+O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure. Com [mais o corte de 50 por cento no HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), os clientes que mudarem para a nuvem estão tendo mais economia que nunca.
 
 ## <a name="new-features"></a>Novos recursos
 
@@ -33,9 +33,9 @@ Os recursos e novas atualizações se enquadram nas categorias a seguir:
 
 1.  ***Atualize o Hadoop e outros projetos de código aberto*** - Além de mais de 1000 correções de erros em mais de 20 projetos de código aberto, esta atualização contém uma nova versão do **Spark (2.3)** e **Kafka (1.0)**.
 
-    a.  [**Novos recursos no Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+     a.  [**Novos recursos no Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Novos recursos no Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Novos recursos no Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***Atualize o R Server 9.1 para o Serviços de Machine Learning 9.3*** - Com esta versão, estamos oferecendo aos cientistas de dados e engenheiros o melhor do código aberto aprimorado com inovações algorítmicas e facilidade de operacionalização, todos disponíveis em seu idioma preferido a velocidade do Apache Spark. Esta versão expande os recursos oferecidos no R Server com suporte adicional ao Python, levando à alteração do nome do cluster de R Server para ML Services. 
 
@@ -89,149 +89,149 @@ Versões mais recentes de alguns componentes do Apache, às vezes, estão inclu�
 
 Esta versão oferece Hadoop Common 2.7.3 e os seguintes patches de Apache:
 
--   [HADOOP-13190](https://issues.apache.org/jira/browse/HADOOP-13190): mencionar LoadBalancingKMSClientProvider na documentação KMS HA.
+-   [HADOOP-13190](https://issues.apache.org/jira/browse/HADOOP-13190): Mencionar LoadBalancingKMSClientProvider na documentação do KMS HA.
 
 -   [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227): AsyncCallHandler deve usar um evento controlado por arquitetura para lidar com as chamadas assíncronas.
 
--   [HADOOP-14104](https://issues.apache.org/jira/browse/HADOOP-14104): cliente sempre deve pedir nameNode para o caminho do fornecedor.
+-   [HADOOP-14104](https://issues.apache.org/jira/browse/HADOOP-14104): O cliente sempre deve solicitar namenode para o caminho do fornecedor do KMS.
 
--   [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799): atualizar nimbus-jose-jwt para 4.41.1.
+-   [HADOOP-14799](https://issues.apache.org/jira/browse/HADOOP-14799): Atualizar nimbus-jose-jwt para 4.41.1.
 
--   [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814): corrigir a alteração de API incompatível em FsServerDefaults para 14104 HADOOP.
+-   [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814): Corrigir a alteração de API incompatível em FsServerDefaults para HADOOP-14104.
 
--   [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903): adicionar json-smart para pom.xml.
+-   [HADOOP-14903](https://issues.apache.org/jira/browse/HADOOP-14903): Adicionar json-smart a pom.xml.
 
--   [HADOOP-15042](https://issues.apache.org/jira/browse/HADOOP-15042): o Azure PageBlobInputStream.skip() pode retornar um valor negativo quando numberOfPagesRemaining for 0.
+-   [HADOOP-15042](https://issues.apache.org/jira/browse/HADOOP-15042): Azure PageBlobInputStream.skip() poderá retornar um valor negativo quando numberOfPagesRemaining for 0.
 
--   [HADOOP 15255](https://issues.apache.org/jira/browse/HADOOP-15255): suporte de conversão maiusculas e minúsculas para nomes de grupo em LdapGroupsMapping.
+-   [HADOOP-15255](https://issues.apache.org/jira/browse/HADOOP-15255): Suporte para a conversão de maiúsculas e minúsculas para nomes de grupo em LdapGroupsMapping.
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): excluir o json-smart explicitamente do hadoop-auth pom.xml.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#fechar não está liberando ScheduledThreadPoolExecutors.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#close não está liberando ScheduledThreadPoolExecutors.
 
--   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): chamar stopWriter() com o bloqueio FSDatasetImpl mantido pode bloquear outros threads (cmccabe).
+-   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Chamar stopWriter() com o bloqueio FSDatasetImpl mantido pode bloquear outros threads (cmccabe).
 
--   [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267): extra “sincronizado” no FsDatasetImpl\#recoverAppend e FsDatasetImpl\#recoverClose.
+-   [HDFS-10267](https://issues.apache.org/jira/browse/HDFS-10267): Extra “sincronizado” no FsDatasetImpl\#recoverAppend e FsDatasetImpl\#recoverClose.
 
--   [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489): substituir dfs.encryption.key.provider.uri para zonas de criptografia do HDFS.
+-   [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489): Substituir dfs.encryption.key.provider.uri para zonas de criptografia do HDFS.
 
--   [HDFS 11384](https://issues.apache.org/jira/browse/HDFS-11384): adicione a opção  o balanceador para dispersar as chamadas getBlocks para evitar pico no rpc.CallQueueLength do NameNode.
+-   [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384): Adicionar a opção para o balanceador dispersar as chamadas getBlocks para evitar pico de rpc.CallQueueLength do NameNode.
 
--   [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689): a nova exceção lançada pelo DFSClient % isHDFSEncryptionEnabled rompeu o código hacky hive.
+-   [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689): A nova exceção lançada pelo DFSClient%isHDFSEncryptionEnabled interrompeu o código hacky hive.
 
--   [HDFS-11711](https://issues.apache.org/jira/browse/HDFS-11711): DN não deve excluir o bloco na exceção "há muitos arquivos abertos".
+-   [HDFS-11711](https://issues.apache.org/jira/browse/HDFS-11711): DN não deve excluir o bloco na exceção “Muitos arquivos abertos”.
 
--   [HDFS-12347](https://issues.apache.org/jira/browse/HDFS-12347): o TestBalancerRPCDelay\#testBalancerRPCDelay falha com muita frequência.
+-   [HDFS-12347](https://issues.apache.org/jira/browse/HDFS-12347): O TestBalancerRPCDelay\#testBalancerRPCDelay falha com muita frequência.
 
--   [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781): após Datanode estar inoperante, na guia Datanode de interface do usuário do NameNode será lançada uma mensagem de aviso.
+-   [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781): Após Datanode estar inoperante, na guia Datanode de interface do usuário do NameNode será lançada uma mensagem de aviso.
 
--   [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054): manipulação do PathIsNotEmptyDirectoryException em DFSClient para excluir chamada.
+-   [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054): Manipulação do PathIsNotEmptyDirectoryException na chamada de exclusão de DFSClient.
 
--   [HDFS-13120](https://issues.apache.org/jira/browse/HDFS-13120): a diferença de instantâneo poderia ser corrompida após concat.
+-   [HDFS-13120](https://issues.apache.org/jira/browse/HDFS-13120): Diferença de instantâneo poderia ser corrompida após concat.
 
--   [YARN-3742](https://issues.apache.org/jira/browse/YARN-3742): YARN RM será desligado se a criação ZKCLIENT atingir o tempo limite.
+-   [YARN-3742](https://issues.apache.org/jira/browse/YARN-3742): YARN RM será desligado se a criação de ZKClient atingir o tempo limite.
 
--   [YARN-6061](https://issues.apache.org/jira/browse/YARN-6061): adicionar um UncaughtExceptionHandler para threads críticos no RM.
+-   [YARN-6061](https://issues.apache.org/jira/browse/YARN-6061): Adicionar um UncaughtExceptionHandler para threads críticos no RM.
 
 -   [YARN-7558](https://issues.apache.org/jira/browse/YARN-7558): o comando de logs do yarn falha ao obter logs para executar os contêineres, se a autenticação de interface do usuário estiver habilitada.
 
--   [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697): a busca de logs para o aplicativo concluído falha, mesmo que a agregação de log esteja concluída.
+-   [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697): A busca de logs para o aplicativo concluído falha, mesmo que a agregação de log esteja concluída.
 
 HDP 2.6.4 forneceu Hadoop Common 2.7.3 e os seguintes patches do Apache:
 
--   [HADOOP-13700](https://issues.apache.org/jira/browse/HADOOP-13700): remova IOException rompida da incialização de TrashPolicy\#inicializar e assinaturas \#getInstance.
+-   [HADOOP-13700](https://issues.apache.org/jira/browse/HADOOP-13700): Remover a IOException não lançada de assinaturas de TrashPolicy\#initialize e \#getInstance.
 
--   [HADOOP-13709](https://issues.apache.org/jira/browse/HADOOP-13709): capacidade de limpar subprocessos gerados pelo Shell quando o processo é encerrado.
+-   [HADOOP-13709](https://issues.apache.org/jira/browse/HADOOP-13709): Capacidade de limpar subprocessos gerados pelo Shell quando o processo é encerrado.
 
 -   [HADOOP-14059](https://issues.apache.org/jira/browse/HADOOP-14059): erro de digitação na mensagem de erro s3a rename(self, subdir).
 
--   [HADOOP-14542](https://issues.apache.org/jira/browse/HADOOP-14542): adicionar IOUtils.cleanupWithLogger que aceita a API do agente slf4j.
+-   [HADOOP-14542](https://issues.apache.org/jira/browse/HADOOP-14542): Adicionar IOUtils.cleanupWithLogger que aceita a API do agente slf4j.
 
--   [HDFS-9887](https://issues.apache.org/jira/browse/HDFS-9887): os tempos limite de soquete WebHdfs devem ser configuráveis.
+-   [HDFS-9887](https://issues.apache.org/jira/browse/HDFS-9887): Os tempos limite de soquete WebHdfs devem ser configuráveis.
 
--   [HDFS-9914](https://issues.apache.org/jira/browse/HDFS-9914): corrigir o tempo limite de conexão/leitura do WebhDFS configurável.
+-   [HDFS-9914](https://issues.apache.org/jira/browse/HDFS-9914): Corrigir o tempo limite de conexão/leitura do WebhDFS configurável.
 
--   [MAPREDUCE-6698](https://issues.apache.org/jira/browse/MAPREDUCE-6698): aumentar o tempo limite em TestUnnecessaryBlockingOnHist oryFileInfo.testTwoThreadsQueryingDifferentJobOfSameUser.
+-   [MAPREDUCE-6698](https://issues.apache.org/jira/browse/MAPREDUCE-6698): Aumentar o tempo limite em TestUnnecessaryBlockingOnHist oryFileInfo.testTwoThreadsQueryingDifferentJobOfSameUser.
 
--   [YARN-4550](https://issues.apache.org/jira/browse/YARN-4550): alguns testes em TestContainerLanch falham em ambiente de localidade não inglês.
+-   [YARN-4550](https://issues.apache.org/jira/browse/YARN-4550): Alguns testes em TestContainerLanch falham em ambiente de localidade não inglês.
 
--   [YARN-4717](https://issues.apache.org/jira/browse/YARN-4717): o TestResourceLocalizationService.testPublicResourceInitializesLocalDir falha intermitentemente devido a IllegalArgumentException de limpeza.
+-   [YARN-4717](https://issues.apache.org/jira/browse/YARN-4717): O TestResourceLocalizationService.testPublicResourceInitializesLocalDir falha intermitentemente devido a IllegalArgumentException de limpeza.
 
--   [YARN-5042](https://issues.apache.org/jira/browse/YARN-5042): montagem /sys/fs/cgroup em contêineres do Docker como montagem de somente leitura.
+-   [YARN-5042](https://issues.apache.org/jira/browse/YARN-5042): Montagem /sys/fs/cgroup em contêineres do Docker como montagem de somente leitura.
 
--   [YARN-5318](https://issues.apache.org/jira/browse/YARN-5318): corrigir a falha de teste intermitente de TestRMAdminService\#te stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
+-   [YARN-5318](https://issues.apache.org/jira/browse/YARN-5318): Corrigir a falha de teste intermitente de TestRMAdminService\#te stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
 
--   [YARN-5641](https://issues.apache.org/jira/browse/YARN-5641): o localizador deixa para trás tarballs após a conclusão do contêiner.
+-   [YARN-5641](https://issues.apache.org/jira/browse/YARN-5641): O localizador deixa para trás tarballs após a conclusão do contêiner.
 
--   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): refatorar TestResourceLocalizationService\#testDownloadingResourcesOnContainer para que seja menos de 150 linhas.
+-   [YARN-6004](https://issues.apache.org/jira/browse/YARN-6004): Refatorar TestResourceLocalizationService\#testDownloadingResourcesOnContainer para que seja menos de 150 linhas.
 
--   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): contêineres presos no estado de localização.
+-   [YARN-6078](https://issues.apache.org/jira/browse/YARN-6078): Contêineres presos no estado de localização.
 
--   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NPE em LinuxContainerExecutor devido a código de saída PrivilegedOperationException nulo.
+-   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NPE em LinuxContainerExecutor devido ao código de saída PrivilegedOperationException nulo.
 
 ### <a name="hbase"></a>HBase
 
 Esta versão oferece HBase 1.1.2 e os seguintes patches de Apache.
 
--   [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376): melhorias ao balanceador de carga Stochastic.
+-   [HBASE-13376](https://issues.apache.org/jira/browse/HBASE-13376): Melhorias para o balanceador de carga Stochastic.
 
--   [HBASE-13716](https://issues.apache.org/jira/browse/HBASE-13716): parar de usar FSConstants do Hadoop.
+-   [HBASE-13716](https://issues.apache.org/jira/browse/HBASE-13716): Parar de usar FSConstants do Hadoop.
 
--   [HBASE-13848](https://issues.apache.org/jira/browse/HBASE-13848): senhas de acesso InfoServer SSL por meio da API do provedor de credenciais.
+-   [HBASE-13848](https://issues.apache.org/jira/browse/HBASE-13848): Senhas de acesso de SSL do InfoServer por meio da API do Provedor de Credenciais.
 
--   [HBASE-13947](https://issues.apache.org/jira/browse/HBASE-13947): Uso do MasterServices em vez de Servidor no AssignmentManager.
+-   [HBASE-13947](https://issues.apache.org/jira/browse/HBASE-13947): Usar MasterServices em vez de Servidor no AssignmentManager.
 
--   [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135): fase de restauração/backup do HBase 3: Mesclar imagens de backup.
+-   [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135): Fase 3 do Backup/Restauração de HBase: Mesclar imagens de backup.
 
--   [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473): localidade de região de computação em paralelo.
+-   [HBASE-14473](https://issues.apache.org/jira/browse/HBASE-14473): Localidade de região de computação em paralelo.
 
--   [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517): Mostrar a versão do regionserver na página status master.
+-   [HBASE-14517](https://issues.apache.org/jira/browse/HBASE-14517): Mostrar a versão de regionserver na página status mestre.
 
--   [HBASE-14606](https://issues.apache.org/jira/browse/HBASE-14606): os testes TestSecureLoadIncrementalHFiles atingiram o tempo limite no tronco compilar no apache.
+-   [HBASE-14606](https://issues.apache.org/jira/browse/HBASE-14606): Os testes TestSecureLoadIncrementalHFiles atingiram o tempo limite no build do tronco no apache.
 
--   [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210): desfazer o registro em log de balanceador de carga agressivo em dezenas de linhas por milissegundo.
+-   [HBASE-15210](https://issues.apache.org/jira/browse/HBASE-15210): Desfazer o registro em log de balanceador de carga agressivo em dezenas de linhas por milissegundo.
 
--   [HBASE-15515](https://issues.apache.org/jira/browse/HBASE-15515): melhorar o LocalityBasedCandidateGenerator no balanceador.
+-   [HBASE-15515](https://issues.apache.org/jira/browse/HBASE-15515): Melhorar o LocalityBasedCandidateGenerator no balanceador.
 
--   [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615): tempo de suspensão errado quando RegionServerCallable precisar tentar novamente.
+-   [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615): Tempo de suspensão errado quando RegionServerCallable precisar tentar novamente.
 
 -   [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode sob rs do par removido nunca poderá ser excluído.
 
--   [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570): localidade de região de computação ao startup.
+-   [HBASE-16570](https://issues.apache.org/jira/browse/HBASE-16570): Localidade de região de computação ao startup.
 
--   [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810): o balanceador HBase lança ArrayIndexOutOfBoundsException quando regionservers estiverem em /hbase/draining znode e descarregado.
+-   [HBASE-16810](https://issues.apache.org/jira/browse/HBASE-16810): O balanceador HBase lança ArrayIndexOutOfBoundsException quando regionservers estão em /hbase/draining znode e descarregado.
 
--   [HBASE-16852](https://issues.apache.org/jira/browse/HBASE-16852): TestDefaultCompactSelection falhou no branch 1.3.
+-   [HBASE-16852](https://issues.apache.org/jira/browse/HBASE-16852): TestDefaultCompactSelection falhou no branch-1.3.
 
--   [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387): reduzir a sobrecarga de relatório de exceção no RegionActionResult para multi ().
+-   [HBASE-17387](https://issues.apache.org/jira/browse/HBASE-17387): Reduzir a sobrecarga de relatório de exceção no RegionActionResult para multi().
 
--   [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850): utilitário de reparo do sistema de backup.
+-   [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850): Utilitário de reparo do sistema de backup.
 
--   [HBASE-17931](https://issues.apache.org/jira/browse/HBASE-17931): atribuir as tabelas do sistema para servidores com a versão mais recente.
+-   [HBASE-17931](https://issues.apache.org/jira/browse/HBASE-17931): Atribuir as tabelas do sistema para servidores com a versão mais recente.
 
--   [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083): fazer com que o arquivo grande/pequeno limpe o número de thread configurável no HFileCleaner.
+-   [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083): Fazer com que o arquivo grande/pequeno limpe o número de thread configurável no HFileCleaner.
 
--   [HBASE-18084](https://issues.apache.org/jira/browse/HBASE-18084): melhorar o CleanerChore para limpar do diretório que consome mais espaço em disco.
+-   [HBASE-18084](https://issues.apache.org/jira/browse/HBASE-18084): Melhorar o CleanerChore para limpar do diretório que consome mais espaço em disco.
 
--   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164): função do custo de localidade muito mais rápida e gerador do candidato.
+-   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164): Função do custo de localidade muito mais rápida e gerador do candidato.
 
--   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): no modo autônomo com o sistema de arquivos locais da mensagem de aviso de logs HBase: fala para invocar o método “unbuffer” na classe org.apache.hadoop.fs.FSDataInputStream.
+-   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212): No modo autônomo com a Mensagem de aviso de logs HBase do sistema de arquivos local: Falha ao invocar o método 'unbuffer' na classe org.apache.hadoop.fs.FSDataInputStream.
 
--   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): verificação da configuração ineficaz no BackupLogCleaner\#getDeletableFiles().
+-   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808): Verificação da configuração ineficaz no BackupLogCleaner\#getDeletableFiles().
 
 -   [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052): FixedFileTrailer deve reconhecer a classe CellComparatorImpl no branch-1. x.
 
--   [HBASE-19065](https://issues.apache.org/jira/browse/HBASE-19065): HRegion\#bulkLoadHFiles() deve esperar a Região\#flush() concorrente para concluir.
+-   [HBASE-19065](https://issues.apache.org/jira/browse/HBASE-19065): HRegion\#bulkLoadHFiles() deve esperar a Region\#flush() concorrente para concluir.
 
 -   [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285): Adicionar histogramas de latência por tabela.
 
--   [HBASE-19393](https://issues.apache.org/jira/browse/HBASE-19393): cabeçalho completo HTTP 413 acessando HBase da interface do usuário usando SSL.
+-   [HBASE-19393](https://issues.apache.org/jira/browse/HBASE-19393): Cabeçalho completo HTTP 413 acessando HBase da interface do usuário usando SSL.
 
 -   [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395): \[branch-1\] TestEndToEndSplitTransaction.testMasterOpsWhileSplitting falha com NPE.
 
 -   [HBASE-19421](https://issues.apache.org/jira/browse/HBASE-19421): branch-1 não é compilado no Hadoop 3.0.0.
 
--   [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934): HBaseSnapshotException ao ler réplicas está habilitado e o instantâneo on-line é tirado após a divisão da região.
+-   [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934): HBaseSnapshotException quando as réplicas de leitura estão habilitadas e o instantâneo online é tirado após a divisão da região.
 
 -   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[backport\] NullPointerException ao restaurar um instantâneo após a divisão de uma região.
 
@@ -241,135 +241,135 @@ Esta versão fornece Hive 1.2.1 e Hive 2.1.0 além dos patches a seguir:
 
 **Patches do Apache Hive 1.2.1:**
 
--   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors\#UnionConvertor faz uma conversão com defeito.
+-   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors\#UnionConvertor faz uma conversão com falha.
 
 -   [*HIVE-11266*](https://issues.apache.org/jira/browse/HIVE-11266): contagem(\*) resultado incorreto com base nas estatísticas de tabela para tabelas externas.
 
--   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245): comentários de coluna de suporte para um HBase com suporte de tabela.
+-   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245): Comentários de coluna de suporte para um HBase com suporte de tabela.
 
--   [*HIVE-12315*](https://issues.apache.org/jira/browse/HIVE-12315): corrigir a dupla vetorizada dividida por zero.
+-   [*HIVE-12315*](https://issues.apache.org/jira/browse/HIVE-12315): Corrigir a dupla vetorizada dividida por zero.
 
--   [*HIVE-12360*](https://issues.apache.org/jira/browse/HIVE-12360): busca incorreta no ORC não compactado com a aplicação de predicado.
+-   [*HIVE-12360*](https://issues.apache.org/jira/browse/HIVE-12360): Busca incorreta no ORC não compactado com a aplicação de predicado.
 
--   [*HIVE-12378*](https://issues.apache.org/jira/browse/HIVE-12378): exceção no campo de HBaseSerDe.serialize binário.
+-   [*HIVE-12378*](https://issues.apache.org/jira/browse/HIVE-12378): Exceção no campo de HBaseSerDe.serialize binário.
 
--   [*HIVE-12785*](https://issues.apache.org/jira/browse/HIVE-12785): exibição com o tipo de unição e UDF para o struct que está rompido.
+-   [*HIVE-12785*](https://issues.apache.org/jira/browse/HIVE-12785): Exibição com o tipo de união e UDF para o struct que está interrompida.
 
--   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): descrever a tabela não mostra unicode corretamente.
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): Descrever a tabela não mostra unicode corretamente.
 
--   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive não dá suporte a tipo de união com o formato de arquivo do AVRO.
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): O Hive não é compatível com o tipo de união com o formato de arquivo do AVRO.
 
 -   [*HIVE-14421*](https://issues.apache.org/jira/browse/HIVE-14421): FS.deleteOnExit contém as referências para arquivos \_tmp\_space.db.
 
 -   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): Ignorar exceção de transição de estado de Operação Ilegal no SQLOperation.runQuery para expor a exceção real.
 
--   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): resultados incorretos quando hive.optimize.index.filter=true e a mesma tabela ORC é referenciada duas vezes na consulta, no modo de MR.
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): Resultados incorretos quando hive.optimize.index.filter=true e a mesma tabela ORC é referenciada duas vezes na consulta, no modo de MR.
 
--   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): tabela mapeada HBase no Hive insere falha para décimo.
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): Tabela mapeada HBase no Hive insere falha para decimal.
 
--   [*HIVE-16232*](https://issues.apache.org/jira/browse/HIVE-16232): suporte a computação de estatísticas para colunas em QuotedIdentifier.
+-   [*HIVE-16232*](https://issues.apache.org/jira/browse/HIVE-16232): Compatibilidade com computação de estatísticas para colunas em QuotedIdentifier.
 
--   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): com CBO habilitada, a consulta em exibições particionadas gerará IndexOutOfBoundException.
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): Com a CBO habilitada, a consulta em exibições particionadas gera IndexOutOfBoundException.
 
--   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): solicitação de exclusão com uma subconsulta com base na seleção em uma exibição.
+-   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013): Solicitação de exclusão com uma subconsulta com base na seleção em uma exibição.
 
 -   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): inserir a partição de substituição em uma tabela externa falhara ao remover primeiro a partição.
 
 -   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259): JDBC do Hive não reconhece as colunas UNIONTYPE.
 
--   [*HIVE-17419*](https://issues.apache.org/jira/browse/HIVE-17419): ANALISAR TABELA... COMPUTAR ESTATÍSTICAS PARA COLUNAS o comando exibe as estatísticas computadas para as tabelas mascaradas.
+-   [*HIVE-17419*](https://issues.apache.org/jira/browse/HIVE-17419): O comando ANALYZE TABLE...COMPUTE STATISTICS FOR COLUMNS exibe as estatísticas computadas para as tabelas mascaradas.
 
 -   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530): ClassCastException ao converter uniontype.
 
--   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): configurações de Hive-site serão ignoradas durante o cálculo de divisão HCatInputFormat.
+-   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Configurações do site Hive são ignoradas durante o cálculo de divisão HCatInputFormat.
 
--   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): adicionar vários\_teste agg.q para blobstores.
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Adicionar vários testes multiple\_agg.q para blobstores.
 
--   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): adicionar banco de dados e explicar testes de blobstore relacionados.
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Adicionar testes de blobstore Banco de Dados e Explicar relacionados.
 
 -   [*HIVE-17731*](https://issues.apache.org/jira/browse/HIVE-17731): adicionar uma opção de compatibilidade com versões anteriores para usuários externos a HIVE-11985.
 
--   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): com a consulta de vários Pig, 2 HCatStorers escrevendo para a mesma tabela atrapalharão as saídas uns dos outros.
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): Com a consulta múltipla Pig, 2 HCatStorers gravando na mesma tabela atrapalharão as saídas uns dos outros.
 
--   [*HIVE-17829*](https://issues.apache.org/jira/browse/HIVE-17829): ArrayIndexOutOfBoundsException - tabelas HBASE com suporte com o esquema Avro no Hive2.
+-   [*HIVE-17829*](https://issues.apache.org/jira/browse/HIVE-17829): ArrayIndexOutOfBoundsException – tabelas com suporte de HBASE com o esquema Avro no Hive2.
 
 -   [*HIVE-17845*](https://issues.apache.org/jira/browse/HIVE-17845): a inserção falhará se as colunas da tabela de destino estiverem em minúscula.
 
 -   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): analisar estatísticas em colunas disparadas por Compactador gera SQL malformado com &gt; coluna de partição 1.
 
--   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): otimização de configuração principal do webhcat do Hive.
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Otimização de configuração da entidade de segurança do webhcat do Hive.
 
--   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): replicação de suporte para a operação Alter Database.
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): Replicação de suporte para a operação Alter Database.
 
 -   [*HIVE-18090*](https://issues.apache.org/jira/browse/HIVE-18090): falha de pulsação acid quando metastore está conectado por meio da credencial do hadoop.
 
--   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): consulta de Hive, retornando resultados incorretos quando definido hive.groupby.orderby.position.alias como true.
+-   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): Consulta de Hive retornando resultados incorretos ao definir hive.groupby.orderby.position.alias como true.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): vetorização: reduzir lado do GRUPO POR MERGEPARTIAL com colunas duplicadas é interrompida.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vetorização: GROUP BY MERGEPARTIAL do lado da redução com colunas duplicadas está interrompida.
 
--   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade ao identificar a execução HiveMetaStore.
+-   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade da identidade executando HiveMetaStore.
 
--   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): remover a dependência HiveConf desnecessária para MiniHiveKdc.
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): Remover a dependência HiveConf desnecessária para MiniHiveKdc.
 
--   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): adicionar suporte a carga repl para adicionar o namespace "bruto" para a TDE com as mesmas chaves de criptografia.
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): Adicionar compatibilidade com repl load para adicionar o namespace "bruto" para a TDE com as mesmas chaves de criptografia.
 
 -   [*HIVE-18352*](https://issues.apache.org/jira/browse/HIVE-18352): introduzir uma opção de METADATAONLY ao fazer o REPL DUMP para pemitir integrações das outras ferramentas.
 
--   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): o CompactorMR deve chamar jobclient.close() para disparar a limpeza (Prabhu Joseph via Thejas Nair).
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): O CompactorMR deve chamar jobclient.close() para disparar a limpeza (Prabhu Joseph via Thejas Nair).
 
--   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ao consultar uma exibição particionada no ColumnPruner.
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ao consultar uma exibição particionada em ColumnPruner.
 
--   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429): a compactação deve lidar com um caso quando ele não produz nenhuma saída.
+-   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429): A compactação deve lidar com um caso quando ele não produz nenhuma saída.
 
--   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: fornecem uma maneira para os usuários do JDBC para passar informações de cookie por meio da cadeia de caracteres de conexão.
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Fornece uma maneira para os usuários do JDBC passarem informações de cookie por meio da cadeia de conexão.
 
--   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): o compactador não passa as propriedades da tabela para o gravador de Orc.
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): O compactador não passa as propriedades da tabela para o gravador de Orc.
 
 -   [*HIV-18467*](https://issues.apache.org/jira/browse/HIVE-18467): dar suporte a despejo de warehouse inteiro / carregar + criar/remover eventos de banco de dados (Anishek Agarwal, revisadas por Sankar Hariappan).
 
--   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): vetorização: VectorMapOperator tenta gravar muitas colunas de vetor para Hybrid Grace.
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vetorização: VectorMapOperator tenta gravar muitas colunas de vetor para Hybrid Grace.
 
 -   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): evento de inserção de DML pode tentar calcular uma soma de verificação em diretórios.
 
--   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): estender JsonSerDe para dar suporte ao tipo BINÁRIO.
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): Estender JsonSerDe para a compatibilidade com o tipo BINARY.
 
--   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): carga de Repl "com" cláusula não passa config para tarefas.
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): A cláusula "with" do repl load não passa a configuração para tarefas.
 
 -   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR não distingue entre partição e colunas virtuais.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve dar suporte à cláusula “com”.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve ser compatível com a cláusula “with”.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve dar suporte à cláusula “com”.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve ser compatível com a cláusula “with”.
 
--   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): limpar entradas no JDBC PreparedStatement.
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): Limpar entradas em PreparedStatement do JDBC.
 
--   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): carga Repl cláusula “com” não passa a configuração para as tarefas para tabelas de não participação.
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): A cláusula "with" do repl load não passa a configuração para as tarefas para tabelas de não participação.
 
--   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): tornar a compactação mais robusta, quando a atualização de estatísticas falhar.
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): Tornar a compactação mais robusta quando a atualização de estatísticas falhar.
 
 -   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817): exceção de ArrayIndexOutOfBounds durante a leitura da tabela ACID.
 
--   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): mesclagem automática falha ao "inserir no diretório como orcfile".
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): A mesclagem automática falha ao "inserir no diretório como orcfile".
 
--   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): não permitir o elemento inserido na UDFXPathUtil precisa funcionar se xercesImpl. jar no classpath.
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): A invalidação do elemento inserido na UDFXPathUtil precisará funcionar se xercesImpl.jar estiver no classpath.
 
--   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907): criar um utilitário para corrigir o problema de índice de chave acid do HIVE 18817.
+-   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907): Criar um utilitário para corrigir o problema de índice de chave acid do HIVE-18817.
 
 **Patches do Apache Hive2.1.0:**
 
--   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): descrever a tabela não mostra unicode corretamente.
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013): Descrever a tabela não mostra unicode corretamente.
 
--   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive não dá suporte a tipo de união com o formato de arquivo do AVRO.
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205): O Hive não é compatível com o tipo de união com o formato de arquivo do AVRO.
 
 -   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563): Ignorar exceção de transição de estado de Operação Ilegal no SQLOperation.runQuery para expor a exceção real.
 
--   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): resultados incorretos quando hive.optimize.index.filter=true e a mesma tabela ORC é referenciada duas vezes na consulta, no modo de MR.
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680): Resultados incorretos quando hive.optimize.index.filter=true e a mesma tabela ORC é referenciada duas vezes na consulta, no modo de MR.
 
--   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): tabela mapeada HBase no Hive insere falha para décimo.
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883): Tabela mapeada HBase no Hive insere falha para decimal.
 
--   [*HIVE 16757*](https://issues.apache.org/jira/browse/HIVE-16757): remover chamadas para AbstractRelNode.getRows preterido.
+-   [*HIVE-16757*](https://issues.apache.org/jira/browse/HIVE-16757): Remover chamadas para AbstractRelNode.getRows preterido.
 
--   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): com CBO habilitada, a consulta em exibições particionadas gerará IndexOutOfBoundException.
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828): Com a CBO habilitada, a consulta em exibições particionadas gera IndexOutOfBoundException.
 
 -   [*HIVE-17063*](https://issues.apache.org/jira/browse/HIVE-17063): inserir a partição de substituição em uma tabela externa falhara ao remover primeiro a partição.
 
@@ -377,157 +377,157 @@ Esta versão fornece Hive 1.2.1 e Hive 2.1.0 além dos patches a seguir:
 
 -   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530): ClassCastException ao converter uniontype.
 
--   [*HIVE 17600*](https://issues.apache.org/jira/browse/HIVE-17600): tornar a enforceBufferSize do OrcFile definível pelo usuário.
+-   [*HIVE-17600*](https://issues.apache.org/jira/browse/HIVE-17600): Tornar a enforceBufferSize do OrcFile definível pelo usuário.
 
 -   [*HIVE-17601*](https://issues.apache.org/jira/browse/HIVE-17601): melhorar o tratamento de erros em LlapServiceDriver.
 
 -   [*HIVE-17613*](https://issues.apache.org/jira/browse/HIVE-17613): remover pools de objeto para alocações curtas e o mesmo thread.
 
--   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617): pacote cumulativo de atualizações de um conjunto de resultados vazio deve conter o agrupamento de conjunto vazio de agrupamento.
+-   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617): O rollup de um conjunto de resultados vazio deve conter o agrupamento de conjuntos vazios de agrupamento.
 
--   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): configurações de Hive-site serão ignoradas durante o cálculo de divisão HCatInputFormat.
+-   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Configurações do site Hive são ignoradas durante o cálculo de divisão HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração da lista de bloqueios/lista de permissões para permitir cache seletiva de tabelas/partições e permitir leitura durante a preparação.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Ter uma configuração da lista de bloqueios/lista de permissões para permitir cache seletiva de tabelas/partições e permitir leitura durante a preparação.
 
--   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): adicionar vários\_teste agg.q para blobstores.
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Adicionar vários testes multiple\_agg.q para blobstores.
 
 -   [*HIVE-17702*](https://issues.apache.org/jira/browse/HIVE-17702): isRepeating incorreto tratamento no leitor decimal no ORC.
 
--   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): adicionar banco de dados e explicar testes de blobstore relacionados.
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729): Adicionar testes de blobstore Banco de Dados e Explicar relacionados.
 
 -   [*HIVE-17731*](https://issues.apache.org/jira/browse/HIVE-17731): adicionar uma opção de compatibilidade com versões anteriores para usuários externos a HIVE-11985.
 
--   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): com a consulta de vários Pig, 2 HCatStorers escrevendo para a mesma tabela atrapalharão as saídas uns dos outros.
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803): Com a consulta múltipla Pig, 2 HCatStorers gravando na mesma tabela atrapalharão as saídas uns dos outros.
 
 -   [*HIVE-17845*](https://issues.apache.org/jira/browse/HIVE-17845): a inserção falhará se as colunas da tabela de destino estiverem em minúscula.
 
 -   [*HIVE-17900*](https://issues.apache.org/jira/browse/HIVE-17900): analisar estatísticas em colunas disparadas por Compactador gera SQL malformado com &gt; coluna de partição 1.
 
--   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006): otimizar o volume de memória do HLLDenseRegister.
+-   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006): Otimizar o volume de memória do HLLDenseRegister.
 
--   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): otimização de configuração principal do webhcat do Hive.
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026): Otimização de configuração da entidade de segurança do webhcat do Hive.
 
--   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): replicação de suporte para a operação Alter Database.
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031): Replicação de suporte para a operação Alter Database.
 
 -   [*HIVE-18090*](https://issues.apache.org/jira/browse/HIVE-18090): falha de pulsação acid quando metastore está conectado por meio da credencial do hadoop.
 
--   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): ordem pela posição não funciona quando a cbo está desabilitado.
+-   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): A ordem pela posição não funciona quando a cbo está desabilitado.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): vetorização: reduzir lado do GRUPO POR MERGEPARTIAL com colunas duplicadas é interrompida.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vetorização: GROUP BY MERGEPARTIAL do lado da redução com colunas duplicadas está interrompida.
 
--   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: llap rápida e/s com o pipeline de processamento lenta podem levar a OOM.
+-   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: LLAP rápida E/S com o pipeline de processamento lenta podem levar a OOM.
 
--   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade ao identificar a execução HiveMetaStore.
+-   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade da identidade executando HiveMetaStore.
 
--   [*HIVE-18318*](https://issues.apache.org/jira/browse/HIVE-18318): leitor do registro LLAP deve verificar a interrupção, mesmo quando não estiver bloqueando.
+-   [*HIVE-18318*](https://issues.apache.org/jira/browse/HIVE-18318): Leitor do registro LLAP deve verificar a interrupção, mesmo quando não estiver bloqueando.
 
--   [*HIVE-18326*](https://issues.apache.org/jira/browse/HIVE-18326): agendador LLAP - apropriação somente tarefas se há uma dependência entre eles.
+-   [*HIVE-18326*](https://issues.apache.org/jira/browse/HIVE-18326): Agendador Tez de LLAP – somente tarefas de apropriação se houver uma dependência entre elas.
 
--   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): remover a dependência HiveConf desnecessária para MiniHiveKdc.
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327): Remover a dependência HiveConf desnecessária para MiniHiveKdc.
 
--   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): adicionar relogin quando a expiração de TGT e algum registro em log/lambda.
+-   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331): Adicionar relogon quando o TGT expirar e algum registro em log/lambda.
 
--   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): adicionar suporte a carga repl para adicionar o namespace "bruto" para a TDE com as mesmas chaves de criptografia.
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341): Adicionar compatibilidade com repl load para adicionar o namespace "bruto" para a TDE com as mesmas chaves de criptografia.
 
 -   [*HIVE-18352*](https://issues.apache.org/jira/browse/HIVE-18352): introduzir uma opção de METADATAONLY ao fazer o REPL DUMP para pemitir integrações das outras ferramentas.
 
--   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): o CompactorMR deve chamar jobclient.close() para disparar a limpeza.
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353): O CompactorMR deve chamar jobclient.close() para disparar a limpeza.
 
 -   [*HIVE-18384*](https://issues.apache.org/jira/browse/HIVE-18384): ConcurrentModificationException na biblioteca log4j2.x.
 
--   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ao consultar uma exibição particionada no ColumnPruner.
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ao consultar uma exibição particionada em ColumnPruner.
 
--   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: fornecem uma maneira para os usuários do JDBC para passar informações de cookie por meio da cadeia de caracteres de conexão.
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Fornece uma maneira para os usuários do JDBC passarem informações de cookie por meio da cadeia de conexão.
 
--   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): o compactador não passa as propriedades da tabela para o gravador de Orc.
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460): O compactador não passa as propriedades da tabela para o gravador de Orc.
 
 -   [*HIVE-18462*](https://issues.apache.org/jira/browse/HIVE-18462): (Explain formatado para consultas com junção de mapa tem columnExprMap com nome de coluna não formatado).
 
 -   [*HIVE-18467*](https://issues.apache.org/jira/browse/HIVE-18467): dar suporte a despejo de warehouse inteiro / carregar + criar/remover eventos de banco de dados.
 
--   [*HIVE-18488*](https://issues.apache.org/jira/browse/HIVE-18488): leitores LLAP ORC estão faltando algumas verificações nulas.
+-   [*HIVE-18488*](https://issues.apache.org/jira/browse/HIVE-18488): Leitores LLAP ORC estão faltando algumas verificações nulas.
 
--   [*HIVE-18490*](https://issues.apache.org/jira/browse/HIVE-18490): consulta com EXISTS e NOT EXISTS com predicado não equip pode produzir o resultado incorreto.
+-   [*HIVE-18490*](https://issues.apache.org/jira/browse/HIVE-18490): Consulta com EXISTS e NOT EXISTS com predicado não equi pode produzir o resultado incorreto.
 
--   [*HIVE-18506*](https://issues.apache.org/jira/browse/HIVE-18506): LlapBaseInputFormat - índice negativo da matriz.
+-   [*HIVE-18506*](https://issues.apache.org/jira/browse/HIVE-18506): LlapBaseInputFormat – índice negativo da matriz.
 
--   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517): vetorização: corrigir VectorMapOperator para aceitar VRBs e verificar o sinalizador vetorizado corretamente para dar suporte a cache LLAP).
+-   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517): Vetorização: Corrigir VectorMapOperator para aceitar VRBs e verificar o sinalizador vetorizado corretamente para compatibilidade com cache LLAP.
 
--   [*HIVE-18523*](https://issues.apache.org/jira/browse/HIVE-18523): corrigir a linha de resumo caso não haja nenhuma entrada.
+-   [*HIVE-18523*](https://issues.apache.org/jira/browse/HIVE-18523): Corrigir a linha de resumo caso não haja nenhuma entrada.
 
--   [*HIVE-18528*](https://issues.apache.org/jira/browse/HIVE-18528): estatísticas agregadas em ObjectStore obtém resultado incorreto.
+-   [*HIVE-18528*](https://issues.apache.org/jira/browse/HIVE-18528): Estatísticas agregadas em ObjectStore obtêm resultado incorreto.
 
--   [*HIVE-18530*](https://issues.apache.org/jira/browse/HIVE-18530): a replicação deve ignorar a tabela MM (por enquanto).
+-   [*HIVE-18530*](https://issues.apache.org/jira/browse/HIVE-18530): A replicação deve ignorar a tabela MM (por enquanto).
 
--   [*HIVE-18548*](https://issues.apache.org/jira/browse/HIVE-18548): corrigir importação de 4j.
+-   [*HIVE-18548*](https://issues.apache.org/jira/browse/HIVE-18548): Corrigir importação de log4j.
 
--   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): vetorização: VectorMapOperator tenta gravar muitas colunas de vetor para Hybrid Grace.
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vetorização: VectorMapOperator tenta gravar muitas colunas de vetor para Hybrid Grace.
 
 -   [*HIVE-18577*](https://issues.apache.org/jira/browse/HIVE-18577): SemanticAnalyzer.validate tem algumas chamadas de metastore inútil.
 
 -   [*HIVE-18587*](https://issues.apache.org/jira/browse/HIVE-18587): evento de inserção de DML pode tentar calcular uma soma de verificação em diretórios.
 
--   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: sempre o jar da API log4j2 para org.apache.log4j do pacote.
+-   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: Sempre empacotar o jar da API do log4j2 para org.apache.log4j.
 
--   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): estender JsonSerDe para dar suporte ao tipo BINÁRIO.
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613): Estender JsonSerDe para a compatibilidade com o tipo BINARY.
 
--   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): carga de Repl "com" cláusula não passa config para tarefas.
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626): A cláusula "with" do repl load não passa a configuração para tarefas.
 
 -   [*HIVE-18643*](https://issues.apache.org/jira/browse/HIVE-18643): não marque para partições arquivadas para ops ACID.
 
 -   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR não distingue entre partição e colunas virtuais.
 
--   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve dar suporte à cláusula “com”.
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754): STATUS de REPL deve ser compatível com a cláusula “with”.
 
--   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): limpar entradas no JDBC PreparedStatement.
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788): Limpar entradas em PreparedStatement do JDBC.
 
--   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): carga Repl cláusula “com” não passa a configuração para as tarefas para tabelas de não participação.
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794): A cláusula "with" do repl load não passa a configuração para as tarefas para tabelas de não participação.
 
--   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): tornar a compactação mais robusta, quando a atualização de estatísticas falhar.
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808): Tornar a compactação mais robusta quando a atualização de estatísticas falhar.
 
--   [*HIVE-18815*](https://issues.apache.org/jira/browse/HIVE-18815): remover o recurso não utilizado no HPL/SQL.
+-   [*HIVE-18815*](https://issues.apache.org/jira/browse/HIVE-18815): Remover o recurso não utilizado no HPL/SQL.
 
 -   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817): exceção de ArrayIndexOutOfBounds durante a leitura da tabela ACID.
 
--   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): mesclagem automática falha ao "inserir no diretório como orcfile".
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833): A mesclagem automática falha ao "inserir no diretório como orcfile".
 
--   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): não permitir o elemento inserido na UDFXPathUtil precisa funcionar se xercesImpl. jar no classpath.
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): A invalidação do elemento inserido na UDFXPathUtil precisará funcionar se xercesImpl.jar estiver no classpath.
 
--   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): o agrupamento de posição de conjuntos é definido incorretamente durante o protocolo DPP.
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): O agrupamento de posição de conjuntos é definido incorretamente durante o DPP.
 
 ### <a name="kafka"></a>Kafka
 
 Esta versão oferece Kakfa 1.0.0 e os seguintes patches de Apache.
 
--   [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827): conectar-se à Kafka: erro com caracteres especiais no nome do conector.
+-   [KAFKA-4827](https://issues.apache.org/jira/browse/KAFKA-4827): Conectar-se ao Kafka: erro com caracteres especiais no nome do conector.
 
--   [KAFKA-6118](https://issues.apache.org/jira/browse/KAFKA-6118): falha momentânea no kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials.
+-   [KAFKA-6118](https://issues.apache.org/jira/browse/KAFKA-6118): Falha momentânea no kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials.
 
--   [6156-KAFKA](https://issues.apache.org/jira/browse/KAFKA-6156): JmxReporter não pode lidar com caminhos de diretório de estilo do windows.
+-   [KAFKA-6156](https://issues.apache.org/jira/browse/KAFKA-6156): JmxReporter não pode lidar com caminhos de diretório de estilo do Windows.
 
--   [KAFKA-6164](https://issues.apache.org/jira/browse/KAFKA-6164): os threads ClientQuotaManager impedem o desligamento ao encontrar um erro ao carregar os logs.
+-   [KAFKA-6164](https://issues.apache.org/jira/browse/KAFKA-6164): Os threads ClientQuotaManager impedem o desligamento ao encontrar um erro ao carregar os logs.
 
--   [KAFK- 6167](https://issues.apache.org/jira/browse/KAFKA-6167): carimbo de hora no diretório de fluxos contém dois-pontos, que é um caractere ilegal.
+-   [KAFKA-6167](https://issues.apache.org/jira/browse/KAFKA-6167): O carimbo de data/hora no diretório de fluxos contém dois-pontos, que é um caractere inválido.
 
--   [KAFKA-6179](https://issues.apache.org/jira/browse/KAFKA-6179): o RecordQueue.clear() não limpa a lista mantida do MinTimestampTracker.
+-   [KAFKA-6179](https://issues.apache.org/jira/browse/KAFKA-6179): RecordQueue.clear() não limpa a lista mantida do MinTimestampTracker.
 
--   [KAFKA-6185](https://issues.apache.org/jira/browse/KAFKA-6185): vazamento de memória do seletor com alta probabilidade de OOM em caso de para conversão para baixo.
+-   [KAFKA-6185](https://issues.apache.org/jira/browse/KAFKA-6185): Vazamento de memória do seletor com alta probabilidade de OOM em caso de para conversão para baixo.
 
 -   [KAFKA-6190](https://issues.apache.org/jira/browse/KAFKA-6190): GlobalKTable nunca conclui a restauração durante o consumo de mensagens transacionais.
 
--   [KAFKA-6210](https://issues.apache.org/jira/browse/KAFKA-6210): o IllegalArgumentException se 1.0.0 é usado para inter.broker.protocol.version ou log.message.format.version.
+-   [KAFKA-6210](https://issues.apache.org/jira/browse/KAFKA-6210): IllegalArgumentException, se 1.0.0 é usado para inter.broker.protocol.version ou log.message.format.version.
 
--   [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214)usar réplicas standby com um armazenamento de estado de memória fazem com que os Streams entrem em pane.
+-   [KAFKA-6214](https://issues.apache.org/jira/browse/KAFKA-6214): Usar réplicas standby com um armazenamento de estado de memória faz com que os Streams falhem.
 
--   [KAFKA-6215](https://issues.apache.org/jira/browse/KAFKA-6215): o KafkaStreamsTest falhar no tronco.
+-   [KAFKA-6215](https://issues.apache.org/jira/browse/KAFKA-6215): O KafkaStreamsTest falha no tronco.
 
--   [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238): problemas com a versão de protocolo ao aplicar uma atualização sem interrupção para 1.0.0.
+-   [KAFKA-6238](https://issues.apache.org/jira/browse/KAFKA-6238): Problemas com a versão de protocolo ao aplicar uma atualização sem interrupção para 1.0.0.
 
--   [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260): o AbstractCoordinator claramente não lida com a exceção nula.
+-   [KAFKA-6260](https://issues.apache.org/jira/browse/KAFKA-6260): O AbstractCoordinator claramente não lida com a Exceção NULL.
 
--   [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261): solicitação de registro em log lança a exceção se acks = 0.
+-   [KAFKA-6261](https://issues.apache.org/jira/browse/KAFKA-6261): A solicitação de registro em log gera a exceção se acks=0.
 
--   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): melhorar os nomes gerados automaticamento de armazenamento de estado da fonte do KTable.
+-   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): Melhorar os nomes gerados automaticamente de armazenamento de estado da fonte do KTable.
 
 ### <a name="mahout"></a>Mahout
 
@@ -547,99 +547,99 @@ Em HDP 2.5 e 2.6, nós removos a biblioteca "commons httpclient" do Mahout, porq
 
 Esta versão oferece Oozie 4.2.0 e os seguintes patches de Apache.
 
--   [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571): adicionar propriedade Maven spark.scala.binary.version para que possa ser usado Scala 2.11.
+-   [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571): Adicionar propriedade Maven spark.scala.binary.version para que Scala 2.11 possa ser usado.
 
--   [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606): defina spark.yarn.jars para corrigir Spark 2.0 com Oozie.
+-   [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606): Definir spark.yarn.jars para corrigir Spark 2.0 com Oozie.
 
 -   [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658): – o caminho de classe de driver pode substituir o classpath no SparkMain.
 
--   [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787): o Oozie distribui o jar do aplicativo fazendo duas vezes o trabalho do spark falhar.
+-   [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787): O Oozie distribui o jar do aplicativo duas vezes, fazendo o trabalho do spark falhar.
 
--   [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792): ação Hive2 não é análise de ID do aplicativo Spark de arquivo de log adequadamente quando o Hive é no Spark.
+-   [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792): A ação de Hive2 não está analisando a ID do aplicativo Spark do arquivo de log adequadamente quando o Hive está no Spark.
 
--   [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799): local do log de configuração para o spark sql no hive.
+-   [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799): Configuração do local do log para o Spark SQL no Hive.
 
--   [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802): falha na ação do Spark no Spark 2.1.0 devido a sharelibs duplicados.
+-   [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802): Falha na ação do Spark no Spark 2.1.0 devido a sharelibs duplicados.
 
--   [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923): melhorar análise de opções de Spark.
+-   [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923): Melhorar análise de opções do Spark.
 
--   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109): SCA: script de conectividade entre sites: refletido.
+-   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109): SCA: Script entre sites: Refletido.
 
--   [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139): Oozie valida incorretamente o fluxo de trabalho.
+-   [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139): O Oozie valida incorretamente o fluxo de trabalho.
 
--   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): versão de atualização do tomcat na ramificação de Oozie 4.3.
+-   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): Atualizar a versão do tomcat no branch do Oozie 4.3.
 
 ### <a name="phoenix"></a>Phoenix
 
 Esta versão oferece Phoenix 4.7.0 e os seguintes patches de Apache:
 
--   [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751): executar agregações, classificação, etc., em que o preScannerNext em vez de postScannerOpen.
+-   [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751): Executar agregações, classificação etc. no preScannerNext em vez de no postScannerOpen.
 
--   [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714): os bytes correto estimam em BaseResultIterators e expõe como interface.
+-   [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714): Corrigir os bytes estimados em BaseResultIterators e expor como interface.
 
--   [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724): a consulta com um grande número de balizas é mais lenta comparado com nenhuma estatística.
+-   [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724): A consulta com um grande número de balizas é mais lenta em comparação com nenhuma estatística.
 
--   [PHOENIX-2855](https://issues.apache.org/jira/browse/PHOENIX-2855): intervalo de tempo de incremento de solução alternativa que está sendo serializado não para o HBase 1.2.
+-   [PHOENIX-2855](https://issues.apache.org/jira/browse/PHOENIX-2855): O TimeRange de incremento de solução alternativa não está sendo serializado para o HBase 1.2.
 
--   [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023): desempenho lento quando as consultes de limite são executadas em paralelo por padrão.
+-   [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023): Desempenho lento quando as consultes de limite são executadas em paralelo por padrão.
 
--   [PHOENIX 3040](https://issues.apache.org/jira/browse/PHOENIX-3040): não use balizas para executar consultas em série.
+-   [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040): Não usar balizas para executar consultas em série.
 
--   [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112): o exame da linha parcial não manuseado corretamente.
+-   [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112): O exame da linha parcial não é tratado corretamente.
 
 -   [PHOENIX-3240](https://issues.apache.org/jira/browse/PHOENIX-3240): ClassCastException do carregador de Pig.
 
--   [PHOENIX-3452](https://issues.apache.org/jira/browse/PHOENIX-3452): NULLS FIRST/NULL LAST não deve afetar se GROUP BY for ordem de preservação.
+-   [PHOENIX-3452](https://issues.apache.org/jira/browse/PHOENIX-3452): NULLS FIRST/NULL LAST não deve afetar se GROUP BY preserva a ordem.
 
--   [PHOENIX-3469](https://issues.apache.org/jira/browse/PHOENIX-3469): ordem de classificação incorreta chave primária DESC para NULLS LAST/NULLS FIRST.
+-   [PHOENIX-3469](https://issues.apache.org/jira/browse/PHOENIX-3469): Ordem de classificação incorreta chave primária DESC para NULLS LAST/NULLS FIRST.
 
--   [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789): executar chamadas de manutenção de índice de região no postBatchMutateIndispensably.
+-   [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789): Executar chamadas de manutenção de índice de região no postBatchMutateIndispensably.
 
--   [PHOENIX-3865](https://issues.apache.org/jira/browse/PHOENIX-3865): IS NULL não retorna resultados corretos quando a primeira família de coluna não for filtrada.
+-   [PHOENIX-3865](https://issues.apache.org/jira/browse/PHOENIX-3865): IS NULL não retorna resultados corretos quando a primeira família de coluna não é filtrada.
 
--   [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290): verificação de tabela completa é executada para a exclusão com a tabela que tem índices imutáveis.
+-   [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290): Verificação de tabela completa executada para DELETE com a tabela que tem índices imutáveis.
 
--   [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373): chave de comprimento variável de local de índice pode ter à direita nulos durante a inserção.
+-   [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373): A chave de comprimento variável de índice local pode ter nulos à direita durante a inserção.
 
 -   [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466): java.lang.RuntimeException: código de resposta 500 - executar um trabalho do spark para conectar-se ao servidor de consulta phoenix e carregar dados.
 
--   [PHOENIX 4489](https://issues.apache.org/jira/browse/PHOENIX-4489): vazamento de Conexão de HBase em trabalhos de Phoenix MR.
+-   [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489): Vazamento de Conexão de HBase em trabalhos de Phoenix MR.
 
--   [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525): estouro de inteiro na execução GroupBy.
+-   [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525): Estouro de inteiro na execução de GroupBy.
 
--   [PHOENIX-4560](https://issues.apache.org/jira/browse/PHOENIX-4560): ORDER BY com GROUP BY não funciona se houver WHERE na coluna pk.
+-   [PHOENIX-4560](https://issues.apache.org/jira/browse/PHOENIX-4560): ORDER BY com GROUP BY não funcionará se houver WHERE na coluna pk.
 
 -   [PHOENIX-4586](https://issues.apache.org/jira/browse/PHOENIX-4586): UPSERT SELECT não usa operadores de comparação de conta para subconsultas.
 
--   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): clonar expressão também se os filhos tiverem Determinism.PER\_INVOCATION.
+-   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): Clonar expressão também se os filhos tiverem Determinism.PER\_INVOCATION.
 
 ### <a name="pig"></a>Pig
 
 Esta versão oferece Pig 0.16.0 e os seguintes patches de Apache.
 
--   [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159): corrigir Pig sem salvar o histórico de grunt.
+-   [PIG-5159](https://issues.apache.org/jira/browse/PIG-5159): Corrigir o Pig não salvar o histórico de grunt.
 
--   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): atualizar o jruby para 1.7.26.
+-   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): Atualizar o jruby para 1.7.26.
 
 ### <a name="ranger"></a>Ranger
 
 Esta versão oferece Ranger 0.7.0 e os seguintes patches de Apache:
 
--   [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805): códigode aperfeiçoamento segue as melhores práticas em js.
+-   [RANGER-1805](https://issues.apache.org/jira/browse/RANGER-1805): Aperfeiçoamento de código para seguir as melhores práticas em js.
 
--   [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960): levar o nome da tabela do instantâneo em consideração para exclusão.
+-   [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960): Considerar o nome da tabela do instantâneo para exclusão.
 
--   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): melhoria do erro para a métrica de análise de administração do Ranger e Ranger KMS.
+-   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): Melhoria do erro para a métrica de análise de administração do Ranger e Ranger KMS.
 
--   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): registros de log de auditoria do Hbase não podem mostrar todas as marcas associadas à coluna acessada.
+-   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): Os registros de log de auditoria do Hbase não podem mostrar todas as marcas associadas à coluna acessada.
 
--   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): corrigir aleatoriedade insegura.
+-   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): Corrigir aleatoriedade insegura.
 
--   [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990): adicionar o suporte MySQL One-way no Administrador do Rager.
+-   [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990): Adicionar o suporte a MySQL SSL unidirecional no Administrador do Rager.
 
--   [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006): corrigir os problemas detectados pela análise de código estático no ranger usersync para origem de sincronização de ldap.
+-   [RANGER-2006](https://issues.apache.org/jira/browse/RANGER-2006): Corrigir os problemas detectados pela análise de código estático no usersync do Ranger para a origem de sincronização de ldap.
 
--   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): a avaliação de política está falhando para condições da política de várias linhas.
+-   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): A avaliação de política está falhando para condições da política de várias linhas.
 
 ### <a name="slider"></a>Controle deslizante
 
@@ -649,127 +649,127 @@ Esta versão fornece Slider 0.92.0 com nenhum patch Apache adicional.
 
 Esta versão oferece Spark 2.3.0 e os seguintes patches de Apache:
 
--   [SPARK-13587](https://issues.apache.org/jira/browse/SPARK-13587): suporte virtualenv no pyspark.
+-   [SPARK-13587](https://issues.apache.org/jira/browse/SPARK-13587): Compatibilidade com virtualenv no pyspark.
 
--   [SPARK-19964](https://issues.apache.org/jira/browse/SPARK-19964): evitar a leitura de repositórios remotos no SparkSubmitSuite.
+-   [SPARK-19964](https://issues.apache.org/jira/browse/SPARK-19964): Evitar a leitura de repositórios remotos no SparkSubmitSuite.
 
--   [SPARK-22882](https://issues.apache.org/jira/browse/SPARK-22882): teste de ML para streaming estruturado: ml.classification.
+-   [SPARK-22882](https://issues.apache.org/jira/browse/SPARK-22882): Teste de ML para streaming estruturado: ml.classification.
 
--   [SPARK-22915](https://issues.apache.org/jira/browse/SPARK-22915): testes de streaming para spark.ml.feature de N a Z.
+-   [SPARK-22915](https://issues.apache.org/jira/browse/SPARK-22915): Testes de streaming para spark.ml.feature de N a Z.
 
--   [SPARK-23020](https://issues.apache.org/jira/browse/SPARK-23020): corrigir outra corrida no teste do iniciador em processo.
+-   [SPARK-23020](https://issues.apache.org/jira/browse/SPARK-23020): Corrigir outra corrida no teste do iniciador em processo.
 
--   [SPARK-23040](https://issues.apache.org/jira/browse/SPARK-23040): o iterador passível de interrupção retorna para o leitor de ordem aleatória.
+-   [SPARK-23040](https://issues.apache.org/jira/browse/SPARK-23040): Retorna o iterador passível de interrupção para o leitor de ordem aleatória.
 
--   [SPARK-23173](https://issues.apache.org/jira/browse/SPARK-23173): evitar a criação de arquivos parquet corrompido quando o carregamento de dados do JSON.
+-   [SPARK-23173](https://issues.apache.org/jira/browse/SPARK-23173): Evitar a criação de arquivos parquet corrompidos ao carregar dados do JSON.
 
--   [SPARK-23264](https://issues.apache.org/jira/browse/SPARK-23264): corrigir scala.MatchError em literals.sql.out.
+-   [SPARK-23264](https://issues.apache.org/jira/browse/SPARK-23264): Corrigir scala.MatchError em literals.sql.out.
 
--   [SPARK-23288](https://issues.apache.org/jira/browse/SPARK-23288): corrigir métricas de saída com o coletor parquet.
+-   [SPARK-23288](https://issues.apache.org/jira/browse/SPARK-23288): Corrigir métricas de saída com o coletor de parquet.
 
--   [SPARK-23329](https://issues.apache.org/jira/browse/SPARK-23329): corrigir a documentação de funções trigonométricas.
+-   [SPARK-23329](https://issues.apache.org/jira/browse/SPARK-23329): Corrigir a documentação de funções trigonométricas.
 
--   [SPARK-23406](https://issues.apache.org/jira/browse/SPARK-23406) habilitar autojunções de fluxo-fluxo para branch 2.3.
+-   [SPARK-23406](https://issues.apache.org/jira/browse/SPARK-23406): Habilitar autojunções de fluxo-fluxo para branch-2.3.
 
--   [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434): Spark não deverá avisar o \`diretório de metadados\` para um caminho de arquivo HDFS.
+-   [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434): O Spark não deverá avisar o \`diretório de metadados\` para um caminho de arquivo HDFS.
 
--   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): inferir partição como data somente se ele pode ser convertido em data.
+-   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Inferir partição como Data somente se ela puder ser convertida em Data.
 
--   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): registrar ouvintes de conclusão de tarefas primeiro no ParquetFileFormat.
+-   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): Registrar ouvintes de conclusão de tarefas primeiro no ParquetFileFormat.
 
 -   [SPARK-23462](https://issues.apache.org/jira/browse/SPARK-23462): : melhorar a mensagem de erro de campo ausente na \`StructType\`.
 
--   [SPARK-23490](https://issues.apache.org/jira/browse/SPARK-23490): verificar storage.locationUri com uma tabela existente no CreateTable.
+-   [SPARK-23490](https://issues.apache.org/jira/browse/SPARK-23490): Verificar storage.locationUri com uma tabela existente em CreateTable.
 
--   [SPARK-23524](https://issues.apache.org/jira/browse/SPARK-23524): os blocos de ordem aleatória local grande não devem ser verificados quanto a corrupção.
+-   [SPARK-23524](https://issues.apache.org/jira/browse/SPARK-23524): Os blocos de ordem aleatória local grandes não devem ser verificados quanto à corrupção.
 
--   [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525): suporte para ALTER TABLE CHANGE COLUMN COMMENT para tabela hive externa.
+-   [SPARK-23525](https://issues.apache.org/jira/browse/SPARK-23525): Compatibilidade com ALTER TABLE CHANGE COLUMN COMMENT para tabela hive externa.
 
--   [SPARK-23553](https://issues.apache.org/jira/browse/SPARK-23553): testes não devem presumir o valor padrão \`spark.sql.sources.default\`.
+-   [SPARK-23553](https://issues.apache.org/jira/browse/SPARK-23553): Os testes não devem assumir o valor padrão de \`spark.sql.sources.default\`.
 
--   [SPARK-23569](https://issues.apache.org/jira/browse/SPARK-23569): permitir pandas\_udf para trabalhar com funções anotado pelo tipo de estilo python3.
+-   [SPARK-23569](https://issues.apache.org/jira/browse/SPARK-23569): Permitir que pandas\_udf trabalhem com funções anotadas com tipo de estilo python3.
 
--   [SPARK-23570](https://issues.apache.org/jira/browse/SPARK-23570): adicionar Spark 2.3.0 HiveExternalCatalogVersionsSuite.
+-   [SPARK-23570](https://issues.apache.org/jira/browse/SPARK-23570): Adicionar Spark 2.3.0 no HiveExternalCatalogVersionsSuite.
 
--   [SPARK-23598](https://issues.apache.org/jira/browse/SPARK-23598): tornar os métodos públicos no BufferedRowIterator para evitar o erro do tempo de execução para uma consulta grande.
+-   [SPARK-23598](https://issues.apache.org/jira/browse/SPARK-23598): Tornar os métodos públicos no BufferedRowIterator para evitar o erro do tempo de execução para uma consulta grande.
 
--   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): adicionar um gerador UUID de números pseudoaleatórios.
+-   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Adicionar um gerador UUID de números pseudoaleatórios.
 
--   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): usar RandomUUIDGenerator de uso na expressão de Uuid.
+-   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Usar RandomUUIDGenerator de uso na expressão de Uuid.
 
--   [SPARK-23601](https://issues.apache.org/jira/browse/SPARK-23601): remover os arquivos de .md5 de versão.
+-   [SPARK-23601](https://issues.apache.org/jira/browse/SPARK-23601): Remover os arquivos de .md5 da versão.
 
--   [SPARK-23608](https://issues.apache.org/jira/browse/SPARK-23608): adicionar uma sincronização em SHS entre as funções attachSparkUI e detachSparkUI para evitar modificações simultâneas problema ao Jetty Handlers.
+-   [SPARK-23608](https://issues.apache.org/jira/browse/SPARK-23608): Adicionar uma sincronização em SHS entre as funções attachSparkUI e detachSparkUI para evitar o problema de modificações simultâneas para Jetty Handlers.
 
--   [SPARK-23614](https://issues.apache.org/jira/browse/SPARK-23614): corrigir troca de reutilização incorreta quando o cache é usado.
+-   [SPARK-23614](https://issues.apache.org/jira/browse/SPARK-23614): Corrigir a troca de reutilização incorreta quando o cache é usado.
 
--   [SPARK-23623](https://issues.apache.org/jira/browse/SPARK-23623): evitar o uso simultâneo de consumidores em cache no CachedKafkaConsumer (2.3 branch).
+-   [SPARK-23623](https://issues.apache.org/jira/browse/SPARK-23623): Evitar o uso simultâneo de consumidores em cache no CachedKafkaConsumer (branch-2.3).
 
--   [SPARK-23624](https://issues.apache.org/jira/browse/SPARK-23624): revisar doc do método pushFilters no Datasource V2.
+-   [SPARK-23624](https://issues.apache.org/jira/browse/SPARK-23624): Revisar o doc do método pushFilters no Datasource V2.
 
 -   [SPARK-23628](https://issues.apache.org/jira/browse/SPARK-23628): calculateParamLength não deve retornar 1 + de expressões.
 
--   [SPARK-23630](https://issues.apache.org/jira/browse/SPARK-23630): permitir que as personalizações conf do hadoop entrem em vigor.
+-   [SPARK-23630](https://issues.apache.org/jira/browse/SPARK-23630): Permitir que as personalizações de conf do hadoop entrem em vigor.
 
--   [SPARK-23635](https://issues.apache.org/jira/browse/SPARK-23635): a variável env do executor Spark é substituído pelo mesmo nome variável env AM.
+-   [SPARK-23635](https://issues.apache.org/jira/browse/SPARK-23635): A variável env do executor Spark é substituída pela mesma variável de AM.
 
--   [SPARK-23637](https://issues.apache.org/jira/browse/SPARK-23637): Yarn pode alocar mais recursos, se um executor mesmo é interrompido várias vezes.
+-   [SPARK-23637](https://issues.apache.org/jira/browse/SPARK-23637): Yarn pode alocar mais recursos se um mesmo executor é interrompido várias vezes.
 
--   [SPARK-23639](https://issues.apache.org/jira/browse/SPARK-23639): obter token antes do cliente init metastore no SparkSQL CLI.
+-   [SPARK-23639](https://issues.apache.org/jira/browse/SPARK-23639): Obter token antes do cliente init metastore na CLI do SparkSQL.
 
--   [SPARK-23642](https://issues.apache.org/jira/browse/SPARK-23642): correção de scaladoc AccumulatorV2 subclasse isZero.
+-   [SPARK-23642](https://issues.apache.org/jira/browse/SPARK-23642): Correção de AccumulatorV2 subclasse isZero scaladoc.
 
--   [SPARK-23644](https://issues.apache.org/jira/browse/SPARK-23644): usar o caminho absoluto para a chamada REST em SHS.
+-   [SPARK-23644](https://issues.apache.org/jira/browse/SPARK-23644): Usar o caminho absoluto para a chamada REST em SHS.
 
--   [SPARK-23645](https://issues.apache.org/jira/browse/SPARK-23645): adicione docs RE \`pandas\_udf\` com os args de palavra-chave.
+-   [SPARK-23645](https://issues.apache.org/jira/browse/SPARK-23645): Adicionar docs RE \`pandas\_udf\` com os args de palavra-chave.
 
--   [SPARK-23649](https://issues.apache.org/jira/browse/SPARK-23649): ignorando os caracteres não permitidos em UTF-8.
+-   [SPARK-23649](https://issues.apache.org/jira/browse/SPARK-23649): Ignorar caracteres não permitidos em UTF-8.
 
 -   [SPARK-23658](https://issues.apache.org/jira/browse/SPARK-23658): InProcessAppHandle usa a classe errada em getLogger.
 
--   [SPARK-23660](https://issues.apache.org/jira/browse/SPARK-23660): corrigir exceção no modo de cluster yarn, quando o aplicativo termina rapidamente.
+-   [SPARK-23660](https://issues.apache.org/jira/browse/SPARK-23660): Corrigir exceção no modo de cluster yarn, quando o aplicativo terminou rapidamente.
 
--   [SPARK-23670](https://issues.apache.org/jira/browse/SPARK-23670): correção de perda de memória em SparkPlanGraphWrapper.
+-   [SPARK-23670](https://issues.apache.org/jira/browse/SPARK-23670): Corrigir perda de memória em SparkPlanGraphWrapper.
 
--   [SPARK-23671](https://issues.apache.org/jira/browse/SPARK-23671): corrigir a condição para habilitar o pool de threads SHS.
+-   [SPARK-23671](https://issues.apache.org/jira/browse/SPARK-23671): Corrigir a condição para habilitar o pool de threads SHS.
 
--   [SPARK 23691](https://issues.apache.org/jira/browse/SPARK-23691): usar o sql\_util conf nos testes PySpark sempre que possível.
+-   [SPARK-23691](https://issues.apache.org/jira/browse/SPARK-23691): Usar o util sql\_conf nos testes PySpark sempre que possível.
 
--   [SPARK 23695](https://issues.apache.org/jira/browse/SPARK-23695): corrigir a mensagem de erro para os testes Kinesis de streaming.
+-   [SPARK-23695](https://issues.apache.org/jira/browse/SPARK-23695): Corrigir a mensagem de erro para os testes de streaming do Kinesis.
 
 -   [SPARK-23706](https://issues.apache.org/jira/browse/SPARK-23706): spark.conf.get (valor padrão = Nenhum) deve produzir nenhum em PySpark.
 
--   [SPARK-23728](https://issues.apache.org/jira/browse/SPARK-23728)corrigir os testes ML com as exceções esperadas executando os testes de streaming.
+-   [SPARK-23728](https://issues.apache.org/jira/browse/SPARK-23728): Corrigir os testes ML com as exceções esperadas executando os testes de streaming.
 
--   [SPARK 23729](https://issues.apache.org/jira/browse/SPARK-23729): respeitar o fragmento RI ao resolver globs.
+-   [SPARK-23729](https://issues.apache.org/jira/browse/SPARK-23729): Respeitar o fragmento de URI ao resolver globs.
 
--   [SPARK-23759](https://issues.apache.org/jira/browse/SPARK-23759): não é possível associar a interface do usuário Spark ao nome do host específico / IP.
+-   [SPARK-23759](https://issues.apache.org/jira/browse/SPARK-23759): Não é possível associar a interface do usuário do Spark ao nome do host/IP específico.
 
--   [SPARK 23760](https://issues.apache.org/jira/browse/SPARK-23760): CodegenContext.withSubExprEliminationExprs deve salvar/restaurar o estado do CSE corretamente.
+-   [SPARK-23760](https://issues.apache.org/jira/browse/SPARK-23760): O CodegenContext.withSubExprEliminationExprs deve salvar/restaurar o estado do CSE corretamente.
 
--   [SPARK-23769](https://issues.apache.org/jira/browse/SPARK-23769): remover os comentários que desabilitam a verificação Scalastyle desnecessariamente.
+-   [SPARK-23769](https://issues.apache.org/jira/browse/SPARK-23769): Remover os comentários que desabilitam a verificação Scalastyle desnecessariamente.
 
--   [SPARK-23788](https://issues.apache.org/jira/browse/SPARK-23788): correção de corrida em StreamingQuerySuite.
+-   [SPARK-23788](https://issues.apache.org/jira/browse/SPARK-23788): Corrigir a corrida em StreamingQuerySuite.
 
--   [SPARK-23802](https://issues.apache.org/jira/browse/SPARK-23802): o PropagateEmptyRelation pode deixar o plano de consulta em estado não resolvido.
+-   [SPARK-23802](https://issues.apache.org/jira/browse/SPARK-23802): PropagateEmptyRelation pode deixar o plano de consulta em estado não resolvido.
 
--   [SPARK-23806](https://issues.apache.org/jira/browse/SPARK-23806): o Broadcast.unpersist pode causar uma exceção fatal quando usado com alocação dinâmica.
+-   [SPARK-23806](https://issues.apache.org/jira/browse/SPARK-23806): O Broadcast.unpersist pode causar uma exceção fatal quando usado com alocação dinâmica.
 
--   [SPARK-23808](https://issues.apache.org/jira/browse/SPARK-23808): definir a sessão do Spark padrão em sessões do spark somente para teste.
+-   [SPARK-23808](https://issues.apache.org/jira/browse/SPARK-23808): Definir a sessão do Spark padrão em sessões do spark somente para teste.
 
--   [SPARK-23809](https://issues.apache.org/jira/browse/SPARK-23809): SparkSession Active Directory deve ser definido por getOrCreate.
+-   [SPARK-23809](https://issues.apache.org/jira/browse/SPARK-23809): A SparkSession ativa deve ser definida por getOrCreate.
 
--   [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816): tarefas encerradas devem ignorar FetchFailures.
+-   [SPARK-23816](https://issues.apache.org/jira/browse/SPARK-23816): As tarefas encerradas devem ignorar FetchFailures.
 
--   [SPARK-23822](https://issues.apache.org/jira/browse/SPARK-23822): melhorar a mensagem de erro de incompatibilidade de esquema Parquet.
+-   [SPARK-23822](https://issues.apache.org/jira/browse/SPARK-23822): Melhorar a mensagem de erro de incompatibilidades de esquema Parquet.
 
--   [SPARK-23823](https://issues.apache.org/jira/browse/SPARK-23823): mantenha a origem em transformExpression.
+-   [SPARK-23823](https://issues.apache.org/jira/browse/SPARK-23823): Manter a origem em transformExpression.
 
--   [SPARK-23827](https://issues.apache.org/jira/browse/SPARK-23827): o StreamingJoinExec deve garantir que os dados de entrada sejam particionados em um número específico de partições.
+-   [SPARK-23827](https://issues.apache.org/jira/browse/SPARK-23827): O StreamingJoinExec deve garantir que os dados de entrada sejam particionados em um número específico de partições.
 
--   [SPARK-23838](https://issues.apache.org/jira/browse/SPARK-23838): a consulta SQL em execução é exibida como "concluída" no guia SQL.
+-   [SPARK-23838](https://issues.apache.org/jira/browse/SPARK-23838): A consulta SQL em execução é exibida como "concluída" no guia SQL.
 
--   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): correção instável teste JobCancellationSuite."iterador passível de interrupção do leitor de ordem aleatória".
+-   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): Corrigir o teste instável de JobCancellationSuite."iterador passível de interrupção do leitor de ordem aleatória".
 
 ### <a name="sqoop"></a>Sqoop
 
@@ -779,15 +779,15 @@ Esta versão fornece Sqoop 1.4.6 com nenhum patch Apache adicional.
 
 Esta versão oferece Storm 1.1.1 e os seguintes patches de Apache:
 
--   [STORM 2652](https://issues.apache.org/jira/browse/STORM-2652): exceção lançada no método aberto JmsSpout.
+-   [STORM-2652](https://issues.apache.org/jira/browse/STORM-2652): Exceção lançada no método aberto JmsSpout.
 
 -   [STORM-2841](https://issues.apache.org/jira/browse/STORM-2841): testNoAcksIfFlushFails UT falha com NullPointerException.
 
--   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): expor IEventLogger para tornar o log de eventos conectável.
+-   [STORM-2854](https://issues.apache.org/jira/browse/STORM-2854): Expor IEventLogger para tornar o log de eventos conectável.
 
--   [STORM-2870](https://issues.apache.org/jira/browse/STORM-2870): vazamentos FileBasedEventLogger não deamon ExecutorService que impede que o processo seja concluído.
+-   [STORM-2870](https://issues.apache.org/jira/browse/STORM-2870): FileBasedEventLogger vaza ExecutorService não daemon que impede que o processo seja concluído.
 
--   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): melhor enfatizar a importância de configurar a conta apropriada do sistema operacional para o processo Storm.
+-   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): Melhor enfatizar a importância de configurar a conta apropriada do sistema operacional para o processo Storm.
 
 ### <a name="tez"></a>Tez
 
@@ -799,25 +799,25 @@ Esta versão oferece Tez 0.7.0 e os seguintes patches de Apache:
 
 Esta versão fornece Zeppelin 0.7.3 com nenhum patch additionalApache.
 
--   [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): a interface do usuário do Zeppelin não se torna lenta/irresponsivva se houver muitas anotações.
+-   [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): A interface do usuário do Zeppelin se torna lenta/não responsiva se há muitos blocos de anotações.
 
--   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): a interface do usuário do Zeppelin não sai no IE.
+-   [ZEPPELIN-3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): A interface do usuário do Zeppelin não sai no IE.
 
--   [ZEPPELIN 903](https://issues.apache.org/jira/browse/ZEPPELIN-903): substituir o CXF Jersey2.
+-   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903): Substituir o CXF Jersey2.
 
 ### <a name="zookeeper"></a>ZooKeeper
 
 Esta versão oferece ZooKeeper 3.4.6 e os seguintes patches de Apache:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está falhando em Mac OS X.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está falhando no Mac OS X.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] classificar filhos para comparação os testes AsyncOps.
 
--   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): versão de atualização Netty devido à vulnerabilidade de segurança (CVE-2014 3488).
+-   [ZOOKEEPER-2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): Versão de atualização Netty devido à vulnerabilidade de segurança (CVE-2014-3488).
 
--   [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): ataque DOS em wchp/wchc de quatro letras (4lw).
+-   [ZOOKEEPER-2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): Ataque DOS em wchp/wchc de quatro letras (4lw).
 
--   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): patch para apresentar condição de corrida potencial.
+-   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch para apresentar condição de corrida potencial.
 
 ## <a name="fixed-common-vulnerabilities-and-exposures"></a>Common Vulnerabilities e Exposures Corrigidos
 
@@ -862,7 +862,7 @@ Esta seção aborda todos os Common Vulnerabilities and Exposures (CVE) que são
 
 | **Resumo:** handler/ssl/OpenSslEngine.java na 4.0.x Netty antes de 4.0.37.Final e 4.1.x antes 4.1.1.Final permite que os invasores remotos causar uma negação de serviço (loop infinito) |
 |--------------------------------------------------------------------------------------------------|
-| **Gravidade:** moderada  |
+| **Gravidade:** Moderado  |
 | **Fornecedor:** Hortonworks  |
 | **As versões afetadas:** 2.x.x HDP desde 2.3  |
 | **Os usuários afetados:** todos os usuários que usam o HDFS. |
@@ -878,7 +878,7 @@ Esta seção aborda todos os Common Vulnerabilities and Exposures (CVE) que são
 | **Versões afetadas:** todas as versões do HDP 2.5, incluindo Apache Ranger versões 0.6.0/0.6.1/0.6.2                                         |
 | **Os usuários afetados:** todos os usuários do que a ferramenta de administração de política do ranger.                                                                         |
 | **Impacto:** mecanismo de políticas do Ranger incorretamente corresponde à caminhos em certas condições quando uma política contém sinalizadores de curingas e recursivas. |
-| **Corrigir detalhes:** corrigida a lógica de avaliação de política                                                                                          |
+| **Detalhe da correção:** Corrigida a lógica de avaliação de política                                                                                          |
 | **Ação recomendada:** Os usuários devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou o HDP 2.6+ (com o Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
@@ -907,12 +907,12 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-88774              | [HIVE 17617](https://issues.apache.org/jira/browse/HIVE-17617), [HIVE 18413](https://issues.apache.org/jira/browse/HIVE-18413), [18523 HIVE](https://issues.apache.org/jira/browse/HIVE-18523)                                                                                 | falha de query36, incompatibilidade de contagem de linhas                                                                                    |
 | BUG-89765              | [HIVE-17702](https://issues.apache.org/jira/browse/HIVE-17702)                                                                                                                                                                                                                 | isRepeating incorreto tratamento no leitor decimal no ORC                                                                |
 | BUG 92293              | [HADOOP-15042](https://issues.apache.org/jira/browse/HADOOP-15042)                                                                                                                                                                                                             | o Azure PageBlobInputStream.skip() pode retornar um valor negativo quando numberOfPagesRemaining for 0                            |
-| BUG 92345              | [ATLAS-2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | Interface do usuário: pesquisa salva renomeada com o atributo de data.                                                                         |
+| BUG 92345              | [ATLAS-2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | Interface do usuário: Pesquisa salva renomeada com o atributo de data.                                                                         |
 | BUG-92563              | [HIVE 17495](https://issues.apache.org/jira/browse/HIVE-17495), [18528 HIVE](https://issues.apache.org/jira/browse/HIVE-18528)                                                                                                                                                 | estatísticas agregadas em ObjectStore obtém resultado incorreto                                                                        |
 | BUG-92957              | [HIVE-11266](https://issues.apache.org/jira/browse/HIVE-11266)                                                                                                                                                                                                                 | contagem(\*) resultado incorreto com base nas estatísticas de tabela para tabelas externas                                                   |
 | BUG 93097              | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | o filtro de ação de auditoria de administrador não está funcionando                                                                           |
 | BUG-93335              | [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315)                                                                                                                                                                                                                 | a vetorização\_curta\_regress.q tem um problema de resultado incorreto para um cálculo duplo                                      |
-| BUG 93415              | [HIVE 18258](https://issues.apache.org/jira/browse/HIVE-18258), [18310 HIVE](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | vetorização: reduzir lado do GRUPO POR MERGEPARTIAL com colunas duplicadas é interrompida                                      |
+| BUG 93415              | [HIVE 18258](https://issues.apache.org/jira/browse/HIVE-18258), [18310 HIVE](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vetorização: GROUP BY MERGEPARTIAL do lado da redução com colunas duplicadas está interrompida                                      |
 | BUG-93939              | [ATLAS-2294](https://issues.apache.org/jira/browse/ATLAS-2294)                                                                                                                                                                                                                 | "Descrição" de parâmetro extra durante a criação de um tipo                                                               |
 | BUG-94007              | [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [3112 PHOENIX](https://issues.apache.org/jira/browse/PHOENIX-3112)                                                                                                                                         | As consultas de Phoenix retornam valores Null devido a linhas parciais HBase                                                          |
 | BUG-94266              | [HIVE-12505](https://issues.apache.org/jira/browse/HIVE-12505)                                                                                                                                                                                                                 | Inserir substituição na mesma zona criptografada falha silenciosamente para remover alguns arquivos existentes                                   |
@@ -940,7 +940,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-93159              | [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139)                                                                         | O Oozie valida incorretamente o fluxo de trabalho                                                                                                       |
 | BUG-93936              | [ATLAS-2289](https://issues.apache.org/jira/browse/ATLAS-2289)                                                                         | Código de iniciar/parar servidor inserido/do BUG-100019 inserido será movido para fora da implementação de KafkaNotification                                        |
 | BUG-93942              | [ATLAS-2312](https://issues.apache.org/jira/browse/ATLAS-2312)                                                                         | Usar objetos de ThreadLocal DateFormat para evitar o uso simultâneo de vários threads                                                         |
-| BUG-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | Interface do usuário: excluir uma marca na posição 25+ na lista de marca na estrutura Flat e de Árvore precisa de uma atualização para remover a marcação da lista. |
+| BUG-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | Interface do usuário: Excluir uma marca na posição 25+ na lista de marca na estrutura Flat e de Árvore precisa de uma atualização para remover a marca da lista. |
 | BUG-94618              | [YARN-5037](https://issues.apache.org/jira/browse/YARN-5037), [YARN-7274](https://issues.apache.org/jira/browse/YARN-7274)             | Capacidade de desabilitar a elasticidade no nível da fila de folha                                                                                          |
 | BUG 94901              | [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                       | Adicionar histogramas de latência por tabela                                                                                                           |
 | BUG-95259              | [HADOOP-15185](https://issues.apache.org/jira/browse/HADOOP-15185), [HADOOP-15186](https://issues.apache.org/jira/browse/HADOOP-15186) | Atualizar conector do adls para usar a versão atual do SDK do ADLS                                                                               |
@@ -958,14 +958,14 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-93577              | [RANGER-1938](https://issues.apache.org/jira/browse/RANGER-1938)                                                                                                                                                                                                                                                                                                                                                                                                             | Solr para configuração de auditoria não usa DocValues efetivamente                                                                              |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                               | Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade ao identificar a execução HiveMetaStore                     |
 | BUG-94345              | [HIVE-18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                               | A compactação deve lidar com um caso quando ele não produz nenhuma saída                                                                          |
-| BUG-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | Tratando o pedido de RequestHedgingProxyProvider RetryAction: FAIL &lt; RETRY &lt; FAILOVER\_ E \_RETRY.                                  |
+| BUG-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | Tratamento da ordem de RequestHedgingProxyProvider RetryAction: FAIL &lt; RETRY &lt; FAILOVER\_AND\_RETRY.                                  |
 | BUG-94432              | [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                               | O CompactorMR deve chamar jobclient.close() para disparar a limpeza                                                                        |
 | BUG-94869              | [PHOENIX-4290](https://issues.apache.org/jira/browse/PHOENIX-4290), [PHOENIX-4373](https://issues.apache.org/jira/browse/PHOENIX-4373)                                                                                                                                                                                                                                                                                                                                       | Solicitada linha fora do intervalo para Get em HRegion para a tabela local phoenix indexada.                                               |
 | BUG-94928              | [HDFS-11078](https://issues.apache.org/jira/browse/HDFS-11078)                                                                                                                                                                                                                                                                                                                                                                                                               | Corrigir NPE em LazyPersistFileScrubber                                                                                                  |
 | BUG-94964              | [HIVE-18269](https://issues.apache.org/jira/browse/HIVE-18269), [HIVE-18318](https://issues.apache.org/jira/browse/HIVE-18318), [HIVE-18326](https://issues.apache.org/jira/browse/HIVE-18326)                                                                                                                                                                                                                                                                               | Várias correções LLAP                                                                                                                 |
 | BUG-95669              | [HIVE-18577](https://issues.apache.org/jira/browse/HIVE-18577), [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)                                                                                                                                                                                                                                                                                                                                               | Ao executar a atualização/exclusão d consulta na tabela de partição ACID, leitura HS2 de todas as partições.                                               |
 | BUG-96390              | [HDFS-10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | O thread do ReplicationMonitor poderia ficar preso por muito tempo devido à corrida entre a replicação e a exclusão do mesmo arquivo em um cluster grande. |
-| BUG-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Reverter de "Vetorização: o valor de 2 de suporte CASE WHEN em vez de retorno para VectorUDFAdaptor"                                       |
+| BUG-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Reversão de "Vetorização: Compatibilidade com CASE WHEN de dois valores em vez do retorno para VectorUDFAdaptor"                                       |
 | BUG-97109              | [HIVE-16757](https://issues.apache.org/jira/browse/HIVE-16757)                                                                                                                                                                                                                                                                                                                                                                                                               | Uso de getRows() preterido, em vez de novo estimateRowCount(RelMetadataQuery...) tem impacto no desempenho sério                      |
 | BUG-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                                                                                                                                                                                                                           | Executar chamadas de manutenção de índice de região no postBatchMutateIndispensably                                                        |
 | BUG-98833              | [YARN-6797](https://issues.apache.org/jira/browse/YARN-6797)                                                                                                                                                                                                                                                                                                                                                                                                                 | TimelineWriter não consome totalmente a resposta de POSTAGEM                                                                             |
@@ -997,11 +997,11 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                         | Exibição com o tipo de união e UDF para o \`struct\` que está rompido                                          |
 | BUG-94505              | [PHOENIX-4525](https://issues.apache.org/jira/browse/PHOENIX-4525)                                                                     | estouro de inteiro na execução GroupBy                                                                  |
 | BUG-95618              | [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)                                                                         | LlapBaseInputFormat - índice negativo da matriz                                                             |
-| BUG-95644              | [HIVE-9152](https://issues.apache.org/jira/browse/HIVE-9152)                                                                           | CombineHiveInputFormat: consulta de Hive está falhando no Tez com exceção de java.lang.IllegalArgumentException |
+| BUG-95644              | [HIVE-9152](https://issues.apache.org/jira/browse/HIVE-9152)                                                                           | CombineHiveInputFormat: Consulta de Hive está falhando no Tez com a exceção java.lang.IllegalArgumentException |
 | BUG-96762              | [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588)                                                                     | Clonar expressão também se os filhos tiverem Determinism.PER\_INVOCATION                                |
 | BUG-97145              | [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245), [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)         | Comentários de coluna de suporte para um HBase com suporte de tabela                                                      |
 | BUG-97741              | [HIVE-18944](https://issues.apache.org/jira/browse/HIVE-18944)                                                                         | O agrupamento de posição de conjuntos é definido incorretamente durante o protocolo DPP                                                  |
-| BUG-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP: sempre o jar da API log4j2 para org.apache.log4j do pacote                                           |
+| BUG-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP: Sempre empacotar o jar da API do log4j2 para org.apache.log4j                                           |
 | BUG-99849              | N/D                                                                                                                                    | Criar uma nova tabela a partir de um Assistente de arquivo que tenta usar o banco de dados padrão                                    |
 
 **Segurança**
@@ -1020,7 +1020,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-95349              | [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256), [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901)                                                             | Atualizar netty                                                                                                         |
 | BUG-95483              | N/D                                                                                                                                                                                                        | Correção para CVE-2017-15713                                                                                                |
 | BUG-95646              | [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167)                                                                                                                                             | Versão de atualização do tomcat na ramificação de Oozie 4.3                                                                            |
-| BUG-95823              | N/D                                                                                                                                                                                                        | Knox: Beanutils de atualização                                                                                               |
+| BUG-95823              | N/D                                                                                                                                                                                                        | Knox: Atualizar Beanutils                                                                                               |
 | BUG-95908              | [RANGER-1960](https://issues.apache.org/jira/browse/RANGER-1960)                                                                                                                                           | HBase auth não considera o namespace da tabela de consideração para a exclusão de instantâneo                                     |
 | BUG-96191              | [FALCON-2322](https://issues.apache.org/jira/browse/FALCON-2322), [FALCON-2323](https://issues.apache.org/jira/browse/FALCON-2323)                                                                         | Atualizar versões Jackson e Spring para evitar vulnerabilidades de segurança                                                 |
 | BUG-96502              | [RANGER-1990](https://issues.apache.org/jira/browse/RANGER-1990)                                                                                                                                           | Adicionar o suporte MySQL One-way no Administrador do Rager                                                                         |
@@ -1074,7 +1074,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-87624              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Habilitar os loggins de evento stom faz com que os trabalhadores continuem a morrer                                                                                |
 | BUG-88929              | [HBASE-15615](https://issues.apache.org/jira/browse/HBASE-15615)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Tempo de suspensão errado quando RegionServerCallable precisar tentar novamente                                                                                          |
 | BUG-89628              | [HIVE-17613](https://issues.apache.org/jira/browse/HIVE-17613)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | remover pools de objeto para alocações curtas e o mesmo thread                                                                                         |
-| BUG 89813              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SCA: Correção de código: método sincronizado de substituições de método não sincronizadas                                                                  |
+| BUG 89813              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SCA: Correção de código: Método sincronizado de substituições de método não sincronizadas                                                                  |
 | BUG-90437              | [ZEPPELIN-3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | a interface do usuário do Zeppelin não se torna lenta/irresponsivva se houver muitas anotações                                                                          |
 | BUG-90640              | [HBASE-19065](https://issues.apache.org/jira/browse/HBASE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | HRegion\#bulkLoadHFiles() deve esperar a Região\#() concorrente para concluir                                                                 |
 | BUG 91202              | [HIVE-17013](https://issues.apache.org/jira/browse/HIVE-17013)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Solicitação de exclusão com uma subconsulta com base na seleção em uma exibição                                                                                     |
@@ -1094,7 +1094,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-93361              | [HIVE-12360](https://issues.apache.org/jira/browse/HIVE-12360)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Busca incorreta no ORC não compactado com a aplicação de predicado                                                                                           |
 | BUG-93426              | [CALCITE-2086](https://issues.apache.org/jira/browse/CALCITE-2086)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | HTTP/413 em determinadas circunstâncias, devido à grandes cabeçalhos de autorização                                                                           |
 | BUG-93429              | [PHOENIX-3240](https://issues.apache.org/jira/browse/PHOENIX-3240)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | ClassCastException do carregador de Pig                                                                                                             |
-| BUG-93485              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Não é possível obter mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException: a tabela não foi encontrada durante a execução analisar a tabela em colunas em LLAP |
+| BUG-93485              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Não é possível obter a tabela mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException: A tabela não foi encontrada durante a execução da análise de tabela em colunas em LLAP |
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | código de resposta 500 - executar um trabalho do spark para conectar-se ao servidor de consulta phoenix e carregar dados                         |
 | BUG-93550              | N/D                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r não funciona com spark1 devido à incompatibilidade de versão do scala                                                                      |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive está falhando em compactar as tabelas contidas dentro de uma pasta que não é de propriedade ao identificar a execução HiveMetaStore                                |
@@ -1110,7 +1110,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-94330              | [HADOOP-13190](https://issues.apache.org/jira/browse/HADOOP-13190), [HADOOP-14104](https://issues.apache.org/jira/browse/HADOOP-14104), [HADOOP-14814](https://issues.apache.org/jira/browse/HADOOP-14814), [HDFS-10489](https://issues.apache.org/jira/browse/HDFS-10489), [HDFS-11689](https://issues.apache.org/jira/browse/HDFS-11689)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | HDFS deve dar suporte para vários Uris de KMS                                                                                                      |
 | BUG-94345              | [HIVE-18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | A compactação deve lidar com um caso quando ele não produz nenhuma saída                                                                                     |
 | BUG-94372              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Consulta DSL: hive\_nome da tabela = \["t1", "t2"\] lança exceções de consulta inválida DSL                                                                |
-| BUG-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Tratando o pedido de RequestHedgingProxyProvider RetryAction: FAIL &lt; RETRY &lt; FAILOVER\_ E \_RETRY.                                             |
+| BUG-94381              | [HADOOP-13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS-13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Tratamento da ordem de RequestHedgingProxyProvider RetryAction: FAIL &lt; RETRY &lt; FAILOVER\_AND\_RETRY.                                             |
 | BUG-94432              | [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | O CompactorMR deve chamar jobclient.close() para disparar a limpeza                                                                                   |
 | BUG-94575              | [SPARK-22587](https://issues.apache.org/jira/browse/SPARK-22587)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Trabalho do Spark falhará se o jar do aplicativo e FS. defaultfs é outra url                                                                          |
 | BUG-94791              | [SPARK-22793](https://issues.apache.org/jira/browse/SPARK-22793)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Vazamento de memória no servidor Thrift Spark                                                                                                             |
@@ -1120,7 +1120,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-95200              | [HDFS-13061](https://issues.apache.org/jira/browse/HDFS-13061)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | SaslDataTransferClient\#checkTrustAndSend não deve confiar em um canal parcialmente confiável                                                         |
 | BUG 95201              | [HDFS-13060](https://issues.apache.org/jira/browse/HDFS-13060)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Adicionando um BlacklistBasedTrustedChannelResolver para TrustedChannelResolver                                                                       |
 | BUG-95284              | [HBASE-19395](https://issues.apache.org/jira/browse/HBASE-19395)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | \[branch-1\] TestEndToEndSplitTransaction.testMasterOpsWhileSplitting falha com NPE                                                           |
-| BUG-95301              | [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Vetorização: corrigir VectorMapOperator para aceitar VRBs e verificar o sinalizador vetorizado corretamente para dar suporte a cache LLAP                                |
+| BUG-95301              | [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Vetorização: Corrigir VectorMapOperator para aceitar VRBs e verificar o sinalizador vetorizado corretamente para compatibilidade com cache LLAP                                |
 | BUG-95542              | [HBASE-16135](https://issues.apache.org/jira/browse/HBASE-16135)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | PeerClusterZnode sob rs do par removido nunca poderá ser excluído                                                                                 |
 | BUG-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Ignorar exceção de transição de estado de Operação Ilegal no SQLOperation.runQuery para expor a exceção real.                                         |
 | BUG-95596              | [YARN-4126](https://issues.apache.org/jira/browse/YARN-4126), [YARN-5750](https://issues.apache.org/jira/browse/YARN-5750)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Falha de TestClientRMService                                                                                                                      |
@@ -1183,7 +1183,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                                                                                | **Resumo**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | BUG-100134             | [SPARK-22919](https://issues.apache.org/jira/browse/SPARK-22919)                                                               | Reverter de "Versões do httpclient tapa Apache"                                 |
-| BUG-95823              | N/D                                                                                                                            | Knox: Beanutils de atualização                                                     |
+| BUG-95823              | N/D                                                                                                                            | Knox: Atualizar Beanutils                                                     |
 | BUG-96751              | [KNOX-1076](https://issues.apache.org/jira/browse/KNOX-1076)                                                                   | Atualizar nimbus-jose-jwt para 4.41.2                                            |
 | BUG-97864              | [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)                                                                 | mesclagem automática falha ao "inserir no diretório como orcfile"                    |
 | BUG-99056              | [HADOOP-13556](https://issues.apache.org/jira/browse/HADOOP-13556)                                                             | Alterar Configuration.getPropsWithPrefix para usar getProps em vez de iterador |
@@ -1196,11 +1196,11 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | UG-100045             | [HIVE-19056](https://issues.apache.org/jira/browse/HIVE-19056)                                                                                                                                                                                                                 | IllegalArgumentException em FixAcidKeyIndex ao arquivo ORC tem 0 linhas                                                                                         |
 | BUG-100139             | [KNOX-1243](https://issues.apache.org/jira/browse/KNOX-1243)                                                                                                                                                                                                                   | Normalizar o DNs necessário que é configurado no KnoxToken Service                                                                                          |
 | BUG-100570             | [ATLAS-2557](https://issues.apache.org/jira/browse/ATLAS-2557)                                                                                                                                                                                                                 | Corrigir para permitir aos grupos de ldap de hadoop de pesquisa quando são grupos de UGI estão definidas incorretamente ou não estão vazios                                                          |
-| BUG-100646             | [ATLAS-2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Aprimoramentos de interface do usuário do Atlas: página de resultados da pesquisa                                                                                                                   |
+| BUG-100646             | [ATLAS-2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Aprimoramentos de interface do usuário do Atlas: Página de resultados da pesquisa                                                                                                                   |
 | BUG-100737             | [HIVE-19049](https://issues.apache.org/jira/browse/HIVE-19049)                                                                                                                                                                                                                 | Adicionar suporte a tabela Alter adicionar colunas para Druid                                                                                                            |
 | BUG-100750             | [KNOX-1246](https://issues.apache.org/jira/browse/KNOX-1246)                                                                                                                                                                                                                   | Atualizar as configuração de serviço no Knox para dar suporte a configurações mais recentes para o Ranger.                                                                                   |
-| BUG 100965             | [ATLAS-2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Regressão com as notificação de Hive Hook V2: movendo a tabela para banco de dados diferentes                                                                            |
-| BUG-84413              | [ATLAS-1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | Interface do usuário: auporte a ordem de colunas na tabela de pesquisa                                                                                                                |
+| BUG 100965             | [ATLAS-2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Regressão com notificações de Hive hook V2: Movendo a tabela para um banco de dados diferente                                                                            |
+| BUG-84413              | [ATLAS-1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | Interface do usuário: Compatibilidade para ordenar as colunas na tabela de pesquisa                                                                                                                |
 | BUG-90570              | [HDFS-11384](https://issues.apache.org/jira/browse/HDFS-11384), [HDFS-12347](https://issues.apache.org/jira/browse/HDFS-12347)                                                                                                                                                 | Adicione a opção o balanceador para dispersar as chamadas getBlocks para evitar pico no rpc.CallQueueLength do NameNode                                                            |
 | BUG-90584              | [HBASE-19052](https://issues.apache.org/jira/browse/HBASE-19052)                                                                                                                                                                                                               | FixedFileTrailer deve reconhecer a classe CellComparatorImpl no branch-1. x                                                                                     |
 | BUG 90979              | [KNOX-1224](https://issues.apache.org/jira/browse/KNOX-1224)                                                                                                                                                                                                                   | Knox HADispatcher de Proxy para dar suporte a Atlas em HA.                                                                                                              |
@@ -1221,15 +1221,15 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-93933              | [ATLAS-2286](https://issues.apache.org/jira/browse/ATLAS-2286)                                                                                                                                                                                                                 | Pré-criados em tipo 'kafka\_topic' não devem declarar o atributo 'tópico' como exclusivo                                                                                 |
 | BUG-93938              | [ATLAS-2283](https://issues.apache.org/jira/browse/ATLAS-2283), [ATLAS-2295](https://issues.apache.org/jira/browse/ATLAS-2295)                                                                                                                                                 | Atualizações da interface do usuário para as classificações                                                                                                                               |
 | BUG-93941              | [ATLAS-2296](https://issues.apache.org/jira/browse/ATLAS-2296), [ATLAS-2307](https://issues.apache.org/jira/browse/ATLAS-2307)                                                                                                                                                 | Aprimoramento de pesquisa básica, opcionalmente, excluir entidades de subpropriedades tipo e tipos de sub classificação                                                                |
-| BUG-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | Interface do usuário: Clicar duas vezes na marca filha, a marca pai está selecionada                                                                                                    |
-| BUG-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | Interface do usuário: excluir uma marca na posição 25+ na lista de marca na estrutura Flat e de Árvore precisa de uma atualização para remover a marcação da lista.                   |
+| BUG-93944              | [ATLAS-2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | Interface do usuário: Clicar duas vezes na marca filho, a marca pai está selecionada                                                                                                    |
+| BUG-93946              | [ATLAS-2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | Interface do usuário: Excluir uma marca na posição 25+ na lista de marca na estrutura Flat e de Árvore precisa de uma atualização para remover a marca da lista.                   |
 | BUG-93977              | [HIVE-16232](https://issues.apache.org/jira/browse/HIVE-16232)                                                                                                                                                                                                                 | O suporte a computação de estatísticas para colunas em QuotedIdentifier                                                                                                     |
 | BUG-94030              | [ATLAS-2332](https://issues.apache.org/jira/browse/ATLAS-2332)                                                                                                                                                                                                                 | Criação do tipo com tendo aninhadas de tipo de dados de coleção de atributos                                                                                     |
 | BUG-94099              | [ATLAS-2352](https://issues.apache.org/jira/browse/ATLAS-2352)                                                                                                                                                                                                                 | O servidor do Atlas deve fornecer a configuração para especificar a validade para Kerberos DelegationToken                                                                   |
 | BUG-94280              | [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                                                                                                                                                                 | Exibição com o tipo de união e UDF para o \`struct\` que está rompido                                                                                                |
 | BUG-94332              | [SQOOP-2930](https://issues.apache.org/jira/browse/SQOOP-2930)                                                                                                                                                                                                                 | Exec de trabalho de Sqoop não substitui as propriedades genéricas de trabalho salvas                                                                                               |
 | BUG-94428              | N/D                                                                                                                                                                                                                                                                            | Suporte de plano de dados Profiler agente REST API Knox                                                                                                               |
-| BUG-94514              | [ATLAS-2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | Interface do usuário: Modificações no "colunas" no modo de exibição de resultado de pesquisa básica afeta DSL também.                                                                                |
+| BUG-94514              | [ATLAS-2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | Interface do usuário: Modificações em "colunas" no modo de exibição de resultado de pesquisa básica afeta DSL também.                                                                                |
 | BUG-94515              | [ATLAS-2169](https://issues.apache.org/jira/browse/ATLAS-2169)                                                                                                                                                                                                                 | Excluir falhas de solicitação quando a exclusão ríida for configurada                                                                                                          |
 | BUG-94518              | [ATLAS-2329](https://issues.apache.org/jira/browse/ATLAS-2329)                                                                                                                                                                                                                 | A interface do usuário de vários focos aparece se o usuário clicar em outra marca que estiver incorreta                                                                             |
 | BUG-94519              | [ATLAS-2272](https://issues.apache.org/jira/browse/ATLAS-2272)                                                                                                                                                                                                                 | Salve o estado de colunas arrastadas usando a API de pesquisa de salvamento.                                                                                                     |
@@ -1238,7 +1238,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-94793              | [HIVE-14013](https://issues.apache.org/jira/browse/HIVE-14013)                                                                                                                                                                                                                 | Descrever a tabela não mostra unicode corretamente                                                                                                                 |
 | BUG-94900              | [OOZIE-2606](https://issues.apache.org/jira/browse/OOZIE-2606), [OOZIE-2658](https://issues.apache.org/jira/browse/OOZIE-2658), [OOZIE-2787](https://issues.apache.org/jira/browse/OOZIE-2787), [OOZIE-2802](https://issues.apache.org/jira/browse/OOZIE-2802)                 | Defina spark.yarn.jars para corrigir Spark 2.0 com Oozie                                                                                                              |
 | BUG 94901              | [HBASE-19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                                                                                                                                                               | Adicionar histogramas de latência por tabela                                                                                                                             |
-| BUG-94908              | [ATLAS-1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | Interface do usuário: pesquisar usando os atributos de entidade e característica: interface do usuário não executa verificação de intervalo e permite fornecer os valores dos limites fora para tipos de dados integrais e float.  |
+| BUG-94908              | [ATLAS-1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | Interface do usuário: Pesquisar usando os atributos de entidade e característica: Interface do usuário não executa verificação de intervalo e permite fornecer os valores dos limites fora para tipos de dados integrais e float.  |
 | BUG-95086              | [RANGER-1953](https://issues.apache.org/jira/browse/RANGER-1953)                                                                                                                                                                                                               | melhoria na lista da página do grupo de usuários                                                                                                                       |
 | BUG-95193              | [SLIDER-1252](https://issues.apache.org/jira/browse/SLIDER-1252)                                                                                                                                                                                                               | O agente Slider falha com erros de validação de SSL com o python 2.7.5-58                                                                                           |
 | BUG-95314              | [YARN-7699](https://issues.apache.org/jira/browse/YARN-7699)                                                                                                                                                                                                                   | queueUsagePercentage está vindo como INF para getApp chamada à api REST                                                                                               |
@@ -1248,9 +1248,9 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-95512              | [HIVE-18467](https://issues.apache.org/jira/browse/HIVE-18467)                                                                                                                                                                                                                 | Dar suporte a despejo de warehouse inteiro / carregar + criar/remover eventos de banco de dados                                                                                            |
 | BUG-95593              | N/D                                                                                                                                                                                                                                                                            | Estender o Oozie DB utils para dar suporte à criação de sharelib Spark2                                                                                                    |
 | BUG-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                 | Ignorar exceção de transição de estado de Operação Ilegal no SQLOperation.runQuery para expor a exceção real.                                                       |
-| BUG-95685              | [ATLAS-2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | Exportação: Exportação de baseada no tipo de suporte                                                                                                                            |
+| BUG-95685              | [ATLAS-2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | Exportar: Compatibilidade com a exportação baseada no tipo                                                                                                                            |
 | BUG 95798              | [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714), [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724), [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023), [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040) | Não use balizas para executar consultas em série                                                                                                          |
-| BUG-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Modo de exibição particionado falha com FAILED: índice IndexOutOfBoundsException: 1, tamanho: 1                                                                              |
+| BUG-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | A exibição particionada falha com FALHA: Índice IndexOutOfBoundsException: 1, Tamanho: 1                                                                              |
 | BUG-96019              | [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                 | Corrigir importação de 4j                                                                                                                                             |
 | BUG-96288              | [HBASE-14123](https://issues.apache.org/jira/browse/HBASE-14123), [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135), [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | Backport Hbase Backup/Restore 2.0                                                                                                                            |
 | BUG-96313              | [KNOX-1119](https://issues.apache.org/jira/browse/KNOX-1119)                                                                                                                                                                                                                   | Pac4J OAuth/OpenID Principal precisa ser configurável                                                                                                        |
@@ -1301,11 +1301,11 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 |**Componente do Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
 |**Spark 2.3** |**N/D** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "Substituição" e um guia de "Alteração de comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para parte do SQL, há outra guia de migração"detalhado" (de 2.2 a 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Trabalho do Spark concluído com êxito, mas há um erro de total de cota de disco HDFS |**Cenário:** Em execução **inserir substituir** quando uma cota é definida na pasta da Lixeira do usuário que executa o comando.<br /><br />**Comportamento anterior:** o trabalho for bem-sucedido, mesmo que ele não consegue mover os dados para a Lixeira. O resultado incorretamente pode conter alguns dos dados esteja presentes na tabela.<br /><br />**Novo comportamento:** quando a mudança para a pasta da Lixeira falha, os arquivos serão excluídos permanentemente.|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Trabalho do Spark concluído com êxito, mas há um erro de total de cota de disco HDFS |**Cenário:** Executando **insert overwrite** quando uma cota é definida na pasta da Lixeira do usuário que executa o comando.<br /><br />**Comportamento anterior:** O trabalho for bem-sucedido, mesmo que ele não consiga mover os dados para a Lixeira. O resultado incorretamente pode conter alguns dos dados esteja presentes na tabela.<br /><br />**Novo comportamento:** Quando a mudança para a pasta da Lixeira falha, os arquivos são excluídos permanentemente.|
 |**Kafka 1.0**|**N/D**|**Notas de versão de alterações conforme documentado no Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para INSERT OVERWRITE |**Cenário:** políticas de hive do ranger adicionais necessárias para **INSERT OVERWRITE**<br /><br />**Comportamento anterior:** consultas do Hive **INSERT OVERWRITE** consultas realizadas com êxito como de costume.<br /><br />**Novo comportamento:** consultas do Hive **INSERT OVERWRITE** estão falhando inesperadamente após a atualização para HDP 2.6 com o erro:<br /><br />Erro durante a compilação de instrução: FAILED: HiveAccessControlException permissão negada: usuário jdoe não tem privilégios de gravação em /tmp/\*(estado = 42000, código = 40000)<br /><br />A partir das consultas HDP-2.6.0 Hive **INSERT OVERWRITE** exigem uma política de URI do Ranger para permitir operações de gravação, mesmo se o usuário tem o privilégio de gravação concedido por meio da política HDFS.<br /><br />**Solução alternativa/esperado ação do cliente:**<br /><br />1. Crie uma nova política do repositório do Hive.<br />2. Na lista suspensa onde você vê que o banco de dados, selecione o URI.<br />3. Atualizar o caminho (exemplo: / tmp / *)<br />4. Adicionar os usuários e grupos e salve.<br />5. Tente novamente a consulta insert.|
+|**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para INSERT OVERWRITE |**Cenário:** Políticas de hive do ranger adicionais necessárias para **INSERT OVERWRITE**<br /><br />**Comportamento anterior:** Consultas **INSERT OVERWRITE** do Hive realizadas com êxito como de costume.<br /><br />**Novo comportamento:** Consultas **INSERT OVERWRITE** do Hive estão falhando inesperadamente após a atualização para HDP-2.6.x com o erro:<br /><br />Erro ao compilar a instrução: FALHA: HiveAccessControlException Permissão negada: usuário jdoe não tem o privilégio WRITE em /tmp/\*(state=42000,code=40000)<br /><br />A partir das consultas HDP-2.6.0 Hive **INSERT OVERWRITE** exigem uma política de URI do Ranger para permitir operações de gravação, mesmo se o usuário tem o privilégio de gravação concedido por meio da política HDFS.<br /><br />**Solução alternativa/esperado ação do cliente:**<br /><br />1. Crie uma nova política do repositório do Hive.<br />2. Na lista suspensa onde você vê que o banco de dados, selecione o URI.<br />3. Atualizar o caminho (exemplo: / tmp / *)<br />4. Adicionar os usuários e grupos e salve.<br />5. Tente novamente a consulta insert.|
 |**HDFS**|**N/D** |HDFS deve dar suporte para vários Uris de KMS |**Comportamento anterior:** propriedade dfs.encryption.key.provider.uri foi usada para configurar o caminho de provedor do KMS.<br /><br />**Novo comportamento:** dfs.encryption.key.provider.uri foi preterido em favor de hadoop.security.key.provider.path para configurar o caminho de provedor do KMS.|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desabilitar o agendador |**Componente afetado:** Servidor Zeppelin<br /><br />**Comportamento anterior:** nas versões anteriores do Zeppelin, não havia nenhuma opção para desabilitar o Agendador.<br /><br />**Novo comportamento:** por padrão, os usuários não poderão mais ver o Agendador, pois ele é desabilitada por padrão.<br /><br />**Ação do cliente esperado/solução alternativa:** se você quiser habilitar o Agendador, você precisará adicionar azeppelin.notebook.cron.enable com valor de true no site do zeppelin personalizados nas configurações do Zeppelin do Ambari.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opção para desabilitar o agendador |**Componente afetado:** Servidor do Zeppelin<br /><br />**Comportamento anterior:** Nas versões anteriores do Zeppelin, não havia nenhuma opção para desabilitar o agendador.<br /><br />**Novo comportamento:** Por padrão, os usuários não poderão mais ver o agendador, pois ele está desabilitado por padrão.<br /><br />**Solução alternativa/esperado ação do cliente:** Se você quiser habilitar o agendador, precisará adicionar azeppelin.notebook.cron.enable com valor de true no site do Zeppelin personalizados nas configurações do Zeppelin do Ambari.|
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -1328,11 +1328,11 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 -   **Solução alternativa para falha de verificação de serviço do Ranger**
 
-    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): solução alternativa para falha de verificação de serviço Ranger durante a atualização para HDP 2.6.2 de versões anteriores do HDP.
+    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Solução alternativa para falha de verificação de serviço Ranger durante a atualização para HDP 2.6.2 de versões anteriores do HDP.
 
-        >[!NOTE]
-        >Somente quando o Ranger for SSL habilitado. 
-    
+        > [!NOTE]  
+        > Somente quando o Ranger for SSL habilitado. 
+     
     Esse problema surge ao tentar atualizar para HDP-2.6.1 das versões HDP anteriores através do Ambari. O Ambari usa uma chamada de curl para fazer uma verificação de serviço a serviço Ranger no Ambari. Se a versão do JDK usada pelo Ambari é JDK 1.7, a chamada de curl falhará com o erro abaixo:
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1353,7 +1353,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
             
             SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >Os valores observados trabalham exemplos e podem não ser indicativos do seu ambiente. Certifique-se de que corresponda à maneira de definir essas propriedades como o ambiente está configurado.   
 
 -   **RangerUI: Escape do texto de condição de política inserido no formato de política**
@@ -1374,7 +1374,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
     
     **Solução alternativa**
     
-    - **Opção \#1: criar/atualizar política por meio da API Rest do Ranger**
+    - **Opção \#1: Criar/atualizar política por meio da API Rest do Ranger**
         
         REST de URL: http://&lt;host&gt;: 6080/service/plugins/políticas
         
@@ -1396,7 +1396,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
         
         `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Opção \#2: aplicar mudanças Javascript**
+    - **Opção \#2: Aplicar mudanças de Javascript**
         
         Etapas para atualizar o arquivo JS:
         
@@ -1412,7 +1412,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 ## <a name="deprecation"></a>Reprovação
 
--   **Portal do OMS:** removemos o link da página de recursos do HDInsight que estava apontando para o portal do OMS. Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados. Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas. HDInsight preteriu o suporte para o portal do OMS. Os clientes usarão a integração do HDInsight Log Analytics no portal do Microsoft Azure.
+-   **Portal do OMS:** Removemos o link da página de recursos do HDInsight que estava apontando para o portal do OMS. Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados. Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas. HDInsight preteriu o suporte para o portal do OMS. Os clientes usarão a integração do HDInsight Log Analytics no portal do Microsoft Azure.
 
 -   **Spark 2.3**
 

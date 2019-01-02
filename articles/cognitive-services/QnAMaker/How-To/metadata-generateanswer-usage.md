@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031077"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166584"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Usar metadados e API do GenerateAnswer
 
@@ -58,12 +58,12 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
     - **Ponto de extremidade do QnAMaker** (cadeia de caracteres): o nome do host do ponto de extremidade implantado na sua assinatura do Azure.
 - **Cabeçalhos da solicitação**
     - **Content-Type** (cadeia de caracteres): o tipo de mídia do corpo enviado para a API.
-    - **Autorização** (cadeia de caracteres): a chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
+    - **Autorização** (cadeia de caracteres): sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corpo da solicitação**
     - **pergunta** (cadeia de caracteres): uma pergunta do usuário a ser consultada na base de dados de conhecimento.
     - **superior** (opcional, inteiro): o número de resultados classificados para incluir na saída. O valor padrão é 1.
-    - **userId** (opcional, cadeia de caracteres): uma ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.
-    - **strictFilters** (opcional, cadeia de caracteres): se especificado, informa ao QnA Maker para retornar apenas as respostas que possuem os metadados especificados. Para obter mais informações, veja abaixo.
+    - **userId** (opcional, cadeia de caracteres): ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.
+    - **strictFilters** (opcional, cadeia de caracteres): se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados. Para obter mais informações, veja abaixo.
     ```json
     {
         "question": "qna maker and luis",
@@ -81,14 +81,14 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
 
 - **Resposta 200** - Uma chamada com êxito retorna o resultado da pergunta. A resposta contém os seguintes campos:
     - **respostas** - Uma lista de respostas para a consulta do usuário, classificada em ordem decrescente de pontuação do ranking.
-        - **pontuação**: Uma pontuação de classificação entre 0 e 100.
-        - **perguntas**: As perguntas fornecidas pelo usuário.
-        - **resposta**: A resposta à pergunta.
-        - **fonte**: O nome da fonte da qual a resposta foi extraída ou salva na base de dados de conhecimento.
-        - **metadados**: Os metadados associados à resposta.
+        - **pontuação**: uma pontuação de classificação entre 0 e 100.
+        - **perguntas**: as perguntas fornecidas pelo usuário.
+        - **resposta**: a resposta à pergunta.
+        - **fonte**: o nome da fonte da qual a resposta foi extraída ou salva na base de dados de conhecimento.
+        - **metadados**: os metadados associados à resposta.
             - nome: nome dos metadados. (cadeia de caracteres, Comprimento máx.: 100, obrigatório)
             - valor: valor dos metadados. (cadeia de caracteres, Comprimento máx.: 100, obrigatório)
-        - **ID**: a ID exclusiva atribuída à resposta.
+        - **Id**: a ID exclusiva atribuída à resposta.
     ```json
     {
         "answers": [
@@ -167,6 +167,8 @@ A resposta ao GenerateAnswer contém as informações de metadados correspondent
 Essas informações podem ser usadas para registrar o contexto da conversa anterior e usar em conversas posteriores. 
 
 ## <a name="next-steps"></a>Próximas etapas
+
+A página de publicação também fornece informações para gerar uma resposta com [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de conhecimento](./create-knowledge-base.md)

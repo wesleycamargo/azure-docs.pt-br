@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrar uma única floresta do AD ao Azure usando a senha hash sync (PHS) | Microsoft Docs'
+title: 'Tutorial:  Integrar uma única floresta do AD ao Azure usando PHS (sincronização de hash de senha) | Microsoft Docs'
 description: Demonstra como configurar um ambiente de identidade híbrido usando a sincronização de senha.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426903"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164679"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integrar uma única floresta do AD usando a senha hash sync (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integrar uma única floresta do AD usando a sincronização de hash da senha (PHS)
 
 ![Criar](media/tutorial-password-hash-sync/diagram.png)
 
@@ -38,7 +38,7 @@ A seguir estão os pré-requisitos necessários para concluir este tutorial
 >
 >Os scripts usados criam um ambiente geral do Active Directory antes de instalar o Azure AD Connect.  Eles são relevantes para todos os tutoriais.
 >
-> Cópias dos scripts do PowerShell que são usados neste tutorial estão disponíveis no Github [aqui](https://github.com/billmath/tutorial-phs).
+> Cópias dos scripts do PowerShell que são usados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 A primeira etapa necessária para colocar o ambiente de identidade híbrida em funcionamento é criar uma máquina virtual que será usada como o servidor local do Active Directory.  Faça o seguinte:
@@ -81,7 +81,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 5. Clique em **Instalar Agora**.
 6. Insira a chave de licença e clique em **Avançar**.
 7. Marque **Eu aceito os termos da licença e clique em **Avançar**.
-8. Selecione **Personalizado: instalar somente o Windows (Avançado)**
+8. Selecione **Personalizado:  instalar somente o Windows (Avançado)**
 9. Clique em **Avançar**
 10. Quando a instalação estiver concluída, reinicie a máquina virtual, entre e execute as atualizações do Windows para garantir que a VM seja a mais atualizada.  Instale as atualizações mais recentes.
 

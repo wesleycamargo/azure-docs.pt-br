@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311051"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276665"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Usando regressão linear no Azure Machine Learning Studio
 > *Kate Baroni* e *Ben Boatman* são arquitetos de soluções corporativas no Data Insights Center of Excellence da Microsoft. Neste artigo, eles descrevem sua experiência de migração de um pacote existente de análise de regressão para uma solução baseada em nuvem usando o Azure Machine Learning. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311051"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Objetivo
 Nosso projeto começou com dois objetivos: 
@@ -73,8 +72,8 @@ Inicialmente, o modelo do Excel superou claramente o do Machine Learning Studio:
 Quando apresentamos nosso processo e os resultados aos desenvolvedores e cientistas de dados à equipe do Machine Learning, eles forneceram rapidamente algumas dicas úteis. 
 
 * Quando você usa o módulo [Regressão Linear][linear-regression] no Machine Learning Studio, são fornecidos dois métodos:
-  * Gradiente Online Descendente: talvez seja mais adequado para problemas de maior escala
-  * Mínimos Quadrados Comuns: esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
+  * Gradiente Online Descendente: Talvez seja mais adequado para problemas de maior escala
+  * Mínimos Quadrados Comuns: Esse é o método em que muitas pessoas pensam quando ouvem falar em regressão linear. Para conjuntos de dados pequenos, Mínimos Quadrados Comuns pode ser uma opção melhor.
 * Considere a possibilidade de ajustar o parâmetro L2 de Regularização de Peso para melhorar o desempenho. Ele é definido como 0,001 por padrão e, para nosso pequeno conjunto de dados, o definimos como 0,005 para melhorar o desempenho. 
 
 ### <a name="mystery-solved"></a>Mistério resolvido!
@@ -86,8 +85,8 @@ Quando aplicamos as recomendações, atingimos desempenho de linha de base no Ma
 | Aprendiz |Excel -> Dados da Análise -> Regressão |Regressão Linear. |Regressão Linear |
 | Opções de aprendiz |N/D |Padrões |quadrados mínimos comuns<br />L2 = 0,005 |
 | Conjunto de dados |26 linhas, 3 recursos, 1 rótulo. Todos numéricos. |mesmo |mesmo |
-| Divisão: treinamento |Excel treinado nas primeiras 18 linhas e testado nas últimas 8 linhas. |mesmo |mesmo |
-| Divisão: teste |Fórmula de regressão do Excel aplicada às últimas 8 linhas |mesmo |mesmo |
+| Divisão: Treinar |Excel treinado nas primeiras 18 linhas e testado nas últimas 8 linhas. |mesmo |mesmo |
+| Divisão: Teste |Fórmula de regressão do Excel aplicada às últimas 8 linhas |mesmo |mesmo |
 | **Desempenho** | | | |
 | Quadrado R Ajustado |0,96 |N/D | |
 | Coeficiente de Determinação |N/D |0,78 |0,952049 |
@@ -145,7 +144,7 @@ Estes são alguns recursos que ajudam a trabalhar com a regressão:
 
 * Regressão no Excel. Se você nunca tentou regressão no Excel, este tutorial torna mais fácil: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regressão versus previsão. Tyler Chessman escreveu um artigo no blog explicando como realizar a previsão de série temporal no Excel, que contém uma boa descrição para iniciantes sobre a regressão linear. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regressão linear de quadrados mínimos simples: falhas, problemas e armadilhas. Para uma introdução e uma discussão sobre Regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regressão Linear de Quadrados Mínimos Comuns: Falhas, problemas e armadilhas. Para uma introdução e uma discussão sobre Regressão: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

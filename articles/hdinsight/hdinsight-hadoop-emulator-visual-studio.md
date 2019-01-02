@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6a3fab0e6b3b092ddb55043882c4d284268abfc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006833"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012752"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio com a Área Restrita da Hortonworks
 
-O Azure Data Lake inclui ferramentas para trabalhar com clusters Hadoop genéricos. Este documento fornece as etapas necessárias para usar as ferramentas do Data Lake com a Área Restrita da Hortonworks em execução em uma máquina virtual local.
+O Azure Data Lake inclui ferramentas para trabalhar com clusters Apache Hadoop genéricos. Este documento fornece as etapas necessárias para usar as ferramentas do Data Lake com a Área Restrita da Hortonworks em execução em uma máquina virtual local.
 
 O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente em seu ambiente de desenvolvimento. Após você desenvolver uma solução e querer implantá-la em escala, mude para um cluster HDInsight.
 
@@ -34,7 +34,7 @@ O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurar senhas para a área restrita
 
-Certifique-se de que a Área Restrita da Hortonworks está em execução. Siga as etapas do documento [Introdução à área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords). Essas etapas configuram a senha para a conta `root` de SSH e a conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se do Visual Studio à área restrita.
+Certifique-se de que a Área Restrita da Hortonworks está em execução. Siga as etapas do documento [Introdução à área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords). Essas etapas configuram a senha para a conta `root` de SSH e para a conta `admin` do Apache Ambari. Essas senhas serão usadas ao conectar-se do Visual Studio à área restrita.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conectar as ferramentas à área restrita
 
@@ -71,7 +71,7 @@ Certifique-se de que a Área Restrita da Hortonworks está em execução. Siga a
 
 Após a execução dessas etapas, você terá uma entrada de **cluster local do HDInsight** no Gerenciador de Servidores, na seção **HDInsight**.
 
-## <a name="write-a-hive-query"></a>Escrever uma consulta do Hive
+## <a name="write-an-apache-hive-query"></a>Escrever uma consulta do Apache Hive
 
 O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com os dados estruturados. Use as etapas a seguir para saber como executar consultas sob demanda no cluster local.
 
@@ -100,7 +100,7 @@ O Hive fornece uma linguagem de consulta do tipo SQL (HiveQL) para trabalhar com
     Após o **Estado do Trabalho** mudar para **Concluído**, um DAG (grafo direcionado acíclico) é exibido. Este diagrama descreve o caminho de execução determinado por Tez durante o processamento da consulta de Hive. O Tez é o mecanismo padrão de execução para Hive no cluster local.
 
     > [!NOTE]
-    > O Tez também é o padrão quando você usa clusters HDInsight baseados em Linux. Ele não é o padrão em HDInsight baseado no Windows. Para usá-lo, você deve adicionar a linha `set hive.execution.engine = tez;` ao início de sua consulta de Hive.
+    > O Apache Tez também é o padrão quando você usa clusters do HDInsight baseados em Linux. Ele não é o padrão em HDInsight baseado no Windows. Para usá-lo, você deve adicionar a linha `set hive.execution.engine = tez;` ao início de sua consulta de Hive.
 
     Use o link **Saída de Trabalho** para exibir a saída. Nesse caso, ela é 823, o número de linhas na tabela sample_08. Você pode exibir informações de diagnóstico sobre o trabalho usando os links **Log do Trabalho** e **Baixar Log do YARN**.
 
@@ -127,7 +127,7 @@ Você também pode criar um projeto que contém vários scripts do Hive. Use um 
 
 O projeto **Amostra do Hive** contém dois scripts, **WebLogAnalysis.hql** e **SensorDataAnalysis.hql**. Você pode enviar esses scripts usando o mesmo botão **Enviar** na parte superior da janela.
 
-## <a name="create-a-pig-project"></a>Criar um projeto Pig
+## <a name="create-an-apache-pig-project"></a>Criar um projeto Apache Pig
 
 Enquanto o Hive fornece uma linguagem semelhante ao SQL para trabalhar com os dados estruturados, o Pig funciona executando transformações nos dados. O Pig fornece uma linguagem (Pig Latin) que permite que você desenvolva um pipeline de transformações. Siga as etapas a seguir para usar o Pig com o cluster local:
 
@@ -200,5 +200,5 @@ Em seguida, você pode criar a tabela usando um formulário. Na parte inferior d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Tutorial do Apache Hadoop – Introdução ao HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

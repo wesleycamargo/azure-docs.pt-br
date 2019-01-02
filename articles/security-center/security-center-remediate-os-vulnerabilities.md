@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317477"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344135"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.
@@ -42,23 +42,23 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
 
   A seção superior do painel exibe:
 
-  - **Regras com falha por severidade**: o número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por severidade.
-  - **Regras com falha por tipo**: o número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por tipo.
-  - **Regras com falha do Windows**: o número total de regras com falha por configurações do sistema operacional Windows.
-  - **Regras com falha do Linux**: o número total de regras com falha por configurações do sistema operacional Linux.
+  - **Regras com falha por gravidade**: O número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por gravidade.
+  - **Regras com falha por tipo**: O número total de regras que a configuração do sistema operacional falhou nas VMs e computadores, divididos por tipo.
+  - **Regras do Windows com falha**: O número total de regras com falha por configurações do sistema operacional Windows.
+  - **Regras do Linux com falha**: O número total de regras com falha por configurações do sistema operacional Linux.
 
   A seção inferior do painel lista todas as regras com falha nas VMs e nos computadores e a severidade da atualização ausente. A lista contém os seguintes elementos:
 
-  - **CCEID**: o identificador exclusivo CCE da regra. A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração.
-  - **Nome**: o nome da regra com falha.
-  - **Tipo de regra**: a *chave do Registro*, *política de Segurança*, *política de Auditoria* ou tipo de regra do *IIS*.
-  - **Nº de VMs e computadores**: o número total de VMs e computadores aos quais a regra com falha se aplica.
-  - **Severidade da regra**: o valor *Crítico*, *Importante* ou *Aviso* da CCE.
-  - **Estado**: o estado atual da recomendação:
+  - **CCEID**: O identificador exclusivo CCE para a regra. A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração.
+  - **Nome**: O nome da regra com falha.
+  - **Tipo de regra**: O tipo de regra de *Chave do Registro*, *Política de segurança*, *Política de auditoria* ou *IIS*.
+  - **Nº de VMs e computadores**: O número total de VMs e computadores aos quais a regra com falha se aplica.
+  - **Gravidade da regra**: O valor *Crítico*, *Importante* ou *Aviso* da CCE.
+  - **Estado**: O estado atual da recomendação:
 
-    - **Aberta**: a recomendação ainda não foi resolvida.
-    - **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é necessário que você realize nenhuma ação.
-    - **Resolvido**: a recomendação foi aplicada. Quando o problema é resolvido, a entrada fica esmaecida.
+    - **Aberto**: A recomendação ainda não foi resolvida.
+    - **Em andamento**: A recomendação está sendo aplicada atualmente aos recursos e não é necessário que você realize nenhuma ação.
+    - **Resolvido**: A recomendação foi aplicada. Quando o problema é resolvido, a entrada fica esmaecida.
 
 3. Para exibir os detalhes de uma regra com falha, selecione-a na lista.
 
@@ -66,17 +66,17 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
 
    A exibição detalhada exibe as seguintes informações:
 
-   - **Nome**: o nome da regra.
-   - **CCEID**: o identificador exclusivo CCE da regra.
-   - **Versão do sistema operacional**: a versão do sistema operacional da VM ou do computador.
-   - **Severidade da regra**: o valor *Crítico*, *Importante* ou *Aviso* da CCE.
-   - **Descrição completa**: a descrição da regra.
-   - **Vulnerabilidade**: explicação da vulnerabilidade ou do risco se a regra não for aplicada.
-   - **Impacto potencial**: o impacto para os negócios quando a regra é aplicada.
-   - **Contramedida**: as etapas de correção.
-   - **Valor esperado**: o valor esperado quando a Central de Segurança analisa a configuração do sistema operacional da VM em relação à regra.
-   - **Valor real**: o valor retornado após a análise da configuração do sistema operacional da VM em relação à regra.
-   - **Operação da regra**: a operação da regra usada pela Central de Segurança durante a análise da configuração do sistema operacional da VM em relação à regra.
+   - **Nome**: O nome da regra.
+   - **CCIED**: O identificador exclusivo CCE para a regra.
+   - **Versão do SO**: A versão do sistema operacional da VM ou do computador.
+   - **Gravidade da regra**: O valor *Crítico*, *Importante* ou *Aviso* da CCE.
+   - **Descrição completa**: A descrição da regra.
+   - **Vulnerabilidade**: Explicação da vulnerabilidade ou do risco se a regra não for aplicada.
+   - **Possível Impacto**: O impacto de negócios quando a regra é aplicada.
+   - **Contramedida**: As etapas de correção.
+   - **Valor esperado**: O valor esperado quando a Central de Segurança analisa a configuração do sistema operacional da VM em relação à regra.
+   - **Valor real**: O valor retornado após a análise da configuração do sistema operacional da VM em relação à regra.
+   - **Operação da regra**: A operação da regra usada pela Central de Segurança durante a análise da configuração do sistema operacional da VM em relação à regra.
 
 4. Na parte superior da janela de exibição detalhada, selecione **Pesquisar**.  
   A pesquisa abre uma lista de workspaces que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionada. A seleção do workspace é mostrada apenas quando a regra selecionada se aplica a várias VMs que estão conectadas a diferentes workspaces.
@@ -101,7 +101,7 @@ Para examinar as configurações específicas que estão sendo monitoradas, veja
 Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 
 * Para obter uma lista de VMs Windows e Linux compatíveis, consulte [Plataformas com suporte na Central de Segurança do Azure](security-center-os-coverage.md).
-* Para saber como configurar políticas de segurança para suas assinaturas e seus grupos de recursos do Azure, consulte [Definindo políticas de segurança na Central de Segurança do Azure](security-center-azure-policy.md).
+* Para saber como configurar políticas de segurança para suas assinaturas e seus grupos de recursos do Azure, consulte [Definindo políticas de segurança na Central de Segurança do Azure](tutorial-security-policy.md).
 * Para saber como as recomendações ajudam você a proteger seus recursos do Azure, consulte [Gerenciando as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 * Para saber como monitorar a integridade de seus recursos do Azure, consulte [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md).
 * Para saber como gerenciar e responder a alertas de segurança, consulte [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).

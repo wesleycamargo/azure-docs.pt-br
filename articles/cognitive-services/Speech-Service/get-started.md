@@ -1,7 +1,7 @@
 ---
-title: Experimente o serviço de Fala gratuitamente
+title: Experimente os Serviços de Fala gratuitamente
 titleSuffix: Azure Cognitive Services
-description: Descubra como você pode experimentar o serviço de Fala sem qualquer custo.
+description: É fácil e barato começar a usar o serviço de Fala. Uma avaliação gratuita de 30 dias permite que você descubra o que o serviço pode fazer e decida se ele é o ideal para as necessidades do seu aplicativo.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471383"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079102"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -36,7 +37,7 @@ Para se inscrever em uma avaliação gratuita de 30 dias:
 1. Selecione a guia **APIs de Fala**.
 
    ![Guia Serviços de Fala](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Em **Serviços de fala**, selecione o botão **Obter Chave de API**.
 
    ![Chave de API](media/index/try-speech-api-free-trial2.png)
@@ -122,5 +123,5 @@ As chaves criadas para uma região são válidas somente nessa região. A tentat
 Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Reconhecer a fala em C#](quickstart-csharp-dotnet-windows.md)
+> [Início Rápido: reconhecer a fala em C#](quickstart-csharp-dotnet-windows.md)
 > [Amostras de SDK de Fala](speech-sdk.md#get-the-samples)

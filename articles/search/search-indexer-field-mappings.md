@@ -1,6 +1,6 @@
 ---
-title: Mapeamentos de campo em indexadores do Azure Search
-description: Configurar mapeamentos de campo de indexador de Azure Search para obter as diferenças nos nomes de campo e representações de dados
+title: Mapeamentos de campo para indexação automatizada usando indexadores – Azure Search
+description: Configure mapeamentos de campo de indexador do Azure Search para esclarecer as diferenças em nomes de campo e representações de dados.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312690"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo em indexadores do Azure Search
 Ao usar indexadores de Azure Search, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
@@ -134,7 +135,7 @@ Se você não especificar qualquer `parameters`, o valor padrão de `useHttpServ
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Detalhes da codificação e decodificação base64
-O Azure Search oferece suporte a duas codificações base64: token de URL HttpServerUtility e codificação base 64 com URL segura sem preenchimento. Você precisa usar a mesma codificação que as funções de mapeamento se quiser codificar uma chave de documento para pesquisa, codificar um valor a ser decodificado pelo indexador ou decodificar um campo codificado pelo indexador.
+O Azure Search dá suporte a duas codificações base64: Token de URL de HttpServerUtility e codificação de Base 64 de URL segura sem preenchimento. Você precisa usar a mesma codificação que as funções de mapeamento se quiser codificar uma chave de documento para pesquisa, codificar um valor a ser decodificado pelo indexador ou decodificar um campo codificado pelo indexador.
 
 Se os parâmetros `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` de codificação e decodificação forem respectivamente definidos como `true`, `base64Encode` se comportará como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx), e `base64Decode`, como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

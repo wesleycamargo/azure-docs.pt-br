@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645517"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012990"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Desempenho de consulta de ajuste manual no Banco de Dados SQL do Azure
 
@@ -258,7 +258,7 @@ Alguns aplicativos apresentam gravação intensa. Às vezes, você pode reduzir 
 
 ### <a name="application-tier-caching"></a>Cache de camada de aplicativo
 
-Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. Camadas de cache podem reduzir a carga no banco de dados e, potencialmente, reduzir o tamanho de computação necessário para oferecer compatibilidade com um banco de dados usando o Banco de Dados SQL do Azure. Com o [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho de leitura pesada, você poderá ler os dados de uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como estiver configurado) e armazenar esses dados fora do banco de dados SQL. Esta é uma forma de reduzir a carga do banco de dados (CPU e E/S de leitura), mas há um impacto na consistência transacional, porque os dados lidos do cache podem estar fora de sincronia com os dados no banco de dados. Embora em muitos aplicativos algum nível de inconsistência seja aceitável, isso não vale para todas as cargas de trabalho. É necessário compreender totalmente todos os requisitos do aplicativo antes de implementar uma estratégia de cache da camada do aplicativo.
+Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. Camadas de cache podem reduzir a carga no banco de dados e, potencialmente, reduzir o tamanho de computação necessário para oferecer compatibilidade com um banco de dados usando o Banco de Dados SQL do Azure. Com o [Cache do Azure para Redis](https://azure.microsoft.com/services/cache/), se tiver uma carga de trabalho com uso intensivo de leitura, você poderá ler os dados de uma vez (ou talvez uma vez por computador da camada de aplicativo, dependendo de como estiver configurado) e, em seguida, armazenar esses dados fora do Banco de Dados SQL. Esta é uma forma de reduzir a carga do banco de dados (CPU e E/S de leitura), mas há um impacto na consistência transacional, porque os dados lidos do cache podem estar fora de sincronia com os dados no banco de dados. Embora em muitos aplicativos algum nível de inconsistência seja aceitável, isso não vale para todas as cargas de trabalho. É necessário compreender totalmente todos os requisitos do aplicativo antes de implementar uma estratégia de cache da camada do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

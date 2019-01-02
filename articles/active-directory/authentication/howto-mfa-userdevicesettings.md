@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496908"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320992"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -30,8 +30,8 @@ Essa configuração força o usuário a concluir o processo de registro novament
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os usuários selecionados forneçam métodos de contato novamente
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **Usuários e grupos** > **Todos os usuários**.
-3. Selecione **Autenticação Multifator**. Abre a página de autenticação multifator. 
+2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
+3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator. 
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparecem à direita. 
 5. Selecione **Gerenciar configurações de usuário**.
 6. Marque a caixa **Exigir que os usuários selecionados forneçam métodos de contato novamente**.
@@ -44,8 +44,8 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **Usuários e grupos** > **Todos os usuários**.
-3. Selecione **Autenticação Multifator**. Abre a página de autenticação multifator. 
+2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
+3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator. 
 6. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparecem à direita. 
 7. Selecione **Gerenciar configurações de usuário**.
 8. Marque a caixa **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
@@ -62,8 +62,8 @@ A configuração **Restaurar a autenticação multifator em todos os dispositivo
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como Restaurar a MFA em todos os dispositivos suspensos para um usuário
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **Usuários e grupos** > **Todos os usuários**.
-3. Selecione **Autenticação Multifator**. Abre a página de autenticação multifator. 
+2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
+3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator. 
 6. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparecem à direita. 
 7. Selecione **Gerenciar configurações de usuário**.
 8. Marque a caixa **Restaurar a autenticação multifator em todos os dispositivos lembrados**

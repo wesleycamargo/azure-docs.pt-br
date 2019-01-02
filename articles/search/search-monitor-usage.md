@@ -1,5 +1,5 @@
 ---
-title: Monitorar uso e estatísticas em um serviço do Azure Search | Microsoft Docs
+title: Monitorar o uso e as estatísticas de um serviço de pesquisa – Azure Search
 description: Acompanhe o consumo de recursos e o tamanho de índice do Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795102"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314152"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Criar um serviço do Azure Search
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorar um serviço do Azure Search no portal do Azure
 
 O Azure Search oferece vários recursos para acompanhar o uso e o desempenho de serviços de pesquisa. Ele fornece acesso a recursos de monitoramento estendidos no Power BI, logs, estatísticas de índice e métrica. Este artigo descreve como habilitar as diferentes estratégias de monitoramento e como interpretar os dados resultantes.
 
@@ -26,9 +27,9 @@ Métricas lhe dão visibilidade praticamente em tempo real de seu serviço de pe
 
 O Azure Search coleta dados de três métricas diferentes:
 
-* Latência de pesquisa: o tempo que o serviço de pesquisa precisou para processar consultas de pesquisa, agregadas por minuto.
-* QPS (consultas de pesquisa por segundo): o número de consultas de pesquisa recebidas por segundo, agregadas por minuto.
-* Percentual das consultas de pesquisa limitadas: o percentual de consultas de pesquisa que foram limitadas, agregadas por minuto.
+* Latência de pesquisa: Tempo que o serviço de pesquisa precisou para processar consultas de pesquisa, agregadas por minuto.
+* QPS (consultas de pesquisa por segundo): Número de consultas de pesquisa recebidas por segundo, agregadas por minuto.
+* Percentual de consultas de pesquisa limitadas: Percentual de consultas de pesquisa que foram limitadas, agregadas por minuto.
 
 ![Captura de tela da atividade de QPS][1]
 
@@ -71,7 +72,7 @@ Você pode exportar os logs de operação para o serviço e os dados brutos para
 ### <a name="enabling-monitoring"></a>Habilitar o monitoramento
 Abra o serviço Azure Search no [Portal do Azure](http://portal.azure.com) sob a opção de Habilitar o Monitoramento.
 
-Escolha os dados que você deseja exportar: Logs, Métricas ou ambos. Você pode copiá-los para uma conta de armazenamento, enviá-los para um hub de eventos ou exportá-los para o Log Analytics.
+Escolha os dados que deseja exportar: Logs, Métricas ou ambos. Você pode copiá-los para uma conta de armazenamento, enviá-los para um hub de eventos ou exportá-los para o Log Analytics.
 
 ![Como habilitar o monitoramento no portal][3]
 
@@ -92,20 +93,21 @@ Os blobs de logs contêm seus logs de tráfego do serviço de pesquisa.
 Cada blob tem um objeto-raiz chamado **registros** que contém uma matriz de objetos do log.
 Cada blob tem registros na operação que ocorrem durante a mesma hora.
 
-| NOME | type | Exemplo | Observações |
+| NOME | Tipo | Exemplo | Observações |
 | --- | --- | --- | --- |
 | tempo real |Datetime |"2015-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
 | operationName |string |"Query.Search" |O nome da operação |
 | operationVersion |string |"2015-02-28" |A api-version usada |
 | categoria |string |"OperationLogs" |constante |
-| resultType |string |"Success" |Valores possíveis: Success ou Failure |
+| resultType |string |"Success" |Valores possíveis: Êxito ou Falha |
 | resultSignature |int |200 |Código do resultado HTTP |
 | durationMS |int |50 |Duração da operação em milissegundos |
 | propriedades |objeto |confira a seguinte tabela |Objeto que contém os dados específicos da operação |
 
 **Esquema de propriedades**
-| NOME | type | Exemplo | Observações |
+
+| NOME | Tipo | Exemplo | Observações |
 | --- | --- | --- | --- |
 | DESCRIÇÃO |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parâmetros da consulta |
@@ -113,9 +115,10 @@ Cada blob tem registros na operação que ocorrem durante a mesma hora.
 | IndexName |string |"testindex" |Nome do índice associado à operação |
 
 #### <a name="metrics-schema"></a>Esquema de métricas
-| NOME | type | Exemplo | Observações |
+
+| NOME | Tipo | Exemplo | Observações |
 | --- | --- | --- | --- |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |id do recurso |
 | metricName |string |"Latency" |o nome da métrica |
 | tempo real |Datetime |"2015-12-07T00:00:43.6872559Z" |carimbo de data/hora da operação |
 | média |int |64 |O valor médio das amostras brutas no intervalo de agregação da métrica |

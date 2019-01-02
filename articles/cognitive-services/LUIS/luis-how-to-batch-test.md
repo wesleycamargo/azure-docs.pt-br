@@ -1,21 +1,22 @@
 ---
-title: Teste em lote com 1000 exemplos de enunciados
-titleSuffix: Azure Cognitive Services
+title: Teste de lote
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use os conjuntos de testes em lote do KUIS (Reconhecimento vocal) para localizar enunciados com intenções e entidades incorretas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333489"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086391"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
 

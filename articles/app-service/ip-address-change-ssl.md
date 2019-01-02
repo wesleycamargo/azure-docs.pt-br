@@ -1,5 +1,5 @@
 ---
-title: Como se preparar para uma alteração de endereço IP SSL - Azure
+title: Preparar-se para uma alteração de endereço IP SSL – Serviço de Aplicativo do Azure
 description: Se seu endereço IP SSL vai ser alterado, saiba o que fazer para que seu aplicativo continue a funcionar após a alteração.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270783"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP SSL
 
@@ -31,7 +32,7 @@ Se você recebeu uma notificação de que o endereço IP SSL de seu aplicativo d
 
 4.  No cabeçalho **Configurações**, clique em **Configurações de SSL** no painel de navegação à esquerda.
 
-5. Na seção Associações SSL, selecione o registro de nome do host. No editor que é aberto, escolha **SSL SNI** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, o endereço IP existente foi liberado.
+1. Na seção Associações SSL, selecione o registro de nome do host. No editor que é aberto, escolha **SSL SNI** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando você vir a mensagem de êxito da operação, o endereço IP existente foi liberado.
 
 6.  Na seção **Associações SSL**, selecione novamente o mesmo registro de nome do host com o certificado. No editor que é aberto, escolha dessa vez **SSL baseado em IP** no menu suspenso **Tipo de SSL** e clique em **Adicionar Associação**. Quando vir a mensagem de êxito da operação, você já adquiriu um novo endereço IP.
 

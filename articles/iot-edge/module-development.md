@@ -1,6 +1,6 @@
 ---
 title: Desenvolver módulos para o Azure IoT Edge | Microsoft Docs
-description: Saiba como criar módulos personalizados para o Azure IoT Edge
+description: Desenvolver módulos personalizados para o Azure IoT Edge que podem se comunicar com o tempo de execução e o IoT Hub
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567223"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100082"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge
 

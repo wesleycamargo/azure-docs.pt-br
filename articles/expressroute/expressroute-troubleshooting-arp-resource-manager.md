@@ -1,25 +1,19 @@
 ---
-title: 'Obtenção de tabelas ARP: Resource Manager: Solução de problemas de ExpressRoute do Azure | Microsoft Docs'
+title: 'Obter tabelas ARP – Solução de Problemas – ExpressRoute: Azure| Microsoft Docs'
 description: Esta página fornece instruções sobre como obter tabelas ARP para um circuito de ExpressRoute
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
-ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: seodec18
+ms.openlocfilehash: a16b2dd61a1a04d8fc3362ce2e26c7d3c9433972
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013131"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274455"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]
@@ -28,7 +22,7 @@ ms.locfileid: "23013131"
 > 
 > 
 
-Este artigo fornece uma orientação pelas etapas de aprendizado sobre as tabelas ARP para seu circuito do ExpressRoute. 
+Este artigo fornece uma orientação pelas etapas de aprendizado sobre as tabelas ARP para seu circuito do ExpressRoute.
 
 > [!IMPORTANT]
 > Este documento tem como intenção ajudar você a diagnosticar e corrigir problemas simples. Ela não deve ser usado como uma substituição ao suporte da Microsoft. Você deve abrir um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se não conseguir resolver o problema usando a orientação abaixo.

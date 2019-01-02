@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626639"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165751"
 ---
 # <a name="train-a-model"></a>Treinar um modelo
 
@@ -26,21 +26,17 @@ Para treinar um modelo:
 
 2.  A guia Dados para o projeto mostrará todos os documentos relevantes para o par de idiomas do projeto. Selecione manualmente os documentos que você deseja usar para treinar seu modelo. Você pode selecionar documentos de treinamento, ajuste e teste nessa tela. Além disso, basta selecionar o conjunto de treinamento e fazer com que o Custom Translator crie os conjuntos de ajustes e testes para você.
 
-    -  Nome do documento: nome do documento.
+    -  Nome do documento: o nome do documento.
 
-    -  Emparelhamento: se este documento for um documento paralelo ou monolíngue.
+    -  Emparelhamento: se o documento é paralelo ou monolíngue. Atualmente, documentos monolíngues não são suportados para treinamento.
 
-    - Atualmente, documentos monolíngues não são suportados para treinamento.
-
-    -  Tipo de documento: pode ser treinamento, ajuste, teste ou dicionário.
+    -  Tipo de documento: pode ser de treinamento, ajuste, teste ou dicionário.
 
     -  Par de idiomas: mostra o idioma de origem e de destino do projeto.
 
-    -  Frases de origem: mostra o número de sentenças extraídas do
-    - arquivo de origem.
+    -  Frases de origem: mostra o número de sentenças extraídas do arquivo de origem.
 
-    -  Frases de destino: mostra o número de sentenças extraídas do
-    - arquivo de destino.
+    -  Frases de destino: mostra o número de sentenças extraídas do arquivo de destino.
 
     ![Modelo de treinamento](media/how-to/how-to-train-model.png)
 
@@ -67,7 +63,7 @@ Você pode editar um modelo usando o link de edição na página de detalhes do 
 
 2.  A alteração de caixa de diálogo,
 
-    1.  Modelo de nome (obrigatório): dê um nome significativo ao seu modelo.
+    1.  Nome do modelo (obrigatório): dê um nome significativo ao seu modelo.
 
         ![Mais de caixa de diálogo Editar](media/how-to/how-to-edit-model-dialog.png)
 

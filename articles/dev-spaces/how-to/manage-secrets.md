@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705490"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013994"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerenciar segredos ao trabalhar com um Azure Dev Space
 
@@ -67,7 +67,7 @@ O Azure Dev Spaces fornece duas opções recomendadas para armazenar segredos: n
 7. Certifique-se de adicionar _values.dev.yaml_ ao arquivo _.gitignore_ para evitar confirmar segredos no controle de origem.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Método 2: Em linha diretamente em azds.yaml
+## <a name="method-2-inline-directly-in-azdsyaml"></a>Método 2: embutido diretamente no azds.yaml
 1.  Em _azds.yaml_, configure os segredos na seção de yaml configurações/desenvolver/instalar. Embora não seja possível inserir valores secretos diretamente, isso não é recomendável porque _azds.yaml_ está selecionado no controle do código-fonte. Em vez disso, adicione espaços reservados usando a sintaxe "$PLACEHOLDER".
 
     ```yaml
@@ -112,5 +112,5 @@ O Azure Dev Spaces fornece duas opções recomendadas para armazenar segredos: n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Com esses métodos, é possível conectar com segurança um banco de dados, um cache Redis ou acessar serviços seguros do Azure.
+Com esses métodos, é possível se conectar com segurança a um banco de dados, um Cache do Azure para Redis ou acessar serviços seguros do Azure.
  

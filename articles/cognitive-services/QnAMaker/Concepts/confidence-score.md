@@ -1,7 +1,7 @@
 ---
 title: Pontuação de Confiança – Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Explicação sobre a pontuação de confiança
+description: Essa pontuação de confiança indica que a resposta é a correspondência ideal da consulta do usuário.
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577916"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081306"
 ---
-# <a name="confidence-score"></a>Pontuação de confiança
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
 
 A pontuação de confiança é um número entre 0 e 100. Uma pontuação 100 é, provavelmente, uma correspondência exata; no entanto, uma pontuação 0 significa que nenhuma resposta correspondente foi encontrada. Quanto maior a pontuação, maior a confiança na resposta. Pode haver várias respostas retornadas para uma determinada consulta. Nesse caso, as respostas são retornadas em uma ordem de pontuação de confiança decrescente.
@@ -78,15 +79,15 @@ Quando nenhuma boa correspondência for encontrada pelo classificador, a pontua�
 
 2. Clique para abrir o **Serviço de Aplicativo**.
 
-    ![Acessar o serviço Aplicativo](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![No portal do Azure, acesse o serviço de aplicativo para o QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Clique em **Configurações do Aplicativo** e edite o campo **DefaultAnswer** para a resposta padrão desejada. Clique em **Salvar**.
 
-    ![Alterar resposta padrão](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![Selecione Configurações de aplicativo e, em seguida, edite DefaultAnswer para o QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Reinicie o serviço Aplicativo
 
-    ![Reinício do serviço de aplicativo QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![Depois de alterar o DefaultAnswer, reinicie o serviço de aplicativo do QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

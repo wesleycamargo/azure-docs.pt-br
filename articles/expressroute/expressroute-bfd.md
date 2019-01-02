@@ -1,25 +1,19 @@
 ---
-title: Configurar BFD no ExpressRoute | Microsoft Docs
-description: Este documento fornece instruções sobre como configurar BFD em emparelhamento privado de um circuito do ExpressRoute.
-documentationcenter: na
+title: Configurar a BFD no ExpressRoute – Azure | Microsoft Docs
+description: Este artigo fornece instruções sobre como configurar a BFD (Detecção de Encaminhamento Bidirecional) no emparelhamento privado de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631652"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083777"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD no ExpressRoute
 
@@ -27,7 +21,7 @@ O ExpressRoute dá suporte para BFD (Detecção de Encaminhamento Bidirecional) 
 
 ## <a name="need-for-bfd"></a>Necessidade de BFD
 
-O diagrama a seguir mostra o benefício de habilitar BFD no circuito do ExpressRoute: [![1]][1]
+O diagrama a seguir mostra o benefício de habilitar a BFD no circuito do ExpressRoute: [![1]][1]
 
 É possível habilitar o circuito do ExpressRoute por meio de conexões da Camada 2 ou por conexões gerenciadas da Camada 3. Em ambos os casos, se houver um ou mais dispositivos de Camada 2 no caminho de conexão do ExpressRoute, a responsabilidade de detectar qualquer falha de vínculo no caminho está na BGP sobreposta.
 

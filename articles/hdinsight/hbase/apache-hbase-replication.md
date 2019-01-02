@@ -1,5 +1,5 @@
 ---
-title: Configurar a replicação de cluster HBase nas redes virtuais do Azure
+title: Configurar a replicação de cluster HBase nas redes virtuais do Azure – Azure HDInsight
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584172"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163817"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -263,9 +263,9 @@ Crie um cluster do [Apache HBase](http://hbase.apache.org/) em cada uma das duas
 - **Nome do grupo de recursos**: use o mesmo nome de grupo de recursos que você criou as redes virtuais.
 - **Tipo de cluster**: HBase
 - **Versão**: HBase 1.1.2 (HDI 3.6)
-- **Local**: use o mesmo local que a rede virtual.  Por padrão, vnet1 é *Oeste dos EUA*, e a vnet2 é *Leste dos EUA*.
-- **Armazenamento**: crie uma nova conta de armazenamento para o cluster.
-- **Rede virtual** (em Configurações Avançadas no portal): selecione vnet1 que você criou no último procedimento.
+- **Localização**: Use a mesmo localização da rede virtual.  Por padrão, vnet1 é *Oeste dos EUA*, e a vnet2 é *Leste dos EUA*.
+- **Armazenamento**: Crie uma nova conta de armazenamento para o cluster.
+- **Rede virtual** (nas Configurações avançadas no portal): Selecione vnet1, que você criou no último procedimento.
 - **Sub-rede**: O nome padrão usado no modelo é **subnet1**.
 
 Para garantir que o ambiente está configurado corretamente, você deve ser capaz de executar ping do FQDN do nó principal entre os dois clusters.
@@ -274,7 +274,7 @@ Para garantir que o ambiente está configurado corretamente, você deve ser capa
 
 Ao replicar um cluster, é necessário especificar as tabelas a serem replicadas. Nesta seção, você carrega alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
 
-Para criar uma tabela **Contatos** e inserir alguns dados na tabela, siga as instruções no tutorial [Apache HBase: Comece a usar o Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Para criar uma tabela de **Contatos** e inserir alguns dados na tabela, siga as instruções em [Tutorial Apache HBase: Introdução ao uso do Apache HBase no HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
@@ -288,10 +288,10 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
 4. Na parte superior da página, selecione **Enviar Novo**.
 5. Selecione ou insira as seguintes informações:
 
-  1. **Nome**: insira **Habilitar a replicação**.
-  2. **URI do script Bash**: Enter **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Cabeçalho**: verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
-  4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
+  1. **Nome**: Insira **Habilitar a replicação**.
+  2. **URL do script Bash**: Digite **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  3.  **Cabeçalho**: Verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
+  4. **Parâmetros**: Os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     

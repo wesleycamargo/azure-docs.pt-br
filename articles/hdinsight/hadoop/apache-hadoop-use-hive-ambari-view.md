@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632740"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407840"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Use o Apache Ambari Hive View com o Apache Hadoop no HDInsight
 
@@ -26,7 +26,7 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
 * Um Apache Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou superior.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Um navegador da Web
@@ -70,18 +70,18 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
     Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`: exclui a tabela e o arquivo de dados, caso a tabela já exista.
+   * `DROP TABLE`: Exclui a tabela e o arquivo de dados, caso a tabela já exista.
 
-   * `CREATE EXTERNAL TABLE`: cria uma nova tabela "externa" no Hive.
+   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela "externa" no Hive.
    As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
-   * `ROW FORMAT`: mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: Mostra como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: mostra o local em que os dados são armazenados e se estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: Mostra o local em que os dados são armazenados e se estão armazenados como texto.
 
-   * `SELECT`: seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
+   * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [ERROR].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Deixe a seleção __Banco de dados__ em __padrão__. Os exemplos neste documento usam o banco de dados padrão incluído no HDInsight.
 
 5. Para iniciar a consulta, use o botão **Executar** abaixo da planilha. O botão fica laranja e o texto é alterado para **Parar**.
@@ -93,7 +93,7 @@ Saiba como executar as consultas do Hive usando o Apache Ambari Hive View. A Exi
 
     A guia **Logs** pode ser usada para exibir as informações de log criadas pelo trabalho.
 
-   > [!TIP]
+   > [!TIP]  
    > Baixe ou salve resultados da caixa de diálogo suspensa **Salvar resultados**, no canto superior esquerdo da seção **Resultados do Processo de Consulta**.
 
 ### <a name="visual-explain"></a>Explicação visual
@@ -106,7 +106,7 @@ O modo de exibição **Explicação Visual** da consulta pode ser útil na compr
 
 Para exibir a interface do usuário do Tez para a consulta, selecione a guia **Tez** abaixo da planilha.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Tez não é usado para resolver todas as consultas. Muitas consultas podem ser resolvidas sem usar o Tez. 
 
 Se o Tez foi usado para resolver a consulta, o DAG (grafo direcionado acíclico) é exibido. Se você quiser exibir o DAG de consultas executadas anteriormente ou se você quiser depurar o processo do Tez, use a [Exibição do Tez](../hdinsight-debug-ambari-tez-view.md) em vez disso.
@@ -129,7 +129,7 @@ Na guia **Consulta** você pode, opcionalmente, salvar consultas. Depois de salv
 
 ![Imagem da guia Consultas Salvas](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Consultas salvas são armazenadas no armazenamento de cluster padrão. Você pode encontrar as consultas salvas no caminho `/user/<username>/hive/scripts`. Elas são armazenadas como arquivos de texto sem formatação `.hql`.
 >
 > Se você excluir o cluster, mas manter o armazenamento, pode usar um utilitário como o [Gerenciador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/) ou o Gerenciador de Armazenamento do Data Lake (do [Portal do Azure](https://portal.azure.com)) para recuperar as consultas.
@@ -165,8 +165,8 @@ Você pode usar a UDF em sua consulta. Por exemplo, `SELECT myawesomeudf(name) F
 
 Para saber mais sobre como usar UDFs com Hive no HDInsight, consulte os seguintes artigos:
 
-* [Usando o Python com o Hive e com o Pig no HDInsight](python-udf-hdinsight.md)
-* [Como adicionar UDF personalizadas do Hive no HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Usar o Python com Apache Hive e Apache Pig no HDInsight](python-udf-hdinsight.md)
+* [Como adicionar uma UDF personalizada do Apache Hive ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Configurações do Hive
 
@@ -176,9 +176,9 @@ Você pode alterar diversas configurações do Hive, por exemplo, alterar o meca
 
 Para informações gerais sobre o Hive no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

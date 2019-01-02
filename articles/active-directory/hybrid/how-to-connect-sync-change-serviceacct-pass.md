@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: alterando a conta do serviço de sincronização do Azure AD Connect | Microsoft Docs'
+title: 'Sincronização do Azure AD Connect:  Alteração da conta de serviço de Sincronização do Azure AD Connect | Microsoft Docs'
 description: Este documento tópico descreve a chave de criptografia e como abandoná-la depois que a senha tiver sido alterada.
 services: active-directory
 keywords: Conta do serviço de sincronização do Azure AD, senha
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747245"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184892"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alteração da senha da conta do serviço de sincronização do Azure AD Connect
 Se você alterar a senha de conta do serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até você ter abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. 
@@ -39,12 +39,12 @@ Primeiro, você precisa alterar a senha no Gerenciador de Controle de Serviços 
 
 
 - Se você tentar iniciar o serviço de sincronização no Gerenciador de Controle de Serviços do Windows, receberá o erro "**O Windows não pôde iniciar o serviço de sincronização do Microsoft Azure AD no computador local**". **Erro 1069: O serviço não foi iniciado devido a uma falha de logon.**"
-- No Visualizador de Eventos do Windows, o log de eventos do sistema contém um erro com **ID de evento 7038** e a mensagem "**O serviço ADSync não pôde fazer logon com a senha configurada atualmente devido ao seguinte erro: nome de usuário ou senha incorretos.**"
+- No Visualizador de Eventos do Windows, o log de eventos do sistema contém um erro com **ID de evento 7038** e a mensagem "**O serviço ADSync não pôde fazer logon com a senha configurada atualmente devido ao seguinte erro: Nome de usuário ou senha incorreto.**"
 
 Segundo, sob condições específicas, se a senha for atualizada, o serviço de sincronização não poderá mais recuperar a chave de criptografia pelo DPAPI. Sem a chave de criptografia, o serviço de sincronização não poderá descriptografar as senhas necessárias para sincronizar de/para o AD local e o Azure AD.
 Você verá erros, como:
 
-- No Gerenciador de Controle de Serviços do Windows, se você tentar iniciar o serviço de sincronização e ele não conseguir recuperar a chave de criptografia, receberá o erro “**O Windows não pôde iniciar a sincronização do Microsoft Azure AD no computador local.** Para saber mais, examine o log de eventos do sistema. **Se for um serviço de terceiros, não Microsoft, entre em contato com o fornecedor do serviço e mencione o código de erro específico do serviço \*\*-21451857952**\*\*”.
+- No Gerenciador de Controle de Serviço do Windows, se você tentar iniciar o serviço de sincronização e não for possível recuperar a chave de criptografia, ele falhará com o erro “<strong>O Windows não pôde iniciar o Microsoft Azure AD Sync no computador local. Para saber mais, examine o log de eventos do sistema. Se for um serviço de terceiros, não Microsoft, entre em contato com o fornecedor do serviço e mencione o código de erro específico do serviço -21451857952</strong>.”
 - No Visualizador de Eventos do Windows, o log de eventos do aplicativo contém um erro com **ID de evento 6028** e a mensagem de erro *“**A chave de criptografia do servidor não pode ser acessada.**”*
 
 Para garantir que você não receba esses erros, siga os procedimentos em [Abandonando a chave de criptografia de sincronização do Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) ao alterar a senha.
@@ -121,6 +121,6 @@ Agora que o serviço de sincronização tem acesso à chave de criptografia e to
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
-* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)

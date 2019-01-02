@@ -1,21 +1,22 @@
 ---
-title: Saiba como os Padrões aumentam a precisão da previsão
-titleSuffix: Azure Cognitive Services
-description: Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares. Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
+title: Padrões ajudam na previsão
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271514"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais. 
@@ -43,6 +44,8 @@ Os padrões usam uma mistura de tecnologias de previsão. Configurar uma intenç
 ## <a name="patterns-do-not-improve-entity-detection"></a>Os padrões não melhoram a detecção de entidade
 Enquanto padrões requerem entidades, um padrão não ajuda a detectar a entidade. Um padrão destina-se apenas a ajudar a previsão com funções e intenções.  
 
+Não espere ver melhorias na previsão de entidade se você recolher várias declarações em um único padrão. Para entidades simples serem acionadas, você precisará adicionar declarações ou usar entidades de lista; caso contrário, seu padrão não será acionado.
+
 ## <a name="patterns-use-entity-roles"></a>Os padrões usam funções de entidades
 Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, os padrões usarão as [funções](luis-concept-roles.md) da entidade para extrair informações contextuais sobre as entidades. Isso é equivalente a filhos hierárquicos de entidade, mas está **somente** disponível em padrões. 
 
@@ -50,7 +53,7 @@ Se duas ou mais entidades em um padrão estiverem relacionadas contextualmente, 
 Dadas expressões de exemplo suficientes, LUIS poderá aumentar a confiabilidade da previsão sem os padrões. Os padrões de aumentam a pontuação de confiabilidade sem ter que fornecer tantas expressões.  
 
 ## <a name="pattern-matching"></a>Correspondência de padrões
-Um padrão é correspondido com base na detecção das entidades dentro do padrão primeiro, em seguida, validando o restante das palavras e a ordem de palavras do padrão. As entidades são exigidas no padrão para que um padrão corresponda. 
+Um padrão é correspondido com base na detecção das entidades dentro do padrão primeiro, em seguida, validando o restante das palavras e a ordem de palavras do padrão. As entidades são exigidas no padrão para que um padrão corresponda. O padrão é aplicado no nível de token, não no nível do caractere. 
 
 ## <a name="pattern-syntax"></a>Sintaxe de padrões
 Sintaxe de padrão é um modelo para uma expressão. O modelo deverá conter palavras e entidades que você deseja corresponder, bem como palavras e pontuação que você deseja ignorar. **Não** é uma expressão regular. 

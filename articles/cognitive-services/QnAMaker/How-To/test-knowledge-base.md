@@ -10,23 +10,24 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 5b0dfe1753686015c88bdc1214273354dd00c958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034378"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086294"
 ---
-# <a name="test-your-knowledge-base"></a>Testar a base de dados de conhecimento
+# <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Teste sua base de dados de conhecimento interativamente no QnA Maker
 
 Testar a base de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo retornadas. É possível testar a base de dados de conhecimento por meio de uma interface de chat avançada que também permite fazer edições.
 
 ## <a name="test-answer-matching"></a>Testar correspondência de resposta
 
-1.  Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
-2.  Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo.
+1.  Acesse a base de dados de conhecimento selecionando o nome na página  **Minhas bases de dados de conhecimento**.
+2.  Para acessar o painel extensível Testar, selecione  **Testar**  no painel superior do seu aplicativo.
 
-    ![Teste de acesso](../media/qnamaker-how-to-test-kb/access-test.png)
+    ![Acessar painel de teste](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Insira uma consulta na caixa de texto e selecione Enter.
 
@@ -34,17 +35,17 @@ Testar a base de conhecimento do QnA Maker é uma parte importante de um process
 
 ## <a name="clear-test-panel"></a>Limpar painel de teste
 
-Para limpar todas as consultas de teste inseridas e seus resultados do console de teste, selecione **Iniciar de novo** no canto superior esquerdo do Painel de teste.
+Para limpar todas as consultas de teste inseridas e seus resultados do console de teste, selecione  **Iniciar de novo**  no canto superior esquerdo do Painel de teste.
 
 ## <a name="close-test-panel"></a>Fechar painel de teste
 
-Para fechar o painel de **Teste**, selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
+Para fechar o Painel de teste, selecione o botão  **Testar**  novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
 
 ## <a name="inspect-score"></a>Inspecionar pontuação
 
 Inspecione detalhes do resultado do teste no painel Inspecionar.
 
-1.  Com o painel deslizante de Teste aberto, selecione **Inspecionar** para obter mais detalhes sobre essa resposta.
+1.  Com o painel deslizante de teste aberto, selecione  **Inspecionar**  para obter mais detalhes sobre essa resposta.
 
     ![Inspecione as respostas](../media/qnamaker-how-to-test-kb/inspect.png)
 
@@ -54,13 +55,13 @@ Inspecione detalhes do resultado do teste no painel Inspecionar.
 
 Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta correta na lista e selecione **Salvar e Treinar**.
 
-![Teste de acesso](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corrigir a resposta de pontuação máxima](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 
 É possível adicionar formas alternativas de uma pergunta a uma determinada resposta. Digite as respostas alternativas na caixa de texto e clique em entrar para adicioná-las. Selecione **Salvar e Treinar** para armazenar as atualizações.
 
-![Teste de acesso](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Adicionar perguntas alternativas](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## <a name="add-a-new-answer"></a>Adicionar uma nova resposta
 
@@ -68,7 +69,7 @@ Você poderá adicionar uma nova resposta, se alguma das respostas existentes qu
 
 Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento.
 
-![Teste de acesso](../media/qnamaker-how-to-test-kb/add-answer.png)
+![Adicionar novo par de pergunta e resposta](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.

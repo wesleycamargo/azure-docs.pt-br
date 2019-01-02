@@ -1,20 +1,22 @@
 ---
-title: Como consumir implantações de serviços da Web - Aprendizado de Máquina do Azure
-description: Aprenda a consumir um serviço da Web criado pela implantação de um modelo do Azure Machine Learning. A implantação de um modelo do Azure Machine Learning cria um serviço da Web que expõe uma API REST. Você pode criar clientes para esta API usando a linguagem de programação de sua escolha. Neste documento, saiba como acessar a API usando Python e C#.
+title: Criar o cliente para consumir o serviço Web implantado
+titleSuffix: Azure Machine Learning service
+description: Saiba como consumir um serviço Web que foi gerado quando um modelo foi implantado com o modelo do Azure Machine Learning. O serviço Web que expõe uma API REST. Crie clientes para essa API usando a linguagem de programação de sua escolha.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262886"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251123"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 
@@ -100,7 +102,7 @@ A API REST espera que o corpo da solicitação seja um documento JSON com a segu
 > [!IMPORTANT]
 > A estrutura dos dados precisa corresponder ao esperado pelo script e modelo de pontuação no serviço. O script de pontuação pode modificar os dados antes de transmiti-lo ao modelo.
 
-Por exemplo, o modelo na [Train dentro do bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo espera uma matriz de números de 10. O script de pontuação deste exemplo cria uma matriz Numpy da solicitação e a transmite para o modelo. O exemplo a seguir mostra os dados espera que esse serviço:
+Por exemplo, o modelo na [Train dentro do bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de números de 10. O script de pontuação deste exemplo cria uma matriz Numpy da solicitação e a transmite para o modelo. O exemplo a seguir mostra os dados espera que esse serviço:
 
 ```json
 {
@@ -124,9 +126,46 @@ Por exemplo, o modelo na [Train dentro do bloco de anotações](https://github.c
 
 O serviço da web pode aceitar vários conjuntos de dados em uma solicitação. Ele retorna um documento JSON contendo uma matriz de respostas.
 
+### <a name="binary-data"></a>Dados binários
+
+Se o modelo aceita dados binários, como uma imagem, modifique o arquivo `score.py` usado para a implantação para aceitar solicitações HTTP brutas. Aqui está um exemplo de um `score.py` que aceita dados binários e retorna os bytes invertidos para solicitações POST. Para solicitações GET, ele retorna a URL completa no corpo da resposta:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Os itens no namespace `azureml.contrib` mudam com frequência enquanto trabalhamos para melhorar o serviço. Assim, tudo nesse namespace deve ser considerado como uma versão prévia e sem o suporte total da Microsoft.
+>
+> Se você precisar testar isso em seu ambiente de desenvolvimento local, instale os componentes no namespace contrib usando o seguinte comando:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## <a name="call-the-service-c"></a>Chamar o serviço (C#)
 
-Este exemplo demonstra como usar o C # para chamar o serviço da Web criado a partir do exemplo [Treinar no caderno](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+Este exemplo demonstra como usar o C # para chamar o serviço da Web criado a partir do exemplo [Treinar no caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```csharp
 using System;
@@ -215,7 +254,7 @@ Os resultados retornados são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-go"></a>Chamar o serviço (Ir)
 
-Este exemplo demonstra como usar o recurso Go para chamar o serviço da Web criado a partir do exemplo [Train dentro do notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+Este exemplo demonstra como usar o recurso Go para chamar o serviço da Web criado a partir do exemplo [Train dentro do notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```go
 package main
@@ -307,7 +346,7 @@ Os resultados retornados são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-java"></a>Ligue para o serviço (Java)
 
-Este exemplo demonstra como usar o Java para chamar o serviço da Web criado a partir do exemplo [Trainar no notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+Este exemplo demonstra como usar o Java para chamar o serviço da Web criado a partir do exemplo [Trainar no notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```java
 import java.io.IOException;
@@ -387,7 +426,7 @@ Os resultados retornados são semelhantes ao seguinte documento JSON:
 
 ## <a name="call-the-service-python"></a>Chamar o serviço (Python)
 
-Este exemplo demonstra como usar o Python para chamar o serviço da Web criado a partir do exemplo [Traino no notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook):
+Este exemplo demonstra como usar o Python para chamar o serviço da Web criado a partir do exemplo [Traino no notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb):
 
 ```python
 import requests
@@ -446,7 +485,3 @@ Os resultados retornados são semelhantes ao seguinte documento JSON:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Próximas etapas
-
-Agora que você aprendeu como criar um cliente para um modelo implantado, saiba como [Implantar um modelo em um dispositivo IoT Edge](how-to-deploy-to-iot.md).

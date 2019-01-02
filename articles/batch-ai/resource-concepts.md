@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056630"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407738"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Visão geral dos recursos da IA do Lote
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 É recomendável que, ao começar a usar o serviço de IA do Lote, você compreenda os recursos da IA do Lote que estão disponíveis. Como ocorre com outros serviços do Azure, você cria recursos da IA do Lote no Azure em um ou mais *grupos de recursos*. Crie um ou mais *workspaces* da IA do Lote em um grupo de recursos. Cada workspace contém uma combinação de *clusters*, *servidores de arquivos* e *experimentos* da IA do Lote. Um experimento da IA do Lote encapsula um grupo de *trabalhos*.
 
@@ -50,7 +53,7 @@ Um experimento agrupa uma coleção de trabalhos relacionados que você consulta
 
 ## <a name="job"></a>Trabalho
 
-Um trabalho é uma única tarefa ou script que precisa ser executado, por exemplo, para treinar um modelo de aprendizado profundo. Cada trabalho executa um script específico em um cluster no workspace. (O script pode ser armazenado em um servidor de arquivos do IA do Lote ou em outra solução de armazenamento). Cada trabalho de IA do Lote tem um tipo de estrutura associada: TensorFlow, Horovod, CNTK, Caffe e Caffe2, pyTorch, Chainer, MPI personalizado ou personalizado. Para cada estrutura, o serviço de IA do Lote configura a infraestrutura necessária e gerencia os processos de trabalho. Cada experimento pode ter vários trabalhos semelhantes, além de algumas alterações para parâmetros diferentes.
+Um trabalho é uma única tarefa ou script que precisa ser executado, por exemplo, para treinar um modelo de aprendizado profundo. Cada trabalho executa um script específico em um cluster no workspace. (O script pode ser armazenado em um servidor de arquivos do IA do Lote ou em outra solução de armazenamento). Cada trabalho do IA do Lote tem um tipo de estrutura associado: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personalizado ou personalizado. Para cada estrutura, o serviço de IA do Lote configura a infraestrutura necessária e gerencia os processos de trabalho. Cada experimento pode ter vários trabalhos semelhantes, além de algumas alterações para parâmetros diferentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

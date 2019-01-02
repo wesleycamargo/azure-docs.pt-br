@@ -1,32 +1,36 @@
 ---
-title: Use o Lote do Microsoft Azure de transcrição API
+title: Como usar a Transcrição de Lote – Serviços de Fala
 titlesuffix: Azure Cognitive Services
-description: Exemplos para transcrevê grandes volumes de conteúdo de áudio.
+description: A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495588"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086922"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
-A transcrição em lote é ideal se você tiver grandes quantidades de áudio no armazenamento. Usando a API REST dedicado, você pode apontar para arquivos de áudio por uma assinatura de acesso compartilhado (SAS) URI e transcrições de recebimento de forma assíncrona.
+A transcrição de lote é ideal se você quer transcrever uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Usando a API REST dedicada, você pode apontar para arquivos de áudio por um URI de SAS (assinatura de acesso compartilhado) e transcrições de recebimento de forma assíncrona.
+
+>[!NOTE]
+> Uma assinatura standard (S0) para Serviços de Fala é necessária para usar a transcrição do lote. Chaves de assinatura gratuita (F0) não funcionarão. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="the-batch-transcription-api"></a>A API de transcrição em lote
 
 A API de Transcrição em Lote oferece transcrição de fala para texto assíncrona, juntamente com recursos adicionais. É uma API REST que expõe métodos para:
 
 1. Criando solicitações de processamento em lote
-1. Status da consulta 
+1. Status da consulta
 1. Fazer o download de transcrições
 
 > [!NOTE]
@@ -67,7 +71,7 @@ Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais
 
 Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
 
-| Parâmetro | DESCRIÇÃO | Obrigatório / opcional |
+| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Especifica como lidar com conteúdo ofensivo nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. | Opcional |
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. | Opcional |
@@ -75,7 +79,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo que você precisa fazer. 
+Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo que você precisa fazer.
 
 Se você planeja personalizar e usar um modelo personalizado, adicione a chave de assinatura ao portal de fala personalizado fazendo o seguinte:
 
@@ -106,19 +110,19 @@ Personalize o seguinte código de exemplo com uma chave de API e chave de assina
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-Depois de obter o token, especifique o URI do SAS que aponta para o arquivo de áudio que requer transcrição. O restante do código percorre o status e exibe os resultados. Primeiro, você configura a chave, a região, os modelos a serem usados e o SA, conforme mostrado no seguinte trecho de código. Em seguida, você instancia o cliente e a solicitação POST. 
+Depois de obter o token, especifique o URI do SAS que aponta para o arquivo de áudio que requer transcrição. O restante do código percorre o status e exibe os resultados. Primeiro, você configura a chave, a região, os modelos a serem usados e o SA, conforme mostrado no seguinte trecho de código. Em seguida, você instancia o cliente e a solicitação POST.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ Depois de obter o token, especifique o URI do SAS que aponta para o arquivo de �
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 Agora que você fez a solicitação, é possível consultar e fazer o download dos resultados da transcrição, conforme mostrado no seguinte trecho de código:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ Agora que você fez a solicitação, é possível consultar e fazer o download d
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ Agora que você fez a solicitação, é possível consultar e fazer o download d
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ Agora que você fez a solicitação, é possível consultar e fazer o download d
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ Para detalhes completos sobre as chamadas anteriores, consulte o nosso [document
 
 Anote a configuração assíncrona de áudio de lançamento e receber o status de transcrição. O cliente que você cria é um cliente HTTP .NET. Há um método `PostTranscriptions` para enviar os detalhes do arquivo de áudio e um método `GetTranscriptions` para receber os resultados. `PostTranscriptions` retorna um identificador e `GetTranscriptions` o usa para criar um identificador para obter o status de transcrição.
 
-O código de amostra atual não especifica um modelo personalizado. O serviço usa os modelos de linha de base para transcrever o arquivo ou arquivos. Para especificar os modelos, você pode passar o mesmo método que os IDs de modelo para o modelo acústico e de idioma. 
+O código de amostra atual não especifica um modelo personalizado. O serviço usa os modelos de linha de base para transcrever o arquivo ou arquivos. Para especificar os modelos, você pode passar o mesmo método que os IDs de modelo para o modelo acústico e de idioma.
 
 Se você não quiser usar a linha de base, passe IDs de modelo para os modelos acústicos e de linguagem.
 

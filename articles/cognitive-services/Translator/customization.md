@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229672"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877965"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
-A visualização do Microsoft Custom Translator é um recurso do serviço Microsoft Translator, que permite aos usuários personalizar a tradução avançada de máquina neural do Microsoft Translator ao traduzir texto usando a API de texto do tradutor (somente versão 3).
+O Tradutor Personalizado da Microsoft é um recurso do serviço Microsoft Translator, que permite aos usuários personalizar a tradução automática neural avançada do Microsoft Translator ao traduzir texto usando a API de Tradução de Texto (somente versão 3).
 
-O recurso também pode ser usado para personalizar a tradução de fala quando usado com a [versão prévia de Fala de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+O recurso também pode ser usado para personalizar a tradução de fala quando usado a [Fala de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Tradutor personalizado
 
@@ -48,7 +48,7 @@ O Hub do Microsoft Translator herdado pode ser usado para traduzir a tradução 
 
 |   | **Hub** | **Tradutor personalizado**|
 |:-----|:----:|:----:|
-|Status do recurso de personalização   | Disponibilidade geral  | Visualização |
+|Status do recurso de personalização   | Disponibilidade geral  | Disponibilidade geral |
 | Versão da API de texto  | Somente V2   | Somente V3 |
 | Personalização de SMT | SIM   | Não  |
 | Personalização de NMT | Não     | SIM |

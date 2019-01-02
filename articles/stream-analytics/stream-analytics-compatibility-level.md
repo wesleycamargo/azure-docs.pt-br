@@ -2,18 +2,18 @@
 title: Reconhecer o nível de compatibilidade para trabalhos do Azure Stream Analytics
 description: Saiba como definir um nível de compatibilidade para um trabalho do Azure Stream Analytics e as principais alterações no nível de compatibilidade mais recente
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977706"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187306"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
  
@@ -27,7 +27,7 @@ O nível de compatibilidade controla o comportamento de tempo de execução de u
 
 Pare o trabalho antes de atualizar o nível de compatibilidade. Não será possível atualizar o nível de compatibilidade se o trabalho estiver em um estado de execução. 
 
-![Nível de compatibilidade no portal](media\stream-analytics-compatibility-level/image1.png)
+![Nível de compatibilidade do Stream Analytics no portal do Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 Quando você atualizar o nível de compatibilidade, o compilador do T-SQL valida o trabalho com a sintaxe que corresponde ao nível de compatibilidade selecionado. 
@@ -38,34 +38,34 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 * **Formato XML do Barramento de Serviço**  
 
-  * **versões anteriores:** o Azure Stream Analytics usava o DataContractSerializer, por isso o conteúdo da mensagem incluía marcas XML. Por exemplo: 
+  * **versões anteriores:** O Azure Stream Analytics usava o DataContractSerializer e, por isso, o conteúdo da mensagem incluía marcas XML. Por exemplo: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
-  * **versão atual:** o conteúdo da mensagem contém o fluxo diretamente sem marcas adicionais. Por exemplo: 
+  * **versão atual:** O conteúdo da mensagem contém o fluxo diretamente sem marcas adicionais. Por exemplo: 
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **Diferenciação de maiúsculas e minúsculas persistente para nomes de campos**  
 
-  * **versões anteriores:** nomes de campos foram alterados para letras minúsculas quando processados pelo mecanismo do Azure Stream Analytics. 
+  * **versões anteriores:** Os nomes de campos foram alterados para letras minúsculas quando processados pelo mecanismo do Azure Stream Analytics. 
 
   * **versão atual:** a diferenciação entre maiúsculas e minúsculas são mantidos para nomes de campos quando eles são processados pelo mecanismo do Azure Stream Analytics. 
 
-  > [!NOTE] 
-  > Diferenciação de maiúsculas e minúsculas persistente ainda não está disponível para trabalhos de Análise de Fluxo hospedados usando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas se o trabalho estiver hospedado no Edge. 
+    > [!NOTE] 
+    > Diferenciação de maiúsculas e minúsculas persistente ainda não está disponível para trabalhos de Análise de Fluxo hospedados usando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas se o trabalho estiver hospedado no Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **versões anteriores:** o comando CREATE TABLE não filtra eventos com NaN (não é um número. Por exemplo, Infinity, -Infinity) em um tipo de coluna FLOAT porque eles estão fora do intervalo documentado para esses números.
+  * **versões anteriores:** O comando CREATE TABLE não filtrava eventos com NaN (não é um número. Por exemplo, Infinity, -Infinity) em um tipo de coluna FLOAT porque eles estão fora do intervalo documentado para esses números.
 
-  * **versão atual:** CREATE TABLE permite especificar um esquema de alta segurança. O mecanismo do Stream Analytics valida que os dados estão em conformidade com este esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN. 
+  * **versão atual:** CREATE TABLE permite especificar um esquema forte. O mecanismo do Stream Analytics valida que os dados estão em conformidade com este esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN. 
 
 * **Desabilite a elevação automática para cadeias de caracteres datetime em JSON.**  
 
-  * **versões anteriores:** o analisador JSON realiza upcast automaticamente os valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime e, em seguida, converte-os em UTC. Isso resulta na perda das informações de fuso horário.
+  * **versões anteriores:** O analisador JSON realiza upcast automaticamente dos valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime e, em seguida, converte-os em UTC. Isso resulta na perda das informações de fuso horário.
 
-  * **versão atual:** não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas. 
+  * **versão atual:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/fuso horário para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Solucionar problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)

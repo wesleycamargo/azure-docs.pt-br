@@ -1,21 +1,22 @@
 ---
-title: Como instalar e executar contêineres
-titlesuffix: Face - Cognitive Services - Azure
+title: Instalar, executar contêineres
+titlesuffix: Face - Azure Cognitive Services
 description: Como fazer o download, instalar e executar contêineres para o Face neste tutorial passo a passo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634533"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086429"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
@@ -29,15 +30,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar o contêiner Face:
 
-**Mecanismo do Docker**: você deve ter o Docker Engine instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Mecanismo do Docker**: é necessário ter o Mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure.
+O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure.
 
-**Familiaridade com Docker e Registro de Contêiner da Microsoft**: é necessário ter uma compreensão básica de ambos os conceitos de Docker e Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
+**Familiaridade com o Registro de Contêiner da Microsoft e com o Docker**: é necessário ter uma compreensão básica tanto de conceitos do Docker quanto do Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
 
-Para uma cartilha no Docker e noções básicas sobre contêineres, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
+Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Recomendações e requisitos do servidor
+### <a name="container-requirements-and-recommendations"></a>Recomendações e requisitos do contêiner
 
 O container Face requer no mínimo 1 núcleo de CPU, pelo menos 2,6 gigahertz (GHz) ou mais rápido, e 4 gigabytes (GB) de memória alocada, mas recomendamos pelo menos 2 núcleos de CPU e 6 GB de memória alocada.
 
@@ -57,7 +58,7 @@ Você deve criar um recurso Face no Azure se quiser usar o contêiner Face. Depo
 Execute as etapas a seguir para criar e recuperar informações de um recurso Face:
 
 1. Crie um recurso de rosto no portal do Azure.  
-   Se você quiser usar o container Face, crie primeiro um recurso Face correspondente no portal do Azure. Para obter mais informações, consulte [Início rápido: crie uma conta de serviços cognitivos no Portal do Azure](../cognitive-services-apis-create-account.md).
+   Se você quiser usar o container Face, crie primeiro um recurso Face correspondente no portal do Azure. Para saber mais, consulte [Início Rápido: criar uma conta de Serviços Cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
 
 1. Obtenha o URL do ponto de extremidade e a chave de assinatura do recurso do Azure.  
    Depois que o recurso do Azure for criado, você deverá usar o URL do ponto de extremidade e a chave de assinatura desse recurso para instanciar o contêiner Face correspondente. Você pode copiar o URL do ponto de extremidade e a chave de assinatura de, respectivamente, as páginas Início rápido e Chaves do recurso Face no portal do Azure.
@@ -167,7 +168,9 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Imagens de contêiner são executadas no Docker.
 * Você pode usar a API REST ou o SDK para chamar operações em contêineres Face, especificando o URI do host do contêiner.
 * Você deve especificar informações de faturamento ao instanciar um contêiner.
-* ** Os contêineres do Cognitive Services não estão licenciados para serem executados sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.  
+
+> [!IMPORTANT]
+> Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

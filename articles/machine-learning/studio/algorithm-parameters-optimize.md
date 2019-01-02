@@ -1,12 +1,11 @@
 ---
-title: Otimizar algoritmos para o Azure Machine Learning Studio | Microsoft Docs
+title: Otimizar algoritmos – Azure Machine Learning Studio | Microsoft Docs
 description: Explica como escolher o conjunto de parâmetros ideal para um algoritmo no Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314705"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269406"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Escolha parâmetros para otimizar seus algoritmos no Azure Machine Learning Studio
 
 Este tópico descreve como escolher o hiperparâmetro correto definido por um algoritmo no Azure Machine Learning. A maioria dos algoritmos de Machine Learning tem parâmetros para serem definidos. Ao treinar um modelo, você precisa fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que você escolhe. O processo de localizar o melhor conjunto de parâmetros é conhecido como *seleção de modelo*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Há várias maneiras de realizar a seleção de modelo. No aprendizado de máquina, a validação cruzada é um dos métodos mais amplamente usados para seleção de modelo e é o mecanismo de seleção de modelo padrão no Azure Machine Learning. Como o Azure Machine Learning dá suporte a R e Python, você sempre pode implementar seus próprios mecanismos de seleção de modelo usando R ou Python.
 
 Há quatro etapas no processo de localizar o melhor conjunto de parâmetros:
 
-1. **Defina o espaço de parâmetro**: para o algoritmo, primeiro decida os valores de parâmetro exatos que você quer considerar.
-2. **Definir as configurações de validação cruzada**: decida como escolher dobras de validação cruzada no conjunto de dados.
-3. **Definir métrica**: decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, recall ou pontuação f.
+1. **Definir o espaço de parâmetro**: para o algoritmo, primeiro decida os valores de parâmetro exatos que você deseja considerar.
+2. **Definir as configurações de validação cruzada**: decida como escolher dobras de validação cruzada para o conjunto de dados.
+3. **Definir a métrica**: decida qual métrica deve ser usada para determinar o melhor conjunto de parâmetros, como precisão, erro de raiz quadrada média, precisão, recall ou pontuação f.
 4. **Treinar, avaliar e comparar**: para cada combinação exclusiva de valores de parâmetros, a validação cruzada é executada por e com base na métrica de erro que você definir. Após a avaliação e a comparação, você pode escolher o modelo com melhor desempenho.
 
 A imagem a seguir ilustra mostra como isso pode ser obtido no Azure Machine Learning.

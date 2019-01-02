@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340436"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259419"
 ---
 # <a name="translator-speech-api"></a>API de Tradução de Fala
 
@@ -28,7 +28,7 @@ Com a API de Tradução de Fala, os aplicativos cliente transmitem por streaming
 A API de Tradução de Fala usa o protocolo WebSocket para fornecer um canal de comunicação full duplex entre o cliente e o servidor. Um aplicativo exigirá estas etapas para usar o serviço:
 
 ## <a name="1-getting-started"></a>1. Introdução
-Para acessar a API de Tradução de Texto, você precisará [inscrever-se para o Microsoft Azure](translator-speech-how-to-signup.md).
+Para acessar a API de texto do tradutor, você precisará [se inscrever no Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## <a name="2-authentication"></a>2. Autenticação
 
@@ -49,7 +49,7 @@ Trate a sua chave de assinatura e o token de acesso como segredos que devem fica
 ## <a name="5-process-the-results"></a>5. Processar os resultados
 **Processe os resultados transmitidos por streaming de volta do serviço.** O formato dos resultados parciais, dos resultados finais e dos segmentos de áudio de texto em fala são descritos na documentação da operação `/speech/translate` abaixo.
 
-Exemplos de códigos demonstrando o uso da API de Tradução de Fala estão disponíveis no [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
+Exemplos de códigos demonstrando o uso da API de Tradução de Fala estão disponíveis no [site do Microsoft Translator no GitHub](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 
@@ -88,6 +88,9 @@ A entrada de áudio está em WAVE (Formato de Arquivo de Áudio de Forma de Onda
 Observe que o tamanho total do arquivo (bytes 4 a 7) e o tamanho dos "dados" (bytes 40 a 43) estão definidos como zero. Isso é aceitável para o cenário de streaming em que o tamanho total não é necessariamente conhecido antecipadamente.
 
 Após enviar o cabeçalho WAV RIFF (), o cliente envia partes dos dados de áudio. O cliente normalmente transmitirá por streaming partes de tamanho fixo representando uma duração fixa (por exemplo, fluxo de 100 ms de áudio por vez).
+
+### <a name="signal-the-end-of-the-utterance"></a>Sinalizar o final da declaração
+A API de Tradução de Fala retorna a transcrição e a tradução do fluxo de áudio conforme você envia o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para você apenas após o final da declaração. Em alguns casos, talvez você queira forçar o final da declaração. Envie 2,5 segundos de silêncio para forçar o final da declaração. 
 
 ### <a name="final-result"></a>Resultado final
 Um resultado de reconhecimento de fala final é gerado ao fim de um enunciado. Um resultado é transmitido do serviço para o cliente usando uma mensagem do WebSocket do tipo Texto. O conteúdo da mensagem é a serialização JSON de um objeto com as seguintes propriedades:
@@ -157,7 +160,7 @@ Quando um aplicativo cliente tiver terminado de transmitir por streaming um áud
 
 * `1003 - Invalid Message Type`: o servidor está encerrando a conexão porque ele não pode aceitar o tipo de dados recebido. Isso geralmente ocorre quando o áudio recebido não inicia com um cabeçalho correto.
 * `1000 - Normal closure`: a conexão foi fechada depois que a solicitação foi atendida. O servidor fechará a conexão: quando nenhum áudio for recebido do cliente por um longo período; quando silêncio for transmitido por um longo período; quando uma sessão atingir a duração máxima permitida (aproximadamente 90 minutos).
-* `1001 - Endpoint Unavailable`: indica que o servidor não ficará disponível. O aplicativo cliente pode tentar reconectar-se com um limite no número de repetições.
+* `1001 - Endpoint Unavailable`: indica que o servidor ficará indisponível. O aplicativo cliente pode tentar reconectar-se com um limite no número de repetições.
 * `1011 - Internal Server Error`: a conexão será fechada pelo servidor devido a um erro no servidor.
 
 ### <a name="parameters"></a>parâmetros
@@ -169,9 +172,9 @@ Quando um aplicativo cliente tiver terminado de transmitir por streaming um áud
 |para|(vazio)|Especifica o idioma para o qual traduzir o texto transcrito. O valor é um dos identificadores de idioma do escopo de `text` na resposta da API de idiomas.|query|string|
 |recursos|(vazio)   |Conjunto separado por vírgulas de recursos selecionados pelo cliente. Os recursos disponíveis incluem:<ul><li>`TextToSpeech`: especifica que o serviço deve retornar o áudio traduzido da frase traduzida final.</li><li>`Partial`: especifica que o serviço deve retornar resultados intermediários de reconhecimento enquanto o áudio está transmitindo por streaming para o serviço.</li><li>`TimingInfo`: especifica que o serviço deve retornar informações de tempo associadas a cada reconhecimento.</li></ul>Por exemplo, um cliente especificaria `features=partial,texttospeech` para receber resultados parciais e texto em fala, mas não informações de tempo. Observe que os resultados finais sempre são transmitidos por streaming para o cliente.|query|string|
 |voice|(vazio)|Identifica que voz usar para renderização de texto em fala do texto traduzido. O valor é um dos identificadores de voz do escopo de tts na resposta da API de idiomas. Se uma voz não for especificada, o sistema escolherá uma automaticamente quando o recurso de texto em fala for habilitado.|query|string|
-|formato|(vazio)|Especifica o formato de texto no fluxo de áudio de texto em fala retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: fluxo de áudio de forma de onda. O cliente deve usar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para texto em fala é PCM de canal único de 16 bits com uma taxa de amostragem de 24 kHz ou 16 kHz.</li><li>`audio/mp3`: transmissão por streaming de áudio em MP3.</li></ul>O padrão é `audio/wav`.|query|string|
+|formato|(vazio)|Especifica o formato de texto no fluxo de áudio de texto em fala retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: fluxo de áudio de forma de onda. O cliente deve usar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para texto em fala é PCM de canal único de 16 bits com uma taxa de amostragem de 24 kHz ou 16 kHz.</li><li>`audio/mp3`: fluxo de áudio em MP3.</li></ul>O padrão é `audio/wav`.|query|string|
 |ProfanityAction    |(vazio)    |Especifica como o serviço deve tratar linguagens vulgares reconhecidas na fala. As ações válidas são:<ul><li>`NoAction`: linguagens vulgares são deixadas como estão.</li><li>`Marked`: linguagens vulgares são substituídas por um marcador. Veja o parâmetro `ProfanityMarker`.</li><li>`Deleted`: linguagens vulgares são excluídas. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a .".`</li></ul>O padrão é Marcado.|query|string|
-|ProfanityMarker|(vazio)    |Especifica como linguagens vulgares detectadas são tratadas quando `ProfanityAction` é definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: linguagens vulgares são substituídas pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a ***.".`</li><li>`Tag`: linguagem vulgar fica entre uma marcação XML de linguagem vulgar. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a <profanity>jackass</profanity>."`.</li></ul>O padrão é `Asterisk`.|query|string|
+|ProfanityMarker|(vazio)    |Especifica como linguagens vulgares detectadas são tratadas quando `ProfanityAction` é definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: linguagens vulgares são substituídas pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a ***.".`</li><li>`Tag`: linguagem vulgar fica entre uma marca XML de linguagem vulgar. Por exemplo, se a palavra `"jackass"` for tratado como uma linguagem vulgar, a frase `"He is a jackass."` se tornará `"He is a <profanity>jackass</profanity>."`.</li></ul>O padrão é `Asterisk`.|query|string|
 |Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Use o prefixo `Bearer` seguido pelo valor referente ao valor `access_token` retornado pelo serviço de token de autenticação.|cabeçalho   |string|
 |Ocp-Apim-Subscription-Key|(vazio)|Obrigatório se o cabeçalho `Authorization` não for especificado.|cabeçalho|string|
 |access_token|(vazio)   |Maneira alternativa de passar um token de acesso OAuth válido. O token de portador geralmente é fornecido com o cabeçalho `Authorization`. Algumas bibliotecas de websocket não permitem que o código do cliente defina cabeçalhos. Nesse caso, o cliente pode usar o parâmetro de consulta `access_token` para passar um token válido. Ao usar um token de acesso para autenticação, se o cabeçalho `Authorization` não estiver definido, `access_token` deverá ser definido. Se o cabeçalho e o parâmetro de consulta estiverem ambos definidos, o parâmetro de consulta será ignorado. Os clientes só devem usar um método para passar o token.|query|string|

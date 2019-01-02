@@ -10,22 +10,23 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334611"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085936"
 ---
-# <a name="key-management"></a>Gerenciamento de chaves
+# <a name="how-to-manage-keys-in-qna-maker"></a>Como gerenciar chaves no QnA Maker
 
 O serviço QnA Maker lida com dois tipos de chaves, **chaves de assinatura** e **chaves de ponto de extremidade**.
 
 ![gerenciamento de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chaves de assinatura**: Essas chaves são usadas para acessar as [APIs do serviço de gerenciamento QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Essas APIs permitem que você execute várias operações CRUD na sua base de dados de conhecimento.  
+1. **Chaves de assinatura**: essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Essas APIs permitem que você execute várias operações CRUD na sua base de dados de conhecimento.  
 
-2. **Chaves de ponto de extremidade**: Essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento para obter uma resposta para uma pergunta do usuário. Normalmente, você usaria esse ponto de extremidade no código do bot de bate-papo/aplicativo que consome o serviço QnA Maker.
+2. **Chaves de ponto de extremidade**: essas chaves são usadas para acessar o ponto de extremidade da base de dados de conhecimento para obter uma resposta para uma pergunta do usuário. Normalmente, você usaria esse ponto de extremidade no código do bot de bate-papo/aplicativo que consome o serviço QnA Maker.
  
 ## <a name="subscription-keys"></a>Chaves de assinatura
 Você pode exibir e redefinir suas chaves de assinatura no portal do Azure onde você criou o recurso QnA Maker. 

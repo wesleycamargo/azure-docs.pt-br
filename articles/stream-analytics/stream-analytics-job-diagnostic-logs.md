@@ -4,17 +4,17 @@ description: Este artigo descreve como analisar logs de diagnóstico no Azure St
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905854"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090815"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solucionar problemas do Stream Analytics do Azure usando logs de diagnóstico
 
@@ -36,15 +36,15 @@ Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs 
 
 1.  Entre no portal do Azure e acesse a folha do trabalho de streaming. Em **Monitoramento**, selecione **Logs de diagnóstico**.
 
-    ![Navegação na folha para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![Navegação na folha para os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  Selecione **Ativar diagnóstico**.
 
-    ![Ativar os logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![Ativar logs de diagnóstico do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  Na página **Configurações de diagnóstico**, em **Status**, selecione **Ativado**.
 
-    ![Alterar o status dos logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![Alterar o status dos logs de diagnóstico](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  Configure o destino de arquivamento (conta de armazenamento, hub de eventos, Log Analytics) desejado. Depois, selecione as categorias de logs que você deseja coletar (Execução, Criação). 
 
@@ -52,7 +52,7 @@ Os logs de diagnóstico estão **desativados** por padrão. Para ativar os logs 
 
 A configuração de diagnóstico leva cerca de 10 minutos para entrar em vigor. Depois disso, os logs começarão a aparecer no destino de arquivamento configurado (que pode ser visto na página **Logs de diagnóstico**):
 
-![Navegação na folha para os logs de diagnóstico – destinos de arquivamento](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![Navegação na folha para os logs de diagnóstico – destinos de arquivamento](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 Para obter informações sobre como configurar o diagnóstico, consulte [Coletar e consumir dados de diagnóstico nos recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
@@ -77,7 +77,7 @@ NOME | DESCRIÇÃO
 tempo real | Carimbo de data/hora (em UTC) do log.
 ResourceId | ID do recurso em que a operação ocorreu, em maiúsculas. Inclui a ID da assinatura, o grupo de recursos e o nome do trabalho. Por exemplo, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 categoria | Categoria do log, **Execução** ou **Criação**.
-operationName | Nome da operação que está registrada. Por exemplo, **Enviar Eventos: falha na gravação da Saída do SQL em mysqloutput**.
+operationName | Nome da operação que está registrada. Por exemplo, **Enviar eventos: falha na gravação da Saída do SQL em mysqloutput**.
 status | Status da operação. Por exemplo, **Com Falha** ou **Com Êxito**.
 level | Nível do log. Por exemplo, **Erro**, **Aviso** ou **Informativo**.
 propriedades | Detalhes específicos à entrada de log, serializados como uma cadeia de caracteres JSON. Para obter mais informações, consulte as próximas seções.
@@ -94,13 +94,13 @@ NOME | DESCRIÇÃO
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-type | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
 Dependendo do valor de **operationName**, os erros de dados terão o seguinte esquema:
 * **Serializar eventos**. Serializar os eventos ocorridos durante operações de leitura de eventos. Eles ocorrem quando os dados na entrada não atendem ao esquema de consulta por um destes motivos:
-    * *Tipos incompatíveis durante (des)serialização de eventos*: identifica o campo que está causando o erro.
-    * *Não é possível ler um evento, serialização inválida*: lista informações sobre o local nos dados de entrada em que ocorreu o erro. Inclui o nome do blob para a entrada do blob, o deslocamento e uma amostra dos dados.
+    * *Tipos incompatíveis durante a (des)serialização do evento*: identifica o campo que está causando o erro.
+    * *Não é possível ler um evento, serialização inválida*: lista informações sobre a localização nos dados de entrada em que ocorreu o erro. Inclui o nome do blob para a entrada do blob, o deslocamento e uma amostra dos dados.
 * **Enviar eventos**. Envia eventos ocorridos durante operações de gravação. Ele identifica o evento de streaming que causou o erro.
 
 ### <a name="generic-events"></a>Eventos genéricos
@@ -111,7 +111,7 @@ NOME | DESCRIÇÃO
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação**.
 
 ## <a name="next-steps"></a>Próximas etapas

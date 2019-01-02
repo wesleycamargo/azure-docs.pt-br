@@ -1,21 +1,22 @@
 ---
 title: Traduzir fala usando o Speech SDK para C ++
 titleSuffix: Azure Cognitive Services
-description: Mostra como traduzir fala usando o Speech SDK for C ++.
+description: Este artigo inclui o código de exemplo para a tradução de fala usando o SDK de Fala em um ambiente C++.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1bd466d231387034ead5dd46745708802f6e7488
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 917eb170ee1798546f4ba6dcf228097d5a5d853c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464722"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092206"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Tradução de fala com o SDK de Fala dos Serviços Cognitivos para C++
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: fc8336a46f61a7c9ab7c174b5f24d907369f481c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/03/2018
+ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567563"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997674"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL
 
@@ -45,25 +45,37 @@ As principais instruções de DDL (linguagem de definição de dados) estão dis
 
 Além das instruções Transact-SQL relacionadas aos recursos não suportados descritos na  [comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md), as seguintes declarações e grupos de instruções não são suportadas. Assim, se o banco de dados a ser migrado usa qualquer um dos recursos a seguir, faça a reengenharia de seu T-SQL para eliminar essas instruções e recursos do T-SQL.
 
-- Agrupamento de objetos do sistema - Relacionado a conexão: instruções de terminal. O Banco de dados SQL não dá suporte à autenticação do Windows, mas dá suporte à autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte  [Conectando-se ao banco de dados SQL ou ao SQL Data Warehouse usando a autenticação do Active Directory Domain Services do Azure](sql-database-aad-authentication.md).
-- Cruzar consultas de banco de dados usando nomes de três ou quatro partes. (Consultas entre banco de dados somente leitura são suportadas usando  [consulta de banco de dados elástica](sql-database-elastic-query-overview.md).) - Encadeamento de propriedade de banco de dados cruzado, `TRUSTWORTHY` configuração- `EXECUTE AS LOGIN` Use 'EXECUTE AS USER'.
-- A criptografia é suportada, exceto pelo gerenciamento extensível de chaves - Eventos: Eventos, notificações de eventos, notificações de consulta - Posicionamento de arquivos: sintaxe relacionada ao posicionamento do arquivo de banco de dados, tamanho e arquivos de banco de dados gerenciados automaticamente pelo Microsoft Azure.
-- Alta disponibilidade: sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
-- Log reader: Sintaxe que depende do leitor de log, que não está disponível no Banco de Dados SQL: Empupar Replicação, Captura Change Data. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
-- Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes` - Hardware: Sintaxe relacionada a configurações de servidor relacionadas a hardware: como memória, threads de trabalho, afinidade de CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos de computação em vez disso.
-- `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomes de quatro partes - .NET Framework: integração do CLR com SQL Server - Pesquisa semântica - Credenciais do servidor: use [credenciais com escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx) em vez disso.
-- Itens no nível do servidor: funções de servidor,  `sys.login_token`. `GRANT`, `REVOKE` e `DENY` das permissões no nível do servidor não estão disponíveis, embora algumas delas sejam substituídas por permissões no nível do banco de dados. Algumas DMVs úteis no nível do servidor têm DMVs equivalentes no nível do banco de dados.
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` Opções e `RECONFIGURE`. Algumas opções estão disponíveis usando [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
-- SQL Server Agent: sintaxe que se baseia no SQL Server Agent ou no banco de dados MSDB: alertas, operadores, servidores de gerenciamento central. Em vez disso, use scripts, como o Azure PowerShell.
-- Auditoria do SQL Server: use a auditoria do Banco de Dados SQL.
-- Rastreio do SQL Server - Sinalizadores de rastreamento: alguns itens do sinalizador de rastreamento foram movidos para modos de compatibilidade.
-- Transact-SQL debugging - Disparadores: Disparadores com escopo no servidor ou de logon -  `USE` : Para alterar o contexto do banco de dados para um banco de dados diferente, você deve estabelecer uma nova conexão com o novo banco de dados.
+- Ordenação de objetos do sistema
+- Conexão relacionada: Instruções de ponto de extremidade. O Banco de dados SQL não dá suporte à autenticação do Windows, mas dá suporte à autenticação do Azure Active Directory semelhante. Alguns tipos de autenticação exigem a versão mais recente do SSMS. Para obter mais informações, consulte [Conectar-se ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md).
+- Consultas cruzadas de banco de dados usando nomes de três ou quatro partes. (As consultas de bancos de dados somente leitura têm suporte por meio de [consulta de banco de dados elástico](sql-database-elastic-query-overview.md).)
+- encadeamento de propriedades de bancos de dados, configuração `TRUSTWORTHY`
+- `EXECUTE AS LOGIN` Use “EXECUTE AS USER”.
+- Há suporte para criptografia, exceto para o gerenciamento extensível de chaves
+- Eventos: eventos, notificações de eventos, notificações de consulta
+- Posicionamento do arquivo: Sintaxe relacionada ao posicionamento de arquivos de banco de dados, ao tamanho e aos arquivos de banco de dados que são gerenciados automaticamente pelo Microsoft Azure.
+- Alta disponibilidade: Sintaxe relacionada à alta disponibilidade, gerenciada por meio de sua conta do Microsoft Azure. Isso inclui a sintaxe de backup, restauração, do AlwaysOn, espelhamento de banco de dados, envio de logs e dos modos de recuperação.
+- Leitor de logs: sintaxe que se baseia no leitor de logs, que não está disponível no Banco de Dados SQL: replicação push, captura de dados de alterações. O Banco de Dados SQL pode ser um assinante de um artigo de replicação de push.
+- Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
+- Hardware: sintaxe relacionada às configurações de servidor relacionadas ao hardware como memória, threads de trabalho, afinidade da CPU, sinalizadores de rastreamento. Use as camadas de serviço e os tamanhos de computação em vez disso.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e nomes de quatro partes
+- .NET Framework: integração CLR com o SQL Server
+- Pesquisa semântica
+- Credenciais do servidor: Em vez disso, use [credenciais no escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx).
+- Itens de nível de servidor: Funções de servidor, `sys.login_token`. `GRANT`, `REVOKE` e `DENY` das permissões no nível do servidor não estão disponíveis, embora algumas delas sejam substituídas por permissões no nível do banco de dados. Algumas DMVs úteis no nível do servidor têm DMVs equivalentes no nível do banco de dados.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- Opções `sp_configure` e `RECONFIGURE`. Algumas opções estão disponíveis usando [ALTERAR CONFIGURAÇÃO DE ESCOPO DO BANCO DE DADOS](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
+- SQL Server Agent: Sintaxe que se baseia no SQL Server Agent ou no banco de dados MSDB: alertas, operadores, servidores de gerenciamento central. Em vez disso, use scripts, como o Azure PowerShell.
+- Auditoria do SQL Server: Em vez disso, use a auditoria do Banco de Dados SQL.
+- Rastreamento do SQL Server
+- Sinalizadores de rastreamento: Alguns itens do sinalizador de rastreamento foram movidos para os modos de compatibilidade.
+- Depuração de Transact-SQL
+- Gatilhos: com escopo do servidor ou gatilhos de logon
+- Instrução `USE`: para alterar o contexto do banco de dados para um banco de dados diferente, é necessário estabelecer uma nova conexão com o novo banco de dados.
 
 ## <a name="full-transact-sql-reference"></a>Referência completa do Transact-SQL
 

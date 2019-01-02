@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715865"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194106"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Teste sua oferta VM para o Azure Marketplace em preparo
 Preparo significa implantar a SKU em uma "área restrita" privada, em que você poderá testar e validar sua funcionalidade antes de publicá-la no Marketplace. A SKU aparece no preparo como se o cliente tivesse implantado. Sua imagem VM deve estar certificada para ser enviada para preparação.
 
-## <a name="step-1-push-your-offer-to-staging"></a>Etapa 1: Envie por push sua oferta de preparo
+## <a name="step-1-push-your-offer-to-staging"></a>Etapa 1: Envie sua oferta por push para preparo
 1. Na guia **Publicar** clique em **Enviar por Push para o preparo**.
    
     ![desenho](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
@@ -35,12 +35,12 @@ Preparo significa implantar a SKU em uma "área restrita" privada, em que você 
    > No caso de Máquinas Virtuais e modelos de Solução, **não** coloque em lista de branca assinaturas do tipo CSP, DreamSpark ou Azure via Open.
    > 
    > 
+   >
+   > No caso de Máquinas Virtuais, quando você clica no botão **ENVIAR PARA PREPARO**, as etapas a seguir são executadas em segundo plano. Você poderá exibir o andamento de cada etapa na guia PUBLICAR do portal de Publicação. Verifique essa página regularmente (até que o status mostre PREPARADO) para obter informações sobre falhas que precisem ser corrigidas por você.
 
-    > No caso de Máquinas Virtuais, quando você clica no botão **ENVIAR PARA PREPARO**, as etapas a seguir são executadas em segundo plano. Você poderá exibir o andamento de cada etapa na guia PUBLICAR do portal de Publicação. Verifique essa página regularmente (até que o status mostre PREPARADO) para obter informações sobre falhas que precisem ser corrigidas por você.
-
-    > - Inicialmente, sua solicitação é enviada à equipe de certificação, que valida o VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a etapa de certificação será ignorada.
-    > - Uma vez concluída a certificação, a replicação da oferta começará em todos os datacenters do Azure. Geralmente, uma replicação leva de 24 a 48 horas para ser concluída, mas pode levar até uma semana dependendo do tamanho do VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a replicação será mais rápida.
-    > - Quando a replicação for concluída, sua oferta será disponibilizada no [portal do Azure](http:/portal.azure.com). Nessa ocasião, o status da oferta passará para PREPARADO no portal de Publicação. Uma oferta preparada só ficará visível no [portal do Azure](http:/portal.azure.com) usando as identificações de email associadas à assinatura com as quais a oferta foi preparada.
+   > - Inicialmente, sua solicitação é enviada à equipe de certificação, que valida o VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a etapa de certificação será ignorada.
+   > - Uma vez concluída a certificação, a replicação da oferta começará em todos os datacenters do Azure. Geralmente, uma replicação leva de 24 a 48 horas para ser concluída, mas pode levar até uma semana dependendo do tamanho do VHD. No entanto, se sua solicitação teve apenas alteração de marketing, a replicação será mais rápida.
+   > - Quando a replicação for concluída, sua oferta será disponibilizada no [portal do Azure](http:/portal.azure.com). Nessa ocasião, o status da oferta passará para PREPARADO no portal de Publicação. Uma oferta preparada só ficará visível no [portal do Azure](http:/portal.azure.com) usando as identificações de email associadas à assinatura com as quais a oferta foi preparada.
 
 1. Entre no [Portal de Visualização do Azure](https://portal.azure.com) usando uma das assinaturas do Azure acima indicadas na etapa anterior.
 2. Encontre sua oferta e valide seus pontos de imagem VM:
@@ -58,8 +58,8 @@ Preparo significa implantar a SKU em uma "área restrita" privada, em que você 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que a sua oferta está "preparada" e você testou a sua funcionalidade e conteúdo de marketing, prossiga para a oferta final e/ou a fase de publicação SKU, **Etapa 4**: [Implantar sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
+Agora que a sua oferta está "preparada" e você testou sua funcionalidade e o conteúdo de marketing, prossiga para a fase final de publicação, **Etapa 4**: [Implantar sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 

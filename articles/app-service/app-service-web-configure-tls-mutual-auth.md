@@ -1,5 +1,5 @@
 ---
-title: Como configurar a autenticação mútua TLS para Aplicativo Web
+title: Configurar a autenticação mútua TLS – Serviço de Aplicativo do Azure
 description: Saiba como configurar o aplicativo Web para usar a autenticação de certificado do cliente no TLS.
 services: app-service
 documentationcenter: ''
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.custom: seodec18
+ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056201"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252874"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Como configurar a autenticação mútua TLS para Aplicativo Web
 ## <a name="overview"></a>Visão geral
 Você pode restringir o acesso ao aplicativo Web do Azure, permitindo diferentes tipos de autenticação para ele. Uma maneira de fazer isso é autenticar usando um certificado de cliente quando a solicitação for por TLS/SSL. Esse mecanismo é chamado de autenticação mútua TLS ou autenticação de certificado de cliente e este artigo mostrará detalhadamente como configurar seu aplicativo Web para usar a autenticação de certificado de cliente.
 
-> **Observação:** se acessar seu site via HTTP e não HTTPS, você não receberá nenhum certificado de cliente. Por isso, se seu aplicativo exigir certificados de cliente, você não deve permitir solicitações ao seu aplicativo via HTTP.
+> **Observação:** se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se seu aplicativo exigir certificados de cliente, você não deve permitir solicitações ao seu aplicativo via HTTP.
 > 
 > 
 
@@ -51,7 +52,7 @@ Lembre-se de alterar o valor de "local" para onde seu aplicativo Web está local
 
 Você também pode usar https://resources.azure.com para inverter a propriedade `clientCertEnabled` para `true`.
 
-> **Observação:** se você executar o ARMClient do Powershell, você deverá usar um acento grave ` como o caractere de escape para o símbolo \@ para o arquivo JSON.
+> **Observação:** se você executar o ARMClient pelo Powershell, será necessário usar o símbolo \@ como o escape para o arquivo JSON com um acento grave `.
 > 
 > 
 

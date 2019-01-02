@@ -1,12 +1,11 @@
 ---
-title: Depurar seu modelo no Machine Learning Studio| Microsoft Docs
+title: Depurar seu modelo – Azure Machine Learning Studio | Microsoft Docs
 description: Como depurar erros produzidos pelos módulos Modelo de Treinamento e Modelo de Pontuação no Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312588"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268879"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depurar seu modelo no Azure Machine Learning Studio
 
@@ -30,7 +29,7 @@ Este artigo explica os motivos possíveis pelos quais uma das seguintes falhas p
 * o módulo [Modelo de Treinamento][train-model] produz um erro 
 * o módulo [Modelo de Pontuação][score-model] produz resultados incorretos 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="train-model-module-produces-an-error"></a>O módulo Modelo de Treinamento produz um erro
 

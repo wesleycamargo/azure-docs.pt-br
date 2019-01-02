@@ -1,5 +1,5 @@
 ---
-title: Entenda o bloqueio de recursos nos Blueprints do Azure
+title: Compreender o bloqueio de recursos
 description: Aprenda sobre as opções de bloqueio para proteger recursos ao atribuir um blueprint.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139434"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309416"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -21,9 +22,9 @@ A criação de ambientes consistentes em escala só é realmente valiosa se houv
 
 ## <a name="locking-modes-and-states"></a>Estados e modos de bloqueio
 
-O modo de bloqueio se aplica à atribuição de blueprint e tem apenas duas opções: **nenhuma** ou **All Resources**. O modo de bloqueio é configurado durante a atribuição de blueprint e não pode ser alterado depois que a atribuição é aplicada com êxito à assinatura.
+O modo de bloqueio se aplica à atribuição de blueprint e tem apenas duas opções: **Nenhum** ou **Todos os recursos**. O modo de bloqueio é configurado durante a atribuição de blueprint e não pode ser alterado depois que a atribuição é aplicada com êxito à assinatura.
 
-Recursos criados por artefatos em uma atribuição de blueprint possuem três estados: **Not Locked**, **Read Only** ou **Cannot Edit / Delete**. Cada artefato pode estar na **não bloqueado** estado. No entanto, os artefatos do grupo sem recurso possuem **Somente leitura** e os grupos de recursos têm **Não é possível editar / excluir** estados. Essa diferença é uma distinção importante em como esses recursos são gerenciados.
+Os recursos criados por artefatos em uma atribuição de blueprint possuem três estados: **Não bloqueado**, **Somente leitura** ou **Não é possível editar / excluir**. Cada artefato pode estar na **não bloqueado** estado. No entanto, os artefatos do grupo sem recurso possuem **Somente leitura** e os grupos de recursos têm **Não é possível editar / excluir** estados. Essa diferença é uma distinção importante em como esses recursos são gerenciados.
 
 O estado **Somente Leitura** é exatamente como definido: o recurso não pode ser alterado de forma alguma - sem alterações e não pode ser excluído. O **Não é possível editar/excluir** tem mais nuances devido à natureza de "contêiner" dos grupos de recursos. O objeto de grupo de recursos é somente leitura, mas é possível fazer alterações em recursos não bloqueados dentro do grupo de recursos.
 

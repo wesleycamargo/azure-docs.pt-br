@@ -1,6 +1,6 @@
 ---
-title: Registrar um novo dispositivo do Azure IoT Edge (CLI)| Microsoft Docs
-description: Usar a extensão do IoT para CLI do Azure para registrar um novo dispositivo IoT Edge
+title: Registrar um novo dispositivo na linha de comando – Azure IoT Edge | Microsoft Docs
+description: Use a extensão de IoT para a CLI do Azure para registrar um novo dispositivo IoT Edge e recuperar a cadeia de conexão
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569243"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081826"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registrar um novo dispositivo Azure IoT Edge com a CLI do Azure
 
@@ -39,11 +40,11 @@ Use o comando a seguir para criar uma nova identidade de dispositivo no hub IoT:
    ```
 
 Este comando inclui três parâmetros:
-* **device-id**: fornece um nome descritivo exclusivo para o hub IoT.
-* **hub-name**: fornece o nome do hub IoT.
-* **edge-enabled**: esse parâmetro declara que o dispositivo é para uso com IoT Edge.
+* **device-id**: forneça um nome descritivo exclusivo para o hub IoT.
+* **hub-name**: forneça o nome do hub IoT.
+* **edge-enabled**: este parâmetro declara que o dispositivo é para uso com o IoT Edge.
 
-   ![Criar dispositivo IoT Edge](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![Saída da criação de identidade do dispositivo de hub IoT do Azure](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>Exibir todos os dispositivos
 

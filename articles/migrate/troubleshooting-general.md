@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413326"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259147"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -19,11 +19,11 @@ ms.locfileid: "50413326"
 
 As [Migrações para Azure](migrate-overview.md) avaliam as cargas de trabalho locais para migração para o Azure. Use este artigo para solucionar problemas ao implementar e usar as Migrações para Azure.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a descoberta contínua OVA, mas as VMs que são excluídas em meu ambiente local ainda estão sendo mostradas no portal.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando o OVA que descobre continuamente meu ambiente local, mas as VMs excluídas em meu ambiente local ainda estão sendo mostradas no portal.
 
-O dispositivo para dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
+O dispositivo de descoberta contínua apenas coleta dados de desempenho continuamente, ele não detectar qualquer alteração de configuração no ambiente local (ou seja, adição de VM, exclusão, a adição de disco etc.). Se houver uma alteração de configuração no ambiente local, você poderá fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-lo novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
+- Adição de itens (VMs, discos, núcleos etc.): para refletir essas alterações no portal do Azure, você pode interromper a descoberta do dispositivo e iniciá-la novamente. Isso garantirá que as alterações sejam atualizadas no projeto de Migrações para Azure.
 
    ![Interromper descoberta](./media/troubleshooting-general/stop-discovery.png)
 
@@ -35,15 +35,44 @@ Esse problema pode acontecer para usuários que não têm acesso ao locatário d
 
 Depois que o email de convite for recebido, você precisará abri-lo e clicar no link contido nele para aceitar o convite. Depois de fazer isso, você precisará sair do portal do Azure e entrar novamente, atualizar o navegador não funcionará. Em seguida, você pode tentar criar o projeto de migração.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Não consigo exportar o relatório de avaliação
+
+Se você não conseguir exportar o relatório de avaliação do portal, tente usar a API REST para obter uma URL de download para o relatório de avaliação abaixo.
+
+1. Instale *armclient* em seu computador (se você já não tiver instalado):
+
+   a. Em uma janela de Prompt de Comando do administrador, execute o seguinte comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+
+  b. Em uma janela do Windows PowerShell do administrador, execute o seguinte comando: ```choco install armclient```
+
+2.  Obter a URL de download para o relatório de avaliação usando a API REST de Migrações para Azure
+
+   a.    Em uma janela do Windows PowerShell do administrador, execute o seguinte comando: ```armclient login```
+
+  Isso abre o pop-up de logon do Azure em que você precisa fazer logon no Azure.
+
+  b.    Na janela do PowerShell, execute o seguinte comando para obter a URL de download para o relatório de avaliação (substitua os parâmetros URI pelos valores apropriados, exemplo de solicitação de API abaixo)
+
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+
+       Exemplo de solicitação e de saída:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+
+3. Copie a URL da resposta e abra-a em um navegador para baixar o relatório de avaliação.
+
+4. Depois que o relatório for baixado, use o Excel para navegar até a pasta baixada e abra o arquivo no Excel para exibi-lo.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Os dados de desempenho para discos e adaptadores de redes mostram como zeros
 
 Isso poderá ocorrer se o nível de configuração de estatísticas no servidor do vCenter estiver definido como menos de três. No nível três ou superior, o vCenter armazena o histórico de desempenho da VM para computação, armazenamento e rede. Para menos do que o nível três, o vCenter não armazena dados de armazenamento e rede, mas somente dados de CPU e memória. Nesse cenário, os dados de desempenho são exibidos como zero nas Migrações para Azure e as Migrações para Azure fornecem recomendações de tamanho para discos e redes com base nos metadados coletados nas máquinas locais.
 
 Para habilitar a coleta de dados de desempenho de disco e rede, altere o nível de configurações de estatísticas para três. Em seguida, aguarde pelo menos um dia para descobrir o seu ambiente e avaliá-lo.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu instalei agentes e usei a visualização de dependência para criar grupos. Agora, após o failover, as máquinas mostram a ação de "Instalar o agente" em vez de "Exibir dependências"
-* O failover pós-planejado ou não planejado, as máquinas locais são desativadas e as máquinas equivalentes são criadas no Azure. Essas máquinas adquirem um endereço MAC diferente. Elas podem adquirir um endereço IP diferente com base em se o usuário optou por reter o endereço IP local ou não. Se os endereços IP e MAC forem diferentes, as Migrações para Azure não associarão as máquinas locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
-* Após o failover de teste, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes criadas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de Log Analytics de saída desses computadores, as Migrações para Azure não associarão os computadores locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Especifiquei uma geografia do Azure, durante a criação de um projeto de migração, como descobrir a região do Azure exata em que os metadados descobertos serão armazenados?
 
@@ -53,7 +82,7 @@ Você pode acessar a seção **Essentials** na página **Visão geral** do proje
 
 ## <a name="collector-errors"></a>Erros de coletor
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implantação do Coletor de Migrações para Azure com o erro: O arquivo de manifesto fornecido é inválido: entrada do manifesto OVF inválida.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>A implantação do Coletor de Migrações para Azure falhou com o erro: O arquivo de manifesto fornecido é inválido: Entrada inválida de manifesto de OVF.
 
 1. Verifique se o arquivo OVA do Coletor de Migrações para Azure será baixado corretamente verificando seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, baixe o arquivo OVA novamente e repita a implantação.
 2. Se ele ainda falhar e se você estiver usando o VMware vSphere Client para implantar o OVF, tente implantá-lo por meio do vSphere Web Client. Se ele ainda falhar, tente usar outro navegador da Web.
@@ -107,7 +136,7 @@ O Coletor de Migrações para Azure baixa o PowerCLI e o instala no dispositivo.
 2. Vá para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Execute o script InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro UnhandledException Internal: System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro Interno de UnhandledException: System.IO.FileNotFoundException
 
 Esse problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga as etapas abaixo para resolver o problema:
 
@@ -117,7 +146,7 @@ Esse problema pode ocorrer devido a um problema com a instalação do VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Erro UnableToConnectToServer
 
-Não é possível conectar o vCenter Server "Servername.com:9443" devido ao erro: Nenhum ponto de extremidade atendendo em https://Servername.com:9443/sdk, que poderia aceitar a mensagem.
+Não é possível se conectar ao vCenter Server "Servername.com:9443" devido ao erro: "Não havia nenhum ponto de extremidade escutando em https://Servername.com:9443/sdk para aceitar a mensagem." Isso geralmente é causado por um endereço incorreto ou ação SOAP.
 
 Verifique se está executando a versão mais recente do dispositivo do coletor, caso não esteja, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -128,7 +157,11 @@ Se o problema ainda ocorrer na versão mais recente, poderá ser porque o comput
 3. Identifique o número correto da porta para conectar o vCenter.
 4. Finalmente, verifique se o servidor vCenter está em execução.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Solucionar problemas de visualização de dependência
+## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Não consigo encontrar a funcionalidade de visualização de dependência para projetos do Azure Governamental.
+
+As Migrações para Azure dependem do Mapa do Serviço para a funcionalidade de visualização de dependência e, uma vez que o Mapa do Serviço não está disponível no momento no Azure Governamental, essa funcionalidade não está disponível no Azure Governamental.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o MMA (Microsoft Monitoring Agent) e o Dependency Agent em minhas VMs locais, mas as dependências agora estão aparecendo no portal de Migrações para Azure.
 
@@ -159,7 +192,11 @@ As Migrações para Azure permitem que você visualize as dependências por um p
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo visualizar as dependências para grupos com mais de 10 VMs?
 Você pode [visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) de até 10 VMs. No caso de um grupo com mais de 10 VMs, é recomendado dividir o grupo em grupos menores e visualizar as dependências.
 
-## <a name="troubleshoot-readiness-issues"></a>Solucionar problemas de preparação
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu instalei agentes e usei a visualização de dependência para criar grupos. Agora, após o failover, as máquinas mostram a ação de "Instalar o agente" em vez de "Exibir dependências"
+* O failover pós-planejado ou não planejado, as máquinas locais são desativadas e as máquinas equivalentes são criadas no Azure. Essas máquinas adquirem um endereço MAC diferente. Elas podem adquirir um endereço IP diferente com base em se o usuário optou por reter o endereço IP local ou não. Se os endereços IP e MAC forem diferentes, as Migrações para Azure não associarão as máquinas locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
+* Após o failover de teste, as máquinas locais permanecem ativadas conforme o esperado. As máquinas equivalentes criadas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de Log Analytics de saída desses computadores, as Migrações para Azure não associarão os computadores locais com os dados de dependência do Mapa do Serviço e solicitarão que o usuário instale os agentes em vez de exibir as dependências.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Solucionar problemas de preparação para o Azure
 
 **Problema** | **Correção**
 --- | ---
@@ -173,7 +210,6 @@ Número de bit do sistema operacional sem suporte | VMs com sistemas operacionai
 Exige uma assinatura do Visual Studio. | Os computadores têm um sistema operacional cliente Windows em execução com suporte apenas na assinatura do Visual Studio.
 A VM não foi encontrada para o desempenho de armazenamento necessário. | O desempenho do armazenamento (IOPS/taxa de transferência) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 A VM não foi encontrada para o desempenho de rede necessário. | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina.
-A VM não foi encontrada no tipo de preço especificado. | Se o tipo de preço for definido como Padrão, considere a possibilidade de redução do tamanho da VM antes de migrar para o Azure. Se a camada de dimensionamento for Básico, considere a alteração do tipo de preço da avaliação para Padrão.
 A VM não foi encontrada no local especificado. | Use um local de destino diferente antes da migração.
 Um ou mais discos inadequados. | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Para cada disco anexado à VM, certifique-se de que o tamanho do disco seja < 4 TB, caso contrário, reduza o tamanho de disco antes de migrar para o Azure. Certifique-se de que o desempenho (IOPS/taxa de transferência) necessário para cada disco seja compatível com os [discos de máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits) do Azure.   
 Um ou mais adaptadores de rede inadequados. | Remova os adaptadores de rede não utilizados do computador antes da migração.

@@ -3,21 +3,21 @@ title: Criar e gerenciar trabalhos elásticos usando o PowerShell | Microsoft Do
 description: PowerShell usado para gerenciar pools do Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243190"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278450"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerenciar trabalhos elástico do Banco de Dados SQL usando o PowerShell (visualização)
 
@@ -31,7 +31,7 @@ As APIs do PowerShell para o recurso **trabalhos de Banco de Dados Elástico** (
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um conjunto de bancos de dados criados com as ferramentas do Banco de Dados Elástico. Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
 * PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](https://docs.microsoft.com/powershell/azure/overview).
-* **trabalhos de Banco de Dados Elástico** : consulte [Installing trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md)
+* Pacote do PowerShell de **trabalhos de Banco de Dados Elástico**: Confira [trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecionar sua assinatura do Azure
 Para selecionar a assinatura é necessário ter a ID ou o nome da assinatura (**-SubscriptionId** ou **-SubscriptionName**). Se você tiver várias assinaturas, poderá executar o cmdlet **Get-AzureRmSubscription** e copiar as informações da assinatura desejada do conjunto de resultados. Uma vez que você tenha suas informações de assinatura, execute o cmdlet a seguir para definir esta assinatura como padrão, ou seja, o destino para a criação e gerenciamento de trabalhos:
@@ -193,8 +193,8 @@ O trabalho executa os scripts Transact-SQL (T-SQL) ou o aplicativo de DACPACs em
 
 Há dois tipos de grupos que você pode criar: 
 
-* [Mapa de Fragmentos](sql-database-elastic-scale-shard-map-management.md) : quando um trabalho é enviado para um mapa de fragmentos, o trabalho consulta o mapa de fragmentos para determinar seu conjunto atual de fragmentos e cria trabalhos filho para cada fragmento no mapa de fragmentos.
-* Grupo Coleção Personalizada: um conjunto personalizado definido de bancos de dados. Quando um trabalho tem como alvo uma coleção personalizada, ele cria trabalhos filho para cada banco de dados atualmente na coleção personalizada.
+* Grupo de [Mapa de Fragmentos](sql-database-elastic-scale-shard-map-management.md): Quando um trabalho é enviado para um mapa de fragmentos, o trabalho consulta o mapa de fragmentos para determinar seu conjunto atual de fragmentos e cria trabalhos filho para cada fragmento no mapa de fragmentos.
+* Grupo Coleção Personalizada: Um conjunto de bancos de dados definido personalizado. Quando um trabalho tem como alvo uma coleção personalizada, ele cria trabalhos filho para cada banco de dados atualmente na coleção personalizada.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Para definir a conexão com o recurso trabalhos de Banco de Dados Elástico
 Uma conexão deve ser definida para o *banco de dados de controle* dos trabalhos antes de usar as APIs dos trabalhos. Executar esse cmdlet dispara uma janela de credencial para solicitar o nome de usuário e a senha criados durante a instalação do recurso trabalhos de Banco de Dados Elástico. Todos os exemplos fornecidos neste tópico pressupõem que a primeira etapa já foi executada.
@@ -414,21 +414,21 @@ O recurso trabalhos de Banco de Dados Elástico dá suporte à criação de pol�
 
 Atualmente, as políticas de execução permitem definir:
 
-* Nome: o identificador para a política de execução.
-* Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
-* Intervalo de Repetição Inicial: o intervalo de espera antes de primeira repetição de tentativa.
-* Intervalo Máximo de Repetição: limite de intervalos de repetição a usar.
-* Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas.  A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2). 
-* Máximo de Tentativas: o número máximo de novas tentativas a repetir em um trabalho.
+* Nome: O identificador da política de execução.
+* Tempo limite do trabalho: Tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
+* Intervalo de repetição inicial: O intervalo a esperar antes de primeira repetição de tentativa.
+* Intervalo Máximo de Repetição: O limite de intervalos de repetição a usar.
+* Coeficiente de Retirada de Intervalo de Repetição: Coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas.  A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2). 
+* Máximo de tentativas: O número máximo de novas tentativas a repetir em um trabalho.
 
 A política de execução padrão usa os seguintes valores:
 
-* Nome: política de execução padrão
-* Tempo Limite do Trabalho: 1 semana
-* Intervalo de Repetição Inicial: 100 milissegundos
+* Nome: Política de execução padrão
+* Tempo limite do trabalho: 1 semana
+* Intervalo de repetição inicial:  100 milissegundos
 * Intervalo Máximo de Repetição: 30 minutos
-* Coeficiente de Intervalo de Repetição: 2
-* Máximo de Tentativas: 2.147.483.647
+* Coeficiente de intervalo de repetição: 2
+* Máximo de tentativas: 2,147,483,647
 
 Crie a política de execução desejada:
 
@@ -459,8 +459,8 @@ O recurso trabalhos de Banco de Dados Elástico dá suporte a solicitações de 
 
 Há duas maneiras diferentes pelas quais o recurso Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
 
-1. Cancelar tarefas atualmente em execução: se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução.  Por exemplo: se houver uma consulta de execução longa sendo executada atualmente, quando houver uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
-2. Tentativas de cancelar tarefa: se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
+1. Cancelar tarefas atualmente em execução: Se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução.  Por exemplo:  Se houver uma consulta de execução longa sendo executada atualmente, quando houver uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
+2. Tentativas de cancelar tarefa: Se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
 
 Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitação de cancelamento será atendida para o trabalho pai e todos os seus trabalhos filho.
 

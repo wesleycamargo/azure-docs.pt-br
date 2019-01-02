@@ -1,5 +1,5 @@
 ---
-title: Pontos de extremidade de pesquisa de imagem - API de Pesquisa de Imagem do Bing
+title: Pontos de extremidade da API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
 description: Uma lista de pontos de extremidade disponíveis para a API de Pesquisa de Imagem do Bing.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6213bbb27fc1a7086ccecafa7ae7b12040ac0a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295913"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250613"
 ---
-# <a name="image-search-endpoints"></a>Pontos de extremidade de Pesquisa de Imagem
+# <a name="endpoints-for-the-bing-image-search-api"></a>Pontos de extremidade da API de Pesquisa de Imagem do Bing
 
 A **API de Pesquisa de Imagem**  inclui três pontos de extremidade.  O ponto de extremidade 1 retorna imagens da Web com base em uma consulta. O ponto de extremidade 2 retorna [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  O ponto de extremidade 3 retorna imagens populares.
 ## <a name="endpoints"></a>Pontos de extremidade
 Para obter resultados de imagem usando a API do Bing, envie uma solicitação para um dos pontos de extremidade a seguir. Use os cabeçalhos e parâmetros de URL para definir mais especificações.
 
-**Ponto de extremidade 1:** retorna imagens que são relevantes para a consulta de pesquisa do usuário definida pelo `?q=""`.
+**Ponto de extremidade 1:** retorna imagens relevantes para a consulta de pesquisa do usuário definida pelo `?q=""`.
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
@@ -49,7 +49,7 @@ Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos
 A resposta a uma solicitação de pesquisa de imagem inclui resultados como objetos JSON. Para obter exemplos de como analisar os resultados, confira o [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) e o [código-fonte](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Próximas etapas
-As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
+As APIs do **Bing** dão suporte a ações de pesquisa que retornam os resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou um local específico por longitude, latitude e raio de pesquisa.
 
 Para obter informações completas sobre os parâmetros com suporte para cada ponto de extremidade, consulte as páginas de referência para cada tipo.
 Para obter exemplos de solicitações básicas usando a API de Pesquisa de Imagem, consulte [Inícios rápidos de Pesquisa de Imagem](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

@@ -1,12 +1,11 @@
 ---
-title: 'Etapa 2: carregar dados em um experimento do Machine Learning Studio | Microsoft Docs'
-description: 'Etapa 2 - desenvolver um passo a passo de solução de previsão: carregamento armazenado de dados públicos no Azure Machine Learning Studio.'
+title: 'Etapa 2: Carregar dados para um experimento do Machine Learning Studio - Azure| Microsoft Docs'
+description: 'Etapa 2 do Desenvolvimento passo a passo de solução de previsão: Carregar dados públicos armazenados para o Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311969"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261442"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Etapa 2 do passo a passo: carregar dados existentes no experimento do Machine Learning Studio
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Etapa 2 do passo a passo: Carregar dados existentes para um experimento do Azure Machine Learning Studio
 Esta é a segunda etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Criar um workspace do Machine Learning](walkthrough-1-create-ml-workspace.md)
@@ -101,7 +100,7 @@ Isso carrega os dados em um módulo de conjunto de dados que podemos usar em um 
 
 Para obter mais informações sobre como importar outros tipos de dados para um teste, consulte [Importar dados de treinamento para o Azure Machine Learning Studio](import-data.md).
 
-**A seguir: [criar um novo experimento](walkthrough-3-create-new-experiment.md)**
+**Próximo: [Criar um novo experimento](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

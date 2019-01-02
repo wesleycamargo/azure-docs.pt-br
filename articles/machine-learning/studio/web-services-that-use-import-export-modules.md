@@ -1,12 +1,11 @@
 ---
-title: Usar dados de Importação/Exportação em serviços Web do Azure Machine Learning Studio | Microsoft Docs
+title: Importação/exportação de dados em serviços Web – Azure Machine Learning Studio | Microsoft Docs
 description: Saiba como usar os módulos Importar Dados e Exportar Dados para enviar e receber dados de um serviço Web.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306940"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251378"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implantar os serviços Web do Azure Machine Learning Studio que usam os módulos Importar Dados e Exportar Dados
 
@@ -29,10 +28,10 @@ Quando você cria um experimento de previsão, normalmente adiciona uma entrada 
 
 Os módulos Importar Dados e Exportar Dados podem ler e gravar em vários locais de dados, como uma URL da Web via HTTP, uma Consulta de Hive, um banco de dados SQL do Azure, um armazenamento de Tabelas do Azure, um armazenamento de Blobs do Azure, um provedor de Feed de Dados ou um banco de dados SQL local.
 
-Este tópico usa o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto" e pressupõe que o conjunto de dados já tenha sido carregado em uma tabela SQL do Azure chamada censusdata.
+Este tópico usa o "Exemplo 5: Treinar, testar, avaliar para classificação binária: conjunto de dados de adulto" e pressupõe que o conjunto de dados já tenha sido carregado em uma tabela SQL do Azure chamada censusdata.
 
 ## <a name="create-the-training-experiment"></a>Criar o teste de treinamento
-Quando você abre o "Exemplo 5: Treinamento, teste, avaliação para classificação binária: conjunto de dados adulto", ele usa o conjunto de dados do exemplo adulto Classificação binária de receita de censo. E o experimento na tela será semelhante à imagem a seguir:
+Quando você abre o "Exemplo 5: Treinar, testar, avaliar para classificação binária: conjunto de dados de adulto” ele usa o conjunto de dados de Classificação Binária de Renda do Censo de Adulto. E o experimento na tela será semelhante à imagem a seguir:
 
 ![Configuração inicial do experimento.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 2. Após a conclusão da execução, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Clássico]**.
 3. No painel do serviço Web, localize sua chave de API. Copie e salve-a para uso posterior.
 4. Na tabela **Ponto de Extremidade Padrão**, clique no link **Execução em Lote** para abrir a Página de Ajuda da API.
-5. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
+5. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo do Console (.NET Framework)**.
 6. Na Página de Ajuda da API, encontre a seção **Código de Exemplo** na parte inferior da página.
 7. Copie e cole o código de exemplo C# no arquivo Program.cs e remova todas as referências ao armazenamento de blobs.
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
@@ -133,7 +132,7 @@ Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 3. Na página Implantar Experimento, insira um nome para o serviço Web e selecione um plano de preços, depois clique em **Implantar**.
 4. Na página **Início rápido**, clique em **Consumir**.
 5. Na seção **Código de Exemplo**, clique em **Lote**.
-6. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
+6. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo do Console (.NET Framework)**.
 7. Copie e cole o código de exemplo de C# no arquivo Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.

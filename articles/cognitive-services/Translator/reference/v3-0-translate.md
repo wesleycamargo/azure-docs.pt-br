@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956969"
 ---
-# <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
+# <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Translate
 
 Traduz texto.
 
@@ -42,11 +42,11 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>de</td>
-    <td>*Parâmetro opcional*.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando [idiomas com suporte](.\v3-0-languages.md) usando o escopo `translation`. Se o parâmetro `from` não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem.</td>
+    <td>*Parâmetro opcional*.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando [idiomas com suporte](./v3-0-languages.md) usando o escopo `translation`. Se o parâmetro `from` não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](.\v3-0-languages.md) incluídos no escopo `translation`. Por exemplo, use `to=de` para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use `to=de&to=it` para traduzir para alemão e italiano.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](./v3-0-languages.md) incluídos no escopo `translation`. Por exemplo, use `to=de` para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use `to=de&to=it` para traduzir para alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -159,9 +159,9 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `sentLen`: um objeto retornando limites de sentença nos textos de entrada e saída.
 
-      * `srcSentLen`: uma matriz inteira representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
+      * `srcSentLen`: uma matriz de inteiros representando os comprimentos das sentenças no texto de entrada. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
 
-      * `transSentLen`:  uma matriz inteira representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
+      * `transSentLen`:  uma matriz de inteiros representando os comprimentos das sentenças no texto traduzido. O comprimento da matriz é o número de sentenças, e os valores são o comprimento de cada sentença.
 
     Limites de sentença serão incluídos somente quando o parâmetro de solicitação `includeSentenceLength` for `true`.
 
@@ -377,7 +377,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
     <td>`NoAction`</td>
     <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo (inglês)**: Ele é um idiota.
+    **Tradução de exemplo (inglês)**: Ele é um babaca.
     </td>
   </tr>
   <tr>
@@ -392,10 +392,10 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
     <td>Palavras ofensivas são substituídas por um marcador na saída. O marcador depende do parâmetro `ProfanityMarker`.<br/><br/>
 Para `ProfanityMarker=Asterisk`, palavras ofensivas são substituídas por `***`:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Tradução de exemplo**: Ele é um \*\*\*.<br/><br/>
+    **Tradução de exemplo (inglês)**: Ele é um \*\*\*.<br/><br/>
 Para `ProfanityMarker=Tag`, palavras ofensivas são circundadas por marcas XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     **Origem de exemplo (japonês)**: 彼はジャッカスです。<br/>
-    **Exemplo de tradução (inglês)**: Ele é um &lt;profanity&gt;idiota&lt;/profanity&gt;.
+    **Tradução de exemplo (inglês)**: Ele é um &lt;profanity&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 

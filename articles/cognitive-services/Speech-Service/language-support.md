@@ -1,27 +1,28 @@
 ---
 title: Suporte a idiomas – API de Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas com suporte do Serviço de Fala.
+description: Os Serviços de Fala do Azure dão suporte a vários idiomas para conversão de fala em texto e de texto em fala, bem com a tradução de fala. Este artigo fornece uma lista abrangente de suporte ao idioma por serviço.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284754"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342081"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte ao idioma e à região para a API do Serviço de Fala
 
-Diferentes idiomas têm suporte para diferentes funções do Serviço de Fala. As tabelas a seguir resumem o suporte ao idioma.
+Há suporte para diferentes idiomas para diferentes funções dos Serviços de Fala. As tabelas a seguir resumem o suporte ao idioma.
 
-## <a name="speech-to-text"></a>Conversão de Fala em Texto
+## <a name="speech-to-text"></a>Conversão de fala em texto
 
 A API de reconhecimento de fala da Microsoft é compatível com os seguintes idiomas. Há diferentes níveis de personalização disponíveis para cada idioma.
 
@@ -37,7 +38,7 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  en-IN | Inglês (Índia) | SIM | sim | SIM
  en-NZ | Inglês (Nova Zelândia) | Não  | sim | SIM  
  en-US | Inglês (Estados Unidos) | SIM | sim | SIM
- es-ES | Espanhol (Espanha) | Não  | Sim | Não 
+ es-ES | Espanhol (Espanha) | SIM | sim | Não 
  es-MX | Espanhol (México) | Não  | Sim | Não 
  fi-FI | Finlandês (Finlândia) | Não  | Não | Não 
  fr-CA | Francês (Canadá) | Não  | Sim | Não 
@@ -49,7 +50,7 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  nb-NO | Norueguês (Bokmål) (Noruega) | Não  | Não | Não 
  nl-NL | Holandês (Países Baixos) | Não  | Sim | Não 
  pl-PL | Polonês (Polônia) | Não  | Não | Não 
- pt-BR | Português (Brasil) | Não  | Sim | Não 
+ pt-BR | Português (Brasil) | SIM | sim | Não 
  pt-PT | Português (Portugal) | Não  | Sim | Não 
  ru-RU | Russo (Rússia) | SIM | sim | Não 
  sv-SE | Sueco (Suécia) | Não  | Não | Não 
@@ -59,9 +60,26 @@ A API de reconhecimento de fala da Microsoft é compatível com os seguintes idi
  th-TH | Tailandês (Tailândia) | Não  | Não | Não 
 
 
-## <a name="text-to-speech"></a>Texto em fala
+## <a name="text-to-speech"></a>Conversão de texto em fala
 
-A API de sintetização de voz oferece as seguintes vozes, cada uma das quais dá suporte a um idioma e um dialeto específicos, identificados por localidade.
+A API REST de conversão de texto em fala dá suporte às seguintes vozes, cada uma delas compatível com um idioma e dialeto específicos, identificados pela localidade.
+
+### <a name="neural-voices-preview"></a>Vozes neurais (versão prévia)
+
+A conversão de texto em fala neural é um novo tipo de sintetização de fala alimentado por redes neurais profundas. Ao usar uma voz neural, a fala sintetizada é quase indistinguível de gravações de humana.
+
+Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a prosódia natural semelhante à humana e a articulação clara das palavras, as vozes neurais reduzem significativamente a fadiga de escuta quando os usuários interagem com sistemas de inteligência artificial.
+
+Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#neural-voices).
+
+| Local | Linguagem | Gênero | Mapeamento do nome do serviço|
+|--------|----------|---------|--------------------|
+| en-US | Inglês (EUA) | Masculino | "Conversão de Texto em Fala do Microsoft Server (en-US, GuyNeural)" |
+| en-US | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Vozes padrão
+
+Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-voices).
 
 Local | Linguagem | Gênero | Mapeamento do nome do serviço
 -------|----------|---------|--------------------
@@ -156,9 +174,9 @@ A personalização de voz está disponível para inglês dos EUA (en-US), chinê
 > [!NOTE]
 > O treinamento de voz em francês, alemão e italiano começa com um conjunto de dados com mais de 2.000 enunciados. Os modelos bilíngues chinês-inglês também têm suporte com um conjunto de dados inicial de mais de 2 mil enunciados.
 
-## <a name="speech-translation"></a>Tradução de Fala
+## <a name="speech-translation"></a>Tradução de fala
 
-A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto. Você pode traduzir a entrada de fala em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto desses idiomas está disponível para [síntese de fala](language-support.md#text-languages). 
+A API de **Tradução de Fala** é compatível com diferentes idiomas para conversão de fala em fala e de fala em texto. O idioma de origem precisa sempre ser da seguinte tabela de idiomas de fala. Os idiomas de destino disponíveis dependem de se o destino de tradução é fala ou texto. Você pode traduzir a entrada de fala em mais de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto desses idiomas está disponível para [síntese de fala](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Idiomas de fala
 
@@ -171,7 +189,7 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 | Alemão      | `de` |
 | Italiano      | `it` |
 | Japonês      | `jp` |
-| Português (brasileiro)     | `pt` |
+| Português (Brazil)     | `pt` |
 | Russo      | `ru` |
 | Espanhol      |  `es` |
 

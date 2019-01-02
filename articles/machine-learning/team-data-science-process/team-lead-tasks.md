@@ -1,6 +1,6 @@
 ---
-title: Tarefas do líder da equipe do Processo de Ciência de Dados de Equipe – Azure | Microsoft Docs
-description: Uma estrutura de tópicos das tarefas de um líder de equipe em um projeto de equipe de ciência de dados.
+title: Tarefas para o líder de equipe do Processo de Ciência de Dados da Equipe
+description: Uma estrutura de tópicos das tarefas que um líder de equipe em um projeto de equipe de ciência de dados deve concluir para sua equipe de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443842"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139632"
 ---
-# <a name="team-lead-tasks"></a>Tarefas do líder da equipe
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tarefas para o líder de equipe do Processo de Ciência de Dados da Equipe
 
 Este tópico descreve as tarefas que um líder de equipe deve concluir para sua equipe de ciência de dados. O objetivo é estabelecer um ambiente de equipe de colaboração padronizado no [TDSP (Processo de Ciência de Dados da Equipe)](overview.md). O TDSP é uma metodologia de ciência de dados ágil e iterativa que fornece soluções de análise preditiva e aplicativos inteligentes com eficiência. Ele é projetado para ajudar a melhorar a colaboração e o aprendizado da equipe. O processo é um detalhamento das práticas e das estruturas recomendadas da Microsoft e também do setor, necessárias para o êxito da implementação de iniciativas de ciência de dados que visa ajudar as empresas a aproveitarem ao máximo os benefícios de seus programas de análise. Para obter uma descrição das funções pessoais e das tarefas associadas que são tratadas por uma equipe de ciência de dados com padronização nesse processo, consulte [Tarefas e funções do Processo de Ciência de Dados da Equipe](roles-tasks.md).
 
@@ -47,7 +47,7 @@ Este tópico usa nomes abreviados para repositórios e diretórios. Esses nomes 
 
 - **R1**: o repositório **GroupProjectTemplate** no Git que o gerente do grupo configura no servidor de grupo do Azure DevOps.
 - **R3**: o repositório **ProjectTemplate** da equipe no Git que você configura.
-- **R4**: o repositório **TeamUtilities** da equipe no Git que você configura.
+- **R4**: o repositório **TeamUtilities** no Git que você configura.
 - **D1**: o diretório local clonado de R1 e copiado para D3.
 - **D3**: o diretório local clonado de R3, personalizado e copiado novamente para R3.
 - **D4**: o diretório local clonado de R4, personalizado e copiado novamente para R4.
@@ -140,9 +140,9 @@ O procedimento de propagação usa os diretórios na DSVM local como sites de pr
 
 - Clonar o repositório do grupo no diretório local: R1 da equipe – clonado para -> D1 local
 - Clonar os repositórios da equipe nos diretórios locais: R3 e R4 da equipe – clonados para -> D3 e D4 local
-- Copiar o conteúdo do modelo de projeto de grupo para a pasta da equipe local: D1 – conteúdo copiado para -> D3
+- Copiar o conteúdo do modelo de projeto de grupo para a pasta da equipe local:  D1 – conteúdo copiado para -> D3
 - (Opcional) personalização do D3 e D4 locais
-- Enviar por push o conteúdo do diretório local para os repositórios da equipe: D3 e D4 – conteúdo adicionado em -> R3 e R4 da equipe
+- Enviar por push o conteúdo do diretório local para os repositórios da equipe: D3 e D4 – conteúdo a adicionar a -> equipe R3 e R4
 
 
 ### <a name="initialize-the-team-repositories"></a>Inicializar os repositórios da equipe

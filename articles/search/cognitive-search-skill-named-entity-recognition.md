@@ -1,5 +1,5 @@
 ---
-title: Habilidade de pesquisa cognitiva de Reconhecimento de Entidade Nomeada (Azure Search) | Microsoft Docs
+title: Habilidade de Reconhecimento de Entidade Nomeada da pesquisa cognitiva – Azure Search
 description: Extrai entidades nomeadas para a pessoa, local e a organização de texto em um pipeline de pesquisa cognitivas do Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442022"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313982"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de Reconhecimento de Entidade Nomeada
 
@@ -23,8 +24,10 @@ A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas
 
 > [!NOTE]
 > <ul>
-> <li>Pesquisa Cognitiva está na visualização pública. A execução do conjunto de habilidades e a extração e normalização de imagem são oferecidas gratuitamente no momento. Posteriormente, os preços dessas funcionalidades serão anunciados. </li>
-> <li> Habilidade de reconhecimento de entidade nomeada é considerada "obsoleta" e não serão oficialmente suportada começando a 15 de fevereiro de 2019. Siga as recomendações listadas na página <a href="cognitive-search-skill-deprecated.md">Habilidades de pesquisas cognitivas obsoletas</a> para migrar para uma habilidade com suporte</li>
+> <li>
+> A partir de 21 de dezembro de 2018, você poderá associar um recurso de Serviços Cognitivos a um conjunto de habilidades do Azure Search. Isso nos permitirá começar a cobrar pela execução do conjunto de habilidades. Nessa data, também começaremos a cobrar pela extração de imagens como parte do estágio de decodificação de documentos. A extração de texto de documentos continuará sendo oferecida sem custo adicional.>
+> A execução das habilidades internas será cobrada conforme o [preço pago conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existente. O preço da extração de imagens será cobrado conforme o preço da versão prévia, descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).</li>
+> <li> Habilidade de reconhecimento de entidade nomeada é considerada "obsoleta" e não serão oficialmente suportada começando a 15 de fevereiro de 2019. Siga as recomendações listadas na página <a href="cognitive-search-skill-deprecated.md">Habilidades preteridas da pesquisa cognitiva</a> para migrar para uma habilidade com suporte</li>
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -155,4 +158,4 @@ Se o código do idioma do documento não for suportado, um erro será retornado 
 
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Habilidade de Reconhecimento de Entidade](cognitive-search-skill-entity-recognition.md)
++ [Habilidade de reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)

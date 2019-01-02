@@ -1,21 +1,22 @@
 ---
-title: Adicionar enunciados de exemplo em aplicativos LUIS
-titleSuffix: Azure Cognitive Services
-description: Saiba como adicionar enunciados em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
+title: Adicionar enunciados de exemplo
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuário. Para ensinar o Entendimento de Linguagem (LUIS), você precisa adicionar expressões de exemplo a uma intenção.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139116"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139156"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a enunciados de exemplo 
 
@@ -89,7 +90,7 @@ O nome do funcionário, John Smith, é uma entidade [personName](luis-reference-
 
 1. Insira o nome da entidade composta na lista suspensa.
 
-    ![Captura de tela de inserção do nome de entidade](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Captura de tela da página para inserir o nome da entidade de composição na lista suspensa](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Ao encapsular as entidades corretamente, uma linha verde fica sob toda a frase.
 
@@ -117,7 +118,7 @@ No enunciado `Move John Smith from Seattle to Cairo`, Seattle é o local de orig
 
 1. A palavra no enunciado foi rotulada com a entidade hierárquica pai. Você precisa atribuir a palavra a uma entidade filho. Retorne ao enunciado na página de detalhes da intenção. Selecionar a palavra e, em seguida, na lista suspensa, escolha o nome de entidade que você criou e siga o menu à direita para escolher a entidade filho correta.
 
-    ![Captura de tela da página de detalhes de Intenções, com a entidade ToLocation realçada](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Captura de tela da página de detalhes da intenção, em que você precisará atribuir a palavra a uma entidade filho](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Nomes de entidade filho devem ser exclusivos em todas as entidades em um único aplicativo. Duas entidades hierárquicas diferentes não podem conter entidades filho com o mesmo nome. 
@@ -134,7 +135,7 @@ Selecione as palavras que estão sublinhadas em vermelho na frase.
 
 A caixa de entidade exibe o **status de Entidade** com um ponto de exclamação vermelho, se houver uma discrepância de previsão. Para ver o status Entidade com informações sobre a diferença entre entidades rotuladas e previstas, selecione **Status da entidade** e, em seguida, selecione o item à direita.
 
-![Captura de tela da discrepância de previsão do status da entidade](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Captura de tela da seleção do item correto para corrigir a discrepância de previsão](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 A linha vermelha pode aparecer em qualquer um dos seguintes horários:
 

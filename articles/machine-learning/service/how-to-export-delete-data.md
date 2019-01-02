@@ -1,6 +1,7 @@
 ---
-title: Exportar ou excluir dados de workspace – Azure Machine Learning | Microsoft Docs
-description: No Azure Machine Learning, você pode exportar ou excluir seu workspace com o portal do Azure, a CLI, o SDK e as APIs REST autenticadas. Este artigo mostra como fazer isso.
+title: Exportar ou excluir dados do workspace
+titleSuffix: Azure Machine Learning service
+description: Saiba como exportar ou excluir seu workspace com o portal do Azure, a CLI, o SDK e as APIs REST autenticadas.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.custom: seodec18
+ms.openlocfilehash: 81215058095acfeedd320025457feec73d3b0d23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267278"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192338"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do espaço de trabalho no serviço do Machine Learning 
 
@@ -37,7 +39,7 @@ Para saber como obter esse token e chamar os pontos de extremidade do Azure, con
 
 Nos exemplos a seguir, substitua o texto em {} pelos nomes de instância que determinam o recurso associado.
 
-### <a name="delete-an-entire-workspace"></a>Excluir um espaço de trabalho inteiro
+### <a name="delete-an-entire-workspace"></a>Excluir um workspace inteiro
 
 Use essa chamada para excluir um workspace inteiro.  
 > [!WARNING]

@@ -4,9 +4,8 @@ description: Aprenda como readaptar um modelo e atualizar o serviço Web para us
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317918"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257571"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Treinar novamente um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de aprendizado de máquina no Azure Machine Learning, um modelo deve ser treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis. 
@@ -43,7 +42,7 @@ Nesses cenários, uma API de programação fornece uma maneira conveniente de pe
 > 
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
-O processo envolve os seguintes componentes: um Teste de Treinamento e um Teste Preditivo publicados como um serviço Web. Para habilitar a readaptação de um modelo treinado, o Teste de Treinamento também deve ser publicado como um serviço Web com a saída de um modelo treinado. Isso permite o acesso de API para o modelo de readaptação. 
+O processo envolve os seguintes componentes: Um teste de treinamento e um teste preditivo publicados como um serviço Web. Para habilitar a readaptação de um modelo treinado, o Teste de Treinamento também deve ser publicado como um serviço Web com a saída de um modelo treinado. Isso permite o acesso de API para o modelo de readaptação. 
 
 As etapas a seguir se aplicam aos serviços Web Novo e Clássico:
 

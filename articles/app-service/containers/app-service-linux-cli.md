@@ -1,5 +1,5 @@
 ---
-title: Gerenciar Aplicativo Web para Contêineres usando a CLI do Azure | Microsoft Docs
+title: Gerenciar o Aplicativo Web para Contêineres usando a CLI do Azure – Serviço de Aplicativo do Azure | Microsoft Docs
 description: Gerenciar aplicativo Web para Contêineres usando a CLI do Azure.
 keywords: serviço de aplicativo do azure, aplicativo web, cli, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998484"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257634"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 558bf0eb6ab4abb4ad16910ebe36fdb7c1e19374
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310922"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338406"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
@@ -382,4 +382,4 @@ Para experimentar alguns dos conceitos descritos neste artigo, consulte os tutor
 
 * [Como usar o dispositivo gêmeo](iot-hub-node-node-twin-getstarted.md)
 * [Como usar as propriedades do dispositivo gêmeo](tutorial-device-twins.md)
-* [Gerenciamento de dispositivos com o kit de ferramentas IoT do Azure para VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Gerenciamento de dispositivos com o kit de ferramentas do Hub IoT do Azure para VS Code](iot-hub-device-management-iot-toolkit.md)

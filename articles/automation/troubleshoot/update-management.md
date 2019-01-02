@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com o Gerenciamento de Atualizaçõe
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092620"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434725"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
@@ -23,7 +23,7 @@ Não há uma solução de problemas do agente para agente do Hybrid Worker deter
 
 ## <a name="general"></a>Geral
 
-### <a name="components-enabled-not-working"></a>Cenário: Os componentes da solução de 'Gerenciamento de Atualizações' foram habilitados e, agora, esta máquina virtual está sendo configurada
+### <a name="components-enabled-not-working"></a>Cenário: Os componentes da solução 'Gerenciamento de Atualizações' foram habilitados e agora esta máquina virtual está sendo configurada
 
 #### <a name="issue"></a>Problema
 
@@ -45,13 +45,56 @@ Esse erro pode ser causado pelos seguintes motivos:
 1. Visite [Planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ter permissão para que Gerenciamento de Atualizações funcione.
 2. Se estiver usando uma imagem clonada, primeiro faça sysprep da imagem e instale o agente MMA em seguida.
 
-## <a name="windows"></a>Windows
+### <a name="multi-tenant"></a>Cenário: Você recebe um erro de assinatura vinculado ao criar uma implantação de atualização para computadores em outro locatário do Azure.
+
+#### <a name="issue"></a>Problema
+
+Você recebe o seguinte erro ao tentar criar uma implantação de atualização para computadores em outro locatário do Azure:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro ocorre quando você cria uma implantação de atualização que tem máquinas virtuais do Azure em outro locatário incluído em uma implantação de atualização.
+
+#### <a name="resolution"></a>Resolução
+
+Você precisará usar a solução alternativa a seguir para agendá-las. Use o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) com a opção `-ForUpdate` para criar um agendamento e use o cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) e passe os computadores no outro locatário para o parâmetro `-NonAzureComputer`. O seguinte exemplo mostra um exemplo de como fazer isso:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+### <a name="nologs"></a>Cenário: Os dados do Gerenciamento de Atualizações não são mostrados no Log Analytics para um computador
+
+#### <a name="issue"></a>Problema
+
+Você tiver máquinas que mostram como **não avaliado** sob **conformidade**, mas você verá os dados de pulsação no Log Analytics para o Hybrid Runbook Worker, mas não o gerenciamento de atualizações.
+
+#### <a name="cause"></a>Causa
+
+O Hybrid Runbook Worker talvez precise ser registrados novamente e reinstalado.
+
+#### <a name="resolution"></a>Resolução
+
+Siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows ou [Implantar um Hybrid Runbook Worker do Linux](../automation-linux-hrw-install.md) para o Linux.
+
+## <a name="windows"></a> Windows
 
 Se você encontrar problemas ao tentar integrar a solução em uma máquina virtual, verifique o log de eventos **Operations Manager** em **Logs de Aplicativos e Serviços** na máquina local para eventos com o ID de evento **4502** e mensagem de evento contendo **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 A seção a seguir destaca mensagens de erro específicas e uma possível resolução para cada uma delas. Para outros problemas de integração, consulte [como solucionar problemas de integração de soluções](onboarding.md).
 
-### <a name="machine-already-registered"></a>Cenário: a máquina já está registrada em uma conta diferente
+### <a name="machine-already-registered"></a>Cenário: O computador já está registrado em outra conta
 
 #### <a name="issue"></a>Problema
 
@@ -69,7 +112,7 @@ A máquina já está integrada a outro workspace para o Gerenciamento de Atualiz
 
 Execute a limpeza de artefatos antigos na máquina, [excluindo o grupo de runbooks híbridos](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) e tente novamente.
 
-### <a name="machine-unable-to-communicate"></a>Cenário: a máquina não consegue se comunicar com o serviço
+### <a name="machine-unable-to-communicate"></a>Cenário: O computador não consegue se comunicar com o serviço
 
 #### <a name="issue"></a>Problema
 
@@ -95,7 +138,7 @@ Pode haver um proxy, gateway ou firewall bloqueando a comunicação de rede.
 
 Revise sua rede e garanta que portas e endereços apropriados sejam permitidos. Veja [requisitos de rede](../automation-hybrid-runbook-worker.md#network-planning), para uma lista de portas e endereços que são exigidos pelo Gerenciamento de Atualizações e pelos Trabalhadores de Runbooks Híbridos.
 
-### <a name="unable-to-create-selfsigned-cert"></a>Cenário: não é possível criar certificado autoassinado
+### <a name="unable-to-create-selfsigned-cert"></a>Cenário: Não é possível criar um certificado autoassinado
 
 #### <a name="issue"></a>Problema
 
@@ -113,21 +156,7 @@ O Hybrid Runbook Worker não conseguiu gerar um certificado auto-assinado
 
 Verifique se a conta do sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
 
-### <a name="nologs"></a>Cenário: Dados de gerenciamento de atualizações não são mostrados no Log Analytics para uma máquina
-
-#### <a name="issue"></a>Problema
-
-Você tiver máquinas que mostram como **não avaliado** sob **conformidade**, mas você verá os dados de pulsação no Log Analytics para o Hybrid Runbook Worker, mas não o gerenciamento de atualizações.
-
-#### <a name="cause"></a>Causa
-
-O Hybrid Runbook Worker talvez precise ser registrados novamente e reinstalado.
-
-#### <a name="resolution"></a>Resolução
-
-Siga as etapas em [implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker.
-
-### <a name="hresult"></a>Cenário: a máquina é exibida como Não avaliada e mostra uma exceção HResult
+### <a name="hresult"></a>Cenário: O computador é exibido como Não avaliado e mostra uma exceção HResult
 
 #### <a name="issue"></a>Problema
 
@@ -135,7 +164,7 @@ Você tem máquinas que são exibidas como **Não avaliadas** em **Conformidade*
 
 #### <a name="cause"></a>Causa
 
-A atualização do Windows não está configurada corretamente na máquina.
+O Windows Update ou o WSUS não está configurado corretamente no computador. O Gerenciamento de Atualizações depende do Windows Update ou do WSUS para fornecer as atualizações que são necessárias, o status do patch e os resultados de patches implantados. Sem essas informações, o Gerenciamento de Atualizações não pode relatar corretamente sobre os patches necessários ou instalados.
 
 #### <a name="resolution"></a>Resolução
 
@@ -151,7 +180,7 @@ Clique duas vezes na exceção exibida em vermelho para ver a mensagem de exceç
 
 ## <a name="linux"></a>Linux
 
-### <a name="scenario-update-run-fails-to-start"></a>Cenário: A execução da atualização falha ao iniciar
+### <a name="scenario-update-run-fails-to-start"></a>Cenário: A execução da atualização falha ao ser iniciada
 
 #### <a name="issue"></a>Problema
 

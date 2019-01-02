@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345196"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256377"
 ---
-# <a name="translator-speech-api-languages"></a>API de Tradução de Fala: idiomas
+# <a name="translator-speech-api-languages"></a>API de Tradução de Fala: Linguagens
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 A API de Tradução de Fala estende continuamente a lista de idiomas compatíveis com seus serviços. Use essa API para descobrir o conjunto de idiomas atualmente disponíveis para uso com o serviço da API de Tradução de Fala.
 
-Exemplos de código demonstrando o uso da API para obter idiomas disponíveis podem ser obtidos no [site Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
+Exemplos de código demonstrando o uso da API para obter idiomas disponíveis podem ser obtidos no [site Microsoft Translator do GitHub](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 
@@ -35,7 +35,7 @@ Um cliente usa o parâmetro de consulta `scope` para definir os conjuntos de idi
 
 * **Conversão de fala em texto:** use o parâmetro de consulta `scope=speech` para recuperar o conjunto de idiomas disponíveis para transcrever fala em texto.
 * **Tradução de texto:** use o parâmetro de consulta `scope=text` para recuperar o conjunto de idiomas disponíveis para traduzir texto transcrito.
-* **Conversão de texto em fala:** use o parâmetro de consulta `scope=tts` para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido de volta em fala.
+* **Conversão de texto em fala:**  use o parâmetro de consulta `scope=tts` para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido de volta em fala.
 
 Um cliente pode recuperar vários conjuntos simultaneamente ao especificar uma lista separada por vírgulas de opções. Por exemplo, `scope=speech,text,tts`.
 
@@ -64,7 +64,7 @@ O valor fornecido com cada propriedade é o seguinte.
 O valor associado à propriedade de conversão de fala em texto, `speech`, é um dicionário de pares (chave, valor). Cada chave identifica um idioma compatível com conversão de fala em texto. A chave é o identificador que o cliente passa para a API. O valor associado à chave é um objeto com as seguintes propriedades:
 
 * `name`: nome de exibição do idioma.
-* `language`: marcação de idioma do idioma escrito associado. Consulte "Tradução de texto" abaixo.
+* `language`: marca de idioma do idioma escrito associado. Consulte "Tradução de texto" abaixo.
 Um exemplo é:
 
 ```
@@ -98,8 +98,8 @@ O valor associado à propriedade de conversão de texto em fala, tts, também é
 
 * `displayName`: nome de exibição para a voz.
 * `gender`: gênero da voz (masculino ou feminino).
-* `locale`: marcação de idioma da voz com submarca de idioma principal e submarca de região.
-* `language`: marcação de idioma do idioma escrito associado.
+* `locale`: marca de idioma da voz com submarca de idioma principal e submarca de região.
+* `language`: marca de idioma do idioma escrito associado.
 * `languageName`: nome de exibição do idioma.
 * `regionName`: nome de exibição da região para esse idioma.
 

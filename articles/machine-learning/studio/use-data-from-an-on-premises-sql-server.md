@@ -1,12 +1,11 @@
 ---
-title: SQL Server Local com o Azure Machine Learning Studio | Microsoft Docs
+title: SQL Server Local – Azure Machine Learning Studio | Microsoft Docs
 description: Use dados do banco de dados do SQL Server local para executar análises avançadas com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310949"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269261"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Executar análises avançadas com o Azure Machine Learning usando os dados de um banco de dados do SQL Server local
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Executar análise com o Azure Machine Learning Studio usando um banco de dados do SQL Server local
 
 Muitas vezes, empresas que trabalham com dados locais gostariam de aproveitar a escala e a agilidade da nuvem para sua cargas de trabalho de aprendizado de máquina. Mas elas não querem interromper seus fluxos de trabalho e processos de negócios atuais, movendo seus dados locais para a nuvem. O Azure Machine Learning agora dá suporte à leitura de dados do banco de dados do SQL Server local e, em seguida, ao treinamento e à pontuação de um modelo com esses dados. Você não precisa mais copiar manualmente e sincronizar os dados entre a nuvem e o servidor local. Em vez disso, o módulo **Importar Dados** no Estúdio do Azure Machine Learning agora pode ler diretamente do banco de dados do SQL Server local para seus trabalhos de treinamento e pontuação.
 
@@ -36,7 +35,7 @@ Este artigo fornece uma visão geral de como ingressar dados do SQL Server local
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Instalar o tempo de execução da integração auto-hospedada do Data Factory
 Para acessar um banco de dados do SQL Server local no Azure Machine Learning, você precisa baixar e instalar o tempo de execução da integração auto-hospedada do Data Factory, anteriormente conhecido como o Gateway de Gerenciamento de Dados. Quando você configura a conexão no Machine Learning Studio, você tem a oportunidade de baixar e instalar o IR (Integration Runtime) usando a caixa de diálogo **Baixar e registrar o gateway de dados** descrito abaixo.
@@ -79,7 +78,7 @@ Neste passo a passo, você vai configurar um Integration Runtime do Azure Data F
 > [!NOTE]
 > O tempo de execução da integração auto-hospedada do Azure Data Factory era conhecido como Gateway de Gerenciamento de Dados. O tutorial passo a passo continuará se referindo a ele como um gateway.  
 
-### <a name="step-1-create-a-gateway"></a>Etapa 1: criar um gateway
+### <a name="step-1-create-a-gateway"></a>Etapa 1: Criar um gateway
 A primeira etapa é criar e configurar o gateway para acessar o banco de dados SQL local.
 
 1. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net/Home/) e selecione o workspace no qual você deseja trabalhar.
@@ -126,7 +125,7 @@ Agora você está pronto para usar seus dados locais.
 
 Você pode criar e configurar vários gateways no Studio de cada workspace. Por exemplo, você pode ter um gateway que você deseja conectar às suas fontes de dados de teste durante o desenvolvimento e um gateway diferente para suas fontes de dados de produção. O Azure Machine Learning oferece a flexibilidade para configurar vários gateways, dependendo do seu ambiente corporativo. Atualmente, não é possível compartilhar um gateway entre workspaces e apenas um gateway pode ser instalado em um único computador. Para obter mais informações, confira [Mover dados entre fontes locais e na nuvem com o Gateway de Gerenciamento de Dados](../../data-factory/tutorial-hybrid-copy-portal.md).
 
-### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Etapa 2: usar o gateway para ler dados de uma fonte de dados local
+### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Etapa 2: Usar o gateway para ler dados de uma fonte de dados local
 Depois de configurar o gateway, você pode adicionar um módulo **Importar Dados** a um experimento que insere os dados do banco de dados do SQL Server local.
 
 1. No Machine Learning Studio, selecione a guia **EXPERIMENTOS**, clique em **+NOVO** no canto inferior esquerdo e selecione **Experimento em Branco** (ou selecione uma das várias experiências de exemplo disponíveis).

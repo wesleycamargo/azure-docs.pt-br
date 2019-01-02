@@ -1,21 +1,22 @@
 ---
-title: Melhores práticas para criação de aplicativos com o LUIS – Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
-description: Conheça as melhores práticas do LUIS para obter os melhores resultados.
+title: Práticas recomendadas
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Conheça as melhores práticas do LUIS para obter os melhores resultados do seu modelo de aplicativo do LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085273"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
@@ -50,10 +51,10 @@ Se o vocabulário entre duas intenções for o mesmo, combine a intenção e use
 
 Considere os seguintes exemplos de declaração:
 
-```
-Book a flight
-Book a hotel
-```
+|Exemplo de enunciados|
+|--|
+|Reservar um voo|
+|Reservar um hotel|
 
 "Reservar um voo" e "Reservar hotel" usam o mesmo vocabulário de "reservar um ". Isso está se sobrepondo, então ela deve ser a mesma intenção com as diferentes palavras de entidades extraídas de voo e hotel. 
 

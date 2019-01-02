@@ -1,5 +1,5 @@
 ---
-title: Rotular entidades automaticamente com uma entidade de lista usando Nodejs | Microsoft Docs
+title: Entidades de correspondência exata de texto
 description: Saiba como adicionar uma entidade de lista para ajudar LUIS a rotular variações de uma palavra ou frase.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036772"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259232"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidade 
 Este tutorial demonstra o uso de uma [lista entidade](luis-concept-entity-types.md) para aumentar a detecção de entidade. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 > [!Tip]
 > Se você ainda não tiver uma assinatura, poderá se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Todo o código neste tutorial está disponível no [repositório github de exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Todo o código neste tutorial está disponível no [repositório do GitHub de exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usar o aplicativo HomeAutomation
 O aplicativo HomeAutomation oferece controle de dispositivos como luzes, sistemas de entretenimento e controles de ambiente como aquecimento e refrigeração. Esses sistemas possuem vários nomes diferentes que podem incluir nomes de fabricantes, apelidos, acrônimos e gírias. 
@@ -81,15 +81,16 @@ Crie um arquivo de Node. js e copie o seguinte código nele. Altere os valores a
 
 Use o seguinte comando para instalar as dependências NPM e executar o código para criar a entidade de lista:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 O resultado da execução é a ID da entidade de listas:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Treinar o modelo
 Treinar LUIS para que a nova lista afete os resultados da consulta. O treinamento é um processo de treinamento de duas partes, verificando o status se o treinamento foi feito. Um aplicativo com muitos modelos pode levar alguns minutos para treinar. O seguinte código treina o aplicativo e aguarda até que o treinamento seja bem-sucedido. O código usa uma estratégia de repetição e espera para evitar o erro 429 "excesso de solicitações". 
 
@@ -99,13 +100,13 @@ Crie um arquivo de Node. js e copie o seguinte código nele. Altere os valores a
 
 Use o comando a seguir para executar o código para treinar o aplicativo:
 
-```Javascript
+```console
 node train.js
 ```
 
 A saída da execução é o status de cada iteração do treinamento dos modelos LUIS. A seguinte execução necessitou apenas de uma verificação de treinamento:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Crie um arquivo de Node. js e copie o seguinte código nele. Altere os valores e
 
 Use o comando a seguir para executar o código para consultar o aplicativo:
 
-```Javascript
+```console
 node publish.js
 ```
 
 A saída a seguir inclui a url de ponto de extremidade de todas as consultas. Os resultados JSON reais incluiriam a appID real. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Crie um arquivo de Node. js e copie o seguinte código nele. Altere os valores e
 
 Use o comando a seguir para executar o código e consultar o aplicativo:
 
-```Javascript
+```console
 node train.js
 ```
 
 O resultado são os resultados da consulta. Como o código adicionou o par nome/valor **detalhado** para a cadeia de caracteres de consulta, a saída inclui todas as intenções e suas classificações:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

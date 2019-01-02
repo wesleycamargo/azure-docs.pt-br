@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253713"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014490"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: níveis de armazenamento Premium (pré-visualização), Hot, Cool e Archive
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento Premium (versão prévia), Frequente, Esporádico e Arquivos
 
 ## <a name="overview"></a>Visão geral
 
@@ -62,7 +62,7 @@ Para usar essa camada, provisione uma nova conta de Armazenamento de Blobs de Bl
 Durante a versão prévia, a camada de acesso Premium:
 
 - Está disponível como LRS (armazenamento com redundância local)
-- Só está disponível nas seguintes regiões: Leste dos EUA 2, Centro dos EUA e Oeste dos EUA
+- Está disponível nas seguintes regiões: Leste dos EUA 2, Centro dos EUA e Oeste dos EUA
 - Não dá suporte ao gerenciamento automático de ciclo de vida de dados e de disposição em camadas
 
 Para saber como se registrar para a versão prévia da camada de acesso Premium, confira [Introdução ao Armazenamento de Blobs Premium do Azure](https://aka.ms/premiumblob).
@@ -113,7 +113,7 @@ Blobs em todos os três camadas de armazenamento podem coexistir na mesma conta.
 Os dados armazenados na camada de acesso Premium não podem ser dispostos em camadas para acesso frequente, esporádico ou de arquivos usando [Definir camada de blob](/rest/api/storageservices/set-blob-tier) ou usando o gerenciamento de ciclo de vido do Armazenamento de Blobs do Azure. Para mover dados, é necessário copiar blobs sincronicamente da camada de acesso Premium para o acesso esporádico usando [Colocar bloco da API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy compatível com essa API. A API *Colocar bloco pela URL* copia dados sincronicamente no servidor, o que significa que a chamada é concluída apenas depois que todos os dados são movidos do local do servidor de origem para o local de destino.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
-O gerenciamento de ciclo de vida do Armazenamento de Blobs (versão prévia) oferece uma avançada política baseada em regra que pode ser usada para fazer a transição dos seus dados para a melhor camada de acesso e para expirar os dados ao fim do seu ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
+O gerenciamento de ciclo de vida do Armazenamento de Blobs (versão prévia) oferece uma avançada política baseada em regra que pode ser usada para fazer a transição dos seus dados para a melhor camada de acesso e para expirar os dados ao fim do seu ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Cobrança da camada no nível do blob
 
@@ -157,7 +157,7 @@ Nesta seção, os cenários a seguir são demonstrados usando o Portal do Azure:
 
 3. Na folha Configurações, clique em **Configuração** para exibir e/ou alterar a configuração da conta.
 
-4. Selecione a camada de armazenamento adequada para suas necessidades: defina a **Camada de acesso** como **Estática** ou **Dinâmica**.
+4. Selecione a camada de armazenamento adequada para suas necessidades: Defina a **Camada de acesso** como **Esporádico** ou **Frequente**.
 
 5. Clique em Salvar na parte superior da folha.
 
@@ -177,10 +177,10 @@ Todas as contas de armazenamento usam um modelo de preços para o Armazenamento 
 
 * **Custos de armazenamento**: além da quantidade de dados armazenados, o custo de armazenamento de dados varia de acordo com a camada de armazenamento. O custo por gigabyte diminui conforme a camada fica mais esporádica.
 * **Custos de acesso a dados**: os encargos de acesso a dados aumentam conforme a camada fica mais esporádica. Para dados no nível de armazenamento esporádico e arquivos, será cobrada uma taxa de acesso a dados por gigPara dados no nível de armazenamento Cool and Archive, será cobrada uma taxa de acesso a dados por gigabyte para leituras.abyte para leituras.
-* **Custos de transações**: há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
-* **Custos de transferência de dados de replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
+* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta à medida que a camada fica mais esporádica.
+* **Custos de transferência de dados com replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
 * **Custos de transferência de dados de saída**: transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) acarretam a cobrança por uso de largura de banda por gigabyte, de forma consistente com as contas de armazenamento de finalidade geral.
-* **Alterando a camada de armazenamento**: alterar a camada de armazenamento de conta de esporádico para frequente implica uma cobrança igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádico gera uma cobrança igual à gravação de todos os dados na camada Cool (somente contas GPv2).
+* **Alteração da camada de armazenamento**: alterar a camada de armazenamento de conta de esporádico para frequente implica uma cobrança igual à leitura de todos os dados existentes na conta de armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádico gera uma cobrança igual à gravação de todos os dados na camada Cool (somente contas GPv2).
 
 > [!NOTE]
 > Para saber mais informações sobre preços para contas de Armazenamento de Blobs, confira a página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para saber mais informações sobre os encargos de transferência de dados de saída, confira a página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -203,7 +203,7 @@ Sim, você pode alterar a camada de armazenamento padrão definindo o atributo *
 
 **Posso definir meu nível de acesso à conta padrão como Arquivo?**
 
-Não. Somente níveis de armazenamento frequente e esporádicos podem ser definidos como o nível de acesso à conta padrão. A camada arquivo só pode ser definida no nível do objeto.
+ Não. Somente níveis de armazenamento frequente e esporádicos podem ser definidos como o nível de acesso à conta padrão. A camada arquivo só pode ser definida no nível do objeto.
 
 **Em quais regiões os níveis de armazenamento Hot, Cool e Archive estão disponíveis?**
 
@@ -245,7 +245,7 @@ O armazenamento de dados e outros limites são definidos no nível da conta e n�
 
 [Verifique a disponibilidade de Frequente, Esporádico e Arquivos por região](https://azure.microsoft.com/regions/#services)
 
-[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)
 
 [Avaliar o uso de suas contas de armazenamento atuais, habilitando as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
 

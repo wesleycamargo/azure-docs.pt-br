@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282508"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140839"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -51,7 +51,7 @@ Este artigo destina-se a pessoas que estão publicando um aplicativo com esse ce
 
 Se você já tiver o Proxy de Aplicativo habilitado, além de um conector instalado, poderá ignorar essa seção e ir para [Adicionar seu aplicativo ao Azure AD com o Proxy de Aplicativo](#add-your-app-to-azure-ad-with-application-proxy).
 
-O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter informações mais detalhadas, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](application-proxy-enable.md).
+O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter informações mais detalhadas, confira [Habilitar o Proxy de Aplicativo no Portal do Azure](application-proxy-add-on-premises-application.md).
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Selecione **Azure Active Directory** > **Proxy de aplicativo** .
@@ -66,7 +66,7 @@ O conector do Proxy de Aplicativo é um serviço do Windows Server que direciona
 
 Há duas ações necessárias no portal do Azure. Primeiro, você precisa publicar seu aplicativo com o Proxy de Aplicativo. Depois, colete algumas informações sobre o aplicativo a ser usado durante as etapas do PingAccess.
 
-Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-publish-azure-portal.md).
+Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detalhado das etapas 1 a 8, veja [Publicar aplicativos usando o Proxy de Aplicativo do Azure AD](application-proxy-add-on-premises-application.md).
 
 1. Se você não fez isso na última seção, entre no [Portal do Azure](https://portal.azure.com) como um administrador global.
 2. Selecione **Azure Active Directory** > **Aplicativos empresariais**.
@@ -78,8 +78,8 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
     > [!WARNING]
     > Para este tipo de SSO, a URL interna deve usar https e não pode usar o http.
 
-   - **Método de Pré-autenticação**: Azure Active Directory
-   - **Converter URL em cabeçalhos**: não
+   - **Método de pré-autenticação**: Azure Active Directory
+   - **Traduzir URL nos cabeçalhos**: Não 
 
    >[!NOTE]
    >Se este for seu primeiro aplicativo, use a porta 3000 para iniciar e retorne para atualizar essa configuração se alterar a configuração de PingAccess. Se esse for o seu segundo aplicativo ou posterior, isso será necessário para combinar o Ouvinte configurado no PingAccess. Saiba mais sobre [ouvintes no PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).

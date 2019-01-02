@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600016"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407008"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Hive usando o Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Hive usando o Azure HDInsight
 
 Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com cargas de Apache Hive no Apache Ambari.
 
@@ -104,7 +104,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 - [Propriedades de configuração do Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Como fazer para analisar dados de DAG do Tez em um caminho crítico do cluster?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Como fazer para analisar dados de DAG do Apache Tez em um caminho crítico do cluster?
 
 
 ### <a name="resolution-steps"></a>Etapas de resolução
@@ -127,16 +127,16 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
   Nomes de programa válidos incluem:
     - **ContainerReuseAnalyzer**: imprimir detalhes de reutilização do contêiner em um DAG
-    - **CriticalPath**: localizar o caminho crítico de um DAG
+    - **CriticalPath**: Localizar o caminho crítico de um DAG
     - **LocalityAnalyzer**: imprimir detalhes de localidade em um DAG
     - **ShuffleTimeAnalyzer**: analisar os detalhes de tempo de ordem aleatória em um DAG
     - **SkewAnalyzer**: analisar os detalhes de distorção em um DAG
-    - **SlowNodeAnalyzer**: imprimir detalhes do nó em um DAG
+    - **SlowNodeAnalyzer**: detalhes do nó de impressão em um DAG
     - **SlowTaskIdentifier**: imprimir detalhes de tarefa lenta em um DAG
-    - **SlowestVertexAnalyzer**: imprimir detalhes do vértice mais lento em um DAG
-    - **SpillAnalyzer**: imprimir detalhes de despejo em um DAG
+    - **SlowestVertexAnalyzer**: imprimir detalhes do vértice mais lentos em um DAG
+    - **SpillAnalyzer**: detalhes de despejo de impressão em um DAG
     - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade de tarefa em um DAG
-    - **VertexLevelCriticalPathAnalyzer**: encontrar o caminho crítico no nível do vértice em um DAG
+    - **VertexLevelCriticalPathAnalyzer**: Localizar o caminho crítico no nível do vértice em um DAG
 
 
 ### <a name="additional-reading"></a>Leitura adicional

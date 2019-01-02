@@ -1,23 +1,24 @@
 ---
-title: Tipos de entidade em aplicativos LUIS – Reconhecimento vocal
-titleSuffix: Azure Cognitive Services
+title: Tipos de entidade
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Adicione entidades (principais dados no domínio do seu aplicativo) em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085778"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135181"
 ---
-# <a name="entities-in-luis"></a>Entidades no LUIS
+# <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
 Entidades são palavras ou frases em declarações que são importantes dados no domínio do seu aplicativo.
 
@@ -71,7 +72,7 @@ O LUIS oferece muitos tipos de entidades; entidades predefinidas, entidades de a
 | NOME | Rótulo Pode | DESCRIÇÃO |
 | -- |--|--|
 | **Predefinido** <br/>[Personalizado](#prebuilt)| |  **Definição**<br>Tipos internas que representam conceitos comuns. <br><br>**Lista**<br/>número da frase-chave, ordinal, temperatura, dimensão, dinheiro, idade, percentual, email, URL, número de telefone e frase-chave. <br><br>Os nomes da entidade predefinida são reservados. <br><br>Todas as entidades predefinidas adicionadas ao aplicativo são retornadas na consulta [ponto de extremidade](luis-glossary.md#endpoint). Para obter mais informações, confira [Entidades predefinidas](./luis-prebuilt-entities.md). <br/><br/>[Exemplo de resposta para entidade](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto de declaração em formato bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  <br><br>Essa entidade é boa para palavras ou frases formatadas consistentemente com qualquer variação também consistente.<br><br>A correspondência de expressão regular é aplicada após alterações ortográficas. <br><br>Se a expressão regular for complexa demais, como usar muitos colchetes, você não poderá adicioná-la ao modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` faz a correspondência com kb123456.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Exemplo de resposta para entidade](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto de declaração em formato bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  <br><br>Essa entidade é boa para palavras ou frases formatadas consistentemente com qualquer variação também consistente.<br><br>A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token. Usa parte, mas não toda a biblioteca [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions).<br><br>Se a expressão regular for complexa demais, como usar muitos colchetes, você não poderá adicioná-la ao modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` faz a correspondência com kb123456.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Exemplo de resposta para entidade](luis-concept-data-extraction.md)|
 | **Simples** <br/>[Aprendizado de máquina](#machine-learned) | ✔ | **Definição**<br>Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida do contexto de aprendizado de máquina. O contexto inclui a escolha de palavras, o posicionamento de palavras e o comprimento da declaração.<br/><br/>Isso é uma boa entidade para palavras ou frases sem formatação consistente, mas que indicam a mesma coisa. <br/><br/>[Início rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Exemplo de resposta para entidade](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Correspondência exata](#exact-match)|| **Definição**<br>As entidades de lista representam um conjunto fixo e fechado de palavras relacionadas juntamente com seus sinônimos em seu sistema. <br><br>Cada entidade de lista pode ter um ou mais formulários. Usadas melhor para um conjunto conhecido de variações de maneiras que representam o mesmo conceito.<br/><br/>O LUIS não descobre valores adicionais para entidades de lista. Use o recurso **Recomendado** para consultar sugestões de novas palavras com base na lista atual.<br/><br>Se houver mais de uma entidade de lista com o mesmo valor, cada entidade será retornada na consulta de ponto de extremidade. <br/><br/>[Início rápido](luis-quickstart-intent-and-list-entity.md)<br>[Exemplo de resposta para entidade](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Misto](#mixed) | ✔|**Definição**<br>Patterns.any é um espaço reservado de comprimento variável usado somente na declaração de modelo de um padrão para marcar onde a entidade começa e termina.  <br><br>**Exemplo**<br>Dada uma pesquisa de declaração de livros com base no título, o pattern.any extrai o título completo. Uma declaração de modelo que usa pattern.any é `Who wrote {BookTitle}[?]`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Exemplo de resposta para entidade](luis-concept-data-extraction.md#composite-entity-data)|  

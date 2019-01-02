@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308113"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313965"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -61,37 +60,37 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
       ``# cd /etc/ssl/certs``
 
-3. Verifique se o certificado de autoridade de certificação raiz da Symantec está presente.
+1. Verifique se o certificado de autoridade de certificação raiz da Symantec está presente.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Se o certificado da autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há algum erro e siga a ação recomendada para falhas de rede.
+2. Se o certificado da autoridade de certificação raiz da Symantec não for encontrado, execute o comando a seguir para baixar o arquivo. Verifique se há algum erro e siga a ação recomendada para falhas de rede.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Verifique se o certificado de autoridade de certificação raiz da Baltimore está presente.
+3. Verifique se o certificado de autoridade de certificação raiz da Baltimore está presente.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Se o certificado de autoridade de certificação raiz da Baltimore não for encontrado, baixe-o.  
+4. Se o certificado de autoridade de certificação raiz da Baltimore não for encontrado, baixe-o.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Verifique se o certificado DigiCert_Global_Root_CA está presente.
+5. Verifique se o certificado DigiCert_Global_Root_CA está presente.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Se o DigiCert_Global_Root_CA não for encontrado, execute os comandos a seguir para baixar o certificado.
+6. Se o DigiCert_Global_Root_CA não for encontrado, execute os comandos a seguir para baixar o certificado.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Execute o script de rehash para atualizar os hashes de entidade de certificado para os certificados baixados recentemente.
+7. Execute o script de rehash para atualizar os hashes de entidade de certificado para os certificados baixados recentemente.
 
     ``# c_rehash``
 
-10. Verifique se a entidade realiza hashes conforme symlinks são criados para os certificados.
+8.  Verifique se a entidade realiza hashes conforme symlinks são criados para os certificados.
 
     - Comando
 
@@ -120,11 +119,11 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Criar uma cópia do arquivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com o nome de arquivo b204d74a.0
+9.  Criar uma cópia do arquivo VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com o nome de arquivo b204d74a.0
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Criar uma cópia do arquivo Baltimore_CyberTrust_Root.pem com nome de arquivo 653b494a.0
+10. Criar uma cópia do arquivo Baltimore_CyberTrust_Root.pem com nome de arquivo 653b494a.0
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -150,7 +149,7 @@ Como o SuSE Linux usa links simbólicos para manter uma lista de certificados, s
 
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: falha ao registrar a máquina virtual do Azure com o Site Recovery (151195) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: Falha ao registrar a máquina virtual do Azure no Site Recovery (151195) </br>
 - **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade do local devido à falha na resolução DNS.
   - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
@@ -161,7 +160,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
     ![com-erro](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
  
 
-### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: Falha na configuração do Site Recovery (151196)
 - **Possível causa** </br>
   - Não é possível estabelecer a Conexão para pontos de extremidade de IP4 de identidade e autenticação do Office 365.
 
@@ -171,7 +170,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
         - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
   - Não é possível estabelecer conexão com pontos de extremidade de serviço de Recuperação de Site.
 
@@ -179,21 +178,22 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
   - O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) dependendo da região. Certifique-se de que necessários intervalos os de IP são acessíveis a partir da máquina virtual.
     
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 4: a replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy no local (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 4: A replicação de A2A falhou quando o tráfego de rede passou pelo servidor proxy local (151072)
  - **Possível causa** </br>
    - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
 
 
  - **Resolução**
-  1.    O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
-  2.  Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
-      - ``/usr/local/InMage/config/`` no ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
-  3.    O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI. </br>
+   1.   O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
+   2.  Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
+       - ``/usr/local/InMage/config/`` no ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
+   3.   O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI.</br>
                    *[proxy]*</br>
                    *Address=http://1.2.3.4*</br>
                    *Port=567*</br>
-  4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
+   4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
+ 
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
@@ -204,7 +204,7 @@ Um novo disco anexado à máquina virtual deve ser inicializado.
 
 **Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
-150039<br></br>**Mensagem**: O disco de dados do Azure (DiskName) (DiskURI) com o LUN (número de unidade lógica) (LUNValue) não foi mapeado para um disco correspondente que está sendo relatado de dentro da máquina virtual que tem o mesmo valor de LUN. | - Um novo disco de dados foi anexado à VM, mas ele não foi inicializado.</br></br>- O disco de dados na máquina virtual não está relatando corretamente o valor do LUN no qual o disco foi conectado à máquina virtual.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para Windows: [Anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [Inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br></br>**Mensagem**: O disco de dados do Azure (DiskName) (DiskURI) com o LUN (número de unidade lógica) (LUNValue) não foi mapeado para um disco correspondente que está sendo relatado na VM que tem o mesmo valor de LUN. | - Um novo disco de dados foi anexado à VM, mas ele não foi inicializado.</br></br>- O disco de dados na máquina virtual não está relatando corretamente o valor do LUN no qual o disco foi conectado à máquina virtual.| Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação.</br></br>Para Windows: [Anexar e inicializar um novo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [Inicializar um novo disco de dados no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 Certifique-se de que os discos de dados são inicializados e, em seguida, repita a operação:
@@ -217,10 +217,10 @@ Se o problema persistir, contate o Suporte.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível visualizar a VM do Azure para seleção "habilitar a replicação"
 
- **Causa 1: Grupo de recursos e Máquina Virtual de origem estão em localização diferente** <br>
+ **Causa 1:  O grupo de recursos e a Máquina Virtual de origem estão em uma localização diferente** <br>
 O Azure Site Recovery atualmente determinou que o grupo de recursos da região de origem e as máquinas virtuais estejam no mesmo local. Se esse não for o caso, não será possível localizar a máquina virtual durante o tempo de proteção.
 
-**Causa 2: Grupo de recursos não faz parte da assinatura selecionada** <br>
+**Causa 2: O grupo de recursos não faz parte da assinatura selecionada** <br>
 Talvez não seja possível localizar o grupo de recursos no momento da proteção, se ele não fizer parte da assinatura fornecida. Certifique-se de que o grupo de recursos pertence à assinatura que está sendo usada.
 
  **Causa 3: Configuração obsoleta** <br>
@@ -234,7 +234,7 @@ Se VM que você deseja habilitar para replicação não é exibida, pode haver u
 Você pode usar [Remover configuração de script ASR obsoleta](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração de recuperação de Site obsoleta na máquina virtual da Azure. Você deve ser capaz de ver a VM depois de remover a configuração obsoleta.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Não é possível selecionar a máquina virtual para proteção 
- **Causa 1: A máquina virtual tem alguma extensão instalada em um estado sem resposta ou com falha** <br>
+ **Causa 1:  A máquina virtual tem uma extensão instalada em um estado com falha ou sem resposta** <br>
  Vá para Máquinas virtuais > Configuração > Extensões e verifique se há extensões em um estado com falha. Desinstale a extensão com falha e tente proteger a máquina virtual novamente.<br>
  **Causa 2:  [O estado de provisionamento da VM não é válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
@@ -255,12 +255,12 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Não é possível selecionar a rede virtual de destino - a guia de seleção de rede está esmaecida.
 
-**Causa 1: se sua VM estiver vinculada a uma rede que já está mapeada para uma 'Rede de destino'.**
+**Causa 1: Se a VM estiver anexada a uma rede que já esteja mapeada para uma 'Rede de destino'.**
 - Se a VM de origem fizer parte de uma rede virtual e outra VM da mesma rede virtual já estiver mapeada com uma rede no grupo de recursos de destino, em seguida, por padrão, o menu suspenso de seleção de rede padrão será desabilitado.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**Causa 2: se você anteriormente tiver protegido a VM usando o Azure Site Recovery e desabilitado a replicação.**
+**Causa 2: Se, anteriormente, você protegeu a VM usando o Azure Site Recovery e desabilitou a replicação.**
  - Desabilitar a replicação de uma VM não exclui o Mapeamento de Rede. Ele deve ser excluído do cofre do serviço de recuperação em que a VM foi protegida. </br>
  Navegue até o cofre do serviço de recuperação > Infraestrutura do Site Recovery > Mapeamento de rede. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -272,7 +272,7 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Erro de serviço de Cópias de Sombra de Volume/COM+ (código de erro 151025)
 **Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
-151025<br></br>**Mensagem**: falha ao instalar a extensão de recuperação de site | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
+151025<br></br>**Mensagem**: Falha ao instalar a extensão do Site Recovery | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 

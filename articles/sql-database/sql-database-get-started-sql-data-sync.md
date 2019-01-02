@@ -12,14 +12,14 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685422"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310368"
 ---
-# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuração da Sincronização de Dados SQL para sincronizar dados entre o banco de dados SQL do Azure e SQL Server local
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar sincronização de dados SQL para sincronizar dados entre o banco de dados SQL e SQL Server local
 
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
 
@@ -199,7 +199,7 @@ Depois que os novos membros do grupo de sincronização são criados e implantad
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>A frequência com que a sincronização de dados pode sincronizar meus dados
 
-A frequência mínima é a cada cinco minutos.
+A duração mínima entre as sincronizações de gatilho é de cinco minutos.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>Sincronização de dados SQL totalmente cria e provisiona tabelas
 

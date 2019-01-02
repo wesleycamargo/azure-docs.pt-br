@@ -10,17 +10,17 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309167"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968528"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Início rápido: envie uma consulta para a API de pesquisa do Bing Local Business usando o Node.js
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Início Rápido: envie uma consulta para a API de Pesquisa do Bing Local Business usando o Node.js
 
 Use este início rápido para começar a enviar solicitações para a API de Pesquisa do Bing Local Business, que é um Serviço Cognitivo do Azure. Embora esse aplicativo simples seja escrito em Node.js, a API é um serviço da Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
- 
+
 Este aplicativo de exemplo obtém dados de resposta local da API para a consulta de pesquisa `hotel in Bellevue`.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,14 +31,15 @@ Este aplicativo de exemplo obtém dados de resposta local da API para a consulta
 
 Você deve ter uma [Conta da API de Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com as APIs do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. Use a chave de acesso fornecida pela avaliação gratuita.  Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-##<a name="code-scenario"></a>Cenário do código
+## <a name="code-scenario"></a>Cenário do código
+
 O código a seguir obtém define e envia a solicitação. Ele é implementado nas etapas a seguir:
 
 1. Declare variáveis para especificar o ponto de extremidade por host e caminho.
-2. Especifique a consulta e adicione o parâmetro de consulta. 
+2. Especifique a consulta e adicione o parâmetro de consulta.
 3. Crie uma função de manipulador para a resposta.
 4. Defina a função Search que cria a solicitação e adiciona o cabeçalho Ocp-Apim-Subscription-Key.
-5. Execute a função Search. 
+5. Execute a função Search.
 
 O código completo para esta demonstração é:
 
@@ -92,6 +93,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Próximas etapas
-- [ Início Rápido da Pesquisa de empresa local ](local-quickstart.md)
-- [Início Rápido da Pesquisa Java em empresas locais](local-search-java-quickstart.md)
-- [Início Rápido do Python em Pesquisa de empresa local](local-search-python-quickstart.md)
+
+* [ Início Rápido da Pesquisa de empresa local ](local-quickstart.md)
+* [Início Rápido da Pesquisa Java em empresas locais](local-search-java-quickstart.md)
+* [Início Rápido do Python em Pesquisa de empresa local](local-search-python-quickstart.md)

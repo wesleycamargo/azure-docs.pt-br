@@ -2,8 +2,8 @@
 title: Instalação e configuração do Gerenciamento de Modelos do Azure Machine Learning | Microsoft Docs
 description: Este documento descreve as etapas e os conceitos envolvidos na instalação e na configuração do Gerenciamento de Modelos no Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968706"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257566"
 ---
 # <a name="model-management-setup"></a>Configuração do gerenciamento de modelos
 
@@ -91,7 +91,7 @@ Para começar, você precisa configurar seu ambiente de implantação. A configu
 
 Ao concluir a configuração do ambiente:
 - Será solicitado que você entre no Azure. Para entrar, utilize um navegador da Web para abrir a página https://aka.ms/devicelogin e insira o código fornecido para autenticar.
-- Durante o processo de autenticação, será solicitado que você se autentique com uma conta. Importante: selecione uma conta que tenha uma assinatura válida do Azure e permissões suficientes para criar recursos na conta.- Quando o logon estiver concluído, as informações da sua assinatura serão apresentadas e você será consultado sobre se deseja continuar com a conta selecionada.
+- Durante o processo de autenticação, será solicitado que você se autentique com uma conta. Importante: selecione uma conta que tenha uma assinatura válida do Azure e permissões suficientes para criar recursos na conta. Quando o logon estiver concluído, as informações da assinatura serão apresentadas e será perguntado se você deseja continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
 Para iniciar o processo de instalação, você precisa registrar o provedor de ambiente inserindo o seguinte comando:

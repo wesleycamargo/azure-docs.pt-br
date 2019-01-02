@@ -1,5 +1,5 @@
 ---
-title: Considerações de rede com um Ambiente do Serviço de Aplicativo do Azure
+title: Considerações de rede com um Ambiente do Serviço de Aplicativo – Azure
 description: Explica o tráfego de rede do ASE e como definir NSGs e UDRs com seu ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288247"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271004"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre a rede para um Ambiente do Serviço de Aplicativo #
 
@@ -74,9 +75,9 @@ As dependências de acesso de entrada do ASE são:
 | Uso | Da | Para |
 |-----|------|----|
 | Gerenciamento | Endereços de gerenciamento do Serviço de Aplicativo | Sub-rede ASE: 454, 455 |
-|  Comunicação interna ASE | Sub-rede ASE: todas as portas | Sub-rede ASE: todas as portas
-|  Permitir a entrada do Azure Load Balancer | Azure Load Balancer | Sub-rede ASE: todas as portas
-|  Endereços IP atribuídos ao aplicativo | Endereços atribuído de aplicativo | Sub-rede ASE: todas as portas
+|  Comunicação interna ASE | Sub-rede ASE: Todas as portas | Sub-rede ASE: Todas as portas
+|  Permitir a entrada do Azure Load Balancer | Azure Load Balancer | Sub-rede ASE: Todas as portas
+|  Endereços IP atribuídos ao aplicativo | Endereços atribuído de aplicativo | Sub-rede ASE: Todas as portas
 
 O tráfego de gerenciamento de entrada fornece o comando e o controle do ASE, além de monitoramento do sistema. Os endereços de origem desse tráfego são listados no documento [Endereços de gerenciamento do ASE endereços][ASEManagement]. A configuração de segurança de rede deve permitir o acesso de todos os IPs nas portas 454 e 455. Se você bloquear o acesso desses endereços, seu ASE deixará de ser íntegro e será suspenso.
 
@@ -136,9 +137,9 @@ As Funções e os trabalhos Web dependem do site do SCM, mas há suporte para el
 
 Um ASE tem alguns endereços IP para reconhecer. Eles são:
 
-- **Endereço IP público de entrada**: usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
+- **Endereço IP público de entrada:** usado para o tráfego de aplicativo em um ASE externo e o tráfego de gerenciamento em um ASE externo e em um ASE ILB.
 - **IP público de saída**: usado como o IP “de” das conexões de saída do ASE que saem da VNet, que não são roteadas por uma VPN.
-- **Endereço IP do ILB**: se você usar um ASE ILB.
+- **Endereço IP do ILB**: se você usa um ASE ILB.
 - **Endereços SSL com base em IP atribuídos ao aplicativo**: possível somente com um ASE externo e quando o SSL baseado em IP está configurado.
 
 Todos esses endereços IP ficam visíveis em um ASEv2 no portal do Azure, na interface do usuário do ASE. Se você tiver um ASE ILB, o IP para o ILB estará listado.
@@ -234,10 +235,10 @@ Quando os Pontos de Extremidade de Serviço estão habilitados em uma sub-rede c
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

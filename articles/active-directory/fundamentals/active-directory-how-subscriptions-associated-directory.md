@@ -1,6 +1,6 @@
 ---
-title: Como adicionar uma assinatura do Azure existente ao locatário do Azure Active Directory | Microsoft Docs
-description: Saiba como adicionar uma assinatura do Azure existente ao seu locatário do Azure Active Directory.
+title: Adicionar uma assinatura do Azure existente ao seu locatário – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como adicionar uma assinatura do Azure existente ao seu locatário do Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 4e4d4d9f34c8220ba70c64f073557f0293881c3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984051"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083862"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma assinatura do Azure ao Active Directory do Azure
+# <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 A assinatura do Azure tem uma relação de confiança com o Azure AD (Azure AD), o que significa que a assinatura confia no Azure AD para autenticar usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório do Azure AD, mas cada assinatura só pode confiar em um único diretório.
 
 Se a sua assinatura expirar, você perderá o acesso a todos os outros recursos associados à assinatura. No entanto, o diretório do Azure AD permanece no Azure, permitindo associar e gerenciar o diretório usando uma assinatura diferente do Azure.

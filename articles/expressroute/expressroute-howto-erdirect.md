@@ -1,18 +1,19 @@
 ---
-title: Como configurar o Azure ExpressRoute Direct | Microsoft Docs
-description: Esta página ajuda você a configurar o ExpressRoute Direct (versão prévia)
+title: Configurar o ExpressRoute Direct – Azure | Microsoft Docs
+description: Esta página ajuda você a configurar o ExpressRoute Direct (versão prévia).
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959657"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076603"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Como configurar o ExpressRoute Direct (versão prévia)
 
@@ -228,7 +229,7 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
 
 Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso ExpressRoute Direct. Esse número pode ser aumentado pelo suporte. Você é responsável por acompanhar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso ExpressRoute Direct, e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. São elas: 40 Gbps e 100 Gbps.
+Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. Estes são: 40 Gbps e 100 Gbps.
 
 É possível criar circuitos Standard ou Premium. Os circuitos Standard são incluídos no custo, já os circuitos Premium têm um custo baseado na largura de banda selecionada. Os circuitos só podem ser criados como limitados, pois não há suporte para circuitos ilimitados no ExpressRoute.
 

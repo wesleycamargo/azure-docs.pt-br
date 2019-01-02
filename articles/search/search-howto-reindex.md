@@ -1,5 +1,5 @@
 ---
-title: Recriar um índice do Azure Search ou atualizar o conteúdo pesquisável | Microsoft Docs
+title: Recompilar um índice do Azure Search ou atualizar o conteúdo pesquisável – Azure Search
 description: Adicione novos elementos, atualize elementos ou documentos existentes ou exclua documentos obsoletos em uma indexação de recompilação completa ou incremental parcial para atualizar um índice do Azure Search.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641417"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316887"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como recompilar um índice do Azure Search
 
@@ -35,7 +36,7 @@ Planeje recompilações completas frequentes durante o desenvolvimento ativo, qu
 
 | Modificação | Status da recompilação|
 |--------------|---------------|
-| Alterar um nome de campo, um tipo de dados ou seus [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Alterar uma definição de campo normalmente resulta em uma penalidade de recompilação, com exceção deste [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): Retrievable, SearchAnalyzer, SynonymMaps. Você pode adicionar os atributos Retrievable, SearchAnalyzer e SynonymMaps a um campo existente sem precisar recompilar o índice.|
+| Alterar um nome de campo, um tipo de dados ou seus [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | A alteração de uma definição de campo normalmente resulta em uma penalidade de recompilação, com exceção destes [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): Retrievable, SearchAnalyzer e SynonymMaps. Você pode adicionar os atributos Retrievable, SearchAnalyzer e SynonymMaps a um campo existente sem precisar recompilar o índice.|
 | Adicionar um campo | Não há nenhum requisito rígido para recompilar. Os documentos indexados existentes recebem um valor nulo para o novo campo. Em uma futura reindexação, os valores da fonte de dados substituirão os nulos adicionados pelo Azure Search. |
 | Excluir um campo | Não é possível excluir um campo diretamente de um índice do Azure Search. Nesse caso, você deve ter fazer com que o aplicativo ignore o campo "excluído" para evitar seu uso. Fisicamente, a definição e o conteúdo do campo permanecem no índice até a próxima vez em que você recompilar o índice usando um esquema que omita o campo em questão.|
 

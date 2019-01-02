@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: acbba991e6dcce56fad7f27c45f85214cc8fc707
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637001"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339715"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Durable Functions usando o portal do Azure
 
@@ -24,17 +24,43 @@ A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functi
 >[!NOTE]
 >
 >* Se você estiver desenvolvendo funções duráveis em C#, deverá considerar o [Desenvolvimento do Visual Studio 2017](durable-functions-create-first-csharp.md).
-* Se você estiver desenvolvendo funções duráveis em JavaScript, você deve considerar o **Desenvolvimento de código do Visual Studio Code**.
->
->Criação de Durable Functions usando JavaScript ainda não é suportado no portal. Use o Visual Studio Code.
+* Se você estiver desenvolvendo funções duráveis em JavaScript, você deve considerar o [Desenvolvimento de código do Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Você deve ter um aplicativo de função para hospedar a execução de qualquer função. Um aplicativo de função permite agrupar suas funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Você deve criar um aplicativo de função C#, já que os modelos JavaScript ainda não são suportados para Durable Functions.  
+Você deve ter um aplicativo de função para hospedar a execução de qualquer função. Um aplicativo de função permite agrupar suas funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos. Você pode criar um aplicativo .NET ou JavaScript.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Por padrão, o aplicativo de função criado usa a versão 2.x do tempo de execução do Azure Functions. A extensão Durable Functions funciona nas duas versões 1.xe 2.x do tempo de execução do Azure Functions. No entanto, os modelos só estão disponíveis ao segmentar a versão 2.x do tempo de execução.
+Por padrão, o aplicativo de função criado usa a versão 2.x do Azure Functions Runtime. A extensão Durable Functions funciona nas duas versões 1.x e 2.x do Azure Functions Runtime em C# e versão 2.x no JavaScript. No entanto, os modelos só estão disponíveis ao segmentar a versão 2.x do tempo de execução independentemente da linguagem escolhida.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Instalar o pacote npm de Durable Functions (apenas JavaScript)
+
+Se você estiver criando Durable Functions do JavaScript, precisará instalar o [pacote npm `durable-functions`](https://www.npmjs.com/package/durable-functions).
+
+1. Selecione o nome do seu aplicativo de funções, seguido pelos **Recursos da Plataforma** e **Ferramentas avançadas (Kudu)**.
+
+   ![Recursos da plataforma funções, escolha Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. Dentro do console do Kudu, selecione **Console de depuração** e **CMD**.
+
+   ![Console de depuração do Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. Sua estrutura de diretório do arquivo do aplicativo de funções deve ser exibida. Navegue até a pasta `site/wwwroot`. Dela, você pode carregar um arquivo `package.json` arrastando e soltando-o na janela do diretório do arquivo. Há um exemplo `package.json` abaixo:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Carregar o pacote do package.json do Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. Após seu `package.json` ser carregado, execute o comando `npm install` do Console de Execução Remota do Kudu.
+
+   ![Executar a instalação do npm do Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Crie uma função de orquestrador
 
@@ -92,7 +118,7 @@ Por padrão, o aplicativo de função criado usa a versão 2.x do tempo de execu
         }
     ```
 
-1. Continue chamando o endpoint `statusQueryGetUri` até que o status seja alterado para **Completed** e você veja uma resposta como o exemplo a seguir: 
+1. Continue chamando o endpoint `statusQueryGetUri` até que o status seja alterado para **Completed** e você veja uma resposta como o exemplo a seguir:
 
     ```json
     {

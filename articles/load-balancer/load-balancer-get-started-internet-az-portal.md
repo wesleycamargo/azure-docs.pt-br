@@ -1,24 +1,26 @@
 ---
-title: Criar um Load Balancer Standard público com frontend de endereço IP público com redundância de zona usando o Portal do Azure | Microsoft Docs
-description: Saiba como criar um Load Balancer Standard público com frontend de endereço IP público com redundância de zona com o Portal Azure
+title: Criar um Standard Load Balancer com front-end com redundância de zona usando o portal do Azure
+titlesuffix: Azure Load Balancer
+description: Saiba como criar um Standard Load Balancer público com front-end de endereço IP público com redundância de zona com o portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 70514433d11bbe7606d75a3e2c1f6dffc251621f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740936"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135672"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Criar um Load Balancer Standard público com frontend de endereço IP Público com redundância de zona usando o Portal do Azure
+#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Criar um Standard Load Balancer público com front-end com redundância de zona usando o portal do Azure
 
 Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona usando um endereço IP Público Standard. Um único endereço IP de front-end em um Load Balancer Standard é com redundância de zona, por padrão.
 

@@ -1,5 +1,5 @@
 ---
-title: Desenvolvimento do Agile de projetos de ciência de dados - Azure Machine Learning | Microsoft Docs
+title: Desenvolvimento ágil de projetos de ciência de dados – Processo de Ciência de Dados da Equipe
 description: Como os desenvolvedores podem executar um projeto de ciência de dados de modo sistemático, com controle de versão e colaborativo em uma equipe de projeto usando o Processo de Ciência de Dados da Equipe.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9fd8714e4c9fdc89036a3b05ba835b140363c0e3
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443356"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134396"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desenvolvimento do Agile de projetos de ciência de dados
 
@@ -38,20 +38,20 @@ A figura a seguir ilustra um planejamento de sprint típico, codificação e flu
 
 ##  1. <a name='Terminology-1'></a>Terminologia 
 
-Na estrutura de planejamento de sprint do TDSP, há quatro tipos usados com frequência de **itens de trabalho**: **Recurso**, **História de usuário**, **Tarefa** e **Bug**. Cada projeto mantém uma lista de pendências única para todos os itens de trabalho. Não há nenhuma lista de pendências no nível do repositório Git em um projeto. Aqui estão as definições:
+Na estrutura de planejamento de sprint do TDSP, há quatro tipos de **itens de trabalho** usados com frequência: **Recurso**, **História de Usuário**, **Tarefa** e **Bug**. Cada projeto mantém uma lista de pendências única para todos os itens de trabalho. Não há nenhuma lista de pendências no nível do repositório Git em um projeto. Aqui estão as definições:
 
-- **Recurso**: um recurso corresponde a uma interação de projeto. Interações diferentes com um cliente são consideradas recursos diferentes. Da mesma forma, é melhor considerar diferentes fases de um projeto com um cliente como recursos diferentes. Se escolher um esquema como ***ClientName-EngagementName*** para nomear os recursos, então você poderá reconhecer facilmente o contexto do projeto/interação nos próprios nomes.
-- **História**: histórias são itens de trabalho diferentes que são necessárias para concluir um recurso (projeto) de ponta a ponta. Exemplos de histórias incluem:
+- **Recurso**: Um recurso corresponde a uma participação no projeto. Interações diferentes com um cliente são consideradas recursos diferentes. Da mesma forma, é melhor considerar diferentes fases de um projeto com um cliente como recursos diferentes. Se escolher um esquema como ***ClientName-EngagementName*** para nomear os recursos, então você poderá reconhecer facilmente o contexto do projeto/interação nos próprios nomes.
+- **História**: As histórias são itens de trabalho diferentes necessários para concluir um recurso (projeto) de ponta a ponta. Exemplos de histórias incluem:
     - Obtenção de dados 
     - Exploração de dados 
     - Geração de recursos
     - Criação de modelos
     - Operacionalização de modelos 
     - Retreinamento de modelos
-- **Tarefa**: tarefas são itens de trabalho de documento ou código atribuído ou outras atividades que precisam ser realizadas para concluir uma história específica. Por exemplo, as tarefas na história *Obtenção de dados* podem ser:
+- **Tarefa**: As tarefas são itens de trabalho de documento ou código atribuído ou outras atividades que precisam ser realizadas para concluir uma história específica. Por exemplo, as tarefas na história *Obtenção de dados* podem ser:
     -  Obtenção de credenciais do SQL Server 
     -  Upload de dados para o SQL Data Warehouse. 
-- **Bug**: bugs normalmente se referem às correções que são necessárias para um código existente ou um documento que são feitas ao concluir uma tarefa. Se o bug for causado por falta de estágios ou tarefas respectivamente, ele poderá ser encaminhado como sendo uma história ou uma tarefa. 
+- **Bug**: Normalmente, os bugs se referem às correções necessárias para um código existente ou um documento que são feitas ao concluir uma tarefa. Se o bug for causado por falta de estágios ou tarefas respectivamente, ele poderá ser encaminhado como sendo uma história ou uma tarefa. 
 
 > [!NOTE]
 > Conceitos são emprestados de recursos, histórias, tarefas e bugs do SCM (Gerenciamento de Código de Software) a ser usado na ciência de dados. Eles podem diferir ligeiramente das suas definições de SCM convencionais.

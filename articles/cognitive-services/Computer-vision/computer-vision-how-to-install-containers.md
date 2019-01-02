@@ -1,21 +1,22 @@
 ---
-title: Como instalar e executar contêineres
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Instalar e executar contêineres
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Como baixar, instalar e executar contêineres para Pesquisa Visual Computacional neste tutorial passo a passo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634635"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077028"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contêineres
 
@@ -31,15 +32,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve cumprir os seguintes pré-requisitos antes de usar o contêiner de Reconhecimento de Texto:
 
-**Mecanismo do Docker**: você deve ter o mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Mecanismo do Docker**: é necessário ter o Mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para suportar contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço do Azure Kubernetes](/azure/aks/), [Instâncias do Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações sobre como implantar o Kubernetes na Pilha do Azure, consulte [Implantar o Kubernetes na Pilha do Azure](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-O Docker deve ser configurado para permitir que os contêineres se conectem e enviem dados de faturamento para o Azure.
+O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure.
 
-**Familiaridade com Docker e Registro de Contêiner da Microsoft**: é necessário ter uma compreensão básica de ambos os conceitos de Docker e Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
+**Familiaridade com o Registro de Contêiner da Microsoft e com o Docker**: é necessário ter uma compreensão básica tanto de conceitos do Docker quanto do Registro de Contêiner da Microsoft, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos `docker`.  
 
-Para uma cartilha no Docker e noções básicas sobre contêineres, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
+Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Recomendações e requisitos do servidor
+### <a name="container-requirements-and-recommendations"></a>Recomendações e requisitos do contêiner
 
 O contêiner de Reconhecimento de Texto requer um mínimo de 1 núcleo de CPU, pelo menos 2,6 GHz (gigahertz) ou mais rápido e 8 GB (gigabytes) de memória alocada, mas a configuração recomendável é pelo menos 2 núcleos de CPU e 8 GB de memória alocada.
 
@@ -59,7 +60,7 @@ Se quiser usar o contêiner de Reconhecimento de Texto, você precisará criar u
 Execute as etapas a seguir para criar e recuperar informações de um recurso do Azure:
 
 1. Crie um recurso do Azure no portal do Azure.  
-   Se quiser usar o contêiner de Reconhecimento de Texto, crie primeiro um recurso de Pesquisa Visual Computacional correspondente no portal do Azure. Para obter mais informações, consulte [Início rápido: crie uma conta de serviços cognitivos no Portal do Azure](../cognitive-services-apis-create-account.md).
+   Se quiser usar o contêiner de Reconhecimento de Texto, crie primeiro um recurso de Pesquisa Visual Computacional correspondente no portal do Azure. Para saber mais, consulte [Início Rápido: criar uma conta de Serviços Cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
 
 1. Obtenha o URL do ponto de extremidade e a chave de assinatura do recurso do Azure.  
    Depois de criar o recurso do Azure, você deve usar a chave de assinatura e a URL de ponto de extremidade desse recurso para instanciar o contêiner de Reconhecimento de Texto correspondente. Você pode copiar a URL de ponto de extremidade e a chave de assinatura de, respectivamente, as páginas Início Rápido e de Chaves do recurso de Pesquisa Visual Computacional no portal do Azure.
@@ -161,8 +162,10 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Imagens de contêiner são baixadas de um registro de contêiner privado no Azure.
 * Imagens de contêiner são executadas no Docker.
 * Você pode usar a API REST ou o SDK para chamar as operações em contêineres de Pesquisa Visual Computacional especificando o URI do host do contêiner.
-* Você deve especificar as informações de cobrança ao criar uma instância de um contêiner.
-* ** Os contêineres do Cognitive Services não estão licenciados para serem executados sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.  
+* Você deve especificar informações de faturamento ao instanciar um contêiner.
+
+> [!IMPORTANT]
+> Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

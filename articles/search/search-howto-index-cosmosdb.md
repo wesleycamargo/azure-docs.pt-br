@@ -1,6 +1,6 @@
 ---
-title: Indexando uma fonte do Azure Cosmos DB para o Azure Search | Microsoft Docs
-description: Este artigo mostra como criar um indexador do Azure Search com uma fonte de dados do Azure Cosmos DB.
+title: Indexar uma fonte de dados do Azure Cosmos DB – Azure Search
+description: Rastreie uma fonte de dados do Azure Cosmos DB e ingira dados em um índice pesquisável de texto completo no Azure Search. Os indexadores automatizam a ingestão de dados para fontes de dados selecionadas, como o Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747534"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311806"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conectando o Cosmos DB ao Azure Search usando indexadores
 
@@ -95,18 +96,18 @@ Para criar uma fonte de dados, execute um POST:
 
 O corpo da solicitação contém a definição da fonte de dados, que deve incluir os seguintes campos:
 
-* **name**: escolha qualquer nome para representar o banco de dados.
-* **type**: deve ser `documentdb`.
+* **name**: Escolha qualquer nome para representar o banco de dados.
+* **type**: Deve ser `documentdb`.
 * **credentials**:
   
-  * **connectionString**: obrigatório. Especifique as informações de conexão com o banco de dados Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para coleções do MongoDB, adicione **ApiKind=MongoDb** à cadeia de conexão: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Obrigatório. Especifique as informações de conexão do banco de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para coleções do MongoDB, adicione **ApiKind=MongoDb** à cadeia de conexão: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Search não poderá indexar seu banco de dados do Azure Cosmos DB.
 * **container**:
   
-  * **name**: obrigatório. Especifique a ID da coleção do banco de dados a ser indexada.
-  * **query**: opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar. Para coleções do MongoDB, não há suporte para consultas. 
-* **dataChangeDetectionPolicy**: recomendado. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).
-* **dataDeletionDetectionPolicy**: opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).
+  * **name**: Obrigatório. Especifique a ID da coleção do banco de dados a ser indexada.
+  * **query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Search pode indexar. Para coleções do MongoDB, não há suporte para consultas. 
+* **dataChangeDetectionPolicy**: Recomendável. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).
+* **dataDeletionDetectionPolicy**: Opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Usando consultas para formatar dados indexados
 É possível especificar uma consulta do SQL para mesclar propriedades ou matrizes aninhadas, projetar propriedades JSON e filtrar os dados a serem indexados. 
@@ -145,7 +146,7 @@ Consulta de mesclagem de matriz:
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
-## <a name="step-2-create-an-index"></a>Etapa 2: Criar um índice
+## <a name="step-2-create-an-index"></a>Etapa 2: Crie um índice
 Se ainda não tiver um, crie um índice de destino do Azure Search. Você pode criar um índice usando a [interface do usuário do portal do Azure](search-create-index-portal.md), a [API REST de Criação de Índices](/rest/api/searchservice/create-index) ou a [classe Index](/dotnet/api/microsoft.azure.search.models.index).
 
 O exemplo a seguir cria um índice com um campo de descrição e ID:
@@ -187,7 +188,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 | Cadeia de caracteres |Edm.String |
 | Matrizes de tipos primitivos, por exemplo, [“a”, “b”, “c”] |Collection(Edm.String) |
 | Cadeias de caracteres que se parecem com datas |Edm.DateTimeOffset, Edm.String |
-| Objetos GeoJSON, por exemplo, { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| Objetos GeoJSON, por exemplo, {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Outros objetos JSON |N/D |
 
 <a name="CreateIndexer"></a>

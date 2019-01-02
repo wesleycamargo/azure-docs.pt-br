@@ -1,7 +1,7 @@
 ---
-title: Respostas de pesquisa - API de pesquisa da Web do Bing
+title: Estrutura de resposta da API do Bing Web Search e tipos de resposta
 titleSuffix: Azure Cognitive Services
-description: Aprenda sobre os tipos de resposta e as respostas da API da Pesquisa na Web do Bing.
+description: Saiba mais sobre os tipos de resposta e as respostas fornecidas pela API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164755"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250479"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 

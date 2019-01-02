@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391480"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163219"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -103,7 +103,7 @@ O snippet de código a seguir cria o objeto de cliente de sistema de arquivos do
     AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>Criar um arquivo e diretório
-Adicione o trecho de código a seguir ao seu aplicativo. Este trecho de código adiciona um arquivo, bem como qualquer diretório pai que não exista.
+Adicione o snippet de código a seguir ao seu aplicativo. Este snippet de código adiciona um arquivo, bem como qualquer diretório pai que não exista.
 
     // Create a file - automatically creates any parent directories that don't exist
     // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
@@ -140,13 +140,13 @@ O snippet de código a seguir lê o conteúdo de um arquivo na conta do Data Lak
     }
 
 ## <a name="get-file-properties"></a>Obter propriedades de arquivo
-O trecho de código a seguir retorna as propriedades associadas a um arquivo ou diretório.
+O snippet de código a seguir retorna as propriedades associadas a um arquivo ou diretório.
 
     // Get file properties
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Renomear um arquivo
 O snippet de código a seguir renomeia um arquivo existente em uma conta do Data Lake Storage Gen1.
@@ -164,10 +164,10 @@ O snippet de código a seguir enumera os diretórios em uma conta do Data Lake S
         PrintDirectoryEntry(entry);
     }
 
-A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Excluir diretórios recursivamente
-O trecho de código a seguir exclui um diretório e todos os seus subdiretórios, recursivamente.
+O snippet de código a seguir exclui um diretório e todos os seus subdiretórios, recursivamente.
 
     // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");

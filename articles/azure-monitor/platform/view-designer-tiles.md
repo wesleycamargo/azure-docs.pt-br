@@ -10,25 +10,23 @@ ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638491"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186796"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para blocos do Designer de Modos de Exibição do Log Analytics
 Usando o Designer de Modos de Exibição do Azure Log Analytics você pode criar modos de exibição personalizados no portal do Azure que apresentam uma variedade de visualizações de dados no seu workspace do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
 
-Para obter mais informações sobre o Designer de Modos de Exibição, consulte:
+Para obter mais informações sobre o Designer de Exibição, consulte:
 
-* [Designer de Modos de Exibição](view-designer.md): fornece uma visão geral do Designer de Modos de Exibição e dos procedimentos para criar e editar exibições personalizadas.
-* [Referência da parte de visualização](view-designer-parts.md): fornece um guia de referência para as configurações das partes de visualização que estão disponíveis em nas exibições personalizadas.
+* [Designer de exibição](view-designer.md): fornece uma visão geral do Designer de exibição e dos procedimentos para criar e editar exibições personalizadas.
+* [Referência de parte da visualização](view-designer-parts.md): fornece um guia de referência das configurações das partes de visualização disponíveis nas exibições personalizadas.
 
 
 Os blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:  
@@ -179,5 +177,5 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](../../log-analytics/log-analytics-queries.md) para dar suporte às consultas em blocos.
+* Saiba mais sobre [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) para dar suporte às consultas em blocos.
 * Adicione [componentes de visualização](view-designer-parts.md) ao modo de exibição personalizado.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583101"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311126"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -72,7 +72,7 @@ Se você não quiser receber sua fatura por e-mail, clique em **Desativar fatura
 
 4. Você também pode exibir seu uso diário clicando no período de cobrança. 
 
-Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
+Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar os custos, confira [Evitar custos inesperados com o gerenciamento de custos e a cobrança do Azure](billing-getting-started.md).
 
 ### <a name="noinvoice"></a> Por que não encontro uma fatura do último período de cobrança?
 
@@ -116,13 +116,13 @@ Pode haver vários motivos pelos quais você não vê uma fatura:
 
 Somente o Administrador da Conta pode acessar o Centro de Contas do Azure. Outros administradores de cobrança, por exemplo um proprietário, podem obter informações de uso usando as [APIs de cobrança](billing-usage-rate-card-overview.md).
 
-Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar custos, consulte [Evitar custos inesperados com o gerenciamento de custo e cobrança do Azure](billing-getting-started.md).
+Para saber mais sobre o uso diário, confira [Entenda sua fatura do Microsoft Azure](billing-understand-your-bill.md). Para obter ajuda sobre como gerenciar os custos, confira [Evitar custos inesperados com o gerenciamento de custos e a cobrança do Azure](billing-getting-started.md).
 
 ### <a name="download-usage-for-ea-customers"></a>Faça o download uso para clientes do EA
 
 Para visualizar e fazer o download dos dados de uso como um cliente da EA, você deve ser um Administrador Corporativo ou um Proprietário da Conta ou Administrador do Departamento com a política de cobranças de visualização ativada.
 
-1. Entre no [Portal do Azure]( http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
     ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
@@ -130,6 +130,6 @@ Para visualizar e fazer o download dos dados de uso como um cliente da EA, você
 1. Selecione **uso + encargos**.
 1. No mês que você deseja fazer o download, selecione **fazer o download**.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

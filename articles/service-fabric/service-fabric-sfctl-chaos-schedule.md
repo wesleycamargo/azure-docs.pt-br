@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492233"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276444"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda do caos.
@@ -29,7 +29,7 @@ Obter e definir a agenda do caos.
 |Comando|DESCRIÇÃO|
 | --- | --- |
 | get | Obter a Agenda de Caos define quando e como executar o Caos. |
-| set | Definir a Agenda de Caos a ser usada pelo Caos. |
+| set | Defina a agenda usada por Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>obter agenda do sfctl chaos
 Obter a Agenda de Caos define quando e como executar o Caos.
@@ -48,14 +48,14 @@ Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e c
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>definir agenda do sfctl chaos
-Definir a Agenda de Caos a ser usada pelo Caos.
+Defina a agenda usada por Chaos.
 
-Defina a Agenda de Caos atualmente em uso pelo Caos. O Caos agendará automaticamente execuções com base na Agenda do Caos. A versão na agenda de entrada fornecida deve corresponder à versão da Agenda do Caos no servidor. Se a versão fornecida não coincidir com a versão do servidor, a Agenda do Caos não será atualizada. Se a versão fornecida corresponde à versão no servidor, a Agenda do Caos é atualizada, e a versão da Agenda do Caos no servidor é incrementada para cima em um e volta para 0 depois de 2,147,483,647. Se o Caos é executado quando esta chamada é feita, a chamada falhará.
+O Caos agendará automaticamente execuções com base na Agenda do Caos. A versão na agenda de entrada fornecida deve corresponder à versão da Agenda do Caos no servidor. Se a versão fornecida não coincidir com a versão do servidor, a Agenda do Caos não será atualizada. Se a versão fornecida corresponde à versão no servidor, a Agenda do Caos é atualizada, e a versão da Agenda do Caos no servidor é incrementada para cima em um e volta para 0 depois de 2,147,483,647. Se o Caos é executado quando esta chamada é feita, a chamada falhará.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -74,7 +74,7 @@ Defina a Agenda de Caos atualmente em uso pelo Caos. O Caos agendará automatica
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -143,6 +143,7 @@ O comando a seguir define uma agenda (supondo que a agenda atual tenha a versão
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

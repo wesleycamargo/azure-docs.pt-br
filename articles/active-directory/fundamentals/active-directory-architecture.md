@@ -1,6 +1,6 @@
 ---
-title: Qual é a arquitetura do Active Directory do Azure? | Microsoft Docs
-description: Saiba o que é um inquilino do Azure Active Directory e como gerenciar o Azure por meio do Active Directory do Azure.
+title: Visão geral da arquitetura – Azure Active Directory | Microsoft Docs
+description: Saiba o que é um locatário do Azure Active Directory e como gerenciar o Azure usando o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733204"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076100"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qual é a arquitetura do Active Directory do Azure?
-O Azure AD (Azure Active Directory) o habilita a gerenciar o acesso a recursos e serviços do Azure para os usuários. Está incluído no Azure AD um conjunto completo de recursos de gerenciamento de identidade. Para obter informações sobre os recursos do Azure AD, confira [O que é o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+O Azure AD (Azure Active Directory) o habilita a gerenciar o acesso a recursos e serviços do Azure para os usuários. Está incluído no Azure AD um conjunto completo de recursos de gerenciamento de identidade. Para obter informações sobre os recursos do Azure AD, confira [O que é o Azure Active Directory?](active-directory-whatis.md)
 
-Com o Azure AD, você pode criar e gerenciar usuários e grupos e habilitar as permissões para permitir e negar acesso aos recursos da empresa. Para obter informações sobre o gerenciamento de identidade, confira [Os fundamentos do gerenciamento de identidades do Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).
+Com o Azure AD, você pode criar e gerenciar usuários e grupos e habilitar as permissões para permitir e negar acesso aos recursos da empresa. Para obter informações sobre o gerenciamento de identidade, confira [Os fundamentos do gerenciamento de identidades do Azure](active-directory-whatis.md).
 
 ## <a name="azure-ad-architecture"></a>Arquitetura do Azure AD
 A arquitetura distribuída geograficamente do Azure AD combina recursos abrangentes de monitoramento, reencaminhamento automatizado, failover e recuperação, que oferecem disponibilidade e desempenho para os clientes em toda a empresa.
@@ -66,7 +66,7 @@ O design da partição do Azure AD é simplificado em comparação com o design 
 
 **Tolerância a falhas**
 
-Um sistema está mais disponível se é tolerante a falhas de hardware, rede e software. Para cada partição de diretório, existe uma réplica mestre altamente disponível: a réplica principal. Apenas as gravações na partição são executadas nessa réplica. Esta réplica está sendo monitorada continuamente e com atenção, e as gravações poderão ser transferidas imediatamente para outra réplica (que se torna o novo principal) se for detectada uma falha. Durante o failover, pode haver uma perda de disponibilidade de gravação normalmente de 1 a 2 minutos. A disponibilidade de leitura não é afetada durante esse tempo.
+Um sistema está mais disponível se é tolerante a falhas de hardware, rede e software. Para cada partição do diretório, há uma réplica mestre altamente disponível: a réplica primária. Apenas as gravações na partição são executadas nessa réplica. Esta réplica está sendo monitorada continuamente e com atenção, e as gravações poderão ser transferidas imediatamente para outra réplica (que se torna o novo principal) se for detectada uma falha. Durante o failover, pode haver uma perda de disponibilidade de gravação normalmente de 1 a 2 minutos. A disponibilidade de leitura não é afetada durante esse tempo.
 
 Operações de leitura (que ultrapassam o número de gravações por várias ordens de magnitude) só vão para réplicas secundárias. Como as réplicas secundárias são idempotentes, a perda de qualquer réplica em determinada partição é compensada facilmente direcionando as leituras para outra réplica, normalmente no mesmo datacenter.
 

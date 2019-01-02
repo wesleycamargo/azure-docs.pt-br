@@ -1,25 +1,26 @@
 ---
-title: Sobre tradução de fala
+title: Sobre a Tradução de Fala – Serviços de Fala
 titlesuffix: Azure Cognitive Services
-description: Uma visão geral das funcionalidades de Tradução de Fala
+description: A API de Serviço de Fala permite adicionar tradução de ponta a ponta em tempo real e em vários idiomas de fala a seus aplicativos, suas ferramentas e seus dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086701"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de Tradução de Fala
 
-A API de Serviço de Fala permite adicionar tradução de ponta a ponta em tempo real e em vários idioma de fala a seus aplicativos, suas ferramentas e seus dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
+A API de Serviço de Fala permite adicionar tradução de ponta a ponta em tempo real e em vários idiomas de fala a seus aplicativos, suas ferramentas e seus dispositivos. A mesma API pode ser usada para a tradução com conversão de fala em fala e de fala em texto.
 
 Com a API de Tradução de Fala da Microsoft, aplicativos cliente transmitem por streaming áudio de fala para o serviço e recebem de volta um fluxo de resultados. Esses resultados incluem o texto reconhecido no idioma de origem e sua tradução para o idioma de destino. Traduções provisórias podem ser fornecidas até que um enunciado esteja concluído, momento em que a tradução final é fornecida.
 

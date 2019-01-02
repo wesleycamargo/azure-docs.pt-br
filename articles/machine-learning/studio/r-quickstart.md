@@ -5,9 +5,8 @@ keywords: guia de início rápido, linguagem r, linguagem de programação r, tu
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317663"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278654"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutorial de Início Rápido para a linguagem de programação R para o Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Este tutorial de início rápido ajuda a iniciar rapidamente estendendo o Azure 
 
 O Microsoft Azure Machine Learning contém muitos módulos poderosos de aprendizado de máquina e de manipulação de dados. A poderosa linguagem de R tem sido descrita como a língua franca da análise. Felizmente, a análise e manipulação de dados no Azure Machine Learning podem ser estendidas com R. Essa combinação fornece a escalabilidade e a facilidade de implantação do Azure Machine Learning com a flexibilidade e análise profunda de R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Previsão e conjunto de dados
 A previsão é um método analítico amplamente empregado e bastante útil. O uso típico varia de previsão de vendas de itens sazonais, determinar níveis de estoque ideal a prever variáveis macroeconômicas. A previsão normalmente é feita com modelos de série de tempo.
@@ -61,7 +60,7 @@ Usarei o RStudio para desenvolver, testar e depurar o código R em pequena escal
 ### <a name="the-execute-r-script-module"></a>O módulo Executar Script R
 No Machine Learning Studio, os scripts R são executados no módulo [Executar Script R][execute-r-script]. Um exemplo do módulo [Executar Script R][execute-r-script] no Machine Learning Studio é ilustrado na Figura 1.
 
- ![A linguagem de programação R: o módulo Executar o Script R selecionado no Studio de Machine Learning][1]
+ ![Linguagem de programação R: O módulo Executar o script R selecionado no Machine Learning Studio][1]
 
 *Figura 1. O ambiente do Machine Learning Studio mostrando o módulo Executar Script R selecionado.*
 
@@ -1236,7 +1235,7 @@ Este tutorial de programação R aborda os conceitos básicos de que você preci
 
 Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que considero úteis:
 
-* The Art of R Programming; A Tour of Statistical Software Design, de Norman Matloff, é uma excelente introdução à programação em R.  
+* The Art of R Programming: A Tour of Statistical Software Design, de Norman Matloff, é uma excelente introdução à programação em R.  
 * R Cookbook, de Paul Teetor, fornece uma abordagem de problemas e soluções usando R.  
 * R in Action, por Robert Kabacoff, é outro livro introdutório útil. O site Quick R é um recurso útil em http://www.statmethods.net/.
 * R Inferno, de Patrick Burns, é um livro surpreendentemente bem-humorado que lida com inúmeros tópicos complicados e difíceis que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em http://www.burns-stat.com/documents/books/the-r-inferno/.
@@ -1248,7 +1247,7 @@ O livro Introductory Time Series with R, de Paul Cowpertwait e Andrew Metcalfe, 
 
 Alguns ótimos recursos na Internet:
 
-* DataCamp: DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o tutorial interativo grátis de R em https://www.datacamp.com/courses/introduction-to-r
+* DataCamp: O DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o tutorial interativo grátis de R em https://www.datacamp.com/courses/introduction-to-r
 * Guia de Introdução ao R do Programiz https://www.programiz.com/r-programming
 * A quick R tutorial, por Kelly Black, da Clarkson University, http://www.cyclismo.org/tutorial/R/
 * Mais de 60 recursos de R listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html

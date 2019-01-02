@@ -1,12 +1,11 @@
 ---
-title: Como preparar seu modelo para implantação no Azure Machine Learning Studio | Microsoft Docs
+title: Preparar seu modelo para implantação - Azure Machine Learning Studio | Microsoft Docs
 description: Como preparar seu modelo treinado para implantação como um serviço Web convertendo o teste de treinamento do Machine Learning Studio para um teste preditivo.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265229"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273095"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar seu modelo para implantação no Azure Machine Learning Studio
 
@@ -29,11 +28,11 @@ O Azure Machine Learning Studio fornece as ferramentas necessárias para desenvo
 
 Para fazer isso, use o Studio para criar um teste – chamado de *teste de treinamento* – em que você treina, pontua e edita o modelo. Quando estiver satisfeito, você terá o modelo pronto para implantação convertendo o teste de treinamento em um *teste preditivo* que é configurado para pontuar dados do usuário.
 
-Você pode ver um exemplo desse processo em [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Você pode ver um exemplo desse processo no [Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
 Este artigo aprofunda-se nos detalhes de como um teste de treinamento é convertido em um teste preditivo e como ele é implantado. Ao compreender esses detalhes, você pode aprender a configurar o modelo implantado a fim de torná-lo mais eficaz.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Visão geral 
 

@@ -1,6 +1,7 @@
 ---
-title: Pacote de FPGA para aceleração de hardware para o Azure Machine Learning
-description: Saiba mais sobre os pacotes do Python disponíveis para usuários do Azure Machine Learning.
+title: Pacote FPGA para aceleração de hardware
+titleSuffix: Azure Machine Learning service
+description: Este artigo foi preterido.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,13 +10,14 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 44c0818d7ddb418e34e6e124ddc0b27460bb24a0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712119"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262071"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacote de aceleração de hardware do Azure Machine Learning
 
@@ -32,7 +34,8 @@ O pacote de aceleração de hardware do Azure Machine Learning é uma extensão 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+>[!Note]
+>Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](http://aka.ms/AMLFree).
 
 1. Uma conta do Gerenciamento de Modelos do Azure Machine Learning. Para saber mais informações sobre a criação da conta, consulte p documento [Início Rápido do Azure Machine Learning e instalação do Workbench](../desktop-workbench/quickstart-installation.md). 
 

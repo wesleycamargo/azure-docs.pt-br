@@ -1,6 +1,6 @@
 ---
-title: Registre um novo dispositivo do Azure IoT Edge (VS Code) | Microsoft Docs
-description: Use Visual Studio Code para criar um novo dispositivo IoT Edge no seu Azure IoT Hub
+title: Registrar um novo dispositivo do Visual Studio Code – Azure IoT Edge | Microsoft Docs
+description: Use o Visual Studio Code para criar um dispositivo IoT Edge no seu hub IoT do Azure e recuperar a cadeia de conexão
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578698"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099759"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Registre um novo dispositivo Azure IoT Edge do Visual Studio Code
 
@@ -35,7 +36,7 @@ Este artigo descreve como registrar um novo dispositivo do IoT Edge usando Visua
 
 2. Na parte inferior do Explorer, expanda a seção **Dispositivos do Hub IoT**. 
 
-   ![Expanda Dispositivos do Azure Hub IoT](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Expanda a seção Dispositivos do Hub IoT do Azure](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Clique em **...** no cabeçalho da seção **Dispositivos do Hub IoT**. Se você não visualizar as reticências, clique ou passe o mouse sobre o cabeçalho. 
 
@@ -63,7 +64,7 @@ Na tela de saída, você verá o resultado do comando. A informação do disposi
 
 Todos os dispositivos que conectam ao seu Hub IoT estão listados na seção **Dispositivos do Azure IoT Hub** do Visual Studio Code Explorer. Dipositivos IoT Edge são distinguíveis dos dispositivos não-Edge com um ícone diferente, e o fato de eles poderem ser expandidos para mostrarem os módulos implantados em cada dispositivo. 
 
-   ![Ver dispositivos no VS Code](./media/how-to-register-device-vscode/view-devices.png)
+   ![Exibir todos os dispositivos do IoT Edge no hub IoT](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Recuperar a cadeia de conexão
 

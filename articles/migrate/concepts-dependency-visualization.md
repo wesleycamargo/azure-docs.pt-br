@@ -4,19 +4,21 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço M
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010313"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257957"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
 Os serviços [Migrações para Azure](migrate-overview.md) avaliam grupos de computadores locais para a migração para o Azure. Você pode usar a funcionalidade de visualização de dependência nas Migrações para Azure para criar grupos. Este artigo fornece informações sobre este recurso.
 
+> [!NOTE]
+> A funcionalidade de visualização de dependências não está disponível no Azure Governamental.
 
 ## <a name="overview"></a>Visão geral
 
@@ -31,8 +33,14 @@ As Migrações para Azure usam a solução [Mapa do Serviço](../operations-mana
 
     ![Associar o workspace do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-- O workspace associado é marcado com a chave **Projeto de Migração** e o valor **nome do projeto**, que pode ser usado para pesquisar no portal do Azure.
+- Durante a associação de um workspace, haverá a opção de criar um workspace ou anexar um existente:
+      - Ao criar um workspace, você precisará especificar um nome para ele. O workspace será criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
+      - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Observe que são listados somente os workspaces que foram criados em uma região [com suporte para o Mapa do Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). É necessário ser capaz de anexar a um workspace, verifique se você tem acesso de 'Leitura' no workspace.
+
+  > [!NOTE]
+  > Depois de anexar um workspace a um projeto, você não poderá mais alterá-lo.
+
+- O workspace associado é marcado com a chave **Projeto de Migração** e o valor **Nome do projeto**, que pode ser usado para pesquisar no portal do Azure.
 - Para navegar até o workspace associado ao projeto, acesse a seção **Essentials** na página **Visão geral** do projeto e acesse o workspace
 
     ![Navegar no workspace do Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
@@ -63,7 +71,7 @@ Saiba mais sobre os preços de Migrações para Azure [aqui](https://azure.micro
 
 ## <a name="how-do-i-manage-the-workspace"></a>Como faço para gerenciar o workspace?
 
-Você pode usar o workspace do Log Analytics fora de Migrações para Azure. Ele não será excluído se você excluir o projeto de migração em que ele foi criado. Se você não precisar mais do workspace, [exclua-o](../log-analytics/log-analytics-manage-access.md) manualmente.
+Você pode usar o workspace do Log Analytics fora de Migrações para Azure. Ele não será excluído se você excluir o projeto de migração em que ele foi criado. Se você não precisar mais do workspace, [exclua-o](../azure-monitor/platform/manage-access.md) manualmente.
 
 Não exclua o workspace criado pelas Migrações para Azure, a menos que você exclua o projeto de migração. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 

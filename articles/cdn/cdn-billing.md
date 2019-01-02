@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091804"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309256"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -40,7 +40,7 @@ Uma região de cobrança é uma área geográfica usada para determinar qual tax
 
 Para obter informações sobre regiões de ponto de presença (POP), consulte [Locais de POP da CDN do Azure por região](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por exemplo, um POP localizado no México está na região da América do Norte e, portanto, é incluído na zona 1. 
 
-Para obter informações sobre preços da CDN do Azure, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Para obter informações sobre preços da CDN do Azure, consulte [Preços de Rede de Distribuição de Conteúdo](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Como os encargos de entrega são calculados por região?
 A região de cobrança da CDN do Azure é baseada no local do servidor de origem que fornece o conteúdo para o usuário final. O destino (local físico) do cliente não é considerado a região de cobrança.
@@ -78,7 +78,7 @@ Se o cliente usa solicitações de intervalo de bytes (independentemente do serv
 ## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Quantas atividades de transferência ocorrem para dar suporte ao cache?
 Cada vez que um POP da CDN precisa preencher seu cache, ele faz uma solicitação para a origem para o objeto que está sendo armazenado em cache. Como resultado, a origem incorre em uma transação faturável em todos os erros de cache. O número de erros de cache depende de vários fatores:
 
-- Quão armazenável em cache o conteúdo é: se o conteúdo tiver alta TTL (vida útil)/valor de expiração e for acessado com frequência para que fique popular em cache, a vasta maioria da carga é manipulada pela CDN. Uma taxa de acertos de cache boa típica é bem acima de 90%, o que significa que menos de 10% das solicitações de clientes precisam retornar para a origem, para um objeto ou um erro de cache de atualização.
+- Quão armazenável em cache o conteúdo é: se o conteúdo tem alta TTL (vida útil)/valor de expiração e é acessado com frequência para que fique popular em cache, a vasta maioria da carga é manipulada pela CDN. Uma taxa de acertos de cache boa típica é bem acima de 90%, o que significa que menos de 10% das solicitações de clientes precisam retornar para a origem, para um objeto ou um erro de cache de atualização.
 
 - Quantos nós precisam carregar o objeto: cada vez que um nó carrega um objeto de origem, ele incorre em uma transação faturável. Como resultado, mais conteúdo global (acessado a partir de outros nós) resulta em transações mais faturáveis.
 

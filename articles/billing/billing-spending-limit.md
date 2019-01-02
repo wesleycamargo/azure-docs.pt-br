@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583504"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680116"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Entender o limite de gastos do Azure e como removê-lo
 
@@ -29,7 +29,7 @@ O limite de gastos no Azure existe para evitar gastos sobre a quantidade de cré
 
 Quando seu uso resultar em encargos que consomem todas as quantias mensais incluídas em sua assinatura, os serviços implantados serão desabilitados durante o restante do período de cobrança. 
 
-Por exemplo, quando gastar todo o crédito incluso na sua assinatura, os Serviços de Nuvem implantados serão removidos da produção e suas máquinas virtuais do Azure serão interrompidas e desalocadas. Os dados em seus bancos de dados e suas contas de armazenamento estarão disponíveis como somente leitura.
+Por exemplo, quando gastar todo o crédito incluso na sua assinatura, os Serviços de Nuvem implantados serão removidos da produção e suas máquinas virtuais do Azure serão interrompidas e desalocadas. Os dados em suas contas de armazenamento estão disponíveis como somente leitura.
 
 No início do próximo período de cobrança, se sua oferta de assinatura incluir créditos durante vários meses, sua assinatura será habilitada novamente automaticamente. Depois, você pode reimplantar seus Serviços de Nuvem e ter acesso total às suas contas de armazenamento e bancos de dados.
 
@@ -46,7 +46,7 @@ Você pode remover o limite de gastos em qualquer momento, contanto que haja um 
 Para remover seu limite de gastos, execute estas etapas:
 
 1. Entre no [Centro de Contas](https://account.windowsazure.com/Subscriptions).
-1. Selecione uma assinatura. Se a assinatura estiver desabilitada devido ao limite de gastos ter sido atingido, clique nessa notificação: "A assinatura atingiu o limite de gastos e foi desabilitada para evitar encargos". Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
+1. Selecione uma assinatura. Se a assinatura estiver desabilitada porque o limite de gastos foi atingido, clique na notificação: “A assinatura alcançou o Limite de Gastos e foi desabilitada para evitar encargos.” Caso contrário, clique em **Remover limite de gastos** na área **STATUS DA ASSINATURA**.
 1. Selecione uma opção que é adequada para você.
 
 ![Selecionando uma opção para remover o limite de gastos](./media/billing-spending-limit/remove-spending-limit.PNG)

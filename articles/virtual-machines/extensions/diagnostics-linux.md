@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994795"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387039"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -38,9 +38,7 @@ Essa extensão funciona com os dois modelos de implantação do Azure.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Instalando a extensão em sua VM
 
-Você pode habilitar essa extensão usando os cmdlets do Azure PowerShell, os scripts da CLI do Azure ou os modelos de implantação do Azure. Para saber mais, veja [Recursos de extensões](features-linux.md).
-
-O Portal do Azure não pode ser usado para habilitar ou configurar o LAD 3.0. Em vez disso, ele instala e configura a versão 2.3. Os grafos de portal e os alertas do Azure funcionam com dados de ambas as versões da extensão.
+Você pode habilitar essa extensão usando os cmdlets do Azure PowerShell, os scripts da CLI do Azure, os modelos de ARM ou o portal do Azure. Para saber mais, veja [Recursos de extensões](features-linux.md).
 
 Estas instruções de instalação e uma [configuração de amostra para download](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configuram o LAD 3.0 para:
 
@@ -55,7 +53,7 @@ A configuração para download é apenas um exemplo; modifique-a para atender à
 
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para atualizá-la.
 * **CLI do Azure**. [Configurar o ambiente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
-* O comando wget, caso ainda não o tenha: execute `sudo apt-get install wget`.
+* O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
 * Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
 * A lista de distribuições Linux com suporte está em https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -174,7 +172,7 @@ Elemento | Valor
 Nome | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
 Tipo | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
 
-A extensão de Diagnóstico do Linux versão 3.0 oferece suporte a dois tipos de coletor: EventHub e JsonBlob.
+A versão 3.0 da Extensão de Diagnóstico do Linux dá suporte a dois tipos de coletores: EventHub e JsonBlob.
 
 #### <a name="the-eventhub-sink"></a>O coletor EventHub
 

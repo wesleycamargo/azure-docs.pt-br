@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365255"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139939"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicativos locais
 
@@ -59,16 +59,16 @@ Com o Proxy de Aplicativo Azure AD, você pode acessar diferentes tipos de aplic
 * Aplicativos cliente avançados que são integrados com a ADAL (Biblioteca de autenticação do Active Directory)
 
 ## <a name="how-does-application-proxy-work"></a>Como o Proxy de Aplicativo funciona?
-Há dois componentes que você precisa configurar para fazer com que o Proxy de Aplicativo funcione: um conector e um ponto de extremidade externo. 
+Há dois componentes que você precisa configurar para fazer com que o Proxy de Aplicativo funcione: um conector e um ponto de extremidade. 
 
 O conector é um agente leve que se encontra em um Windows Server na sua rede. O conector facilita o fluxo de tráfego desde o serviço do Proxy de Aplicativo na nuvem até seu aplicativo local. Ele usa apenas conexões de saída, portanto você não precisa abrir portas de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e efetuam pull de informações da nuvem conforme necessário. Para obter mais informações sobre conectores, como eles fazem o balanceamento de carga e a autenticação, consulte [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md). 
 
-O ponto de extremidade externo é como os usuários acessam seus aplicativos enquanto estão fora da sua rede. Eles podem acessar diretamente uma URL externa que você determinar ou podem acessar o aplicativo por meio do portal MyApps. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.
+O ponto de extremidade pode ser uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.
 
  ![Diagrama do Proxy de Aplicativo do Azure](./media/application-proxy/azureappproxxy.png)
 
-1. O usuário acessa o aplicativo usando o serviço Proxy de Aplicativo e é direcionado para a página de entrada do Azure AD para autenticação.
-2. Após uma entrada bem-sucedida, um token é gerado e enviado ao dispositivo cliente.
+1. Após o usuário ter acessado o aplicativo por meio de um ponto de extremidade, ele será direcionado para a página de entrada do Azure AD. 
+2. Após uma entrada bem-sucedida, um token é gerado e enviado ao dispositivo cliente do usuário.
 3. O cliente agora envia o token para o serviço Proxy de Aplicativo que irá recuperar o nome de usuário principal (UPN) e o nome da entidade de segurança (SPN) do token e direcionar a solicitação para o conector do Proxy de Aplicativo.
 4. Se você tiver configurado o logon único, o conector não realizará nenhuma autenticação adicional necessária em nome do usuário.
 5. O conector envia a solicitação para o aplicativo no local.  
@@ -88,8 +88,8 @@ Antes de configurar o Proxy de Aplicativo, verifique se você tem uma [edição 
 
 Introdução ao Proxy de Aplicativo em duas etapas:
 
-1. [Habilitar o Proxy de Aplicativo e configurar o conector](application-proxy-enable.md).    
-2. [Publicar aplicativos](application-proxy-publish-azure-portal.md) - use o assistente rápido e fácil para publicar seus aplicativos locais e torná-los acessíveis remotamente.
+1. [Habilitar o Proxy de Aplicativo e configurar o conector](application-proxy-add-on-premises-application.md).    
+2. [Publicar aplicativos](application-proxy-add-on-premises-application.md) - use o assistente rápido e fácil para publicar seus aplicativos locais e torná-los acessíveis remotamente.
 
 ## <a name="whats-next"></a>O que vem a seguir?
 Depois de publicar seu primeiro aplicativo, há muito mais você pode fazer com o Proxy de Aplicativo:
@@ -100,5 +100,5 @@ Depois de publicar seu primeiro aplicativo, há muito mais você pode fazer com 
 * [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Definir uma home page personalizada](application-proxy-configure-custom-home-page.md)
 
-Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](https://blogs.technet.com/b/applicationproxyblog/)
 

@@ -1,22 +1,24 @@
 ---
-title: Conexões de saída no Azure (Clássico) | Microsoft Docs
+title: Conexões de saída no Azure (Clássico)
+titlesuffix: Azure Load Balancer
 description: Este artigo explica como o Azure permite que os serviços de nuvem comuniquem-se com serviços de Internet públicos.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219657"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189992"
 ---
 # <a name="outbound-connections-classic"></a>Conexões de saída (Clássico)
 
@@ -54,7 +56,7 @@ Diferentes implantações no Clássico têm funcionalidade diferente:
 
 O algoritmo utilizado para [pré-alocação de portas efêmeras](#ephemeralports) para implantações PAT para clássico é o mesmo que para implantações de recursos do Azure Resource Manager.
 
-### <a name="ilpip"></a>Cenário 1: VM com um endereço IP em Nível de Instância
+### <a name="ilpip"></a>Cenário 1: VM com um endereço IP Público no Nível de Instância
 
 Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM tem ponto de extremidade com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um ILPIP é usado, a VM usa o ILPIP para todos os fluxos de saída.  
 
@@ -62,7 +64,7 @@ Um IP público atribuído a uma VM é uma relação 1:1 (em vez de 1:muitos) e i
 
 Se o aplicativo iniciar muitos fluxos de saída e for observado um esgotamento da porta SNAT, considere atribuir um [ILPIP para mitigar as restrições SNAT](#assignilpip). Revise [Gerenciar esgotamento de SNAT](#snatexhaust) completamente.
 
-### <a name="publiclbendpoint"></a>Cenário 2: ponto de extremidade público com balanceamento de carga
+### <a name="publiclbendpoint"></a>Cenário 2: Ponto de extremidade público com balanceamento de carga
 
 Nesse cenário, a VM ou uma função de trabalho da Web está associada a um endereço IP público por meio do ponto de extremidade com balanceamento de carga. A VM não tem um endereço IP público atribuído a ela. 
 
@@ -74,7 +76,7 @@ As portas SNAT são pré-alocadas conforme descrito na seção [Entendendo SNAT 
 
 Quando [vários pontos de extremidade públicos com balanceamento de carga](load-balancer-multivip.md), qualquer um desses endereços IP públicos é um [candidato para fluxos de saída](#multivipsnat) e um é selecionado aleatoriamente.  
 
-### <a name="defaultsnat"></a>Cenário 3: nenhum endereço IP público associado
+### <a name="defaultsnat"></a>Cenário 3: Sem endereço IP público associado
 
 Nesse cenário, a VM ou função de trabalho da Web não é parte de um ponto de extremidade público com balanceamento de carga.  E, no caso da VM, ela não tem um endereço ILPIP atribuído a ela. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura.  O Azure automaticamente aloca esse endereço.
 

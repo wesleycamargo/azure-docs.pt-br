@@ -9,28 +9,27 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230913"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105284"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicativos Web no tempo de execução com o Application Insights
 
-Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Se forem aplicativos Web do Azure ou estiverem sendo executados em uma VM do Azure, ative o monitoramento do Application Insights no painel de controle do Azure. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](http://azure.com) .
+Você pode instrumentar um aplicativo Web ativo com o Application Insights do Azure, sem a necessidade de modificar ou reimplantar o código. Se os seus aplicativos forem hospedados por um servidor IIS local, instale o Monitor de Status. Se forem aplicativos Web do Azure ou estiverem sendo executados em uma VM do Azure, ative o monitoramento do Application Insights no painel de controle do Azure. (Também há artigos separados sobre como instrumentar os [aplicativos Web J2EE dinâmicos](app-insights-java-live.md) e os [Serviços de Nuvem do Azure](app-insights-cloudservices.md).) É necessário ter uma assinatura do [Microsoft Azure](https://azure.com) .
 
 ![Captura de tela dos gráficos de visão geral do App Insights contendo informações sobre solicitações com falha, tempo de resposta do servidor e solicitações do servidor](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Você tem a opção de três rotas para aplicar o Application Insights nos aplicativos Web .NET:
 
-* **Tempo de compilação:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
-* **Tempo de execução:** instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
-* **Ambos:** crie o SDK em seu código de aplicativo Web e também aplique as extensões de tempo de execução. Obtenha o melhor de ambas as opções.
+* **Tempo de build:** [Adicionar o SDK do Application Insights][greenbrown] ao código do aplicativo Web.
+* **Tempo de execução:** Instrumente seu aplicativo Web no servidor, conforme descrito abaixo, sem recompilar e reimplantar o código.
+* **Ambos:** Compile o SDK em seu código de aplicativo Web e também aplique as extensões de tempo de execução. Obtenha o melhor de ambas as opções.
 
 Aqui está um resumo do que você tem com cada rota:
 
@@ -120,6 +119,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
   * No Gerenciador do IIS, selecione o pool de aplicativos, abra **Configurações Avançadas** e no **Modelo de Processo**, anote a identidade.
   * No painel de controle de gerenciamento do computador, adicione essa identidade ao grupo Usuários do Monitor de Desempenho.
 * Se você tiver o MMA/SCOM (Systems Center Operations Manager) instalado em seu servidor, algumas versões poderão entrar em conflito. Desinstale o SCOM e o Monitor de Status e reinstale as versões mais recentes.
+* Logs do Status Monitor podem ser encontrados nesta localização por padrão: "C:\Arquivos de Programas\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Consulte [Solução de problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos do Sistema
@@ -133,9 +133,9 @@ Suporte de sistema operacional para Application Insights Status Monitor no servi
 
 com o SP mais recente e o .NET Framework 4.5
 
-No lado do cliente, Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
+No lado do cliente: Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
-Suporte ao IIS: IIS 7, 7,5, 8 e 8.5 (o IIS é obrigatório)
+O suporte a IIS é: IIS 7, 7.5, 8, 8.5 (IIS é necessário)
 
 ## <a name="automation-with-powershell"></a>Automação com o PowerShell
 Você pode iniciar e interromper o monitoramento usando o PowerShell no servidor IIS.
@@ -152,9 +152,9 @@ Saiba quais aplicativos estão sendo monitorados:
 * Exibe o status de monitoramento do Application Insights para cada aplicativo Web (ou o aplicativo nomeado) nesse servidor IIS.
 * Retorna `ApplicationInsightsApplication` para cada aplicativo:
 
-  * `SdkState==EnabledAfterDeployment`: o aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Monitor de Status ou pelo `Start-ApplicationInsightsMonitoring`.
-  * `SdkState==Disabled`: o aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
-  * `SdkState==EnabledByCodeInstrumentation`: o aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
+  * `SdkState==EnabledAfterDeployment`: O aplicativo está sendo monitorado e foi instrumentado em tempo de execução, pela ferramenta Status Monitor ou pelo `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==Disabled`: O aplicativo não é instrumentado para o Application Insights. Ele nunca foi instrumentado ou o monitoramento em tempo de execução foi desabilitado com a ferramenta Monitor de Status ou com o `Stop-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledByCodeInstrumentation`: O aplicativo foi instrumentado por meio da adição do SDK ao código-fonte. Seu SDK não pode ser atualizado ou interrompido.
   * `SdkVersion` mostra a versão em uso para o monitoramento do aplicativo.
   * `LatestAvailableSdkVersion`mostra a versão atualmente disponível na galeria do NuGet. Para atualizar o aplicativo para esta versão, use `Update-ApplicationInsightsMonitoring`.
 
@@ -187,7 +187,7 @@ Saiba quais aplicativos estão sendo monitorados:
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
-* `-Name`: o nome de um aplicativo Web no IIS.
+* `-Name`: O nome de um aplicativo Web no IIS.
 * `-InstrumentationKey` (Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
   * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
@@ -218,9 +218,12 @@ Ele não coleta telemetria por si só. Ele apenas configura os aplicativos web e
 
 Quando você seleciona um aplicativo web para o Status Monitor para instrumentar:
 
-* Baixa e coloca os assemblies do Application Insights e o arquivo .config na pasta de binários do aplicativo web.
-* Modifica `web.config` para adicionar o módulo de rastreamento de HTTP do Application Insights.
+* Baixa e coloca os assemblies do Application Insights e o arquivo ApplicationInsights.config na pasta de binários do aplicativo Web.
 * Permite a criação de perfil do CLR para coletar chamadas de dependência.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Qual versão do SDK do Application Insights o Status Monitor instala?
+
+Agora, o Status Monitor só pode instalar as versões 2.3 ou 2.4 do SDK do Application Insights.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>É necessário executar o Status Monitor sempre que eu atualizar o aplicativo?
 
@@ -243,7 +246,7 @@ Para aplicativos já instrumentados em tempo de compilação:
  * Chamadas de dependência (.NET 4.5); valores de retorno em chamadas de dependência (.NET 4.6).
  * Exceção dos valores do rastreamento de pilha.
 
-[Saiba mais](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[Saiba mais](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>Vídeo
 

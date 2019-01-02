@@ -4,9 +4,8 @@ description: Identifique e corrija os problemas comuns encontrados quando você 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307195"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252772"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Solucionando problemas do novo treinamento de um serviço da web clássico do Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Visão geral da readaptação
@@ -41,16 +40,16 @@ Em seguida, pode usar o código C# de exemplo na página de ajuda da API do Serv
 
 Com todas as peças no lugar, as principais etapas necessárias para readaptar o modelo são as seguintes:
 
-1. Chame o serviço Web de treinamento: a chamada é para o BES (Serviço de Execução em Lote), não o RRS (Serviço de Resposta a Solicitação). Você pode usar o Código c# de exemplo na página de ajuda da API para fazer a chamada. 
-2. Encontre os valores para *BaseLocation*, *RelativeLocation* e *SasBlobToken*: esses valores são retornados na saída de sua chamada para o Serviço Web de treinamento. 
+1. Chame o serviço Web de treinamento:  a chamada é para o BES (Serviço de Execução em Lote), não o RRS (Serviço de Resposta à Solicitação). Você pode usar o Código c# de exemplo na página de ajuda da API para fazer a chamada. 
+2. Encontre os valores de *BaseLocation*, *RelativeLocation* e *SasBlobToken*: Esses valores são retornados na saída da chamada para o serviço Web de treinamento. 
    ![exibindo a saída do exemplo de readaptação e os valores BaseLocation, RelativeLocation e SasBlobToken.][image6]
-3. Atualize o ponto de extremidade adicionado do serviço Web de pontuação com o novo modelo treinado: usando o código de exemplo fornecido em Readaptar os modelos de Machine Learning de forma programática, atualize o novo ponto de extremidade adicionado ao modelo de pontuação com o modelo treinado recentemente do Serviço Web de Treinamento.
+3. Atualize o ponto de extremidade do serviço Web de pontuação adicionado com o novo modelo treinado: usando o código de exemplo fornecido em Treinar novamente os modelos de machine learning de forma programática, atualize o novo ponto de extremidade adicionado ao modelo de pontuação com o modelo recém-treinado do Serviço Web de Treinamento.
 
 ## <a name="common-obstacles"></a>Obstáculos comuns
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se você tem a URL correta do PATCH
 A URL do PATCH que você está usando deve ser a associada ao novo ponto de extremidade de pontuação adicionado ao serviço Web de pontuação. Há várias maneiras de obter a URL do PATCH:
 
-**Opção 1: use um programa**
+**Opção 1: de forma programática**
 
 Para obter a URL correta do PATCH:
 
@@ -61,7 +60,7 @@ Para obter a URL correta do PATCH:
 3. Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
 4. Clique no link **Atualizar Recurso** para abrir a página de ajuda do patch.
 
-**Opção 2: usar o portal de Serviços Web do Azure Machine Learning**
+**Opção 2: usar o portal de serviços Web do Azure Machine Learning**
 
 1. Entre no portal [Serviços Web do Azure Machine Learning](https://services.azureml.net/).
 2. Clique em **Serviços Web** ou **Serviços Web Clássicos** na parte superior.
@@ -71,7 +70,7 @@ Para obter a URL correta do PATCH:
 7. No URL do **Patch**, clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
 
 > [!NOTE]
-> Caso tenha adicionado o ponto de extremidade ao Serviço Web de Treinamento, em vez do Serviço Web de Previsão, você receberá o seguinte erro ao clicar no link **Atualizar Recurso**: “Desculpe, mas esse recurso não é compatível nem está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
+> Se você tiver adicionado o ponto de extremidade no serviço Web de treinamento e não no serviço Web preditivo, você receberá o seguinte erro ao clicar no link **Recurso de Atualização**: "Não há suporte para esse recurso ou ele não está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
 > 
 > 
 
@@ -80,8 +79,8 @@ A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece
 ![URL de patch.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Verifique se você está atualizando o ponto de extremidade correto de pontuação
-* Não corrija o serviço Web de treinamento: a operação do patch deve ser executada no serviço Web de pontuação.
-* Não corrija o ponto de extremidade padrão no serviço Web: a operação do patch deve ser executada no novo ponto de extremidade de serviço Web de pontuação que você adicionou.
+* Não corrija o serviço Web de treinamento: a operação de patch precisa ser executada no serviço Web de pontuação.
+* Não corrija o ponto de extremidade padrão no serviço Web: a operação de patch precisa ser executada no novo ponto de extremidade de serviço Web de pontuação que você adicionou.
 
 Você pode verificar em qual serviço Web está o ponto de extremidade acessando o portal de Serviços Web. 
 

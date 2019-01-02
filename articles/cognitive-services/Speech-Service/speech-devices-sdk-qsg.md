@@ -1,5 +1,5 @@
 ---
-title: Introdução ao SDK de Dispositivos de Fala
+title: Introdução ao SDK de Dispositivos de Fala – Serviços de Fala
 titleSuffix: Azure Cognitive Services
 description: Pré-requisitos e instruções para começar a trabalhar com o SDK de Dispositivos de Fala.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e035e1bdedefc8e327b0179006b45f3bad4c41ee
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 46f7762a815a7fa4aa4663d9ac6e7c6001ea345c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470193"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097175"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introdução ao SDK de Dispositivos de Fala
 
-Este artigo descreve como configurar seu PC de desenvolvimento e o kit de desenvolvimento de Dispositivo de Fala para o desenvolvimento de dispositivos habilitados para fala usando o SDK de Dispositivos de Fala. Em seguida, você criará e implantará um aplicativo de exemplo para o dispositivo. 
+Este artigo descreve como configurar seu PC de desenvolvimento e o kit de desenvolvimento de Dispositivo de Fala para o desenvolvimento de dispositivos habilitados para fala usando o SDK de Dispositivos de Fala. Em seguida, você criará e implantará um aplicativo de exemplo para o dispositivo.
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -40,7 +41,7 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
 * Obter uma [chave de assinatura do serviço de fala](get-started.md). Você pode obter uma avaliação gratuita de 30 dias ou obter uma chave do painel do Azure.
 
-* Se você quiser o reconhecimento de intenção de serviço de fala, increva-se no [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [obtenha uma chave de assinatura](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
+* Se você quiser o reconhecimento de intenção de serviço de fala, increva-se no [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) e [obtenha uma chave de assinatura](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     Você pode [criar um modelo simples de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) ou usar o modelo LUIS, LUIS-example.json. O exemplo de modelo LUIS está disponível na [site de download do SDK de Dispositivos de Fala](https://shares.datatransfer.microsoft.com/). Para carregar o arquivo JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione **Importar novo aplicativo**e, em seguida, selecione o arquivo JSON.
 
@@ -64,9 +65,9 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 1. Instalar os certificados e o arquivo de tabela (palavra-chave) do word de ativação e defina as permissões do dispositivo de som. Digite os seguintes comandos em uma janela de Prompt de comando:
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -77,34 +78,34 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
     > [!TIP]
     > Coloque o microfone e alto-falante no mudo para certificar-se de que você está trabalhando com microfones do kit de desenvolvimento de seu PC. Dessa forma, você não dispara acidentalmente o dispositivo com o áudio do PC.
-    
+
 1.  Inicie o Vysor no seu computador.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  Seu dispositivo deve estar listado em **Escolha um dispositivo**. Clique no botão **Exibir** ao lado do dispositivo. 
- 
+1.  Seu dispositivo deve estar listado em **Escolha um dispositivo**. Clique no botão **Exibir** ao lado do dispositivo.
+
 1.  Conecte-se à sua rede sem fio, selecionando o ícone de pasta e, em seguida, selecione **Configurações** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > Se sua empresa tem políticas sobre como conectar dispositivos ao seu sistema de Wi-Fi, é neecessário obter o endereço MAC e entrar em contato com seu departamento de TI sobre como conectar-se ao Wi-Fi de sua empresa. 
+    > Se sua empresa tem políticas sobre como conectar dispositivos ao seu sistema de Wi-Fi, é neecessário obter o endereço MAC e entrar em contato com seu departamento de TI sobre como conectar-se ao Wi-Fi de sua empresa.
     >
     > Para localizar o endereço MAC do kit de desenvolvimento, selecione o ícone de pasta de arquivo na área de trabalho do kit de desenvolvimento.
     >
     >  ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-10.png)
     >
-    > Escolha a opção **Configurações**. Pesquise "endereço mac" e, em seguida, selecione **endereço Mac** > **WLAN Avançado**. Anote o endereço MAC que aparece na parte inferior da caixa de diálogo. 
+    > Escolha a opção **Configurações**. Pesquise "endereço mac" e, em seguida, selecione **endereço Mac** > **WLAN Avançado**. Anote o endereço MAC que aparece na parte inferior da caixa de diálogo.
     >
     > ![Endereço MAC do Vysor](media/speech-devices-sdk/qsg-11.png)
     >
     > Algumas empresas podem ter um tempo limite de quanto tempo um dispositivo pode ser conectado a seus sistemas Wi-Fi. Talvez seja necessário estender o registro do kit de desenvolvimento com o sistema Wi-Fi após um determinado número de dias.
-    > 
+    >
     > Se você quiser conectar um alto-falante ao o kit de desenvolvimento, você pode conectá-lo à saída de linha de Áudio. Você deve escolher um palestrante de boa qualidade, mm 3.5.
     >
     > ![Áudio do Vysor](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## <a name="run-a-sample-application"></a>Executar um aplicativo de exemplo
 
 Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimento, crie e instale o aplicativo de exemplo:
@@ -114,10 +115,10 @@ Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimen
 1.  Selecionar **Abrir um projeto existente do Android Studio**.
 
     ![Android Studio - Abrir um projeto existente](media/speech-devices-sdk/qsg-5.png)
- 
+
 1.  Vá para C:\SDSDK\Android-Sample-Release\example. Selecione **Ok** para abrir o projeto de exemplo.
- 
-1.  Adicione sua chave de assinatura de Fala ao código-fonte. Se você quiser experimentar o reconhecimento de intenção, adicione também sua chave de assinatura [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e ID do aplicativo. 
+
+1.  Adicione sua chave de assinatura de Fala ao código-fonte. Se você quiser experimentar o reconhecimento de intenção, adicione também sua chave de assinatura [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e ID do aplicativo.
 
     Suas chaves e as informações do aplicativo vão nas linhas a seguir no arquivo de origem MainActivity.java:
 
@@ -135,7 +136,7 @@ Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimen
     Você também pode [criar uma palavra de ativação personalizada](speech-devices-sdk-create-kws.md).
 
     Para instalar a palavra de ativação que você deseja usar:
- 
+
     * Crie uma pasta de palavra-chave na pasta de dados no dispositivo, executando os seguintes comandos em uma janela de Prompt de comando:
 
         ```
@@ -152,9 +153,9 @@ Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimen
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * Consulte esses arquivos no aplicativo de exemplo. Localize as seguintes linhas em MainActivity.java. Certifique-se de que a palavra-chave especificada é a que você está usando e que o caminho aponta para o arquivo `kws.table` enviado para o dispositivo.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -175,7 +176,7 @@ Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimen
     private static final String SelectedGeometry = "Circular6+1";
     ```
     A tabela a seguir descreve os valores disponíveis:
-    
+
     |Variável|Significado|Valores disponíveis|
     |--------|-------|----------------|
     |`DeviceGeometry`|Configuração de microfone físico|Para um kit de desenvolvimento circular: `Circular6+1` |
@@ -186,12 +187,12 @@ Para executar os testes ROOBO e validar sua instalação do kit de desenvolvimen
     |||Para um kit de desenvolvimento linear que usa dois microfones: `Linear2`|
 
 
-1.  Para compilar o aplicativo, no menu **Executar**, selecione **Executar 'aplicativo'**. A caixa de diálogo **Selecionar o Destino de Implantação** aparece. 
+1.  Para compilar o aplicativo, no menu **Executar**, selecione **Executar 'aplicativo'**. A caixa de diálogo **Selecionar o Destino de Implantação** aparece.
 
 1. Selecione seu dispositivo e, em seguida, selecione **OK** para implantar o aplicativo no dispositivo.
 
     ![Selecione a caixa de diálogo Destino da Implantação](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.  O aplicativo de exemplo do SDK de Dispositivos de Fala é iniciado e exibe as seguintes opções:
 
     ![Aplicativo de exemplo e opções do SDK de Dispositivos de Fala de Exemplo](media/speech-devices-sdk/qsg-8.png)
@@ -208,12 +209,12 @@ Se você receber falhas de certificado ao usar o serviço de Fala, certifique-se
 
     ![Em Configurações, selecione a Data e hora](media/speech-devices-sdk/qsg-12.png)
 
-1. Mantenha a opção selecionada **Data e hora automática**. Em **Selecionar fuso horário**, selecione seu fuso horário atual. 
+1. Mantenha a opção selecionada **Data e hora automática**. Em **Selecionar fuso horário**, selecione seu fuso horário atual.
 
     ![Selecione as opções de data e fuso horário](media/speech-devices-sdk/qsg-13.png)
 
-    Quando você vir que o tempo do kit de desenvolvimento corresponde o tempo em seu computador, o kit de desenvolvimento estará conectado à internet. 
-    
+    Quando você vir que o tempo do kit de desenvolvimento corresponde o tempo em seu computador, o kit de desenvolvimento estará conectado à internet.
+
     Para obter mais informações de desenvolvimento, consulte o [Guia de desenvolvimento ROOBO](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### <a name="audio"></a>Áudio

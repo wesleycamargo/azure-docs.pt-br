@@ -1,6 +1,6 @@
 ---
-title: Filtros de idioma no Azure Search | Microsoft Docs
-description: Critérios de filtro por identidade de segurança do usuário, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem hospedado no Microsoft Azure.
+title: Filtros de idioma para conteúdo em vários idiomas em um índice de pesquisa – Azure Search
+description: Critérios de filtragem para dar suporte à pesquisa em vários idiomas, definindo o escopo da execução de consulta para campos específicos a um idioma.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,12 +9,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 2bacffe64fed3e2ee0cc2eb983776b4ab7086e51
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec2018
+ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466572"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311177"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Como filtrar por idioma no Azure Search 
 

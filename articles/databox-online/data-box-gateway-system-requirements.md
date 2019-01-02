@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157353"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256665"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Azure Data Box Gateway (versão prévia)
 
@@ -26,6 +26,19 @@ Os requisitos de sistema para o dispositivo virtual Data Box Gateway incluem:
 
 > [!IMPORTANT]
 > O Data Box Gateway está em versão prévia. Examine os [termos de uso para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução. 
+
+## <a name="specifications-for-the-virtual-device"></a>Especificações para o dispositivo virtual
+
+O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguintes recursos para provisionar seu dispositivo virtual:
+
+| Especificações                                          | DESCRIÇÃO              |
+|---------------------------------------------------------|--------------------------|
+| Processadores virtuais (núcleos)   | Mínimo de 4 |            
+| Memória  | Mínimo de 8 GB|
+| Disponibilidade|Nó único|
+| Discos| Disco do sistema operacional: 250 GB <br> Disco de dados: Mínimo de 2 TB, com provisionamento dinâmico e deve ser ativado por SSDs|
+| Interfaces de rede|1 ou mais adaptadores de rede virtual|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operacional com suporte para clientes conectados ao dispositivo
 
@@ -88,7 +101,7 @@ Aqui está uma lista dos navegadores com suporte para a interface do usuário da
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
-A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego SMB, de nuvem ou de gerenciamento. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção para a qual seu dispositivo Gateway do Data Box envia dados externamente, além da implantação: por exemplo, saída para a Internet.
+A tabela a seguir lista as portas que devem ser abertas no firewall para permitir o tráfego SMB, de nuvem ou de gerenciamento. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *Saída* ou *de saída* refere-se à direção para a qual seu dispositivo Data Box Gateway envia dados externamente, além da implantação: por exemplo, saída para a Internet.
 
 | Nº da porta| Entrada ou saída | Escopo da porta| Obrigatório|   Observações                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
@@ -133,5 +146,5 @@ Os seguintes requisitos aplicam-se à largura de banda mínima da Internet dispo
 
 ## <a name="next-step"></a>Próxima etapa
 
-* [Implantar o Gateway do Azure Data Box](data-box-gateway-deploy-prep.md)
+* [Implantar o Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
 

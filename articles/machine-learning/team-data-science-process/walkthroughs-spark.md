@@ -1,5 +1,5 @@
 ---
-title: Passo a passo do HDInsight Spark usando PySpark e Scala no Azure | Microsoft Docs
+title: Análise no HDInsight Spark com PySpark, Scala – Processo de Ciência de Dados da Equipe
 description: Exemplos do Processo de Ciência de Dados de Equipe que fornecem orientação sobre o uso de PySpark e Scala em um Azure HDInsight Spark para fazer análise preditiva.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f96e273e27e8d9d6a40370c4ed2161c4a828c5c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446391"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135892"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Passo a passo de ciência de dados do HDInsight Spark usando PySpark e Scala no Azure
 
@@ -40,7 +40,7 @@ Confira [Modelagem e exploração de dados avançados com o Spark](spark-advance
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Prever gorjetas de táxi usando Scala no Azure Spark
 
-O passo a passo [Usar Scala com Spark no Azure](scala-walkthrough.md) usa dados dos táxis de Nova York para prever se uma gorjeta será paga, e os valores esperados. Ele mostra como usar o Scala para tarefas de Machine Learning supervisionado com a biblioteca de Machine Learning do Spark (MLlib) e pacotes SparkML em um cluster Spark do Azure HDInsight. Ele explica as tarefas que constituem o [Processo de ciência de dados](https://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos criados incluem a regressão logística e linear, florestas aleatórias e árvores aumentadas gradientes.
+O passo a passo [Usar Scala com Spark no Azure](scala-walkthrough.md) usa dados dos táxis de Nova York para prever se uma gorjeta será paga, e os valores esperados. Ele mostra como usar o Scala para tarefas de Machine Learning supervisionado com a biblioteca de Machine Learning do Spark (MLlib) e pacotes SparkML em um cluster Spark do Azure HDInsight. Ele explica as tarefas que constituem o [Processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos criados incluem a regressão logística e linear, florestas aleatórias e árvores aumentadas gradientes.
 
 
 ## <a name="next-steps"></a>Próximas etapas

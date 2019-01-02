@@ -1,5 +1,5 @@
 ---
-title: Analisadores no Azure Search | Microsoft Docs
+title: Analisadores para linguística e processamento de texto - Azure Search
 description: Atribua analisadores a campos de pesquisa de texto pesquisáveis em um índice para substituir Lucene Standard padrão com alternativas personalizadas específicas a um idioma ou predefinidas.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310531"
 ---
-# <a name="analyzers-in-azure-search"></a>Analisadores no Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores para processamento de texto no Azure Search
 
 Um *analisador* é um componente da [pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. As transformações a seguir são comuns durante a análise:
 
@@ -82,7 +83,7 @@ A [Demonstração do analisador de pesquisa](http://alice.unearth.ai/) é um apl
 Os exemplos abaixo mostram definições do analisador para alguns cenários principais.
 
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Exemplo 1: opções personalizadas
+### <a name="example-1-custom-options"></a>Exemplo 1: Opções personalizadas
 
 Este exemplo ilustra uma definição de analisador com opções personalizadas. Opções personalizadas para filtros de caractere, tokenizadores e filtros de token são especificadas separadamente como constructos nomeados e, depois, referenciadas na definição do analisador. Elementos predefinidos são usados no estado em que se encontram e simplesmente referenciados por nome.
 
@@ -149,7 +150,7 @@ Percorrendo este exemplo:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Exemplo 2: substituir o analisador padrão
+### <a name="example-2-override-the-default-analyzer"></a>Exemplo 2: Substituir o analisador padrão
 
 O analisador Standard é o padrão. Suponha que você deseja substituir o padrão com um analisador predefinido diferente, como o analisador de padrões. Se você não está definindo opções personalizadas, você só precisa especificá-lo pelo nome na definição do campo.
 
@@ -181,7 +182,7 @@ O elemento "analisador" substitui o analisador Standard, campo por campo. Não h
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemplo 3: analisadores diferentes para operações de indexação e pesquisa
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemplo 3: Analisadores diferentes para operações de indexação e pesquisa
 
 As APIs incluem atributos de índice adicionais para especificar diferentes analisadores para indexação e pesquisa. Os atributos `searchAnalyzer` e `indexAnalyzer` devem ser especificados como um par, substituindo o atributo `analyzer` único.
 
@@ -208,7 +209,7 @@ As APIs incluem atributos de índice adicionais para especificar diferentes anal
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Exemplo 4: analisador de linguagem
+### <a name="example-4-language-analyzer"></a>Exemplo 4: Analisador de linguagem
 
 Campos que contêm cadeias de caracteres em idiomas diferentes podem usar um analisador de idioma, enquanto outros campos mantêm o padrão (ou usam algum outro analisador predefinido ou personalizado). Se você usar um analisador de idioma, ele deverá ser usado para operações de indexação e de pesquisa. Campos que usam um analisador de linguagem não podem ter analisadores diferentes para indexação e pesquisa.
 

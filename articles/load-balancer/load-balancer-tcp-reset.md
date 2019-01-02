@@ -1,26 +1,24 @@
 ---
-title: Redefinição de TCP do Balanceador de Carga quando ocioso | Microsoft Docs
+title: Redefinição de TCP do Load Balancer quando ocioso no Azure
+titlesuffix: Azure Load Balancer
 description: Load Balancer com pacotes TCP RST bidirecionais em tempo limite de ociosidade
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883628"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257278"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
 
@@ -76,7 +74,17 @@ Esse parâmetro está efetivo atualmente nas seguintes regiões.  Em regiões n�
 | Região |
 |---|
 | Sudeste da Ásia |
+| Sul do Brasil |
+| Canadá Central |
 | Europa Ocidental |
+| Centro da Índia |
+| Oeste da Índia |
+| Oeste do Japão |
+| Coreia Central |
+| Sul da Coreia |
+| Norte do Reino Unido |
+| Sul do Reino Unido 2 |
+| Leste dos EUA |
 | Leste dos EUA 2 |
 | Norte do Reino Unido |
 | Oeste dos EUA |

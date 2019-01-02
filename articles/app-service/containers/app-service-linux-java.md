@@ -1,6 +1,6 @@
 ---
-title: Suporte para linguagem Java para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs
-description: Guia do desenvolvedor para implantar aplicativos Java com o Serviço de Aplicativo do Azure no Linux.
+title: Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux – Azure | Microsoft Docs
+description: Saiba como configurar aplicativos Java em execução no Serviço de Aplicativo do Azure no Linux.
 keywords: serviço de aplicativo do azure, aplicativo Web, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497344"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407330"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -53,7 +54,7 @@ Em seguida, transmita os logs para o console usando `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Para saber mais, confira [Transmitir logs com a CLI do Azure](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface).
+Para saber mais, confira [Transmitir logs com a CLI do Azure](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Registro em log do aplicativo
 
@@ -134,7 +135,7 @@ Os aplicativos Java em execução no Serviço de Aplicativo para Linux têm o me
 
 ### <a name="authenticate-users"></a>Autenticar usuários
 
-Configure a autenticação de aplicativo no portal do Azure com a opção **Autenticação e autorização**. Em seguida, será possível habilitar a autenticação usando o Azure Active Directory ou os logons de redes sociais, como Facebook, Google ou GitHub. A configuração do portal do Azure só funciona ao configurar um único provedor de autenticação.  Para saber mais, confira [Configurar o aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) e os artigos relacionados para outros provedores de identidade.
+Configure a autenticação de aplicativo no portal do Azure com a opção **Autenticação e autorização**. Em seguida, será possível habilitar a autenticação usando o Azure Active Directory ou os logons de redes sociais, como Facebook, Google ou GitHub. A configuração do portal do Azure só funciona ao configurar um único provedor de autenticação.  Para saber mais, confira [Configurar o aplicativo do Serviço de Aplicativo para usar o logon do Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) e os artigos relacionados para outros provedores de identidade.
 
 Se você precisar habilitar vários provedores de entrada, siga as instruções no artigo [Personalizar a autenticação do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
 
@@ -151,36 +152,47 @@ Siga as instruções em [Associar um certificado SSL personalizado existente](/a
 >[!NOTE]
 > Se o aplicativo usar o Spring Framework ou o Spring Boot, será possível definir informações de conexão de banco de dados para o Spring Data JPA, como variáveis de ambiente (no arquivo de propriedades do aplicativo). Em seguida, use as [configurações do aplicativo](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para o aplicativo no portal ou na CLI do Azure.
 
-Os snippets de configuração de exemplo nesta seção usam o banco de dados MySQL. Para obter mais informações, confira os documentos de configuração para [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Essas instruções se aplicam a todas as conexões de banco de dados. Você precisará preencher os espaços reservados com nome de classe do driver do banco de dados escolhido e o arquivo JAR. É fornecida uma tabela com nomes de classe e downloads de driver para bancos de dados comuns.
 
-Para configurar o Tomcat para usar conexões gerenciadas com bancos de dados usando o JDBC (Java Database Connectivity) ou a JPA (API de Persistência do Java), primeiro, personalize a variável de ambiente CATALINA_OPTS lida pelo Tomcat na inicialização. Defina esses valores por meio de uma configuração de aplicativo no plug-in Maven do Serviço de Aplicativo:
+| Banco de dados   | Nome de Classe do Driver                             | Driver JDBC                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [Baixar](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Baixar](https://dev.mysql.com/downloads/connector/j/) (Selecione "Independente de Plataforma") |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Baixar](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+Para configurar o Tomcat para usar a JDBC (Conectividade de Banco de Dados Java) ou a JPA (API de Persistência Java), primeiro personalize a variável de ambiente `CATALINA_OPTS` lida em Tomcat na inicialização do backup. Defina esses valores por meio de uma configuração de aplicativo no [plug-in Maven do Serviço de Aplicativo](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Ou uma configuração equivalente do Serviço de Aplicativo no portal do Azure.
+Ou defina as variáveis de ambiente na folha "Configurações de Aplicativo" no portal do Azure.
 
-Em seguida, determine se a fonte de dados precisa ser disponibilizada apenas para um aplicativo ou para todos os aplicativos em execução no Plano do Serviço de Aplicativo.
+>[!NOTE]
+> Se você estiver usando o banco de dados do Azure para Postgres, substitua `ssl=true` por `sslmode=require` na cadeia de conexão JDBC.
 
-Para fontes de dados no nível do aplicativo: 
+Em seguida, determine se a fonte de dados deve estar disponível para um aplicativo ou para todos os aplicativos em execução no servlet do Tomcat.
 
-1. Adicione um arquivo `context.xml` se ele não existir no aplicativo Web e adicione-o ao diretório `META-INF` do arquivo WAR quanto o projeto estiver pronto.
+#### <a name="for-application-level-data-sources"></a>Para fontes de dados no nível do aplicativo: 
 
-2. Nesse arquivo, adicione uma entrada do caminho `Context` para vincular a fonte de dados a um endereço JNDI.
+1. Crie um arquivo `context.xml` no diretório `META-INF/` do seu projeto. Crie o diretório `META-INF/` se ele não existir.
+
+2. Em `context.xml`, adicione um elemento `Context` para vincular a fonte de dados a um endereço JNDI. Substitua o espaço reservado `driverClassName` pelo nome de classe do seu driver da tabela acima.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +201,50 @@ Para fontes de dados no nível do aplicativo:
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-Para os recursos compartilhados no nível do servidor:
+#### <a name="for-shared-server-level-resources"></a>Para os recursos compartilhados no nível do servidor:
 
 1. Copie o conteúdo de `/usr/local/tomcat/conf` para `/home/tomcat/conf` na instância do Serviço de Aplicativo no Linux usando SSH se já não houver uma configuração.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. Adicione o contexto ao `server.xml`
+2. Adicione um elemento de Contexto em seu `server.xml` dentro do elemento `<Server>`.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. Atualize o `web.xml` do aplicativo para usar a fonte de dados no aplicativo.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório `/home/tomcat/lib`. Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por fim, coloque os JARs do driver no classpath do Tomcat e reinicie o Serviço de Aplicativo: 
+
+1. Verifique se os arquivos do driver JDBC estão disponíveis para o carregador de classes do Tomcat colocando-os no diretório `/home/tomcat/lib`. (Crie esse diretório se ele ainda não existir.) Para carregar esses arquivos na instância do Serviço de Aplicativo, siga estas etapas:  
     1. Instale a extensão de aplicativo Web do Serviço de Aplicativo do Azure:
 
       ```azurecli-interactive
@@ -235,7 +259,9 @@ Para os recursos compartilhados no nível do servidor:
 
     3. Faça a conexão da porta de túnel local com o cliente SFTP e carregue os arquivos na pasta `/home/tomcat/lib`.
 
-5. Reinicie o aplicativo Serviço de Aplicativo no Linux. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat/conf` e usará as classes e a configuração atualizadas.
+    Como alternativa, você pode usar um cliente de FTP para carregar o driver JDBC. Siga estas [instruções para obter suas credenciais FTP](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+
+2. Se você tiver uma fonte de dados no nível do servidor, reinicie o aplicativo Linux Serviço de Aplicativo. O Tomcat redefinirá `CATALINA_HOME` como `/home/tomcat/conf` e usará a configuração atualizada.
 
 ## <a name="docker-containers"></a>Contêineres do Docker
 
@@ -245,7 +271,7 @@ Para usar o JDK do Zulu com suporte do Azure em seus contêineres, efetue pull e
 
 O Serviço de Aplicativo para Linux dá suporte a dois tempos de execução para hospedagem gerenciada de aplicativos Web do Java:
 
-- O [contêiner do servlet do Tomcat](http://tomcat.apache.org/) para execução de aplicativos empacotados como arquivos Web (WAR). As versões com suporte são 8.5 e 9.0.
+- O [contêiner do servlet do Tomcat](https://tomcat.apache.org/) para execução de aplicativos empacotados como arquivos Web (WAR). As versões com suporte são 8.5 e 9.0.
 - O ambiente de tempo de execução do Java SE para executar aplicativos empacotados como arquivos Java (JAR). A única versão principal com suporte é a Java 8.
 
 ## <a name="java-runtime-statement-of-support"></a>Declaração de suporte do tempo de execução do Java 

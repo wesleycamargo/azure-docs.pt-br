@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 1eff6ab146bb3a7ee053b8ac7fe3137d7c58c93a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.custom: seodec18
+ms.openlocfilehash: 6eb8e265dc415e39f9c8728d32f3deecc2d4e646
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212464"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163796"
 ---
-# <a name="qna-maker-rest-api-with-python"></a>API de REST do QnA Maker com Python
+# <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Como usar a API REST de QnA Maker com Python
 <a name="HOLTop"></a>
 
 Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overview.md)  com Python para fazer o seguinte.
@@ -37,7 +38,7 @@ Este artigo mostra como usar a [API de QnA Maker da Microsoft](../Overview/overv
 - [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
 - [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

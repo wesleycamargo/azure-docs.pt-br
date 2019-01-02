@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309422"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012837"
 ---
 # <a name="azure-resource-health-overview"></a>Visão geral do Azure Resource Health
  
@@ -53,7 +53,7 @@ O Resource Health fornece detalhes adicionais sobre o evento e o processo de rec
 ![Status de "Não disponível" para uma máquina virtual devido a um evento de plataforma](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Eventos de não plataforma
-Eventos de não plataforma são disparados pelas ações dos usuários. Exemplos são parar uma máquina virtual ou alcançar o número máximo de conexões para um cache Redis.
+Eventos de não plataforma são disparados pelas ações dos usuários. Exemplos são parar uma máquina virtual ou alcançar o número máximo de conexões para um Cache do Azure para Redis.
 
 ![Status de "Não disponível" para uma máquina virtual devido a um evento de não plataforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

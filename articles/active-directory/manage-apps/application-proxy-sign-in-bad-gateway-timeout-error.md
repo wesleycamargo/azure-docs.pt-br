@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354249"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134821"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
@@ -29,7 +29,7 @@ Este artigo ajuda-o a solucionar problemas comuns do erro "Este aplicativo corpo
 ## <a name="overview"></a>Visão geral
 Quando você vir esse erro, localize o código de status na página de erro. Esse código provavelmente é um dos seguintes códigos de status:
 
--   **Tempo Limite de Gateway**: O serviço do Proxy da Aplicativo não consegue alcançar o conector. Esse erro normalmente indica um problema com a atribuição do conector, o próprio conector ou as regras de rede do conector.
+-   **Tempo Limite do Gateway**: O serviço de Proxy do Aplicativo não consegue alcançar o conector. Esse erro normalmente indica um problema com a atribuição do conector, o próprio conector ou as regras de rede do conector.
 
 -   **Gateway Incorreto**: O conector não consegue alcançar o aplicativo back-end. Esse erro indicar uma configuração incorreta do aplicativo.
 
@@ -62,7 +62,7 @@ Um erro de gateway incorreto indica que o conector não consegue alcançar o apl
 
 Se você se deparar com um erro proibido, significa que o usuário não foi atribuído ao aplicativo. Esse erro pode ser no Azure Active Directory ou no aplicativo back-end.
 
-Para saber como atribuir usuários ao aplicativo no Azure, consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Para saber como atribuir usuários ao aplicativo no Azure, consulte a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Se você confirmar que o usuário está atribuído ao aplicativo no Azure, verifique a configuração do usuário no aplicativo back-end. Se você estiver usando Delegação Restrita de Kerberos/Autenticação Integrada do Windows, consulte a página Solucionar problemas de KCD para ver diretrizes.
 
@@ -82,11 +82,11 @@ Para verificar se o aplicativo está atribuído a um Grupo de Conectores de trab
 
 4.  A partir daqui, há algumas maneiras de aprofundar-se ainda mais:
 
-  * Mover um Conector ativo para o grupo: Se você tiver um Conector ativo que deveria pertencer a esse grupo e tiver linha de visão para o aplicativo back-end de destino, será possível mover o Conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
+  * Mover um conector ativo para o grupo: Se você tiver um conector ativo que deve pertencer ao grupo e tem metas claras para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
 
-  * Baixar um novo Conector para esse grupo: Nessa página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Em geral, o Conector está instalado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
+  * Baixar um novo conector para o grupo: Nesta página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Em geral, o Conector está instalado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
 
-  * Investigar um conector inativo: Se um conector mostrar como inativo, ele não conseguirá alcançar o serviço. Esse erro geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, avance para "verificar se todas as portas exigidas estão na lista de permissões".
+  * Investigar um conector inativo: Se um conector for exibido como inativo, ele não conseguirá alcançar o serviço. Esse erro geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, avance para "verificar se todas as portas exigidas estão na lista de permissões".
 
 Após usar essas etapas para garantir que o aplicativo está atribuído a um grupo com Conectores funcionando, teste o aplicativo novamente. Se ainda não estiver funcionando, continue na próxima seção.
 

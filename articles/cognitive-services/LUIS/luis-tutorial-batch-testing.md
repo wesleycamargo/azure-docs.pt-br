@@ -1,23 +1,24 @@
 ---
-title: 'Tutorial 2: Teste em lotes com um conjunto de mil enunciados '
+title: Teste de lote
 titleSuffix: Azure Cognitive Services
 description: Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162523"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106032"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de dados de teste em lotes
+# <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: testar conjuntos de dados em lote
 
 Este tutorial demonstra como usar o teste em lotes para localizar problemas de previsão de enunciado em seu aplicativo e corrigi-los.  
 
@@ -48,7 +49,7 @@ Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exem
 
 Continue com o aplicativo criado no último tutorial, denominado **HumanResources**. 
 
-Se não tiver o aplicativo HumanResources do tutorial anterior, siga estas etapas:
+Se você não tiver o aplicativo HumanResources do tutorial anterior, use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 

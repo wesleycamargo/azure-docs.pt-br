@@ -1,33 +1,23 @@
 ---
-title: Mover um emparelhamento público no Azure ExpressRoute para o emparelhamento da Microsoft | Microsoft Docs
+title: Mover um emparelhamento público no emparelhamento da Microsoft – Azure ExpressRoute| Microsoft Docs
 description: Este artigo mostra as etapas para mover o emparelhamento público para o emparelhamento da Microsoft no ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314292"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100014"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
-O ExpressRoute dá suporte a serviços de PaaS do Azure, como o armazenamento do Azure e o Banco de Dados SQL do Azure, usando o emparelhamento da Microsoft com filtros de rota. Agora, você precisa apenas de um domínio de roteamento para acessar os serviços de PaaS e SaaS da Microsoft. Aproveite os filtros de rota para anunciar seletivamente os prefixos do serviço de PaaS para as regiões do Azure que você deseja consumir.
-
-Este artigo ajuda você a mover uma configuração de emparelhamento público para o emparelhamento da Microsoft sem tempo de inatividade. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).
-
+Este artigo ajuda você a mover uma configuração de emparelhamento público para o emparelhamento da Microsoft sem tempo de inatividade. O ExpressRoute dá suporte a serviços de PaaS do Azure, como o armazenamento do Azure e o Banco de Dados SQL do Azure, usando o emparelhamento da Microsoft com filtros de rota. Agora, você precisa apenas de um domínio de roteamento para acessar os serviços de PaaS e SaaS da Microsoft. Aproveite os filtros de rota para anunciar seletivamente os prefixos do serviço de PaaS para as regiões do Azure que você deseja consumir. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Circuitos e domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Antes de começar
 
@@ -57,7 +47,7 @@ Verifique se o emparelhamento da Microsoft está habilitado e se os prefixos pú
 
 Por padrão, os novos emparelhamentos da Microsoft não anunciam nenhum prefixo até que um filtro de rota seja anexado ao circuito. Ao criar uma regra de filtro de rota, especifique a lista de comunidades de serviço para as regiões do Azure que você deseja consumir nos serviços de PaaS do Azure, conforme mostrado na seguinte captura de tela:
 
-![Mesclar um emparelhamento público](.\media\how-to-move-peering\public.png)
+![Mesclar um emparelhamento público](./media/how-to-move-peering/public.png)
 
 Use um dos artigos a seguir para configurar filtros de rota:
 

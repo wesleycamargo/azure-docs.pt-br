@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc0cf0900ec9f87c75091b3bf219d92e0859aa1f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282132"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166125"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Como criar um modelo de Aprendiz de Conversa usando Node.js
 
@@ -164,7 +164,7 @@ Isso usa a configuração padrão, que permite executar o bot localmente e come�
 
 - Marcar perguntas no [Stack Overflow](https://stackoverflow.com) com "microsoft cognitive"
 - Solicite um recurso em nossa [página Voz do Usuário](https://aka.ms/conversation-learner-uservoice)
-- Abra um problema no nosso [repositório github](https://github.com/Microsoft/ConversationLearner-Samples)
+- Abra um problema em nosso [repositório do GitHub](https://github.com/Microsoft/ConversationLearner-Samples)
 
 ## <a name="contributing"></a>Participante
 

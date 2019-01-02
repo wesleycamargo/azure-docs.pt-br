@@ -1,7 +1,7 @@
 ---
-title: Atualização do Bing imagens API de pesquisa da v5 para v7 - API de pesquisa de imagem do Bing
+title: Atualizar a API de Pesquisa de Imagem do Bing da v5 para v7
 titleSuffix: Azure Cognitive Services
-description: Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Imagem do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
+description: Este guia de atualização descreve as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Imagem do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 53713a629dbe2682ef393a3a5dbf7845b5075591
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296355"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256546"
 ---
-# <a name="image-search-api-upgrade-guide"></a>Guia de atualização de API de Pesquisa de Imagem
+# <a name="bing-image-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Imagem do Bing
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Imagem do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 

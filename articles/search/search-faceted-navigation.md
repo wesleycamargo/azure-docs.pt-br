@@ -1,6 +1,6 @@
 ---
-title: Como implementar a navegação facetada no Azure Search | Microsoft Docs
-description: Navegação facetada adicionada aos aplicativos que são integrados ao Azure Search, um serviço de pesquisa hospedado na nuvem do Microsoft Azure.
+title: Como implementar a faceted navigation em uma hierarquia de categoria – Azure Search
+description: Adicione a navegação de faceta aos aplicativos integrados ao Azure Search, um serviço de pesquisa hospedado na nuvem do Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195287"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313931"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada no Azure Search
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
@@ -67,10 +68,10 @@ No Azure Search, uma solicitação é especificada por meio de um ou mais parâm
 A precisão, entendida como a capacidade de filtrar correspondências irrelevantes, é obtida por meio de uma ou de ambas as expressões:
 
 -   **search=**  
-    O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única parte de texto ou uma expressão de pesquisa complexa que inclua vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando os campos de pesquisa no índice para correspondência de termos, retornando resultados em ordem de classificação. Se você definir `search` como nulo, a consulta é executada sobre todo o índice (ou seja, `search=*`). Nesse caso, outros elementos da consulta, como um `$filter` ou perfil de pontuação, são os principais fatores que afetam quais documentos são retornados `($filter`) e em qual ordem (`scoringProfile` ou `$orderby`).
+     O valor deste parâmetro constitui a expressão de pesquisa. Pode ser uma única parte de texto ou uma expressão de pesquisa complexa que inclua vários termos e operadores. No servidor, uma expressão de pesquisa é usada para pesquisa de texto completo, consultando os campos de pesquisa no índice para correspondência de termos, retornando resultados em ordem de classificação. Se você definir `search` como nulo, a consulta é executada sobre todo o índice (ou seja, `search=*`). Nesse caso, outros elementos da consulta, como um `$filter` ou perfil de pontuação, são os principais fatores que afetam quais documentos são retornados `($filter`) e em qual ordem (`scoringProfile` ou `$orderby`).
 
 -   **$filter=**  
-    Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados da pesquisa com base nos valores de atributos específicos do documento. Um `$filter` é avaliado primeiro, seguido pela lógica de facetagem que gera os valores disponíveis e as contagens correspondentes para cada valor
+     Um filtro é um mecanismo poderoso para limitar o tamanho dos resultados da pesquisa com base nos valores de atributos específicos do documento. Um `$filter` é avaliado primeiro, seguido pela lógica de facetagem que gera os valores disponíveis e as contagens correspondentes para cada valor
 
 As expressões de pesquisa complexas diminuem o desempenho da consulta. Sempre que possível, utilize expressões de filtro bem construídas para aumentar a precisão e melhorar o desempenho da consulta.
 
@@ -195,7 +196,7 @@ No exemplo, a navegação facetada baseia-se na página de resultados da pesquis
 </div>
 ```
 
-O trecho de código a seguir da página `index.cshtml` cria dinamicamente o HTML para exibir a primeira faceta, Cargo. Funções semelhantes criam dinamicamente o HTML para as outras facetas. Cada faceta tem um rótulo e uma contagem, que exibe o número de itens encontrados para o resultado dessa faceta.
+O snippet de código a seguir da página `index.cshtml` cria dinamicamente o HTML para exibir a primeira faceta, Cargo. Funções semelhantes criam dinamicamente o HTML para as outras facetas. Cada faceta tem um rótulo e uma contagem, que exibe o número de itens encontrados para o resultado dessa faceta.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -233,7 +234,7 @@ Um parâmetro de faceta para consulta é definido como um campo e, dependendo do
 
 Além de facetas, a solicitação formulada pelo seu aplicativo também deve criar filtros para restringir o conjunto de documentos candidatos com base em uma seleção de valor da faceta. Para uma loja de bicicletas, a navegação facetada oferece dicas para perguntas como *Quais cores, fabricantes e tipos de bicicletas estão disponíveis?*. A filtragem de respostas a perguntas como *Quais bicicletas exatamente são vermelhas, mountain bikes e estão neste intervalo de preços?*. Quando você clica em "Vermelho" para indicar que somente os produtos vermelhos devem ser mostrados, a próxima consulta enviada pelo aplicativo inclui `$filter=Color eq ‘Red’`.
 
-O seguinte trecho de código da página `JobsSearch.cs` adiciona o Cargo selecionado de negócios ao filtro se você selecionar um valor na faceta Cargo.
+O seguinte snippet de código da página `JobsSearch.cs` adiciona o Cargo selecionado de negócios ao filtro se você selecionar um valor na faceta Cargo.
 
 ```cs
 if (businessTitleFacet != "")
@@ -269,11 +270,11 @@ Se você criar a lista de facetas dinamicamente com base na entrada do usuário 
 ### <a name="filtering-tips"></a>Dicas de filtragem
 **Aumentar a precisão da pesquisa com filtros**
 
-Utilize filtros. Se você depender apenas de expressões de pesquisa, a lematização pode fazer com que seja retornado um documento que não tenha o valor preciso da faceta em nenhum de seus campos.
+ Utilize filtros. Se você depender apenas de expressões de pesquisa, a lematização pode fazer com que seja retornado um documento que não tenha o valor preciso da faceta em nenhum de seus campos.
 
 **Aumentar o desempenho da pesquisa com filtros**
 
-Filtros restringem o conjunto de documentos candidatos para pesquisa e exclui-los da classificação. Se você tiver um grande conjunto de documentos, usar uma busca detalhada de faceta seletiva geralmente proporciona melhor desempenho.
+ Filtros restringem o conjunto de documentos candidatos para pesquisa e exclui-los da classificação. Se você tiver um grande conjunto de documentos, usar uma busca detalhada de faceta seletiva geralmente proporciona melhor desempenho.
   
 **Filtrar somente os campos facetados**
 
@@ -304,11 +305,11 @@ Observe a diferença entre os resultados da pesquisa e os resultados da faceta. 
 > Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API de Azure Search, um código de exemplo e a documentação. 
 
 * `@colorFacet.count`<br/>
-  No código de apresentação, você deverá ver um parâmetro de contagem na faceta, usada para exibir o número de resultados da faceta. Nos resultados da faceta, a contagem indica o número de documentos que correspondam ao intervalo ou termo da faceta em questão.
+   No código de apresentação, você deverá ver um parâmetro de contagem na faceta, usada para exibir o número de resultados da faceta. Nos resultados da faceta, a contagem indica o número de documentos que correspondam ao intervalo ou termo da faceta em questão.
 * `&facet=City,count:12`<br/>
-  Em uma consulta de faceta, você pode definir a contagem para um determinado valor.  O padrão é 10, mas você pode defini-lo com um valor maior ou menor. Definir `count:12` retorna as 12 correspondências melhor classificadas nos resultados da faceta pela contagem de documento.
+   Em uma consulta de faceta, você pode definir a contagem para um determinado valor.  O padrão é 10, mas você pode defini-lo com um valor maior ou menor. Definir `count:12` retorna as 12 correspondências melhor classificadas nos resultados da faceta pela contagem de documento.
 * "`@odata.count`"<br/>
-  Na resposta da consulta, esse valor indica o número de itens correspondentes nos resultados da pesquisa. Em média, ele é maior que a soma de todos os resultados de faceta combinados, devido à presença de itens que correspondem ao termo de pesquisa, mas não tem correspondências com o valor da faceta.
+   Na resposta da consulta, esse valor indica o número de itens correspondentes nos resultados da pesquisa. Em média, ele é maior que a soma de todos os resultados de faceta combinados, devido à presença de itens que correspondem ao termo de pesquisa, mas não tem correspondências com o valor da faceta.
 
 **Obter contagens dos resultados da faceta**
 
@@ -334,15 +335,15 @@ A facetagem em intervalos de valores é um requisito comum de aplicativo de pesq
 
 O Azure Search simplifica a construção do intervalo, fornecendo duas abordagens para a computação de um intervalo. Para ambas as abordagens, o Azure Search cria os intervalos apropriados, considerando as entradas que você forneceu. Por exemplo, se você especificar valores de intervalo de 10|20|30, ele criará automaticamente intervalos de 0-10, 10-20, 20-30 -10, 10-20 e 20-30. Seu aplicativo pode, opcionalmente, remover quaisquer intervalos que estejam vazios. 
 
-**Abordagem 1: usar o parâmetro de intervalo**  
+**Abordagem 1: Usar o parâmetro de intervalo**  
 Para definir facetas de preço em incrementos de US$ 10, você deve especificar: `&facet=price,interval:10`
 
-**Abordagem 2: usar uma lista de valores**  
-Para dados numéricos, você pode usar uma lista de valores.  Considere o intervalo da faceta para um campo `listPrice`, renderizado como a seguir:
+**Abordagem 2: Usar uma lista de valores**  
+ Para dados numéricos, você pode usar uma lista de valores.  Considere o intervalo da faceta para um campo `listPrice`, renderizado como a seguir:
 
   ![Lista de valores de exemplo][5]
 
-Para especificar um intervalo da faceta como a mostrada na captura de tela a anterior, use uma lista de valores:
+Para especificar um intervalo da faceta como a mostrada na captura de tela anterior, use uma lista de valores:
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
@@ -400,7 +401,7 @@ Assista [Aprofundamento no Azure Search](http://channel9.msdn.com/Events/TechEd/
 Para obter mais informações sobre princípios de design para navegação facetada, recomendamos os seguintes links:
 
 * [Design para pesquisa facetada](http://www.uie.com/articles/faceted_search/)
-* [Padrões de design: navegação facetada](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Padrões de design: Faceted Navigation](http://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->

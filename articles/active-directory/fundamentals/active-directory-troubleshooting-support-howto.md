@@ -1,6 +1,6 @@
 ---
-title: Como obter suporte para o Azure Active Directory | Microsoft Docs
-description: Saiba como obter suporte para o Active Directory do Azure.
+title: Encontrar ajuda e abrir um tíquete de suporte – Azure Active Directory | Microsoft Docs
+description: Instruções sobre como obter ajuda e abrir um tíquete de suporte do Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729371"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083896"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Como: obter suporte para o Azure Active Directory
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abrir um tíquete de suporte para o Azure Active Directory
 A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinatura para o Azure AD (Azure Active Directory). O suporte está disponível online e por telefone para versões de avaliação e assinaturas pagas do Microsoft Azure. O suporte via telefone e o suporte de cobrança online estão disponíveis em outros idiomas. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Encontrar ajuda sem abrir um tíquete de suporte
@@ -68,9 +68,9 @@ Se não for possível encontrar respostas usando os recursos de autoatendimento,
 
 1. Entre no [Centro de administração do Office 365](https://portal.office.com) com uma conta que tenha uma licença do EMS (Microsoft Enterprise Mobility + Security).
 
-2. No bloco **Suporte**, selecione **Nova solicitação de serviço**: ![captura de tela de portal do Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. No bloco **Suporte**, selecione **Nova solicitação de serviço**: ![Captura de tela do portal do Office 365](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. Na página **Visão geral do suporte**, selecione **Gerenciamento de identidade** ou **Gerenciamento de usuário e domínio**: ![captura de tela de categorias de suporte do Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Na página **Visão geral do suporte**, selecione **Gerenciamento de identidade** ou **Gerenciamento de usuário e domínio**: ![Captura de tela de categorias de suporte do Azure AD](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. Para **Recurso**, selecione o recurso do Azure AD para o qual você deseja o suporte.
 

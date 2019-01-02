@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar Samanage para provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configurar o Samanage para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Samanage.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634499"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322423"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar Samanage para provisionamento automático de usuário
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar o Samanage para provisionamento automático do usuário
 
 O objetivo deste tutorial é demonstrar as etapas a serem executadas no Samanage e no Azure AD (Azure Active Directory) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no Samanage.
 
@@ -76,7 +76,9 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Dicas importantes para atribuir usuários ao Samanage
 
-*   É recomendável que um único usuário do Azure AD seja atribuído ao Samanage para testar a configuração de provisionamento automático de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*    Funções do Samanage são populadas dinâmica e automaticamente na interface do usuário do portal do Azure hoje. Antes de atribuir funções do Samanage aos usuários, certifique-se de que uma sincronização inicial seja concluída no Samanage para recuperar as funções mais recentes em seu locatário do Samanage.
+
+*    É recomendável que um único usuário do Azure AD seja atribuído ao Samanage para testar sua configuração inicial de provisionamento automático do usuário. Outros usuários e/ou grupos podem ser atribuídos posteriormente, após os testes serem bem-sucedidos.
 
 *   Ao atribuir um usuário ao Samanage, você deve selecionar qualquer função específica de aplicativo válida (se disponível) na caixa de diálogo de atribuição. Usuários com a função **Acesso padrão** são excluídos do provisionamento.
 
@@ -154,7 +156,7 @@ Essa operação inicia a sincronização inicial de todos os usuários e/ou grup
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Limitações de conector
+## <a name="connector-limitations"></a>Limitações do conector
 
 * Se a opção **Sincronizar todos os usuários e grupos** estiver selecionada e um valor padrão estiver configurado para as **Funções** de atributo Samanage, assegure-se de que o valor desejado sob o valor padrão **seja nulo (é opcional)** campo é expresso no seguinte formato **{"displayName": "role"}** em que role é o valor padrão desejado.
 

@@ -1,7 +1,7 @@
 ---
-title: Análise da Pesquisa de Imagem do Bing – API de Pesquisa de Imagem do Bing
+title: Adicionar análise à API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
-description: Descreve como obter a análise para API de Imagens do Bing.
+description: As Estatísticas do Bing fornecem análise para a API de Pesquisa de Imagem do Bing. A análise inclui o volume de chamadas, as principais cadeias de caracteres de consulta, a distribuição geográfica e muito mais.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7940330d1bc32a5d1fef158998a9292c86f21154
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 576505e1a3b05666b350c0256e0c8364280bcd95
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888054"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249644"
 ---
-# <a name="how-to-get-analytics-for-the-bing-image-search-api"></a>Como obter análise para a API de Pesquisa de Imagem do Bing
+# <a name="add-analytics-to-the-bing-image-search-api"></a>Adicionar análise à API de Pesquisa de Imagem do Bing
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]
