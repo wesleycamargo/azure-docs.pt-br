@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843199"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de T-SQL da Instância Gerenciada do Banco de Dados SQL do Azure em relação ao SQL Server
 
@@ -145,7 +145,7 @@ A Instância Gerenciada não pode acessar arquivos, logo provedores de criptogra
 
 ### <a name="collation"></a>Ordenação
 
-A ordenação de servidor é `SQL_Latin1_General_CP1_CI_AS` e não pode ser alterado. Consulte [Ordenações](https://docs.microsoft.com/sql/t-sql/statements/collations).
+O agrupamento de instância padrão é `SQL_Latin1_General_CP1_CI_AS` e pode ser especificado como um parâmetro de criação. Consulte [Ordenações](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Opções de banco de dados
 
@@ -264,7 +264,7 @@ A [Pesquisa semântica](https://docs.microsoft.com/sql/relational-databases/sear
 
 Servidores vinculados na Instância Gerenciada suportam um número limitado de destinos:
 
-- Destinos com suporte: Banco de Dados SQL e SQL Server
+- Destinos com suporte: SQL Server e Banco de Dados SQL
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS.
 
 Operações
@@ -277,7 +277,8 @@ Operações
 ### <a name="logins--users"></a>Logons / usuários
 
 - Logons do SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` têm suporte. Consulte [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS` não têm suporte.
+- Logons do Active Directory (AAD) do Azure criados com a sintaxe [CRIAR LOGON](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou sintaxe [CRIAR USUÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) tem suporte para a sintaxe (**visualização pública**).
+- Logons do Windows criados com a sintaxe `CREATE LOGIN ... FROM WINDOWS` não têm suporte. Use logons e usuário do Microsoft Azure Active Directory.
 - O usuário do Microsoft Azure Active Directory (Azure AD) que criou a instância tem [privilégios irrestritos de administrador](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Usuários de nível de banco de dados não administradores do Microsoft Azure Active Directory (Azure AD) podem ser criados usando a sintaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consulte [CRIAR USUÁRIO ... A PARTIR DE PROVEDOR EXTERNO](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 Não há suporte para agente de serviços entre instâncias:
 
 - `sys.routes` - Pré-requisito: selecione o endereço em sys.routes. O endereço deve ser LOCAL em toda rota. Consulte [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` - não é possível `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [CRIAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` - não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [CRIAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` não é possível `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Consulte [ALTERAR ROTA](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Chave de serviço e chave mestra de serviço
@@ -429,10 +430,10 @@ Cada Instância Gerenciada tem até 35 TB de armazenamento reservado para o espa
 
 Por exemplo, uma Instância Gerenciada pode ter um arquivo de 1,2 TB de tamanho colocado em um disco de 4 TB e 248 arquivos a cada 1 GB de tamanho colocados em discos separados de 128 GB. Neste exemplo:
 
-- o tamanho do armazenamento em disco total é de 1 x 4 TB + 248 x 128 GB = 35 TB.
-- total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
+- O tamanho do armazenamento em disco total alocado é de 1 x 4 TB + 248 x 128 GB = 35 TB.
+- O total de espaço reservado para os bancos de dados na instância é de 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
 
-Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição muito específica de arquivos, uma Instância Gerenciada pode alcançar os 35TB reservados para o Disco Premium do Azure onde você não esperaria.
+Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição específica de arquivos, uma Instância Gerenciada pode alcançar os 35TB reservados para o Disco Premium do Azure onde você não esperaria.
 
 Neste exemplo bancos de dados existentes continuarão a funcionar e pode crescer sem problemas, desde que não sejam adicionados novos arquivos. No entanto os novos bancos de dados não pode ser criados ou restaurados porque não há espaço suficiente para novas unidades de disco, mesmo se o tamanho total de todos os bancos de dados não alcançar o limite de tamanho de instância. O erro retornado nesse caso não é claro.
 
@@ -443,7 +444,10 @@ Certifique-se de remover `?` à esquerda da chave de SAS gerada usando o portal 
 
 ### <a name="tooling"></a>Ferramentas
 
-O SQL Server Management Studio e o SQL Server Data Tools podem ter alguns problemas ao acessar a Instância Gerenciada. Todos os problemas de ferramentas serão abordados antes da disponibilidade geral.
+O SQL Server Management Studio (SSMS) e o SQL Server Data Tools (SSDT) podem ter alguns problemas ao acessar a Instância Gerenciada.
+
+- Atualmente, não há suporte para usar logons e usuários do Microsoft Azure Active Directory (**visualização pública**) com SSDT.
+- Scripts para os logons do Microsoft Azure Active Directory e usuários (**visualização pública**) não têm suporte no SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de banco de dados incorretos em algumas exibições, logs e mensagens
 
@@ -451,7 +455,7 @@ Várias entradas de exibições do sistema, contadores de desempenho, mensagens 
 
 ### <a name="database-mail-profile"></a>Perfil do Database Mail
 
-Só pode haver apenas um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile`. Essa é uma limitação temporária que será removida em breve.
+Só pode haver apenas um perfil do Database Mail e ele deve ser chamado de `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Os logs de erros não são persistentes
 
@@ -461,7 +465,7 @@ Os logs de erros disponíveis na instância gerenciada não são persistentes e 
 
 A Instância Gerenciada coloca informações detalhadas nos logs de erro e muitas delas não são relevantes. A quantidade de informações nos logs de erro será reduzida no futuro.
 
-**Solução alternativa**: usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter detalhes, confira [Instância gerenciada do banco de dados SQL do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solução alternativa**: Usar um procedimento personalizado para a leitura de logs de erros que filtra algumas entradas não relevantes. Para obter detalhes, confira [Instância gerenciada do banco de dados SQL do Azure – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>O escopo de transação em dois bancos de dados dentro da mesma instância não é compatível
 
@@ -492,13 +496,13 @@ using (var scope = new TransactionScope())
 
 Embora esse código funcione com os dados na mesma instância, ele precisou do MSDTC.
 
-**Solução alternativa**: usar [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para usar outro banco de dados no contexto de conexão em vez de usar duas conexões.
+**Solução alternativa**: Usar [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para usar outro banco de dados no contexto de conexão em vez de usar duas conexões.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Os módulos CLR e os servidores vinculados às vezes não podem fazer referência ao endereço IP local
 
-Os módulos CLR colocados na Instância Gerenciada e consultas distribuídas/servidores da vinculados que fazem referência à instância atual às vezes não podem resolver o IP da instância local. Esse é um erro temporário.
+Os módulos CLR colocados na Instância Gerenciada e consultas distribuídas/servidores da vinculados que fazem referência à instância atual às vezes não podem resolver o IP da instância local. Esse é um problema temporário.
 
-**Solução alternativa**: usar conexões de contexto no módulo CLR, se possível.
+**Solução alternativa**: Usar conexões de contexto no módulo CLR, se possível.
 
 ## <a name="next-steps"></a>Próximas etapas
 

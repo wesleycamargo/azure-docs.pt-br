@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634100"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409676"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive usando as ferramentas do Data Lake para Visual Studio
 
@@ -24,7 +24,7 @@ Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o 
 
 * Um cluster Azure HDInsight (Apache Hadoop no HDInsight)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (uma das versões a seguir):
@@ -37,7 +37,7 @@ Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o 
 
 * Ferramentas do HDInsight para Visual Studio ou ferramentas do Azure Data Lake para Visual Studio. Confira [Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio](apache-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
-## <a id="run"></a> Executar consultas Hive usando o Visual Studio
+## <a id="run"></a> Executar consultas Apache Hive usando o Visual Studio
 
 1. Abra o **Visual Studio** e selecione **Novo** > **Projeto** > **Azure Data Lake** > **HIVE** > **Aplicativo Hive**. Forneça um nome para esse projeto.
 
@@ -54,20 +54,20 @@ Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o 
 
     Essas instruções executam as seguintes ações:
 
-   * `DROP TABLE`: se a tabela existir, esta instrução a excluirá.
+   * `DROP TABLE`: Se a tabela existir, esta instrução a excluirá.
 
-   * `CREATE EXTERNAL TABLE`: cria uma nova tabela 'externa' no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
+   * `CREATE EXTERNAL TABLE`: Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são mantidos no local original).
 
-     > [!NOTE]
+     > [!NOTE]  
      > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um trabalho de MapReduce ou serviço do Azure.
      >
      > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
 
-   * `ROW FORMAT`: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
+   * `ROW FORMAT`: Informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
 
-   * `STORED AS TEXTFILE LOCATION`: informa ao Hive o local em que os dados são armazenados no diretório de exemplo/de dados e que eles estão armazenados como texto.
+   * `STORED AS TEXTFILE LOCATION`: Informa ao Hive o local em que os dados são armazenados no diretório de exemplo/de dados e que eles estão armazenados como texto.
 
-   * `SELECT`: seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
+   * `SELECT`: Seleciona uma contagem de todas as linhas, nas quais a coluna `t4` contém o valor `[ERROR]`. Essa instrução retorna um valor de `3`, já que há três linhas que contêm esse valor.
 
    * `INPUT__FILE__NAME LIKE '%.log'`: informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Essa cláusula restringe a pesquisa para o arquivo sample.log que contém os dados.
 
@@ -93,14 +93,14 @@ Saiba como usar as ferramentas do Data Lake para Visual Studio para consultar o 
 
     Essas instruções executam as seguintes ações:
 
-   * `CREATE TABLE IF NOT EXISTS`: cria uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
+   * `CREATE TABLE IF NOT EXISTS`: Crie uma tabela, se ela ainda não existir. Uma vez que a palavra-chave `EXTERNAL` não é usada, essa instrução cria uma tabela interna. As tabelas internas são armazenadas no data warehouse do Hive e gerenciadas por ele.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Ao contrário das tabelas `EXTERNAL`, o descarte de uma tabela interna excluirá também os dados subjacentes.
 
-   * `STORED AS ORC`: armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * `STORED AS ORC`: Armazena os dados no formato colunar de linha otimizado (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
+   * `INSERT OVERWRITE ... SELECT`: Seleciona linhas da tabela `log4jLogs` que contêm `[ERROR]` e, então, insere os dados na tabela `errorLogs`.
 
 8. Na barra de ferramentas, selecione no menu suspenso de **Enviar** para executar o trabalho. Use o **Status do Trabalho** para determinar se o trabalho foi concluído com êxito.
 
@@ -112,27 +112,27 @@ Como você pode ver, as ferramentas do HDInsight para o Visual Studio fornecem u
 
 Para obter informações gerais sobre o Hive no HDInsight:
 
-* [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
 
 Para obter informações sobre outros modos possíveis de trabalhar com Hadoop no HDInsight:
 
-* [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
-* [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter mais informações sobre as ferramentas do HDInsight para o Visual Studio:
 
 * [Introdução às ferramentas do HDInsight para Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -147,7 +147,7 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

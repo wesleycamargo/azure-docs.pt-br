@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261869"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844933"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planejar a capacidade de recuperação de desastre de VM do Hyper-V 
 
@@ -33,8 +33,8 @@ Use o Planejador de Capacidade do Site Recovery para analisar o ambiente de orig
 
 Você pode executar a ferramenta em dois modos:
 
-* **Planejamento rápido**: fornece projeções de rede e servidor com base no número médio de VMs, discos, armazenamento e taxa de alteração.
-* **Planejamento detalhado**: fornece detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade da VM e obtenha as projeções de rede e de servidor.
+* **Planejamento rápido**: Fornece projeções de rede e servidor com base no número médio de VMs, discos, armazenamento e taxa de alteração.
+* **Planejamento detalhado**: Fornece detalhes de cada carga de trabalho no nível da VM. Analise a compatibilidade da VM e obtenha as projeções de rede e de servidor.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -51,7 +51,7 @@ Você pode executar a ferramenta em dois modos:
 
 3. Na planilha **Planejador de Capacidade**, insira as informações necessárias. Preencha todos os campos circulados em vermelho na seguinte captura de tela:
 
-   a. Em **Selecionar seu cenário**, escolha **Hyper-V para Azure** ou **VMware/físico para Azure**.
+    a. Em **Selecionar seu cenário**, escolha **Hyper-V para Azure** ou **VMware/físico para Azure**.
 
    b. Em **Taxa média diária de alteração de dados (%)**, insira as informações coletadas usando a [ferramenta de planejamento de capacidade do Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) ou o [Planejador de Implantação do Site Recovery](./site-recovery-deployment-planner.md).
 
@@ -65,17 +65,17 @@ Você pode executar a ferramenta em dois modos:
 
 4. Depois que você inserir os valores para o ambiente de origem, a saída exibida incluirá:
 
-   * **Largura de banda necessária para replicação delta (em megabits/s)**: a largura de banda de rede para a replicação delta é calculada segundo a taxa média diária de alteração de dados.
-   * **Largura de banda necessária para replicação inicial (em megabits/s)**: a largura de banda de rede para a replicação inicial é calculada com base nos valores de replicação inicial inseridos.
-   * **Armazenamento necessário (em GB)**: é o armazenamento do Azure total necessário.
-   * **IOPS total em armazenamento padrão**: o número é calculado de acordo com o tamanho da unidade de IOPS de 8.000 no total de contas de armazenamento standard. Para o Planejador Rápido, o número é calculado com base em todos os discos de VM de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs standard do Azure e na taxa diária de alteração dessas VMs.
-   * **Número de contas de armazenamento Standard necessários**: o número total de contas de armazenamento standard necessárias para proteger as VMs. Uma conta de armazenamento standard pode conter até 20 mil IOPS em todas as VMs em um armazenamento standard. Há suporte para o máximo de 500 IOPS por disco.
-   * **Número de discos BLOB necessários**: o número de discos criados no armazenamento do Azure.
-   * **Número de contas premium necessárias**: o número total de contas de armazenamento premium necessárias para proteger as VMs. Uma VM de origem com IOPS alto (acima de 20.000 mil) precisa de uma conta de armazenamento premium. Uma conta de armazenamento premium pode armazenar até 80.000 mil IOPS.
-   * **IOPS total no armazenamento Premium**: o número é calculado de acordo com o tamanho da unidade de IOPS de 256.000 no total de contas de armazenamento premium. Para o Planejador Rápido, o número é calculado com base em todos os discos de VM de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
-   * **Número de servidores de configuração necessários**: mostra quantos servidores de configuração são necessários para a implantação.
-   * **Número de servidores em processo adicionais necessários**: mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
-   * **Armazenamento adicional de 100% na origem**: mostra se o armazenamento adicional é necessário no local de origem.
+   * **Largura de Banda necessária para a replicação delta (em Megabits / segundo)**: A largura de banda de rede para a replicação delta é calculada segundo a taxa média diária de alteração de dados.
+   * **Largura de Banda necessária para a replicação inicial (em Megabits/segundo)**: A largura de banda de rede para a replicação inicial é calculada segundo os valores de replicação inicial inseridos.
+   * **Armazenamento necessário (em GBs)**: Armazenamento total do Azure necessário.
+   * **IOPS total em contas de armazenamento padrão**: O número é calculado de acordo com o tamanho da unidade de IOPS de 8.000 no total de contas de armazenamento standard. Para o Planejador Rápido, o número é calculado com base em todos os discos de VM de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs standard do Azure e na taxa diária de alteração dessas VMs.
+   * **Número de contas de armazenamento padrão**: O número total de contas de armazenamento padrão necessárias para proteger as VMs. Uma conta de armazenamento standard pode conter até 20 mil IOPS em todas as VMs em um armazenamento standard. Há suporte para o máximo de 500 IOPS por disco.
+   * **Número de discos de Blob necessários**: O número de discos criados no armazenamento do Azure.
+   * **Número de contas de armazenamento premium necessárias**: O número total de contas de armazenamento premium necessárias para proteger as VMs. Uma VM de origem com IOPS alto (acima de 20.000 mil) precisa de uma conta de armazenamento premium. Uma conta de armazenamento premium pode armazenar até 80.000 mil IOPS.
+   * **Total de IOPS no Armazenamento Premium**: O número é calculado de acordo com o tamanho da unidade de IOPS de 256K no total de contas de armazenamento premium. Para o Planejador Rápido, o número é calculado com base em todos os discos de VM de origem e na taxa diária de alteração dos dados. Para o Planejador Detalhado, o número é calculado com base no número total de VMs mapeadas para as VMs premium do Azure (séries DS e GS) e na taxa diária de alteração dessas VMs.
+   * **Número de Servidores de Configuração necessários**: Mostra quantos servidores de configuração são necessários para a implantação.
+   * **Número de servidores de processo adicionais necessários**: Mostra se servidores de processo adicionais são necessários, além do servidor de processos que está sendo executado no servidor de configuração por padrão.
+   * **Armazenamento adicional de 100% na Origem**: Mostra se é necessário armazenamento adicional no local de origem.
 
       ![Saída](./media/site-recovery-capacity-planner/output.png)
 
@@ -89,7 +89,7 @@ Você pode executar a ferramenta em dois modos:
 
 3. Na planilha **Qualificação de Carga de Trabalho**, insira as informações necessárias. Preencha todos os campos marcados.
 
-   a. Em **Núcleos de Processador**, especifique o número total de núcleos em um servidor de origem.
+    a. Em **Núcleos de Processador**, especifique o número total de núcleos em um servidor de origem.
 
    b. Em **Alocação de memória (em MBs)**, especifique o tamanho da RAM de um servidor de origem.
 

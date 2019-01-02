@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao CS Stars | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao CS Stars | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o CS Stars.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433843"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: integração do Active Directory do Azure ao CS Stars
+# <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Microsoft Azure Active Directory ao CS Stars
 
 Neste tutorial, você aprenderá a integrar o CS Stars ao Azure AD (Azure Active Directory).
 
@@ -49,7 +49,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando CS Stars da galeria
 1. configurar e testar o logon único do AD do Azure
@@ -112,12 +112,12 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/cs-stars-tutorial/tutorial_csstars_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/default.cmdx?ssoclient=<uniqueid>`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/default.cmdx?ssoclient=<uniqueid>`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do CS Stars](http://www.marshclearsight.com/support/) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do CS Stars](https://www.marshclearsight.com/support/) para obter esses valores. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -127,11 +127,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Para configurar o logon único no lado do **CS Stars**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do CS Stars](http://www.marshclearsight.com/support/). 
+1. Para configurar o logon único no lado do **CS Stars**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte do CS Stars](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre o recurso de documentação inserida aqui: [Documentação inserida do Microsoft Azure Active Directory]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -157,7 +157,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
     ![Criação de um usuário de teste do AD do Azure](./media/cs-stars-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+     a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
 
     b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
 
@@ -169,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no CS Stars.
 
-Para obter um usuário criado no CS Stars, você precisa entrar em contato com a [equipe de suporte do CS Stars](http://www.marshclearsight.com/support/).
+Para obter um usuário criado no CS Stars, você precisa entrar em contato com a [equipe de suporte do CS Stars](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632782"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720177"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -94,8 +94,8 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```
 
 Em que: 
-- Nome de extensão e o tipo para o Windows é: ManagedIdentityExtensionForWindows
-- Nome de extensão e o tipo para o Linux é: ManagedIdentityExtensionForLinux
+- O nome da extensão e tipo para o Windows é: ManagedIdentityExtensionForWindows
+- O nome da extensão e tipo para o Linus é: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -115,7 +115,7 @@ Se a folha de configuração da VM não aparecer na sua VM, as identidades geren
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>Não é possível atribuir o acesso às máquinas virtuais na folha Controle de Acesso (IAM)
 
-Se **Máquina virtual** não aparecer no portal do Azure como opção para **Atribuir acesso a** em **Controle de acesso (IAM)** > **Adicionar permissões**, as identidades gerenciadas para os recursos do Azure ainda não foram ativadas no portal em sua região. Verifique novamente mais tarde.  Ainda é possível selecionar a identidade da VM para a atribuição de função, pesquisando as identidades gerenciadas para o Principal de serviço dos recursos do Azure.  Insira o nome da VM no campo **Selecionar** e a Entidade de Serviço aparece no resultado da pesquisa.
+Se **Máquina virtual** não aparecer no portal do Azure como opção para **Atribuir acesso a** em **Controle de acesso (IAM)** > **Adicione atribuição de função**, em seguida, as identidades gerenciadas para os recursos do Azure ainda não foram ativadas no portal em sua região. Verifique novamente mais tarde.  Ainda é possível selecionar a identidade da VM para a atribuição de função, pesquisando as identidades gerenciadas para o Principal de serviço dos recursos do Azure.  Insira o nome da VM no campo **Selecionar** e a Entidade de Serviço aparece no resultado da pesquisa.
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>A VM falha ao iniciar depois de ser movida do grupo de recursos ou assinatura
 

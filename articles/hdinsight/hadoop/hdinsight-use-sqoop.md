@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684966"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011725"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Use Sqoop com Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -75,16 +75,16 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
    
 2. Insira as seguintes propriedades:
 
-    - **Subscription:** insira sua assinatura do Azure.
-    - **Grupo de Recursos**: crie um novo grupo de recursos do Azure ou escolha um grupo de recursos existente.  Um grupo de recursos é para fins de gerenciamento.  Ele é um contêiner para objetos.
-    - **Localização**: selecione uma região.
-    - **ClusterName**: insira um nome para o cluster Hadoop.
-    - **Nome e senha de logon do cluster**: o nome de logon padrão é admin.
+    - **Assinatura**: Inserir sua assinatura do Azure.
+    - **Grupo de recursos**: Crie um novo grupo de recursos do Azure ou escolha um Grupo de recursos existente.  Um grupo de recursos é para fins de gerenciamento.  Ele é um contêiner para objetos.
+    - **Localização**: Selecione uma região.
+    - **ClusterName**: Insira um nome para o cluster Hadoop.
+    - **Nome e senha de logon do cluster**: O nome padrão de logon é admin.
     - **Nome de usuário e senha de SSH**.
     - **Nome de logon e senha do servidor de banco de dados SQL**.
-    - **local de _artifacts**: use o valor padrão, a menos que você deseje usar seu próprio arquivo backpac em um local diferente.
-    - **Token Sas do local de_artifacts**: deixe-o em branco.
-    - **Nome do Arquivo Bacpac**: use o valor padrão, a menos que você deseje usar seu próprio arquivo bacpac.
+    - **Localização de _artifacts**: Use o valor padrão, a menos que você deseje usar seu próprio arquivo backpac em um local diferente.
+    - **Token SAS de Localização de artefatos**: Deixe em branco.
+    - **Nome do arquivo Bacpac**: Use o valor padrão, a menos que você deseje usar seu próprio arquivo backpac.
      
         Os seguintes valores estão codificados na seção de variáveis:
         
@@ -99,13 +99,13 @@ Se você preferir usar o Azure PowerShell para criar o cluster e o Banco de Dado
 
 Se você optar por usar o banco de dados SQL do Azure existente ou o Microsoft SQL Server
 
-* **Banco de Dados SQL do Azure**: você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL para permitir o acesso de sua estação de trabalho. Para obter instruções de como criar um Banco de Dados SQL do Azure e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. 
+* **Banco de Dados SQL do Azure**: Você deve configurar uma regra de firewall para o servidor de Banco de Dados SQL do Azure para permitir o acesso a partir de sua estação de trabalho. Para obter instruções de como criar um Banco de Dados SQL do Azure e configurar o firewall, confira [Introdução ao uso do Banco de Dados SQL do Azure][sqldatabase-get-started]. 
   
   > [!NOTE]
   > Por padrão, um banco de dados SQL do Azure permite conexões de serviços do Azure, como o Azure HDInsight. Se essa configuração de firewall estiver desabilitada, você precisa habilitá-la no Portal do Azure. Para obter instruções sobre como criar um Banco de Dados SQL do Azure e configurar as regras de firewall, confira [Criar e configurar o Banco de Dados SQL][sqldatabase-create-configure].
   > 
   > 
-* **Servidor SQL**: se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
+* **Microsoft SQL Server**: Se o cluster HDInsight estiver na mesma rede virtual do Azure que um SQL Server, você pode usar as etapas neste artigo para importar e exportar dados para um banco de dados SQL Server.
   
   > [!NOTE]
   > O Azure HDInsight oferece suporte somente a redes virtuais baseadas no local, e não trabalha atualmente com redes virtuais baseadas em grupos de afinidade.
@@ -160,7 +160,7 @@ Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 * [Usar o Hive com o HDInsight](../hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](../hdinsight-use-pig.md)
-* [Carregar dados no HDInsight][hdinsight-upload-data]: localize outros métodos de carregamento de dados no HDInsight/Armazenamento de Blobs do Azure.
+* [Carregar dados no HDInsight][hdinsight-upload-data]: Encontre outros métodos para fazer upload de dados para HDInsight/Azure Storage Blob.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Apêndice A - um exemplo do PowerShell
 O exemplo do PowerShell executa as seguintes etapas:
@@ -214,9 +214,9 @@ O exemplo do PowerShell executa as seguintes etapas:
    > [!NOTE]
    > Além das informações de cadeia de conexão, as etapas nesta seção devem funcionar para o Banco de Dados SQL do Azure ou SQL Server. Essas etapas foram testadas com relação à seguinte configuração:
    > 
-   > * **Configuração ponto a site da rede virtual do Azure**: uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
-   > * **Azure HDInsight**: confira [Crie clusters Hadoop no HDInsight usando opções de personalização](../hdinsight-hadoop-provision-linux-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
-   > * **SQL Server 2014**: configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual
+   > * **Certificado VPN de ponto para site de rede virtual do Azure**: Uma rede virtual conectando o cluster HDInsight a um SQL Server em um datacenter privado. Consulte [Configurar um VPN ponto a site no Portal de Gerenciamento](../../vpn-gateway/vpn-gateway-point-to-site-create.md) para obter mais informações.
+   > * **Azure HDInsight**: Confira [Crie clusters Hadoop no HDInsight usando opções de personalização](../hdinsight-hadoop-provision-linux-clusters.md) para saber mais sobre a criação de um cluster em uma rede virtual.
+   > * **SQL Server 2014**: Configurado para permitir Autenticação SQL e executando o pacote de configuração do cliente VPN para conectar-se com segurança à rede virtual.
    > 
    > 
 7. Exporte uma tabela do Hive para o banco de dados SQL do Azure.
@@ -638,8 +638,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

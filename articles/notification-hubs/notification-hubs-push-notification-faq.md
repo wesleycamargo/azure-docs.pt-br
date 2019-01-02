@@ -1,5 +1,5 @@
 ---
-title: 'Hubs de Notificação do Azure: perguntas frequentes | Microsoft Docs'
+title: 'Hubs de Notificação do Azure: Perguntas frequentes | Microsoft Docs'
 description: Perguntas frequentes sobre como projetar/implementar soluções em Hubs de Notificação
 services: notification-hubs
 documentationcenter: mobile
@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251015"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437823"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações por push com Hubs de Notificação do Azure: Perguntas frequentes
 ## <a name="general"></a>Geral
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>O que é a estrutura de recursos dos Hubs de Notificação?
 
@@ -33,14 +33,14 @@ Mapeamento recomendado corresponde a um namespace com um único aplicativo. Dent
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Qual é o modelo de preço para os Hubs de Notificação?
 Os detalhes de preços mais recentes podem ser encontrados na página [Preços dos Hubs de Notificação]. Os Hubs de Notificação são cobrados no nível de namespace. (Para a definição de um namespace, veja "Qual é a estrutura de recursos dos Hubs de Notificação?") Os Hubs de Notificação oferecem três camadas:
 
-* **Livre**: esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
-* **Básico**: essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Opções de aumento de cota são incluídas.
-* **Padrão**:essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Recursos de telemetria cota aumento opções e recursos estão incluídos.
+* **Grátis**: Esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
+* **Básico**: Essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Opções de aumento de cota são incluídas.
+* **Standard**: Essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Recursos de telemetria cota aumento opções e recursos estão incluídos.
 
 Recursos de camada padrão:
-* **Telemetria avançada**: você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
-* **Multilocação**: você pode trabalhar com as credenciais do Sistema de Notificação de Plataforma em nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
-* **Push agendado**: você pode agendar que notificações sejam enviadas a qualquer momento.
+* **Telemetria avançada**: Você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
+* **Multilocação**: Você pode trabalhar com as credenciais do Sistema de Notificação de Plataforma em nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
+* **Push agendado**: Você pode agendar que notificações sejam enviadas a qualquer momento.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o SLA dos Hubs de Notificação?
 Para camadas Basic e Standard dos Hubs de Notificação, os aplicativos configurados corretamente podem enviar notificações por push ou executar operações de gerenciamento de registro pelo menos 99,9% do tempo. Para saber mais sobre o SLA, vá para a página [SLA de Hubs de Notificação](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
@@ -51,7 +51,7 @@ Para camadas Basic e Standard dos Hubs de Notificação, os aplicativos configur
 ### <a name="which-customers-are-using-notification-hubs"></a>Quais clientes estão usando os Hubs de Notificação?
 Muitos clientes utilizam os Hubs de Notificação. Alguns dos notáveis são listados aqui:
 
-* Sochi 2014: Centenas de 150 milhões notificações enviadas em duas semanas, 3 milhões de dispositivos e grupos de interesse. [Estudo de caso: Sochi]
+* Sochi 2014: Centenas de +3 milhões notificações enviadas em duas semanas, 150 milhões de dispositivos e grupos de interesse. [Estudo de caso: Sochi]
 * Skanska: [Estudo de caso: Skanska]
 * Seattle Times: [Estudo de caso: Seattle Times]
 * Mural.ly: [Estudo de caso: Mural.ly]
@@ -213,7 +213,7 @@ Também fornecemos a capacidade de exportar a telemetria programaticamente (na c
 [Modelo de segurança dos Hubs de Notificação]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Tutorial de Push Seguro dos Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Solução de problemas de Hubs de Notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de Hubs de Notificação]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Hubs de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Exemplo de métricas de Hubs de Notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Importação/Exportação de Registros]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com

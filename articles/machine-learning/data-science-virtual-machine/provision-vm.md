@@ -1,29 +1,31 @@
 ---
-title: Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure | Microsoft Docs
+title: Criar uma Máquina Virtual de Ciência de Dados do Windows
+titleSuffix: Azure
 description: Configure e crie uma Máquina Virtual de Ciência de Dados no Azure para realizar a análise e o aprendizado de máquina.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5dacbbcba44879b28e311f08b089d10d0ad8d95b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240878"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079629"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure
 A DSVM (Máquina Virtual de Ciência de Dados) da Microsoft é uma imagem de VM (máquina virtual) do Azure do Windows. Ela é pré-instalada e configurada com diversas ferramentas que são usadas para a análise de dados e o aprendizado de máquina. AS ferramentas a seguir estão incluídas:
 
-* [Azure Machine Learning](../service/index.yml) Workbench.
+* SDK Python [Serviço do Azure Machine Learning](../service/index.yml).
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Distribuição do Anaconda Python.
 * Jupyter Notebook com kernels do R, Python, PySpark.
@@ -33,7 +35,7 @@ A DSVM (Máquina Virtual de Ciência de Dados) da Microsoft é uma imagem de VM 
 * Uma instância autônoma do Apache Spark para desenvolvimento e teste local.
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html).
 * Ferramentas de aprendizado de máquina e análise de dados:
-  * Estruturas de aprendizado profundo. Um conjunto avançado de estruturas de IA está incluso na VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet e Keras.
+  * Estruturas de aprendizado profundo. Um conjunto avançado de estruturas de AI estão incluídos na VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, e Keras.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit). Um sistema de aprendizado de máquina rápido que dá suporte a técnicas como online hashing, allreduce, reduções, learning2search e aprendizado interativo e ativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/). Uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
   * [Rattle](https://togaware.com/rattle/), a ferramenta analítica de R para aprender com facilidade. Uma ferramenta que facilita a introdução à análise de dados e ao aprendizado de máquina em R. Ela inclui uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
@@ -73,7 +75,7 @@ Para criar uma instância da Máquina Virtual de Ciência de Dados da Microsoft,
 
 1. O assistente que cria a Máquina Virtual de Ciência de Dados requer **entrada**. A seguinte entrada é necessária para configurar cada uma das etapas mostradas à direita da figura:
 
-  a. **Noções básicas**:
+   a. **Noções básicas**:
 
     i. **Nome**. O nome do servidor de ciência de dados que está sendo criado.  
 
@@ -150,7 +152,7 @@ Abra o Visual Studio clicando duas vezes no ícone da área de trabalho ou no me
 * Azure HDInsight Hadoop e Spark
 * Azure Data Lake 
 
-Agora também há um plug-in chamado ```Visual Studio Tools for AI``` que é integrado diretamente ao Azure Machine Learning e ajuda a compilar aplicativos de IA rapidamente. 
+Agora também há um plug-in chamado ```Azure Machine Learning for Visual Studio Code``` que é integrado diretamente ao Azure Machine Learning e ajuda a compilar aplicativos de IA rapidamente. 
 
 > [!NOTE]
 > Você poderá receber uma mensagem informando que o período de avaliação expirou. Insira suas credenciais de conta da Microsoft. Ou crie uma nova conta gratuita para obter acesso ao Visual Studio Community. 
@@ -193,13 +195,13 @@ O **Power BI Desktop** é instalado para ajudá-lo a compilar painéis e visuali
 > 
 > 
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+### <a name="azure-machine-learning-service-python-sdk"></a>SDK Python Serviço do Azure Machine Learning
 
-O Azure Machine Learning Workbench é um aplicativo de área de trabalho e uma interface de linha de comando. O Workbench tem preparação de dados interna que aprende as etapas de preparação dos seus dados conforme você as executa. Ele também fornece gerenciamento de projetos, histórico de execuções e integração ao notebook para aumentar sua produtividade. 
+O SDK do Azure Machine Learning para o Python é usado por cientistas de dados e desenvolvedores de IA para compilar e executar fluxos de trabalho de aprendizado de máquina com o [Serviço do Azure Machine Learning](../service/overview-what-is-azure-ml.md). Você pode interagir com o serviço em qualquer ambiente de Python, incluindo Notebooks de Jupyter ou seu IDE favorito do Python, usando estruturas de código-fonte aberto, como o TensorFlow, scikit-learn.
 
-Você pode aproveitar as melhores estruturas de software livre, incluindo TensorFlow, Cognitive Toolkit, Spark ML e scikit-learn para desenvolver seus modelos. Na DSVM, fornecemos um ícone da área de trabalho para instalar o Azure Machine Learning Workbench no diretório **%LOCALAPPDATA%** do usuário individual. 
+Para começar a usar o SDK do Python, consulte [Usar o Python para introdução ao Azure Machine Learning](../service/quickstart-create-workspace-with-python.md).
 
-Cada usuário do workbench deve tomar uma ação única. Clique duas vezes no ícone da área de trabalho ```AzureML Workbench Setup``` para instalar a instância do workbench. O Azure Machine Learning também cria e usa um ambiente de Python por usuário, o qual é extraído no diretório **%LOCALAPPDATA%\amlworkbench\python**.
+O SDK Python é pré-instalado na Máquina Virtual de Ciência de Dados da Microsoft.
 
 ## <a name="more-microsoft-development-tools"></a>Mais ferramentas de desenvolvimento da Microsoft
 O [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) é usado para descobrir e baixar outras ferramentas de desenvolvimento da Microsoft. Também há um atalho para a ferramenta fornecida na área de trabalho de Máquina Virtual de Ciência de Dados da Microsoft.  
@@ -215,7 +217,6 @@ O [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pla
 | Python (Autônomo) da Microsoft Machine Learning Server | C:\Arquivos de Programas\Microsoft\ML Server\PYTHON_SERVER |
 | Instância R Padrão, Machine Learning Server (Autônoma) | C:\Arquivos de Programas\Microsoft\ML Server\R_SERVER |
 | Diretório da instância no banco de dados do Serviços de Machine Learning do SQL | C:\Arquivos de Programas\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
-| Azure Machine Learning Workbench, por usuário | %localappdata%\amlworkbench | 
 | Ferramentas diversas | c:\dsvm\tools |
 
 > [!NOTE]
@@ -226,7 +227,7 @@ O [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pla
 ## <a name="next-steps"></a>Próximas etapas
 
 * Explore as ferramentas na VM de ciência de dados, selecionando o menu **Iniciar**.
-* Saiba mais sobre os Serviços de Azure Machine Learning e o Workbench visitando a [página de início rápido e os tutoriais](../service/index.yml) do produto. 
+* Saiba mais sobre o serviço Azure Machine Learning lendo [O que é o Serviço do Azure Machine Learning?](../service/overview-what-is-azure-ml.md) e experimentando os [guias de início rápido e tutoriais](../service/index.yml) que estão disponíveis.
 * Navegue até **C:\Arquivos de Programas\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para obter exemplos de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.  
 * Leia o artigo [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](https://aka.ms/dsvmtenthings).
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](../team-data-science-process/index.yml).

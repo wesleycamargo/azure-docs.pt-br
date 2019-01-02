@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877591"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detecção Inteligente - anomalias de falha
 O [Application Insights](app-insights-overview.md) enviará uma notificação a você automaticamente, quase em tempo real, se seu aplicativo Web experimentar um aumento anormal de solicitações com falha. Ele detecta um aumento excepcional na taxa de solicitações de HTTP ou chamadas de dependência são relatadas como falha. Para solicitações, solicitações com falha geralmente são aqueles com códigos de resposta de 400 ou superior. Para ajudar você com a triagem e o diagnóstico do problema, a notificação acompanha uma análise das características das falhas e a telemetria relacionada. Também há links para portal do Application Insights, onde você pode obter um diagnóstico mais detalhado. O recurso não precisa de qualquer configuração, pois usa algoritmos de aprendizado de máquina para prever a taxa normal de falhas.
@@ -92,7 +91,7 @@ Há alguns outros indícios. Por exemplo, a taxa de falha de dependência neste 
 
 Para investigar melhor, os links em cada seção levarão você diretamente até uma [página de pesquisa](app-insights-diagnostic-search.md) filtrada para mostrar solicitações, exceções, dependências ou rastreamentos relevantes. Você também pode abrir o [portal do Azure](https://portal.azure.com), navegar até o recurso Application Insights de seu aplicativo e abrir a folha Falhas.
 
-Neste exemplo, clicando no link 'Exibir detalhes de falhas de dependência' abre a folha de pesquisa do Application Insights. Ele mostra a instrução SQL que tem um exemplo da causa raiz: nulos foram fornecidos em campos obrigatórios e não passou na validação durante o salvamento operação.
+Neste exemplo, clicando no link 'Exibir detalhes de falhas de dependência' abre a folha de pesquisa do Application Insights. Ele mostra a instrução SQL que tem um exemplo da causa raiz: Valores nulos foram fornecidos em campos obrigatórios e não passaram na validação durante a operação de salvamento.
 
 ![Pesquisa de diagnóstico](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -124,11 +123,11 @@ A Detecção Inteligente de anomalias de falha complementa outros recursos disti
 
 *Então, vocês examinam os meus dados?*
 
-* Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
+*  Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 
 *É necessário assinar este alerta?*
 
-* Não. Todos os aplicativos que enviam uma telemetria de solicitação têm a regra de alerta de Detecção Inteligente.
+*  Não. Todos os aplicativos que enviam uma telemetria de solicitação têm a regra de alerta de Detecção Inteligente.
 
 *Posso cancelar a assinatura ou ter as notificações enviadas para meus colegas em vez disso?*
 
@@ -147,7 +146,7 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Metrics explorer](app-insights-metrics-explorer.md)
 * [Gerenciador de pesquisa](app-insights-diagnostic-search.md)
-* [Analytics - linguagem de consulta poderosa](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics - linguagem de consulta poderosa](../azure-monitor/log-query/get-started-portal.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 

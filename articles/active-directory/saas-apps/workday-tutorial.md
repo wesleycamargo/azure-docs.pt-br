@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o Workday | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o Workday | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Workday.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714711"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.  O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Workday da galeria
 2. configurar e testar o logon único do AD do Azure
@@ -112,9 +112,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Workday](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. Na caixa de texto **Identificador**, digite uma URL: `http://www.workday.com`
+    b. Na caixa de texto **Identificador**, digite uma URL: `https://www.workday.com`
 
 4. Marque a opção **Mostrar configurações de URL avançadas** e execute a seguinte etapa:
 
@@ -155,7 +155,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![URLs de redirecionamento](./media/workday-tutorial/IC7829581.png "URLs de redirecionamento")
 
-    a. Clique em **Adicionar Linha**.
+     a. Clique em **Adicionar Linha**.
 
     b. Nas caixas de texto **URL de Redirecionamento de Logon** e **URL de Redirecionamento Móvel**, digite a **URL de Entrada** inserida na página **URLs e Domínio do Workday** do Portal do Azure.
 
@@ -172,7 +172,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Instalação do SAML](./media/workday-tutorial/IC782926.png "Instalação do SAML")
 
-    a.  Selecione **Habilitar Autenticação SAML**.
+     a.  Selecione **Habilitar Autenticação SAML**.
 
     b.  Clique em **Adicionar Linha**.
 
@@ -180,7 +180,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Provedores de Identidade SAML](./media/workday-tutorial/IC7829271.png "Provedores de Identidade SAML")
 
-    a. Na caixa de texto **Nome do Provedor de Identidade**, digite um nome de provedor (por exemplo: *SPInitiatedSSO*).
+     a. Na caixa de texto **Nome do Provedor de Identidade**, digite um nome de provedor (por exemplo: *SPInitiatedSSO*).
 
     b. No Portal do Azure, na janela **Configurar logon**, copie o valor da **ID da Entidade SAML** e, em seguida, cole-o na caixa de texto **Emissor do Certificado**.
 
@@ -204,7 +204,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Exibir chave pública x509](./media/workday-tutorial/IC782930.png "Exibir chave pública x509")
 
-    a. Na caixa de texto **Nome**, digite um nome para o seu certificado (por exemplo: *PPE\_SP*).
+     a. Na caixa de texto **Nome**, digite um nome para o seu certificado (por exemplo: *PPE\_SP*).
 
     b. Na caixa de texto **Válido de** , digite o valor do atributo “válido de” do seu certificado.
 
@@ -225,7 +225,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuração de SSO")
 
-    a.  Na caixa de texto **ID do Provedor de Serviço**, digite **http://www.workday.com**.
+     a.  Na caixa de texto **ID do Provedor de Serviço**, digite **https://www.workday.com**.
 
     b. Selecione **Não Esvazie a Solicitação de Autenticação iniciada por SP**.
 

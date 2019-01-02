@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093889"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -68,9 +68,9 @@ As seguintes propriedades são suportadas para um serviço vinculado do Data War
 
 Para diferentes tipos de autenticação, consulte as seções a seguir sobre pré-requisitos e amostras JSON, respectivamente:
 
-- [Autenticação SQL](#sql-authentication)
-- Autenticação de token de aplicativo do Azure AD: [Principal de serviço](#service-principal-authentication)
-- Autenticação de token do aplicativo Azure AD: [Identidades gerenciadas para recursos do Azure](#managed-identity)
+- [Autenticação do SQL](#sql-authentication)
+- Uso da autenticação de token do aplicativo Azure Active Directory: [Entidade de serviço](#service-principal-authentication)
+- Uso da autenticação de token do aplicativo Azure Active Directory: [Identidades gerenciadas para os recursos do Azure](#managed-identity)
 
 >[!TIP]
 >Se ocorrer erro com código de erro como "UserErrorFailedToConnectToSqlServer" e mensagem como "O limite da sessão para o banco de dados é XXX e foi atingido.", adicione `Pooling=false` à cadeia de conexão e tente novamente.
@@ -358,8 +358,8 @@ Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor e
 | rejectType | Especifica se a opção **rejectValue** é um valor literal ou uma porcentagem.<br/><br/>Os valores permitidos são **Valor** (padrão) e **Porcentagem**. | Não  |
 | rejectSampleValue | Determina o número de linhas a serem recuperadas antes que o PolyBase recalcule a porcentagem de linhas rejeitadas.<br/><br/>Os valores permitidos são 1, 2 etc. | Sim, se o **rejectType** for  **porcentagem**. |
 | useTypeDefault | Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não  |
-| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** . Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **inteiro** (número de linhas). | Não. O padrão é 10000. |
-| writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar. Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não  |
+| writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** . Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **inteiro** (número de linhas). |  Não. O padrão é 10000. |
+| writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar. Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **timespan**. Exemplo: “00:30:00” (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não  | (#repeatability-during-copy). | Uma instrução de consulta. | Não  |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemplo de coletor do SQL Data Warehouse
@@ -404,7 +404,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
    1. `fileName` não contém o filtro curinga.
    2. `rowDelimiter` deve ser **\n**.
-   3. `nullValue`é definido como **cadeia de caracteres vazia** ("") ou como padrão, e `treatEmptyAsNull` não é definido como falso.
+   3. `nullValue`é definido como **cadeia de caracteres vazia** ("") ou como padrão, e `treatEmptyAsNull` é deixado como padrão ou definido como true.
    4. `encodingName`está definido como **utf-8**, que é o valor padrão.
    5. `escapeChar`, `quoteChar` e `skipLineCount` não são especificadas. O suporte do PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
    6. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
@@ -577,7 +577,7 @@ Quando você copia dados de ou para o Azure SQL Data Warehouse, os seguintes map
 | sql_variant | Objeto * |
 | text | String, Char[] |
 | tempo real | timespan |
-| timestamp | Byte[] |
+|  timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
 | varbinary | Byte[] |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585626"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326524"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -85,9 +85,9 @@ Você configura uma conta de armazenamento privado para diagnóstico da VM.
 
 O Managed Disks oferece suporte a três funções principais padrão:
 
-* Proprietário: pode gerenciar tudo, incluindo o acesso
-* Colaborador: pode gerenciar tudo, exceto o acesso
-* Leitor: pode ver tudo, mas não pode fazer alterações
+* Proprietário: Pode gerenciar tudo, incluindo o acesso
+* Colaborador: Pode gerenciar tudo, exceto o acesso.
+* Leitor: Pode ver tudo, mas não pode fazer alterações
 
 **É possível copiar ou exportar um disco gerenciado para uma conta de armazenamento privado?**
 
@@ -137,9 +137,9 @@ Não, quando o novo disco é criado é uma cópia autônoma completa do blob no 
 
 Para discos gerenciados, você não pode renomeá-los. No entanto, você pode renomear um disco não gerenciado, desde que ele não está anexado a uma VM ou VHD.
 
-**Posso usar o particionamento de GBT em um Disco do Azure?**
+**Posso usar o particionamento de GPT em um Disco do Azure?**
 
-O particionamento GBT pode ser usado apenas em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
+O particionamento GPT pode ser usado apenas em discos de dados, não em discos do sistema operacional. Os discos do sistema operacional devem usar o estilo de partição MBR.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 
@@ -188,6 +188,10 @@ Não, os discos SSDs Padrão somente estão disponíveis como discos gerenciados
 Não. Os discos SSD padrão não são compatíveis com SLA de VM de Instância Única. Use discos SSD premium para SLA de VM de Instância Única.
 
 ## <a name="migrate-to-managed-disks"></a>Como migrar para Managed Disks
+
+* * Há algum impacto da migração sobre o desempenho de Discos Gerenciados?
+
+Migração envolve a movimentação do disco de um local de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que pode levar várias horas para ser concluída, geralmente mens que 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo seu aplicativo pode apresentar latência de leitura maior do que o normal uma vez que as leituras podem ser redirecionadas para o local original e podem demorar para serem concluídas. Não há nenhum impacto na latência de gravação durante esse período.  
 
 **Quais alterações são necessárias em uma já existente configuração de serviço do Backup do Azure antes/depois da migração para os Managed Disks?**
 
@@ -262,7 +266,7 @@ SIM
 
  Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada de um disco gerenciado ou instantâneo criptografado, ele estará criptografado. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
+## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Gerenciados e não gerenciados
 
 **Se uma VM usa uma série de tamanho que dá suporte aos discos Premium SSD, como um DSv2, é possível anexar discos de dados standard e premium?** 
 
@@ -292,7 +296,7 @@ O SSD local é um armazenamento temporário fornecido com uma VM do Managed Disk
 
 Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: Gerenciados e não gerenciados
 
 **Qual é o maior tamanho de disco gerenciado com suporte para o sistema operacional e os discos de dados?**
 
@@ -312,10 +316,10 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 
 |Ferramentas do Azure      | Versões com suporte                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versão 4.1.0: versão de junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: versão de maio de 2017 ou posterior|
-|CLI do Azure v2     | Número de versão 2.0.12: versão de julho de 2017 ou posterior|
-|AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|
+|Azure PowerShell | Número de versão 4.1.0: Versão de junho de 2017 ou posterior|
+|CLI do Azure v1     | Número de versão 0.10.13: Versão de maio de 2017 ou posterior|
+|CLI do Azure v2     | Número da versão 2.0.12: Versão de julho de 2017 ou posterior|
+|AzCopy           | Número da versão 6.1.0: Versão de junho de 2017 ou posterior|
 
 **Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou blobs de página?**
 
@@ -339,7 +343,7 @@ O maior tamanho de disco compatível pelo Backup do Azure e serviço do Azure Si
 
 **Quais são os tamanhos de VM recomendada para tamanhos de discos grandes (> 4TiB) otimizados SSD Standard e HDD Standard para alcançar o disco IOPS e Largura de Banda?**
 
-Para atingir a taxa de transferência de disco de tamanhos de disco grandes HDD Standard e HDD Standard (> 4TB) além de 500 IOPS e 60 MiB/s, você deve usar um dos seguintes tamanhos de VM para otimizar o desempenho: série B, série DSv2, série Dsv3, série ESv3, série Fs, série Fsv2, série M, série GS, série NCv2, série NCv3 ou VMs da série Ls.
+Para obter a taxa de transferência dos tamanhos de disco grandes do SSD Standard e HDD Standard (>4TB) além de 500 IOPS e 60 MiB/s, você deve usar um dos seguintes tamanhos de VM para otimizar o seu desempenho: Série B, série DSv2, Série Dsv3, Série ESv3, Série Fs, série Fsv2, série M, série GS, série NCv2, Série NCv3ou VMs da série Ls.
 
 **Quais regiões são os tamanhos de disco gerenciado maiores do que o suporte para 4 TiB no?**
 

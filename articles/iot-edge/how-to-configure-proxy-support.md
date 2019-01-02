@@ -1,5 +1,5 @@
 ---
-title: Configurar dispositivos do Azure IoT Edge para proxies de rede | Microsoft Docs
+title: Configurar dispositivos para proxies de rede - Azure IoT Edge | Microsoft Docs
 description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer módulos de IoT Edge voltados para a Internet para comunicação por meio de um servidor proxy.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913216"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100426"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy
 
@@ -103,7 +104,7 @@ Verifique se sua variável de ambiente foi criada e se a nova configuração foi
 systemctl show --property=Environment iotedge
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 Abra uma janela do PowerShell como administrador e execute o seguinte comando para editar o registro com a nova variável de ambiente. Substitua **\<URL do proxy>** pelo endereço e porta do servidor proxy.
  
@@ -174,7 +175,7 @@ Para configurar o agente de Borda e os módulos do hub de Borda, selecione **Def
 
 Adicione a variável de ambiente **https_proxy** às definições do módulo de agente Edge e do hub de borda. Se você incluiu a variável de ambiente **UpstreamProtocol** no arquivo config.yaml em seu dispositivo IoT Edge, inclua isso na definição do módulo do agente de Borda também. 
 
-![Configurar variáveis de ambiente](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Defina a variável de ambiente https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Todos os outros módulos adicionados a um manifesto de implantação seguem o mesmo padrão. Na página em que você define o nome e a imagem do módulo, há uma seção de variáveis de ambiente.
 
