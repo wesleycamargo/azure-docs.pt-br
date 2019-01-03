@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088044"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754043"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização da pilha 1809 do Azure
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve o conteúdo do pacote de atualização de 1809. O pacote de atualização inclui aprimoramentos, correções e problemas conhecidos nesta versão do Azure Stack. Este artigo também inclui um link para que você pode baixar a atualização. Problemas conhecidos são divididos em questões relacionadas diretamente para o processo de atualização e os problemas com a compilação (após a instalação).
 
@@ -60,10 +60,10 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - Os seguintes problemas de disco gerenciado são corrigidos em 1809 e também são corrigidos no 1808 [do Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium: *Falha ao atualizar discos para a máquina virtual 'vmname' erro: operação solicitada não pode ser executada porque tipo de conta de armazenamento 'Premium_LRS' não há suporte para o tamanho da VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+   - Corrigido o problema no quais anexados discos de dados SSD para máquinas virtuais de disco gerenciado (DS, DSv2, Fs e Fs_V2) falhou com um erro de tamanho de premium:  *Falha ao atualizar discos para a máquina virtual 'vmname' erro: Operação solicitada não pode ser executada porque o tipo de conta de armazenamento 'Premium_LRS' não é suportado para tamanho de VM ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Criando uma VM de disco gerenciado usando **createOption**: **Attach** falha com o seguinte erro: *operação de execução longa falhou com status 'Failed'. Informações adicionais: 'Ocorreu um erro de execução interna'.*
-   Código de erro: InternalExecutionError ErrorMessage: Ocorreu um erro de execução interna.
+   - Criando uma VM de disco gerenciado usando **createOption**: **Anexar** falha com o seguinte erro: *Operação de execução longa falhou com status 'Failed'. Informações adicionais: 'Ocorreu um erro de execução interna'.*
+   Código de erro: InternalExecutionError ErrorMessage: Erro de execução interno.
    
    Esse problema foi corrigido.
 
@@ -221,16 +221,16 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Você pode ver os alertas para o **controlador de integridade** componente que tem os seguintes detalhes:  
 
    #1 do alerta:
-   - NOME: Função de infraestrutura não íntegro
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura não íntegro
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de integridade
-   - Descrição: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
+   - DESCRIÇÃO: O Scanner de pulsação do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.  
 
   #2 do alerta:
-   - NOME: Função de infraestrutura não íntegro
-   - GRAVIDADE: aviso
+   - NOME:  Função de infraestrutura não íntegro
+   - GRAVIDADE: Aviso
    - COMPONENTE: Controlador de integridade
-   - Descrição: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
+   - DESCRIÇÃO: O Scanner de falha do controlador de integridade não está disponível. Isso pode afetar as métricas e relatórios de integridade.
 
   Ambos os alertas podem ser ignorados com segurança e será fechado automaticamente ao longo do tempo.  
 
@@ -239,9 +239,9 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Você pode ver um alerta para o **armazenamento** componente que tem os seguintes detalhes:
 
    - NOME: Erro de comunicação interna do serviço de armazenamento  
-   - GRAVIDADE: crítico  
-   - COMPONENTE: armazenamento  
-   - Descrição: Erro de comunicação interna do serviço de armazenamento ocorreu ao enviar solicitações para os nós a seguir.  
+   - GRAVIDADE: Crítico  
+   - COMPONENTE: Armazenamento  
+   - DESCRIÇÃO: Erro de comunicação interna do serviço de armazenamento ocorreu ao enviar solicitações para os nós a seguir.  
 
     O alerta pode ser ignorado, mas você precisa fechar o alerta manualmente.
 
@@ -257,12 +257,12 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
 - Quando você cria uma nova máquina virtual (VM) usando o portal do Azure Stack, e você selecionar o tamanho da VM, a coluna USD por mês é exibida com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
 
 <!-- 2869209 – IS, ASDK --> 
-- Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhará com o seguinte erro: *operação de execução longa falhou com status 'Failed'*. 
+- Ao usar o [ **Add AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), você deve usar o **- OsUri** parâmetro como a conta de armazenamento em que o disco é carregado do URI. Se você usar o caminho local do disco, o cmdlet falhar com o seguinte erro: *Operação de execução longa falhou com status 'Failed'*. 
 
 <!--  2795678 – IS, ASDK --> 
 - Quando você usa o portal para criar máquinas virtuais (VM) em um tamanho VM premium (DS, Ds_v2, FS e FSv2), a VM é criada em uma conta de armazenamento padrão. Criação de uma conta de armazenamento padrão não afeta funcionalmente, IOPs, ou de cobrança. 
 
-   Você pode ignorar com segurança o aviso que diz: *você optou por usar um disco padrão em um tamanho que dá suporte a discos premium. Isso pode afetar o desempenho do sistema operacional e não é recomendado. Considere usar o armazenamento premium (SSD).*
+   Você pode ignorar com segurança o aviso que diz: *Você optou por usar um disco padrão em um tamanho que dá suporte a discos premium. Isso pode afetar o desempenho do sistema operacional e não é recomendado. Considere usar o armazenamento premium (SSD).*
 
 <!-- 2967447 - IS, ASDK --> 
 - A experiência de criação de conjunto (VMSS) de escala de máquina virtual oferece a opção para implantação baseada em CentOS 7.2. Porque essa imagem não está disponível no Azure Stack, selecione outro sistema operacional para sua implantação ou usar um modelo do Azure Resource Manager especificando outra imagem do CentOS que foi baixada pelo operador antes da implantação do marketplace.  
@@ -287,12 +287,15 @@ A seguir estão os problemas conhecidos de pós-instalação para esta versão d
    - Cotas de criados antes da atualização 1808, a cota de Managed Disks mostra valores 0 no portal do administrador, apesar de 2048 GiB é alocada. Você pode aumentar ou diminuir o valor com base em suas necessidades reais e recentemente defina o valor de cota substitui o padrão de GiB de 2048.
    - Se você atualizar o valor da cota para 0, é equivalente ao valor padrão de 2048 GiB. Como alternativa, defina o valor da cota como 1.
 
-<!-- TBD - IS ASDK --> Depois de aplicar o 1809 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
+<!-- TBD - IS ASDK --> 
+- Depois de aplicar o 1809 de atualização, você pode encontrar os seguintes problemas ao implantar VMs com discos gerenciados:
 
    - Se a assinatura foi criada antes da atualização 1808, implantando uma VM com discos gerenciados pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas para cada assinatura:
       1. No portal do locatário, vá para **assinaturas** e localize a assinatura. Clique em **provedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **registrar novamente**.
       2. Sob a mesma assinatura, vá para **controle de acesso (IAM)**, verifique se **do Azure Stack – Managed Disk** está listado.
    2. Se você tiver configurado um ambiente multilocatário, implantar as VMs em uma assinatura associada a um diretório de convidado pode falhar com uma mensagem de erro interno. Para resolver o erro, siga estas etapas no [deste artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para reconfigurar a cada um dos seus diretórios de convidado.
+
+- Uma VM do Ubuntu 18.04 criado com autorização SSH habilitada não permitirá que você use as chaves SSH para fazer logon no. Como alternativa, use o acesso de VM para a extensão do Linux para implementar as chaves SSH após o provisionamento ou usar a autenticação baseada em senha.
 
 ### <a name="networking"></a>Rede  
 

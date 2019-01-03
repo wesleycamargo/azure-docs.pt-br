@@ -196,10 +196,6 @@
 #### [Guia Detalhes da Vitrine](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publicar oferta de serviço de consultoria](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [Gerenciar perfil do editor](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Gerenciar usuários](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [Conformidade com RGPD](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## Test drive
 ### [O que é Test Drive?](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Test Drive do Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405590"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810772"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 O Azure Stack oferece suporte os sistemas de operacionais de convidados do Windows listados na tabela a seguir:
 
@@ -71,11 +71,11 @@ Distribuições do Linux listadas como disponíveis no Marketplace incluem o nec
 | Ubuntu 16.04-LTS | 64 bits | Canônico | Sim |
 | 18.04-LTS do Ubuntu | 64 bits | Canônico | Sim |
 
-Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).
+Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e Azure Stack: Perguntas frequentes](https://access.redhat.com/articles/3413531).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o Azure Stack Marketplace, consulte os artigos a seguir:
 
-[Baixar itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
-[Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)
+- [Baixar itens do Marketplace](azure-stack-download-azure-marketplace-item.md)  
+- [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)
