@@ -3,27 +3,26 @@ title: Criar uma entidade de serviço para o Azure Stack | Microsoft Docs
 description: Descreve como criar uma entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958307"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715811"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Fornecer aos aplicativos acesso aos recursos do Azure Stack, Criando entidades de serviço
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Você pode atribuir um aplicativo acesso aos recursos do Azure Stack, criando um serviço principal que usa o Azure Resource Manager. Uma entidade de serviço permite que você delegar permissões específicas usando [controle de acesso baseado em função](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ A maneira como você configurou o Active Directory para o Azure Stack determina 
 
 As etapas para atribuir uma entidade de serviço a uma função o mesmo para o Azure AD e o AD FS. Depois de criar a entidade de serviço, você pode [delegar permissões](azure-stack-create-service-principals.md#assign-role-to-service-principal) atribuindo-a uma função.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Criar uma entidade de serviço do AD do Azure
+## <a name="create-service-principal-for-azure-ad"></a>Criar entidade de serviço do AD do Azure
 
 Se a pilha do Azure usa o Azure AD como o repositório de identidades, você pode criar um serviço de entidade usando as mesmas etapas do Azure, usando o portal do Azure.
 
@@ -95,11 +94,11 @@ Se você implantou o Azure Stack usando o AD FS como o repositório de identidad
 * Atribua a entidade de serviço a uma função.
 * Entre usando a identidade da entidade de serviço.
 
-Para obter detalhes sobre como criar a entidade de serviço, consulte [criar entidade de serviço do AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Para obter detalhes sobre como criar a entidade de serviço, consulte [criar entidade de serviço do AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Atribuir a entidade de serviço a uma função
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 Você pode definir o escopo da função no nível de uma assinatura, um grupo de recursos ou um recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, um aplicativo com a função de leitor para um grupo de recursos significa que o aplicativo pode ler qualquer um dos recursos no grupo de recursos.
@@ -114,9 +113,7 @@ Use as etapas a seguir como um guia para atribuir uma função a uma entidade de
 
 3. Selecione **controle de acesso (IAM)** para a assinatura.
 
-     ![Selecione o controle de acesso](./media/azure-stack-create-service-principal/image17.png)
-
-4. Selecione **Adicionar**.
+4. Selecione **Adicionar atribuição de função**.
 
 5. Selecione a função que deseja atribuir ao aplicativo.
 

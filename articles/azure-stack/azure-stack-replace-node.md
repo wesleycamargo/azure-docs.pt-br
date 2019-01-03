@@ -6,32 +6,34 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 1b37b150dad4951a4ade81f226b515ce9cae9053
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9d53aa879c39eb68597a402133a7ff16737f4f65
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377047"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716303"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala em um sistema integrado do Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
-Este artigo descreve o processo geral para substituir um computador físico (também conhecido como um *nó de unidade de escala*) no Azure Stack sistema integrado. Substituição de nó de unidade de escala real etapas irão variar com base em seu fornecedor de hardware do fabricante original do equipamento (OEM). Consulte a documentação do fornecedor campo FRU (unidade) para obter etapas detalhadas que são específicas para seu sistema.
+Este artigo descreve o processo geral para substituir um computador físico (também conhecido como um nó de unidade de escala) em um sistema integrado do Azure Stack. Substituição de nó de unidade de escala real etapas irão variar com base em seu fornecedor de hardware do fabricante original do equipamento (OEM). Consulte a documentação do fornecedor campo FRU (unidade) para obter etapas detalhadas que são específicas para seu sistema.
 
 O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um nó de unidade de escala inteira.
 
 ![Fluxograma de processo de substituição de nó](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Esta ação pode não ser necessária com base na condição do hardware física.
+
+> [!Note]  
+> Se a operação de desligamento falhar, é recomendável usar a operação de drenagem seguida da operação de parada. Para obter mais detalhes, consulte operações de nó disponível  
 
 ## <a name="review-alert-information"></a>Examine as informações de alerta
 
@@ -51,22 +53,24 @@ Se você abrir o **nó de unidade de escala está off-line** contém a descriç�
 
 As etapas a seguir são fornecidas como uma visão geral do que o processo de substituição de nó de unidade de escala. Consulte a documentação de FRU do fornecedor de hardware seu OEM para obter etapas detalhadas que são específicas para seu sistema. Não siga estas etapas sem fazer referência a documentação fornecida pelo OEM.
 
-1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Essa ação pode não ser necessária com base na condição do hardware física.
+1. Use o **desligamento** ação para desligar normalmente o nó de unidade de escala. Essa ação pode não ser necessária com base na condição do hardware física. 
 
-   > [!NOTE]
-   > Em qualquer caso, apenas um nó pode ser descarregado e desligado ao mesmo tempo sem quebrar o S2D (espaços de armazenamento diretos).
+2. Na improvável que caso, a falha na ação de desligamento, use o [drenar](azure-stack-node-actions.md#drain) ação para colocar o nó de unidade de escala no modo de manutenção. Essa ação pode não ser necessária com base na condição do hardware física.
 
-2. Se o nó ainda está ligado, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Essa ação pode não ser necessária com base na condição do hardware física.
- 
-   > [!NOTE]
+   > [!NOTE]  
+   > Em qualquer caso, apenas um nó pode ser desativado e desligado ao mesmo tempo sem quebrar o S2D (espaços de armazenamento diretos).
+
+3. Após o nó de unidade de escala no modo de manutenção, use o [parar](azure-stack-node-actions.md#stop) ação. Essa ação pode não ser necessária com base na condição do hardware física.
+
+   > [!NOTE]  
    > No caso improvável de que a ação de desligar não funciona, use a interface da web do baseboard management controller (BMC).
 
-1. Substitua o computador físico. Normalmente, isso é feito pelo seu fornecedor de hardware de OEM.
-2. Use o [reparo](azure-stack-node-actions.md#scale-unit-node-actions) ação para adicionar o novo computador físico para a unidade de escala.
-3. Use o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e espaço consumido.
-4. Após a ação de reparo, valide que todos os alertas ativos foi fechados automaticamente.
+4. Substitua o computador físico. Normalmente, isso é feito pelo seu fornecedor de hardware de OEM.
+5. Use o [reparo](azure-stack-node-actions.md#repair) ação para adicionar o novo computador físico para a unidade de escala.
+6. Use o ponto de extremidade com privilégios [verificar o status de reparo de disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Com novas unidades de dados, um trabalho de reparo de armazenamento completo pode levar várias horas, dependendo da carga do sistema e espaço consumido.
+7. Após a ação de reparo, valide que todos os alertas ativos foi fechados automaticamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre como substituir um disco físico intercambiáveis, consulte [substituir um disco](azure-stack-replace-disk.md). 
-- Para obter informações sobre como substituir um componente de hardware não intercambiáveis, consulte [substituir um componente de hardware](azure-stack-replace-component.md).
+- Para obter informações sobre como substituir um disco físico, enquanto o sistema está ligado, consulte [substituir um disco](azure-stack-replace-disk.md). 
+- Para obter informações sobre como substituir um componente de hardware que requer que o sistema seja desligado, consulte [substituir um componente de hardware](azure-stack-replace-component.md).
