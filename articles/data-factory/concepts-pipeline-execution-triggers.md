@@ -21,7 +21,7 @@ ms.lasthandoff: 12/04/2018
 ms.locfileid: "52876470"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versão atual](concepts-pipeline-execution-triggers.md)
 
