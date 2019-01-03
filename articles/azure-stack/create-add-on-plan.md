@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076783"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716746"
 ---
 # <a name="azure-stack-add-on-plans"></a>Planos de complemento de pilha do Azure
 
@@ -32,7 +32,7 @@ Há ocasiões em que a combinação de tudo em um único plano é ideal. Outras 
 Outro motivo para usar planos de complemento é ajudar os usuários Lembre-se de que o uso de recursos. Para fazer isso, você pode começar com um plano de base que inclui cotas relativamente pequenas (dependendo dos serviços necessários). Em seguida, como os usuários atingem a capacidade, eles seriam sejam alertados de que eles consumiu a alocação de recursos com base em seu plano atribuído. A partir daí, os usuários, em seguida, pode selecionar um plano de complemento que fornece os recursos adicionais.
 
 > [!NOTE]
-> Quando você não quiser usar um plano de complemento para estender uma cota, você também pode optar por [editar a configuração original da cota](azure-stack-quota-types.md#to-edit-a-quota). 
+> Quando você não quiser usar um plano de complemento para estender uma cota, você também pode optar por [editar a configuração original da cota](azure-stack-quota-types.md#edit-a-quota). 
 
 Quando um usuário adiciona um plano de complemento a uma assinatura existente da oferta, os recursos adicionais pode levar até uma hora para aparecer. 
 

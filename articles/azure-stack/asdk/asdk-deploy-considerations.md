@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864971"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726522"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considerações de planejamento de implantação de pilha do Azure
 Antes de implantar o Azure Stack desenvolvimento ASDK (Kit), certifique-se de que seu computador de host do kit de desenvolvimento atende aos requisitos descritos neste artigo.
@@ -29,17 +29,17 @@ Antes de implantar o Azure Stack desenvolvimento ASDK (Kit), certifique-se de qu
 ## <a name="hardware"></a>Hardware
 | Componente | Mínimo | Recomendadas |
 | --- | --- | --- |
-| Unidades de disco: sistema operacional |1 disco de SO com, no mínimo, 200 GB disponíveis para a partição do sistema (SSD ou HDD) |1 disco de SO com, no mínimo, 200 GB disponíveis para a partição do sistema (SSD ou HDD) |
-| Unidades de disco: dados do kit de desenvolvimento geral<sup>*</sup>  |4 discos. Cada disco fornece um mínimo de 140 GB de capacidade (SSD ou HDD). Todos os discos disponíveis são usados. |4 discos. Cada disco fornece um mínimo de 250 GB de capacidade (SSD ou HDD). Todos os discos disponíveis são usados. |
-| Computação: CPU |Soquete duplo: 12 núcleos físicos (total) |Soquete duplo: 16 núcleos físicos (total) |
-| Computação: memória |96 GB de RAM |128 GB de RAM (esse é o mínimo para dar suporte a provedores de recursos de PaaS).|
+| Unidades de disco: Sistema operacional |1 disco do sistema operacional com o mínimo de 200 GB disponíveis para a partição do sistema (SSD ou HDD) |1 disco de SO com, no mínimo, 200 GB disponíveis para a partição do sistema (SSD ou HDD) |
+| Unidades de disco: Dados do kit de desenvolvimento geral<sup>*</sup>  |4 discos. Cada disco fornece um mínimo de 240 GB de capacidade (SSD ou HDD). Todos os discos disponíveis são usados. |4 discos. Cada disco fornece um mínimo de 400 GB de capacidade (SSD ou HDD). Todos os discos disponíveis são usados. |
+| Computação: CPU |Soquete duplo: 16 núcleos físicos (total) |Soquete duplo: 20 núcleos físicos (total) |
+| Computação: Memória |192 GB DE RAM |256 GB DE RAM |
 | Computação: BIOS |Hyper-V habilitado (com suporte a SLAT) |Hyper-V habilitado (com suporte a SLAT) |
-| Rede: NIC |Certificação do Windows Server 2012 R2 necessária para a NIC; nenhum recurso especializado necessário |Certificação do Windows Server 2012 R2 necessária para a NIC; nenhum recurso especializado necessário |
+| Rede: NIC |Certificação do Windows Server 2012 R2. Nenhum recurso especializado necessário |Certificação do Windows Server 2012 R2. Nenhum recurso especializado necessário |
 | Certificação de logotipo de hardware |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificados para o Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Você precisa de mais do que isso recomendado capacidade, se você planeja adicionar muitos dos [itens do marketplace](asdk-marketplace-item.md) do Azure.
 
-**Configuração da unidade de disco de dados:** todas as unidades de dados devem ser do mesmo tipo (SAS, todos SATA ou NVMe todos os) e capacidade. Se as unidades de disco SAS forem usadas, as unidades de disco deve ser conectadas por meio de um único caminho (sem MPIO; o suporte a vários caminhos é fornecido).
+**Configuração da unidade de disco de dados:** Todas as unidades de dados devem ser do mesmo tipo (SAS, todos SATA ou NVMe todos os) e capacidade. Se as unidades de disco SAS forem usadas, as unidades de disco deve ser conectadas por meio de um único caminho (sem MPIO; o suporte a vários caminhos é fornecido).
 
 **Opções de configuração de HBA**
 
@@ -59,7 +59,7 @@ Antes de implantar o Azure Stack desenvolvimento ASDK (Kit), certifique-se de qu
 
 <sup>*</sup> Controladores RAID sem a capacidade de passagem não podem reconhecer o tipo de mídia. Esses controladores de marcam HDD e SSD como não especificado. Nesse caso, o SSD é usado como um armazenamento persistente, em vez de dispositivos de cache. Portanto, você pode implantar o kit de desenvolvimento no SSDs.
 
-**HBAs de exemplo**: LSI 9207-8i, LSI-9300-8i ou LSI-9265-8i no modo de passagem
+**HBAs de exemplo**: LSI 9207 8i, LSI-9300-8i ou LSI-9265 8i no modo de passagem
 
 Configurações de OEM de exemplo estão disponíveis.
 

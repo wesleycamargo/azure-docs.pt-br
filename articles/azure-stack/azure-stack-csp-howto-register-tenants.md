@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e319c803b610005bc130e9c5d314d23c48c1e9a3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963735"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717171"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicione o locatário para uso e cobrança para o Azure Stack
 
-*Aplica-se a: sistemas integrados do Azure Stack*
+*Aplica-se a: Sistemas integrados do Azure Stack*
 
 Este artigo descreve as etapas necessárias adicionar um usuário final para o Azure Stack gerenciados por um provedor de serviços de nuvem (CSP). Quando o novo locatário usa recursos, o Azure Stack relatará uso para suas assinaturas do CSP.
 
@@ -53,7 +53,7 @@ Se o cliente final será gerenciar sua própria conta, criar um usuário convida
  
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>Atualizar o registro com a assinatura do cliente final
 
-Atualize seu registro com a nova assinatura do cliente. Azure informa o uso do cliente usando a identidade do cliente do parceiro Central. Essa etapa garante que o uso de cada cliente é reportado na assinatura de CSP individual do cliente. Isso facilita acompanhar o uso de usuário e cobrança.
+Atualize seu registro com a nova assinatura do cliente. Azure informa o uso do cliente usando a identidade do cliente do Partner Center. Essa etapa garante que o uso de cada cliente é reportado na assinatura de CSP individual do cliente. Isso facilita acompanhar o uso de usuário e cobrança.
 
 > [!Note]  
 > Para executar esta etapa, você deve ter [registrado do Azure Stack](azure-stack-register.md).

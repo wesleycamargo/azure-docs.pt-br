@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353009"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607936"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Serviço de Aplicativo na visão geral do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Serviço de aplicativo do Azure no Azure Stack é uma oferta de plataforma-como um serviço (PaaS) do Microsoft Azure está disponível para o Azure Stack. O serviço permite aos clientes internos ou externos criar a web, API e o Azure Functions aplicativos para qualquer plataforma ou dispositivo. Eles podem integrar seus aplicativos com aplicativos locais e automatizar seus processos de negócios. Operadores de nuvem do Azure Stack podem executar aplicativos de cliente em totalmente gerenciadas VMs (máquinas virtuais), com sua escolha de recursos compartilhados de VM ou VMs dedicadas.
+Serviço de aplicativo do Azure no Azure Stack é uma oferta de plataforma-como um serviço (PaaS) do Microsoft Azure está disponível para o Azure Stack. O serviço permite aos clientes internos ou externos criar a web, API e o Azure Functions aplicativos para qualquer plataforma ou dispositivo. Eles podem integrar seus aplicativos a aplicativos locais e automatizar os processos de negócios. Os operadores de nuvem do Azure Stack podem executar os aplicativos cliente em VMs (máquinas virtuais) totalmente gerenciadas, com sua escolha de recursos compartilhados de VM ou VMs dedicadas.
 
 O serviço de aplicativo do Azure permite que você automatize processos de negócios e hospedar APIs de nuvem. Como um único serviço integrado, o serviço de aplicativo do Azure permite que você combine vários componentes, como sites, APIs REST e processos de negócios, em uma única solução.
 
@@ -33,16 +33,16 @@ O serviço de aplicativo do Azure permite que você automatize processos de neg�
 
 Veja alguns recursos importantes do Serviço de Aplicativo:
 
-- **Várias linguagens e estruturas**: serviço de aplicativo tem suporte de primeira classe para ASP.NET, Node. js, Java, PHP e Python. Você também pode executar o Windows PowerShell e outros scripts ou executáveis nas VMs do serviço de aplicativo.
-- **Otimização de DevOps**: configurar a implantação e integração contínua com GitHub, Git local ou o BitBucket. Você pode promover as atualizações por meio de teste e ambientes de preparo e gerenciar seus aplicativos no serviço de aplicativo usando o Azure PowerShell ou a interface de linha de comando de plataforma cruzada (CLI).
-- **Integração do Visual Studio**: ferramentas dedicadas no Visual Studio simplificam o trabalho de criação e implantação de aplicativos.
+- **Várias linguagens e estruturas**: Serviço de aplicativo tem suporte de primeira classe para ASP.NET, Node. js, Java, PHP e Python. Você também pode executar o Windows PowerShell e outros scripts ou executáveis nas VMs do serviço de aplicativo.
+- **Otimização de DevOps**: Configure a implantação e integração contínua com GitHub, Git local ou o BitBucket. Você pode promover as atualizações por meio de teste e ambientes de preparo e gerenciar seus aplicativos no serviço de aplicativo usando o Azure PowerShell ou a interface de linha de comando de plataforma cruzada (CLI).
+- **Integração do Visual Studio**: Ferramentas dedicadas no Visual Studio simplificam o trabalho de criação e implantação de aplicativos.
 
 ## <a name="app-types-in-app-service"></a>Tipos de aplicativo no Serviço de Aplicativo
 
 O serviço de aplicativo oferece vários tipos de aplicativo, cada um deles se destina a hospedar uma carga de trabalho específica:
 
-- [Aplicativos Web](../app-service/app-service-web-overview.md) para hospedar sites e aplicativos web.
-- [Aplicativos de API](../app-service/app-service-web-overview.md) para hospedar APIs REST.
+- [Aplicativos Web](../app-service/overview.md) para hospedar sites e aplicativos web.
+- [Aplicativos de API](../app-service/overview.md) para hospedar APIs REST.
 - Funções do Azure para hospedar cargas de trabalho sem servidor controlada por eventos.
 
 A palavra *aplicativo* refere-se aos recursos de hospedagem dedicados à execução de uma carga de trabalho. Levando *aplicativo web* como exemplo, você provavelmente já está acostumado a pensar de um aplicativo web, como o código de aplicativo e recursos de computação que juntos oferecem a funcionalidade a um navegador. No serviço de aplicativo, um aplicativo web é o recurso de computação do Azure Stack fornece para hospedar o código do aplicativo.

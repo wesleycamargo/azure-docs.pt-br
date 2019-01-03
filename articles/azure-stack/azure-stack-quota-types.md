@@ -1,6 +1,6 @@
 ---
 title: Tipos de cotas no Azure Stack | Microsoft Docs
-description: Revise os tipos diferentes de cota disponíveis para serviços e recursos no Azure Stack.
+description: Exibir e editar os tipos de cota diferentes disponíveis para serviços e recursos no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c5b3be1d5b047e77b12d22fd5d24cbc42d88f783
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711524"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715641"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cotas no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 [Cotas](azure-stack-plan-offer-quota-overview.md#plans) definem os limites de recursos que uma assinatura de usuário pode provisionar ou consumir. Por exemplo, uma cota pode permitir que um usuário criar até cinco VMs. Cada recurso pode ter seus próprios tipos de cotas.
 
 ## <a name="compute-quota-types"></a>Tipos de cota de computação 
+
 | **Tipo** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
 | Número máximo de máquinas virtuais | 50 | O número máximo de máquinas virtuais que pode criar uma assinatura neste local. |
@@ -39,6 +40,7 @@ ms.locfileid: "51711524"
 | Capacidade máxima (em GB) de disco gerenciado premium | 2.048 | A capacidade máxima de premium gerenciados de discos que podem ser criados nesse local. |
 
 ## <a name="storage-quota-types"></a>Tipos de cota de armazenamento 
+
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
 | Capacidade máxima (GB) |2.048 |Capacidade total de armazenamento que pode ser consumida por uma assinatura neste local. |
@@ -49,6 +51,7 @@ ms.locfileid: "51711524"
 
 
 ## <a name="network-quota-types"></a>Tipos de cota de rede
+
 | **Item** | **Valor padrão** | **Descrição** |
 | --- | --- | --- |
 | IPs públicos máximo |50 |O número máximo de IPs públicos que pode criar uma assinatura neste local. |
@@ -60,23 +63,51 @@ ms.locfileid: "51711524"
 | Grupos de segurança de rede máxima |50 |O número máximo de grupos de segurança de rede que pode criar uma assinatura neste local. |
 
 ## <a name="view-an-existing-quota"></a>Exibir uma cota existente
+
+Há duas maneiras diferentes para exibir uma cota existente:
+
+### <a name="plans"></a>Planos
+
+1.  No painel de navegação à esquerda do portal do administrador, selecione **planos**.
+2.  Selecione o plano que você gostaria de exibir os detalhes para o, clicando em seu nome.
+3.  Na folha que é aberta, selecione **serviços e cotas**.
+4.  Selecione a cota que você deseja ver clicando na **nome** coluna.
+
+    [ ![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+### <a name="resource-providers"></a>Provedores de recursos
+
 1. No painel do portal do administrador padrão, localize o **provedores de recursos** lado a lado.
-2. Selecione o serviço com a cota que você deseja exibir, como **Compute** ou **armazenamento**.
+2. Selecione o serviço com a cota que você deseja exibir, como **Compute**, **rede**, ou **armazenamento**.
 3. Selecione **cotas**e, em seguida, selecione a cota que você deseja exibir.
 
+## <a name="edit-a-quota"></a>Editar uma cota
 
-## <a name="edit-a-quota"></a>Editar uma cota  
-Você pode optar por editar a configuração original de uma cota em vez de [usando um plano de complemento](create-add-on-plan.md). Quando você edita uma cota, a nova configuração automaticamente se aplica globalmente para todos os planos que usam essa cota e todas as assinaturas existentes que usam esses planos. A edição de uma cota é diferente de quando você usa um plano de complemento para fornecer uma cota modificada, o que um usuário opta por se inscrever. 
+Há duas maneiras diferentes para editar uma cota:
 
-### <a name="to-edit-a-quota"></a>Para editar uma cota  
+### <a name="edit-a-plan"></a>Editar um plano
+
+1.  No painel de navegação à esquerda do portal do administrador, selecione **planos**.
+2.  Selecione o plano para o qual você deseja editar uma cota, clicando em seu nome.
+3.  Na folha que é aberta, selecione **serviços e cotas**.
+4.  Selecione a cota que você deseja editar clicando na **nome** coluna.
+    [ ![Cotas](media/azure-stack-quota-types/quotas1sm.png "exibir cotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+5.  Na folha que é aberta, selecione **Editar na computação**, **Editar na rede**, ou **Editar no armazenamento**.
+    ![Cotas](media/azure-stack-quota-types/quotas3.png "exibir cotas")    
+
+Como alternativa, você pode seguir este procedimento para editar uma cota:
+
 1. No painel do portal do administrador padrão, localize o **provedores de recursos** lado a lado.
 2. Selecione o serviço com a cota que você deseja modificar, como **Compute**, **rede**, ou **armazenamento**.
 3. Em seguida, selecione **cotas**e, em seguida, selecione a cota que você deseja alterar.
-4. Sobre o **definir cotas** painel, edite os valores e, em seguida, selecione **salvar**. 
+4. Sobre o **as cotas de armazenamento definida**, **computação definir cotas**, ou **cotas de rede definida** painel (dependendo do tipo de cota que você escolheu para editar), edite os valores e, em seguida, selecione **Salvar**.
+
+### <a name="edit-original-configuration"></a>Editar a configuração original
+  
+Você pode optar por editar a configuração original de uma cota em vez de [usando um plano de complemento](create-add-on-plan.md). Quando você edita uma cota, a nova configuração automaticamente se aplica globalmente para todos os planos que usam essa cota e todas as assinaturas existentes que usam esses planos. A edição de uma cota é diferente de quando você usa um plano de complemento para fornecer uma cota modificada, o que um usuário opta por se inscrever. 
 
 Os novos valores para a cota se aplicam globalmente a todos os planos que usam a cota de modificação e a todas as assinaturas existentes que usam esses planos. 
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,28 +1,27 @@
 ---
-title: Criar uma entidade de serviço para o Azure Stack | Microsoft Docs
-description: Descreve como criar uma nova entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
+title: Gerenciar uma entidade de serviço para o Azure Stack | Microsoft Docs
+description: Descreve como gerenciar uma nova entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
 services: azure-resource-manager
 documentationcenter: na
 author: sethmanheim
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 12/18/2018
 ms.author: sethm
-ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 50ece9edbc4bee1dea2cc61f2cdd851b278aa7b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230107"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720423"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecer acesso a aplicativos para o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Quando um aplicativo precisa acessar implanta nem configura recursos por meio do Azure Resource Manager no Azure Stack, você pode criar uma entidade de serviço, que é uma credencial para o seu aplicativo. Em seguida, você pode delegar apenas as permissões necessárias para essa entidade de serviço.  
 
@@ -30,35 +29,42 @@ Por exemplo, você pode ter uma ferramenta de gerenciamento de configuração qu
 
 As entidades de serviço são preferíveis para executar o aplicativo com suas próprias credenciais porque:
 
-* Você pode atribuir permissões à entidade que são diferentes de suas próprias permissões de conta de serviço. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
-* Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades.
-* Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.  
+ - Você pode atribuir permissões à entidade que são diferentes de suas próprias permissões de conta de serviço. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
+ - Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades.
+ - Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.  
 
 ## <a name="getting-started"></a>Introdução
 
-Dependendo de como você implantou o Azure Stack, você começa ao criar um serviço principal. Este documento descreve como criar uma entidade de serviço para ambos [Azure Active Directory (AD do Azure)](#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](#create-service-principal-for-ad-fs). Depois de criar a entidade de serviço, um conjunto de etapas comuns para AD FS e Azure Active Directory são usados para [delegar permissões](#assign-role-to-service-principal) à função.     
+Dependendo de como você implantou o Azure Stack, você começa ao criar um serviço principal. Este documento descreve a criação de um serviço principal para:
 
-## <a name="create-service-principal-for-azure-ad"></a>Criar entidade de serviço do AD do Azure
+- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD é um diretório multilocatário baseado em nuvem e o serviço de gerenciamento de identidade. Você pode usar o Azure AD com uma pilha do Azure conectados.
+- [Serviços de Federação do Active Directory (AD FS)](#create-service-principal-for-ad-fs). O AD FS fornece federação de identidade simplificada e segura e recursos de logon único (SSO) da Web. Você pode usar o AD FS com instâncias do Azure Stack conectadas ou desconectadas.
 
-Se você implantou o Azure Stack usando o Azure AD como o repositório de identidades, você pode criar entidades de serviço exatamente como faria para o Azure. Esta seção mostra como executar as etapas por meio do portal. Verifique se você tem o [permissões do AD do Azure necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar.
+Depois de criar a entidade de serviço, um conjunto de etapas comuns para AD FS e Azure Active Directory são usados para [delegar permissões](#assign-role-to-service-principal) à função.
 
-### <a name="create-service-principal"></a>Criar entidade de serviço
+## <a name="manage-service-principal-for-azure-ad"></a>Gerenciar a entidade de serviço do Azure AD
+
+Se você tiver implantado o Azure Stack com o Azure Active Directory (Azure AD) como seu serviço de gerenciamento de identidade, você pode criar entidades de serviço exatamente como faria para o Azure. Esta seção mostra como executar as etapas por meio do portal. Verifique se você tem o [permissões do AD do Azure necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar.
+
+### <a name="create-service-principal"></a>Criar uma entidade de serviço
+
 Nesta seção, você criará um aplicativo (entidade de serviço) no Azure AD que representa o aplicativo.
 
 1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory** > **registros do aplicativo** > **novo registro de aplicativo**   
+2. Selecione **Azure Active Directory** > **registros do aplicativo** > **novo registro de aplicativo**
 3. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
 
 Você criou uma entidade de serviço para seu aplicativo.
 
 ### <a name="get-credentials"></a>Obter credenciais
+
 Ao fazer logon por meio de programação, você usar a ID do aplicativo e para um aplicativo Web / API, uma chave de autenticação. Para obter esses valores, use as seguintes etapas:
 
 1. De **Registros do Aplicativo** no Active Directory, selecione seu aplicativo.
 
 2. Copie a **ID do aplicativo** e armazene-a no código do aplicativo. Os aplicativos na seção [aplicativos de exemplo](#sample-applications) referem-se a esse valor como a ID do cliente.
 
-     ![id do cliente](./media/azure-stack-create-service-principal/image12.png)
+     ![ID do CLIENTE](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação para um aplicativo Web / API, selecione **as configurações** > **chaves**. 
 
 4. Forneça uma descrição da chave e uma duração para a chave. Ao terminar, escolha **Salvar**.
@@ -67,40 +73,55 @@ Após salvar a chave, o valor da chave é exibido. Copie esse valor para o bloco
 
 ![chave salva](./media/azure-stack-create-service-principal/image15.png)
 
-Uma vez concluído, vá para [atribuindo uma função de seu aplicativo](#assign-role-to-service-principal).
+Uma vez concluído, você pode [atribuir uma função de seu aplicativo](#assign-role-to-service-principal).
 
-## <a name="create-service-principal-for-ad-fs"></a>Criar entidade de serviço do AD FS
-Se você tiver implantado o Azure Stack com o AD FS, você pode usar o PowerShell para criar uma entidade de serviço, atribuir uma função de acesso e entrar no PowerShell usando essa identidade.
+## <a name="manage-service-principal-for-ad-fs"></a>Gerenciar a entidade de serviço do AD FS
 
-O script é executado do ponto de extremidade com privilégios em uma máquina virtual ERCS.
+Se você tiver implantado o Azure Stack com os serviços de Federação do Active Directory (AD FS) como seu serviço de gerenciamento de identidade, use o PowerShell para criar uma entidade de serviço, atribuir uma função de acesso e entrar com essa identidade.
 
-Requisitos:
-- É necessário um certificado.
+Você pode usar um dos dois métodos para criar a entidade de serviço com o AD FS. Você pode:
+ - [Criar uma entidade de serviço usando um certificado](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
+ - [Criar uma entidade de serviço usando um segredo do cliente](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
 
-Requisitos de certificado:
+Entidades de serviço de tarefas de gerenciamento do AD FS.
+
+| Tipo | Ação |
+| --- | --- |
+| Certificado do AD FS | [Criar](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
+| Certificado do AD FS | [Atualização](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
+| Certificado do AD FS | [Remover](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| Segredo do cliente FS AD | [Criar](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
+| Segredo do cliente FS AD | [Atualização](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
+| Segredo do cliente FS AD | [Remover](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+
+### <a name="create-a-service-principal-using-a-certificate"></a>Criar uma entidade de serviço usando um certificado
+
+Ao criar uma entidade de serviço durante o uso do AD FS para a identidade, você pode usar um certificado.
+
+#### <a name="certificate"></a>Certificado
+
+É necessário um certificado.
+
+**Requisitos de certificado**
+
  - O provedor de serviços de criptografia (CSP) deve ser herdado provedor da chave.
  - O formato do certificado deve estar no arquivo PFX, como as chaves públicas e privadas são necessárias. Servidores do Windows usam arquivos. pfx que contém o arquivo de chave pública (arquivo de certificado SSL) e o arquivo de chave privada associado.
- - Para a produção, o certificado deve ser emitido de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se você usar uma autoridade de certificação pública, você deve incluído a autoridade na imagem base do sistema operacional como parte do que o programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa no [programa de certificado de raiz confiável do Microsoft: participantes](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Para a produção, o certificado deve ser emitido de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se você usar uma autoridade de certificação pública, você deve incluído a autoridade na imagem base do sistema operacional como parte do que o programa de autoridade de raiz confiável do Microsoft. Você pode encontrar a lista completa em [Microsoft Trusted Root Certificate Program: Os participantes](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
  - Sua infraestrutura do Azure Stack deve ter acesso à rede local de lista de revogação de certificados (CRL) da autoridade de certificação publicado no certificado. Essa CRL deve ser um ponto de extremidade HTTP.
 
-
-#### <a name="parameters"></a>Parâmetros
+#### <a name="parameters"></a>parâmetros
 
 As informações a seguir são necessárias como entrada para os parâmetros de automação:
 
-
-|Parâmetro|Descrição|Exemplo|
+|Parâmetro|DESCRIÇÃO|Exemplo|
 |---------|---------|---------|
-|Nome|Nome da conta SPN|MyAPP|
+|NOME|Nome da conta SPN|MyAPP|
 |ClientCertificates|Matriz de objetos de certificado|X509 certificado|
 |ClientRedirectUris<br>(Opcional)|URI de redirecionamento do aplicativo|-|
 
-#### <a name="example"></a>Exemplo
+#### <a name="use-powershell-to-create-a-service-principal"></a>Usar o PowerShell para criar uma entidade de serviço
 
-1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes comandos:
-
-   > [!NOTE]
-   > Este exemplo cria um certificado autoassinado. Quando você executa esses comandos em uma implantação de produção, use [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) para recuperar o objeto de certificado para o certificado que você deseja usar.
+1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes cmdlets:
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -109,9 +130,11 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-
+    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
+    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+    $cert = Get-Item "<yourcertificatelocation>"
+    
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
@@ -146,10 +169,17 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
     $ServicePrincipal
 
    ```
+   > [!Note]  
+   > Para fins de validação de um certificado autoassinado pode ser criado usando o exemplo abaixo:
 
-2. Após a automação, ele exibe os detalhes necessários para usar o SPN. 
+   ```PowerShell  
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   ```
 
-   Por exemplo:
+
+2. Após a automação, ele exibe os detalhes necessários para usar o SPN. É recomendável armazenar a saída para uso posterior.
+
+   Por exemplo: 
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -160,22 +190,177 @@ As informações a seguir são necessárias como entrada para os parâmetros de 
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-### <a name="assign-a-role"></a>Atribuir uma função
-Depois que a entidade de serviço é criada, você deve [atribuí-lo a uma função](#assign-role-to-service-principal).
+### <a name="update-certificate-for-service-principal-for-ad-fs"></a>Atualizar o certificado para entidade de serviço do AD FS
 
-### <a name="sign-in-through-powershell"></a>Entrar por meio do PowerShell
-Depois que você atribuiu uma função, você pode entrar no Azure Stack usando a entidade de serviço com o seguinte comando:
+Se você tiver implantado o Azure Stack com o AD FS, você pode usar o PowerShell para atualizar o segredo para uma entidade de serviço.
 
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ClientId ` 
- -TenantId $directoryTenantId
+O script é executado do ponto de extremidade com privilégios em uma máquina virtual ERCS.
+
+#### <a name="parameters"></a>parâmetros
+
+As informações a seguir são necessárias como entrada para os parâmetros de automação:
+
+|Parâmetro|DESCRIÇÃO|Exemplo|
+|---------|---------|---------|
+|NOME|Nome da conta SPN|MyAPP|
+|ApplicationIdentifier|Identificador exclusivo|S-1-5-21-1634563105-1224503876-2692824315-2119|
+|ClientCertificate|Matriz de objetos de certificado|X509 certificado|
+
+#### <a name="example-of-updating-service-principal-for-ad-fs"></a>Exemplo de atualização de entidade de serviço do AD FS
+
+O exemplo cria um certificado autoassinado. Quando você executa os cmdlets em uma implantação de produção, use [Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) para recuperar o objeto de certificado para o certificado que você deseja usar.
+
+1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes cmdlets:
+
+     ```powershell
+          # Creating a PSSession to the ERCS PrivilegedEndpoint
+          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
+          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+
+          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+
+          $session|remove-pssession
+     ```
+
+2. Após a automação, ele exibe o valor de impressão digital atualizado necessário para a autenticação SPN.
+
+     ```Shell  
+          ClientId              : 
+          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
+          ClientSecret          : 
+          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ```
+
+### <a name="create-a-service-principal-using-a-client-secret"></a>Criar uma entidade de serviço usando um segredo do cliente
+
+Ao criar uma entidade de serviço durante o uso do AD FS para a identidade, você pode usar um certificado. Você usará o ponto de extremidade com privilégios para executar os cmdlets.
+
+Esses scripts são executados do ponto de extremidade com privilégios em uma máquina virtual ERCS. Para obter mais informações sobre o ponto de extremidade com privilégios, consulte [usando o ponto de extremidade privilegiado no Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+
+#### <a name="parameters"></a>parâmetros
+
+As informações a seguir são necessárias como entrada para os parâmetros de automação:
+
+| Parâmetro | DESCRIÇÃO | Exemplo |
+|----------------------|--------------------------|---------|
+| NOME | Nome da conta SPN | MyAPP |
+| GenerateClientSecret | Criar um segredo |  |
+
+#### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Use o PrivilegedEndpoint ERCS para criar a entidade de serviço
+
+1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes cmdlets:
+
+     ```PowerShell  
+      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     # Creating a SPN with a secre
+     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+     $session|remove-pssession
+
+     # Output the SPN details
+     $ServicePrincipal
+     ```
+
+2. Após a execução de cmdlets, o shell exibe os detalhes necessários para usar o SPN. Verifique se que você armazenar o segredo do cliente.
+
+     ```PowerShell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : 192.168.200.224
+     RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
+     ```
+
+#### <a name="update-client-secret-for-a-service-principal-for-ad-fs"></a>Atualizar o segredo do cliente para uma entidade de serviço do AD FS
+
+Um novo segredo do cliente é automaticamente gerado pelo cmdlet do PowerShell.
+
+O script é executado do ponto de extremidade com privilégios em uma máquina virtual ERCS.
+
+##### <a name="parameters"></a>parâmetros
+
+As informações a seguir são necessárias como entrada para os parâmetros de automação:
+
+| Parâmetro | DESCRIÇÃO | Exemplo |
+|-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| ApplicationIdentifier | Identificador exclusivo. | S-1-5-21-1634563105-1224503876-2692824315-2119 |
+| ChangeClientSecret | Altera o segredo do cliente com um período de sobreposição de 2.880 minutos em que o segredo antigo ainda é válido. |  |
+| ResetClientSecret | Alterar o segredo do cliente imediatamente |  |
+
+##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>Exemplo de atualização de um segredo do cliente para o AD FS
+
+O exemplo usa o **resetclientsecret** parâmetro, que altere imediatamente o segredo do cliente.
+
+1. Abra uma sessão do Windows PowerShell com privilégios elevados e execute os seguintes cmdlets:
+
+     ```PowerShell  
+          # Creating a PSSession to the ERCS PrivilegedEndpoint
+          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
+          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+
+          $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
+
+          $session|remove-pssession
+     ```
+
+2. Após a automação, ele exibe o segredo recém-gerado necessário para a autenticação SPN. Verifique se que você armazenar o novo segredo do cliente.
+
+     ```PowerShell  
+          ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
+          ClientId              :  
+          Thumbprint            : 
+          ApplicationName       : Azurestack-Yourapp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+          ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
+          RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
+     ```
+
+### <a name="remove-a-service-principal-for-ad-fs"></a>Remover uma entidade de serviço do AD FS
+
+Se você tiver implantado o Azure Stack com o AD FS, você pode usar o PowerShell para excluir uma entidade de serviço.
+
+O script é executado do ponto de extremidade com privilégios em uma máquina virtual ERCS.
+
+#### <a name="parameters"></a>parâmetros
+
+As informações a seguir são necessárias como entrada para os parâmetros de automação:
+
+|Parâmetro|DESCRIÇÃO|Exemplo|
+|---------|---------|---------|
+| Parâmetro | DESCRIÇÃO | Exemplo |
+| ApplicationIdentifier | Identificador exclusivo | S-1-5-21-1634563105-1224503876-2692824315-2119 |
+
+> [!Note]  
+> Para exibir uma lista de todas as entidades de serviço existentes e seu identificador de aplicativo, o comando get-graphapplication pode ser usado.
+
+#### <a name="example-of-removing-the-service-principal-for-ad-fs"></a>Exemplo de remoção a entidade de serviço do AD FS
+
+```powershell  
+     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+
+     $session|remove-pssession
 ```
 
-## <a name="assign-role-to-service-principal"></a>Atribuir função à entidade de serviço
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md).
+## <a name="assign-a-role"></a>Atribuir uma função
+
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função representa as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: Funções internas](../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função Leitor de um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contiver.
 
@@ -189,7 +374,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
      ![selecionar acesso](./media/azure-stack-create-service-principal/image17.png)
 
-4. Selecione **Adicionar**.
+4. Selecione **Adicionar atribuição de função**.
 
 5. Selecione a função que deseja atribuir ao aplicativo.
 
@@ -201,5 +386,7 @@ Agora que você criou uma entidade de serviço e atribuído a uma função, voc�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Adicionar usuários do AD FS](azure-stack-add-users-adfs.md)
-[gerenciar permissões de usuário](azure-stack-manage-permissions.md)
+[Adicionar usuários do AD FS](azure-stack-add-users-adfs.md)  
+[Gerenciar permissões de usuário](azure-stack-manage-permissions.md)  
+[Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory)  
+[Serviços de Federação do Active Directory (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)

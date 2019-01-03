@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965386"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714841"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicativo distribuído geograficamente com o Azure e o Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Saiba como direcionar o tráfego para pontos de extremidade específicos com base em várias métricas usando o padrão de aplicativos distribuídos geograficamente. Criar um Gerenciador de tráfego de perfil com a configuração de ponto de extremidade e roteamento geográfico com base em garante informações são roteadas para os pontos de extremidade com base em requisitos regionais, corporativa e internacional de regulamentação e suas necessidades de dados.
 
@@ -59,15 +59,15 @@ Como é o caso com considerações sobre escalabilidade, essa solução diretame
 
 Antes de criar uma superfície de aplicativo distribuído, ele ajuda a ter o conhecimento a seguir:
 
--   **Domínio personalizado para o aplicativo:** qual é o nome de domínio personalizado que os clientes usarão para acessar o aplicativo? Para o aplicativo de exemplo, o nome de domínio personalizado é *www.scalableasedemo.com.*
+-   **Domínio personalizado para o aplicativo:** Qual é o nome de domínio personalizado que os clientes usarão para acessar o aplicativo? Para o aplicativo de exemplo, o nome de domínio personalizado é *www.scalableasedemo.com.*
 
--   **Domínio do Traffic Manager:** um nome de domínio deve ser escolhido ao criar um [perfil do Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Esse nome será combinado com o sufixo *trafficmanager.net* para registrar uma entrada de domínio gerenciada pelo Gerenciador de Tráfego. Para o aplicativo de exemplo, o nome escolhido é *scalable-ase-demo*. Como resultado, é o nome de domínio completo que é gerenciado pelo Gerenciador de tráfego *demo.trafficmanager.net escalonável ase*.
+-   **Domínio do Gerenciador de Tráfego:** Um nome de domínio deve ser escolhido ao criar uma [perfil do Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Esse nome será combinado com o sufixo *trafficmanager.net* para registrar uma entrada de domínio gerenciada pelo Gerenciador de Tráfego. Para o aplicativo de exemplo, o nome escolhido é *scalable-ase-demo*. Como resultado, é o nome de domínio completo que é gerenciado pelo Gerenciador de tráfego *demo.trafficmanager.net escalonável ase*.
 
--   **Estratégia para escalonar a superfície do aplicativo:** a superfície do aplicativo será distribuída em vários Ambientes de Serviço de Aplicativo em uma única região? Várias regiões? Uma combinação de ambas as abordagens? A decisão deve se basear nas expectativas da origem do tráfego do cliente e em como o resto da infraestrutura de back-end de suporte de um aplicativo pode ser escalonado. Por exemplo, com um aplicativo 100% sem monitoração de estado, ele pode ser altamente dimensionado usando uma combinação de vários Ambientes de Serviço de Aplicativo por região do Azure, multiplicado por Ambientes de Serviço de Aplicativo implantado em várias regiões do Azure. Com 15 + regiões globais do Azure disponíveis para sua escolha, os clientes podem realmente criar uma superfície de aplicativo de larga escala em todo o mundo. Para o aplicativo de exemplo usado neste artigo, três Ambientes de Serviço de Aplicativo foram criados em uma única região do Azure (centro-sul dos EUA).
+-   **Estratégia para dimensionar o volume do aplicativo:** o volume do aplicativo será distribuído entre vários Ambientes do Serviço de Aplicativo em uma única região? Várias regiões? Uma combinação de ambas as abordagens? A decisão deve se basear nas expectativas da origem do tráfego do cliente e em como o resto da infraestrutura de back-end de suporte de um aplicativo pode ser escalonado. Por exemplo, com um aplicativo 100% sem monitoração de estado, ele pode ser altamente dimensionado usando uma combinação de vários Ambientes de Serviço de Aplicativo por região do Azure, multiplicado por Ambientes de Serviço de Aplicativo implantado em várias regiões do Azure. Com 15 + regiões globais do Azure disponíveis para sua escolha, os clientes podem realmente criar uma superfície de aplicativo de larga escala em todo o mundo. Para o aplicativo de exemplo usado neste artigo, três Ambientes de Serviço de Aplicativo foram criados em uma única região do Azure (centro-sul dos EUA).
 
--   **Convenção de nomenclatura para os Ambientes de Serviço de Aplicativo:** cada Ambiente de Serviço de Aplicativo requer um nome exclusivo. Além dos ambientes de serviço de aplicativo de um ou dois, é útil ter uma convenção de nomenclatura para ajudar a identificar cada ambiente do serviço de aplicativo. Para o aplicativo de exemplo, foi usada uma convenção de nomenclatura simples. Os nomes dos três Ambientes de Serviço de Aplicativo são *fe1ase*, *fe2ase* e *fe3ase*.
+-   **Convenção de nomenclatura para os Ambientes do Serviço de Aplicativo:** Cada Ambiente do Serviço de Aplicativo requer um nome exclusivo. Além dos ambientes de serviço de aplicativo de um ou dois, é útil ter uma convenção de nomenclatura para ajudar a identificar cada ambiente do serviço de aplicativo. Para o aplicativo de exemplo, foi usada uma convenção de nomenclatura simples. Os nomes dos três Ambientes de Serviço de Aplicativo são *fe1ase*, *fe2ase* e *fe3ase*.
 
--   **Convenção de nomenclatura para os aplicativos:** , pois várias instâncias do aplicativo serão implantadas, é necessário um nome para cada instância do aplicativo implantado. Com os ambientes de serviço de aplicativo o mesmo nome de aplicativo pode ser usado em vários ambientes de serviço de aplicativo. Como cada ambiente do serviço de aplicativo tem um sufixo de domínio exclusivo, os desenvolvedores podem optar reutilizar o mesmo nome de aplicativo em cada ambiente. Por exemplo, um desenvolvedor poderia ter aplicativos nomeados da seguinte maneira: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. Para o aplicativo nesse cenário, cada instância do aplicativo tem um nome exclusivo. Os nomes de instância de aplicativo usados são *webfrontend1*, *webfrontend2* e *webfrontend3*.
+-   **Convenção de nomenclatura para os aplicativos:** como várias instâncias do aplicativo serão implantadas, é necessário um nome para cada instância do aplicativo implantado. Com os ambientes de serviço de aplicativo o mesmo nome de aplicativo pode ser usado em vários ambientes de serviço de aplicativo. Como cada ambiente do serviço de aplicativo tem um sufixo de domínio exclusivo, os desenvolvedores podem optar reutilizar o mesmo nome de aplicativo em cada ambiente. Por exemplo, um desenvolvedor poderia ter aplicativos nomeados da seguinte maneira: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. Para o aplicativo nesse cenário, cada instância do aplicativo tem um nome exclusivo. Os nomes de instância de aplicativo usados são *webfrontend1*, *webfrontend2* e *webfrontend3*.
 
 > [!Tip]  
 > ![pillars.png híbrido](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -122,7 +122,7 @@ Configure híbrido CI/CD para implantar aplicativo Web no Azure e o Azure Stack 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Criar implantação de aplicativo web em ambas as nuvens
 
-1.  Editar o **WebApplication.csproj** arquivo: selecione **Runtimeidentifier** e adicione **win10-x64**. (Consulte [contained implantação](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.)
+1.  Editar o **WebApplication.csproj** arquivo: Selecione **Runtimeidentifier** e adicione **win10-x64**. (Consulte [contained implantação](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentação.)
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -240,9 +240,9 @@ DevOps e o servidor do Azure DevOps do Azure fornecem um pipeline totalmente con
 > [!Note]  
 >  Algumas configurações para as tarefas podem ter sido automaticamente definidas como [variáveis de ambiente](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) quando você criou uma definição de versão de um modelo. Essas configurações não podem ser modificadas as configurações da tarefa; em vez disso, você deve selecionar o item pai de ambiente para editar essas configurações.
 
-## <a name="part-2-update-web-app-options"></a>Part 2: Opções de aplicativo de web atualização
+## <a name="part-2-update-web-app-options"></a>Parte 2: Atualizar opções de aplicativo da web
 
-Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. 
+O [Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/overview) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Os [aplicativos Web do Azure](https://docs.microsoft.com/azure/app-service/app-s
 > [!Note]  
 >  Use um CNAME para todos os nomes DNS personalizados, exceto um domínio raiz (para example,northwind.com).
 
-Para migrar um site ativo e seu nome de domínio DNS para o Serviço de Aplicativo, consulte [Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Para migrar um site ativo e seu nome de domínio DNS para o Serviço de Aplicativo, consulte [Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -276,7 +276,7 @@ Atualize o arquivo de zona DNS para o domínio. Azure AD verificará a proprieda
 Por exemplo, para adicionar o DNS entradas fornorthwindcloud.comand www.northwindcloud.com, definir configurações de DNS do domínio raiz thenorthwindcloud.com.
 
 > [!Note]  
->  Um nome de domínio pode ser adquirido usando o [portal do Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  Um nome de domínio pode ser adquirido usando o [portal do Azure](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > Para mapear um nome DNS personalizado para um aplicativo Web, o [plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do aplicativo Web deve ser uma camada paga (**Compartilhado**, **Básico**, **Standard** ou **Premium**).
 
 

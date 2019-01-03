@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847517"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651496"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre o uso de máquinas virtuais no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 As máquinas virtuais de pilha do Azure fornecem recursos de computação sob demanda e escalonáveis. Antes de implantar máquinas virtuais (VMs), você deve entender as diferenças entre os recursos de máquina virtual disponíveis no Azure Stack e o Microsoft Azure. Este artigo descreve essas diferenças e identifica as principais considerações de planejamento de implantações de máquina virtual. Para saber mais sobre as diferenças de alto nível entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Folha de dados: diferenças de máquina Virtual
+## <a name="cheat-sheet-virtual-machine-differences"></a>Folha de dados: Diferenças de máquina virtual
 
 | Recurso | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
@@ -39,6 +39,7 @@ As máquinas virtuais de pilha do Azure fornecem recursos de computação sob de
 | Armazenamento de máquina virtual | Dá suporte a [discos gerenciados.](../../virtual-machines/windows/managed-disks-overview.md) | Discos gerenciados têm suporte no Azure Stack com versão 1808 e posterior. |
 | Desempenho de discos de máquina virtual | Depende do tamanho e tipo de disco. | Depende do tamanho VM da VM que os discos estão anexados para referir-se a [tamanhos de máquina Virtual com suporte no Azure Stack](azure-stack-vm-sizes.md) artigo.
 | Versões de API | O Azure sempre tem as últimas versões de API para todos os recursos de máquina virtual. | O Azure Stack dá suporte a serviços específicos do Azure e as versões de API específicas para esses serviços. Para exibir a lista de versões de API com suporte, consulte o [as versões de API](#api-versions) seção deste artigo. |
+| Serviço de Metadados de Instância do Azure | O Serviço de metadados de instância do Azure fornece informações sobre instâncias da máquina virtual em execução que podem ser usadas para gerenciar e configurar suas máquinas virtuais.  | Não há suporte para o serviço de metadados de instância no Azure Stack. |
 |Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a discos gerenciados|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)<br>Não há suporte de disco gerenciado|
 |conjuntos de escala de máquina virtual|Dimensionamento automático com suporte|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento usando o portal, modelos do Resource Manager ou PowerShell.
 

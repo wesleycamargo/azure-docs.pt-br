@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714484"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Serviço de aplicativo em notas de versão de atualização 2 do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Essas notas de versão descrevem os aperfeiçoamentos e correções no serviço de aplicativo do Azure no Azure Stack Update 2 e todos os problemas conhecidos. Problemas conhecidos são divididos em questões relacionadas diretamente para a implantação, o processo de atualização e a problemas com a compilação (após a instalação).
 
@@ -66,7 +66,7 @@ Serviço de aplicativo do Azure no Azure Stack atualização 2 inclui os seguint
   - Atualizado o.Net Core componentes para ser consistente com o serviço de aplicativo do Azure na nuvem pública.
   - Kudu atualizado
 
-- Troca automática de implantação de slots ao recurso habilitado - [Configurando a troca automática](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Troca automática de implantação de slots ao recurso habilitado - [Configurando a troca automática](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Teste no recurso de produção habilitado - [Introdução ao teste em produção](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,13 +83,13 @@ Serviço de aplicativo do Azure no Azure Stack atualização 2 inclui os seguint
 - Trabalhadores são incapazes de alcançar o servidor de arquivos quando o serviço de aplicativo é implantado em uma rede virtual existente e o servidor de arquivos só está disponível na rede privada.
 
 Se você optar por implantar em uma rede virtual existente e um endereço IP interno para se conectar ao seu servidor de arquivos, você deve adicionar uma regra de segurança de saída, permitindo o tráfego entre a sub-rede de trabalho e o servidor de arquivos SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Fonte: qualquer
+ * Origem: Qualquer
  * Intervalo de porta de origem: *
  * Destino: Endereços IP
- * Intervalo de endereços IP de destino: intervalo de IPs para seu servidor de arquivos
+ * Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de arquivos
  * Intervalo de porta de destino: 445
  * Protocolo: TCP
- * Ação: permitir
+ * Ação: PERMITIR
  * Prioridade: 700
  * Nome: Outbound_Allow_SMB445
 

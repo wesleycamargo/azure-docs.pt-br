@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341891"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717855"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure Stack: Diferenças e considerações
 
@@ -34,8 +34,8 @@ Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos
 | Recurso | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
 |Armazenamento de arquivos|Compartilhamentos de arquivos SMB baseado em nuvem com suporte|Ainda não tem suporte
-|Criptografia do serviço de armazenamento do Azure para dados em repouso|criptografia AES de 256 bits|Criptografia de AES de 128 bits do BitLocker
-|Tipo de conta de armazenamento|Contas de armazenamento de BLOBs do Azure e de uso geral|Uso geral apenas.
+|Criptografia do serviço de armazenamento do Azure para dados em repouso|criptografia AES de 256 bits. Dá suporte à criptografia usando chaves gerenciadas pelo cliente no cofre de chaves.|Criptografia de AES de 128 bits do BitLocker. Não há suporte para criptografia usando chaves gerenciadas pelo cliente.
+|Tipo de conta de armazenamento|Contas de armazenamento de BLOBs, V1 e V2 para fins gerais|Uso geral V1 apenas.
 |Opções de replicação|Armazenamento com redundância local, armazenamento com redundância geográfica, armazenamento com redundância geográfica de acesso de leitura e armazenamento com redundância de zona|Armazenamento com redundância local.
 |Armazenamento Premium|Com suporte total|Pode ser provisionado, mas nenhum limite de desempenho ou garantia.
 |Discos gerenciados|Premium e standard com suporte|Suporte quando você usa a versão 1808 ou posterior.
@@ -44,11 +44,14 @@ Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos
 |Cópia de instantâneo de blob de página|Backup do Azure não gerenciado VM discos anexados a uma VM em execução com suporte|Ainda não tem suporte.
 |Cópia de instantâneo incremental de blob de página|Premium e blobs de página padrão do Azure com suporte|Ainda não tem suporte.
 |Camadas de armazenamento para o armazenamento de BLOBs|Frequente, esporádica ou de camadas de armazenamento de arquivos.|Ainda não tem suporte.
-Exclusão reversível para o armazenamento de BLOBs|Visualização|Ainda não tem suporte.
+|Exclusão reversível para o armazenamento de BLOBs|Geral disponível|Ainda não tem suporte.
 |Tamanho máximo do blob de página|8 TB|1 TB
 |Tamanho de página de blob de página|512 bytes|4 KB
 |Tamanho de chave de linha e chave de partição de tabela|1.024 caracteres (2.048 bytes)|400 caracteres (800 bytes)
-|Instantâneo de blob|O número máximo de instantâneos de um blob não é limitado.|O número máximo de instantâneos de um blob é 1.000.|
+|Instantâneo de blob|O número máximo de instantâneos de um blob não é limitado.|O número máximo de instantâneos de um blob é 1.000.
+|Autenticação do Azure AD para o armazenamento|Na visualização|Ainda não tem suporte.
+|Blobs imutáveis|Geral disponível|Ainda não tem suporte.
+|Regras de firewall e rede virtual para o armazenamento|Geral disponível|Ainda não tem suporte.|
 
 Também há diferenças com métricas de armazenamento:
 
@@ -61,7 +64,17 @@ As seguintes versões têm suporte com o armazenamento do Azure Stack:
 
 APIs de serviços de armazenamento do Azure:
 
-a atualização 1802 ou mais recente:
+1811 ou versões mais recentes de atualização:
+
+ - [11-2017-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+atualização do 1802 1809 Update:
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ APIs de gerenciamento de serviços de armazenamento do Azure:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+Versões anteriores:
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>Versões do SDK
 
 O armazenamento do Azure Stack oferece suporte as bibliotecas de cliente a seguir:

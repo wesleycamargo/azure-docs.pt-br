@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962640"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807203"
 ---
 # <a name="azure-stack-registration"></a>Registro de pilha do Azure
 Você pode registrar sua instalação do Kit de desenvolvimento na pilha do Azure (ASDK) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatórios de volta para a Microsoft. Registro é necessário para dar suporte à funcionalidade completa do Azure Stack, incluindo a sindicalização do marketplace. Registro é recomendado porque ele permite que você teste funcionalidades importantes da pilha do Azure, como o relatório de uso e distribuição de mercado. Depois de registrar o Azure Stack, o uso é relatado para comércio do Azure. Você pode vê-lo sob a assinatura que você usou para o registro. No entanto, os usuários ASDK não são cobrados por qualquer uso que eles relatam.
@@ -69,7 +69,7 @@ Siga estas etapas para registrar o ASDK com o Azure.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. Quando o script for concluído, você deverá ver esta mensagem: **seu ambiente agora está registrado e ativada usando os parâmetros fornecidos.**
+3. Quando o script for concluído, você verá esta mensagem: **Seu ambiente agora está registrado e ativada usando os parâmetros fornecidos.**
 
     ![Seu ambiente agora está registrado](media/asdk-register/1.PNG)
 
@@ -201,21 +201,21 @@ Como alternativa, você pode usar o **Get-Content** cmdlet para apontar para um 
 Quando a ativação é concluída, você deverá ver uma mensagem semelhante à **seu ambiente tiver terminado o processo de registro e ativação.**
 
 ## <a name="verify-the-registration-was-successful"></a>Verifique se que o registro foi bem-sucedido
-Siga estas etapas para verificar se o registro ASDK no Azure **em ambientes conectados** foi bem-sucedida.
+
+Você pode usar o **gerenciamento de região** lado a lado para verificar se o registro do Azure Stack foi bem-sucedida. Esse bloco está disponível no painel no portal do administrador padrão.
 
 1. Entrar para o [portal de administração do Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Clique em **gerenciamento do Marketplace** > **adicione do Azure**.
+2. O painel, selecione **gerenciamento de região**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Bloco de gerenciamento de região](media/asdk-register/admin1sm.png "bloco de gerenciamento de região") ](media/asdk-register/admin1.png#lightbox)
 
-3. Se você vir uma lista de itens disponíveis do Azure, a ativação foi bem-sucedida.
-
-    ![](media/asdk-register/3.PNG)
+3. Selecione **Propriedades**. Essa folha mostra o status e os detalhes do seu ambiente. O status pode ser **registrado** ou **não registrado**. Se registrado, ele também mostra a ID da assinatura do Azure que é usado para registrar seu Azure Stack, juntamente com o grupo de recursos de registro e o nome.
 
 ## <a name="move-a-registration-resource"></a>Mover um recurso de registro
 Mover um recurso de registro entre grupos de recursos na mesma assinatura **é** com suporte. Para obter mais informações sobre como mover recursos para um novo grupo de recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Adicionar um item do marketplace do Azure Stack](../azure-stack-marketplace.md)
+
+- [Adicionar um item do marketplace do Azure Stack](../azure-stack-marketplace.md)
