@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868932"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998907"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detecção Inteligente no Application Insights
  A Detecção Inteligente avisa automaticamente sobre possíveis problemas de desempenho no seu aplicativo Web. Ele executa uma análise proativa da telemetria que seu aplicativo envia ao [Application Insights](app-insights-overview.md). Se houver um aumento repentino nas taxas de falha ou nos padrões anormais de desempenho de cliente ou de servidor, você receberá um alerta. Esse recurso não precisa de nenhuma configuração. Ela funciona se o seu aplicativo envia telemetria suficiente.
@@ -54,12 +54,12 @@ Há três tipos de detecção:
 ## <a name="next-steps"></a>Próximas etapas
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
-* [Metrics explorer](app-insights-metrics-explorer.md)
-* [Gerenciador de pesquisa](app-insights-diagnostic-search.md)
+* [Metrics explorer](../azure-monitor/app/metrics-explorer.md)
+* [Gerenciador de pesquisa](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - linguagem de consulta poderosa](../azure-monitor/log-query/get-started-portal.md)
 
 A Detecção Inteligente é totalmente automática. Mas talvez você queira configurar alguns outros alertas?
 
-* [Alertas de métrica configurados manualmente](app-insights-alerts.md)
-* [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md) 
+* [Alertas de métrica configurados manualmente](../azure-monitor/app/alerts.md)
+* [Testes de disponibilidade na Web](../azure-monitor/app/monitor-web-app-availability.md) 
 

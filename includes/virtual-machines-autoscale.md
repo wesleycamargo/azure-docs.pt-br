@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399784"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594160"
 ---
 Você pode [dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) suas [VMs (máquinas virtuais)](../articles/virtual-machines/windows/overview.md) quando usa [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [recurso de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Suas VMs precisam ser membros de um conjunto de dimensionamento definido para serem dimensionadas automaticamente. Este artigo fornece informações que permitem a você entender melhor como dimensionar suas VMs vertical e horizontalmente usando métodos automáticos e manuais.
 
@@ -29,7 +29,7 @@ Os conjuntos de dimensionamento facilitam a implantação e o gerenciamento de V
 
 O dimensionamento automático fornece o número correto de VMs para lidar com a carga em seu aplicativo. Ele permite que você adicione VMs para lidar com o aumento de carga e economizar dinheiro removendo VMs ociosas. Você especifica um número mínimo e máximo de VMs a serem executadas com base em um conjunto de regras. Ter um mínimo assegura que seu aplicativo estará sempre em execução, mesmo sem carga. Ter um valor máximo limita seu custo por hora total possível.
 
-Você pode habilitar o dimensionamento automático quando cria o conjunto de dimensionamento usando o [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Você também pode habilitá-lo depois que o conjunto de dimensionamento é criado. Crie um conjunto de dimensionamento, instale a extensão e configure o dimensionamento automático usando um [modelo do Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). No portal do Azure, habilite o dimensionamento automático do Azure Monitor ou habilite o dimensionamento automático nas configurações do conjunto de dimensionamento.
+Você pode habilitar o dimensionamento automático quando cria o conjunto de dimensionamento usando o [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Você também pode habilitá-lo depois que o conjunto de dimensionamento é criado. Crie um conjunto de dimensionamento, instale a extensão e configure o dimensionamento automático usando um [modelo do Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). No portal do Azure, habilite o dimensionamento automático do Azure Monitor ou habilite o dimensionamento automático nas configurações do conjunto de dimensionamento.
 
 ![Habilitar dimensionamento automático](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

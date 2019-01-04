@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386418"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743656"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -47,7 +47,7 @@ Nós Nimbus estão disponíveis nos clusters Apache Storm. Os nós Nimbus fornec
 
 ### <a name="apache-zookeeper-nodes"></a>Nós do Apache ZooKeeper 3.4.6
 
-Os nós [ZooKeeper](http://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós principais. Eles também são usados para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó principal um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós do ZooKeeper.
+Os nós [ZooKeeper](https://zookeeper.apache.org/) são usados para eleição de líder de serviços mestres em nós principais. Eles também são usados para garantir que os serviços, nós de dados (trabalho) e gateways saibam em qual nó principal um serviço mestre está ativo. Por padrão, o HDInsight fornece três nós do ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nós de trabalho
 
@@ -192,7 +192,7 @@ Depois de conectado, você verá um prompt `sftp>` . Neste prompt, é possível 
 Para obter uma lista dos comandos disponíveis, insira `help` no prompt `sftp>`.
 
 > [!NOTE]  
-> Há também interfaces gráficas que permitem visualizar o sistema de arquivos quando você estiver conectado usando SFTP. Por exemplo, [MobaXTerm](http://mobaxterm.mobatek.net/) permite que você procure o sistema de arquivos usando uma interface semelhante à do Windows Explorer.
+> Há também interfaces gráficas que permitem visualizar o sistema de arquivos quando você estiver conectado usando SFTP. Por exemplo, [MobaXTerm](https://mobaxterm.mobatek.net/) permite que você procure o sistema de arquivos usando uma interface semelhante à do Windows Explorer.
 
 ### <a name="ambari"></a>Ambari
 

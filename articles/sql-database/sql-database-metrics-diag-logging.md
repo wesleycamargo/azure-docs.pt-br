@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387090"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601552"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
@@ -32,7 +32,7 @@ Banco de dados SQL do Azure, pools elásticos, instância gerenciada e bancos de
 Para obter mais informações sobre as categorias de log e métricas com suporte a vários serviços do Azure, veja:
 
 * [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Visão geral do log de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Visão geral do log de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Este artigo apresenta diretrizes para ajudá-lo a habilitar a telemetria de diagnóstico para bancos de dados, pools elásticos e Instância Gerenciada. Ele também pode ajudar você entender como configurar a Análise de SQL do Azure como uma ferramenta de monitoramento para exibir a telemetria de diagnóstico do banco de dados.
 
@@ -691,7 +691,7 @@ Saiba mais sobre o [formato de log do Insights Inteligentes](sql-database-intell
 Para saber como habilitar o registro em log e entender as categorias de métrica e log com suporte dos vários serviços do Azure, veja:
 
 * [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Visão geral do log de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Visão geral do log de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Para saber mais sobre os Hubs de Evento, leia:
 

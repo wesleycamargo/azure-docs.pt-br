@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274557"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993273"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção híbrida do Active Directory do Azure
 
@@ -146,9 +146,9 @@ A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para con
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Suporte à ID de logon alternativo no ingresso no Azure AD Híbrido
 
-A junção do Azure AD Híbrido no Windows 10 fornece suporte limitado para [IDs de logon alternativas](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de logon alternativa, no [método de autenticação](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de IDs de logon alternativas que podem existir em seu ambiente.
+A junção do Azure AD Híbrido no Windows 10 fornece suporte limitado para [IDs de logon alternativas](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) com base no tipo de ID de logon alternativa, no [método de autenticação](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), no tipo de domínio e na versão do Windows 10. Há dois tipos de IDs de logon alternativas que podem existir em seu ambiente.
 
- - ID de logon alternativa roteável: Uma ID de logon alternativa roteável tem um domínio verificado válido, que é registrado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário, contoso.org e contoso.co.uk são domínios válidos de propriedade Contoso e [verificados no Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - ID de logon alternativa roteável: Uma ID de logon alternativa roteável tem um domínio verificado válido, que é registrado com um registrador de domínios. Por exemplo, se contoso.com é o domínio primário, contoso.org e contoso.co.uk são domínios válidos de propriedade Contoso e [verificados no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - ID de logon alternativa não roteável: Uma ID de logon alternativa não roteável não tem um domínio verificado. É aplicável somente dentro da rede privada da sua organização. Por exemplo, se contoso.com for o domínio primário, contoso. local não será um domínio verificável na Internet, mas será usado na rede da Contoso.
  

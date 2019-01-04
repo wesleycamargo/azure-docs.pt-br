@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 904f564d2f3c0584851309780eb2ccca379534fa
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c8c9f2ab2bed2e05f540422e47fdc634cb011187
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29850190"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583265"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura com a CLI
 
@@ -39,9 +39,9 @@ Esse script copia um instantâneo de um disco gerenciado para a mesma assinatura
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os comandos a seguir para criar um instantâneo na assinatura de destino usando a ID do instantâneo de origem. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa os comandos a seguir para criar um instantâneo na assinatura de destino usando a ID do instantâneo de origem. Cada comando da tabela é vinculado à documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Obtém todas as propriedades de um instantâneo usando o nome e as propriedades do grupo de recursos do instantâneo. A propriedade de ID é usada para copiar o instantâneo para uma assinatura diferente.  |
 | [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_create) | Copia um instantâneo criando um instantâneo na assinatura diferente usando a Id e o nome do instantâneo pai.  |
@@ -52,4 +52,4 @@ Esse script usa os comandos a seguir para criar um instantâneo na assinatura de
 
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
-Os exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM Linux do Azure](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Os exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

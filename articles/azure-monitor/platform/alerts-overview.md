@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344830"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976946"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -56,7 +56,7 @@ Os principais atributos de uma regra de alerta são:
 
 ## <a name="what-you-can-alert-on"></a>Sobre o que você pode alertar
 
-Você pode alertar sobre métricas e logs, conforme descrito em [fontes de dados de monitoramento](../../monitoring-and-diagnostics/monitoring-data-sources.md). Elas incluem, mas sem limitação:
+Você pode alertar sobre métricas e logs, conforme descrito em [fontes de dados de monitoramento](../../azure-monitor/platform/data-sources-reference.md). Elas incluem, mas sem limitação:
 - Valores métricos
 - Consultas da pesquisa de logs
 - Eventos do Log de Atividades
@@ -131,7 +131,7 @@ Antes, o Azure Monitor, o Application Insights, o Log Analytics e a Integridade 
 | **Monitor de origem** | **Tipo de sinal**  | **Descrição** | 
 |-------------|----------------|-------------|
 | Integridade do serviço | Log de atividades  | Sem suporte. Consulte [Criar alertas do log de atividades em notificações de serviço](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Testes de disponibilidade na Web | Sem suporte. Consulte [Alertas de teste da Web](../../application-insights/app-insights-monitor-web-app-availability.md). Disponível para qualquer site que seja instrumentado para enviar dados ao Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
+| Application Insights | Testes de disponibilidade na Web | Sem suporte. Consulte [Alertas de teste da Web](../../azure-monitor/app/monitor-web-app-availability.md). Disponível para qualquer site que seja instrumentado para enviar dados ao Application Insights. Receba uma notificação quando a disponibilidade ou capacidade de resposta de um site estiver abaixo das expectativas. |
 
 
 ## <a name="all-alerts-page"></a>Página Todos os alertas 

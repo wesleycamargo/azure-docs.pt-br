@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e8e81ab81e33302b9a0da3e0230d1366cc90d208
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635503"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -25,6 +25,8 @@ Um aplicativo que acessa uma conta de armazenamento quando as regras de rede est
 > Ativar regras de firewall para sua conta de armazenamento bloqueia solicitações de entrada para os dados por padrão, a menos que as solicitações sejam provenientes de um serviço que está operando em uma Rede Virtual do Microsoft Azure (VNet). Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante.
 >
 > Você pode conceder acesso aos serviços do Azure que operam de dentro de uma rede virtual, permitindo a sub-rede da instância do serviço. Um número limitado de cenários pode ser habilitado por meio do mecanismo [Exceções](#exceptions) descrito na seção abaixo. Para acessar o portal do Azure, é necessário fazer isso partir de um computador dentro do limite confiável (IP ou VNet) que você configurou.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Cenários
 
@@ -65,24 +67,24 @@ Você pode gerar as regras de acesso à rede padrão para contas de armazenament
 
 #### <a name="powershell"></a>PowerShell
 
-1. Instalar o [Azure PowerShell](/powershell/azure/install-azurerm-ps) e [entrar](/powershell/azure/authenticate-azureps).
+1. Instalar o [Azure PowerShell](/powershell/azure/install-Az-ps) e [entrar](/powershell/azure/authenticate-azureps).
 
 1. Exiba o status da regra padrão para a conta de armazenamento.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. Defina a regra padrão para negar o acesso à rede por padrão.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. Defina a regra padrão para permitir o acesso à rede por padrão.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
 #### <a name="cliv2"></a>CLIv2
@@ -153,32 +155,32 @@ Você pode gerenciar as regras de rede virtual para contas de armazenamento atra
 
 #### <a name="powershell"></a>PowerShell
 
-1. Instalar o [Azure PowerShell](/powershell/azure/install-azurerm-ps) e [entrar](/powershell/azure/authenticate-azureps).
+1. Instalar o [Azure PowerShell](/powershell/azure/install-Az-ps) e [entrar](/powershell/azure/authenticate-azureps).
 
 1. Liste as regras de rede virtual.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Habilite o ponto de extremidade de serviço do Armazenamento do Microsoft Azure em uma rede virtual existente e sub-rede.
 
     ```PowerShell
-    Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Adicionar uma regra de rede para uma rede virtual e sub-rede.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Remova uma regra de rede para uma rede virtual e uma sub-rede.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 > [!IMPORTANT]
@@ -261,36 +263,36 @@ Você pode gerenciar as regras de rede IP para contas de armazenamento através 
 
 #### <a name="powershell"></a>PowerShell
 
-1. Instalar o [Azure PowerShell](/powershell/azure/install-azurerm-ps) e [entrar](/powershell/azure/authenticate-azureps).
+1. Instalar o [Azure PowerShell](/powershell/azure/install-Az-ps) e [entrar](/powershell/azure/authenticate-azureps).
 
 1. Liste as regras de rede IP.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Adicione uma regra de rede para um endereço IP individual.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Adicione uma regra de rede para um intervalo de endereços IP.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Remova uma regra de rede para um endereço IP individual.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Remova uma regra de rede para um intervalo de endereços IP.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 > [!IMPORTANT]
@@ -378,24 +380,24 @@ Você pode gerenciar as exceções de regra da rede através do portal do Azure,
 
 #### <a name="powershell"></a>PowerShell
 
-1. Instalar o [Azure PowerShell](/powershell/azure/install-azurerm-ps) e [entrar](/powershell/azure/authenticate-azureps).
+1. Instalar o [Azure PowerShell](/powershell/azure/install-Az-ps) e [entrar](/powershell/azure/authenticate-azureps).
 
 1. Exiba as exceções para as regras de rede da conta de armazenamento.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. Configure as exceções para as regras de rede da conta de armazenamento.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Remova as exceções para as regras de rede da conta de armazenamento.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 
 > [!IMPORTANT]

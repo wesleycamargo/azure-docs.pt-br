@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 85bbd59cb921e5f20feb7b1cf1073fd7b695864f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7f50d6f6417764a20125f85398dd9cbf93f3a4a1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393563"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542103"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 
 É possível exibir dois tipos de logs para o Barramento de Serviço do Azure:
-* **[Logs de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
-* **[Logs de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. É possível configurar logs de diagnóstico para obter informações mais detalhadas sobre tudo o que acontece em um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
+* **[Logs de atividades](../azure-monitor/platform/activity-logs-overview.md)**. Esses logs contém informações sobre as operações executadas em um trabalho. Os logs estão sempre habilitados.
+* **[Logs de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)**. É possível configurar logs de diagnóstico para obter informações mais detalhadas sobre tudo o que acontece em um trabalho. Os logs de diagnóstico abrangem atividades desde o momento em que o trabalho é criado até sua exclusão, incluindo atualizações e atividades que ocorrem durante a execução do trabalho.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar logs de diagnóstico
 
@@ -52,7 +52,7 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar os logs
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, na folha **Logs de diagnóstico**.
 
-Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Esquema de logs de diagnóstico
 

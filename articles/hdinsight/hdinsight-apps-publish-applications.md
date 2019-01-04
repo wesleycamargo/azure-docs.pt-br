@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495376"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653910"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
 É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md) (Publicar uma oferta no Azure Marketplace).
@@ -53,7 +53,7 @@ Duas etapas são envolvidas na publicação de aplicativos no Marketplace. Prime
 ## <a name="application-installation-script"></a>Script de instalação do aplicativo
 Quando um aplicativo é instalado em um cluster (em um cluster existente ou em um novo), um nó de borda é criado. O script de instalação do aplicativo é executado no nó de borda.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O nome do script de instalação do aplicativo deve ser único para um cluster específico. O nome do script deve ter o seguinte formato:
   > 
   > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
@@ -81,9 +81,8 @@ Crie um arquivo .zip que contém todos os arquivos necessários para instalar se
 * mainTemplate.json (Para ver um exemplo, consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).)
 * Todos os scripts obrigatórios
 
-> [!NOTE]
+> [!NOTE]  
 > É possível hospedar os arquivos de aplicativo (incluindo arquivos do aplicativo Web) em qualquer ponto de extremidade publicamente acessível.
-> 
 
 ## <a name="publish-the-application"></a>Publicar o aplicativo
 Para publicar um aplicativo do HDInsight:

@@ -2,20 +2,17 @@
 title: Solucionar problemas de conexão com o Banco de Dados do Azure para MySQL | Microsoft Docs
 description: Saiba como solucionar problemas de conexão com o Banco de Dados do Azure para MySQL.
 keywords: conexão do mysql, cadeia de conexão, problemas de conectividade, erro transitório, erro de conexão
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 901c8f0c903a7e26e82d89209ea4b0ec69057d23
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bc804c9cbf141f5b0e36a92e4f386a6540f583c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165394"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540921"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solucionar problemas de conexão no Banco de Dados do Azure para MySQL
 
@@ -51,7 +48,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 
 * Configuração de firewall do servidor: Certifique-se de que firewall do servidor do Banco de Dados do Azure para MySQL esteja configurado para permitir conexões de seu cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor sem permissão devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
-* Erro do usuário: você pode ter digitado parâmetros de conexão, como o nome do servidor na cadeia de conexão ou a ausência de um sufixo *@servername* no nome de usuário.
+* Erro do usuário: Você pode ter digitado parâmetros de conexão, como o nome do servidor na cadeia de conexão ou a ausência de um sufixo *@servername* no nome do usuário.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

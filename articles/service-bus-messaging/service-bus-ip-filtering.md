@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270426"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653825"
 ---
 # <a name="use-firewall-rules"></a>Usar regras de Firewall
 
@@ -52,8 +52,8 @@ As regras de filtro IP são aplicadas na ordem e a primeira regra que correspond
 > - Device Explorer do Azure IoT
 > - Azure Data Explorer
 >
-> Os serviços da Microsoft abaixo deve estar em uma rede virtual
-> - Aplicativos Web do Azure 
+> Os serviços da Microsoft abaixo devem estar em uma rede virtual
+> - Serviço de aplicativo do Azure
 > - Funções do Azure
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual e firewall com modelos do Azure Resource Manager
@@ -68,8 +68,8 @@ Parâmetros de modelo:
 - A **ipMask** é um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24, representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, em que 24 indica o número de bits de prefixo significativos para o intervalo.
 
 > [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Permitir"**, que não restringe as conexões.
-> Ao criar as regras de Rede Virtual ou de Firewalls, devemos alterar ***"defaultAction"***
+> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"**, que não restringe as conexões.
+> Ao criar as regras de rede virtual ou de firewalls, devemos alterar a ***"defaultAction"***
 > 
 > de
 > ```json

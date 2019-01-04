@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275701"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719295"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de saída
 
@@ -48,4 +48,4 @@ Novos endereços IP de saída são mostrados no portal antes de entrarem em vigo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no Serviço de Aplicativo do Azure, consulte [Entrada e endereços IP de saída no Serviço de Aplicativo do Azure](app-service-ip-addresses.md).
+Este artigo explicou como se preparar para uma alteração de endereço IP que foi iniciada pelo Azure. Para obter mais informações sobre endereços IP no Serviço de Aplicativo do Azure, consulte [Entrada e endereços IP de saída no Serviço de Aplicativo do Azure](overview-inbound-outbound-ips.md).

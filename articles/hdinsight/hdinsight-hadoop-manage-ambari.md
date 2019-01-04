@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385560"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722015"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
@@ -26,7 +26,7 @@ Neste documento, você aprenderá a usar a interface de usuário do Ambari Web c
 
 ## <a id="whatis"></a>O que é o Apache Storm?
 
-O [Apache Ambari](http://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma interface do usuário da Web fácil de usar. Você pode usar o Ambari para gerenciar e monitorar clusters do Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+O [Apache Ambari](https://ambari.apache.org) simplifica o gerenciamento do Hadoop, fornecendo uma interface do usuário da Web fácil de usar. Você pode usar o Ambari para gerenciar e monitorar clusters do Hadoop. Os desenvolvedores podem integrar essas funcionalidades em seus aplicativos usando as [APIs REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 A IU da Web do Ambari é fornecida por padrão com clusters HDInsight que usam o sistema operacional Linux.
 
@@ -181,12 +181,12 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
 
    * **Encerramento** : remove um host do cluster.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Não use esta ação em clusters HDInsight.
 
    * **Reativação** : adiciona ao cluster um host que foi encerrado.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Não use esta ação em clusters HDInsight.
 
 ### <a id="service"></a>Serviços

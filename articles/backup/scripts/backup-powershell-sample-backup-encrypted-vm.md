@@ -3,25 +3,24 @@ title: Amostra de Script do Azure PowerShell – fazer backup de uma máquina vi
 description: Amostra de Script do Azure PowerShell – fazer backup de uma máquina virtual do Azure
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997521"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651377"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Fazer backup de uma máquina virtual do Azure criptografada com o PowerShell
 
@@ -35,7 +34,7 @@ Esse script cria um cofre de Serviços de Recuperação com GRS (armazenamento c
 
 [!code-powershell[main](../../../powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -48,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Esse script usa os seguintes comandos para criar a implantação. Cada item em que a tabela contém links para a documentação específica do comando.
 
 
-| Command | Observações | 
+| Comando | Observações | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. | 
 | [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Cria um cofre dos Serviços de Recuperação para armazenar backups. | 

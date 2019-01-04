@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317467"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632154"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexação de documentos no Armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como usar o Azure Search para indexar documentos (como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de blobs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
@@ -334,7 +334,7 @@ A indexação de blobs pode ser um processo demorado. Nos casos em que você tem
 
 Talvez você queira "montar" documentos de várias fontes em seu índice. Por exemplo, convém mesclar texto de blobs com outros metadados armazenados no Cosmos DB. Você pode até usar a API de indexação por push junto a vários indexadores para criar documentos de pesquisa de várias partes. 
 
-Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter um passo a passo detalhado, confira este artigo externo: [Combinar documentos com outros dados no Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para que isso funcione, todos os indexadores e outros componentes precisam concordar com a chave de documento. Para obter um passo a passo detalhado, confira este artigo externo: [Combinar documentos com outros dados no Azure Search ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de texto sem formatação 

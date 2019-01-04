@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413040"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543897"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
@@ -33,8 +33,8 @@ Os serviços de [Pesquisa Visual Computacional](Computer-vision/Home.md), [Detec
 
 - **Controle sobre os dados**: permitir que os clientes escolham onde esses Serviços Cognitivos processam seus dados. Isso é essencial para clientes que não podem enviar dados para a nuvem, mas precisam acessar a tecnologia de Serviços Cognitivos. Suporte para consistência em ambientes híbridos – entre dados, gerenciamento, identidade e segurança.
 - **Controle sobre atualizações do modelo**: fornecer aos clientes flexibilidade na versão e atualização dos modelos implantados nas soluções.
-- **Arquitetura portátil**: habilite a criação de uma arquitetura de aplicativo portátil que possa ser implantada no Azure, localmente e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](/azure/aks/), nas [Instâncias de Contêiner do Azure](/azure/container-instances/) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure/azure-stack/). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Baixa latência/alta produtividade**: forneça aos clientes a capacidade de escalar para requisitos de alta taxa de transferência e baixa latência, permitindo que os Serviços Cognitivos sejam executados fisicamente próximo à lógica e aos dados do aplicativo. Os contêineres não limitam as transações por segundo (TPS) e poderão ser escalados vertical e horizontalmente para lidar com a demanda se você fornecer os recursos de hardware necessários.
+- **Arquitetura portátil**: habilite a criação de uma arquitetura de aplicativo portátil que possa ser implantada no Azure, localmente e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml), nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](../azure-stack/index.yml). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+- **Baixa latência/alta produtividade**: forneça aos clientes a capacidade de escalar para requisitos de alta taxa de transferência e baixa latência, permitindo que os Serviços Cognitivos sejam executados fisicamente próximo à lógica e aos dados do aplicativo. Os contêineres não limitam as transações por segundo (TPS) e poderão ser escalados vertical e horizontalmente para lidar com a demanda se você fornecer os recursos de hardware necessários. 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contêineres nos Serviços Cognitivos do Azure
@@ -61,7 +61,7 @@ Os contêineres dos Serviços Cognitivos do Azure estão disponíveis publicamen
 
 É necessário atender aos seguintes pré-requisitos antes de usar contêineres dos Serviços Cognitivos do Azure:
 
-**Mecanismo do Docker**: é necessário ter o Mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para dar suporte a contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço de Kubernetes do Azure](/azure/aks/) ou [Instâncias de Contêiner do Azure](/azure/container-instances/).
+**Mecanismo do Docker**: é necessário ter o Mecanismo do Docker instalado localmente. O Docker fornece pacotes que configuram o ambiente do Docker em [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) e [Windows](https://docs.docker.com/docker-for-windows/). No Windows, o Docker deve ser configurado para dar suporte a contêineres do Linux. Os contêineres do Docker também podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml) ou [Instâncias de Contêiner do Azure](../container-instances/index.yml).
 
 O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure.
 

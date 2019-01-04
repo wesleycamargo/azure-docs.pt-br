@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388200"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714824"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
-O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
+O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados. O esquema dos dados é diferente e depende se você está lendo os dados no portal, no PowerShell, na CLI ou diretamente por meio da API REST comparado à [transmissão dos dados para o armazenamento ou para os Hubs de Eventos usando um Perfil de Log](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema disponibilizado por meio do portal, do PowerShell, da CLI e da API REST. Um mapeamento dessas propriedades para o [esquema de logs de diagnóstico do Azure](./tutorial-dashboards.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativo
 Essa categoria contém o registro de todas as operações de criação, atualização, exclusão e ação executadas por meio do Resource Manager. Os exemplos dos tipos de eventos que você vê nessa categoria incluem "criar máquina virtual" e "excluir grupo de segurança". Cada ação tomada por um usuário ou um aplicativo usando o Resource Manager é modelada como uma operação em um tipo de recurso específico. Se o tipo de operação for Gravação, Exclusão ou Ação, os registros do início e do êxito ou falha da operação são registrados na categoria Administrativa. A categoria administrativa também inclui alterações de controle de acesso baseado em função em uma assinatura.
@@ -134,7 +134,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 | subscriptionId |ID de assinatura do Azure. |
 
 ## <a name="service-health"></a>Integridade do serviço
-Essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Eventos de integridade do serviço são fornecidos em cinco variedades (Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança) e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
+Essa categoria contém o registro de qualquer incidente de integridade do serviço ocorrido no Azure. Um exemplo do tipo de evento que você vê nessa categoria é "SQL Azure no Leste dos EUA está passando por tempo de inatividade". Eventos de integridade do serviço são fornecidos em cinco variedades: (Ação Necessária, Recuperação Assistida, Incidente, Manutenção, Informações ou Segurança) e só aparecerão se você tiver um recurso na assinatura que seria afetada pelo evento.
 
 ### <a name="sample-event"></a>Evento de exemplo
 ```json
@@ -191,7 +191,7 @@ Essa categoria contém o registro de qualquer incidente de integridade do servi�
   }
 }
 ```
-Consulte as [notificações de integridade de serviço](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) para obter a documentação sobre os valores nas propriedades.
+Consulte as [notificações de integridade de serviço](./../../azure-monitor/platform/service-notifications.md) para obter a documentação sobre os valores nas propriedades.
 
 ## <a name="resource-health"></a>Integridade de recursos
 Esta categoria contém o registro de qualquer evento de integridade do recurso ocorrido nos recursos do Azure. Um exemplo do tipo de evento que você veria nessa categoria é "Status de integridade da máquina virtual alterado para não disponível". Eventos de integridade de recursos podem representar um dos quatro status de integridade: Disponível, Não Disponível, Degradado e Desconhecido. Além disso, os eventos de integridade de recursos podem ser categorizados como Iniciados pela plataforma ou Iniciados pelo usuário.
@@ -676,5 +676,5 @@ Ao transmitir o Log de Atividades do Azure para uma conta de armazenamento ou um
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../../azure-monitor/platform/activity-logs-overview.md)
+* [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

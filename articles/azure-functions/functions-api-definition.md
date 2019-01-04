@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999934"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606207"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte aos metadados de OpenAPI 2.0 no Azure Functions (versão prévia)
 O suporte aos metadados de OpenAPI 2.0 (conhecido antes como Swagger) no Azure Functions é um recurso de visualização que você pode usar para gravar uma definição de OpenAPI 2.0 dentro de um aplicativo de funções. Depois, você pode hospedar esse arquivo usando o aplicativo de funções.
@@ -23,7 +23,7 @@ O suporte aos metadados de OpenAPI 2.0 (conhecido antes como Swagger) no Azure F
 > [!IMPORTANT]
 > A versão prévia do recurso do OpenAPI só está disponível no tempo de execução 1.x, no momento. Informações de como criar um aplicativo de funções 1.x [podem ser encontradas aqui](./functions-versions.md#creating-1x-apps).
 
-[Metadados de OpenAPI](https://swagger.io/) permitem que uma função que hospeda uma API REST seja consumida por vários outros softwares. Entre esses softwares estão as ofertas da Microsoft como o PowerApps e o [recurso de Aplicativos de API do Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), ferramentas de desenvolvedor de terceiros, como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](https://swagger.io/tools/).
+[Metadados de OpenAPI](https://swagger.io/) permitem que uma função que hospeda uma API REST seja consumida por vários outros softwares. Entre esses softwares estão as ofertas da Microsoft como o PowerApps e o [recurso de Aplicativos de API do Serviço de Aplicativo do Azure](../app-service/overview.md), ferramentas de desenvolvedor de terceiros, como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

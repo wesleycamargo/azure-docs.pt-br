@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310990"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974702"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -121,7 +121,7 @@ Os serviços comerciais com certificações auditadas como ISO/IEC 27001 são ve
 
 Se você excluir quaisquer dados, o Microsoft Azure excluirá os dados, incluindo qualquer cópia em cache ou de backup. Para serviços em escopo, essa exclusão ocorrerá em até 90 dias após o término do período de retenção. (Os serviços no escopo são definidos na seção Termos do processamento de dados de nossos [Termos de Serviços Online](https://aka.ms/Online-Services-Terms).)
 
-Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, ela será [apagada ou destruída](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) com segurança antes de a Microsoft retorná-la para o fabricante para reparo ou substituição. Os dados no disco são substituídos para garantir que não possam ser recuperados por qualquer meio.
+Se uma unidade de disco usada para armazenamento sofrer uma falha de hardware, ela será [apagada ou destruída](https://microsoft.com/trustcenter/privacy/you-own-your-data) com segurança antes de a Microsoft retorná-la para o fabricante para reparo ou substituição. Os dados no disco são substituídos para garantir que não possam ser recuperados por qualquer meio.
 
 ## <a name="compute-isolation"></a>Isolamento de computação
 O Microsoft Azure fornece vários serviços de computação baseados em nuvem que incluem uma ampla seleção de instâncias e serviços de computação, os quais podem ser escalados verticalmente de forma automática para atender às necessidades de seu aplicativo ou empresa. Essas instâncias e serviços de computação oferecem isolamento em vários níveis a fim de proteger os dados sem sacrificar a flexibilidade de configuração exigida pelos clientes.
@@ -238,7 +238,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 -   [Criptografia do cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
 #### <a name="encryption-at-rest"></a>Criptografia em repouso
-Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
+Para muitas organizações, a [criptografia de dados em repouso](https://docs.microsoft.com/azure/security/azure-isolation) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
 
 -   [Criptografia do Serviço de Armazenamento](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
 

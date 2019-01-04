@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238497"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973940"
 ---
 # <a name="part-of-speech-tagging"></a>Marcação de Parte da Fala
 
@@ -80,4 +80,4 @@ Isso inclui categorias como *substantivo* (geralmente representando pessoas, lug
 
 ## <a name="specification"></a>Especificação
 
-Quanto à geração de tokens, confiamos na especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Quanto à geração de tokens, confiamos na especificação do [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

@@ -1,20 +1,17 @@
 ---
 title: Limitações no Banco de Dados do Azure para PostgreSQL
 description: Este artigo descreve limitações no Banco de Dados do Azure para PostgreSQL, como número de opções de mecanismo de armazenamento e conexão.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2018
-ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311653"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548554"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.

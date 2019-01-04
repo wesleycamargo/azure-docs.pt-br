@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967888"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541550"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Exibir logs de atividades para alterações de RBAC
 
-Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
+Às vezes, você precisa de informações sobre alterações de RBAC (controle de acesso baseado em função), como para fins de auditoria ou solução de problemas. Sempre que alguém faz alterações em definições de função ou definições de função dentro de suas assinaturas, as alterações são registradas no [Log de Atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Você pode exibir os logs de atividade para ver todas as alterações de RBAC dos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações registradas em log
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964825"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599818"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança da divisão e mesclagem
 Para usar o serviço de divisão/mesclagem, você deve configurar corretamente a segurança. O serviço é parte do recurso de Dimensionamento Elástico do Banco de Dados SQL do Microsoft Azure. Para saber mais, confira o [Tutorial do serviço de divisão e mesclagem da escala elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).

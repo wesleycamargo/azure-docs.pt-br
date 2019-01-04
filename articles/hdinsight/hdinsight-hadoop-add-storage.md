@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015748"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714276"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
 Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure para o HDInsight. As etapas neste documento adicionam uma conta de armazenamento a um cluster HDInsight baseado em Linux existente.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As informações neste documento mostram como adicionar mais armazenamento a um cluster após sua criação. Para saber mais sobre como adicionar contas de armazenamento durante a criação do cluster, veja [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Como ele funciona
@@ -45,7 +45,7 @@ Durante o processamento, o script executa as ações a seguir:
 
 * Pare e reinicie o [Apache Oozie](https://oozie.apache.org/), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), e [HDFS do Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) serviços. Interromper e iniciar esses serviços permite que eles usem a nova conta de armazenamento.
 
-> [!WARNING]
+> [!WARNING]  
 > Não há suporte para o uso de uma conta de armazenamento em um local diferente do cluster HDInsight.
 
 ## <a name="the-script"></a>O script
@@ -60,7 +60,7 @@ __Requisitos__:
 
 Você pode usar o script por meio do portal do Azure, do Azure PowerShell ou da CLI Clássica do Azure. Para obter informações, veja o documento [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ao usar as etapas fornecidas no documento de personalização, use as informações a seguir para aplicar esse script:
 >
 > * Substitua qualquer URI de ação de script de exemplo pelo URI desse script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Defina `$clusterName` como o nome do cluster do HDInsight. Defina `$storageAccountName` como o nome da conta de armazenamento. Quando solicitado, insira a senha e o logon do cluster (admin).
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Defina `$PASSWORD` como a senha de conta de logon do cluster (admin). Defina `$CLUSTERNAME` como o nome do cluster do HDInsight. Defina `$STORAGEACCOUNTNAME` como o nome da conta de armazenamento.
 >
 > Este exemplo usa [curl (https://curl.haxx.se/)](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
@@ -132,14 +132,14 @@ Para contornar esse problema, remova a entrada existente da conta de armazenamen
 
 Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá enfrentar um desempenho ruim. O acesso a dados em uma região diferente envia o tráfego de rede para fora do data center regional do Azure e para a internet pública, o que pode introduzir latência.
 
-> [!WARNING]
+> [!WARNING]  
 > Não há suporte para o uso de uma conta de armazenamento em uma região diferente do cluster do HDInsight.
 
 ### <a name="additional-charges"></a>Custos adicionais
 
 Se a conta de armazenamento estiver em uma região diferente do cluster do HDInsight, você poderá observar encargos adicionais em sua cobrança do Azure. Um encargo de saída é aplicado quando os dados saem de um data center regional. Esse encargo se aplica mesmo se o tráfego for destinado a outro data center do Azure em uma região diferente.
 
-> [!WARNING]
+> [!WARNING]  
 > Não há suporte para o uso de uma conta de armazenamento em uma região diferente do cluster do HDInsight.
 
 ## <a name="next-steps"></a>Próximas etapas

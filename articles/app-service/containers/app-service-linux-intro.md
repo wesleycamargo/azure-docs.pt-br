@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2dc12c7250e6747359c8f3813a84537f98bc69d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257872"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993868"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
-O [Aplicativo Web](../app-service-web-overview.md) é uma plataforma de computação totalmente gerenciada que foi otimizada para hospedar sites e aplicativos Web. Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. As seções a seguir listam as pilhas de aplicativos que atualmente são suportadas.
+O [Aplicativo Web](../overview.md) é uma plataforma de computação totalmente gerenciada que foi otimizada para hospedar sites e aplicativos Web. Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. As seções a seguir listam as pilhas de aplicativos que atualmente são suportadas.
 
 ## <a name="languages"></a>Linguagens
 
@@ -63,7 +63,7 @@ Consulte [Criar um aplicativo Web Java no Serviço de Aplicativo no Linux](https
 
 ## <a name="scaling"></a>Dimensionamento
 
-* Os clientes podem escalar ou reduzir verticalmente aplicativos Web, alterando a camada dos respectivos [planos do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json)
+* Os clientes podem escalar ou reduzir verticalmente aplicativos Web, alterando a camada dos respectivos [planos do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json)
 
 ## <a name="locations"></a>Locais
 
@@ -93,7 +93,7 @@ Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenv
 Os artigos a seguir oferecem a você uma introdução ao Serviço de Aplicativo no Linux com aplicativos Web escritos em várias linguagens:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
+* [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
@@ -105,7 +105,7 @@ Veja também os seguintes artigos para obter mais detalhes sobre o Serviço de A
 
 * [Perguntas Frequentes do Serviço de Aplicativo para Linux](app-service-linux-faq.md)
 * [Suporte de SSH para o Serviço de Aplicativo no Linux](app-service-linux-ssh-support.md)
-* [Configurar ambientes de preparo no Serviço de Aplicativo](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurar ambientes de preparo no Serviço de Aplicativo](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação contínua do Hub do Docker](app-service-linux-ci-cd.md)
 
 Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

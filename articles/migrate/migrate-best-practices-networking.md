@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139734"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994956"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar a rede para as cargas de trabalho migradas para o Azure
 
@@ -118,7 +118,7 @@ O Azure adiciona um servidor DNS por padrão quando você implanta uma VNet. Iss
 
 **Saiba mais:**
 - [Saiba mais sobre](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) a resolução de nome ao usar seu próprio servidor DNS.
-- [Saiba mais sobre](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) as regras e as restrições de nomenclatura de DNS.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) as regras e as restrições de nomenclatura de DNS.
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>Melhor prática: Configurar zonas de disponibilidade
@@ -336,7 +336,7 @@ Marcas de serviço transferem o trabalho manual de atribuição de uma regra aos
 
 **Saiba mais:**
 
-- [Leia mais sobre](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) os NSGs.
+- [Leia mais sobre](https://docs.microsoft.com/azure/virtual-network/security-overview) os NSGs.
 - [Examine](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) as marcas de serviço disponíveis para NSGs.
 
 

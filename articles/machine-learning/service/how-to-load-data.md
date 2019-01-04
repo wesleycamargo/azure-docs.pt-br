@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 86823579286ac0b8fae39c265b387ea6b4ad99ee
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190757"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755233"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
@@ -139,7 +139,7 @@ dataflow.head(5)
 A saída mostra que os dados na segunda folha tinham três linhas vazias antes dos cabeçalhos. A função `read_excel()` contém parâmetros opcionais para pular linhas e usar cabeçalhos. Execute o seguinte código para pular as três primeiras linhas e use a quarta linha como os cabeçalhos.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
+dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|

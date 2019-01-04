@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968605"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718870"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -140,7 +140,7 @@ Os seguintes pacotes com base em extensão no NuGet fornecem vários recursos m�
 * [Microsoft.Azure.Mobile.Server.Login] fornece o método AppServiceLoginHandler.CreateToken(), que é um método estático usado nos cenários de autenticação personalizada.
 
 ## <a name="publish-server-project"></a>Como: Publicar o projeto do servidor
-Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Visual Studio. Você também pode implantar seu projeto de back-end usando o [Git](../app-service/app-service-deploy-local-git.md) ou qualquer um dos outros métodos disponíveis.
+Essa seção mostra como publicar seu projeto de back-end do .NET a partir do Visual Studio. Você também pode implantar seu projeto de back-end usando o [Git](../app-service/deploy-local-git.md) ou qualquer um dos outros métodos disponíveis.
 
 1. No Visual Studio, recompile o projeto para restaurar os pacotes do NuGet.
 2. No Gerenciador de Soluções, clique com o botão direito no projeto e clique em **Publicar**. Na primeira vez que você publicar, precisará definir um perfil de publicação. Quando já tiver um perfil definido, selecione-o e clique em **Publicar**.
@@ -432,15 +432,15 @@ Ao se registrar para notificações por push de um cliente autenticado, verifiqu
 O Serviço de Aplicativo do Azure fornece várias técnicas de depuração e de solução de problemas para aplicativos ASP.NET.
 
 * [Monitorando um Serviço de Aplicativo do Azure](../app-service/web-sites-monitor.md)
-* [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure](../app-service/web-sites-enable-diagnostic-log.md)
-* [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Habilitar o registro em log de diagnósticos no Serviço de Aplicativo do Azure](../app-service/troubleshoot-diagnostic-logs.md)
+* [Solucionar problemas de um Serviço de Aplicativo do Azure no Visual Studio](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>Registro em log
 É possível gravar em logs de diagnóstico do Serviço de Aplicativo usando a gravação de rastreamento padrão do ASP.NET. Antes de gravar os logs, habilite o diagnóstico no back-end do aplicativo móvel.
 
 Para habilitar o diagnóstico e gravar logs:
 
-1. Siga as etapas em [Como habilitar o diagnóstico](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
+1. Siga as etapas em [Como habilitar o diagnóstico](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
 2. Adicione a seguinte instrução de uso em seu arquivo de código:
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Para habilitar o diagnóstico e gravar logs:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Republique seu projeto de servidor e acesse o back-end do aplicativo móvel para executar o caminho de código com o registro em log.
-5. Baixe e avalie os logs, conforme descrito em [Como: Baixar logs](../app-service/web-sites-enable-diagnostic-log.md#download).
+5. Baixe e avalie os logs, conforme descrito em [Como: Baixar logs](../app-service/troubleshoot-diagnostic-logs.md#download).
 
 ### <a name="local-debug"></a>Depuração local com autenticação
 Você pode executar seu aplicativo localmente a fim de testar as alterações antes de publicá-lo na nuvem. Para a maioria dos back-ends dos Aplicativos Móveis do Azure, pressione *F5* enquanto estiver no Visual Studio. No entanto, há algumas considerações adicionais ao usar a autenticação.

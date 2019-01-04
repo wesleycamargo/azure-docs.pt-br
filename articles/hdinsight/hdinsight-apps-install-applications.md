@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 993d3dc065b792cc6d4ca0b1321cb1950cea85d8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093549"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652587"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos Apache Hadoop de terceiros no Azure HDInsight
 
@@ -35,7 +35,7 @@ A lista a seguir mostra os aplicativos publicados:
 * **Explosão Presto** Presto é um rápido e escalonável distribuído mecanismo de consulta SQL. Arquitetado para a separação de armazenamento e computação, o Presto é perfeito para consultar dados no Azure Data Lake Storage, no Armazenamento de Blobs do Azure, em bancos de dados SQL e NoSQL e em outras fontes de dados.
 * O **Coletor de Dados de Streamsets para HDnsight** fornece um IDE (ambiente de desenvolvimento integrado) completo que permite projetar, testar, implantar e gerenciar pipelines de ingestão de qualquer ponto a qualquer ponto, que combinam dados de lote e malha e incluem uma variedade de transformações no fluxo – tudo sem ter que escrever código personalizado. 
 * **O Striim** (pronuncia-se "fluxo") é uma integração de dados de fluxo contínuo de ponta a ponta + plataforma de inteligência, permitindo a ingestão, o processamento e a análise contínuos de fluxos de dados diferentes.
-* **[Trifacta](http://www.trifacta.com/)** permite que engenheiros e analistas de dados explorem e preparem com mais eficiência os diversos dados de hoje, utilizando o aprendizado de máquina para fornecer uma experiência de usuário, fluxo de trabalho e arquitetura inovadores.
+* **[Trifacta](https://www.trifacta.com/)** permite que engenheiros e analistas de dados explorem e preparem com mais eficiência os diversos dados de hoje, utilizando o aprendizado de máquina para fornecer uma experiência de usuário, fluxo de trabalho e arquitetura inovadores.
 * **O Unifi Data Platform** é um conjunto integrado de ferramentas de dados de autoatendimento projetado para capacitar o usuário corporativo a enfrentar desafios de dados que geram receita incremental, reduzem custos ou complexidade operacional. 
 * **Aplicativo de HDI do WANdisco Fusion** permite conectividade de dados consistente e contínua conforme eles são alterados, não importa o local em que estejam. Dá acesso aos seus dados a qualquer momento e em qualquer lugar sem nenhum tempo de inatividade nem interrupção.
 * **Linha de flutuação** cataloga, organiza e governa dados usando a AI para auto tag dados com termos comerciais. O catálogo didático de negócios da Waterline é um componente crítico e de sucesso para iniciativas de análise, conformidade e governança de autoatendimento e gerenciamento de TI.

@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863509"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651973"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 
@@ -35,7 +35,7 @@ Em ambos os casos, você precisa garantir que o banco de dados de origem seja co
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: Migração com tempo de inatividade durante a migração
 
- Use esse método para migrar para um banco de dados individual ou em pool se você puder ter algum tempo de inatividade ou se estiver executando uma migração de teste de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](sql-database-migrate-your-sql-server-database.md).
+ Use esse método para migrar para um banco de dados individual ou em pool se você puder ter algum tempo de inatividade ou se estiver executando uma migração de teste de um banco de dados de produção para migração posterior. Para ver um tutorial, consulte [Migrar um Banco de Dados do SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
 A lista a seguir contém o fluxo de trabalho geral para uma migração de banco de dados do SQL Server de um banco de dados individual ou em pool usando esse método. Para obter a migração para uma Instância Gerenciada, consulte [Migração para uma Instância Gerenciada](sql-database-managed-instance-migrate.md).
 

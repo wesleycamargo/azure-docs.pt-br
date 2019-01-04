@@ -1,19 +1,18 @@
 ---
-title: Banco de Dados do Azure para Parceiros de Migração do PostgreSQL | Microsoft Docs
+title: Banco de dados do Azure para os parceiros de migração do PostgreSQL
 description: Listas de parceiros de migração de terceiros com soluções que suportam o Banco de Dados do Azure para o PostgreSQL.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626447"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536229"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Banco de dados do Azure para os parceiros de migração do PostgreSQL
 Para oferecer suporte amplo à sua solução do Banco de Dados do Azure para PostgreSQL, escolha entre uma ampla variedade de parceiros e ferramentas líderes do setor. Este artigo destaca as empresas parceiras da Microsoft com soluções de migração que dão suporte ao Banco de Dados do Azure para PostgreSQL.

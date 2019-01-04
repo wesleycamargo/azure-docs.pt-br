@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002202"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53615205"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas frequentes sobre o Serviço de Contêiner
 
@@ -32,7 +32,7 @@ Atualmente há suporte para contêineres do Linux com todos os orquestradores. O
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>É recomendado um orquestrador específico no Serviço de Contêiner do Azure? 
 Geralmente, não recomendamos um orquestrador específico. Se tiver experiência com um dos orquestradores com suporte, você poderá aplicar essa experiência ao Serviço de Contêiner do Azure. No entanto, as tendências de dados sugerem que DC/OS é comprovado em produção para Big Data e cargas de trabalho de IoT, Kubernetes é adequado para cargas de trabalho nativas de nuvem e Docker Swarm é conhecido por sua integração a ferramentas Docker e sua fácil curva de aprendizado.
 
-Dependendo do cenário, você também pode criar e gerenciar soluções de contêiner personalizadas com outros serviços do Azure. Esses serviços incluem [Máquinas Virtuais](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Aplicativos Web](../articles/app-service/app-service-web-overview.md) e [Lote](../articles/batch/batch-technical-overview.md).  
+Dependendo do cenário, você também pode criar e gerenciar soluções de contêiner personalizadas com outros serviços do Azure. Esses serviços incluem [Máquinas Virtuais](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Aplicativos Web](../articles/app-service/overview.md) e [Lote](../articles/batch/batch-technical-overview.md).  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Qual é a diferença entre o Serviço de Contêiner do Azure e o Mecanismo ACS? 
 Serviço de Contêiner do Azure é um serviço do Azure com suporte de SLA com recursos no portal do Azure, ferramentas de linha de comando do Azure e APIs do Azure. O serviço o habilita a implementar rapidamente e gerenciar clusters que executam ferramentas de orquestração do contêiner padrão com um número relativamente pequeno de opções de configuração. 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
 ms.author: daleche
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872571"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600549"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solucionar problemas de conexão no Banco de Dados SQL do Azure
 Quando a conexão com o banco de dados SQL falha, você recebe [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que ajuda a solucionar problemas de conectividade do Banco de Dados SQL do Azure. Ele apresenta [as causas comuns](#cause) de problemas de conexão, recomenda [uma ferramenta de solução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identificar o problema e fornece etapas de solução de problemas para resolver [erros transitórios](#troubleshoot-transient-errors) e [erros persistentes ou não transitórios](#troubleshoot-persistent-errors). 
